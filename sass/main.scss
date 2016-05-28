@@ -10,7 +10,17 @@ $brand-success: #84ce3c !default;
 $brand-warning: #ffec39 !default;
 $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
+$brand-purple:#9c1d62!default;
+$brand-blue:#29a8df!default;
+$brand-green:#32b544!default;
+$brand-pink:#ea2b7c!default;
+$brand-red:#ea1c22!default;
+$brand-darkblue:#2a3890!default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@font-face {
+  font-family: "American Purpose";
+  src: url("../fonts/American Purpose.ttf");
+}
 body {
   padding-top: 70px;
 }
@@ -75,12 +85,14 @@ margin-top: -19px;
 }
 .welcomes{
   color: #fff;
-  font-size: 45px;
+  font-size: 51px;
   position: absolute;
-  top: 55%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%,-50%);
-  font-weight: 600;
+    font-weight: 600;
+    font-family: "American Purpose";
+    letter-spacing: 2px;
 }
 .flex-control-nav {
     width: 100%;
@@ -88,6 +100,10 @@ margin-top: -19px;
     bottom: 39%;
     text-align: center;
     z-index: 3;
+}
+.block{
+  display: block;
+  margin-left: 15px;
 }
 .comic-pane{
   display: flex;
@@ -98,15 +114,38 @@ margin-top: -19px;
 }
 .flex-direction-nav { display: none; }
 
+.content{
+  margin-top: -70px;
+}
 .text{
   width: 600px;
   height: 300px;
 }
-.btns{
-  background-color: purple;
-  border-color: purple;
+.pink-button{
+  position: absolute;
+    left: 50%;
+    bottom: 27%;
+    .pink{
+      width: 60%;
+    }
 }
-
+.btns{
+  color: #fff;
+  font-size: 14px;
+  background-color:#93278f;
+  border-color:#93278f;
+}
+.arrow-down{
+  color: #fff;
+    position: absolute;
+    bottom: 13%;
+    left: 48%;
+    font-size: 17px;
+    span{
+      display: block;
+      text-align: center;
+    }
+}
   .arrow{
     color: #fff;
   }

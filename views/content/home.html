@@ -1,17 +1,27 @@
-  <div class="flex-rows">
-    <div class="flex-banner">
-      <figure>
-        <a href="">
-          <img src="img/home/virat.png" class="img-responsive" alt="">
-        </a>
-      </figure>
+<div class="flex-rows">
+  <div class="flex-banner">
+    <figure>
+      <a href="#">
+        <img src="img/home/virat.png" class="img-responsive" alt="virat">
+      </a>
+    </figure>
+    <a href="#">
       <figure class="logos">
-        <img src="img/home/logo.png" class="img-responsive" alt="">
+        <img src="img/home/logo.png" class="img-responsive" alt="smaaash">
       </figure>
-      <p class="welcomes text-uppercase">welcomes<br>you</p>
-    </div>
+    </a>
+    <a href="#">
+      <figure class="pink-button">
+        <img src="img/home/button.png" class="img-responsive pink" alt="button">
+      </figure>
+    </a>
+    <p class="welcomes text-uppercase">welcomes <span class="block">you</span></p>
+    <a href="#">
+      <p class="arrow-down text-uppercase">scroll<span><i class="fa fa-2x fa-chevron-down" aria-hidden="true"></i></span></p>
+    </a>
   </div>
-  <div class="dropdowns">
+</div>
+<div class="dropdowns">
   <div class="cities">
     <div class="btn-group" uib-dropdown is-open="status.isopen">
       <button id="single-button" type="button" class="btn btns" uib-dropdown-toggle ng-disabled="disabled">
@@ -22,7 +32,7 @@
         <li role="menuitem"><a href="#">Gurgaon</a></li>
         <li role="menuitem"><a href="#">Hyderabad</a></li>
         <li role="menuitem"><a href="#">Bengaluru</a></li>
-          <li role="menuitem"><a href="#">Noida</a></li>
+        <li role="menuitem"><a href="#">Noida</a></li>
       </ul>
     </div>
   </div>
@@ -31,32 +41,32 @@
       <button id="single-button" type="button" class="btn btns" uib-dropdown-toggle ng-disabled="disabled">
         Button dropdown <span class="arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
       </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Mumbai</a></li>
-        <li><a href="#">Gurgaon</a></li>
-        <li><a href="#">Hyderabad</a></li>
-          <li><a href="#">Bengaluru</a></li>
-            <li><a href="#">Noida</a></li>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <li role="menuitem"><a href="#">Mumbai</a></li>
+        <li role="menuitem"><a href="#">Gurgaon</a></li>
+        <li role="menuitem"><a href="#">Hyderabad</a></li>
+        <li role="menuitem"><a href="#">Bengaluru</a></li>
+        <li role="menuitem"><a href="#">Noida</a></li>
       </ul>
     </div>
   </div>
   <figure class="woman-menu">
     <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
   </figure>
-  </div>
-  <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
-        <li>
-            <img ng-src="{{s}}">
-        </li>
-    </flex-slider>
-    <div class="container">
+</div>
+<flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
+  <li>
+    <img ng-src="{{s}}">
+  </li>
+</flex-slider>
+<div class="container">
   <div class="flex-row">1
     <div class="flex-col">
       <div class="comic-pane">
         <div class="text">
-          <p>Attractions</p>
+          <p class="text-uppercase">explore smaaash</p>
           <figure>
-            <img src="img/home/sachins.png" class="img-responsive" alt="" />
+            <img src="img/home/sachins.png" class="img-responsive" alt="Speed Karting" />
           </figure>
         </div>
       </div>
@@ -64,10 +74,16 @@
     <div class="flex-col">
       <div class="comic-image">
         <div class="text1">
-          <p>Whats new</p>
+        <p class="text-uppercase">whats new</p>
+        <figure>
+          <img src="img/home/bowling.png" class="img-responsive" alt="Twilight Bowling"/>
+        </figure>
         </div>
         <div class="text2">
-          <p>Host a party</p>
+        <p class="text-uppercase">host party</p>
+        <figure>
+          <img src="img/home/prewedding.png" class="img-responsive" alt="Prewedding Parties"/>
+        </figure>
         </div>
       </div>
     </div>
@@ -76,17 +92,19 @@
     <div class="flex-col">
       <div class="comic-image">
         <div class="text1">
-          <p>Whats new</p>
+          <p class="text-uppercase">purple</p>
         </div>
         <div class="text2">
-          <p>Host a party</p>
+          <p class="text-uppercase">blue</p>
         </div>
       </div>
     </div>
     <div class="flex-col">
       <div class="comic-pane">
         <div class="text">
-          <p>Attractions</p>
+          <figure>
+            <img src="img/home/points.png" class="img-responsive" alt="Loyalty Points"/>
+          </figure>
         </div>
       </div>
     </div>
@@ -95,18 +113,26 @@
     <div class="flex-col">
       <div class="comic-pane">
         <div class="text">
-          <p>Facebook</p>
+          <p class="text-uppercase">Facebook</p>
+          <figure>
+            <img src="img/home/fb.png" class="img-responsive" alt="Facebook"/>
+          </figure>
         </div>
       </div>
     </div>
     <div class="flex-col">
       <div class="comic-image">
         <div class="text1">
-          <p>Twitter</p>
-
+          <p class="text-uppercase">Twitter</p>
+          <figure>
+            <img src="img/home/twitter.png" class="img-responsive" alt="Twitter"/>
+          </figure>
         </div>
         <div class="text2">
-          <p>Instagram</p>
+          <p class="text-uppercase">Instagram</p>
+          <figure>
+            <img src="img/home/Instagram.png" class="img-responsive" alt="Instagram"/>
+          </figure>
         </div>
       </div>
     </div>
