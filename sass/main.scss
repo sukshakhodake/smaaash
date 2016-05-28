@@ -51,4 +51,188 @@ a, .btn {
 }
 //bootstrap forms
 /* Start writing sass here */
+// body {
+//   color: #616161;
+//   font: 1.4em Helvetica;
+//   font-weight: 200;
+//   background: #FAFAFA;
+//    -webkit-backface-visibility: hidden;
+// }
+.flex-rows{
+margin-top: -19px;
+}
+
+.flex-banner{
+  position: relative;
+  background-image:url("../img/home/bg.png") ;
+  background-size: cover;
+}
+.logos{
+  position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.welcomes{
+  color: #fff;
+  font-size: 45px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-weight: 600;
+}
+.flex-control-nav {
+    width: 100%;
+    position: absolute;
+    bottom: 39%;
+    text-align: center;
+    z-index: 3;
+}
+.comic-pane{
+  display: flex;
+  width: 600px;
+  height: 300px;
+    transform: skew(-15deg);
+  background-color: $brand-success;
+}
+.flex-direction-nav { display: none; }
+
+.text{
+  width: 600px;
+  height: 300px;
+}
+.btns{
+  background-color: purple;
+  border-color: purple;
+}
+
+  .arrow{
+    color: #fff;
+  }
+
+// .comic-pane {
+//   width: 600px;
+//   height: 220px;
+//   top: 60px;
+//   position: relative;
+//   margin: 0px auto;
+//   overflow: hidden;
+// }
+//
+// .text {
+//   width: 320px;
+//   height: 200px;
+//   position: absolute;
+//   left: 37px;
+//   transform: skew(-15deg);
+//   background: $brand-success;
+//   box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+//   z-index: 1;
+// }
+//
+// .text:before {
+//   content: "";
+//   dislay: block;
+//   position: absolute;
+//   height: 200px;
+//   width: 60px;
+//   left: -27px;
+//   transform: skew(15deg);
+//   background: $brand-success;
+//   border-left: 1px solid rgba(0,0,0,0.05);
+//    -webkit-backface-visibility: hidden;
+// }
+//
+// .text p {
+//   width: 260px;
+//       line-height: 1.2em;
+//       margin-top: 15px;
+//       margin-left: -30px;
+//       transform: skew(15deg);
+//       color: #fff;
+//       font-size: 24px;
+//       font-weight: 600;
+//   }
+//
+// .comic-image {
+//   width: 320px;
+//   height: 200px;
+//   right: -90px;
+//   top: 0;
+//   transform: skew(-15deg);
+//   position: absolute;
+//   overflow: hidden;
+//   // background: red;
+// }
+// .text1{
+//   width: 320px;
+//   height: 100px;
+//   position: absolute;
+//   left: 37px;
+//   transform: skew(-15deg);
+//   background: $brand-primary;
+//   box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+//   z-index: 1;
+// }
+// .text1:before {
+//   content: "";
+//   dislay: block;
+//   position: absolute;
+//   height: 200px;
+//   width: 60px;
+//   left: -27px;
+//
+//   transform: skew(15deg);
+//   background: $brand-primary;
+//   border-left: 1px solid rgba(0,0,0,0.05);
+//    -webkit-backface-visibility: hidden;
+// }
+// .text2{
+//   width: 320px;
+//   height: 100px;
+//   position: absolute;
+//   top:100px;
+//   left: 37px;
+//   transform: skew(-15deg);
+//   background: $brand-info;
+//   box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+//   z-index: 1;
+// }
+// .text2:before {
+//   content: "";
+//   dislay: block;
+//   position: absolute;
+//   height: 200px;
+//   width: 60px;
+//   left: -27px;
+//
+//   transform: skew(15deg);
+//   background:  $brand-info;
+//   border-left: 1px solid rgba(0,0,0,0.05);
+//    -webkit-backface-visibility: hidden;
+// }
+// .text1,
+// .text2 p {
+  // width: 260px;
+  // line-height: 1.2em;
+  // margin-top: 60px;
+  // margin-left: 30px;
+  // transform: skew(15deg);
+//   color: #000;
+//
+// }
+// .cimg {
+//   display: block;
+//   transform: skew(15deg);
+//   width: 290px;
+//   height: 200px;
+//   position: absolute;
+//   left: -27px;
+//   top: 0;
+//   background: url('http://nl.pcmweb.s3-eu-west-1.amazonaws.com/thumbnails/980/4fc56/GTA-V-Image.jpg');
+//   background-size: cover;
+// }
+
+
 @import "fancybox-override";

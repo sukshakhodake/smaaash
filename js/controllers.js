@@ -11,10 +11,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 
   $scope.mySlides = [
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+    'img/home/slider1.png',
+    // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
   ];
 })
 
