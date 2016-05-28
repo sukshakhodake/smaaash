@@ -21,6 +21,10 @@ $brand-darkblue:#2a3890!default;
   font-family: "American Purpose";
   src: url("../fonts/American Purpose.ttf");
 }
+
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
 body {
   padding-top: 70px;
 }
@@ -85,7 +89,7 @@ margin-top: -19px;
 }
 .welcomes{
   color: #fff;
-  font-size: 51px;
+  font-size: 70px;
   position: absolute;
   top: 58%;
   left: 50%;
@@ -105,22 +109,27 @@ margin-top: -19px;
   display: block;
   margin-left: 15px;
 }
-.comic-pane{
-  display: flex;
-  width: 600px;
-  height: 300px;
-    transform: skew(-15deg);
-  background-color: $brand-success;
-}
+// .comic-pane{
+//   display: flex;
+//   width: 600px;
+//   height: 300px;
+//     transform: skew(-15deg);
+//   background-color: $brand-success;
+// }
 .flex-direction-nav { display: none; }
+
+.logo-smaash{
+  display: inline-block;
+    margin-left: 7%;
+}
 
 .content{
   margin-top: -70px;
 }
-.text{
-  width: 600px;
-  height: 300px;
-}
+// .text{
+//   width: 600px;
+//   height: 300px;
+// }
 .pink-button{
   position: absolute;
     left: 50%;
@@ -132,8 +141,40 @@ margin-top: -19px;
 .btns{
   color: #fff;
   font-size: 14px;
-  background-color:#93278f;
-  border-color:#93278f;
+  background-color:$brand-purple;
+  border-color:$brand-purple;
+}
+.butns{
+  color: #fff;
+  background-color: transparent;
+  border: transparent!important;
+  font-size: 14px;
+  background-image: url("../img/home/menus.png");
+}
+.menu{
+  margin-right: 12%;
+  .btn{
+    padding: 54px 17px;
+  }
+}
+.cities{
+  transform: skew(15deg);
+  position: absolute;
+right: 24%;
+.btn{
+  padding: 15px 20px;
+}
+}
+.dropdowns{
+  position: relative;
+  background-image: url("../img/home/bgs.png");
+  background-size: cover;
+    height: 143px;
+}
+.woman-menu{
+  position: absolute;
+    right: 5%;
+    top: -5px;
 }
 .arrow-down{
   color: #fff;
@@ -150,24 +191,75 @@ margin-top: -19px;
     color: #fff;
   }
 
+.comic-pane{
+  position: relative;
+  width: 600px;
+  height: 417px;
+}
+.text{
+  position: absolute;
+  width: 500px;
+  max-height: 507px;
+  height: 412px;
+  transform: skewX(-15deg);
+  background-color: $brand-success;
+}
+.sachinss{
+  position: absolute;
+}
+
+ .width{
+   width: 85%;
+     margin: 0 auto;
+}
+
+.dropdown-menu{
+  transform: skew(-13deg);
+}
+
+
+// .menu{
+//   .dropdown-menu{
+//     display: block;
+//     background-image: url("../img/home/menus.png");
+//   }
+// }
+
+
+
+
+
 // .comic-pane {
 //   width: 600px;
-//   height: 220px;
-//   top: 60px;
-//   position: relative;
-//   margin: 0px auto;
-//   overflow: hidden;
+//       height: 417px;
+//       top: 60px;
+//       position: relative;
+//       margin: 0px auto;
+//       overflow: hidden;
 // }
 //
 // .text {
-//   width: 320px;
-//   height: 200px;
-//   position: absolute;
-//   left: 37px;
-//   transform: skew(-15deg);
-//   background: $brand-success;
-//   box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
-//   z-index: 1;
+//   width: 500px;
+//     max-height: 507px;
+//     height: 412px;
+//     position: absolute;
+//     left: -2px;
+//     transform: skew(-15deg);
+//     background: $brand-success;
+//     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+//     z-index: 1;
+// figure{
+//   transform: skew(15deg);
+// }
+// }
+//
+// .flex-row{
+//   display: flex;
+// }
+//
+// .width{
+//   width: 85%;
+//     margin: 0 auto;
 // }
 //
 // .text:before {
@@ -193,7 +285,7 @@ margin-top: -19px;
 //       font-size: 24px;
 //       font-weight: 600;
 //   }
-//
+
 // .comic-image {
 //   width: 320px;
 //   height: 200px;
