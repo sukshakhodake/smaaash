@@ -7,7 +7,7 @@
     </figure>
     <a href="#">
       <figure class="logos">
-        <img src="img/home/logo.png" class="img-responsive" alt="smaaash">
+        <img src="img/home/logo.png" title="Smaaash"class="img-responsive" alt="smaaash">
       </figure>
     </a>
     <a href="#">
@@ -15,17 +15,19 @@
         <img src="img/home/button.png" class="img-responsive pink" alt="button">
       </figure>
     </a>
-    <p class="welcomes text-uppercase">welcomes <span class="block">you</span></p>
+    <p class="welcomes title text-uppercase">welcomes <span class="block">you</span></p>
     <a href="#">
       <p class="arrow-down text-uppercase">scroll<span><i class="fa fa-2x fa-chevron-down" aria-hidden="true"></i></span></p>
     </a>
   </div>
 </div>
+<div class="smaash-drops">
 <div class="dropdowns">
   <div class="cities">
     <div class="btn-group" uib-dropdown is-open="status.isopen">
       <button id="single-button" type="button" class="btn btns" uib-dropdown-toggle ng-disabled="disabled">
-        Button dropdown <span class="arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+        <p class="drop-text title">mumbai</p>
+        <span class="arrow"><i class="fa   fa-chevron-down" aria-hidden="true"></i></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
         <li role="menuitem"><a href="#">Mumbai</a></li>
@@ -39,7 +41,8 @@
   <div class="menu pull-right">
     <div class="btn-group" uib-dropdown is-open="status.isopen">
       <button id="single-button" type="button" class="btn butns" uib-dropdown-toggle ng-disabled="disabled">
-        Button dropdown <span class="arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+        <p class="menus title">menu</p>
+        <span class="arrow"><i class="fa  fa-chevron-down" aria-hidden="true"></i></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
         <li role="menuitem"><a href="#">Mumbai</a></li>
@@ -51,45 +54,48 @@
     </div>
   </div>
   <figure class="logo-smaash">
-    <img src="img/home/logo.png" class="img-responsive" alt="logo">
+    <a href=""><img src="img/home/logo.png" title="Smaaash"class="img-responsive" alt="logo"></a>
   </figure>
   <figure class="woman-menu">
     <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
   </figure>
 </div>
-<flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
-  <li>
-    <img ng-src="{{s}}">
-  </li>
-</flex-slider>
-<div class="container">
-  <div class="flex-row">
-    <div class="flex-col">
+  <div class="slidings">
+  <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
+    <li>
+      <img ng-src="{{s}}">
+    </li>
+  </flex-slider>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="flex-row rows">
+    <div class="flex-col cols1">
       <div class="comic-pane">
-        <div class="text">
-          <p class="text-uppercase">explore smaaash</p>
+        <div class="text brand-green">
+          <p class="text-uppercase title">explore smaaash</p>
           <figure class="sachinss">
-            <img src="img/home/sachins.png" class="img-responsive" alt="Speed Karting" />
+            <img src="img/home/sachins.png" class="img-responsive " alt="Speed Karting" />
           </figure>
         </div>
       </div>
     </div>
-    <!-- <div class="flex-col">
-      <div class="comic-image">
-        <div class="text1">
-        <p class="text-uppercase">whats new</p>
-        <figure>
-          <img src="img/home/bowling.png" class="img-responsive" alt="Twilight Bowling"/>
-        </figure>
-        </div>
-        <div class="text2">
-        <p class="text-uppercase">host party</p>
-        <figure>
-          <img src="img/home/prewedding.png" class="img-responsive" alt="Prewedding Parties"/>
-        </figure>
-        </div>
-      </div>
-    </div>
+    <div class="flex-col cols2">
+     <div class="comic-panes">
+       <div class="text1 brand-blue">
+       <p class="text-uppercase title">whats new</p>
+       <figure>
+         <img src="img/home/bowling.png" class="img-responsive images" alt="Twilight Bowling"/>
+       </figure>
+       </div>
+       <div class="text2 brand-darkblue">
+       <p class="text-uppercase title">host party</p>
+       <figure>
+         <img src="img/home/prewedding.png" class="img-responsive images" alt="Prewedding Parties"/>
+       </figure>
+       </div>
+     </div>
+   </div>
   </div>
   <div class="flex-row">
     <div class="flex-col">
@@ -97,7 +103,7 @@
         <div class="text1">
           <p class="text-uppercase">purple</p>
         </div>
-        <div class="text2">
+        <div class="text2 brand-blue">
           <p class="text-uppercase">blue</p>
         </div>
       </div>
@@ -115,7 +121,7 @@
   <div class="flex-row">
     <div class="flex-col">
       <div class="comic-pane">
-        <div class="text">
+        <div class="text brand-green">
           <p class="text-uppercase">Facebook</p>
           <figure>
             <img src="img/home/fb.png" class="img-responsive" alt="Facebook"/>
@@ -125,13 +131,13 @@
     </div>
     <div class="flex-col">
       <div class="comic-image">
-        <div class="text1">
+        <div class="text1 brand-pink">
           <p class="text-uppercase">Twitter</p>
           <figure>
             <img src="img/home/twitter.png" class="img-responsive" alt="Twitter"/>
           </figure>
         </div>
-        <div class="text2">
+        <div class="text2 brand-red">
           <p class="text-uppercase">Instagram</p>
           <figure>
             <img src="img/home/Instagram.png" class="img-responsive" alt="Instagram"/>
@@ -140,4 +146,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
