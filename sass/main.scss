@@ -23,7 +23,7 @@ $brand-darkblue:#2a3890!default;
 }
 @font-face {
   font-family: "GalanoGrotesque";
-  src: url("../fonts/American Purpose.ttf");
+  src: url("../fonts/Galano Grotesque.otf");
 }
 
 .title{
@@ -50,6 +50,10 @@ $brand-darkblue:#2a3890!default;
 .brand-darkblue{
     background-color:$brand-darkblue;
 }
+
+
+
+
 
 // @mixin skew ($x, $y) {
 //    @include transform(skew(#{$x}deg, #{$y}deg));
@@ -122,6 +126,14 @@ margin-top: -19px;
   position: relative;
   height: 850px;
 }
+
+.woman-menu{
+  img{
+    width: 95%;
+   margin-top: 7px;
+}
+  }
+
 
 .welcomes{
   color: #fff;
@@ -197,9 +209,10 @@ margin-top: -19px;
   }
 }
 .cities{
-  transform: skew(15deg);
+  @include transform(skew(15deg));
   position: absolute;
-right: 24%;
+  right: 24%;
+  box-shadow: -8px 7px #000;
 .btn{
   padding: 8px 20px;
 }
@@ -320,9 +333,7 @@ figure{
 .cols1{
   flex: 1;
 }
-.cols2{
-  flex:2;
-}
+
 .text:before {
   content: "";
   dislay: block;
@@ -398,7 +409,7 @@ left: -40px;
    -webkit-backface-visibility: hidden;
 }
 .text2 {
-  width: 480px;
+  width: 550px;
   max-height: 507px;
   height: 208px;
   position: absolute;
@@ -410,8 +421,8 @@ left: -40px;
   z-index: 1;
 figure{
   transform: skew(15deg);
-  margin-left: 12%;
-  margin-top: -8%;
+      margin-left: 12%;
+      margin-top: 0%;
 }
 }
 
@@ -427,31 +438,71 @@ figure{
 
 .text2:before {
   content: "";
-  dislay: block;
-  position: absolute;
-  height: 200px;
-  width: 60px;
-  right: -27px;
-  transform: skew(15deg);
-  background: $brand-darkblue;
-  border-left: 1px solid rgba(0,0,0,0.05);
+    dislay: block;
+    position: absolute;
+    height: 208px;
+    width: 60px;
+    right: -27px;
+    transform: skew(15deg);
+    background: $brand-darkblue;
+  border-left: 1px solid transparent!important;
    -webkit-backface-visibility: hidden;
 }
 
-.foots{
+.footers{
   background-image: url("../img/home/footer.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.foot-list,
-.list-inline{
+.foot{
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.col-flexing{
+  flex: 1;
+    display: block;
+    padding: 5px;
+    width: 100%;
+}
+
+.foot-list{
+      margin-top: 3%;
   li{
+    list-style-type: none;
     a{
-      color: #fff;
+      font-family: "GalanoGrotesque";
+      color: #666;
+      text-decoration: none;
+      &:hover{
+          color: #fff;
+      }
     }
   }
 }
-
+.bold{
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+}
+.foots-list{
+  li{
+    list-style-type: none;
+      font-family: "GalanoGrotesque";
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      &:hover{
+          color: #fff;
+    }
+  }
+}
+.ting{
+  display: inline-block;
+}
+.footers-list{
+  margin: 4% 2%;
+}
 
 @import "fancybox-override";
