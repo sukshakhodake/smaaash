@@ -121,7 +121,7 @@ a {
     @include transform(translate(-50%,-50%));
 }
 .smaash-drops {
-    height: 630px;
+    height: 850px;
     position: relative;
 }
 .woman-menu {
@@ -570,6 +570,7 @@ a {
 }
 .foot-list {
     margin-top: 3%;
+    padding: 0;
     li {
         list-style-type: none;
         line-height: 25px;
@@ -621,5 +622,14 @@ li.bold.title {
 .hash {
     font-size: 12px;
 }
+
+.foot-cards{
+  ul{
+    padding:0;
+  }
+}
+
+
+
 //*footer ends*//
 @import "fancybox-override";
