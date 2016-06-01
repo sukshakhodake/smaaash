@@ -1,149 +1,157 @@
 <div class="flex-rows">
-  <div class="flex-banner">
-    <figure>
-      <a href="#">
-        <img src="img/home/virat.png" class="img-responsive width" alt="virat">
-      </a>
-    </figure>
-    <a href="#">
-      <figure class="logos">
-        <img src="img/home/logo.png" title="Smaaash"class="img-responsive" alt="smaaash">
-      </figure>
-    </a>
-    <a href="#">
-      <figure class="pink-button">
-        <img src="img/home/button.png" class="img-responsive pink" alt="button">
-      </figure>
-    </a>
-    <p class="welcomes title text-uppercase">welcomes <span class="block">you</span></p>
-    <a href="#">
-      <p class="arrow-down text-uppercase">scroll<span><i class="fa fa-2x fa-chevron-down" aria-hidden="true"></i></span></p>
-    </a>
-  </div>
+    <div class="flex-banner">
+        <figure>
+            <a href="#">
+                <img src="img/home/virat.png" class="img-responsive width" alt="virat">
+            </a>
+        </figure>
+        <a href="#">
+            <figure class="logos">
+                <img src="img/home/logo.png" title="Smaaash" class="img-responsive" alt="smaaash">
+            </figure>
+        </a>
+        <a href="#">
+            <figure class="pink-button">
+                <img src="img/home/button.png" class="img-responsive pink" alt="button">
+            </figure>
+        </a>
+        <p class="welcomes title text-uppercase">welcomes <span class="block">you</span></p>
+        <a href="#">
+            <p class="arrow-down text-uppercase">scroll<span><i class="fa fa-2x fa-chevron-down" aria-hidden="true"></i></span></p>
+        </a>
+    </div>
 </div>
 <div class="smaash-drops">
-<div class="dropdowns">
-  <div class="cities">
-    <div class="btn-group" uib-dropdown is-open="status.isopen">
-      <button id="single-button" type="button" class="btn btns" uib-dropdown-toggle ng-disabled="disabled">
-        <p class="drop-text title">mumbai</p>
-        <span class="arrow"><i class="fa   fa-chevron-down" aria-hidden="true"></i></span>
-      </button>
-      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a href="#">Mumbai</a></li>
-        <li role="menuitem"><a href="#">Gurgaon</a></li>
-        <li role="menuitem"><a href="#">Hyderabad</a></li>
-        <li role="menuitem"><a href="#">Bengaluru</a></li>
-        <li role="menuitem"><a href="#">Noida</a></li>
-      </ul>
+    <div class="dropdowns">
+        <div class="cities">
+            <div class="btn-group" uib-dropdown is-open="status.isopen">
+                <button id="single-button" type="button" class="btn btns" uib-dropdown-toggle ng-disabled="disabled">
+                    <p class="drop-text title">mumbai</p>
+                    <span class="arrow"><i class="fa   fa-chevron-down" aria-hidden="true"></i></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                    <li role="menuitem"><a href="#">Mumbai</a></li>
+                    <li role="menuitem"><a href="#">Gurgaon</a></li>
+                    <li role="menuitem"><a href="#">Hyderabad</a></li>
+                    <li role="menuitem"><a href="#">Bengaluru</a></li>
+                    <li role="menuitem"><a href="#">Noida</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu pull-right">
+            <div class="btn-group" uib-dropdown is-open="status.isopen">
+                <button id="single-button" type="button" class="btn butns" uib-dropdown-toggle ng-disabled="disabled">
+                    <p class="menus title">menu</p>
+                    <span class="arrow"><i class="fa  fa-chevron-down" aria-hidden="true"></i></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                    <li role="menuitem"><a href="#">Mumbai</a></li>
+                    <li role="menuitem"><a href="#">Gurgaon</a></li>
+                    <li role="menuitem"><a href="#">Hyderabad</a></li>
+                    <li role="menuitem"><a href="#">Bengaluru</a></li>
+                    <li role="menuitem"><a href="#">Noida</a></li>
+                </ul>
+            </div>
+        </div>
+        <figure class="logo-smaash">
+            <a href=""><img src="img/home/logo.png" title="Smaaash" class="img-responsive" alt="logo"></a>
+        </figure>
+        <figure class="woman-menu">
+            <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
+        </figure>
     </div>
-  </div>
-  <div class="menu pull-right">
-    <div class="btn-group" uib-dropdown is-open="status.isopen">
-      <button id="single-button" type="button" class="btn butns" uib-dropdown-toggle ng-disabled="disabled">
-        <p class="menus title">menu</p>
-        <span class="arrow"><i class="fa  fa-chevron-down" aria-hidden="true"></i></span>
-      </button>
-      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a href="#">Mumbai</a></li>
-        <li role="menuitem"><a href="#">Gurgaon</a></li>
-        <li role="menuitem"><a href="#">Hyderabad</a></li>
-        <li role="menuitem"><a href="#">Bengaluru</a></li>
-        <li role="menuitem"><a href="#">Noida</a></li>
-      </ul>
+    <div class="slidings">
+        <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
+            <li>
+                <img ng-src="{{s}}">
+            </li>
+        </flex-slider>
     </div>
-  </div>
-  <figure class="logo-smaash">
-    <a href=""><img src="img/home/logo.png" title="Smaaash"class="img-responsive" alt="logo"></a>
-  </figure>
-  <figure class="woman-menu">
-    <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
-  </figure>
-</div>
-  <div class="slidings">
-  <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
-    <li>
-      <img ng-src="{{s}}">
-    </li>
-  </flex-slider>
-  </div>
 </div>
 <div class="container-fluid">
+  <div class="slant1">
+    <div class="flex-row rows">
+        <div class="flex-col cols1">
+            <div class="comic-pane">
+                <div class="text brand-green">
+                    <p class="text-uppercase title">explore smaaash</p>
+                    <figure class="sachinss">
+                        <img src="img/home/sachins.png" class="img-responsive " alt="Speed Karting" />
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <div class="flex-col cols1">
+            <div class="comic-panes">
+                <div class="text1 brand-blue">
+                    <p class="text-uppercase title">whats new</p>
+                    <figure>
+                        <img src="img/home/bowling.png" class="img-responsive images" alt="Twilight Bowling" />
+                    </figure>
+                </div>
+                <div class="text2 brand-darkblue">
+                    <p class="text-uppercase title">host party</p>
+                    <figure>
+                        <img src="img/home/prewedding.png" class="img-responsive images" alt="Prewedding Parties" />
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- <div class="slant2">
+     <div class="flex-row rows">
+    <div class="flex-col cols1">
+      <div class="comic-panes">
+          <div class="text1 brand-purple">
+              <p class="text-uppercase title">whats new</p>
+              <figure>
+              </figure>
+          </div>
+          <div class="text2 brand-blue">
+              <p class="text-uppercase title">host party</p>
+              <figure>
+              </figure>
+          </div>
+      </div>
+    </div>
+    <div class="flex-col cols1">
+      <div class="comic-pane">
+          <div class="text">
+              <p class="text-uppercase title">explore smaaash</p>
+              <figure class="sachinss">
+                  <img src="img/home/points.png" class="img-responsive" alt="Loyalty points" />
+              </figure>
+          </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+  <div class="slant3">
   <div class="flex-row rows">
     <div class="flex-col cols1">
       <div class="comic-pane">
-        <div class="text brand-green">
-          <p class="text-uppercase title">explore smaaash</p>
-          <figure class="sachinss">
-            <img src="img/home/sachins.png" class="img-responsive " alt="Speed Karting" />
-          </figure>
-        </div>
+          <div class="text brand-green">
+              <p class="text-uppercase title">explore smaaash</p>
+              <figure class="sachinss">
+              </figure>
+          </div>
       </div>
     </div>
     <div class="flex-col cols1">
-     <div class="comic-panes">
-       <div class="text1 brand-blue">
-       <p class="text-uppercase title">whats new</p>
-       <figure>
-         <img src="img/home/bowling.png" class="img-responsive images" alt="Twilight Bowling"/>
-       </figure>
-       </div>
-       <div class="text2 brand-darkblue">
-       <p class="text-uppercase title">host party</p>
-       <figure>
-         <img src="img/home/prewedding.png" class="img-responsive images" alt="Prewedding Parties"/>
-       </figure>
-       </div>
-     </div>
-   </div>
-  </div>
-  <!-- <div class="flex-row">
-    <div class="flex-col">
-      <div class="comic-image">
-        <div class="text1">
-          <p class="text-uppercase">purple</p>
-        </div>
-        <div class="text2 brand-blue">
-          <p class="text-uppercase">blue</p>
-        </div>
+      <div class="comic-panes">
+          <div class="text1 brand-pink">
+              <p class="text-uppercase title">whats new</p>
+              <figure>
+              </figure>
+          </div>
+          <div class="text2 brand-red">
+              <p class="text-uppercase title">host party</p>
+              <figure>
+              </figure>
+          </div>
+      </div>
       </div>
     </div>
-    <div class="flex-col">
-      <div class="comic-pane">
-        <div class="text">
-          <figure>
-            <img src="img/home/points.png" class="img-responsive" alt="Loyalty Points"/>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="flex-row">
-    <div class="flex-col">
-      <div class="comic-pane">
-        <div class="text brand-green">
-          <p class="text-uppercase">Facebook</p>
-          <figure>
-            <img src="img/home/fb.png" class="img-responsive" alt="Facebook"/>
-          </figure>
-        </div>
-      </div>
-    </div>
-    <div class="flex-col">
-      <div class="comic-image">
-        <div class="text1 brand-pink">
-          <p class="text-uppercase">Twitter</p>
-          <figure>
-            <img src="img/home/twitter.png" class="img-responsive" alt="Twitter"/>
-          </figure>
-        </div>
-        <div class="text2 brand-red">
-          <p class="text-uppercase">Instagram</p>
-          <figure>
-            <img src="img/home/Instagram.png" class="img-responsive" alt="Instagram"/>
-          </figure>
-        </div>
-      </div>
-    </div> -->
-  </div>
-<!-- </div> -->
+</div>
+</div>
