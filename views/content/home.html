@@ -69,7 +69,7 @@
     </div>
 </div>
 <div class="container">
-  <!-- <div class="slant1">
+  <div class="slant1">
     <div class="flex-row rows">
         <div class="flex-col cols1">
             <div class="comic-pane">
@@ -87,33 +87,37 @@
             <div class="comic-panes">
                 <div class="text1 brand-blue">
                     <p class="text-uppercase title">whats new</p>
-                    <figure class="games-images">
-                        <img src="img/home/bowling.png" class="img-responsive images" alt="Twilight Bowling" />
-                        <a href=""><img src="img/home/arrow.png" class="img-responsive arrows" alt="arrow"></a>
-                    </figure>
+                    <div class="slidings">
+                        <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true" >
+                            <li>
+                                <img ng-src="{{s}}">
+                            </li>
+                        </flex-slider>
+                    </div>
                 </div>
                 <div class="text2 brand-darkblue">
                     <p class="text-uppercase title">host party</p>
-                    <figure class="games-images">
-                        <img src="img/home/prewedding.png" class="img-responsive images" alt="Prewedding Parties" />
-                        <a href=""><img src="img/home/arrow.png" class="img-responsive arrows" alt="arrow"></a>
-                    </figure>
+                    <div class="slidings">
+                        <flex-slider class="carousel" flex-slide="s in mySlides2 track by $index" item-width="250" animation="slide" animationLoop="true" >
+                            <li>
+                                <img ng-src="{{s}}">
+                            </li>
+                        </flex-slider>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div> -->
+    </div>
     <div class="slant2">
      <div class="flex-row rows">
     <div class="flex-col cols1">
       <div class="comic-panes">
           <div class="text1 brand-purple">
-              <p class="text-uppercase title">whats new</p>
               <figure>
               </figure>
           </div>
           <div class="text2 brand-blue">
-              <p class="text-uppercase title">host party</p>
               <figure>
               </figure>
           </div>
@@ -121,17 +125,16 @@
     </div>
     <div class="flex-col cols1">
       <div class="comic-pane">
-          <div class="text">
-              <p class="text-uppercase title">explore smaaash</p>
-              <figure class="sachinss">
-                  <img src="img/home/points.png" class="img-responsive" alt="Loyalty points" />
+          <div class="text brand-yellow">
+              <figure class="games-images">
+                  <img src="img/home/aunty.png" class="img-responsive sachinss" alt="loyalty points" />
               </figure>
           </div>
       </div>
     </div>
   </div>
 </div>
-   <!-- <div class="slant3">
+   <div class="slant3">
   <div class="flex-row rows">
     <div class="flex-col cols1">
       <div class="comic-pane">
@@ -160,5 +163,5 @@
       </div>
       </div>
     </div>
-</div> -->
+</div>
 </div>

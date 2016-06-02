@@ -14,6 +14,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     'img/home/slider1.png',
     // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
   ];
+  $scope.mySlides1 = [
+    'img/home/blowing.png',
+    'img/home/cockpit.png',
+    'img/home/blowing.png'
+    // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+  ];
+  $scope.mySlides2 = [
+    'img/home/prewedding.png',
+    'img/home/coroporatespary.png',
+      'img/home/prewedding.png'
+    // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+  ];
 })
 
 .controller('headerctrl', function($scope, TemplateService) {
