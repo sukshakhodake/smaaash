@@ -96,13 +96,7 @@ a {
 }
 //bootstrap forms
 /* Start writing sass here */
-// body {
-//   color: #616161;
-//   font: 1.4em Helvetica;
-//   font-weight: 200;
-//   background: #FAFAFA;
-//    -webkit-backface-visibility: hidden;
-// }
+
 .flex-rows {
     margin-top: -19px;
 }
@@ -113,33 +107,47 @@ a {
     position: relative;
     background-image: url("../img/home/bg.png");
     background-size: cover;
-}
-.logos {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    @include transform(translate(-50%,-50%));
-}
-.smaash-drops {
-    height: 850px;
-    position: relative;
-}
-.woman-menu {
-    img {
-        width: 95%;
-        margin-top: 7px;
+    .logos {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        @include transform(translate(-50%,-50%));
+    }
+    .welcomes {
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        @include transform(translate(-50%,-50%));
+        color: #fff;
+        font-weight: 600;
+        font-size: 70px;
+        letter-spacing: 2px;
+    }
+    .pink-button {
+        position: absolute;
+        bottom: 27%;
+        left: 50%;
+        .pink {
+            width: 60%;
+        }
     }
 }
-.welcomes {
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    @include transform(translate(-50%,-50%));
-    color: #fff;
-    font-weight: 600;
-    font-size: 70px;
-    letter-spacing: 2px;
+
+.smaash-drops {
+    margin-bottom: 20px;
+    position: relative;
+    .slidings {
+        margin-top: -70px;
+        .flexslider{
+          margin: 0;
+        }
+        .flex-direction-nav {
+            display: none;
+        }
+    }
 }
+
+
 .flex-control-nav {
     width: 100%;
     position: absolute;
@@ -158,28 +166,16 @@ a {
 //     transform: skew(-15deg);
 //   background-color: $brand-success;
 // }
-.flex-direction-nav {
-    display: none;
-}
+
 .logo-smaash {
     margin-left: 7%;
     display: inline-block;
 }
-.slidings {
-    position: absolute;
-    top: 70px;
-}
+
 .content {
     margin-top: -70px;
 }
-.pink-button {
-    position: absolute;
-    bottom: 27%;
-    left: 50%;
-    .pink {
-        width: 60%;
-    }
-}
+
 .btns {
     border-color: $brand-purple;
     background-color: $brand-purple;
@@ -200,33 +196,55 @@ a {
         padding: 35px 37px;
     }
 }
-.cities {
-    @include transform(skew(15deg));
-    position: absolute;
-    right: 24%;
-    box-shadow: -8px 7px #000;
-    .btn {
-        padding: 8px 20px;
-    }
-    .arrow {
-        margin-left: 5px;
-        display: inline-block;
-        transform: skew(-15deg);
-        text-shadow: -10px 0 #000;
-    }
-}
+
 .dropdowns {
     height: 143px;
     position: relative;
     background-image: url("../img/home/bgs.png");
     background-size: cover;
     z-index: 3;
+    .cities {
+        @include transform(skew(15deg));
+        position: absolute;
+        right: 24%;
+        box-shadow: -8px 7px #000;
+        .btn {
+            padding: 8px 20px;
+        }
+        .arrow {
+            margin-left: 5px;
+            display: inline-block;
+            transform: skew(-15deg);
+            text-shadow: -10px 0 #000;
+        }
+    }
+    .cities {
+        .dropdown-menu {
+            transform: skew(-14deg);
+        }
+    }
+    .menu {
+        .dropdown-menu {
+            transform: none;
+        }
+    }
+    .cities,
+    .menu {
+        .btn:hover {
+            color: transparent!important;
+        }
+    }
+    .woman-menu {
+      position: absolute;
+      top: -22px;
+      right: 0;
+        img {
+            width: 95%;
+            margin-top: 7px;
+        }
+    }
 }
-.woman-menu {
-    position: absolute;
-    top: -22px;
-    right: 0;
-}
+
 .arrow-down {
     position: absolute;
     bottom: 13%;
@@ -248,18 +266,19 @@ a {
     font-size: 34px;
     text-shadow: -6px 0 #000;
 }
+
 .slant1,
 .slant3 {
     margin-bottom: 15px;
     .comic-pane {
-        width: 600px;
+        width: 578px;
         height: 417px;
         position: relative;
         margin: 0 auto;
         overflow: hidden;
     }
     .text {
-        width: 530px;
+        width: 524px;
         max-height: 507px;
         height: 419px;
         padding-right: 28px;
@@ -270,6 +289,7 @@ a {
         z-index: 1;
         figure {
             transform: skew(15deg);
+            margin-top: 8px;
         }
     }
     .text:before {
@@ -297,7 +317,7 @@ a {
         height: 417px;
         margin: 0 auto;
         position: relative;
-        left: -40px;
+        left: -62px;
         overflow: hidden;
         transform: skew(-15deg);
     }
@@ -315,7 +335,7 @@ a {
         box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
         z-index: 1;
         figure {
-            // transform: skew(15deg);
+            transform: skew(15deg);
             margin: -7% 0 0 12%;
         }
     }
@@ -352,7 +372,7 @@ a {
         z-index: 1;
         figure {
             transform: skew(15deg);
-            margin: 0 0 0 12%;
+            margin: 0 0 0 25%;
         }
     }
     .text2 p {
@@ -384,7 +404,56 @@ a {
         background-color: $brand-darkblue;
     };
 }
+.buttons{
+  position: absolute;
+    bottom: -3%;
+    width: 10%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+}
+.arrows{
+  position: absolute;
+    bottom: 32%;
+    width: 10%;
+    right: -6%;
+    transform: translate(-50%, -50%);
+}
+.comic-panes{
+  .games-images{
+    .arrows{
+      position: absolute;
+        bottom: 32%;
+        width: 10%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+    }
+  }
+}
+.slant3{
+  figure{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .text{
+width: 430px;
+max-height: 507px;
+height: 500px;
+  }
+  .text:before{
+    content: "";
+    width: 87px;
+    height: 243px;
+    left:-38px;
+  }
+  .text1{
+    figure{
+      margin: 0 auto;
+    }
+  }
+}
+
 .slant2 {
+  margin-bottom: 15px;
     .comic-pane {
         width: 600px;
         height: 417px;
@@ -393,15 +462,15 @@ a {
         overflow: hidden;
     }
     .text {
-        width: 530px;
-        max-height: 507px;
-        height: 419px;
-        padding-right: 28px;
-        position: absolute;
-        left: -2px;
-        transform: skew(-15deg);
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
+      width: 510px;
+      max-height: 507px;
+      height: 208px;
+      padding-right: 28px;
+      position: absolute;
+      left: 29px;
+      box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      transform: skew(-15deg);
         figure {
             transform: skew(15deg);
         }
@@ -426,27 +495,27 @@ a {
         line-height: 1.2em;
     }
     .comic-panes {
-        width: 665px;
+        width: 649px;
         height: 417px;
         margin: 0 auto;
         position: relative;
         left: -40px;
         overflow: hidden;
-        transform: skew(-15deg);
+
     }
     .images {
         width: 50%;
     }
     .text1 {
-        width: 510px;
-        max-height: 507px;
-        height: 208px;
-        padding-right: 28px;
-        position: absolute;
-        left: 29px;
-        // transform: skew(-15deg);
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
+     width: 510px;
+     max-height: 507px;
+     height: 208px;
+     padding-right: 28px;
+     position: absolute;
+     left: 29px;
+     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+     z-index: 1;
+     transform: skew(-15deg);
         figure {
             // transform: skew(15deg);
             margin: -7% 0 0 12%;
@@ -513,22 +582,7 @@ a {
     width: 85%;
     margin: 0 auto;
 }
-.cities {
-    .dropdown-menu {
-        transform: skew(-14deg);
-    }
-}
-.menu {
-    .dropdown-menu {
-        transform: none;
-    }
-}
-.cities,
-.menu {
-    .btn:hover {
-        color: transparent!important;
-    }
-}
+
 .drop-text {
     display: inline-block;
     font-size: 34px;
@@ -572,6 +626,7 @@ a {
     margin-top: 3%;
     padding: 0;
     li {
+
         list-style-type: none;
         line-height: 25px;
         a {
@@ -596,8 +651,10 @@ li.bold.title {
     padding-top: 15px;
     border-top: 1px solid #333;
     li {
+      padding-left: 0;
+      padding-right: 0;
         list-style-type: none;
-        margin: 0 3px;
+        margin: 0 5px;
         a {
             font-family: "GalanoGrotesque";
             color: #fff;
