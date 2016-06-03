@@ -151,9 +151,7 @@ a {
       .flex-prev{
         display: none;
       }
-      // .flex-next{
-      // background-image: url("../img/home/arrow.png");
-      // }
+      
       .slides{
         li{
           @include transform(skew(10deg));
@@ -213,13 +211,6 @@ a {
     margin-left: 15px;
     display: block;
 }
-// .comic-pane{
-//   display: flex;
-//   width: 600px;
-//   height: 300px;
-//     transform: skew(-15deg);
-//   background-color: $brand-success;
-// }
 
 .logo-smaash {
     margin-left: 7%;
@@ -321,8 +312,7 @@ a {
     text-shadow: -6px 0 #000;
 }
 
-.slant1,
-.slant3 {
+.slant1{
     margin-bottom: 15px;
     .comic-pane {
         width: 578px;
@@ -458,26 +448,15 @@ a {
         background-color: $brand-darkblue;
     };
 }
-.slant3{
-  // .text1,.text2{
-  //   width: 566px;
-  // }
-  .comic-panes{
-    left:-127px;
-  }
-}
-
-
-
 .buttons{
-  position: absolute;
+    position: absolute;
     bottom: -3%;
     width: 10%;
     left: 42%;
     transform: translate(-50%,-50%);
 }
 .arrows{
-  position: absolute;
+    position: absolute;
     bottom: 32%;
     width: 10%;
     right: -6%;
@@ -494,28 +473,6 @@ a {
     }
   }
 }
-.slant3{
-  figure{
-    width: 50%;
-    margin: 0 auto;
-  }
-  .text{
-width: 430px;
-max-height: 507px;
-height: 500px;
-  }
-  .text:before{
-    content: "";
-    width: 87px;
-    height: 243px;
-    left:-38px;
-  }
-  .text1{
-    figure{
-      margin: 0 auto;
-    }
-  }
-}
 
 .slant2 {
   margin-bottom: 15px;
@@ -523,6 +480,7 @@ height: 500px;
         width: 600px;
         height: 417px;
         position: relative;
+        left:-9px;
         margin: 0 auto;
         overflow: hidden;
         transform: skew(-10deg);
