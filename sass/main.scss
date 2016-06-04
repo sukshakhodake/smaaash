@@ -162,6 +162,7 @@ $menu-height: 80px !default;
         position: absolute;
         top: 0;
         right: 80px;
+        cursor: pointer;
         img {
           height: $menu-height - 5px;
           width: auto;
