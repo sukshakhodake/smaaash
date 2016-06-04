@@ -58,14 +58,6 @@ $head-font: "Galano Grotesque"!default;
 .brand-yellow{
   background-color: $brand-yellow;
 }
-
-
-// @mixin skew ($x, $y) {
-//    @include transform(skew(#{$x}deg, #{$y}deg));
-// }
-body {
-    padding-top: 70px;
-}
 img.loading {
     text-align: center;
     opacity: 1;
@@ -106,37 +98,36 @@ a {
 /* Start writing sass here */
 
 //*main banner starts*//
-.flex-rows {
-    margin-top: -19px;
-    .flex-banner {
-        position: relative;
-        background-image: url("../img/home/bg.png");
-        background-size: cover;
-        .logos {
-            position: absolute;
-            top: 35%;
-            left: 50%;
-            @include transform(translate(-50%,-50%));
-        }
-        .welcomes {
-            position: absolute;
-            top: 58%;
-            left: 50%;
-            @include transform(translate(-50%,-50%));
-            color: #fff;
-            font-weight: 600;
-            font-size: 70px;
-            letter-spacing: 2px;
-        }
-        .pink-button {
-            position: absolute;
-            bottom: 27%;
-            left: 50%;
-            .pink {
-                width: 60%;
-            }
-        }
-    }
+
+.landing-banner {
+  position: relative;
+  background-image: url("../img/home/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  .logos {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      @include transform(translate(-50%,-50%));
+  }
+  .welcomes {
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      @include transform(translate(-50%,-50%));
+      color: #fff;
+      font-weight: 600;
+      font-size: 70px;
+      letter-spacing: 2px;
+  }
+  .pink-button {
+      position: absolute;
+      bottom: 27%;
+      left: 50%;
+      .pink {
+          width: 60%;
+      }
+  }
 }
 
 //*main banner ends*//
