@@ -28,10 +28,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   ];
 })
 
-.controller('BannerCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CorporateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("banner");
-  $scope.menutitle = NavigationService.makeactive("Banner");
+  $scope.template = TemplateService.changecontent("corporate-parties");
+  $scope.menutitle = NavigationService.makeactive("Corporate Parties");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 })

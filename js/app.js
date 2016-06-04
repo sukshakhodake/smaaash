@@ -19,10 +19,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     controller: 'HomeCtrl'
   })
 
-  .state('banner', {
-      url: "/banner",
+  .state('corporate-parties', {
+      url: "/corporate-parties",
       templateUrl: "views/template.html",
-      controller: 'BannerCtrl'
+      controller: 'CorporateCtrl'
   });
 
   $urlRouterProvider.otherwise("/");
