@@ -16,14 +16,19 @@ $brand-white:#fff !default;
     top: 150px;
     right: 80px;
     width: 31%;
+    .text{
+      font-size: 16px;
+    }
     .fees{
       display: block;
+      font-size: 16px;
       margin: 20px 0 35px 0;
     }
     .banner-buttons{
       .btn1{
-        box-shadow: -2px 5px #000;
+        box-shadow: -3px 3px #000, -3px 0px #000;
         margin: 0 20px 0 10px;
+        border:1px solid transparent!important;
           @include transform(skew(10deg));
           span{
             font-size: 20px;
@@ -37,8 +42,9 @@ $brand-white:#fff !default;
           }
       }
       .btn2{
-        box-shadow: -2px 5px #000;
-          @include transform(skew(10deg));
+        box-shadow: -3px 3px #000, -3px 0px #000;
+        @include transform(skew(10deg));
+        border:1px solid transparent!important;
           span{
             font-size: 20px;
             display: inline-block;
