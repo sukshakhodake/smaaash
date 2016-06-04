@@ -128,60 +128,58 @@ a {
 
 //*slider starts *//
 $menu-height: 80px !default;
+.dropdowns {
+  height: $menu-height;
+  position: relative;
+  background-image: url("../img/home/menu-bg.png");
+  background-size: 100% 100%;
+  z-index: 3;
+  background-position: left;
+  background-repeat: no-repeat;
+    .cities {
+      background-color: $brand-purple;
+      @include transform(skew(15deg));
+      position: absolute;
+      right: 200px;
+      box-shadow: -3px 3px #000, -3px 0px #000;
+      top: 0;
+      padding: 8px 15px;
+      cursor: pointer;
+
+      span {
+        @include transform(skew(-15deg));
+        display: block;
+        font-family: $body-font;
+        color: white;
+        font-size: 20px;
+        text-shadow: 1px 1px black, -1px 0px black, 0px -1px black, -1px -1px black, 0px 1px black , 1px 0px black,-1px 1px black,1px -1px black;
+      }
+    }
+    .menu {
+      position: absolute;
+      top: 0;
+      right: 80px;
+      cursor: pointer;
+      img {
+        height: $menu-height - 5px;
+        width: auto;
+      }
+    }
+    .woman-menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: $menu-height - 5px;
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+}
 .smaash-drops {
   margin-bottom: 20px;
   position: relative;
-  .dropdowns {
-    height: $menu-height;
-    position: relative;
-    background-image: url("../img/home/menu-bg.png");
-    background-size: 100% 100%;
-    z-index: 3;
-    background-position: left;
-    background-repeat: no-repeat;
-      .cities {
-        background-color: $brand-purple;
-        @include transform(skew(15deg));
-        position: absolute;
-        right: 200px;
-        box-shadow: -3px 3px #000, -3px 0px #000;
-        top: 0;
-        padding: 8px 15px;
-        cursor: pointer;
-
-        span {
-          @include transform(skew(-15deg));
-          display: block;
-          font-family: $body-font;
-          color: white;
-          font-size: 20px;
-          text-shadow: 1px 1px black, -1px 0px black, 0px -1px black, -1px -1px black, 0px 1px black , 1px 0px black,-1px 1px black,1px -1px black;
-        }
-      }
-      .menu {
-        position: absolute;
-        top: 0;
-        right: 80px;
-        cursor: pointer;
-        img {
-          height: $menu-height - 5px;
-          width: auto;
-        }
-      }
-      .woman-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: $menu-height - 5px;
-          img {
-              width: auto;
-              height: 100%;
-          }
-      }
-  }
-
     .slidings {
-
         .flexslider {
           margin: 0;
           border: none;
