@@ -80,6 +80,7 @@ nav li:hover .dropdown-menu {
 .btn,
 a {
     cursor: pointer;
+    text-decoration: none !important;
     @include transition(all ease 300ms);
 }
 //bootstrap forms
@@ -715,9 +716,10 @@ $menu-height: 80px !default;
 //*home page ends*//
 //*footer starts*//
 .footers {
-    background-image: url("../img/home/footer.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-color: black;
+}
+.footers-list {
+    padding: 40px 0;
 }
 .foot {
     padding: 0;
@@ -731,54 +733,54 @@ $menu-height: 80px !default;
     width: 100%;
 }
 .foot-list {
-    margin-top: 3%;
     padding: 0;
     li {
-
         list-style-type: none;
-        line-height: 25px;
+        line-height: 180%;
+        &.bold {
+            color: #fff;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
         a {
             font-family: $head-font;
             color: #666;
             text-decoration: none;
+            font-size: 12px;
+            display: inline-block;
             &:hover {
                 color: #fff;
             }
         }
+        img {
+          width: 100%;
+        }
     }
 }
-.bold {
-    color: #fff;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-li.bold.title {
-    margin-bottom: 2px;
-}
+
 .foots-list {
-    padding-top: 15px;
+    padding: 15px 0;
     border-top: 1px solid #333;
     li {
       padding-left: 0;
       padding-right: 0;
-        list-style-type: none;
-        margin: 0 5px;
-        a {
-            font-family: $head-font;
+      list-style-type: none;
+      margin: 0 5px;
+      font-family: $head-font;
+      text-decoration: none;
+      color: #666;
+      font-size: 12px;
+      cursor: default;
+      a {
+        color: #666;
+        &:hover {
             color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            &:hover {
-                color: #ccc;
-            }
         }
+      }
     }
 }
 .ting {
     display: inline-block;
-}
-.footers-list {
-    margin: 4% 2%;
 }
 .icons {
     margin: 0 5px 5px 0;
@@ -793,7 +795,15 @@ li.bold.title {
     padding:0;
   }
 }
-
+.justified-li {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  li {
+    display: table-cell;
+  }
+}
 
 
 //*footer ends*//
