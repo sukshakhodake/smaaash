@@ -17,10 +17,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     url: "/",
     templateUrl: "views/template.html",
     controller: 'HomeCtrl'
+  })
+
+  .state('banner', {
+      url: "/banner",
+      templateUrl: "views/template.html",
+      controller: 'BannerCtrl'
   });
+
   $urlRouterProvider.otherwise("/");
   $locationProvider.html5Mode(isproduction);
 });
+
 
 
 firstapp.directive('img', function($compile, $parse) {

@@ -1,0 +1,60 @@
+//*corporate starts*//
+$brand-white:#fff !default;
+
+.brand-white{
+  color:$brand-white;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.corporate{
+  position: relative;
+  .banner-info{
+    position: absolute;
+    top: 150px;
+    right: 80px;
+    width: 31%;
+    .fees{
+      display: block;
+      margin: 20px 0 35px 0;
+    }
+    .banner-buttons{
+      .btn1{
+        box-shadow: -2px 5px #000;
+        margin: 0 20px 0 10px;
+          @include transform(skew(10deg));
+          span{
+            font-size: 20px;
+            display: inline-block;
+            padding: 2px 24px;
+          @include transform(skew(-10deg));
+          }
+          &:hover{
+            color:#000;
+            background-color: $brand-green;
+          }
+      }
+      .btn2{
+        box-shadow: -2px 5px #000;
+          @include transform(skew(10deg));
+          span{
+            font-size: 20px;
+            display: inline-block;
+            padding: 2px 24px;
+          @include transform(skew(-10deg));
+          }
+          &:hover{
+            color:#000;
+            background-color: $brand-purple;
+          }
+      }
+    }
+  }
+
+}
+
+
+
+//*corporate ends*//
