@@ -23,6 +23,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       url: "/corporate-parties",
       templateUrl: "views/template.html",
       controller: 'CorporateCtrl'
+  })
+
+  .state('confirm-order', {
+      url: "/confirm-order",
+      templateUrl: "views/template.html",
+      controller: 'ConfirmCtrl'
   });
 
   $urlRouterProvider.otherwise("/");
