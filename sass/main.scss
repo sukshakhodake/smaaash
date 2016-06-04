@@ -415,6 +415,13 @@ a {
       background-image: url("../img/home/aunty.png");
       background-repeat: no-repeat;
       background-size: cover;
+      .arrows{
+        position: absolute;
+          bottom: 32%;
+          width: 10%;
+          right: 0%;
+          transform: translate(-50%, -50%);
+      }
     }
     .text1 {
      width: 543px;
@@ -614,8 +621,6 @@ a {
   margin-top: -80px;
 }
 
-
-
 .flex-control-nav {
     width: 100%;
     position: absolute;
@@ -695,17 +700,6 @@ a {
     width: 10%;
     right: -6%;
     transform: translate(-50%, -50%);
-}
-.comic-panes{
-  .games-images{
-    .arrows{
-      position: absolute;
-        bottom: 32%;
-        width: 10%;
-        right: 0%;
-        transform: translate(-50%, -50%);
-    }
-  }
 }
 
 .width {
