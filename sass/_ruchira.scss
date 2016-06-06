@@ -99,14 +99,21 @@ $brand-white:#fff !default;
   height: auto;
   background-image: url(../img/nav/bgblue.png);
   background-size: cover;
+  h2{
+    padding-top: 15px;
+  }
   .city-types{
     padding: 10px 0 40px 0;
    }
 }
 
-li{ list-style-type: none; }
+li{
+  display: inline-block;
+  list-style-type: none;
+  margin: 10px;
+ }
 
-.citi{ margin: 20px 0 0 30px;}
+.list{ margin-left: 5px;}
 
 
 //*menu ends*//
