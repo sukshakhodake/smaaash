@@ -4,7 +4,9 @@ $brand-white:#fff !default;
 .brand-white{
   color:$brand-white;
 }
-
+.center{
+  text-align: center;
+}
 .capitalize{
   text-transform: capitalize;
 }
@@ -64,12 +66,13 @@ $brand-white:#fff !default;
 //*corporate ends*//
 
 //*order starts*//
-.form-control{
-  border-radius: 4px;
-  border: 2px solid #000;
-}
+
 .form{
   margin-bottom: 40px;
+  .form-control{
+    border-radius: 4px;
+    border: 2px solid #000;
+  }
   .btn1{
     box-shadow: -3px 3px #000, -3px 0px #000;
     border:1px solid transparent!important;
