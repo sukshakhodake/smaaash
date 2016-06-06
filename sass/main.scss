@@ -821,46 +821,59 @@ $menu-height: 80px !default;
   position: relative;
   width: 49%;
   float: left;
+  &:before {
+    content: "";
+    @include transform(skew(15deg));
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0;
+  }
   &.brand-green {
     &:before {
-      content: "";
-      @include transform(skew(15deg));
-      position: absolute;
-      width: 50%;
-      height: 100%;
-      left: 0;
       background-color: $brand-green;
+    }
+  }
+  &.brand-purple {
+    &:before {
+      background-color: $brand-purple;
     }
   }
 }
 .slant-in {
   position: relative;
   +.slant-in {
-    margin-top: 10px;
+    margin-top: 20px;
   }
   .slant-box {
     padding: 15px 7% 0;
   }
+  &:before {
+    content: "";
+    @include transform(skew(15deg));
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: -20%;
+  }
   &.brand-blue {
     &:before {
-      content: "";
-      @include transform(skew(15deg));
-      position: absolute;
-      width: 50%;
-      height: 100%;
-      right: -20%;
       background-color: $brand-blue;
     }
   }
   &.brand-darkblue {
     &:before {
-      content: "";
-      @include transform(skew(15deg));
-      position: absolute;
-      width: 50%;
-      height: 100%;
-      right: -20%;
       background-color: $brand-darkblue;
+    }
+  }
+  &.brand-pink {
+    &:before {
+      background-color: $brand-pink;
+    }
+  }
+  &.brand-red {
+    &:before {
+      background-color: $brand-red;
     }
   }
 }
@@ -879,12 +892,65 @@ $menu-height: 80px !default;
     bottom: 0;
   }
 }
+.reverse {
+  .mover {
+    right: 0;
+    left: auto;
+  }
+  .slant-col {
+    z-index: 1;
+    &:before {
+      content: "";
+      @include transform(skew(15deg));
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      right: -20%;
+      left: auto;
+      z-index: 0;
+    }
+    .rays {
+      background-image: url('../img/home/yellow-rays.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+    &.brand-yellow {
+      &:before {
+        background-color: $brand-yellow;
+      }
+    }
+  }
+  .slant-in {
+    &.brand-blue {
+      &:before {
+        left: -20%;
+      }
+    }
+    &.brand-purple {
+      &:before {
+        content: "";
+        @include transform(skew(15deg));
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        left: -20%;
+        background-color: $brand-purple;
+      }
+    }
+  }
+}
 .full-height {
     height: 442px;
     overflow: hidden;
 }
 .half-height {
-    height: 216px;
+    height: 210px;
     overflow: hidden;
 }
 //*footer ends*//
