@@ -25,6 +25,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'CorporateCtrl'
   })
 
+  .state('city', {
+      url: "/city",
+      templateUrl: "views/template.html",
+      controller: 'CityCtrl'
+  })
+
+
   .state('confirm-order', {
       url: "/confirm-order",
       templateUrl: "views/template.html",
