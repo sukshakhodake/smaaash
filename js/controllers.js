@@ -44,13 +44,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("city");
-  $scope.menutitle = NavigationService.makeactive("City");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
 
 .controller('MenuCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
