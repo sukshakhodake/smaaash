@@ -953,6 +953,14 @@ $menu-height: 80px !default;
     height: 210px;
     overflow: hidden;
 }
+.backdroped {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+}
 //*footer ends*//
 @import "fancybox-override";
 @import "ruchira";
