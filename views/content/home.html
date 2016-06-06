@@ -3,7 +3,7 @@
 </div>
 
 <div class="smaash-drops">
-  <div ng-include="template.header" class="template header  brand-yellow"></div>
+    <div ng-include="template.header" class="template header  brand-yellow"></div>
     <div class="slidings">
         <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
         <li>
@@ -11,49 +11,84 @@
         </li>
     </flex-slider>
 </div>
-
 </div>
+
 <div class="container">
-<div class="slant1">
-    <div class="flex-row rows">
-        <div class="flex-col cols1">
-            <div class="comic-pane">
-                <div class="text brand-green">
-                    <p class="text-uppercase title">Attractions</p>
-                    <figure class="games-images">
-                        <img src="img/home/sachins.png" class="img-responsive sachinss" alt="Speed Karting"/>
-                        <a href=""><img src="img/home/button.png" class="img-responsive buttons" alt="button"></a>
-                        <a href=""><img src="img/home/arrow.png" class="img-responsive arrows" alt="arrow"></a>
-                    </figure>
-                </div>
+<div class="slant-row">
+    <div class="slant-col brand-green">
+        <div class="slant-box full-height">
+            <h2>Attractions</h2>
+            <div class="mover">
+                <img src="img/home/sachins.png" class="img-responsive" alt="Speed Karting"/>
             </div>
         </div>
-        <div class="flex-col cols1">
-            <div class="comic-panes">
-                <div class="text1 brand-blue">
-                    <p class="text-uppercase title">Whats New</p>
-                    <div class="slidings">
-                        <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true">
-                            <li>
-                                <img ng-src="{{s}}">
-                            </li>
-                        </flex-slider>
-                    </div>
-                </div>
-                <div class="text2 brand-darkblue">
-                    <p class="text-uppercase title">Host Party</p>
-                    <div class="slidings">
-                        <flex-slider class="carousel" flex-slide="s in mySlides2 track by $index" item-width="250" animation="slide" animationLoop="true">
-                            <li>
-                                <img ng-src="{{s}}">
-                            </li>
-                        </flex-slider>
-                    </div>
-                </div>
+    </div>
+    <div class="slant-col pull-right">
+        <div class="slant-in brand-blue">
+            <div class="slant-box half-height">
+                <h2>Whats New</h2>
+            </div>
+        </div>
+        <div class="slant-in brand-darkblue">
+            <div class="slant-box  half-height">
+                <h2>Host Party</h2>
             </div>
         </div>
     </div>
 </div>
+</div>
+
+<div class="container">
+<div class="slant-row">
+    <div class="slant-col">
+        <div class="slant-in brand-blue">
+            <div class="slant-box half-height">
+                <h2>Demo</h2>
+            </div>
+        </div>
+        <div class="slant-in brand-darkblue">
+            <div class="slant-box  half-height">
+                <h2>Demo</h2>
+            </div>
+        </div>
+    </div>
+    <div class="slant-col brand-green pull-right">
+        <div class="slant-box full-height">
+            <div class="mover">
+                <img src="img/home/aunty.png" class="img-responsive" alt="Speed Karting"/>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+<div class="slant-row">
+    <div class="slant-col brand-green">
+        <div class="slant-box full-height">
+            <h2>Facebook</h2>
+            <div class="mover">
+                <img src="img/home/sachins.png" class="img-responsive" alt="Speed Karting"/>
+            </div>
+        </div>
+    </div>
+    <div class="slant-col pull-right">
+        <div class="slant-in brand-blue">
+            <div class="slant-box half-height">
+                <h2>Twitter</h2>
+            </div>
+        </div>
+        <div class="slant-in brand-darkblue">
+            <div class="slant-box  half-height">
+                <h2>Instagram</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
 <div class="slant2">
     <div class="flex-row rows">
         <div class="flex-col cols1">

@@ -28,6 +28,9 @@ $brand-yellow: #FFEF01!default;
 }
 $body-font: "American Purpose"!default;
 $head-font: "Galano Grotesque"!default;
+body {
+  font-family: $head-font;
+}
 .title {
     font-family: $body-font;
 }
@@ -387,7 +390,6 @@ $menu-height: 80px !default;
         position: relative;
         left: -3px;
         overflow: hidden;
-
     }
     .games-images {
         display: block;
@@ -722,15 +724,17 @@ $menu-height: 80px !default;
     padding: 40px 0;
 }
 .foot {
-    padding: 0;
+    padding: 5px;
     margin: 0;
     @include display(flex);
 }
 .col-flexing {
     flex: 1;
     display: block;
-    padding: 5px;
     width: 100%;
+    +.col-flexing {
+      padding-left: 5px;
+    }
 }
 .foot-list {
     padding: 0;
@@ -805,8 +809,84 @@ $menu-height: 80px !default;
     display: table-cell;
   }
 }
-
-
+.slant-row {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.slant-box {
+    padding: 15px 15px 0;
+}
+.slant-col {
+  @include transform(skew(-15deg));
+  position: relative;
+  width: 49%;
+  float: left;
+  &.brand-green {
+    &:before {
+      content: "";
+      @include transform(skew(15deg));
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 0;
+      background-color: $brand-green;
+    }
+  }
+}
+.slant-in {
+  position: relative;
+  +.slant-in {
+    margin-top: 10px;
+  }
+  .slant-box {
+    padding: 15px 7% 0;
+  }
+  &.brand-blue {
+    &:before {
+      content: "";
+      @include transform(skew(15deg));
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      right: -20%;
+      background-color: $brand-blue;
+    }
+  }
+  &.brand-darkblue {
+    &:before {
+      content: "";
+      @include transform(skew(15deg));
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      right: -20%;
+      background-color: $brand-darkblue;
+    }
+  }
+}
+.slant-box {
+  @include transform(skew(15deg));
+  h2 {
+    font-family: $body-font;
+    color: white;
+    font-size: 30px;
+    margin: 0;
+  }
+  .mover {
+    position: absolute;
+    width: 90%;
+    left: 0;
+    bottom: 0;
+  }
+}
+.full-height {
+    height: 442px;
+    overflow: hidden;
+}
+.half-height {
+    height: 216px;
+    overflow: hidden;
+}
 //*footer ends*//
 @import "fancybox-override";
 @import "ruchira";
