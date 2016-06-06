@@ -125,16 +125,20 @@ $brand-white:#fff !default;
   padding: 0;
   text-align: center;
 }
+.smaaash-menu{
+  a{
 
+  display: block;
+  }
+}
 .nav-name{
   padding: 25px;
-  background-color: pink;
-  a{
-    text-shadow: 1px 1px black, -1px 0px black, 0px -1px black, -1px -1px black, 0px 1px black , 1px 0px black,-1px 1px black,1px -1px black;
-    color: $brand-white;
-    font-size: 20px;
-    font-family: $body-font;
-  }
+  font-family: $body-font;
+  background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
 
 
