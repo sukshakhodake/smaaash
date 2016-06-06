@@ -94,8 +94,19 @@ $brand-white:#fff !default;
 
 //*menu starts*//
 
+.smaaash-cities{
+  width: 40%;
+  height: auto;
+  background-image: url(../img/nav/bgblue.png);
+  background-size: cover;
+  .city-types{
+    padding: 10px 0 40px 0;
+   }
+}
 
+li{ list-style-type: none; }
 
+.citi{ margin: 20px 0 0 30px;}
 
 
 //*menu ends*//
