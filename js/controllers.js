@@ -2,30 +2,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
-
-  console.log("Testing Consoles");
-
   $scope.template = TemplateService.changecontent("home");
   $scope.menutitle = NavigationService.makeactive("Home");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
   $scope.mySlides = [
-    'img/home/slider1.png',
-    // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+    'img/home/slider1.png'
   ];
   $scope.mySlides1 = [
     'img/home/blowing.png',
     'img/home/cockpit.png',
     'img/home/blowing.png'
-    // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
   ];
   $scope.mySlides2 = [
     'img/home/prewedding.png',
     'img/home/coroporatespary.png',
       'img/home/prewedding.png'
-    // 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
   ];
+
+  $scope.$on('$viewContentLoaded', function(event) {
+      $timeout(function() {
+          (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=329228207248886";
+              fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+
+          ! function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0],
+                  p = /^http:/.test(d.location) ? 'http' : 'https';
+              if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = p + "://platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+              }
+          }(document, "script", "twitter-wjs");
+      }, 100);
+  });
+
 })
 
 .controller('CorporateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
