@@ -31,6 +31,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'CityCtrl'
   })
 
+  .state('menu', {
+      url: "/menu",
+      templateUrl: "views/template.html",
+      controller: 'MenuCtrl'
+  })
+
 
   .state('confirm-order', {
       url: "/confirm-order",
