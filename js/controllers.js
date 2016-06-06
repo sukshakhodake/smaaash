@@ -65,6 +65,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $(window).scrollTop(0);
   });
+  $scope.city = false;
+  $scope.toggleCity = function () {
+    console.log('Toggle City');
+    $scope.city = !$scope.city;
+  };
 })
 
 .controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {

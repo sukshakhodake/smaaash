@@ -1,42 +1,42 @@
-<div class="dropdowns">
+<div class="dropdowns" ng-controller="headerctrl">
     <div class="container relative">
         <a ui-sref="home" class="logo-smaash"><img src="img/home/logo.png" alt="Smaaash"></a>
-        <div class="cities"><span>Mumbai <i class="fa fa-chevron-down"></i></span></div>
+        <div class="cities" ng-click="toggleCity()">
+            <span>Mumbai
+                <i class="fa fa-chevron-down"></i>
+            </span>
+        </div>
         <div class="menu"><img src="img/home/menus.png" alt="Menu" no-drag></div>
         <figure class="woman-menu">
             <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
         </figure>
 
-        <div class="backdroped">
-          <div class="smaaash-cities">
-              <h2 class="title center brand-white">select your city</h2>
-              <div class="city-types">
-                  <ul class="list">
-                      <li>
-                          <a href=""><img src="img/nav/bengaluru.png" class="img-responsive" alt=""></a>
-                      </li>
-                      <li>
-                          <a href=""><img src="img/nav/hyderabad.png" class="img-responsive" alt=""></a>
-                      </li>
-                      <li>
-                          <a href=""><img src="img/nav/gurgoan.png" class="img-responsive" alt=""></a>
-                      </li>
-                      <li>
-                          <a href=""><img src="img/nav/mumbai.png" class="img-responsive" alt=""></a>
-                      </li>
-                      <li>
-                          <a href=""><img src="img/nav/noida.png" class="img-responsive" alt=""></a>
-                      </li>
-                      <li>
-                          <a href=""><img src="img/nav/ludhiana.png" class="img-responsive" alt=""></a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-        </div>                </li>
-                  </ul>
-              </div>
-          </div>
+        <div class="backdroped" ng-if="city" ng-click="toggleCity()">
+            <div class="smaaash-cities">
+                <h2 class="title center brand-white">select your city</h2>
+                <div class="city-types">
+                    <ul class="list">
+                        <li>
+                            <a href=""><img src="img/nav/bengaluru.png" class="img-responsive" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="img/nav/hyderabad.png" class="img-responsive" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="img/nav/gurgoan.png" class="img-responsive" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="img/nav/mumbai.png" class="img-responsive" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="img/nav/noida.png" class="img-responsive" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="img/nav/ludhiana.png" class="img-responsive" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
     </div>
