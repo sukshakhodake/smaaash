@@ -170,7 +170,8 @@ $menu-height: 80px !default;
     position: relative;
     .slidings {
       .pagination{
-        @include position(absolute,null 10px 20px null);
+        @include position(absolute,null 20px 32px null);
+        margin: 0;
       li > a{
           float: left;
           padding: 10px 10px;
@@ -178,7 +179,7 @@ $menu-height: 80px !default;
           text-decoration: none;
           color: #000;
           background-color: #fff;
-          border: 1px solid #000;
+          box-shadow: 2px -2px #000,3px 0px #000;
           @include transform(skew(-10deg));
           margin: 0 5px;
           border-radius: 0;
@@ -964,6 +965,7 @@ $menu-height: 80px !default;
   .flexslider {
     background-color: transparent;
     border: none;
+    margin: 0;
     .flex-control-nav,.flex-direction-nav .flex-prev{
       display: none;
     }
