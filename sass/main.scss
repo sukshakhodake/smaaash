@@ -847,9 +847,22 @@ $menu-height: 80px !default;
         .flexslider {
             background: transparent;
             border-color: transparent;
-          }
+            .flex-control-nav,.flex-direction-nav .flex-prev{
+              display: none;
+            }
+              .flex-next{
+                display: block;
+                height: 50px;
+                width: 50px;
+              }
+            .flex-direction-nav a.flex-next:before{
+              content: "";
+              @include square(100%);
+              background: url("../img/home/arrow.png")no-repeat;
+              background-size: contain;
+            }
+        }
       }
-
     }
     .slant-box {
         padding: 15px 7% 0;
