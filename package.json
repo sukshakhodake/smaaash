@@ -1,7 +1,7 @@
 {
-  "name": "Smaaash",
+  "name": "smaaash",
   "version": "0.0.1",
-  "description": "AngularFrameworkFrontend",
+  "description": "Smaaash",
   "main": "gulpfile.js",
   "dependencies": {
     "crypto-js": "^3.1.6",
