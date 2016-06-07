@@ -182,6 +182,9 @@ $menu-height: 80px !default;
           @include transform(skew(-10deg));
           margin: 0 5px;
           border-radius: 0;
+          &:active, &:hover{
+            background-color: red;
+          }
       }
     }
         .flexslider {
