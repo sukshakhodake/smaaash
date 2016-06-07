@@ -169,21 +169,28 @@ $menu-height: 80px !default;
     margin-bottom: 20px;
     position: relative;
     .slidings {
-      .pagination{
-        @include position(absolute,null 20px 32px null);
+      .custom-pagination{
+        @include position(absolute,null 20px 28px null);
         margin: 0;
-      li > a{
+        .flex-active {
+          padding: 4px 10px 20px;
+          background-color: $brand-red;
+         }
+      li {
           float: left;
           padding: 10px 10px;
+          cursor: pointer;
+          list-style: none;
           line-height: 1.42857;
           text-decoration: none;
           color: #000;
           background-color: #fff;
           box-shadow: 2px -2px #000,3px 0px #000;
           @include transform(skew(-10deg));
+          @include transition(all 300ms ease);
           margin: 0 5px;
           border-radius: 0;
-          &:active, &:hover{
+          &:active, &:hover {
             background-color: $brand-red;
           }
       }
@@ -192,9 +199,6 @@ $menu-height: 80px !default;
             margin: 0;
             border: none;
         }
-        .flex-control-nav,
-        .flex-direction-nav .flex-next,
-        .flex-direction-nav .flex-prev { display: none;}
     }
 }
 

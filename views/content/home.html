@@ -5,17 +5,13 @@
 <div class="smaash-drops">
     <div ng-include="template.header" class="template header  brand-yellow"></div>
     <div class="slidings">
-        <flex-slider flex-slide="s in mySlides track by $index" animation="slide" animationLoop="true" direction-nav="false" control-nav="false">
+        <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
             <li>
-                <img ng-src="{{s}}">
+                <img ng-src="{{s.url}}">
             </li>
         </flex-slider>
-        <ul class="pagination">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+        <ul class="custom-pagination">
+            <li ng-repeat="s in mySlides track by $index">{{s.id}}</li>
         </ul>
 
     </div>

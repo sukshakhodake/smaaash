@@ -7,9 +7,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
-  $scope.mySlides = [
-    'img/home/slider1.png',
-    'img/home/slider1.png'
+  $scope.mySlides = [{
+    id: 1,
+    url: 'img/home/slider1.png'
+  },{
+    id: 2,
+    url: 'img/home/slider1.png'
+  },{
+    id: 3,
+    url: 'img/home/slider1.png'
+  }
   ];
   $scope.mySlides1 = [
     'img/home/blowing.png',
