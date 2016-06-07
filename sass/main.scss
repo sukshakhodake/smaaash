@@ -183,7 +183,7 @@ $menu-height: 80px !default;
           margin: 0 5px;
           border-radius: 0;
           &:active, &:hover{
-            background-color: red;
+            background-color: $brand-red;
           }
       }
     }
@@ -842,28 +842,8 @@ $menu-height: 80px !default;
             background-color: $brand-red;
         }
     }
-    .mover{
-      .slidings{
-        .flexslider {
-            background: transparent;
-            border-color: transparent;
-            .flex-control-nav,.flex-direction-nav .flex-prev{
-              display: none;
-            }
-              .flex-next{
-                display: block;
-                height: 50px;
-                width: 50px;
-              }
-            .flex-direction-nav a.flex-next:before{
-              content: "";
-              @include square(100%);
-              background: url("../img/home/arrow.png")no-repeat;
-              background-size: contain;
-            }
-        }
-      }
-    }
+
+
     .slant-box {
         padding: 15px 7% 0;
         .slidings {
@@ -978,6 +958,27 @@ $menu-height: 80px !default;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.35);
+}
+
+.mover {
+  .flexslider {
+    background-color: transparent;
+    border: none;
+    .flex-control-nav,.flex-direction-nav .flex-prev{
+      display: none;
+    }
+      .flex-next{
+        display: block;
+        height: 50px;
+        width: 50px;
+      }
+    .flex-direction-nav a.flex-next:before{
+      content: "";
+      @include square(100%);
+      background: url("../img/home/arrow.png")no-repeat;
+      background-size: contain;
+    }
+  }
 }
 //*footer ends*//
 @import "fancybox-override";

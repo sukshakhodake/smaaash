@@ -25,7 +25,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   $scope.mySlides3 = [
     'img/home/sachins.png',
-      'img/home/prewedding.png'
+      'img/home/sachins.png',
+      'img/home/sachins.png'
+
   ];
 
   $scope.$on('$viewContentLoaded', function(event) {
