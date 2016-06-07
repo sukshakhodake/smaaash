@@ -5,7 +5,7 @@
 <div class="smaash-drops">
     <div ng-include="template.header" class="template header  brand-yellow"></div>
     <div class="slidings">
-        <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
+        <flex-slider flex-slide="s in mySlides track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
         <li>
             <img ng-src="{{s}}">
         </li>
@@ -111,60 +111,5 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-<div class="container">
-<div class="nav-menu">
-  <div class="smaash-menu">
-  <div class="row">
-    <div class="rows">
-    <div class="col-flexing">
-      <a href=""><h1 class="nav-name">explore smaaash</h1></a>
-    </div>
-    <div class="col-flexing">
-    <a href=""><h1 class="nav-name">host a party</h1></a>
-    </div>
-    <div class="col-flexing">
-      <a href=""><h1 class="nav-name">buy online</h1></a>
-    </div>
-    <div class="col-flexing">
-      <a href=""><h1 class="nav-name">stars at smaaash</h1></a>
-    </div>
-    <div class="col-flexing">
-        <a href=""><h1 class="nav-name">events &amp; challenges</h1></a>
-    </div>
-    <div class="col-flexing">
-        <a href=""><h1 class="nav-name">buy &amp; recharge</h1></a>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="smaaash-menu">
-    <div class="row">
-      <div class="rows">
-      <div class="col-flexing">
-        <a href=""><h1 class="nav-name">earn points</h1></a>
-      </div>
-      <div class="col-flexing">
-        <a href=""><h1 class="nav-name">my carts</h1></a>
-      </div>
-      <div class="col-flexing">
-          <a href=""><h1 class="nav-name">my account</h1></a>
-      </div>
-      <div class="col-flexing">
-        <a href=""><h1 class="nav-name">buy &amp; recharge</h1></a>
-      </div>
-      <div class="col-flexing">
-        <a href=""><h1 class="nav-name">log in</h1></a>
-      </div>
-      <div class="col-flexing">
-          <a href=""><h1 class="nav-name">agency login</h1></a>
-      </div>
-      <div class="col-flexing">
-        <a href=""><h1 class="nav-name">contact us</h1></a>
-      </div>
-    </div>
-  </div>
-  </div>
 </div>
 </div>

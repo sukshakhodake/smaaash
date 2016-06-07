@@ -6,14 +6,70 @@
                 <i class="fa fa-chevron-down"></i>
             </span>
         </div>
-        <div class="menu"><img src="img/home/menus.png" alt="Menu" no-drag></div>
+        <div class="menu"><img src="img/home/menus.png" alt="Menu" no-drag ng-click="toggleMenu()"></div>
         <figure class="woman-menu">
             <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
         </figure>
 
+        <div class="backdroped" ng-if="menu" ng-click="toggleMenu()">
+        <div class="nav-menu">
+          <div class="smaash-menu">
+          <div class="row">
+            <div class="rows">
+            <div class="col-flexing">
+              <a href=""><h1 class="nav-name">explore smaaash</h1></a>
+            </div>
+            <div class="col-flexing">
+            <a href=""><h1 class="nav-name">host a party</h1></a>
+            </div>
+            <div class="col-flexing">
+              <a href=""><h1 class="nav-name">buy online</h1></a>
+            </div>
+            <div class="col-flexing">
+              <a href=""><h1 class="nav-name">stars at smaaash</h1></a>
+            </div>
+            <div class="col-flexing">
+                <a href=""><h1 class="nav-name">events &amp; challenges</h1></a>
+            </div>
+            <div class="col-flexing">
+                <a href=""><h1 class="nav-name">buy &amp; recharge</h1></a>
+            </div>
+          </div>
+          </div>
+          </div>
+          <div class="smaaash-menu">
+            <div class="row">
+              <div class="rows">
+              <div class="col-flexing">
+                <a href=""><h1 class="nav-name">earn points</h1></a>
+              </div>
+              <div class="col-flexing">
+                <a href=""><h1 class="nav-name">my carts</h1></a>
+              </div>
+              <div class="col-flexing">
+                  <a href=""><h1 class="nav-name">my account</h1></a>
+              </div>
+              <div class="col-flexing">
+                <a href=""><h1 class="nav-name">buy &amp; recharge</h1></a>
+              </div>
+              <div class="col-flexing">
+                <a href=""><h1 class="nav-name">log in</h1></a>
+              </div>
+              <div class="col-flexing">
+                  <a href=""><h1 class="nav-name">agency login</h1></a>
+              </div>
+              <div class="col-flexing">
+                <a href=""><h1 class="nav-name">contact us</h1></a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
         <div class="backdroped" ng-if="city" ng-click="toggleCity()">
             <div class="smaaash-cities">
                 <h2 class="title center brand-white">select your city</h2>
+                <a class="cross" href=""><i class="fa fa-2x fa-times" aria-hidden="true"></i></a>
                 <div class="city-types">
                     <ul class="list">
                         <li>

@@ -8,6 +8,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 
   $scope.mySlides = [
+    'img/home/slider1.png',
     'img/home/slider1.png'
   ];
   $scope.mySlides1 = [
@@ -73,6 +74,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.toggleCity = function () {
     console.log('Toggle City');
     $scope.city = !$scope.city;
+  };
+  $scope.menu = false;
+  $scope.toggleMenu = function () {
+    console.log('Toggle Menu');
+    $scope.menu = !$scope.menu;
   };
 })
 
