@@ -141,5 +141,19 @@ $brand-white:#fff !default;
   -webkit-text-stroke-color: #000;
 }
 
-
 //*menu ends*//
+
+//*explore starts*//
+.gaming{
+  background-color: $brand-blue;
+  transform: skew(-5deg);
+      overflow: hidden;
+  .anti-scew{
+    transform: skew(5deg);
+  }
+}
+
+
+
+
+//*explore ends*//

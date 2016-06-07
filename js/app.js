@@ -25,6 +25,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'CorporateCtrl'
   })
 
+  .state('explore-smaaash', {
+      url: "/explore-smaaash",
+      templateUrl: "views/template.html",
+      controller: 'ExploreCtrl'
+  })
 
   .state('confirm-order', {
       url: "/confirm-order",
