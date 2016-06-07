@@ -111,12 +111,8 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     .inner-banner {
-        position: absolute;
         max-width: 1170px;
-        top: 20px;
-        left: 0;
-        right: 0;
-        bottom: 20px;
+        @include position(absolute,20px 0 20px 0);
         background-image: url("../img/home/virat.png");
         background-size: contain;
         background-repeat: no-repeat;
@@ -139,10 +135,8 @@ $menu-height: 80px !default;
     .cities {
         background-color: $brand-purple;
         @include transform(skew(15deg));
-        position: absolute;
-        right: 200px;
+        @include position(absolute,0 200px null null);
         box-shadow: -3px 3px #000, -3px 0 #000;
-        top: 0;
         padding: 8px 15px;
         cursor: pointer;
         span {
@@ -155,9 +149,7 @@ $menu-height: 80px !default;
         }
     }
     .menu {
-        position: absolute;
-        top: 0;
-        right: 80px;
+        @include position(absolute,0 80px null null);
         cursor: pointer;
         img {
             height: $menu-height - 5px;
@@ -165,9 +157,7 @@ $menu-height: 80px !default;
         }
     }
     .woman-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
+        @include position(absolute,0 0 null null);
         height: $menu-height - 5px;
         img {
             width: auto;
@@ -179,27 +169,41 @@ $menu-height: 80px !default;
     margin-bottom: 20px;
     position: relative;
     .slidings {
+      .pagination{
+        @include position(absolute,null 10px 20px null);
+      li > a{
+          float: left;
+          padding: 10px 10px;
+          line-height: 1.42857;
+          text-decoration: none;
+          color: #000;
+          background-color: #fff;
+          border: 1px solid #000;
+          @include transform(skew(-10deg));
+          margin: 0 5px;
+          border-radius: 0;
+      }
+    }
         .flexslider {
             margin: 0;
             border: none;
         }
-        .flex-control-nav{
-          bottom: 35px;
-        }
-        .flex-direction-nav .flex-next {
-        right:10px;
+        .flex-control-nav,
+        .flex-direction-nav .flex-next,
+        .flex-direction-nav .flex-prev {
+        display: none;
         }
     }
 }
+
+
 
 .backdroped{
   .cross{
     width: 30px;
     height: 30px;
     color: #fff;
-    position: absolute;
-    top: 10px;
-    right: 0;
+     @include position(absolute,10px 0 null null);
     text-shadow: 1px 1px black, -1px 0px black, 0px -1px black, -1px -1px black, 0px 1px black , 1px 0px black,-1px 1px black,1px -1px black;
   }
 }
@@ -219,8 +223,7 @@ $menu-height: 80px !default;
         max-height: 507px;
         height: 419px;
         padding-right: 28px;
-        position: absolute;
-        left: -2px;
+        @include position(absolute,null null null-2px);
         @include transform(skew(-15deg));
         box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
         z-index: 1;
@@ -235,8 +238,7 @@ $menu-height: 80px !default;
         height: 200px;
         border-left: 1px solid rgba(0,0,0,0.05);
         dislay: block;
-        position: absolute;
-        left: -27px;
+        @include position(absolute,null null null-27px);
         @include transform(skew(15deg));
         background: $brand-green;
         -webkit-backface-visibility: hidden;
@@ -266,8 +268,7 @@ $menu-height: 80px !default;
         max-height: 507px;
         height: 208px;
         padding-right: 28px;
-        position: absolute;
-        left: 29px;
+        @include position(absolute,null null null 29px);
         box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
         z-index: 1;
         figure {
@@ -289,8 +290,7 @@ $menu-height: 80px !default;
         height: 208px;
         border-left: 1px solid transparent!important;
         dislay: block;
-        position: absolute;
-        right: -27px;
+        @include position(absolute,null-27px null null);
         @include transform(skew(15deg));
         background: $brand-blue;
         -webkit-backface-visibility: hidden;
@@ -300,9 +300,7 @@ $menu-height: 80px !default;
         max-height: 507px;
         height: 208px;
         padding-right: 28px;
-        position: absolute;
-        top: 55%;
-        left: 29px;
+        @include position(absolute,55% null null 29px);
         box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
         z-index: 1;
         figure {
@@ -324,8 +322,7 @@ $menu-height: 80px !default;
         width: 60px;
         border-left: 1px solid transparent!important;
         dislay: block;
-        position: absolute;
-        right: -27px;
+        @include position(absolute,null-27px null null);
         @include transform(skew(15deg));
         background: $brand-darkblue;
         -webkit-backface-visibility: hidden;
@@ -340,12 +337,11 @@ $menu-height: 80px !default;
                     background-color: $brand-blue;
                     border: none;
                 }
-                .flex-control-nav {
-                    display: none;
-                }
+                .flex-control-nav,
                 .flex-prev {
                     display: none;
                 }
+
                 .slides {
                     li {
                         @include transform(skew(10deg));
@@ -398,20 +394,16 @@ $menu-height: 80px !default;
         display: block;
         width: 558px;
         height: 323px;
-        position: absolute;
-        left: -27px;
-        top: 0;
+        @include position(absolute,0 null null-27px);
         @include transform(skew(10deg));
         background-color: $brand-yellow;
         background-image: url("../img/home/aunty.png");
         background-repeat: no-repeat;
         background-size: cover;
         .arrows {
-            position: absolute;
-            bottom: 32%;
             width: 10%;
-            right: 0;
-            transform: translate(-50%, -50%);
+            @include position( absolute,null 0px 32% null);
+            @include transform(translate(-50%,-50%));
         }
     }
     .text1 {
@@ -419,8 +411,7 @@ $menu-height: 80px !default;
         max-height: 507px;
         height: 150px;
         padding-right: 28px;
-        position: absolute;
-        left: 29px;
+        @include position( absolute,null null null 29px);
         box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
         z-index: 1;
         @include transform(skew(-10deg));
@@ -442,8 +433,7 @@ $menu-height: 80px !default;
         height: 150px;
         border-left: 1px solid transparent!important;
         dislay: block;
-        position: absolute;
-        left: -27px;
+        @include position( absolute,null null null-27px);
         @include transform(skew(10deg));
         background: $brand-purple;
         -webkit-backface-visibility: hidden;
@@ -453,9 +443,7 @@ $menu-height: 80px !default;
         max-height: 507px;
         height: 150px;
         padding-right: 28px;
-        position: absolute;
-        left: 29px;
-        top: 42%;
+        @include position( absolute,42% null null 29px);
         box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
         z-index: 1;
         @include transform(skew(-10deg));
@@ -478,8 +466,7 @@ $menu-height: 80px !default;
         height: 150px;
         border-left: 1px solid transparent!important;
         dislay: block;
-        position: absolute;
-        left: -27px;
+        @include position( absolute,null null null-27px);
         @include transform(skew(10deg));
         background: $brand-blue;
         -webkit-backface-visibility: hidden;
@@ -509,8 +496,7 @@ $menu-height: 80px !default;
                 max-height: 507px;
                 height: 419px;
                 padding-right: 28px;
-                position: absolute;
-                left: -95px;
+                @include position( absolute,null null null-95px);
                 @include transform(skew(-10deg));
                 box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
                 z-index: 1;
@@ -540,8 +526,7 @@ $menu-height: 80px !default;
             max-height: 507px;
             height: 208px;
             padding-right: 28px;
-            position: absolute;
-            left: 29px;
+            @include position( absolute,null null null 29px);
             box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
             z-index: 1;
             p {
@@ -561,6 +546,7 @@ $menu-height: 80px !default;
             dislay: block;
             position: absolute;
             right: -27px;
+            @include position( absolute,null-27px null null);
             @include transform(skew(10deg));
             background: $brand-pink;
         }
@@ -586,9 +572,7 @@ $menu-height: 80px !default;
             max-height: 507px;
             height: 208px;
             padding-right: 28px;
-            position: absolute;
-            top: 0;
-            left: 29px;
+            @include position( absolute,0px null null 29px);
             box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
@@ -598,8 +582,7 @@ $menu-height: 80px !default;
             width: 68px;
             border-left: 1px solid transparent !important;
             dislay: block;
-            position: absolute;
-            right: -49px;
+            @include position( absolute,null-49px null null);
             @include transform(skew(10deg));
             background: $brand-red;
         }
@@ -611,8 +594,7 @@ $menu-height: 80px !default;
 }
 .flex-control-nav {
     width: 100%;
-    position: absolute;
-    bottom: 39%;
+    @include position( absolute,null null 39% null);
     text-align: center;
     z-index: 3;
 }
@@ -647,9 +629,7 @@ $menu-height: 80px !default;
     font-size: 14px;
 }
 .arrow-down {
-    position: absolute;
-    bottom: 13%;
-    left: 48%;
+    @include position( absolute,null null 13% 48%);
     color: #fff;
     font-size: 17px;
     span {
@@ -668,18 +648,18 @@ $menu-height: 80px !default;
     text-shadow: -6px 0 #000;
 }
 .buttons {
-    position: absolute;
-    bottom: -3%;
     width: 10%;
+    position: absolute;
+    bottom:3%;
     left: 42%;
-    transform: translate(-50%,-50%);
+    @include transform(translate(-50%,-50%));
 }
 .arrows {
     position: absolute;
     bottom: 32%;
     width: 10%;
     right: -6%;
-    transform: translate(-50%, -50%);
+    @include transform(translate(-50%,-50%));
 }
 .width {
     width: 85%;
@@ -869,19 +849,20 @@ $menu-height: 80px !default;
                   display: none;
                 }
                   .flex-next{
-                    width: 100%;
-                    height: auto;
+                    display: block;
+      height: 50px;
+      width: 50px;
                   }
                 .flex-direction-nav a.flex-next:before{
-                      content:url(../img/home/arrow.png);
+                  content: "";
+                  @include square(100%);
+                  background: url("../img/home/arrow.png")no-repeat;
+                  background-size: contain;
                 }
             }
         }
     }
 }
-
-
-
 
 
 .slant-box {
