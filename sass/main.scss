@@ -194,12 +194,9 @@ $menu-height: 80px !default;
         }
         .flex-control-nav,
         .flex-direction-nav .flex-next,
-        .flex-direction-nav .flex-prev {
-        display: none;
-        }
+        .flex-direction-nav .flex-prev { display: none;}
     }
 }
-
 
 
 .backdroped{
@@ -264,9 +261,8 @@ $menu-height: 80px !default;
         overflow: hidden;
         @include transform(skew(-15deg));
     }
-    .images {
-        width: 50%;
-    }
+    .images { width: 50%; }
+
     .text1 {
         width: 510px;
         max-height: 507px;
@@ -343,7 +339,7 @@ $menu-height: 80px !default;
                 }
                 .flex-control-nav,
                 .flex-prev {
-                    display: none;
+                  display: none;
                 }
 
                 .slides {
@@ -593,9 +589,8 @@ $menu-height: 80px !default;
     }
 }
 //*slant1 last row ends*//
-.social-medias {
-    margin-top: -80px;
-}
+.social-medias { margin-top: -80px; }
+
 .flex-control-nav {
     width: 100%;
     @include position( absolute,null null 39% null);
@@ -615,9 +610,8 @@ $menu-height: 80px !default;
         height: 100%;
     }
 }
-.content {
-    min-height: 450px;
-}
+.content { min-height: 450px; }
+
 .btns {
     border-color: $brand-purple;
     background-color: $brand-purple;
@@ -641,7 +635,7 @@ $menu-height: 80px !default;
         text-align: center;
     }
     &:hover {
-        color: #000;
+      color: #000;
     }
 }
 .arrow {
@@ -682,20 +676,16 @@ $menu-height: 80px !default;
 .btn-group.open .dropdown-toggle {
     box-shadow: none;
 }
-.rows {
-    @include display(flex);
-}
-.cols1 {
-    @include flex (1);
-}
+.rows { @include display(flex); }
+
+.cols1 { @include flex (1); }
+
 //*home page ends*//
 //*footer starts*//
-.footers {
-    background-color: black;
-}
-.footers-list {
-    padding: 40px 0;
-}
+.footers { background-color: black; }
+
+.footers-list { padding: 40px 0; }
+
 .foot {
     padding: 5px;
     margin: 0;
@@ -755,9 +745,8 @@ $menu-height: 80px !default;
         }
     }
 }
-.ting {
-    display: inline-block;
-}
+.ting { display: inline-block; }
+
 .icons {
     margin: 0 5px 5px 0;
     display: inline-block;
