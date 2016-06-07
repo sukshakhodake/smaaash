@@ -842,6 +842,15 @@ $menu-height: 80px !default;
             background-color: $brand-red;
         }
     }
+    .mover{
+      .slidings{
+        .flexslider {
+            background: transparent;
+            border-color: transparent;
+          }
+      }
+
+    }
     .slant-box {
         padding: 15px 7% 0;
         .slidings {
