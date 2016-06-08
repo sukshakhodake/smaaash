@@ -68,7 +68,7 @@ $brand-white:#fff !default;
 //*order starts*//
 
 .form{
-  margin-bottom: 40px;
+   margin-bottom: 40px;
   .form-control{
     border-radius: 4px;
     border: 2px solid #000;
@@ -90,6 +90,85 @@ $brand-white:#fff !default;
   }
 
 }
+
+.slanting-row {
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+.slanting-col{
+  position: relative;
+  float: left;
+}
+
+.comic-pane{
+  width: 600px;
+  height: 220px;
+  top: 60px;
+  position: relative;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.comic-image{
+    width: 161px;
+    height: 130px;
+    position: absolute;
+    left: 37px;
+    transform: skew(10deg);
+    background-color: $brand-green;
+    border: 2px solid #000;
+    z-index: 1;
+}
+.comic-image:before{
+    content: "";
+    dislay: block;
+    position: absolute;
+    height: 126px;
+    width: 60px;
+    left: -13px;
+    top: 2px;
+    transform: skew(-10deg);
+    background: #32b544;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+.cimg{
+  background-image: url("../img/nav/mumbai.png");
+  background-size: cover;
+  display: block;
+  transform: skew(-10deg);
+  width: 145px;
+  height: 118px;
+  position: absolute;
+  left: -11px;
+  background-repeat: no-repeat;
+  bottom: 0;
+}
+.text{
+    width: 290px;
+    height: 133px;
+    right: 100px;
+    top: 0;
+    transform: skew(10deg);
+    position: absolute;
+    background-color: pink;
+    border: 2px solid #000;
+.info{
+  transform: skew(-10deg);
+}
+  }
+  .text:before{
+    content: "";
+    dislay: block;
+    position: absolute;
+    height: 131px;
+    width: 60px;
+    right: -14px;
+    top: -2px;
+    transform: skew(-10deg);
+    background: pink;
+    border-right: 2px solid #000;
+    border-top: 2px solid #000;
+  }
 //*order ends*//
 
 //*menu starts*//
@@ -127,7 +206,6 @@ $brand-white:#fff !default;
 }
 .smaaash-menu{
   a{
-
   display: block;
   }
 }
@@ -144,16 +222,89 @@ $brand-white:#fff !default;
 //*menu ends*//
 
 //*explore starts*//
-.gaming{
-  background-color: $brand-blue;
+.gaming,.smaaash-gaming{
+  margin: 10px;
   transform: skew(-5deg);
-      overflow: hidden;
+  overflow: hidden;
   .anti-scew{
     transform: skew(5deg);
   }
 }
+.gaming:before{
+      content: "";
+      width: 50px;
+      height: 100%;
+      position: absolute;
+      left: -15px;
+      transform: skew(5deg);
+      background-color: $brand-blue;
+    }
+    .gaming{
+      &.brand-red{
+        &:before{
+          background-color: $brand-red;
+        }
+      }
+    }
+    .gaming{
+      &.brand-darkblue{
+        &:before{
+          background-color: $brand-darkblue;
+        }
+      }
+    }
+    .gaming{
+      &.brand-red{
+        &:before{
+          background-color: $brand-red;
+        }
+      }
+    }
+    .gaming{
+      &.brand-blue{
+        &:before{
+          background-color: $brand-blue;
+        }
+      }
+    }
 
+.smash-gaming{
+  .gaming{
+    margin: 10px;
+    transform: skew(-5deg);
+    overflow: hidden;
+    .anti-scew{
+      transform: skew(5deg);
+    }
+  }
 
+  .gaming:before{
+    content: "";
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    left: 329px;
+    transform: skew(5deg);
+    background-color: #2a3890;
 
+  }
+  .gaming{
+    &.brand-purple{
+      &:before{
+        background-color: $brand-purple;
+      }
+    }
+  }
+
+  .gaming{
+    &.brand-green{
+      &:before{
+        background-color: $brand-green;
+      }
+    }
+  }
+}
 
 //*explore ends*//
+
+//*
