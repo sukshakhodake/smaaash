@@ -80,6 +80,9 @@ img.doneLoading {
 nav li:hover .dropdown-menu {
     display: block;
 }
+.resize{
+  resize: none;
+}
 .btn,
 a {
     cursor: pointer;
@@ -100,6 +103,7 @@ a {
     border-color: $brand-primary;
     outline: 0;
     @include box-shadow(none);
+
 }
 //bootstrap forms
 /* Start writing sass here */
