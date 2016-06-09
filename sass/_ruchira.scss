@@ -11,6 +11,9 @@ $brand-white:#fff !default;
   text-transform: capitalize;
 }
 
+.margin0{
+  margin: 0;
+}
 .corporate{
   position: relative;
   .banner-info{
@@ -70,8 +73,9 @@ $brand-white:#fff !default;
 .form{
    margin-bottom: 40px;
   .form-control{
-    border-radius: 4px;
+    border-radius: 8px;
     border: 2px solid #000;
+    height: 40px;
   }
   .btn1{
     box-shadow: -3px 3px #000, -3px 0px #000;
@@ -109,49 +113,50 @@ $brand-white:#fff !default;
   overflow: hidden;
 }
 .comic-image{
-    width: 161px;
-    height: 130px;
-    position: absolute;
-    left: 37px;
-    transform: skew(10deg);
-    background-color: $brand-green;
-    border: 2px solid #000;
-    z-index: 1;
+  width: 180px;
+height: 141px;
+position: absolute;
+left: 12px;
+transform: skew(10deg);
+background-color: #008443;
+border: 2px solid #000;
+z-index: 1;
 }
 .comic-image:before{
-    content: "";
-    dislay: block;
-    position: absolute;
-    height: 126px;
-    width: 60px;
-    left: -13px;
-    top: 2px;
-    transform: skew(-10deg);
-    background: #32b544;
-    border-left: 2px solid #000;
-    border-bottom: 2px solid #000;
+  content: "";
+  dislay: block;
+  position: absolute;
+  height: 137px;
+  width: 60px;
+  left: -14px;
+  top: 2px;
+  transform: skew(-10deg);
+  background: #008443;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 .cimg{
-  background-image: url("../img/confirm/Sachingreen.png");
-  background-size: cover;
   display: block;
   transform: skew(-10deg);
-  width: 145px;
-  height: 118px;
+  width: 229px;
+  height: 138px;
   position: absolute;
-  left: -11px;
-  background-repeat: no-repeat;
-  bottom: 0;
+  left: 15px;
+  bottom: -11px;
+  img{
+    width: 60%;
+  }
 }
 .text{
-    width: 290px;
-    height: 133px;
-    right: 100px;
+    width: 325px;
+    height: 142px;
+    right: 62px;
     top: 0;
     transform: skew(10deg);
     position: absolute;
-    background-color: pink;
-    border: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
 .info{
   transform: skew(-10deg);
 }
@@ -160,15 +165,29 @@ $brand-white:#fff !default;
     content: "";
     dislay: block;
     position: absolute;
-    height: 131px;
+    height: 142px;
     width: 60px;
     right: -14px;
     top: -2px;
     transform: skew(-10deg);
-    background: pink;
     border-right: 2px solid #000;
     border-top: 2px solid #000;
   }
+
+.info{
+  p{
+    font-family: $head-font;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+.confirm-order{
+
+}
+
+
+
+
 //*order ends*//
 
 //*menu starts*//
