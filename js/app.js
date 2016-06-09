@@ -31,6 +31,14 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'ExploreCtrl'
   })
 
+
+  .state('karting', {
+      url: "/karting",
+      templateUrl: "views/template.html",
+      controller: 'KartingCtrl'
+  })
+
+
   .state('confirm-order', {
       url: "/confirm-order",
       templateUrl: "views/template.html",

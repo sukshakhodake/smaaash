@@ -113,14 +113,14 @@ $brand-white:#fff !default;
   overflow: hidden;
 }
 .comic-image{
-  width: 180px;
-height: 141px;
-position: absolute;
-left: 12px;
-transform: skew(10deg);
-background-color: #008443;
-border: 2px solid #000;
-z-index: 1;
+  width: 30%;
+    height: 141px;
+    position: absolute;
+    left: 14px;
+    transform: skew(10deg);
+    background-color: #008443;
+    border: 2px solid #000;
+    z-index: 1;
 }
 .comic-image:before{
   content: "";
@@ -137,20 +137,20 @@ z-index: 1;
 }
 .cimg{
   display: block;
-  transform: skew(-10deg);
-  width: 229px;
-  height: 138px;
-  position: absolute;
-  left: 15px;
-  bottom: -11px;
+    transform: skew(-10deg);
+    width: 135px;
+    height: 135px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   img{
-    width: 60%;
+    max-height: 100%;
   }
 }
 .text{
-    width: 325px;
+    width: 62%;
     height: 142px;
-    right: 62px;
+    right: 15px;
     top: 0;
     transform: skew(10deg);
     position: absolute;
@@ -182,11 +182,15 @@ z-index: 1;
   }
 }
 .confirm-order{
-
+  .comic-pane{
+    width: 100%;
+        height: 220px;
+        top: 60px;
+        position: relative;
+        margin: 0px auto;
+        overflow: hidden;
+  }
 }
-
-
-
 
 //*order ends*//
 
@@ -326,4 +330,9 @@ z-index: 1;
 
 //*explore ends*//
 
-//*
+//* *//
+.bg{
+  background-image: url("../img/karting/kartingbg.png");
+  
+}
+//**//

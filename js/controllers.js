@@ -37,6 +37,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   ];
 
+
   $scope.$on('$viewContentLoaded', function(event) {
       $timeout(function() {
           (function(d, s, id) {
@@ -77,6 +78,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("ConfirmOrder");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.billingForm={};
+  $scope.formSubmit=function(formData,formValid)
+  {
+    if(formData && formValid.$valid){
+        // $scope.showform=true;
+    }
+
+  }
 })
 
 .controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -86,6 +95,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 })
+
+.controller('KartingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("karting");
+  $scope.menutitle = NavigationService.makeactive("Karting");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+  $scope.mySlides4 = [
+    'img/karting/blue.png',
+    'img/karting/sonakshi.png',
+    'img/karting/salman.png',
+    'img/karting/shikar.png',
+    'img/karting/cricket.png'
+  ];
+})
+
 
 .controller('headerctrl', function($scope, TemplateService) {
   $scope.template = TemplateService;

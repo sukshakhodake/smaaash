@@ -971,6 +971,31 @@ $menu-height: 80px !default;
     }
   }
 }
+.form-control {
+    position: relative;
+}
+.error-msg {
+    padding: 10px;
+    background-color: #FFFACF;
+    border: 2px solid black;
+    position: absolute;
+    z-index: 9;
+    top: 108px;
+    right: 9px;
+    border-radius: 5px;
+    &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid black;
+        position: absolute;
+        right: 5px;
+        top: -7px;
+    }
+
+}
 //*footer ends*//
 @import "fancybox-override";
 @import "ruchira";
