@@ -170,7 +170,7 @@ $menu-height: 80px !default;
     }
 }
 .smaash-drops {
-    margin-bottom: 20px;
+    margin-bottom: 0;
     position: relative;
     .slidings {
       .custom-pagination{
@@ -690,6 +690,12 @@ $menu-height: 80px !default;
 
 .cols1 { @include flex (1); }
 
+.twitter-wdget{
+   .wdget{
+    overflow: hidden!important;
+  }
+}
+
 //*home page ends*//
 //*footer starts*//
 .footers { background-color: black; }
@@ -781,7 +787,7 @@ $menu-height: 80px !default;
 }
 .slant-row {
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .slant-col {
     @include transform(skew(-15deg));

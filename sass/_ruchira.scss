@@ -228,12 +228,14 @@ $brand-white:#fff !default;
   text-align: center;
 }
 .smaaash-menu{
+  margin-top: -60px;
   a{
   display: block;
   }
 }
 .nav-name{
   padding: 25px;
+  text-align: center;
   font-family: $body-font;
   background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
   -webkit-background-clip: text;
@@ -333,6 +335,91 @@ $brand-white:#fff !default;
 //* *//
 .bg{
   background-image: url("../img/karting/kartingbg.png");
-  
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backg{
+  background-image: url("../img/navbg/expole.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 //**//
+
+//*menu*//
+
+.smaash-menu,.smaaash-menu{
+  background-color: $brand-white;
+}
+
+.promotions{
+  background-image: url("../img/navbg/promotions.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.registration{
+  background-image: url("../img/navbg/Registration.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.buy{
+  background-image: url("../img/navbg/buy.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cart{
+  background-image: url("../img/navbg/mycart.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.account{
+  background-image: url("../img/navbg/myaccount.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.log{
+  background-image: url("../img/navbg/login.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.exploring{
+  background-image: url("../img/navbg/explores.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.food{
+  background-image: url("../img/navbg/food.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.deals{
+  background-image: url("../img/navbg/deals.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.events{
+  background-image: url("../img/navbg/events.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.starts{
+  background-image: url("../img/navbg/starts.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.host{
+  background-image: url("../img/navbg/host.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+//*menu*//
