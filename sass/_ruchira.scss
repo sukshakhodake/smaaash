@@ -399,7 +399,7 @@ $brand-white:#fff !default;
 //*menu*//
 
 //*karting*//
-.karting1,.articles{
+.kartings,.articles{
   .slant-row{
     margin-top: 15px;
     overflow: hidden;
@@ -462,7 +462,68 @@ border-bottom: 2px solid #000;
 }
 }
 
-
+// .karting1{
+//   .slant-row{
+//     margin-top: 15px;
+//     overflow: hidden;
+//   }
+//   .slant-col{
+//     transform: skew(10deg);
+//     position: relative;
+//     width: 35%;
+//     float: left;
+//     border-bottom: 2px solid #000;
+//     border-right: 2px solid #000;
+//     border-top: 2px solid #000;
+//     &:before{
+//       content: "";
+//       transform: skew(-10deg);
+//       width: 15%;
+//       height: 100%;
+//       position: absolute;
+//       left: 0px;
+//       top: -2px;
+//       border-left: 2px solid #000;
+//       border-top: 2px solid #000;
+// }
+//
+//     }
+//   .full-height {
+//     height: 350px;
+//     overflow: hidden;
+// }
+// .slant-box{
+//   transform: skew(-10deg);
+//    padding: 15px 15px 0;
+//    margin: 30px 0 0 20px;
+// }
+// }
+//
+// .slant-column{
+//   transform: skew(10deg);
+//     position: relative;
+//     width: 63%;
+//     border-bottom: 2px solid #000;
+//     border-left: 2px solid #000;
+//     border-top: 2px solid #000;
+//       .slant-box{
+//         transform: skew(-10deg);
+//       }
+//       .half-height {
+//        height: 350px;
+// }
+// .slant-ins:before {
+// content: "";
+// transform: skew(-10deg);
+// width: 15%;
+// height: 100%;
+// position: absolute;
+// right: 0;
+// top: 2px;
+// border-right: 2px solid #000;
+// border-bottom: 2px solid #000;
+// }
+// }
 
 
 //*karting*//
