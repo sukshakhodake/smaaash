@@ -877,7 +877,6 @@ $menu-height: 80px !default;
     padding: 15px 15px 0;
     h2 {
         font-family: $body-font;
-        color: white;
         font-size: 30px;
         margin: 0;
     }
@@ -977,7 +976,7 @@ $menu-height: 80px !default;
     }
   }
 }
-.form-control {
+.form-group {
     position: relative;
 }
 .error-msg {
@@ -986,7 +985,7 @@ $menu-height: 80px !default;
     border: 2px solid black;
     position: absolute;
     z-index: 9;
-    top: 108px;
+    top: 45px;
     right: 9px;
     border-radius: 5px;
     &:before {
