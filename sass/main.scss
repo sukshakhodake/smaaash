@@ -46,6 +46,9 @@ body {
 .brand-blue {
     background-color: $brand-blue;
 }
+.brand-ortitle{
+  color: #FB5627;
+}
 .brand-red {
     background-color: $brand-red;
 }
@@ -179,6 +182,7 @@ $menu-height: 80px !default;
         .flex-active {
           padding: 4px 10px 20px;
           background-color: $brand-red;
+          color: #fff;
          }
       li {
           float: left;

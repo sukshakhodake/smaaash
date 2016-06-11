@@ -117,7 +117,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     'img/karting/sonakshi.png',
     'img/karting/salman.png',
     'img/karting/shikar.png',
-    'img/karting/cricket.png'
+    'img/karting/blue.png'
   ];
 })
 

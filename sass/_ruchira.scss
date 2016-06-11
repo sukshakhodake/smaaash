@@ -17,8 +17,16 @@ $brand-white:#fff !default;
 .brand-sachin{
   background-color: #008244;
 }
+
+.brand-black{
+  background-color: #000;
+}
+
 .margin0{
   margin: 0;
+}
+.margin60{
+  margin-top: 60px;
 }
 .corporate{
   position: relative;
@@ -250,7 +258,9 @@ $brand-white:#fff !default;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
 }
-
+.nav-naming{
+padding: 21px 0;
+}
 //*menu ends*//
 
 //*explore starts*//
@@ -275,7 +285,7 @@ $brand-white:#fff !default;
       width: 50px;
       height: 100%;
       position: absolute;
-      left: -15px;
+      left: -18px;
       transform: skew(5deg);
       background-color: $brand-blue;
     }
@@ -398,7 +408,7 @@ $brand-white:#fff !default;
 
 //*menu*//
 
-//*karting*//
+//*karting*,*about*//
 .kartings,.articles{
   .slant-row{
     margin-top: 15px;
@@ -415,8 +425,8 @@ $brand-white:#fff !default;
     &:before{
       content: "";
       transform: skew(10deg);
-      width: 15%;
-      height: 100%;
+      width: 34px;
+      height: 382px;
       position: absolute;
       left: 0px;
       top: -2px;
@@ -432,9 +442,9 @@ $brand-white:#fff !default;
 .slant-box{
   transform: skew(10deg);
    padding: 15px 15px 0;
-   margin: 30px 0 0 20px;
+   margin: 30px 0 0 30px;
 }
-}
+
 
 .slant-column{
   transform: skew(-10deg);
@@ -449,81 +459,159 @@ $brand-white:#fff !default;
       .half-height {
        height: 350px;
 }
-.slant-ins:before {
-content: "";
-transform: skew(10deg);
-width: 15%;
-height: 100%;
-position: absolute;
-right: 0;
-top: 2px;
-border-right: 2px solid #000;
-border-bottom: 2px solid #000;
+&:before {
+  content: "";
+      transform: skew(10deg);
+      width: 34px;
+      height: 382px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-right: 2px solid #000;
+      border-bottom: 2px solid #000;
+}
+}
+}
+.karting1{
+  .slant-row{
+    margin-top: 15px;
+    overflow: hidden;
+  }
+  .slant-col{
+    transform: skew(-10deg);
+    position: relative;
+    width: 63%;
+    float: left;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    border-top: 2px solid #000;
+    &:before{
+      content: "";
+      transform: skew(10deg);
+      top: -2px;
+      border-left: 2px solid #000;
+      width: 35px;
+      height: 382px;
+      position: absolute;
+      border-top: 2px solid #000;
+      top: -2px;
+      left: 0px;
+}
+
+    }
+  .full-height {
+    height: 350px;
+    overflow: hidden;
+}
+.slant-box{
+  transform: skew(10deg);
+   padding: 15px 15px 0;
+   margin: 30px 0 0 30px;
+}
+}
+.slant-column{
+  transform: skew(-10deg);
+    position: relative;
+    width: 35%;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+      .slant-box{
+        transform: skew(10deg);
+      }
+      .half-height {
+       height: 350px;
+}
+&:before {
+  content: "";
+      transform: skew(10deg);
+      width: 34px;
+      height: 382px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-right: 2px solid #000;
+      border-bottom: 2px solid #000;
+}
+}
+.slant-box{
+  p{
+    font-weight: 600;
+    text-align: justify;
+  }
+  h3{
+    margin: 10px 0 0 0;
+  }
+}
+
+.gallery{
+  border: 2px solid #000;
+    margin-bottom: 15px;
+  .slidings{
+  margin: 60px 20px 0;
+    .flex-control-nav,
+    .flex-prev {
+      display: none;
+    }
+    .flexslider{
+       margin-bottom: 20px;
+    }
+    .flex-next{
+      display: block;
+      height: 50px;
+      width: 50px;
+    }
+  .flex-direction-nav a.flex-next:before{
+    content: "";
+    @include square(100%);
+    background: url("../img/home/arrow.png")no-repeat;
+    background-size: contain;
+  }
+  }
+}
+
+//*karting,*about**//
+
+// .owner{
+//   background-image: url("../img/karting/man.png");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+
+
+.articles{
+  .slant-col{
+    &.brand-black{
+    &:before{
+      background-color: #000;
+    }
+  }
 }
 }
 
-// .karting1{
-//   .slant-row{
-//     margin-top: 15px;
-//     overflow: hidden;
-//   }
-//   .slant-col{
-//     transform: skew(10deg);
-//     position: relative;
-//     width: 35%;
-//     float: left;
-//     border-bottom: 2px solid #000;
-//     border-right: 2px solid #000;
-//     border-top: 2px solid #000;
-//     &:before{
-//       content: "";
-//       transform: skew(-10deg);
-//       width: 15%;
-//       height: 100%;
-//       position: absolute;
-//       left: 0px;
-//       top: -2px;
-//       border-left: 2px solid #000;
-//       border-top: 2px solid #000;
-// }
-//
-//     }
-//   .full-height {
-//     height: 350px;
-//     overflow: hidden;
-// }
-// .slant-box{
-//   transform: skew(-10deg);
-//    padding: 15px 15px 0;
-//    margin: 30px 0 0 20px;
-// }
-// }
-//
-// .slant-column{
-//   transform: skew(10deg);
-//     position: relative;
-//     width: 63%;
-//     border-bottom: 2px solid #000;
-//     border-left: 2px solid #000;
-//     border-top: 2px solid #000;
-//       .slant-box{
-//         transform: skew(-10deg);
-//       }
-//       .half-height {
-//        height: 350px;
-// }
-// .slant-ins:before {
-// content: "";
-// transform: skew(-10deg);
-// width: 15%;
-// height: 100%;
-// position: absolute;
-// right: 0;
-// top: 2px;
-// border-right: 2px solid #000;
-// border-bottom: 2px solid #000;
-// }
-// }
+.articles{
+  .slant-col{
+    &.brand-orange{
+    &:before{
+      background-color: #E62D09;
+    }
+  }
+}
+}
 
+.articles{
+  .slant-col{
+    &.brand-sachin{
+    &:before{
+      background-color: #008244;
+    }
+  }
+}
+}
 
-//*karting*//
+// .sach{
+//   background-image: url("../img/karting/smile.png");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
