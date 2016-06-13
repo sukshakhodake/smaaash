@@ -177,13 +177,8 @@ $menu-height: 80px !default;
     position: relative;
     .slidings {
       .custom-pagination{
-        @include position(absolute,null 20px 28px null);
+        @include position(absolute,null 20px 32px null);
         margin: 0;
-        .flex-active {
-          padding: 4px 10px 20px;
-          background-color: $brand-red;
-          color: #fff;
-         }
       li {
           float: left;
           padding: 10px 10px;
@@ -192,15 +187,21 @@ $menu-height: 80px !default;
           line-height: 1.42857;
           text-decoration: none;
           color: #000;
-          font-weight: 600;
+          font-weight: 700;
           background-color: #fff;
-          box-shadow: 2px -2px #000,3px 0px #000;
+          box-shadow: 2px -2px #000, 2px -1px #000;
           @include transform(skew(-10deg));
           @include transition(all 300ms ease);
           margin: 0 5px;
           border-radius: 0;
-          &:active, &:hover {
+          &:active, &:hover, &.flex-active {
             background-color: $brand-red;
+            color: white;
+          }
+          &.flex-active {
+            padding: 12.5px 10px;
+            margin-top: -5px;
+            margin-bottom: -5px;
           }
       }
     }
@@ -876,7 +877,17 @@ $menu-height: 80px !default;
     }
 }
 
-
+.know{
+  display: block;
+  color: #fff;
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+  &:hover{
+    color: $brand-yellow;
+  }
+}
 .slant-box {
     @include transform(skew(15deg));
     padding: 15px 15px 0;
@@ -888,12 +899,14 @@ $menu-height: 80px !default;
     .mover {
         width: 90%;
         @include position( absolute,null null 0 0);
+        display: block;
     }
 }
 .reverse {
     .mover {
         right: 0;
         left: auto;
+
     }
     .slant-col {
         z-index: 1;
