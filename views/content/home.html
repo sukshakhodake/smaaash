@@ -5,195 +5,126 @@
     <div ng-include="template.header" class="template header  brand-yellow"></div>
     <div class="slidings">
         <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
-            <li>
-                <img ng-src="{{s.url}}">
-            </li>
-        </flex-slider>
-        <ul class="custom-pagination">
-            <li ng-repeat="s in mySlides track by $index">{{s.id}}</li>
-        </ul>
+        <li>
+            <img ng-src="{{s.url}}">
+        </li>
+    </flex-slider>
+    <ul class="custom-pagination">
+        <li ng-repeat="s in mySlides track by $index">{{s.id}}</li>
+    </ul>
 
-    </div>
+</div>
 </div>
 <div class="container">
-<div class="backdroped" ng-if="menu" ng-click="toggleMenu()">
-<div class="nav-menu">
-  <div class="smaash-menu">
-  <div class="row">
-    <div class="rows">
-    <div class="col-flexing">
-      <div class="promotions bg-prop">
-      <a href=""><h1 class="nav-name">promotions</h1></a>
+<div class="slant-row">
+    <div class="slant-col brand-green">
+        <div class="slant-box full-height">
+            <h2 class="brand-white">Attractions</h2>
+            <div class="mover">
+                <div class="slidings">
+                    <flex-slider class="carousel" flex-slide="s in mySlides3 track by $index" item-width="500" animation="slide" animationLoop="true" prev-text="" next-text="">
+                    <li>
+                        <img ng-src="{{s}}">
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
     </div>
+</div>
+<div class="slant-col pull-right">
+    <div class="slant-in brand-blue">
+        <div class="slant-box half-height">
+            <h2 class="brand-white">Whats New</h2>
+            <div class="slidings">
+                <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                    <li>
+                        <img ng-src="{{s}}">
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
     </div>
-    <div class="col-flexing">
-      <div class="registration bg-prop">
-    <a href=""><h1 class="nav-name">registration</h1></a>
+    <div class="slant-in brand-darkblue">
+        <div class="slant-box  half-height">
+            <h2 class="brand-white">Host Party</h2>
+            <div class="slidings">
+                <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                    <li>
+                        <img ng-src="{{s}}">
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
     </div>
-    </div>
-    <div class="col-flexing">
-      <div class="buy bg-prop">
-      <a href=""><h1 class="nav-naming ">buy online</h1></a>
-    </div>
-    </div>
-    <div class="col-flexing">
-      <div class="cart bg-prop">
-      <a href=""><h1 class="nav-name">my cart</h1></a>
-    </div>
-    </div>
-    <div class="col-flexing">
-        <div class="account bg-prop">
-        <a href=""><h1 class=" nav-naming">my account</h1></a>
-    </div>
-    </div>
-    <div class="col-flexing">
-      <div class="log bg-prop">
-        <a href=""><h1 class="nav-name">login</h1></a>
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="smaaash-menu">
-    <div class="row">
-      <div class="rows">
-      <div class="col-flexing">
-        <div class="exploring bg-prop">
-        <a href=""><h1 class="nav-name ">explore smaaash</h1></a>
-      </div>
-      </div>
-      <div class="col-flexing">
-        <div class="food bg-prop">
-        <a href=""><h1 class="nav-name ">food &amp; beverages</h1></a>
-      </div>
-      </div>
-      <div class="col-flexing">
-         <div class="deals bg-prop">
-          <a href=""><h1 class="nav-name">deals &amp; packages</h1></a>
-      </div>
-    </div>
-      <div class="col-flexing">
-        <div class="events bg-prop">
-        <a href=""><h1 class="nav-name ">events &amp; challenges</h1></a>
-      </div>
-      </div>
-      <div class="col-flexing">
-        <div class="starts bg-prop">
-        <a href=""><h1 class="nav-name ">starts at smaaash</h1></a>
-      </div>
-      </div>
-      <div class="col-flexing">
-        <div class="host bg-prop">
-          <a href=""><h1 class="nav-name ">host a party</h1></a>
-      </div>
-      </div>
-    </div>
-  </div>
-  </div>
 </div>
 </div>
-    <div class="slant-row">
-        <div class="slant-col brand-green">
-            <div class="slant-box full-height">
-                <h2 class="brand-white">Attractions</h2>
-                <div class="mover">
-                  <div class="slidings">
-                      <flex-slider class="carousel" flex-slide="s in mySlides3 track by $index" item-width="500" animation="slide" animationLoop="true" prev-text="" next-text="">
-                          <li>
-                              <img ng-src="{{s}}">
-                          </li>
-                      </flex-slider>
-                  </div>
-                </div>
-            </div>
-        </div>
-        <div class="slant-col pull-right">
-            <div class="slant-in brand-blue">
-                <div class="slant-box half-height">
-                    <h2 class="brand-white">Whats New</h2>
-                    <div class="slidings">
-                        <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
-                            <li>
-                                <img ng-src="{{s}}">
-                            </li>
-                        </flex-slider>
-                    </div>
-                </div>
-            </div>
-            <div class="slant-in brand-darkblue">
-                <div class="slant-box  half-height">
-                    <h2 class="brand-white">Host Party</h2>
-                    <div class="slidings">
-                        <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
-                            <li>
-                                <img ng-src="{{s}}">
-                            </li>
-                        </flex-slider>
-                    </div>
-                </div>
-            </div>
+
+<div class="slant-row reverse">
+<div class="slant-col">
+    <div class="slant-in brand-purple">
+        <div class="slant-box half-height"></div>
+    </div>
+    <div class="slant-in brand-blue">
+        <div class="slant-box  half-height"></div>
+    </div>
+</div>
+<div class="slant-col brand-yellow pull-right">
+    <div class="rays"></div>
+    <div class="slant-box full-height">
+        <div class="mover">
+            <img src="img/home/aunty.png" class="img-responsive" alt="Speed Karting"/>
         </div>
     </div>
+</div>
+</div>
 
-    <div class="slant-row reverse">
-        <div class="slant-col">
-            <div class="slant-in brand-purple">
-                <div class="slant-box half-height"></div>
-            </div>
-            <div class="slant-in brand-blue">
-                <div class="slant-box  half-height"></div>
-            </div>
-        </div>
-        <div class="slant-col brand-yellow pull-right">
-            <div class="rays"></div>
-            <div class="slant-box full-height">
-                <div class="mover">
-                    <img src="img/home/aunty.png" class="img-responsive" alt="Speed Karting" />
+<div class="slant-row">
+<div class="slant-col brand-green">
+    <div class="slant-box full-height">
+        <h2 class="brand-white">Facebook</h2>
+
+        <div class="wdget">
+            <div class="fb-page" data-href="https://www.facebook.com/SmaaashLive/" data-tabs="timeline" data-width="360" data-height="375" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-xfbml-parse-ignore">
+                    <blockquote cite="https://www.facebook.com/SmaaashLive/">
+                        <a href="https://www.facebook.com/SmaaashLive/">Smaaash</a>
+                    </blockquote>
                 </div>
             </div>
+
+            <div id="fb-root"></div>
         </div>
+
     </div>
-
-    <div class="slant-row">
-        <div class="slant-col brand-green">
-            <div class="slant-box full-height">
-                <h2 class="brand-white">Facebook</h2>
-
+</div>
+<div class="slant-col pull-right">
+    <div class="slant-in brand-pink">
+        <div class="slant-box half-height">
+            <h2 class="brand-white">Twitter</h2>
+            <div class="twitter-wdget">
                 <div class="wdget">
-                    <div class="fb-page" data-href="https://www.facebook.com/SmaaashLive/" data-tabs="timeline" data-width="360" data-height="375" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                        <div class="fb-xfbml-parse-ignore">
-                            <blockquote cite="https://www.facebook.com/SmaaashLive/">
-                                <a href="https://www.facebook.com/SmaaashLive/">Smaaash</a>
-                            </blockquote>
-                        </div>
-                    </div>
-
-                    <div id="fb-root"></div>
-                </div>
-
-            </div>
-        </div>
-        <div class="slant-col pull-right">
-            <div class="slant-in brand-pink">
-                <div class="slant-box half-height">
-                    <h2 class="brand-white">Twitter</h2>
-                <div class="twitter-wdget">
-                    <div class="wdget">
-                        <a class="twitter-timeline" href="https://twitter.com/SmaaashLive" data-widget-id="739818858647670784" data-chrome="noheader noborders">Tweets by @SmaaashLive</a>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="slant-in brand-red">
-                <div class="slant-box  half-height">
-                    <h2 class="brand-white">Instagram</h2>
-
-                    <div class="wdget">
-                        <iframe src="//lightwidget.com/widgets/b4f95e3dfd7f5cd99675d072106bee2d.html" id="lightwidget_b4f95e3dfd" name="lightwidget_b4f95e3dfd" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
-                    </div>
-
+                    <a class="twitter-timeline" href="https://twitter.com/SmaaashLive" data-widget-id="739818858647670784" data-chrome="noheader noborders">Tweets by @SmaaashLive</a>
                 </div>
             </div>
         </div>
     </div>
+    <div class="slant-in brand-red">
+        <div class="slant-box  half-height">
+            <h2 class="brand-white">Instagram</h2>
+
+            <div class="wdget">
+                <iframe
+                    src="//lightwidget.com/widgets/b4f95e3dfd7f5cd99675d072106bee2d.html"
+                    id="lightwidget_b4f95e3dfd"
+                    name="lightwidget_b4f95e3dfd"
+                    scrolling="no"
+                    allowtransparency="true"
+                    class="lightwidget-widget"
+                    style="width: 100%; border: 0; overflow: hidden;"></iframe>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
 </div>

@@ -251,26 +251,27 @@ $brand-white:#fff !default;
   display: block;
   }
 }
-.nav-name{
+.nav-name {
+  margin: 0;
   padding: 25px;
   font-size: 36px;
   text-align: center;
   font-family: $body-font;
-  background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
+  @include background-image(linear-gradient(#edef90 50%, #37d028));
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
 }
-.nav-naming{
-padding: 0 25px;
-text-align: center;
-font-family: $body-font;
-background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
--webkit-background-clip: text;
-color: transparent;
--webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: #000;
+.nav-naming {
+  padding: 0 25px;
+  text-align: center;
+  font-family: $body-font;
+  @include background-image(linear-gradient(#edef90 50%, #37d028));
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
 // .navi{
 //   margin-right: 10px;
@@ -397,8 +398,22 @@ color: transparent;
 
 //*menu*//
 
-.smaash-menu,.smaaash-menu{ background-color: $brand-white; }
-
+.smaash-menu {
+  background-color: $brand-white;
+  height: 0;
+  overflow: hidden;
+  @include transition(all 300ms ease);
+}
+.menu-opened {
+  .smaash-menu {
+    height: 236px;
+  }
+  .woman-menu {
+    img {
+      @include transform(rotate(180deg) scaleX(-1));
+    }
+  }
+}
 .bg-prop{
   background-repeat: no-repeat;
   background-size: cover;
