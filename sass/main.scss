@@ -192,6 +192,7 @@ $menu-height: 80px !default;
           line-height: 1.42857;
           text-decoration: none;
           color: #000;
+          font-weight: 600;
           background-color: #fff;
           box-shadow: 2px -2px #000,3px 0px #000;
           @include transform(skew(-10deg));
