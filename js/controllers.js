@@ -61,7 +61,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           }(document, "script", "twitter-wjs");
       }, 100);
   });
-
+  $scope.menu = false;
+  $scope.toggleMenu = function () {
+    console.log('Toggle Menu');
+    $scope.menu = !$scope.menu;
+  };
 })
 
 .controller('CorporateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -132,11 +136,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log('Toggle City');
     $scope.city = !$scope.city;
   };
-  $scope.menu = false;
-  $scope.toggleMenu = function () {
-    console.log('Toggle Menu');
-    $scope.menu = !$scope.menu;
-  };
+
 })
 
 .controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {
