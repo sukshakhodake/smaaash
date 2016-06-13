@@ -107,7 +107,10 @@ $brand-white:#fff !default;
         background-color: $brand-green;
       }
   }
-
+.btn-default:active{
+  color:#000;
+  background-color: $brand-purple;
+}
 }
 
 .slanting-row {
@@ -250,6 +253,7 @@ $brand-white:#fff !default;
 }
 .nav-name{
   padding: 25px;
+  font-size: 36px;
   text-align: center;
   font-family: $body-font;
   background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
@@ -259,7 +263,7 @@ $brand-white:#fff !default;
   -webkit-text-stroke-color: #000;
 }
 .nav-naming{
-padding: 25px 0;
+padding: 0 25px;
 text-align: center;
 font-family: $body-font;
 background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
@@ -268,17 +272,17 @@ color: transparent;
 -webkit-text-stroke-width: 1px;
 -webkit-text-stroke-color: #000;
 }
-.navi{
-  margin-right: 10px;
-  padding: 25px 0;
-  text-align: center;
-  font-family: $body-font;
-  background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
-}
+// .navi{
+//   margin-right: 10px;
+//   padding: 25px 0;
+//   text-align: center;
+//   font-family: $body-font;
+//   background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
+//   -webkit-background-clip: text;
+//   color: transparent;
+//   -webkit-text-stroke-width: 1px;
+//   -webkit-text-stroke-color: #000;
+// }
 //*menu ends*//
 
 //*explore starts*//
@@ -444,7 +448,7 @@ color: transparent;
       content: "";
       transform: skew(10deg);
       width: 34px;
-      height: 382px;
+      height: 335px;
       position: absolute;
       left: 0px;
       top: -2px;
@@ -454,7 +458,7 @@ color: transparent;
 
     }
   .full-height {
-    height: 350px;
+    height: 303px;
     overflow: hidden;
 }
 .slant-box{
@@ -475,13 +479,13 @@ color: transparent;
         transform: skew(10deg);
       }
       .half-height {
-       height: 350px;
+       height: 303px;
 }
 &:before {
   content: "";
       transform: skew(10deg);
       width: 34px;
-      height: 382px;
+      height: 335px;
       position: absolute;
       right: 0;
       top: 0;
@@ -509,7 +513,7 @@ color: transparent;
       top: -2px;
       border-left: 2px solid #000;
       width: 35px;
-      height: 382px;
+      height: 335px;
       position: absolute;
       border-top: 2px solid #000;
       top: -2px;
@@ -518,7 +522,7 @@ color: transparent;
 
     }
   .full-height {
-    height: 350px;
+    height: 303px;
     overflow: hidden;
 }
 .slant-box{
@@ -538,13 +542,13 @@ color: transparent;
         transform: skew(10deg);
       }
       .half-height {
-       height: 350px;
+       height: 303px;
 }
 &:before {
   content: "";
       transform: skew(10deg);
       width: 34px;
-      height: 382px;
+      height: 335px;
       position: absolute;
       right: 0;
       top: 0;
