@@ -12,5 +12,8 @@
     @include transform(skew(0deg));
     padding: 15px !important;
   }
+  .slant-col+.slant-col {
+    margin-top: 20px;
+  }
 
 }
