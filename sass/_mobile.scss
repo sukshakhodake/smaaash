@@ -1,3 +1,6 @@
+
+
+//css for xs-767px starts//
 @media (max-width: $screen-xs-max) {
 
   .slant-col {
@@ -12,10 +15,119 @@
     @include transform(skew(0deg));
     padding: 15px !important;
   }
-  .slant-col+.slant-col {
-    margin-top: 20px;
-  }
 
+  .slant-col+.slant-col { margin-top: 20px; }
+
+.slant-box{
+  h2{
+    font-size: 20px;
+    margin: 0;
+  }
+  h3{
+    font-size: 16px;
+      margin: 0;
+  }
+  p{
+    font-size: 11px;
+    margin: 0;
+  }
 }
+.karting1{
+.slant-box{
+  p{
+    font-size: 13px;
+  }
+}
+  .slant-col{
+      width: 100%;
+      transform: skew(0deg);
+      margin-bottom: 10px;
+    &:before{
+      height: 236px;
+      transform: skew(0deg);
+    }
+  }
+  .slant-box,.full-height,.half-height{
+        height: 203px;
+        transform: skew(0deg);
+  }
+  .slant-column{
+    width: 100%;
+    transform: skew(0deg);
+      &:before{
+        height: 235px;
+        transform: skew(0deg);
+      }
+  }
+}
+
+.kartings,.articles{
+  .slant-row{
+    margin-bottom: 10px;
+  }
+.slant-box{
+  p{
+    font-size: 13px;
+  }
+}
+.slant-col{
+  width: 100%;
+transform: skew(0deg);
+margin-bottom: 10px;
+&:before{
+  height: 236px;
+  transform: skew(0deg);
+}
+}
+.full-height,.half-height{
+  height: 203px;
+  transform: skew(0deg);
+}
+.slant-column{
+  width: 100%;
+  transform: skew(0deg);
+    &:before{
+      height: 235px;
+      transform: skew(0deg);
+    }
+    .slant-box{
+      height: 203px;
+      transform: skew(0deg);
+    }
+}
+}
+
+
+
+
+  //*footer starts*//
+.foot{ display: block; }
+
+.no-flex{
+  display: inline;
+  width: auto;
+}
+
+.justified-li{
+  display: block;
+  li{
+    text-decoration: underline;
+    padding-top: 12px;
+    display: block;
+    text-align: left;
+  }
+}
+.foot-cards{ display: none; }
+
+.foots-list { padding: 0; }
+
+  .footers-list{
+    .col-flexing,.foot-list{
+      display: inline-block;
+    }
+  }
+  //*footer ends*//
+}
+//css for xs-767px finish//
 @media (max-width: $screen-sm-max) {
 }
