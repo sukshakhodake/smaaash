@@ -32,10 +32,11 @@
     margin: 0;
   }
 }
+
 .karting1{
 .slant-box{
   p{
-    font-size: 13px;
+    font-size: 12px;
   }
 }
   .slant-col{
@@ -68,7 +69,7 @@
   }
 .slant-box{
   p{
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 .slant-col{
@@ -97,9 +98,6 @@ margin-bottom: 10px;
     }
 }
 }
-
-
-
 
   //*footer starts*//
 .foot{ display: block; }
@@ -131,4 +129,107 @@ margin-bottom: 10px;
 }
 //css for xs-767px finish//
 @media (max-width: $screen-sm-max) {
+//*confirm-order*//
+  .cimg {
+    display: block;
+    transform: skew(-10deg);
+    width: 135px;
+    height: 135px;
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+  }
+  //*confirm-order*//
+  //*karting*//
+  .karting1{
+    .slant-box{
+      h2{
+        font-size: 20px;
+      }
+      h3{
+        font-size:18px;
+      }
+      p{
+        font-size:11px;
+      }
+    }
+
+    .slant-col:before {
+      width: 25px;
+    height: 282px;
+    top: -2px;
+    left: 1px;
+    }
+    .full-height,.half-height{
+      height: 250px;
+    }
+    .slant-column:before {
+      width: 25px;
+      height: 281px;
+      position: absolute;
+      right: 0;
+      top: 1px;
+      border-right: 2px solid #000;
+      border-bottom: 2px solid #000;
+}
+  }
+
+.kartings,.articles{
+  .slant-box{
+    h2{
+      font-size: 20px;
+    }
+    h3{
+      font-size:18px;
+    }
+    p{
+      font-size:11px;
+    }
+  }
+.slant-col:before{
+    width: 34px;
+    height: 283px;
+    position: absolute;
+    left: 0px;
+    top: -2px;
+}
+.full-height,.half-height{
+  height: 250px!important;
+}
+.slant-column:before{
+    width: 34px;
+    height: 282px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+}
+//*karting*//
+
+//*explore*//
+.smash-gaming .gaming:before {
+    content: "";
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    left: 202px;
+    transform: skew(5deg);
+    background-color: #2a3890;
+}
+
+
+//*explore*//
+
+}
+@media (max-width:480px){
+
+  .cimg {
+    display: block;
+    transform: skew(-10deg);
+    width: 135px;
+    height: 135px;
+    position: absolute;
+    left: -8px;
+    bottom: 0;
+}
 }
