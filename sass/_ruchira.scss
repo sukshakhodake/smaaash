@@ -263,16 +263,16 @@ $brand-white:#fff !default;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
 }
-.nav-naming {
-  padding: 0 25px;
-  text-align: center;
-  font-family: $body-font;
-  @include background-image(linear-gradient(#edef90 50%, #37d028));
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
-}
+// .nav-naming {
+//   padding: 0 25px;
+//   text-align: center;
+//   font-family: $body-font;
+//   @include background-image(linear-gradient(#edef90 50%, #37d028));
+//   -webkit-background-clip: text;
+//   color: transparent;
+//   -webkit-text-stroke-width: 1px;
+//   -webkit-text-stroke-color: #000;
+// }
 // .navi{
 //   margin-right: 10px;
 //   padding: 25px 0;
