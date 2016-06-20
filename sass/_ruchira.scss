@@ -509,6 +509,11 @@ $brand-white:#fff !default;
 }
 }
 }
+.articles .slant-box {
+    transform: skew(10deg);
+    padding: 15px 30px 0;
+    margin: 30px 0 0 30px;
+}
 .karting1{
   .slant-row{
     margin-top: 15px;

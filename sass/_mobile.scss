@@ -1,6 +1,6 @@
 
 
-//css for xs-767px starts//
+
 @media (max-width: $screen-xs-max) {
 
   .slant-col {
@@ -127,7 +127,7 @@ margin-bottom: 10px;
   }
   //*footer ends*//
 }
-//css for xs-767px finish//
+
 @media (max-width: $screen-sm-max) {
 //*confirm-order*//
   .cimg {
@@ -220,8 +220,47 @@ margin-bottom: 10px;
 
 //*explore*//
 
+.smash-gaming .gaming:before {
+    content: "";
+    width: 40px;
+    height: 100%;
+  }
+  .gaming:before {
+    content: "";
+    width: 40px;
+    height: 100%;
+  }
+
+
+
+
 }
 @media (max-width:480px){
+.no-flex{
+  display: block;
+}
+.gaming .anti-scew,.smaaash-gaming .anti-scew {
+    transform: skew(0deg);
+}
+.gaming,.smaaash-gaming {
+    transform: skew(0deg);
+&:before{
+    display: none;
+}
+  }
+
+  .smash-gaming .gaming {
+      transform: skew(0deg);
+    }
+
+    .smash-gaming .gaming:before {
+        display: none;
+      }
+
+      .smash-gaming .gaming .anti-scew {
+          transform: skew(0deg);
+      }
+
 
   .cimg {
     display: block;
@@ -232,19 +271,25 @@ margin-bottom: 10px;
     left: -8px;
     bottom: 0;
 }
-
  .articles .slant-col:before {
     width: 20px;
     height: 283px;
     position: absolute;
-    left: 1px;
+    left: 0px;
     top: -2px;
     border-bottom: 1px solid #000;
 }
 
-
-
+.full-height{
+  height: 300px;
 }
+.games{
+  .col-flexing + .col-flexing {
+       padding-left: 0px;
+  }
+}
+}
+
 
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -292,7 +337,15 @@ margin-bottom: 10px;
     right: -14px;
     top: -2px;
   }
-
-
-
+.city-types{
+  .list{
+    li{
+      a{
+        img{
+          width: 83%;
+        }
+      }
+    }
+  }
+}
 }
