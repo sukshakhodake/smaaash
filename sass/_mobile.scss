@@ -222,12 +222,12 @@ margin-bottom: 10px;
 
 .smash-gaming .gaming:before {
     content: "";
-    width: 40px;
+    width: 32px;
     height: 100%;
   }
   .gaming:before {
     content: "";
-    width: 40px;
+    width: 32px;
     height: 100%;
   }
 
@@ -236,6 +236,20 @@ margin-bottom: 10px;
 
 }
 @media (max-width:480px){
+  .drop-downs{
+    .woman-menu{
+      display: none;
+    }
+  .menu{
+    right: 0;
+  }
+
+.cities{
+  right: 160px;
+}
+  }
+
+
 .no-flex{
   display: block;
 }

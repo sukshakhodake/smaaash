@@ -263,16 +263,13 @@ $brand-white:#fff !default;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
 }
-// .nav-naming {
-//   padding: 0 25px;
-//   text-align: center;
-//   font-family: $body-font;
-//   @include background-image(linear-gradient(#edef90 50%, #37d028));
-//   -webkit-background-clip: text;
-//   color: transparent;
-//   -webkit-text-stroke-width: 1px;
-//   -webkit-text-stroke-color: #000;
-// }
+.nav-names{
+  padding: 15px;
+}
+.nav-naming {
+  span { display: block;
+   }
+}
 // .navi{
 //   margin-right: 10px;
 //   padding: 25px 0;
@@ -406,7 +403,7 @@ $brand-white:#fff !default;
 }
 .menu-opened {
   .smaash-menu {
-    height: 236px;
+    height: 270px;
   }
   .woman-menu {
     img {
@@ -417,8 +414,12 @@ $brand-white:#fff !default;
 .bg-prop{
   background-repeat: no-repeat;
   background-size: cover;
+  height: 120px;
 }
 
+.margin10{
+  margin-top: 10px;
+}
 .promotions{ background-image: url("../img/navbg/image2.png"); }
 
 .registration{ background-image: url("../img/navbg/image1.png"); }
