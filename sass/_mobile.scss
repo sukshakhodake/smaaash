@@ -1,411 +1,427 @@
 
+.margin5{
+  margin-bottom: 5px;
+}
 
 
 @media (max-width: $screen-xs-max) {
-
-  .slant-col {
-    @include transform(skew(0deg));
-    width: 100%;
-    float: none;
-    &:before {
-      content: none;
+    .slant-col {
+        @include transform(skew(0deg));
+        width: 100%;
+        float: none;
+        &:before {
+            content: none;
+        }
     }
-  }
-  .slant-box {
-    @include transform(skew(0deg));
-    padding: 15px !important;
-  }
-
-  .slant-col+.slant-col { margin-top: 20px; }
-
-.slant-box{
-  h2{
-    font-size: 20px;
-    margin: 0;
-  }
-  h3{
-    font-size: 16px;
-      margin: 0;
-  }
-  p{
-    font-size: 11px;
-    margin: 0;
-  }
-}
-
-.karting1{
-.slant-box{
-  p{
-    font-size: 12px;
-  }
-}
-  .slant-col{
-      width: 100%;
-      transform: skew(0deg);
-      margin-bottom: 10px;
-    &:before{
-      height: 236px;
-      transform: skew(0deg);
+    .slant-box {
+        @include transform(skew(0deg));
+        padding: 15px !important;
     }
-  }
-  .slant-box,.full-height,.half-height{
-        height: 203px;
-        transform: skew(0deg);
-  }
-  .slant-column{
-    width: 100%;
-    transform: skew(0deg);
-      &:before{
-        height: 235px;
-        transform: skew(0deg);
-      }
-  }
-}
-
-.kartings,.articles{
-  .slant-row{
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-.slant-box{
-  p{
-    font-size: 12px;
-  }
-}
-.slant-col{
-  width: 100%;
-transform: skew(0deg);
-margin-bottom: 10px;
-&:before{
-  height: 236px;
-  transform: skew(0deg);
-}
-}
-.full-height,.half-height{
-  height: 203px;
-  transform: skew(0deg);
-}
-.slant-column{
-  width: 100%;
-  transform: skew(0deg);
-    &:before{
-      height: 235px;
-      transform: skew(0deg);
+    .slant-col+.slant-col {
+        margin-top: 20px;
     }
-    .slant-box{
-      height: 203px;
-      transform: skew(0deg);
+    .slant-box {
+        h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+        h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+        p {
+            font-size: 11px;
+            margin: 0;
+        }
     }
-}
-}
-
-  //*footer starts*//
-.foot{ display: block; }
-
-.no-flex{
-  display: inline;
-  width: auto;
-}
-
-.justified-li{
-  display: block;
-  li{
-    text-decoration: underline;
-    padding-top: 12px;
-    display: block;
-    text-align: left;
-  }
-}
-.foot-cards{ display: none; }
-
-.foots-list { padding: 0; }
-
-  .footers-list{
-    .col-flexing,.foot-list{
-      display: inline-block;
+    .karting1 {
+        .slant-box {
+            p {
+                font-size: 12px;
+            }
+        }
+        .slant-col {
+            width: 100%;
+            transform: skew(0deg);
+            margin-bottom: 10px;
+            &:before {
+                height: 236px;
+                transform: skew(0deg);
+            }
+        }
+        .full-height,
+        .half-height,
+        .slant-box {
+            height: 203px;
+            transform: skew(0deg);
+        }
+        .slant-column {
+            width: 100%;
+            transform: skew(0deg);
+            &:before {
+                height: 235px;
+                transform: skew(0deg);
+            }
+        }
     }
-  }
-  //*footer ends*//
-}
+    .articles,
+    .kartings {
+        .slant-row {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .slant-box {
+            p {
+                font-size: 12px;
+            }
+        }
+        .slant-col {
+            width: 100%;
+            transform: skew(0deg);
+            margin-bottom: 10px;
+            &:before {
+                height: 236px;
+                transform: skew(0deg);
+            }
+        }
+        .full-height,
+        .half-height {
+            height: 203px;
+            transform: skew(0deg);
+        }
+        .slant-column {
+            width: 100%;
+            transform: skew(0deg);
+            &:before {
+                height: 235px;
+                transform: skew(0deg);
+            }
+            .slant-box {
+                height: 203px;
+                transform: skew(0deg);
+            }
+        }
+    }
+    //*footer starts*//
+    .foot {
+        display: block;
+    }
+    .no-flex {
+        display: inline;
+        width: auto;
+    }
+    .mobile-inlineblock {
+        display: inline-block;
+    }
+    .mobile-50 {
+        width: 50%;
+        float: left;
+        margin-bottom: 5px;
 
+    }
+
+    .menu-opened .smaash-menu {
+        height: 777px;
+    }
+
+    .justified-li {
+        display: block;
+        li {
+            text-decoration: underline;
+            padding-top: 12px;
+            display: block;
+            text-align: left;
+        }
+    }
+    .foot-cards {
+        display: none;
+    }
+    .foots-list {
+        padding: 0;
+    }
+    .footers-list {
+        .col-flexing,
+        .foot-list {
+            display: inline-block;
+        }
+    }
+    //*footer ends*//
+}
 @media (max-width: $screen-sm-max) {
-//*confirm-order*//
-  .cimg {
-    display: block;
-    transform: skew(-10deg);
-    width: 135px;
-    height: 135px;
-    position: absolute;
-    left: 40px;
-    bottom: 0;
-  }
-  //*confirm-order*//
-  //*karting*//
-  .karting1{
-    .slant-box{
-      h2{
-        font-size: 20px;
-      }
-      h3{
-        font-size:18px;
-      }
-      p{
-        font-size:11px;
-      }
+    //*confirm-order*//
+    .cimg {
+        display: block;
+        transform: skew(-10deg);
+        width: 135px;
+        height: 135px;
+        position: absolute;
+        left: 40px;
+        bottom: 0;
     }
-
-    .slant-col:before {
-      width: 25px;
-    height: 282px;
-    top: -2px;
-    left: 1px;
-    }
-    .full-height,.half-height{
-      height: 250px;
-    }
-    .slant-column:before {
-      width: 25px;
-      height: 281px;
-      position: absolute;
-      right: 0;
-      top: 1px;
-      border-right: 2px solid #000;
-      border-bottom: 2px solid #000;
-}
-  }
-
-.kartings,.articles{
-  .slant-box{
-    h2{
-      font-size: 20px;
-    }
-    h3{
-      font-size:18px;
-    }
-    p{
-      font-size:11px;
-    }
-  }
-.slant-col:before{
-    width: 34px;
-    height: 283px;
-    position: absolute;
-    left: 0px;
-    top: -2px;
-}
-.full-height,.half-height{
-  height: 250px!important;
-}
-.slant-column:before{
-    width: 34px;
-    height: 282px;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-}
-//*karting*//
-
-//*explore*//
-.smash-gaming .gaming:before {
-    content: "";
-    width: 50px;
-    height: 100%;
-    position: absolute;
-    left: 202px;
-    transform: skew(5deg);
-    background-color: #2a3890;
-}
-
-
-//*explore*//
-
-.smash-gaming .gaming:before {
-    content: "";
-    width: 32px;
-    height: 100%;
-  }
-  .gaming:before {
-    content: "";
-    width: 32px;
-    height: 100%;
-  }
-}
-
-@media (max-width:480px){
-.dropdowns{
-        .woman-menu{
-          display: none;
+    //*confirm-order*//
+    //*karting*//
+    .karting1 {
+        .slant-box {
+            h2 {
+                font-size: 20px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 11px;
+            }
         }
-        .menu{
-        right: 0;
+        .slant-col:before {
+            width: 25px;
+            height: 282px;
+            top: -2px;
+            left: 1px;
         }
-
-        .cities{
-          right: 160px;
+        .full-height,
+        .half-height {
+            height: 250px;
+        }
+        .slant-column:before {
+            width: 25px;
+            height: 281px;
+            position: absolute;
+            right: 0;
+            top: 1px;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+        }
+    }
+    .articles,
+    .kartings {
+        .slant-box {
+            h2 {
+                font-size: 20px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 11px;
+            }
+        }
+        .slant-col:before {
+            width: 34px;
+            height: 283px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        .full-height,
+        .half-height {
+            height: 250px!important;
+        }
+        .slant-column:before {
+            width: 34px;
+            height: 282px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+    //*karting*//
+    //*explore*//
+    .smash-gaming .gaming:before {
+        content: "";
+        width: 50px;
+        height: 100%;
+        position: absolute;
+        left: 202px;
+        transform: skew(5deg);
+        background-color: #2a3890;
+    }
+    //*explore*//
+    .smash-gaming .gaming:before {
+        content: "";
+        width: 32px;
+        height: 100%;
+    }
+    .gaming:before {
+        content: "";
+        width: 32px;
+        height: 100%;
+    }
+}
+@media (max-width:480px) {
+    .dropdowns {
+        .woman-menu {
+            display: none;
+        }
+        .menu {
+            right: 0;
+        }
+        .cities {
+            right: 160px;
         }
         .logo-smaash {
             display: inline-block;
             height: 40px;
             margin-top: 5px;
-            img{
-              width: 40%;
+            img {
+                width: 40%;
             }
         }
-
-}
-.smaaash-cities {
-  width: 260px;
-  height: 500px;
-  overflow-x: scroll;
-    h2{
-      font-size: 16px;
-      padding-top: 0;
     }
-    .cross{
-      width: 20px;
-      height: 20px;
-      right: 10px;
-    }
-    .city-types {
-    padding: 0px 0 15px 0;
-}
-    .list{
-    li{
-      margin: 5px;
-      a{
-        img{
-          width: 75%;
+    .smaaash-cities {
+        width: 260px;
+        height: 500px;
+        overflow-x: scroll;
+        h2 {
+            font-size: 16px;
+            padding-top: 0;
         }
-      }
+        .cross {
+            width: 20px;
+            height: 20px;
+            right: 10px;
+        }
+        .city-types {
+            padding: 0 0 15px;
+        }
+        .list {
+            li {
+                margin: 5px;
+                a {
+                    img {
+                        width: 75%;
+                    }
+                }
+            }
+        }
     }
+    .no-flex {
+        display: block;
     }
-  }
-.no-flex{
-  display: block;
-}
-.gaming .anti-scew,.smaaash-gaming .anti-scew {
-    transform: skew(0deg);
-}
-.gaming,.smaaash-gaming {
-    transform: skew(0deg);
-&:before{
-    display: none;
-}
-  }
-
-  .smash-gaming .gaming {
-      transform: skew(0deg);
+    .gaming .anti-scew,
+    .smaaash-gaming .anti-scew {
+        transform: skew(0deg);
     }
-
+    .gaming,
+    .smaaash-gaming {
+        transform: skew(0deg);
+        &:before {
+            display: none;
+        }
+    }
+    .smash-gaming .gaming {
+        transform: skew(0deg);
+    }
     .smash-gaming .gaming:before {
         display: none;
-      }
+    }
+    .smash-gaming .gaming .anti-scew {
+        transform: skew(0deg);
+    }
+    .cimg {
+        display: block;
+        transform: skew(-10deg);
+        width: 135px;
+        height: 135px;
+        position: absolute;
+        left: -8px;
+        bottom: 0;
+    }
+    .articles .slant-col:before {
+        width: 20px;
+        height: 283px;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        border-bottom: 1px solid #000;
+    }
+    .full-height {
+        height: 300px;
+    }
+    .games {
+        .col-flexing + .col-flexing {
+            padding-left: 0;
+        }
+    }
+    .smaash-menu{
+      .nav-name {
+          margin: 0;
+          padding: 40px 25px;
+          font-size: 30px;
+        }
+    }
 
-      .smash-gaming .gaming .anti-scew {
-          transform: skew(0deg);
-      }
-
-
-  .cimg {
-    display: block;
-    transform: skew(-10deg);
-    width: 135px;
-    height: 135px;
-    position: absolute;
-    left: -8px;
-    bottom: 0;
-}
- .articles .slant-col:before {
-    width: 20px;
-    height: 283px;
-    position: absolute;
-    left: 0px;
-    top: -2px;
-    border-bottom: 1px solid #000;
-}
-
-.full-height{
-  height: 300px;
-}
-.games{
-  .col-flexing + .col-flexing {
-       padding-left: 0px;
-  }
-}
 
 
 
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
-  .dropdowns{
-    .logo-smaash img {
-      width: 35%;
-  }
-  .cities {
-      right: 101px;
-      padding: 8px;
-  }
-  }
+    .dropdowns {
+        .logo-smaash img {
+            width: 35%;
+        }
+        .cities {
+            right: 101px;
+            padding: 8px;
+        }
+    }
+    .smaash-menu .nav-name {
+    font-size: 20px;
 }
-
-
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-
-
-  .comic-image {
-      width: 28%;
-      height: 133px;
-      position: absolute;
-      left: 14px;
+    .comic-image {
+        width: 28%;
+        height: 133px;
+        position: absolute;
+        left: 14px;
     }
     .comic-image:before {
-    content: "";
-    dislay: block;
-    position: absolute;
-    height: 131px;
-    width: 45px;
-    left: -14px;
-    top: 0;
-  }
-  .cimg {
-    display: block;
-    transform: skew(-10deg);
-    width: 135px;
-    height: 100px;
-    img{
-      width: 60%;
+        content: "";
+        dislay: block;
+        position: absolute;
+        height: 131px;
+        width: 45px;
+        left: -14px;
+        top: 0;
     }
-  }
-  .text {
-      width: 59%;
-      height: 131px;
-      right: 13px;
-      top: 0;
-      .info{
-        .title{
-          font-size: 20px;
+    .cimg {
+        display: block;
+        transform: skew(-10deg);
+        width: 135px;
+        height: 100px;
+        img {
+            width: 60%;
         }
-      }
+    }
+    .text {
+        width: 59%;
+        height: 131px;
+        right: 13px;
+        top: 0;
+        .info {
+            .title {
+                font-size: 20px;
+            }
+        }
     }
     .text:before {
-    content: "";
-    dislay: block;
-    position: absolute;
-    height: 130px;
-    width: 60px;
-    right: -14px;
-    top: -2px;
-  }
-.city-types{
-  .list{
-    li{
-      a{
-        img{
-          width: 83%;
-        }
-      }
+        content: "";
+        dislay: block;
+        position: absolute;
+        height: 130px;
+        width: 60px;
+        right: -14px;
+        top: -2px;
     }
-  }
-}
+    .city-types {
+        .list {
+            li {
+                a {
+                    img {
+                        width: 83%;
+                    }
+                }
+            }
+        }
+    }
 }
