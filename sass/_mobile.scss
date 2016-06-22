@@ -4,6 +4,7 @@
 }
 
 
+
 @media (max-width: $screen-xs-max) {
     .slant-col {
         @include transform(skew(0deg));
@@ -145,6 +146,8 @@
             display: inline-block;
         }
     }
+
+
     //*footer ends*//
 }
 @media (max-width: $screen-sm-max) {
@@ -206,18 +209,20 @@
             }
         }
         .slant-col:before {
-            width: 34px;
+            width: 25px;
             height: 283px;
             position: absolute;
             left: 0;
             top: -2px;
+            border-bottom: 1px solid #000;
+
         }
         .full-height,
         .half-height {
             height: 250px!important;
         }
         .slant-column:before {
-            width: 34px;
+            width: 25px;
             height: 282px;
             position: absolute;
             right: 0;
@@ -351,7 +356,17 @@
     }
 
 
-
+    .no-width{
+      vertical-align: middle;
+    }
+    .width{
+      .foot-list{
+      width: 115px;
+      li.bold{
+        font-size: 12px;
+      }
+      }
+    }
 
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -367,6 +382,19 @@
     .smaash-menu .nav-name {
     font-size: 20px;
 }
+.foot-list{
+  li.bold{
+    font-size: 10px;
+  }
+}
+.no-width{
+  width: 165px;
+}
+
+.width{
+  width: 100px;
+}
+
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
     .comic-image {
