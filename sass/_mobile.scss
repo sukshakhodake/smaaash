@@ -233,20 +233,54 @@ margin-bottom: 10px;
 }
 
 @media (max-width:480px){
-  .drop-downs{
-    .woman-menu{
-      display: none;
-    }
-  .menu{
-    right: 0;
-  }
+.dropdowns{
+        .woman-menu{
+          display: none;
+        }
+        .menu{
+        right: 0;
+        }
 
-.cities{
-  right: 160px;
+        .cities{
+          right: 160px;
+        }
+        .logo-smaash {
+            display: inline-block;
+            height: 40px;
+            margin-top: 5px;
+            img{
+              width: 40%;
+            }
+        }
+
 }
+.smaaash-cities {
+  width: 260px;
+  height: 500px;
+  overflow-x: scroll;
+    h2{
+      font-size: 16px;
+      padding-top: 0;
+    }
+    .cross{
+      width: 20px;
+      height: 20px;
+      right: 10px;
+    }
+    .city-types {
+    padding: 0px 0 15px 0;
+}
+    .list{
+    li{
+      margin: 5px;
+      a{
+        img{
+          width: 75%;
+        }
+      }
+    }
+    }
   }
-
-
 .no-flex{
   display: block;
 }
@@ -299,11 +333,26 @@ margin-bottom: 10px;
        padding-left: 0px;
   }
 }
+
+
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
+  .dropdowns{
+    .logo-smaash img {
+      width: 35%;
+  }
+  .cities {
+      right: 101px;
+      padding: 8px;
+  }
+  }
 }
 
 
-
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+
+
   .comic-image {
       width: 28%;
       height: 133px;
