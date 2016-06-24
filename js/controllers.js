@@ -138,6 +138,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 })
+.controller('footerctrl', function($scope, TemplateService) {
+  $scope.template = TemplateService;
+  $scope.footer = function(val){
+    if(val == $scope.showFooter){
+      $scope.showFooter = 0;
+    }else {
+      if (val == 1) {
+        $scope.showFooter = 1;
+      }else if(val == 2) {
+        $scope.showFooter = 2;
+      }else if(val == 3) {
+        $scope.showFooter = 3;
+      }else if(val == 4) {
+        $scope.showFooter = 4;
+      }else if(val == 5) {
+        $scope.showFooter = 5;
+      }else if(val == 6) {
+        $scope.showFooter = 6;
+      }else if(val == 7) {
+        $scope.showFooter = 7;
+      }else if(val == 8) {
+        $scope.showFooter = 8;
+      }else if(val == 9) {
+        $scope.showFooter = 9;
+      }else if(val == 10) {
+        $scope.showFooter = 10;
+      }else if(val == 11) {
+        $scope.showFooter = 11;
+      }else if(val == 12) {
+        $scope.showFooter = 12;
+      }else {
+        $scope.showFooter = 0;
+      }
+    }
+  }
+})
 
 .controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {
 
