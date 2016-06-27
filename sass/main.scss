@@ -1059,12 +1059,7 @@ $menu-height: 80px !default;
         margin: 0 auto;
     }
 }
-.kart-bg{
-  background-image: url("../img/karting/kartingbg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 0px;
-}
+
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";
