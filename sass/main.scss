@@ -1040,6 +1040,31 @@ $menu-height: 80px !default;
 
 
 //*footer ends*//
+
+.landing-kartbanner {
+    position: relative;
+    background-image: url("../img/home/landing-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -38px;
+    .karting-banner {
+        max-width: 1170px;
+        @include position(absolute,20px 0 20px 0);
+        background-image: url("../img/karting/Banner.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+}
+.kart-bg{
+  background-image: url("../img/karting/kartingbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0px;
+}
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";

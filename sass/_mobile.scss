@@ -400,8 +400,35 @@
     }
 
 }
+@media only screen and (min-device-width: 481px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+  .no-flex {
+    display: block;
+}
+  .gaming .anti-scew,
+  .smaaash-gaming .anti-scew {
+      transform: skew(0deg);
+  }
+  .gaming,
+  .smaaash-gaming {
+      transform: skew(0deg);
+      &:before {
+          display: none;
+      }
+  }
+  .smash-gaming .gaming {
+      transform: skew(0deg);
+  }
+  .smash-gaming .gaming:before {
+      display: none;
+  }
+  .smash-gaming .gaming .anti-scew {
+      transform: skew(0deg);
+  }
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
-
+.top{
+  margin:-5px;
+}
     .dropdowns {
         .logo-smaash img {
             width: 35%;
