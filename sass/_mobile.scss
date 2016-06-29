@@ -104,6 +104,11 @@
             }
         }
     }
+    .smaaash-cities .tick {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+}
     //*footer starts*//
     .foot {
         display: block;
@@ -286,6 +291,7 @@
 }
 
 @media (max-width:480px) {
+
 .corporate{
   .banner-info{
     top: 25px;
@@ -441,6 +447,17 @@
             padding: 0;
             display: block;
         }
+    }
+
+    .footers-list{
+      .mobile{
+          width: 65%;
+          display: inline-block;
+      }
+      .mobiles{
+        width: 30%;
+        display: inline-block;
+      }
     }
     .footers-list {
        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {

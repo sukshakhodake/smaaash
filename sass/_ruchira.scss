@@ -284,9 +284,6 @@ position: absolute;
   margin-left: 0;
   padding: 0;
   text-align: center;
-  li{
-    ]
-  }
 }
 .smaaash-menu{
   margin-top: -20px;
@@ -483,7 +480,7 @@ position: absolute;
 }
 .menu-opened {
   .smaash-menu {
-    height: 270px;
+    height: 250px;
   }
   .woman-menu {
     img {
@@ -496,9 +493,13 @@ position: absolute;
   background-size: cover;
   height: 120px;
 }
+.facebook{
+  height: 500px;
+    width: 370px;
+}
 
-.margin10{
-  margin-top: 10px;
+.margin5{
+  margin-top: 5px;
 }
 .promotions{ background-image: url("../img/navbg/image2.png"); }
 
