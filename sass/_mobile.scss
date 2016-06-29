@@ -239,7 +239,7 @@
         height: 100%;
         position: absolute;
         left: 202px;
-        transform: skew(5deg);
+        transform: skew(3deg);
         background-color: #2a3890;
     }
     //*explore*//
@@ -253,8 +253,70 @@
         width: 32px;
         height: 100%;
     }
+
+.corporate .banner-info{
+  top:50px;
+  .banner-text{
+    h2{
+      font-size: 20px;
+    }
+    p,span{
+      font-size: 12px;
+    }
+  }
+  .banner-buttons{
+    .btn1{
+      span{
+        margin: 0 2px 0 0;
+      padding: 6px 15px;
+      font-size: 14px;
+    }
+  }
+  .btn2{
+    span{
+      margin: 0 2px 0 0;
+    padding: 6px 15px;
+    font-size: 14px;
+    }
+  }
+  }
+
 }
+
+}
+
 @media (max-width:480px) {
+.corporate{
+  .banner-info{
+    top: 25px;
+    right: 40px;
+    .banner-text{
+      h2{
+        font-size: 16px;
+      }
+      p,span{
+        font-size: 10px;
+      }
+    }
+    .banner-buttons{
+      .btn1{
+        margin: 0 4px;
+        span{
+          margin: 0 2px 0 0;
+        padding: 3px 6px;
+        font-size: 10px;
+      }
+    }
+    .btn2{
+      span{
+        margin: 0 2px 0 0;
+      padding: 3px 6px;
+      font-size: 10px;
+      }
+    }
+    }
+    }
+  }
 
     .dropdowns {
         .woman-menu {
@@ -333,6 +395,9 @@
         position: absolute;
         left: -8px;
         bottom: 0;
+        img{
+          width: auto;
+        }
     }
     .articles .slant-col:before {
         width: 20px;
@@ -406,7 +471,7 @@
   }
 }
 }
-@media only screen and (min-device-width: 481px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 462px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
   .no-flex {
     display: block;
 }
@@ -429,6 +494,15 @@
   }
   .smash-gaming .gaming .anti-scew {
       transform: skew(0deg);
+  }
+  .cimg {
+      display: block;
+      transform: skew(-10deg);
+      width: 135px;
+      height: 100px;
+      img {
+          width: auto;
+      }
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -459,6 +533,9 @@
 .width{
   width: 100px;
 }
+.full-height{
+  height: 230px;
+}
 
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -483,7 +560,7 @@
         width: 135px;
         height: 100px;
         img {
-            width: 60%;
+            width: 65%;
         }
     }
     .text {
@@ -517,4 +594,5 @@
             }
         }
     }
+
 }

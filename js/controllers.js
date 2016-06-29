@@ -71,20 +71,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('ConfirmCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('ConfirmCtrl', function($scope, $uibModal , TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("confirm-order");
   $scope.menutitle = NavigationService.makeactive("ConfirmOrder");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.billingForm={};
+  console.log('in ctrl');
   $scope.formSubmit=function(formData,formValid)
   {
+    console.log('cgfdfgdgfgfc');
     if(formData && formValid.$valid){
         // $scope.showform=true;
+        $scope.open();
+        console.log('in fun');
     }
 
   }
+  $scope.animationsEnabled = true;
+  $scope.open = function(size) {
+
+      var modalInstance = $uibModal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'views/modal/form-success.html',
+          controller: 'ConfirmCtrl',
+          size: size,
+          resolve: {
+              items: function() {
+                  return $scope.items;
+              }
+          }
+      });
+
+  };
 })
 
 .controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout) {

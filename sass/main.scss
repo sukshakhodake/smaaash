@@ -68,6 +68,9 @@ body {
 .relative {
     position: relative;
 }
+.inline-block{
+  display: inline-block;
+}
 img.loading {
     text-align: center;
     opacity: 1;
@@ -167,6 +170,7 @@ $menu-height: 80px !default;
     .woman-menu {
         @include position(absolute,0 0 null null);
         height: $menu-height - 5px;
+        cursor: pointer;
         img {
             width: auto;
             height: 100%;
@@ -212,8 +216,14 @@ $menu-height: 80px !default;
         }
     }
 }
-
-
+.padding20{
+  padding: 20px;
+}
+.close{
+  position: absolute;
+    top: 10px;
+    right: 10px;
+}
 .backdroped{
   .cross{
     width: 30px;
@@ -1059,7 +1069,9 @@ $menu-height: 80px !default;
         margin: 0 auto;
     }
 }
-
+img.fancybox-image{
+  opacity: 1;
+}
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";

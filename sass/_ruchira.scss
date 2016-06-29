@@ -62,6 +62,17 @@ $brand-white:#fff !default;
           &:hover{
             color:#000;
             background-color: $brand-green;
+            outline: 0;
+          }
+          &:active{
+            color:#000;
+            background-color: $brand-green;
+              outline: 0;
+          }
+          &:focus{
+            color:#000;
+            background-color: $brand-green;
+              outline: 0;
           }
       }
       .btn2{
@@ -77,6 +88,17 @@ $brand-white:#fff !default;
           &:hover{
             color:#000;
             background-color: $brand-purple;
+              outline: 0;
+          }
+          &:active{
+            color:#000;
+            background-color: $brand-purple;
+              outline: 0;
+          }
+          &:focus{
+            color:#000;
+            background-color: $brand-purple;
+              outline: 0;
           }
       }
     }
@@ -108,11 +130,18 @@ $brand-white:#fff !default;
       &:hover{
         color:#000;
         background-color: $brand-green;
+        outline: 0;
+      }
+      &:focus{
+        color:#000;
+        background-color: $brand-green;
+              outline: 0;
       }
   }
 .btn-default:active{
   color:#000;
-  background-color: $brand-purple;
+  background-color: $brand-green;
+        outline: 0;
 }
 }
 
@@ -165,7 +194,9 @@ $brand-white:#fff !default;
     left: 0;
     bottom: 0;
   img{
-    max-height: 100%;
+    bottom: 0;
+max-height: 100%;
+position: absolute;
   }
 }
 .text{
@@ -238,6 +269,12 @@ $brand-white:#fff !default;
      display: inline-block;
      list-style-type: none;
      margin: 10px;
+     position: relative;
+    }
+    .tick{
+      position: absolute;
+      right: 10px;
+      top: 20px;
     }
 }
 
@@ -247,6 +284,9 @@ $brand-white:#fff !default;
   margin-left: 0;
   padding: 0;
   text-align: center;
+  li{
+    ]
+  }
 }
 .smaaash-menu{
   margin-top: -20px;
@@ -287,12 +327,25 @@ $brand-white:#fff !default;
 //*menu ends*//
 
 //*explore starts*//
+.games{
+  .margin60{
+      margin-top: -60px;
+  }
+}
+
+.play-butn{
+  height: 40px;
+    width: 40px;
+    bottom: 25px;
+    position: absolute;
+    left: 60px;
+}
 .gaming,.smaaash-gaming{
-  margin: 10px;
-  transform: skew(-5deg);
+  margin: 5px;
+  transform: skew(-3deg);
   overflow: hidden;
   .anti-scew{
-    transform: skew(5deg);
+    transform: skew(3deg);
   }
   .straight{
     h2{
@@ -309,7 +362,7 @@ $brand-white:#fff !default;
       height: 100%;
       position: absolute;
       left: -18px;
-      transform: skew(5deg);
+      transform: skew(3deg);
       background-color: $brand-blue;
     }
     .gaming{
@@ -343,21 +396,22 @@ $brand-white:#fff !default;
 
 .smash-gaming{
   .gaming{
-    margin: 10px;
-    transform: skew(-5deg);
+    margin: 5px;
+    transform: skew(-3deg);
     overflow: hidden;
     .anti-scew{
-      transform: skew(5deg);
+      transform: skew(3deg);
     }
   }
 
+
   .gaming:before{
     content: "";
-    width: 50px;
+    width: 55px;
     height: 100%;
     position: absolute;
     left: 329px;
-    transform: skew(5deg);
+    transform: skew(3deg);
     background-color: #2a3890;
 
   }
@@ -490,7 +544,7 @@ $brand-white:#fff !default;
       content: "";
       transform: skew(10deg);
       width: 34px;
-      height: 335px;
+      height: 235px;
       position: absolute;
       left: 0px;
       top: -2px;
@@ -500,13 +554,23 @@ $brand-white:#fff !default;
 
     }
   .full-height {
-    height: 303px;
+    height: 203px;
     overflow: hidden;
 }
 .slant-box{
   transform: skew(10deg);
    padding: 15px 15px 0;
    margin: 30px 0 0 30px;
+   h2{
+     font-size: 18px;
+   }
+   p{
+     font-size: 13px;
+   }
+   h3{
+     font-size: 16px;
+     margin: 0;
+   }
 }
 
 
@@ -521,13 +585,13 @@ $brand-white:#fff !default;
         transform: skew(10deg);
       }
       .half-height {
-       height: 303px;
+       height: 203px;
 }
 &:before {
   content: "";
       transform: skew(10deg);
       width: 34px;
-      height: 335px;
+      height: 235px;
       position: absolute;
       right: 0;
       top: 0;
@@ -560,7 +624,7 @@ $brand-white:#fff !default;
       top: -2px;
       border-left: 2px solid #000;
       width: 35px;
-      height: 335px;
+      height: 237px;
       position: absolute;
       border-top: 2px solid #000;
       top: -2px;
@@ -569,13 +633,23 @@ $brand-white:#fff !default;
 
     }
   .full-height {
-    height: 303px;
+    height: 203px;
     overflow: hidden;
 }
 .slant-box{
   transform: skew(10deg);
-   padding: 15px 15px 0;
+   padding: 0 15px 0;
    margin: 30px 0 0 30px;
+   h2{
+     font-size: 18px;
+   }
+   p{
+     font-size: 13px;
+   }
+   h3{
+     font-size: 16px;
+     margin: 0;
+   }
 }
 }
 .slant-column{
@@ -589,13 +663,13 @@ $brand-white:#fff !default;
         transform: skew(10deg);
       }
       .half-height {
-       height: 303px;
+       height: 203px;
 }
 &:before {
   content: "";
       transform: skew(10deg);
       width: 34px;
-      height: 335px;
+      height: 235px;
       position: absolute;
       right: 0;
       top: 0;
