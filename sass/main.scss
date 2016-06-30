@@ -31,7 +31,17 @@ $body-font: "American Purpose"!default;
 $head-font: "Galano Grotesque"!default;
 body {
     font-family: $head-font;
+}
+.fixed-pad {
     padding-top: 50px;
+}
+.fix-hidden {
+  display: none;
+}
+.show-header {
+  .fix-hidden {
+    display: block;
+  }
 }
 .title {
     font-family: $body-font;

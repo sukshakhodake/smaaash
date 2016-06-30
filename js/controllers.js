@@ -10,14 +10,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.$on('$viewContentLoaded', function() {
       $(window).scroll(function() {
           var scroller = $(document).scrollTop();
-          var height = $(window).height();
+          var height = $(window).height()-40;
           if (height <= scroller) {
-              $('body').removeClass('show-header');
-          } else {
               $('body').addClass('show-header');
+          } else {
+              $('body').removeClass('show-header');
           }
       });
   });
+
+  $scope.scrollToHome = function() {
+    $('html, body').animate({
+        scrollTop: $("#toHome").offset().top
+    }, 500);
+  }
 
   $scope.mySlides = [{
     id: 1,

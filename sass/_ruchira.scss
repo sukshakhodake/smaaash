@@ -436,7 +436,7 @@ position: absolute;
   background-image: url("../img/karting/kartingbg.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin-top: -40px;
+  margin-top: -8px;
   .nav-name{
     padding: 35px 0 0;
     font-size: 30px;
@@ -448,7 +448,7 @@ position: absolute;
   background-image: url("../img/navbg/expole.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin-top: -40px;
+  margin-top: -8px;
   .nav-name{
     padding: 35px 0 0;
     font-size: 30px;
@@ -459,7 +459,7 @@ position: absolute;
     background-image: url("../img/karting/kartingbg.png");
       background-repeat: no-repeat;
       background-size: 100% 100%;
-    margin-top: -40px;
+    margin-top: 0px;
     height: 100px;
       margin-top: 0px;
   .nav-name{
@@ -584,6 +584,7 @@ position: absolute;
   transform: skew(10deg);
    padding: 15px 15px 0;
    margin: 30px 0 0 30px;
+
    h2{
      font-size: 18px;
    }
@@ -663,6 +664,7 @@ position: absolute;
   transform: skew(10deg);
    padding: 0 15px 0;
    margin: 30px 0 0 30px;
+
    h2{
      font-size: 18px;
    }
@@ -738,11 +740,11 @@ position: absolute;
 
 //*karting,*about**//
 
-.owner{
-  background-image: url("../img/karting/man.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+// .owner{
+//   background-image: url("../img/karting/man.png");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
 
 .purple-butn{
   width: 50px;
@@ -759,6 +761,7 @@ position: absolute;
   font-size: 12px;
   font-family: $body-font;
   cursor: pointer;
+  box-shadow: 2px 2px 0px #340d51;
     span{
       color: #fff;
       .fa{
@@ -796,9 +799,18 @@ position: absolute;
   }
 }
 }
+.articles{
+  .owners{
+    margin-left: 4px;
+    margin-right: 18px;
+    margin-top: 28px;
+  }
+}
+
 
 // .sach{
 //   background-image: url("../img/karting/smile.png");
 //   background-repeat: no-repeat;
 //   background-size: cover;
 // }
+//
