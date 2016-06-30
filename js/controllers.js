@@ -7,6 +7,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
+  $scope.$on('$viewContentLoaded', function() {
+      $(window).scroll(function() {
+          var scroller = $(document).scrollTop();
+          var height = $(window).height();
+          if (height <= scroller) {
+              $('body').removeClass('show-header');
+          } else {
+              $('body').addClass('show-header');
+          }
+      });
+  });
+
   $scope.mySlides = [{
     id: 1,
     url: 'img/home/slider1.png'
