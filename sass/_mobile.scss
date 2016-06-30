@@ -6,6 +6,9 @@
 
 
 @media (max-width: $screen-xs-max) {
+  .landing-banner .inner-banner {
+        background-image: url("../img/home/mbanner.png");
+  }
     .slant-col {
         @include transform(skew(0deg));
         width: 100%;
@@ -447,7 +450,7 @@
     }
     .width{
       .foot-list{
-      width: 115px;
+      width: auto;
       li.bold{
         font-size: 12px;
       }

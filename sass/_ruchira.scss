@@ -503,6 +503,23 @@ position: absolute;
   padding: 0 10px;
   overflow-y: scroll;
 }
+.landing-banner {
+    position: relative;
+    background-image: url("../img/home/landing-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .iner-banner {
+        max-width: 1170px;
+        @include position(absolute,20px 0 20px 0);
+        background-image: url("../img/home/mbanner.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+}
 .margin5{
   margin-top: 5px;
 }
@@ -733,10 +750,11 @@ position: absolute;
   border-radius: 100%;
   background-color: #662D91;
   position: absolute;
-  bottom: 5px;
+  bottom: 15px;
   left: 50%;
   text-align: center;
-  line-height: 35px;
+  line-height: 12px;
+  padding-top: 15px;
   text-transform: uppercase;
   font-size: 12px;
   font-family: $body-font;
