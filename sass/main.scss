@@ -707,13 +707,23 @@ $menu-height: 80px !default;
 
 .cols1 { @include flex (1); }
 
-.twitter-wdget{
-   .wdget{
-    overflow: hidden!important;
-  }
-}
+// .twitter-wdget{
+//    .wdget{
+//     overflow: hidden!important;
+//   }
+// }
 
 //*home page ends*//
+.social-media{
+  margin-bottom: 15px;
+  h2{
+    padding:10px;
+    font-family: "American Purpose";
+    font-size: 30px;
+    margin: 0;
+    color: #fff;
+  }
+}
 //*footer starts*//
 .footers { background-color: black; }
 

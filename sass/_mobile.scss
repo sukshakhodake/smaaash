@@ -158,6 +158,10 @@
     //*footer ends*//
 }
 @media (max-width: $screen-sm-max) {
+  .facebook{
+    width: 100%;
+    margin-bottom: 15px;
+  }
     //*confirm-order*//
     .cimg {
         display: block;
@@ -291,7 +295,15 @@
 }
 
 @media (max-width:480px) {
-
+    .fb-mobile{
+        width: 100%;
+        text-align: center;
+        height: 460px;
+        margin-bottom: 15px;
+    }
+    .purple-butn{
+      left: 45%;
+    }
 .corporate{
   .banner-info{
     top: 25px;
@@ -526,6 +538,7 @@
 .top{
   margin:-5px;
 }
+
     .dropdowns {
         .logo-smaash img {
             width: 35%;
@@ -556,6 +569,10 @@
 
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .fb_iframe_widget iframe{
+    width: 289px;
+      height: 375px;
+  }
     .comic-image {
         width: 28%;
         height: 133px;
