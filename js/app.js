@@ -133,3 +133,16 @@ firstapp.config(function ($translateProvider) {
   $translateProvider.translations('hi', LanguageHindi);
   $translateProvider.preferredLanguage('en');
 });
+firstapp.directive("scroll", function($window) {
+ return function(scope, element, attrs) {
+   angular.element($window).bind("scroll", function() {
+     var windowHeight = $(window).height();
+     if (this.pageYOffset >= windowHeight) {
+       // console.log(windowHeight);
+       element.addClass('affix');
+     } else {
+       element.removeClass('affix');
+     }
+   });
+ };
+});
