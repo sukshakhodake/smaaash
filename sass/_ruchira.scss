@@ -740,11 +740,15 @@ position: absolute;
 
 //*karting,*about**//
 
-// .owner{
-//   background-image: url("../img/karting/man.png");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
+.owner{
+  height: 233px;
+  margin-top: -27px;
+  margin-left: -19px;
+  background-image: url("../img/karting/man.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f6e9fd;
+}
 
 .purple-butn{
   width: 50px;
@@ -769,6 +773,11 @@ position: absolute;
       }
     }
 }
+// .articles{
+//   .slant-col:before{
+//       background-color: #f6e9fd;
+//   }
+// }
 
 .articles{
   .slant-col{
