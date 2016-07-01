@@ -297,11 +297,13 @@ position: absolute;
   font-size: 36px;
   text-align: center;
   font-family: $body-font;
-  @include background-image(linear-gradient(#edef90 50%, #37d028));
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
+  margin: 0;
+padding: 25px;
+font-size: 36px;
+text-align: center;
+color: #edef90;
+text-shadow: 2px 2px #000;
+  @include text-stroke(2,#000);
 }
 .nav-names{
   padding: 15px;
@@ -748,6 +750,7 @@ position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #f6e9fd;
+  background-position: 0 -31px;
 }
 
 .purple-butn{

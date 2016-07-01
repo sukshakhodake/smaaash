@@ -27,6 +27,10 @@ $brand-yellow: #FFEF01!default;
     font-family: "Galano Grotesque";
     src: url("../fonts/GalanoGrotesque.otf");
 }
+@mixin text-stroke ($width, $color) {
+  $negwidth: -$width;
+  text-shadow: $negwidth+px $negwidth+px 0 $color, $width+px $negwidth+px 0 $color, $negwidth+px $width+px 0 $color, $width+px $width+px 0 $color;
+}
 $body-font: "American Purpose"!default;
 $head-font: "Galano Grotesque"!default;
 body {
