@@ -23,7 +23,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $('html, body').animate({
         scrollTop: $("#toHome").offset().top
     }, 500);
-  }
+  };
 
   $scope.mySlides = [{
     id: 1,
@@ -92,7 +92,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('ConfirmCtrl', function($scope, $uibModal , TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("confirm-order");
-  $scope.menutitle = NavigationService.makeactive("ConfirmOrder");
+  $scope.menutitle = NavigationService.makeactive("Confirm Order");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.billingForm={};
@@ -128,7 +128,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("explore-smaaash");
-  $scope.menutitle = NavigationService.makeactive("ExploreSmaaash");
+  $scope.menutitle = NavigationService.makeactive("Explore Smaaash");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 })
@@ -210,7 +210,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showFooter = 0;
       }
     }
-  }
+  };
 })
 
 .controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {
