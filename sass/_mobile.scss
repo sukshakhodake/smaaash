@@ -164,13 +164,15 @@
         }
     }
 
-
     //*footer ends*//
 }
 @media (max-width: $screen-sm-max) {
   .facebook{
     width: 100%;
     margin-bottom: 15px;
+  }
+  .landing-kartbanner{
+    min-height: 767px;
   }
   .dropdowns {
       .woman-menu {
@@ -324,6 +326,7 @@
 }
 
 @media (max-width:480px) {
+
     .fb-mobile{
         width: 100%;
         text-align: center;
@@ -657,5 +660,7 @@
             }
         }
     }
-
+    .landing-kartbanner{
+      min-height: 400px;
+    }
 }

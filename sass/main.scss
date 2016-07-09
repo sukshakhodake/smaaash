@@ -1100,6 +1100,7 @@ $menu-height: 80px !default;
     background-repeat: no-repeat;
     background-position: center;
     margin-top: -38px;
+    min-height: 767px;
     .karting-banner {
         max-width: 1170px;
         @include position(absolute,20px 0 20px 0);
