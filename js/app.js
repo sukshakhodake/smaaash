@@ -25,6 +25,27 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'CorporateCtrl'
   })
 
+  .state('wedding-parties', {
+      url: "/wedding-parties",
+      templateUrl: "views/template.html",
+      controller: 'WeddingCtrl'
+  })
+
+
+  .state('host-party', {
+      url: "/host-party",
+      templateUrl: "views/template.html",
+      controller: 'HostCtrl'
+  })
+
+  .state('birthday-parties', {
+      url: "/birthday-parties",
+      templateUrl: "views/template.html",
+      controller: 'BirthdayCtrl'
+  })
+
+
+
   .state('explore-smaaash', {
       url: "/explore-smaaash",
       templateUrl: "views/template.html",

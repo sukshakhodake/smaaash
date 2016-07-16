@@ -89,6 +89,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
+.controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("wedding-parties");
+  $scope.menutitle = NavigationService.makeactive("PreWedding Parties");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
+
+.controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("birthday-parties");
+  $scope.menutitle = NavigationService.makeactive("Birthday Parties");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
+
+
+
+
+
 .controller('ConfirmCtrl', function($scope, $uibModal , TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("confirm-order");
@@ -132,6 +152,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 })
+
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  $scope.template = TemplateService.changecontent("host-party");
+  $scope.menutitle = NavigationService.makeactive("Host Party");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
+
 
 .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file

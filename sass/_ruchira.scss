@@ -74,6 +74,9 @@ $brand-white:#fff !default;
             background-color: $brand-green;
               outline: 0;
           }
+          .fa{
+            margin: 0 0px 0 10px;
+          }
       }
       .btn2{
         box-shadow: -3px 3px #000, -3px 0px #000;
@@ -101,13 +104,105 @@ $brand-white:#fff !default;
               outline: 0;
           }
       }
+      .fa{
+        margin: 0 0px 0 10px;
+      }
+
     }
   }
 
 }
 
 //*corporate ends*//
+.pads20{
+  padding: 20px 0 0;
+}
+.heigh{
+height: 345px; 
+}
+//kitty starts//
+.prewedding,.birthday{
+  position: relative;
+  margin-top: -40px;
+  .banner-info{
+    position: absolute;
+    top: 150px;
+    right: 80px;
+    width: 31%;
+    .texts{
+      font-size: 16px;
+    }
+    // .fees{
+    //   display: block;
+    //   font-size: 16px;
+    //   margin: 20px 0 35px 0;
+    // }
+    .banner-buttons{
+      .btn1{
+        box-shadow: -3px 3px #000, -3px 0px #000;
+        margin: 0 20px 0 10px;
+        border:1px solid transparent!important;
+          @include transform(skew(10deg));
+          span{
+            font-size: 20px;
+            display: inline-block;
+            padding: 2px 24px;
+          @include transform(skew(-10deg));
+          }
+          &:hover{
+            color:#000;
+            background-color: $brand-green;
+            outline: 0;
+          }
+          &:active{
+            color:#000;
+            background-color: $brand-green;
+              outline: 0;
+          }
+          &:focus{
+            color:#000;
+            background-color: $brand-green;
+              outline: 0;
+          }
+              .fa{
+                margin: 0 0px 0 10px;
+              }
+      }
+      .btn2{
+        box-shadow: -3px 3px #000, -3px 0px #000;
+        @include transform(skew(10deg));
+        border:1px solid transparent!important;
+          span{
+            font-size: 20px;
+            display: inline-block;
+            padding: 2px 24px;
+          @include transform(skew(-10deg));
+          }
+          &:hover{
+            color:#000;
+            background-color: $brand-purple;
+              outline: 0;
+          }
+          &:active{
+            color:#000;
+            background-color: $brand-purple;
+              outline: 0;
+          }
+          &:focus{
+            color:#000;
+            background-color: $brand-purple;
+              outline: 0;
+          }
+          .fa{
+            margin: 0 0px 0 10px;
+          }
+      }
+    }
+  }
 
+}
+
+//kitty ends//
 //*order starts*//
 
 .form{
