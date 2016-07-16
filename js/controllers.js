@@ -105,7 +105,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-
+.controller('SportsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("other-sports");
+  $scope.menutitle = NavigationService.makeactive("Other Sports");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.mySlides5 = [
+    'img/karting/blue.png',
+    'img/karting/sonakshi.png',
+    'img/karting/salman.png',
+    'img/karting/shikar.png',
+    'img/karting/blue.png'
+  ];
+})
 
 
 
@@ -185,6 +198,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     'img/karting/blue.png'
   ];
 })
+
+
 
 
 .controller('headerctrl', function($scope, TemplateService) {

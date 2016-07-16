@@ -44,6 +44,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'BirthdayCtrl'
   })
 
+  .state('other-sports', {
+      url: "/other-sports",
+      templateUrl: "views/template.html",
+      controller: 'SportsCtrl'
+  })
 
 
   .state('explore-smaaash', {
