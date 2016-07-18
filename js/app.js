@@ -44,10 +44,22 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'BirthdayCtrl'
   })
 
-  .state('other-sports', {
-      url: "/other-sports",
+  .state('smaaash-cricket', {
+      url: "/smaaash-cricket",
       templateUrl: "views/template.html",
       controller: 'SportsCtrl'
+  })
+
+  .state('cockpit', {
+      url: "/cockpit",
+      templateUrl: "views/template.html",
+      controller: 'SportingCtrl'
+  })
+
+  .state('twilight', {
+      url: "/twilight",
+      templateUrl: "views/template.html",
+      controller: 'TwilightCtrl'
   })
 
 

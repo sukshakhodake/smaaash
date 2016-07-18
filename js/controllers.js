@@ -37,22 +37,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }
   ];
   $scope.mySlides1 = [
-    'img/home/blowing.png',
+    'img/explore-img/vertigo.png',
     'img/home/cockpit.png',
-    'img/home/blowing.png'
+    'img/explore-img/coaster.png'
   ];
 
   $scope.mySlides2 = [
-    'img/home/prewedding.png',
-    'img/home/coroporatespary.png',
-      'img/home/prewedding.png'
+    'img/host/BirhdayParties.png',
+    'img/host/CorpPart.png',
+    'img/host/KittyParties.png',
+    'img/host/PlayDates.png',
+    'img/host/TeamEvents.png',
+    'img/host/WeddingParties.png'
   ];
 
   $scope.mySlides3 = [
     'img/home/sachins.png',
-      'img/home/sachins.png',
-      'img/home/sachins.png'
-
+       'img/home/sachins.png'
+    // 'img/explore-img/coaster.png',
+    //   'img/explore-img/vertigo.png',
+    //   // 'img/explore-img/3.png'
+    //   // 'img/explore-img/4.png',
+    //   // 'img/explore-img/5.png',
   ];
 
 
@@ -107,8 +113,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('SportsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("other-sports");
-  $scope.menutitle = NavigationService.makeactive("Other Sports");
+  $scope.template = TemplateService.changecontent("smaaash-cricket");
+  $scope.menutitle = NavigationService.makeactive("smaaash-cricket");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.mySlides5 = [
@@ -119,6 +125,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     'img/karting/blue.png'
   ];
 })
+
+.controller('SportingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("cockpit");
+  $scope.menutitle = NavigationService.makeactive("cockpit");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.mySlides6 = [
+    'img/karting/blue.png',
+    'img/karting/sonakshi.png',
+    'img/karting/salman.png',
+    'img/karting/shikar.png',
+    'img/karting/blue.png'
+  ];
+})
+
+.controller('TwilightCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("twilight");
+  $scope.menutitle = NavigationService.makeactive("twilight");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.mySlides7 = [
+    'img/karting/blue.png',
+    'img/karting/sonakshi.png',
+    'img/karting/salman.png',
+    'img/karting/shikar.png',
+    'img/karting/blue.png'
+  ];
+})
+
 
 
 
