@@ -45,9 +45,10 @@ $brand-white:#fff !default;
     .fees{
       display: block;
       font-size: 16px;
-      margin: 20px 0 35px 0;
+      margin: 20px 0 0 0;
     }
     .banner-buttons{
+      margin-top: 35px;
       .btn1{
         box-shadow: -3px 3px #000, -3px 0px #000;
         margin: 0 20px 0 10px;
@@ -132,12 +133,9 @@ height: 400px;
     .texts{
       font-size: 16px;
     }
-    // .fees{
-    //   display: block;
-    //   font-size: 16px;
-    //   margin: 20px 0 35px 0;
-    // }
+
     .banner-buttons{
+       margin-top:35px;
       .btn1{
         box-shadow: -3px 3px #000, -3px 0px #000;
         margin: 0 20px 0 10px;
@@ -203,6 +201,7 @@ height: 400px;
 }
 
 //kitty ends//
+//host a aprty starts//
 .hosting{
   .straight{
     .wedding{
@@ -214,6 +213,7 @@ height: 400px;
     }
   }
 }
+//host a aparty ends//
 //*order starts*//
 
 .form{
