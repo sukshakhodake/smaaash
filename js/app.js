@@ -31,6 +31,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'WeddingCtrl'
   })
 
+  .state('kitty-parties', {
+      url: "/kitty-parties",
+      templateUrl: "views/template.html",
+      controller: 'KittyCtrl'
+  })
 
   .state('host-party', {
       url: "/host-party",

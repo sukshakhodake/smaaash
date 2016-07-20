@@ -41,6 +41,7 @@ $brand-white:#fff !default;
     width: 31%;
     .texts{
       font-size: 16px;
+      letter-spacing: 1px;
     }
     .fees{
       display: block;
@@ -122,7 +123,7 @@ $brand-white:#fff !default;
 height: 400px;
 }
 //kitty starts//
-.prewedding,.birthday{
+.prewedding,.birthday,.kitty{
   position: relative;
   margin-top: -40px;
   .banner-info{
@@ -132,6 +133,7 @@ height: 400px;
     width: 31%;
     .texts{
       font-size: 16px;
+      letter-spacing: 1px;
     }
 
     .banner-buttons{
@@ -852,7 +854,8 @@ text-shadow: 2px 2px #000;
   height: 233px;
   margin-top: -27px;
   margin-left: -19px;
-  background-image: url("../img/karting/man.png");
+  background-image: url("../img/karting/About.png");
+  // background-image: url("../img/karting/man.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #f6e9fd;

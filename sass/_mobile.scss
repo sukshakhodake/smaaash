@@ -567,6 +567,58 @@
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
+  .corporate{
+    margin-top: -8px;
+    .banner-info{
+      top: 25px;
+      right: 40px;
+      .banner-text{
+        h2{
+          font-size: 12px;
+        }
+        p,span{
+          font-size: 7px;
+          letter-spacing: normal;
+        }
+      }
+      .banner-buttons{
+        .btn1{
+          margin: 0 4px;
+          span{
+            margin: 0 2px 0 0;
+          padding: 3px 6px;
+          font-size: 10px;
+        }
+      }
+      .btn2{
+        span{
+          margin: 0 2px 0 0;
+        padding: 3px 6px;
+        font-size: 7px;
+        }
+      }
+      }
+      }
+      img{
+        height: 300px;
+      }
+    }
+    .banner-butons{
+      margin-top: 10px;
+  width: 114px;
+  position: absolute;
+  right: 10%;
+  .btn{
+        padding: 2px 12px;
+        border-color: transparent;
+  }
+  button{
+    span{
+      font-size: 8px;
+    }
+  }
+    }
+
 .top{
   margin:-8px 0;
 }
