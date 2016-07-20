@@ -67,6 +67,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'TwilightCtrl'
   })
 
+  .state('snow-rush', {
+      url: "/snow-rush",
+      templateUrl: "views/template.html",
+      controller: 'SnowCtrl'
+  })
+
 
   .state('explore-smaaash', {
       url: "/explore-smaaash",
