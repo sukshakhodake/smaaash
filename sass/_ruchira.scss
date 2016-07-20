@@ -1,9 +1,8 @@
 //*corporate starts*//
 $brand-white:#fff !default;
 
-.brand-white{
-  color:$brand-white;
-}
+.brand-white{ color:$brand-white; }
+
 .center{
   text-align: center;
 }
@@ -406,11 +405,11 @@ position: absolute;
   text-align: center;
   font-family: $body-font;
   margin: 0;
-padding: 25px;
-font-size: 36px;
-text-align: center;
-color: #edef90;
-text-shadow: 2px 2px #000;
+  padding: 25px;
+  font-size: 36px;
+  text-align: center;
+  color: #edef90;
+  text-shadow: 2px 2px #000;
   @include text-stroke(2,#000);
 }
 .nav-names{
