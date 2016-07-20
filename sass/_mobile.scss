@@ -167,6 +167,58 @@
     //*footer ends*//
 }
 @media (max-width: $screen-sm-max) {
+  .corporate,.birthday,.prewedding,.kitty{
+    margin-top: -8px;
+    .banner-info{
+      top: 25px;
+      right: 40px;
+      .banner-text{
+        h2{
+          font-size: 16px;
+        }
+        p,span{
+          font-size: 14px;
+          letter-spacing: normal;
+        }
+      }
+      .banner-buttons{
+        .btn1{
+          margin: 0 4px;
+          span{
+            margin: 0 2px 0 0;
+          padding: 3px 6px;
+          font-size: 12px;
+        }
+      }
+      .btn2{
+        span{
+          margin: 0 2px 0 0;
+        padding: 3px 6px;
+        font-size: 12px;
+        }
+      }
+      }
+      }
+      // img{
+      //   height: 300px;
+      // }
+    }
+    .banner-butons{
+      margin-top: 10px;
+  width: 114px;
+  position: absolute;
+  right: 10%;
+  .btn{
+        padding: 2px 12px;
+        border-color: transparent;
+  }
+  button{
+    span{
+      font-size: 8px;
+    }
+  }
+    }
+
   .facebook{
     width: 100%;
     margin-bottom: 15px;
@@ -336,7 +388,7 @@
     .purple-butn{
       left: 45%;
     }
-.corporate{
+.corporate,.birthday,.prewedding,.kitty{
   .banner-info{
     top: 25px;
     right: 40px;
@@ -567,7 +619,7 @@
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
-  .corporate{
+  .corporate,.birthday,.prewedding,.kitty{
     margin-top: -8px;
     .banner-info{
       top: 25px;
