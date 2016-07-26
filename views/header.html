@@ -100,7 +100,10 @@
         <div class="container relative">
             <a ui-sref="home" class="logo-smaash"><img src="img/home/logo.png" alt="Smaaash"></a>
             <div class="cities" ng-click="toggleCity()">
-                <span>Mumbai
+                <span ng-hide='showCity'>Choose City
+                    <i class="fa fa-chevron-down"></i>
+                </span>
+                <span ng-show='showCity'>{{cityName}}
                     <i class="fa fa-chevron-down"></i>
                 </span>
             </div>
@@ -119,10 +122,10 @@
                     </a>
                     <div class="city-types">
                         <ul class="list">
-                            <li>
-                                <a href=""><img src="img/nav/bengaluru.png" class="img-responsive" alt=""></a>
+                            <li ng-repeat="city in getCity">
+                                <a ng-click="getCityName(city.name)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href=""><img src="img/nav/hyderabad.png" class="img-responsive" alt=""></a>
                             </li>
                             <li>
@@ -137,7 +140,7 @@
                             </li>
                             <li>
                                 <a href=""><img src="img/nav/ludhiana.png" class="img-responsive" alt=""></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

@@ -1,4 +1,10 @@
-var adminURL = "";
+// var adminurl = "";
+// var imgurl = "http://wohlig.co.in/rdbackend/uploads/";
+
+var adminurl = "http://192.168.1.103:1337/";
+var imgurl = adminurl + "upload/";
+var imgpath = imgurl + "readFile";
+var uploadurl = imgurl;
 if(isproduction)
 {
   adminURL =  "http://www.wohlig.co.in/demo/index.php";
@@ -9,7 +15,7 @@ else {
 
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function() {
+.factory('NavigationService', function($http) {
   var navigation = [{
     name: "Home",
     classis: "active",
@@ -25,6 +31,7 @@ var navigationservice = angular.module('navigationservice', [])
     getnav: function() {
       return navigation;
     },
+
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
         if (navigation[i].name == menuname) {
@@ -36,5 +43,12 @@ var navigationservice = angular.module('navigationservice', [])
       return menuname;
     },
 
+    getCity: function(callback) {
+            $http({
+            url: adminurl + 'city/getAllCityByOrder',
+            method: 'POST',
+            withCredentials: true
+        }).success(callback);
+    },
   };
 });

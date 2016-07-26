@@ -261,16 +261,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService) {
+.controller('headerctrl', function($scope, TemplateService,NavigationService) {
   $scope.template = TemplateService;
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $(window).scrollTop(0);
   });
   $scope.city = false;
+  $scope.showCity = false;
   $scope.toggleCity = function () {
     console.log('Toggle City');
     $scope.city = !$scope.city;
   };
+
+$.jStorage.flush("city");
+  $scope.getCityName=function(cityname){
+    $.jStorage.set("city",cityname);
+    $scope.cityName=$.jStorage.get("city");
+    $scope.showCity=true;
+  }
+  NavigationService.getCity(function(data) {
+      $scope.getCity = data.data;
+      console.log('$scope.getCity', $scope.getCity);
+
+  })
 
   $scope.menu = false;
   $scope.toggleMenu = function () {

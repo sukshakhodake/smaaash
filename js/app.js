@@ -176,6 +176,39 @@ firstapp.directive('noDrag', function($compile, $parse) {
           }
     };
 });
+// firstapp.filter('serverimage', function() {
+//     return function(input) {
+//         if (input) {
+//             return imgurl + input;
+//         } else {
+//             return "";
+//         }
+//     };
+// });
+
+
+firstapp.filter('uploadpath', function() {
+    return function(input, width, height, style) {
+        var other = "";
+        if (width && width != "") {
+            other += "&width=" + width;
+        }
+        if (height && height != "") {
+            other += "&height=" + height;
+        }
+        if (style && style != "") {
+            other += "&style=" + style;
+        }
+        if (input) {
+            if (input.indexOf('https://') == -1) {
+                return imgpath + "?file=" + input + other;
+
+            } else {
+                return input;
+            }
+        }
+    };
+});
 
 firstapp.config(function ($translateProvider) {
   $translateProvider.translations('en', LanguageEnglish);
