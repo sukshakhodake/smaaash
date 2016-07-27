@@ -1,7 +1,7 @@
 // var adminurl = "";
 // var imgurl = "http://wohlig.co.in/rdbackend/uploads/";
 
-var adminurl = "http://192.168.1.103:1337/";
+var adminurl = "http://192.168.1.110:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
@@ -48,6 +48,16 @@ var navigationservice = angular.module('navigationservice', [])
             url: adminurl + 'city/getAllCityByOrder',
             method: 'POST',
             withCredentials: true
+        }).success(callback);
+    },
+    getSlider: function(id,callback) {
+            $http({
+            url: adminurl + 'slider/getAllSliderByOrder',
+            method: 'POST',
+            withCredentials: true,
+            data:{
+              _id:id
+            }
         }).success(callback);
     },
   };

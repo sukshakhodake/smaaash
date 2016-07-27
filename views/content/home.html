@@ -10,11 +10,11 @@
     <div class="slidings">
         <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
         <li>
-            <img ng-src="{{s.url}}">
+            <img ng-src="{{s.image|uploadpath}}">
         </li>
     </flex-slider>
     <ul class="custom-pagination">
-        <li ng-repeat="s in mySlides track by $index">{{s.id}}</li>
+        <li ng-repeat="s in mySlides track by $index">{{s.ordering}}</li>
     </ul>
 
 </div>
