@@ -24,19 +24,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scrollTop: $("#toHome").offset().top
         }, 500);
     };
+    if ($.jStorage.get("city")) {
+        NavigationService.getSlider($.jStorage.get("city")._id, function(data) {
+            console.log(data);
+            $scope.mySlides = data.data;
+            var i = 1;
+            _.each($scope.mySlides, function(n) {
 
-    NavigationService.getSlider($.jStorage.get("city")._id, function(data) {
-        console.log(data);
-        $scope.mySlides =data.data;
-        var i=1;
-        _.each($scope.mySlides,function(n){
+                n.ordering = i;
+                i++;
+            });
+            console.log("$scope.mySlides", $scope.mySlides);
 
-          n.ordering=i;
-          i++;
         });
-        console.log("$scope.mySlides",$scope.mySlides);
 
-    });
+    };
+    var attraction = [];
+    var whatsnew = [];
+    var hostaParty = [];
+    NavigationService.getHomeContent(function(data) {
+        if (data.value) {
+            $scope.homeContent = data.data;
+            $scope.content = _.groupBy($scope.homeContent, "type");
+            $scope.attraction = $scope.content.Attraction;
+            $scope.whatsnew = $scope.content["What's new"];
+            $scope.hostaParty = $scope.content["Host a Party"];
+        } else {
+
+        }
+
+
+    })
+
 
     // $scope.mySlides = [{
     //     id: 1,
@@ -228,12 +247,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("explore-smaaash");
     $scope.menutitle = NavigationService.makeactive("Explore Smaaash");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.smaaash = [];
+    $scope.objfilter = {};
+    $scope.objfilter.pagenumber = 0;
+    $scope.objfilter.pagesize = 10;
+    $scope.show = true;
+
+    $scope.scrollMore = function(input) {
+        $scope.objfilter.pagenumber++;
+        NavigationService.getExploresmash(input, function(data) {
+            if (data.value) {
+                $scope.exploresmash = _.chunk(data.data.data, 3);
+                console.log("$scope.exploresmash", $scope.exploresmash);
+                _.each($scope.exploresmash, function(value) {
+                    $scope.smaaash.push(value);
+                });
+
+
+                $scope.lastpage = data.data.totalpages;
+
+            }
+
+
+
+        });
+
+    }
+
+
+
+    $scope.scrollMore($scope.objfilter);
+
+
+
+
+
+
+
+
+
 })
 
 .controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -253,20 +311,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('KartingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$filter) {
     //Used to name the .html file
-    $scope.template = TemplateService.changecontent("karting");
-    $scope.menutitle = NavigationService.makeactive("Karting");
+    $scope.template = TemplateService.changecontent("explore");
+    $scope.menutitle = NavigationService.makeactive("Explore");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.mySlides4 = [
-        'img/karting/blue.png',
-        'img/karting/sonakshi.png',
-        'img/karting/salman.png',
-        'img/karting/shikar.png',
-        'img/karting/blue.png'
-    ];
+    // $scope.mySlides4 = [
+    //     'img/karting/blue.png',
+    //     'img/karting/sonakshi.png',
+    //     'img/karting/salman.png',
+    //     'img/karting/shikar.png',
+    //     'img/karting/blue.png'
+    // ];
+    NavigationService.getOneExploresmash($stateParams.id,function(data){
+      $scope.mySlides4=data.data;
+      console.log("$scope.mySlides4",$scope.mySlides4);
+      $scope.mySlides4.banner = $filter('uploadpath')($scope.mySlides4.banner);
+
+
+    });
+
+
 })
 
 
@@ -284,8 +351,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.city = !$scope.city;
 
         };
-
         $scope.getCityName = function(cityname) {
+            console.log(cityname);
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
             // $scope.citySlide = $.jStorage.get("city")._id;
@@ -293,11 +360,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.showCity = true;
         }
+        if ($.jStorage.get("city") !== null) {
+            $scope.getCityName($.jStorage.get("city"))
+        }
         NavigationService.getCity(function(data) {
+
             $scope.getCity = data.data;
             console.log('$scope.getCity', $scope.getCity);
 
         })
+
+
+
+
+
+
+
+
 
         $scope.menu = false;
         $scope.toggleMenu = function() {

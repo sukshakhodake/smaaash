@@ -1,7 +1,7 @@
 // var adminurl = "";
 // var imgurl = "http://wohlig.co.in/rdbackend/uploads/";
 
-var adminurl = "http://192.168.1.101:1337/";
+var adminurl = "http://192.168.1.105:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
@@ -60,5 +60,33 @@ var navigationservice = angular.module('navigationservice', [])
             }
         }).success(callback);
     },
+    getHomeContent: function(callback) {
+            $http({
+            url: adminurl + 'exploresmash/getHomeContent',
+            method: 'POST',
+            withCredentials: true
+        }).success(callback);
+    },
+    getExploresmash: function(request,callback) {
+            $http({
+            url: adminurl + 'exploresmash/findLimited',
+            method: 'POST',
+            withCredentials: true,
+            data:request
+        }).success(callback);
+    },
+    getOneExploresmash: function(id, callback) {
+           $http({
+            url: adminurl + 'exploresmash/getOne',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+                _id: id
+            }
+
+        }).success(callback);
+    },
+
+
   };
 });

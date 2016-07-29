@@ -77,14 +77,14 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   .state('explore-smaaash', {
       url: "/explore-smaaash",
       templateUrl: "views/template.html",
-      controller: 'ExploreCtrl'
+      controller: 'ExploreSmaashCtrl'
   })
 
 
-  .state('karting', {
-      url: "/karting",
+  .state('explore', {
+      url: "/explore/:id",
       templateUrl: "views/template.html",
-      controller: 'KartingCtrl'
+      controller: 'ExploreCtrl'
   })
 
   .state('about', {

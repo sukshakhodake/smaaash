@@ -26,9 +26,10 @@
             <h2 class="brand-white">Attractions</h2>
             <div class="mover">
                 <div class="slidings">
-                    <flex-slider class="carousel" flex-slide="s in mySlides3 track by $index" item-width="500" animation="slide" animationLoop="true" prev-text="" next-text="">
+                    <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="500" animation="slide" animationLoop="true" prev-text="" next-text="">
                     <li>
-                        <img ng-src="{{s}}">
+
+                        <img ng-src="{{s.image|uploadpath}}">
                     </li>
                 </flex-slider>
             </div>
@@ -40,9 +41,9 @@
         <div class="slant-box half-height">
             <h2 class="brand-white">Whats New</h2>
             <div class="slidings">
-                <flex-slider class="carousel" flex-slide="s in mySlides1 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                     <li>
-                        <img ng-src="{{s}}">
+                        <img ng-src="{{s.image|uploadpath}}">
                     </li>
                 </flex-slider>
             </div>
@@ -52,9 +53,9 @@
         <div class="slant-box  half-height">
             <h2 class="brand-white">Host Party</h2>
             <div class="slidings">
-                <flex-slider class="carousel" flex-slide="s in mySlides2 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                <flex-slider class="carousel" flex-slide="s in hostaParty track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                     <li>
-                        <img ng-src="{{s}}">
+                        <img ng-src="{{s.image|uploadpath}}">
                     </li>
                 </flex-slider>
             </div>
