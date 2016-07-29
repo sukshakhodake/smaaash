@@ -1,7 +1,7 @@
 // var adminurl = "";
 // var imgurl = "http://wohlig.co.in/rdbackend/uploads/";
 
-var adminurl = "http://192.168.1.110:1337/";
+var adminurl = "http://192.168.1.101:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
