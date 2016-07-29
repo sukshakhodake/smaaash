@@ -86,6 +86,17 @@ var navigationservice = angular.module('navigationservice', [])
 
         }).success(callback);
     },
+    getAllExploreSmashByCity: function(id, callback) {
+           $http({
+            url: adminurl + 'exploresmash/getAllExploreSmashByCity',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+                _id: id
+            }
+
+        }).success(callback);
+    },
 
 
   };

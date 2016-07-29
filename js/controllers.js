@@ -253,46 +253,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Explore Smaaash");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.smaaash = [];
-    $scope.objfilter = {};
-    $scope.objfilter.pagenumber = 0;
-    $scope.objfilter.pagesize = 10;
-    $scope.show = true;
+    // $scope.smaaash = [];
+    // $scope.objfilter = {};
+    // $scope.objfilter.pagenumber = 0;
+    // $scope.objfilter.pagesize = 10;
+    // $scope.show = true;
 
-    $scope.scrollMore = function(input) {
-        $scope.objfilter.pagenumber++;
-        NavigationService.getExploresmash(input, function(data) {
-            if (data.value) {
-                $scope.exploresmash = _.chunk(data.data.data, 3);
-                console.log("$scope.exploresmash", $scope.exploresmash);
-                _.each($scope.exploresmash, function(value) {
-                    $scope.smaaash.push(value);
-                });
+    // $scope.scrollMore = function(input) {
+    //     $scope.objfilter.pagenumber++;
+    //     NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
+    //         if (data.value) {
+    //             $scope.exploresmash = _.chunk(data.data, 3);
+    //             console.log("$scope.exploresmash", $scope.exploresmash);
+    //             _.each($scope.exploresmash, function(value) {
+    //                 $scope.smaaash.push(value);
+    //             });
+    //
+    //
+    //             $scope.lastpage = data.data.totalpages;
+    //
+    //         }
+    //
+    //
+    //
+    //     });
+    //
+    // }
 
-
-                $scope.lastpage = data.data.totalpages;
-
-            }
-
-
-
-        });
-
-    }
-
-
-
-    $scope.scrollMore($scope.objfilter);
-
-
-
-
-
-
-
-
-
+    NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
+        if (data.value) {
+            $scope.smaaash = _.chunk(data.data, 3);
+            console.log("$scope.exploresmash", $scope.exploresmash);
+        }
+    });
+    // $scope.scrollMore($scope.objfilter);
 })
+
+
+
+
+
+
+
+
 
 .controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     $scope.template = TemplateService.changecontent("host-party");
@@ -311,7 +314,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$filter) {
+.controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("explore");
     $scope.menutitle = NavigationService.makeactive("Explore");
@@ -325,10 +328,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     'img/karting/shikar.png',
     //     'img/karting/blue.png'
     // ];
-    NavigationService.getOneExploresmash($stateParams.id,function(data){
-      $scope.mySlides4=data.data;
-      console.log("$scope.mySlides4",$scope.mySlides4);
-      $scope.mySlides4.banner = $filter('uploadpath')($scope.mySlides4.banner);
+    NavigationService.getOneExploresmash($stateParams.id, function(data) {
+        $scope.mySlides4 = data.data;
+        console.log("$scope.mySlides4", $scope.mySlides4);
+        $scope.mySlides4.banner = $filter('uploadpath')($scope.mySlides4.banner);
 
 
     });
