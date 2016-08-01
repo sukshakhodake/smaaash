@@ -26,7 +26,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     if ($.jStorage.get("city")) {
         NavigationService.getSlider($.jStorage.get("city")._id, function(data) {
-            console.log(data);
+            console.log('getSlider',data);
             $scope.mySlides = data.data;
             var i = 1;
             _.each($scope.mySlides, function(n) {
@@ -41,14 +41,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     var attraction = [];
     var whatsnew = [];
-    var hostaParty = [];
+    var hostParty = [];
     NavigationService.getHomeContent(function(data) {
         if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type");
             $scope.attraction = $scope.content.Attraction;
             $scope.whatsnew = $scope.content["What's new"];
-            $scope.hostaParty = $scope.content["Host a Party"];
+            $scope.hostParty = $scope.content["Host a Party"];
         } else {
 
         }
@@ -355,11 +355,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.getCityName = function(cityname) {
-            console.log(cityname);
+            console.log('mycityname',cityname);
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
             // $scope.citySlide = $.jStorage.get("city")._id;
-            // console.log('$scope.citySlide',$scope.citySlide);
+            // console.log('$scope.cityName',$scope.cityName);
 
             $scope.showCity = true;
         }
