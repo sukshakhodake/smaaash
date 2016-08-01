@@ -286,7 +286,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
           if (data.value) {
               $scope.smaaash = _.chunk(data.data, 3);
-              console.log("$scope.exploresmash", $scope.exploresmash);
+              console.log("$scope.smaaash", $scope.smaaash);
           }
       });
     }else{
@@ -336,6 +336,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     'img/karting/shikar.png',
     //     'img/karting/blue.png'
     // ];
+
+
     NavigationService.getOneExploresmash($stateParams.id, function(data) {
         $scope.mySlides4 = data.data;
         console.log("$scope.mySlides4", $scope.mySlides4);
@@ -368,7 +370,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.cityName = $.jStorage.get("city").name;
             if($state.current.name == "explore-smaaash"){
               globalfunction.changeExplore();
-            }
+            };
+            // if($state.current.name == "explore"){
+            //   $state.go('home');
+            // }
 
             // $scope.citySlide = $.jStorage.get("city")._id;
             // console.log('$scope.cityName',$scope.cityName);
