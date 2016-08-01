@@ -22,6 +22,9 @@
                       <h3 class="brand-ortitle title-text" >{{data.type}}</h3>
                       <p>{{data.description}} <br>{{data.weekdayPrice}}/- Workdays | {{data.weekendPrice}}/- Weekends</p>
                     </div>
+                    <div ng-if="mySlides4.timing.length == 0">
+                      No Timing Available
+                    </div>
                     <!-- <h3 class="brand-ortitle title-text">Advanced</h3>
                     <p>For  6 Mins <br>600/- Workdays | 700/- Weekends</p>
                     <h3 class="brand-ortitle title-text">Grand </h3>

@@ -26,7 +26,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     if ($.jStorage.get("city")) {
         NavigationService.getSlider($.jStorage.get("city")._id, function(data) {
-            console.log('getSlider',data);
+            console.log('getSlider', data);
             $scope.mySlides = data.data;
             var i = 1;
             _.each($scope.mySlides, function(n) {
@@ -355,7 +355,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.getCityName = function(cityname) {
-            console.log('mycityname',cityname);
+            console.log('mycityname', cityname);
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
             // $scope.citySlide = $.jStorage.get("city")._id;
