@@ -1,3 +1,4 @@
+var globalfunction = {};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -280,6 +281,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //
     // }
 
+  globalfunction.changeExplore = function () {
     if($.jStorage.get("city") !== null){
       NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
           if (data.value) {
@@ -290,6 +292,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }else{
       $state.go('home');
     }
+  };
+  globalfunction.changeExplore();
     // $scope.scrollMore($scope.objfilter);
 })
 
@@ -346,7 +350,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService,$state) {
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
@@ -362,6 +366,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('mycityname', cityname);
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
+            if($state.current.name == "explore-smaaash"){
+              globalfunction.changeExplore();
+            }
+
             // $scope.citySlide = $.jStorage.get("city")._id;
             // console.log('$scope.cityName',$scope.cityName);
 
