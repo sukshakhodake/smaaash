@@ -503,7 +503,7 @@ $brand-white:#fff !default;
     width: 55px;
     height: 100%;
     position: absolute;
-    left: 329px;
+    right:-18px;
     transform: skew(3deg);
     background-color: #2a3890;
 
@@ -524,7 +524,11 @@ $brand-white:#fff !default;
     }
   }
 }
-
+.gaming{
+  width: 367px;
+  height: 347px;
+  margin-left: 20px;
+}
 //*explore ends*//
 
 //* *//
