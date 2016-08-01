@@ -247,7 +247,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("explore-smaaash");
     $scope.menutitle = NavigationService.makeactive("Explore Smaaash");
@@ -280,12 +280,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //
     // }
 
-    NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
-        if (data.value) {
-            $scope.smaaash = _.chunk(data.data, 3);
-            console.log("$scope.exploresmash", $scope.exploresmash);
-        }
-    });
+    if($.jStorage.get("city") !== null){
+      NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
+          if (data.value) {
+              $scope.smaaash = _.chunk(data.data, 3);
+              console.log("$scope.exploresmash", $scope.exploresmash);
+          }
+      });
+    }else{
+      $state.go('home');
+    }
     // $scope.scrollMore($scope.objfilter);
 })
 
