@@ -7,16 +7,18 @@
     <div class="games" >
         <div class="rows no-flex" ng-repeat ="data in smaaash" >
             <div class="col-flexing" ng-repeat="s in data">
-                <div class="brand-blue" ng-class="{'gaming':$index==0,'smaaash-gaming':$index==1,'smash-gaming':$index==2}">
-                    <div class="anti-scew">
-                        <div class="straight">
+                <div ng-class="{'smash-gaming':$index == 2}">
+                  <div class="brand-blue" ng-class="{'gaming':$index==0 || $index == 2,'smaaash-gaming':$index==1}">
+                      <div class="anti-scew">
+                          <div class="straight">
 
-                            <h2 ui-sref="explore({id:s._id})" class="title brand-white center" >{{$index}}{{s.title}}</h2></a>
-                            <a href=""><img  ui-sref="explore({id:s._id})" ng-src="{{s.image|uploadpath}}" class=" img-responsive " alt="smaaash cricket">
-                            </a>
-                            <a href="" class="play-butn" ng-if="s.video !== ''"><img src="img/home/button.png" class="img-responsive" alt="" ></a>
-                        </div>
-                    </div>
+                              <h2 ui-sref="explore({id:s._id})" class="title brand-white center" >{{$index}}{{s.title}}</h2></a>
+                              <a href=""><img  ui-sref="explore({id:s._id})" ng-src="{{s.image|uploadpath}}" class=" img-responsive " alt="smaaash cricket">
+                              </a>
+                              <a href="" class="play-butn" ng-if="s.video !== ''"><img src="img/home/button.png" class="img-responsive" alt="" ></a>
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </div>
             <!-- <div class="col-flexing">

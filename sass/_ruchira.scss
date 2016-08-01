@@ -435,6 +435,8 @@ $brand-white:#fff !default;
 }
 .gaming,.smaaash-gaming{
   margin: 5px;
+  width: 367px;
+  height: 347px;
   transform: skew(-3deg);
   overflow: hidden;
   .anti-scew{
@@ -490,6 +492,8 @@ $brand-white:#fff !default;
 .smash-gaming{
   .gaming{
     margin: 5px;
+    width: 367px;
+    height: 347px;
     transform: skew(-3deg);
     overflow: hidden;
     .anti-scew{
@@ -503,9 +507,10 @@ $brand-white:#fff !default;
     width: 55px;
     height: 100%;
     position: absolute;
-    right:-18px;
+    left:329px;
+    // right: -18px;
     transform: skew(3deg);
-    background-color: #2a3890;
+    // background-color: #2a3890;
 
   }
   .gaming{
@@ -524,11 +529,11 @@ $brand-white:#fff !default;
     }
   }
 }
-.gaming{
-  width: 367px;
-  height: 347px;
-  margin-left: 20px;
-}
+// .gaming{
+//   width: 367px;
+//   height: 347px;
+//   margin-left: 20px;
+// }
 //*explore ends*//
 
 //* *//
