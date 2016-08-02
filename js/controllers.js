@@ -135,6 +135,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('AccountCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("account");
+    $scope.menutitle = NavigationService.makeactive("Account");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
+
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("cart");
+    $scope.menutitle = NavigationService.makeactive("Cart");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
 .controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("kitty-parties");

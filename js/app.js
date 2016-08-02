@@ -37,6 +37,19 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'KittyCtrl'
   })
 
+  .state('cart', {
+      url: "/cart",
+      templateUrl: "views/template.html",
+      controller: 'CartsCtrl'
+  })
+
+  .state('account', {
+      url: "/account",
+      templateUrl: "views/template.html",
+      controller: 'AccountCtrl'
+  })
+
+
   .state('host-party', {
       url: "/host-party",
       templateUrl: "views/template.html",
