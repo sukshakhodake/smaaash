@@ -1014,13 +1014,45 @@ $brand-white:#fff !default;
       font-family: $body-font;
       font-size: 30px;
   }
+  .img-bg{
+    background-color: $brand-green;
+  }
+  .img-bcg{
+    background-color: $brand-pink;
+  }
+.img-bkg{
+    background-color: $brand-orange;
+}
+.green{
+    background-color: $brand-green;
+}
+.pink{
+  background-color: $brand-pink;
+}
+.orange{
+    background-color: $brand-orange;
+}
+
+.greeny{
+  color:$brand-green;
+}
+
+.orangy{
+  color: $brand-orange;
+}
+
+.pinky{
+  color: $brand-pink;
+}
   .new{
     margin-top: 20px;
   }
   span{
-    color: $brand-green;
     text-decoration: underline;
     cursor: pointer;
+  }
+  p{
+    margin: 15px 0;
   }
   .new-detail{
     border: 1px solid;
@@ -1040,11 +1072,10 @@ $brand-white:#fff !default;
     }
   }
   .button-set{
-    padding: 20px 0;
+    padding: 30px 0;
   }
 .more{
   button{
-    background:$brand-green ;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -1063,6 +1094,11 @@ $brand-white:#fff !default;
     .fa{
       margin: 0 5px;
     }
+  }
+}
+.social-icons{
+  p{
+    color: #d4d4d4;
   }
 }
 }
