@@ -43,6 +43,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'CartsCtrl'
   })
 
+  .state('whats-new', {
+      url: "/whats-new",
+      templateUrl: "views/template.html",
+      controller: 'NewCtrl'
+  })
+
   .state('account', {
       url: "/account",
       templateUrl: "views/template.html",
