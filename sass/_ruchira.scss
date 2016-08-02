@@ -1009,11 +1009,12 @@ $brand-white:#fff !default;
     margin-top: 28px;
   }
 }
-.whats-new{
+.whats-new,.host-party{
   h3{
       font-family: $body-font;
       font-size: 30px;
   }
+
   .img-bg{
     background-color: $brand-green;
   }
@@ -1032,7 +1033,14 @@ $brand-white:#fff !default;
 .orange{
     background-color: $brand-orange;
 }
-
+.blue{
+  background-color: $brand-blue !important;
+  padding: 10px 90px !important;
+  color: #fff;
+}
+.bluey{
+  color: $brand-blue;
+}
 .greeny{
   color:$brand-green;
 }
@@ -1055,7 +1063,12 @@ $brand-white:#fff !default;
     margin: 15px 0;
   }
   .new-detail{
-    border: 1px solid;
+    border: 1px solid #000;
+    border-top: none;
+    padding: 20px;
+  }
+  .new-details{
+    border: 1px solid $brand-blue;
     border-top: none;
     padding: 20px;
   }
@@ -1081,6 +1094,9 @@ $brand-white:#fff !default;
     border-radius: 5px;
     margin-left: 25px;
     color: #fff;
+    .fa{
+      margin: 0 5px;
+    }
   }
 }
 .love{
