@@ -202,6 +202,44 @@ $brand-white:#fff !default;
   }
 }
 //host a aparty ends//
+//cart//
+.carts{
+  .table{
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    thead{
+      background-color: rgba(53, 49, 49, 0.81);
+      tr{
+        th{
+          padding: 25px 0;
+          border:none;
+          color: #fff;
+        }
+  }
+      }
+      td{
+        border-top: 2px solid #000;
+      padding: 25px 0;
+      border-bottom: 2px solid #000;
+      font-weight: 700;
+    font-size: 16px;
+      }
+      .border-left{
+        border-left: 2px solid #000;
+      }
+      .border-right{
+        border-right: 2px solid #000;
+      }
+  }
+
+  }
+
+//cart//
+
+
+
+
 //*order starts*//
 
 .form{
