@@ -24,6 +24,19 @@
   }
 }
 
+.carts{
+  .table{
+    td{
+    font-size: 11px;
+  }
+  th{
+    font-size: 10px;
+  }
+  }
+  .remove{
+    margin-top: 55px;
+  }
+}
     .slant-col {
         @include transform(skew(0deg));
         width: 100%;

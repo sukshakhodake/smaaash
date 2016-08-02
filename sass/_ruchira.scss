@@ -239,7 +239,54 @@ $brand-white:#fff !default;
   }
 
 //cart//
+//account//
+.carts{
+  .table{
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    thead{
+      background-color: rgba(53, 49, 49, 0.81);
+      tr{
+        th{
+          padding: 25px 0;
+          border:none;
+          color: #fff;
+        }
+  }
+      }
+    tbody{
+      tr{
+        td{
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            width: 200px;
+        }
+      }
+    }
+    .border-left{
+      border-left: 1px solid #000;
+    }
+    .border-right{
+      border-right: 1px solid #000;
+    }
+  }
+.quantity{
+  display: inline-block;
+  border:1px solid #000;
+  padding: 10px 50px;
+}
+.remove{
+  margin-top: 95px;
+  button{
+    background-color: rgba(53, 49, 49, 0.81);
+    padding: 10px 40px;
+    border: none;
+    color: #fff;
+}
+}
+}
 
+//account//
 
 
 
