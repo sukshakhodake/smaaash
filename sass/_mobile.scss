@@ -9,6 +9,18 @@
   .landing-banner .inner-banner {
         background-image: url("../img/home/mbanner.png");
   }
+.carts{
+  .table{
+    margin-top: 0;
+      td{
+      font-size: 11px;
+    }
+    th{
+      font-size: 10px;
+    }
+  }
+}
+
     .slant-col {
         @include transform(skew(0deg));
         width: 100%;
