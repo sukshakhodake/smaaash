@@ -217,6 +217,22 @@
     //*footer ends*//
 }
 @media (max-width: $screen-sm-max) {
+.whats-new{
+  .new{
+    .new-detail{
+      h3{
+        font-size: 20px;
+      }
+      .love{
+        button{
+          padding: 10px 5px;
+        }
+      }
+    }
+  }
+}
+
+
   .corporate,.birthday,.prewedding,.kitty{
     margin-top: -8px;
     .banner-info{
