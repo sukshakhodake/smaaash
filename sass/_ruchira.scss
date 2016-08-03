@@ -1230,7 +1230,7 @@ $brand-white:#fff !default;
   }
 }
 
-.new-slider{
+.new-slider,.new-sliding{
   .img-bg{
     background-color: $brand-green;
   }
@@ -1289,6 +1289,21 @@ $brand-white:#fff !default;
       background: url("../img/home/arrow.png")no-repeat;
       background-size: contain;
     }
+    }
+  }
+
+}
+
+
+.new-sliding{
+  .race{
+    .pink-button{
+      height: 60px;
+      width: 60px;
+      position: absolute;
+      top: 67%;
+      right: 0%;
+      transform: translate(-50%,-50%);
     }
   }
 
