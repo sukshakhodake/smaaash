@@ -37,6 +37,28 @@
     margin-top: 55px;
   }
 }
+
+.whats-new{
+  .social-icons,.more{
+    width: 100%;
+    text-align: center;
+  }
+
+  .new{
+    .karting-championship{
+      margin-bottom: 15px;
+    }
+    // .karting-championship:last-child{
+    //   margin-bottom: 0;
+    // }
+  }
+}
+
+
+
+
+
+
     .slant-col {
         @include transform(skew(0deg));
         width: 100%;
