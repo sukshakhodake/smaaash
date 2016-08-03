@@ -54,7 +54,27 @@
   }
 }
 
-
+.attractions{
+    .new-detail,.news-detail,.new-details{
+      h3{
+        font-size: 20px;
+      }
+      p{
+        font-size: 12px;
+      }
+    }
+    .button-set{
+      button{
+        font-size: 10px;
+      }
+    }
+    .karting-championship{
+      margin-bottom: 15px;
+    }
+    .love button {
+    padding: 10px 35px;
+  }
+}
 
 
 
@@ -223,7 +243,11 @@
       h3{
         font-size: 20px;
       }
+      p,span{
+        font-size: 12px;
+      }
       .love{
+        text-align: center;
         button{
           padding: 10px 5px;
         }

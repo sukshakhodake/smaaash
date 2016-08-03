@@ -1132,7 +1132,7 @@ $brand-white:#fff !default;
   .new{
     margin-top: 20px;
   }
-  .new-detail{
+  .new-detail,.news-detail,.new-details{
     border: 1px solid #29a8df;
     border-top: none;
     padding: 20px;
@@ -1140,6 +1140,14 @@ $brand-white:#fff !default;
       color: #ccc;
     }
   }
+.news-detail{
+    border: 1px solid #642c91;
+}
+.new-details{
+    border: 1px solid #2a3890;
+}
+
+
   .love{
     button{
       text-align: center;
@@ -1157,19 +1165,42 @@ $brand-white:#fff !default;
   .bluey{
     color: $brand-blue;
   }
+.purpley{
+  color: $brand-purblu;
+}
+
+.dark-bluey{
+  color: $brand-darkblue;
+}
+
   .blue{
     background-color: $brand-blue ;
     color: #fff;
     padding: 10px 50px;
   }
 
-  .views{
+  .views,.view,.viewing{
     button{
       background-color: #fff;
       border: 1px solid #29a8df;
       padding: 5px 15px;
     }
   }
+.view{
+  button{
+      border: 1px solid #642c91;
+  }
+}
+
+.viewing{
+  button{
+      border: 1px solid #2a3890;
+  }
+}
+
+
+
+
   h3{
     font-family: $body-font;
     font-size: 30px;
@@ -1177,7 +1208,7 @@ $brand-white:#fff !default;
   }
   .button-set{
     button{
-    
+
     color: #fff;
     padding: 10px 9px;
     border: none;
@@ -1186,3 +1217,39 @@ $brand-white:#fff !default;
     }
   }
 }
+//new home//
+.new-slider{
+  .gallery{
+      border: 2px solid #000;
+      margin-bottom: 15px;
+      .headings{
+        p{
+          border-bottom: 1px solid #000;
+          cursor: pointer;
+      }
+    }
+    .slidings{
+    margin: 20px ;
+      .flex-control-nav,
+      .flex-prev {
+        display: none;
+      }
+      .flexslider{
+         margin-bottom: 20px;
+      }
+      .flex-next{
+        display: block;
+        height: 50px;
+        width: 50px;
+      }
+    .flex-direction-nav a.flex-next:before{
+      content: "";
+      @include square(100%);
+      background: url("../img/home/arrow.png")no-repeat;
+      background-size: contain;
+    }
+    }
+  }
+
+}
+//new home//
