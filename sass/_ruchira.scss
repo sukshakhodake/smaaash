@@ -1218,16 +1218,22 @@ $brand-white:#fff !default;
   }
 }
 //new home//
+.headings,.heading{
+  p{
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+}
+.heading{
+  p{
+    border-bottom: 1px solid #fff;
+  }
+}
 .new-slider{
   .gallery{
       border: 2px solid #000;
       margin-bottom: 15px;
-      .headings{
-        p{
-          border-bottom: 1px solid #000;
-          cursor: pointer;
-      }
-    }
+
     .slidings{
     margin: 20px ;
       .flex-control-nav,
