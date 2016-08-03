@@ -59,15 +59,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     // $scope.mySlides = [{
-    //     id: 1,
-    //     url: 'img/home/slider1.png'
-    // }, {
-    //     id: 2,
-    //     url: 'img/home/slider1.png'
-    // }, {
-    //     id: 3,
-    //     url: 'img/home/slider1.png'
-    // }];
+    //     name: "yoga",
+    //     descp: "aperiam, eaque ipsa quae ab illo inventore veritatis et."
+    //   },
+    //   {
+    //     name: "yoga",
+    //     descp: "aperiam, eaque ipsa quae ab illo inventore veritatis et."
+    //   },
+    //   {
+    //     name: "yoga",
+    //     descp: "aperiam, eaque ipsa quae ab illo inventore veritatis et."
+    //   }];
     $scope.mySlides1 = [
         'img/explore-img/vertigo.png',
         'img/home/cockpit.png',
