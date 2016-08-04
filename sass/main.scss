@@ -22,6 +22,8 @@ $brand-orange:#fc5626!default;
 $brand-purblu:#642c91!default;
 $brand-greenblu:#01a69a !default;
 $brand-purply:#662d91 !default;
+$brand-bluey:#293685!default;
+$brand-orangy:#fc5626 !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @font-face {
     font-family: "American Purpose";
@@ -66,9 +68,14 @@ body {
 .brand-blue {
     background-color: $brand-blue;
 }
+.brand-orangy{
+  background-color: $brand-orangy;
+}
 .brand-ortitle {
     color: #FB5627;
 }
+
+
 .brand-red {
     background-color: $brand-red;
 }
