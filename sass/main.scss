@@ -21,6 +21,7 @@ $brand-yellow: #FFEF01!default;
 $brand-orange:#fc5626!default;
 $brand-purblu:#642c91!default;
 $brand-greenblu:#01a69a !default;
+$brand-purply:#662d91 !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @font-face {
     font-family: "American Purpose";
@@ -88,6 +89,9 @@ body {
 }
 .brand-greenblu{
   background-color: $brand-greenblu;
+}
+.brand-purply{
+  background-color: $brand-purply;
 }
 .relative {
     position: relative;
@@ -881,9 +885,9 @@ $menu-height: 80px !default;
             background-color: $brand-green;
         }
     }
-    &.brand-purple {
+    &.brand-blue {
         &:before {
-            background-color: $brand-purple;
+            background-color: $brand-blue;
         }
     }
 }
@@ -969,7 +973,7 @@ $menu-height: 80px !default;
         display: block;
     }
 }
-.reverse {
+.reverse,.reversed,.reversing {
     .mover {
         right: 0;
         left: auto;
@@ -1015,6 +1019,17 @@ $menu-height: 80px !default;
                 left: -20%;
                 background-color: $brand-green;
             }
+        }
+        &.brand-purply{
+          &:before {
+              content: "";
+              @include transform(skew(15deg));
+              width: 50%;
+              height: 100%;
+              position: absolute;
+              left: -20%;
+              background-color: $brand-purply;
+          }
         }
     }
     .form{

@@ -114,6 +114,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/beverage2.png'
     ];
 
+    $scope.mySlides7 = [
+        'img/SkyKarting.png',
+        'img/explore/explore2.png',
+        'img/explore/explore3.png',
+        'img/explore/explore4.png',
+        'img/explore/explore5.png'
+    ];
+
     $scope.$on('$viewContentLoaded', function(event) {
         $timeout(function() {
             (function(d, s, id) {
