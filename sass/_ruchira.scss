@@ -1208,13 +1208,18 @@ $brand-white:#fff !default;
   }
   .button-set{
     button{
-
     color: #fff;
     padding: 10px 9px;
     border: none;
     border-radius: 6px;
     text-transform: capitalize;
     }
+    button+button{
+      margin-left: 1px;
+    }
+  }
+  .marglef{
+    margin-left: 3px;
   }
 }
 //new home//
