@@ -1,7 +1,7 @@
 var globalfunction = {};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -121,6 +121,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/explore/explore4.png',
         'img/explore/explore5.png'
     ];
+    $scope.animationsEnabled = true;
+    // $scope.opening = function(size) {
+    //
+    //     // var modalInstance = $uibModal.opening({
+    //     //     animation: $scope.animationsEnabled,
+    //     //     templateUrl: 'views/modal/login.html',
+    //     //     controller: 'HomeCtrl',
+    //     //     size: size,
+    //     //     resolve: {
+    //     //         items: function() {
+    //     //             return $scope.items;
+    //     //         }
+    //     //     }
+    //     // });
+    //
+    // };
+
 
     $scope.$on('$viewContentLoaded', function(event) {
         $timeout(function() {
@@ -366,11 +383,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.viewMore = function() {
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/login.html",
+        scope: $scope
+      });
+    };
 })
 
 
