@@ -1016,7 +1016,14 @@ $brand-white:#fff !default;
       font-family: $body-font;
       font-size: 30px;
   }
-
+.special{
+  p{
+    text-align: center;
+    font-family: $body-font;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+}
   .img-bg{
     background-color: $brand-green;
   }
@@ -1061,13 +1068,14 @@ $brand-white:#fff !default;
     text-decoration: underline;
     cursor: pointer;
   }
-  p{
-    margin: 15px 0;
-  }
+
   .new-detail{
     border: 1px solid #000;
     border-top: none;
     padding: 20px;
+    p{
+      margin: 15px 0;
+    }
   }
   .new-details{
     border: 1px solid $brand-blue;
@@ -1602,5 +1610,17 @@ a{
   width: 50px;
   display: inline-block;
 }
+}
+.connect-button,.live-chat{
+  background-color: $brand-orange;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  cursor: pointer;
+}
+.live-chat{
+  background-color: $brand-green;
+  top: 60%;
 }
 //new home//

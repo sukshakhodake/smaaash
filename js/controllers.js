@@ -58,18 +58,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    // $scope.mySlides = [{
-    //     name: "yoga",
-    //     descp: "aperiam, eaque ipsa quae ab illo inventore veritatis et."
-    //   },
-    //   {
-    //     name: "yoga",
-    //     descp: "aperiam, eaque ipsa quae ab illo inventore veritatis et."
-    //   },
-    //   {
-    //     name: "yoga",
-    //     descp: "aperiam, eaque ipsa quae ab illo inventore veritatis et."
-    //   }];
+    $scope.viewMore = function() {
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/login.html",
+        scope: $scope
+      });
+    };
+
     $scope.mySlides1 = [
         'img/explore-img/vertigo.png',
         'img/home/cockpit.png',
@@ -383,19 +379,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.viewMore = function() {
-      $uibModal.open({
-        animation: true,
-        templateUrl: "views/modal/login.html",
-        scope: $scope
-      });
-    };
+
 })
 
 
