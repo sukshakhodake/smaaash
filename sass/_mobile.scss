@@ -6,6 +6,36 @@
 
 
 @media (max-width: $screen-xs-max) {
+
+
+
+
+
+  .game-type{
+    width: auto !important;
+    margin: 10px auto !important;
+   display: block;
+  }
+  .search-green{
+    width: 100% !important;
+    margin: 10px auto !important;
+   display: block
+  }
+  .packages{
+    .slant-col,.slant-column{
+      width: 100%;
+    transform: skew(0);
+    &:before{
+        transform: skew(0);
+    }
+    .slant-box{
+        transform: skew(0);
+    }
+    .blue-package{
+      width: 80%;
+    }
+    }
+  }
   .landing-banner .inner-banner {
         background-image: url("../img/home/mbanner.png");
   }
@@ -38,12 +68,20 @@
   }
 }
 
-.whats-new{
+.whats-new,.host-party{
   .social-icons,.more{
     width: 100%;
     text-align: center;
   }
-
+  h3{
+    font-size: 20px;
+  }
+  p{
+    font-size: 12px;
+  }
+  .love{
+    text-align: center;
+  }
   .new{
     .karting-championship{
       margin-bottom: 15px;
@@ -62,6 +100,7 @@
       p{
         font-size: 12px;
       }
+
     }
     .button-set{
       button{
@@ -71,13 +110,71 @@
     .karting-championship{
       margin-bottom: 15px;
     }
-    .love button {
-    padding: 10px 35px;
+    .love{
+      text-align: center;
+      button {
+      padding: 10px 35px;
+    }
+    }
+}
+.host-party{
+  .form{
+    margin-bottom: 0;
+  }
+  .packagings{
+    .slant-col{
+      transform: skew(0);
+      &:before{
+        left: 0;
+      transform: skew(0);
+      }
+      .slant-box{
+          transform: skew(0);
+      }
+    }
+    .slant-column{
+        transform: skew(0);
+        .slant-box{
+            transform: skew(0);
+        }
+      &:before{
+        right: 0;
+        transform: skew(0);
+      }
+.customize-layer{
+  right: 0;
+}
+.chef{
+  left: 0;
+}
+    }
+  }
+
+}
+.side-buttons{
+  top: 0;
+}
+.connect-button,.live-chat{
+padding: 0;
+  img{
+    width: 25%;
+    margin: 0 auto;
+  }
+  p{
+    text-align: center;
+    font-size: 10px;
+    margin: 0px;
   }
 }
 
-
-
+.live-chat{
+  margin-top: 40px;
+  padding: 10px;
+  img{
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
     .slant-col {
         @include transform(skew(0deg));
@@ -233,8 +330,15 @@
             @include flex(auto);
         }
     }
-
     //*footer ends*//
+
+.slant-in{
+  .mover{
+    top: 50px;
+  }
+}
+
+
 }
 @media (max-width: $screen-sm-max) {
 .whats-new{
@@ -256,7 +360,63 @@
   }
 }
 
+.attractions{
+  h3{
+    font-size: 20px;
+  }
+  .new-detail,.news-detail,.new-details{
+    height: 400px;
+    p{
+      margin: 10px 0;
+      span{
+    display: block;
+    height: 20px;
 
+      }
+    }
+
+    .button-set {
+    height: 150px;
+    button{
+      width: 100%;
+    }
+    button+button {
+        margin-top: 5px;
+    }
+}
+
+.love{
+      button{
+        padding: 5px 35px;
+      }
+}
+  }
+
+}
+.host-party{
+  h3{
+    font-size: 20px;
+  }
+  .special,.packagings{
+    .chef{
+      left: 0;
+    }
+    p{
+        font-size: 20px;
+    }
+  }
+  p,span{
+    font-size: 12px;
+  }
+  .love{
+    button{
+      padding: 10px 35px!important;
+    }
+  }
+.blue-package{
+  width: 80%;
+}
+}
   .corporate,.birthday,.prewedding,.kitty{
     margin-top: -8px;
     .banner-info{
@@ -790,7 +950,7 @@
   width: 100px;
 }
 .full-height{
-  height: 230px;
+  height: 300px;
 }
 
 }
