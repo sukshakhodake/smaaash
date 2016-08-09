@@ -21,6 +21,14 @@ $brand-white:#fff !default;
 
 .margin33{ margin-top: 33px; }
 
+.marginleft{
+  margin-left: 50px !important;
+}
+
+.marg{
+  margin-left: 25px !important;
+}
+
 .corporate{
   position: relative;
   margin-top: -40px;
@@ -1302,7 +1310,7 @@ $brand-white:#fff !default;
       .flexslider{
          margin-bottom: 20px;
          .slides{
-           li{
+           li+li{
              margin: 0 30px;
            }
          }
@@ -1380,12 +1388,26 @@ $brand-white:#fff !default;
 .reversed{
   .slant-col{
     .slant-box{
-      h2{
-        margin-left:50px;
+      // h2{
+      //   margin-left:50px;
+      // }
+      h3{
+        font-size: 30px;
       }
       .mover{
             right: 20px;
+            // top: 60px;
       }
+    }
+  }
+}
+.reversing{
+  .slant-box{
+    // h2{
+    //   margin-left:50px;
+    // }
+    h3{
+      font-size: 30px;
     }
   }
 }

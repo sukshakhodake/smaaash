@@ -111,11 +111,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 
     $scope.mySlides7 = [
-        'img/SkyKarting.png',
+        'img/explore/explore5.png',
         'img/explore/explore2.png',
         'img/explore/explore3.png',
         'img/explore/explore4.png',
         'img/explore/explore5.png'
+    ];
+
+    $scope.mySlides8 = [
+        'img/cakey.png',
+        'img/cakey.png',
+        'img/cakey.png',
+        'img/cakey.png',
+        'img/cakey.png'
     ];
     $scope.animationsEnabled = true;
     // $scope.opening = function(size) {

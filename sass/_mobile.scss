@@ -6,7 +6,9 @@
 
 
 @media (max-width: $screen-xs-max) {
-
+  .marginleft,.marg{
+    margin-left: 0 !important;
+  }
 
 
 
@@ -331,13 +333,23 @@ padding: 0;
         }
     }
     //*footer ends*//
-
-.slant-in{
-  .mover{
-    top: 50px;
+.reversing,.reversed{
+  .slant-in{
+    .mover{
+      top: 65px;
+    }
   }
 }
 
+.reverse{
+  .form{
+    .form-group,.btn{
+        width: 100%;
+        margin: 10px auto;
+
+    }
+  }
+}
 
 }
 @media (max-width: $screen-sm-max) {
