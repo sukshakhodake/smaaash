@@ -1,7 +1,7 @@
 var globalfunction = {};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -126,6 +126,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/cakey.png'
     ];
     $scope.animationsEnabled = true;
+    $scope.login = "menu-out";
+    $scope.getMenu = function() {
+        $(".side-menu").addClass("menu-in");
+        $(".side-menu").removeClass("menu-out");
+    };
+    $scope.closeMenu = function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    };
+
+    $(".template.content").click(function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    });
     // $scope.opening = function(size) {
     //
     //     // var modalInstance = $uibModal.opening({

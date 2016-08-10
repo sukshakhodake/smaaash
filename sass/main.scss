@@ -1174,6 +1174,23 @@ img.fancybox-image {
     width: 100%;
     z-index: 999;
 }
+#axis,#axe{
+   transition: all 900ms ease;
+}
+#axis:hover .rotate360cw{
+  transform: rotate(-360deg);
+      -webkit-transform: rotate(-360deg);
+      -o-transform: rotate(-360deg);
+      -moz-transform: rotate(-360deg);
+}
+#axe:hover .transform{
+   transform: translate(0px,-5px);
+}
+
+
+
+
+
 
 @import "fancybox-override";
 @import "ruchira";
