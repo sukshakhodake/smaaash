@@ -84,8 +84,22 @@
 </div> -->
 
 <div class="host-party">
-
-      <div class="container">
+  <div class="smaash-drops">
+    <div class="slidings">
+    <flex-slider class="carousel" flex-slide="s in mySlides9 track by $index"   manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
+            <li>
+              <img ng-src="{{s}}">
+            </li>
+        </flex-slider>
+        <ul class="custom-pagination list-inline">
+            <li>1</li>
+            <li>2</li>
+            <!-- <li>3</li> -->
+        </ul>
+      </div>
+  </div>
+      <div class="container relative">
+        <div class="form-content">
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4"></div>
@@ -134,7 +148,7 @@
           </div>
           </div>
         </div>
-
+</div>
         <!-- <div class="practice">
           <div class="slant-row">
 

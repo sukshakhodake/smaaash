@@ -393,6 +393,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    $scope.mySlides9 = [
+        'img/hosting.jpg',
+        'img/hosting.jpg',
+        'img/hosting.jpg',
+        'img/hosting.jpg',
+        'img/hosting.jpg'
+    ];
 
 })
 

@@ -1149,6 +1149,18 @@ $brand-white:#fff !default;
   }
 }
 }
+
+
+.form-content{
+  position: absolute;
+  top: -315px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  .practice{
+    background-color: #fff;
+  }
+}
 .attractions{
   .pink-button{
     height: 50px;
@@ -1792,6 +1804,51 @@ a{
 
 
 .host-party{
+  .smaash-drops{
+        margin-bottom: 0;
+        position: relative;
+        .slidings {
+            .custom-pagination {
+                @include position(absolute,null null 32px 20px);
+                margin: 0;
+                li {
+                    float: left;
+                    padding: 10px;
+                    cursor: pointer;
+                    list-style: none;
+                    line-height: 1.42857;
+                    text-decoration: none;
+                    color: #000;
+                    font-weight: 700;
+                    background-color: #fff;
+                    box-shadow: 2px -2px #000, 2px -1px #000;
+                    @include transform(skew(-10deg));
+                    @include transition(all 300ms ease);
+                    margin: 0 5px;
+                    border-radius: 0;
+                    &.flex-active,
+                    &:active,
+                    &:hover {
+                        background-color: $brand-red;
+                        color: white;
+                    }
+                    &.flex-active {
+                        padding: 12.5px 10px;
+                        margin-top: -5px;
+                        margin-bottom: -5px;
+                    }
+                }
+            }
+            .flexslider {
+                margin: 0;
+                border: none;
+            }
+        }
+
+    .flex-control-nav{
+      display: none;
+    }
+  }
   .practice{
 .form-group{
   .form-control{
