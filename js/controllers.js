@@ -401,6 +401,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/hosting.jpg'
     ];
 
+    $scope.mySlides10 = [
+        'img/Top-banner.jpg',
+        'img/Top-banner.jpg',
+        'img/Top-banner.jpg',
+        'img/Top-banner.jpg',
+      'img/Top-banner.jpg'
+    ];
+
 })
 
 
