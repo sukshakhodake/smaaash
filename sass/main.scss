@@ -191,7 +191,7 @@ $menu-height: 80px !default;
     .cities {
         background-color: $brand-purple;
         @include transform(skew(15deg));
-        @include position(absolute,0 200px null null);
+        @include position(absolute,52px null null 25px);
         box-shadow: -3px 3px #000, -3px 0 #000;
         padding: 8px 15px;
         cursor: pointer;
@@ -675,9 +675,13 @@ $menu-height: 80px !default;
     display: block;
 }
 .logo-smaash {
-    display: inline-block;
+    position: absolute;
+    top: 10px;
+    z-index: 999;
+    left: 20px;
     height: $menu-height - 10px;
-    margin-top: 10px;
+    // display: inline-block;
+    // margin-top: 10px;
     img {
         width: auto;
         height: 100%;
