@@ -42,6 +42,9 @@
       width: 80%;
     }
     }
+    .slant-column{
+      margin-top: 15px;
+    }
   }
   .landing-banner .inner-banner {
         background-image: url("../img/home/mbanner.png");
@@ -140,6 +143,7 @@
       }
     }
     .slant-column{
+      margin-top: 15px;
         transform: skew(0);
         .slant-box{
             transform: skew(0);
