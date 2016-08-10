@@ -126,7 +126,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/cakey.png'
     ];
     $scope.animationsEnabled = true;
-    $scope.login = "menu-out";
+    $scope.menu = "menu-out";
     $scope.getMenu = function() {
         $(".side-menu").addClass("menu-in");
         $(".side-menu").removeClass("menu-out");
