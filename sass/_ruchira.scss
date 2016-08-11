@@ -1625,7 +1625,7 @@ $brand-white:#fff !default;
       border:2px solid #ccc;
   }
   .butn,.buton{
-    padding: 10px 60px;
+    padding: 10px 42px;
     border-radius: 5px;
     background-color: #3B5998;
     border: transparent;
@@ -1646,15 +1646,15 @@ span{
   position: absolute;
   border-right: 1px solid #333;
   background-color: #3B5998;
-  padding: 5px 15px;
+  padding: 5px 11px;
   top: 0;
-  left: 4px;
+  left: 3px;
   font-size: 20px;
 }
   }
   .buton{
     background-color: #dd4b39;
-    padding: 10px 67px;
+      padding: 10px 52px;
     &:hover{
       background-color:#dd4b39 ;
     }
@@ -1701,10 +1701,14 @@ a{
   display: inline-block;
 }
 }
-.side-buttons{
+.side-buttons,.side{
   position: fixed;
-  top: 30%;
+  top: 20%;
   right: 0;
+  z-index: 9999;
+}
+.side{
+  top: 70%;
 }
 .connect-button,.live-chat{
   background-color: $brand-orange;
@@ -1732,8 +1736,7 @@ a{
 .live-chat{
   display: block;
   background-color: $brand-green;
-  margin-top: 70px;
-  padding: 20px;
+  padding: 20px 60px;
   .orange-rays{
     position: absolute;
     top: 0;
@@ -1751,11 +1754,9 @@ a{
       right: 10px;
     }
   .phone-aunty{
-    p{
-      position: absolute;
+    position: absolute;
     bottom: 0;
-    z-index: 3;
-    }
+    right: 20px;
   }
 }
 .attractions{

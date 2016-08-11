@@ -1053,6 +1053,15 @@ $menu-height: 80px !default;
         padding: 10px 20px;
         border: 1px solid #000;
         margin: 0 10px;
+        &:hover{
+          background-color: $brand-green;
+        }
+        &:active{
+          background-color: $brand-green;
+        }
+        &:focus{
+          outline: 0;
+        }
     }
     }
 }
@@ -1186,25 +1195,24 @@ img.fancybox-image {
 #axe:hover .transform{
    transform: translate(0px,-5px);
 }
-// .side-menu {
-//     // width: 300px;
-//     // height: 100%;
-//     // padding: 30px 60px;
-//     position: fixed;
-//     top: 0;
-//     right: : 0;
-//     z-index: 10;
-//     background-color: #2a2a2a;
-//     color: #fff;
-// }
+.side-menu {
+    width: 650px;
+    // height: 100%;
+    // padding: 30px 60px;
+    position: fixed;
+    top: 35%;
+    right : -450px;
+    z-index: 99999;
+    // background-color: #2a2a2a;
+    // color: #fff;
+}
 .menu-in {
     transform: translateX(-450px);
     transition: all .3s linear;
 }
 
 .menu-out {
-
-      transform: translateX(0);
+    transform: translateX(250px);
     transition: all .3s linear;
 }
 
