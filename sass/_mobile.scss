@@ -17,6 +17,9 @@
   top: -880px;
 }
 
+.pad0{
+  padding: 0;
+}
 
   .game-type{
     width: auto !important;
@@ -186,7 +189,14 @@ padding: 0;
   }
 }
 
+ .host-party{
+   .more {
+     button{
+       margin-left: 0;
+     }
+ }
 
+}
 .side-menu{
   width: 270px !important;
   top: 5%;
