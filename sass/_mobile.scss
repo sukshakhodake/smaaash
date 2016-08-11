@@ -179,13 +179,39 @@ padding: 0;
 }
 
 .live-chat{
-  margin-top: 40px;
-  padding: 10px;
+  padding: 10px 30px;
   img{
     width: 80%;
     margin: 0 auto;
   }
 }
+
+
+.side-menu{
+  width: 270px !important;
+  top: 5%;
+}
+.side{
+  top:30%;
+}
+.close-it{
+left: -20px;
+a{
+  height: 20px;
+  width: 20px;
+}
+}
+
+.login-signup{
+  background-position: center;
+  .form-group{
+    margin-bottom: 5px;
+  }
+  .form-control{
+    height: 35px;
+  }
+}
+
 
     .slant-col {
         @include transform(skew(0deg));

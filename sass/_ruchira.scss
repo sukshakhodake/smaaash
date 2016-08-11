@@ -1586,6 +1586,9 @@ $brand-white:#fff !default;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left center;
+  .form{
+    margin-bottom: 0;
+  }
     h3{
       text-align: center;
       font-family: $body-font;
