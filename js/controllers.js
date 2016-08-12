@@ -497,12 +497,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("events-challenges");
+    $scope.menutitle = NavigationService.makeactive("Events and Challengest");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        $(".side-menu").addClass("menu-in");
+        $(".side-menu").removeClass("menu-out");
+    };
+    $scope.closeMenu = function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    };
+
+    $(".template.content").click(function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    });
+})
+
 .controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        $(".side-menu").addClass("menu-in");
+        $(".side-menu").removeClass("menu-out");
+    };
+    $scope.closeMenu = function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    };
+
+    $(".template.content").click(function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    });
 })
 
 
