@@ -712,10 +712,13 @@ button{
     outline: 0;
   }
 }
-span{
-  text-decoration: underline;
-  cursor: pointer;
-  display: block;
+.new-detail{
+  span{
+    text-decoration: underline;
+    cursor: pointer;
+    display: block;
+  }
+
 }
 .love{
   text-align: center;
@@ -746,12 +749,18 @@ span{
   padding: 10px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  span{
+    text-decoration: none;
+  }
 }
 .rate{
     margin-left: -5px;
       padding: 10px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    span{
+      text-decoration: none;
+    }
 }
 .trip{
     height: 50px;
@@ -1274,7 +1283,7 @@ span{
     }
   }
 }
-.attractions{
+.attractions,.stars{
   .pink-button{
     height: 50px;
     width: 50px;
@@ -1874,7 +1883,7 @@ a{
     right: 20px;
   }
 }
-.attractions{
+.attractions,.stars{
   .forms{
     padding: 15px 10px;
     .search-green{

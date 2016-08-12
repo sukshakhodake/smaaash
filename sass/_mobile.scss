@@ -6,6 +6,24 @@
 
 
 @media (max-width: $screen-xs-max) {
+.checker{
+  margin: 0;
+}
+
+.stars{
+  .new-detail,.news-detail,.new-details{
+    height: auto !important;
+  }
+  .load-more{
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
 
   .marginleft,.marg{
     margin-left: 0 !important;
@@ -86,7 +104,7 @@
   }
 }
 
-.whats-new,.host-party,.drink{
+.whats-new,.host-party,.drink,.event{
   .social-icons,.more{
     width: 100%;
     text-align: center;
@@ -114,7 +132,7 @@
     // }
   }
 }
-.drink{
+.drink,.event{
   .button-sets{
     button{
       width: 100%;
@@ -148,7 +166,7 @@
   }
 }
 
-.attractions{
+.attractions,.stars{
     .new-detail,.news-detail,.new-details{
       h3{
         font-size: 20px;
@@ -441,7 +459,7 @@ a{
 
 }
 @media (max-width: $screen-sm-max) {
-.whats-new,.drink{
+.whats-new,.drink,.event{
   .new{
     .new-detail{
       h3{
@@ -459,7 +477,7 @@ a{
     }
   }
 }
-.drink{
+.drink,.event{
 .restaurants{
   top: 0;
 }
@@ -492,7 +510,7 @@ a{
     }
   }
 }
-.attractions{
+.attractions,.stars{
   h3{
     font-size: 20px;
   }
@@ -525,6 +543,19 @@ a{
   }
 
 }
+
+.stars{
+  .new-detail,.new-details,.news-detail{
+    height: auto;
+  }
+  .checker {
+    margin: 0 5px;
+}
+}
+
+
+
+
 .host-party{
   h3{
     font-size: 20px;
