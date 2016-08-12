@@ -190,6 +190,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("stars");
+    $scope.menutitle = NavigationService.makeactive("Stars");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        $(".side-menu").addClass("menu-in");
+        $(".side-menu").removeClass("menu-out");
+    };
+    $scope.closeMenu = function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    };
+
+    $(".template.content").click(function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    });
+})
+
 .controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wedding-parties");
