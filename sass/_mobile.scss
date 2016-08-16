@@ -459,6 +459,9 @@ a{
 
 }
 @media (max-width: $screen-sm-max) {
+  .divider,.or{
+    display: none;
+  }
 .whats-new,.drink,.event,.dealings{
   .new{
     .new-detail{

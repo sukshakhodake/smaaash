@@ -1242,17 +1242,25 @@ button{
     }
   }
 }
-.love{
+
+.love,.buys{
+    text-align: center;
   button{
     text-align: center;
     background-color: #ccc;
     border: none;
-    padding: 10px 70px;
+    width: 100%;
+    padding: 10px 0;
     border-radius: 5px;
     font-weight: 700;
     .fa{
       margin: 0 5px;
     }
+  }
+}
+.buys{
+  button{
+    margin: 10px 0;
   }
 }
 .social-icons{
@@ -2086,6 +2094,11 @@ a{
       font-size: 8px;
       color: $brand-red;
     }
+  }
+}
+button{
+  &:focus{
+    outline: 0;
   }
 }
 //new home//
