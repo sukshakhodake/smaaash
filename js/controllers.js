@@ -541,6 +541,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
+.controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("deals-packages");
+    $scope.menutitle = NavigationService.makeactive("Deals Packages");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        $(".side-menu").addClass("menu-in");
+        $(".side-menu").removeClass("menu-out");
+    };
+    $scope.closeMenu = function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    };
+
+    $(".template.content").click(function() {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+    });
+})
+
 
 
 .controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {

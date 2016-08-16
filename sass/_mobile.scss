@@ -104,7 +104,7 @@
   }
 }
 
-.whats-new,.host-party,.drink,.event{
+.whats-new,.host-party,.drink,.event,.dealings{
   .social-icons,.more{
     width: 100%;
     text-align: center;
@@ -459,7 +459,7 @@ a{
 
 }
 @media (max-width: $screen-sm-max) {
-.whats-new,.drink,.event{
+.whats-new,.drink,.event,.dealings{
   .new{
     .new-detail{
       h3{
