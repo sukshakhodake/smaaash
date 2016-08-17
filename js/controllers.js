@@ -128,18 +128,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.animationsEnabled = true;
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     // $scope.opening = function(size) {
     //
     //     // var modalInstance = $uibModal.opening({
@@ -196,20 +205,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Stars");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 .controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -226,20 +244,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Whats New");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 .controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -248,20 +275,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Attractions");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 .controller('AccountCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -472,20 +508,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/Top-banner.jpg',
       'img/Top-banner.jpg'
     ];
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 
@@ -503,20 +548,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Events and Challengest");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 .controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -525,20 +579,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Drink Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 .controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -547,20 +610,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Deals Packages");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-    };
-    $scope.closeMenu = function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
+      if($scope.menu == "menu-out") {
+        $scope.menu = "menu-in";
+      }else {
+        $scope.menu = "menu-out";
+      }
     };
 
-    $(".template.content").click(function() {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-    });
 })
 
 
