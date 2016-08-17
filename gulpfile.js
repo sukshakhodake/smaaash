@@ -15,6 +15,7 @@ var jsArray = [
     './bower_components/angulartics/dist/angulartics.min.js',
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+    
     './js/app.js',
     './js/language.js',
     './js/controllers.js',
