@@ -9,11 +9,10 @@
               <h4 class="bold title" ng-click="footer(1)">EXPLORE SMAAASH </h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 1">
-              <!-- <li><a href="">Attractions</a></li> -->
-              <li><a ui-sref="attractions">Attractions</a></li>
-              <li><a href="">Food &amp; Beverages</a></li>
+              <li ng-repeat="data in types"><a ui-sref="">{{data.name}}</a></li>
+              <!-- <li><a href="">Food &amp; Beverages</a></li>
               <li><a href="">Deals &amp; Packages</a></li>
-              <li><a href="">Promotions</a></li>
+              <li><a href="">Promotions</a></li> -->
             </ul>
           </div>
         </div>
@@ -24,10 +23,10 @@
               <h4 class="bold title"  ng-click="footer(2)">HOST A PARTY</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 2">
-              <li><a ui-sref="birthday-parties">Birthday Party</a></li>
-              <li><a ui-sref="kitty-parties">Kitty Party</a></li>
-              <li><a ui-sref="wedding-parties">Pre-Wedding Party</a></li>
-              <li><a ui-sref="">Play Dates</a></li>
+              <li><a href="">Birthday Party</a></li>
+              <li><a href="">Kitty Party</a></li>
+              <li><a href="">Pre-Wedding Party</a></li>
+              <li><a href="">Play Dates</a></li>
               <li><a href="">Team Building Events</a></li>
             </ul>
           </div>

@@ -480,7 +480,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     })
-    .controller('footerctrl', function($scope, TemplateService) {
+    .controller('footerctrl', function($scope, TemplateService,NavigationService) {
         $scope.template = TemplateService;
         $scope.footer = function(val) {
             if (val == $scope.showFooter) {
@@ -515,6 +515,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         };
+        NavigationService.getTypes(function(data){
+          $scope.types=data.data;
+          console.log("$scope.types",$scope.types);
+        })
     })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
