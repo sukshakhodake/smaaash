@@ -25,6 +25,30 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'CorporateCtrl'
   })
 
+  .state('drink-party', {
+      url: "/drink-party",
+      templateUrl: "views/template.html",
+      controller: 'DrinkCtrl'
+  })
+
+  .state('deals-packages', {
+      url: "/deals-packages",
+      templateUrl: "views/template.html",
+      controller: 'DealsCtrl'
+  })
+
+  .state('events-challenges', {
+      url: "/events-challenges",
+      templateUrl: "views/template.html",
+      controller: 'EventsCtrl'
+  })
+
+  .state('stars', {
+      url: "/stars",
+      templateUrl: "views/template.html",
+      controller: 'StarsCtrl'
+  })
+
   .state('wedding-parties', {
       url: "/wedding-parties",
       templateUrl: "views/template.html",

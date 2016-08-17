@@ -6,6 +6,72 @@
 
 
 @media (max-width: $screen-xs-max) {
+.checker{
+  margin: 0;
+}
+
+.stars{
+  .new-detail,.news-detail,.new-details{
+    height: auto !important;
+  }
+  .load-more{
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
+  .marginleft,.marg{
+    margin-left: 0 !important;
+  }
+.divider,.or{
+  display: none;
+}
+.more{
+  button{
+    margin-left: 0 !important;
+  }
+}
+.form-content{
+  top: -880px;
+}
+
+.pad0{
+  padding: 0;
+}
+
+  .game-type{
+    width: auto !important;
+    margin: 10px auto !important;
+   display: block;
+  }
+  .search-green{
+    width: 100% !important;
+    margin: 10px auto !important;
+   display: block
+  }
+  .packages{
+    .slant-col,.slant-column{
+      width: 100%;
+    transform: skew(0);
+    &:before{
+        transform: skew(0);
+    }
+    .slant-box{
+        transform: skew(0);
+    }
+    .blue-package{
+      width: 80%;
+    }
+    }
+    .slant-column{
+      margin-top: 15px;
+    }
+  }
   .landing-banner .inner-banner {
         background-image: url("../img/home/mbanner.png");
   }
@@ -38,12 +104,25 @@
   }
 }
 
-.whats-new{
+.whats-new,.host-party,.drink,.event,.dealings{
   .social-icons,.more{
     width: 100%;
     text-align: center;
   }
-
+  .more{
+    button{
+      margin-left: 0;
+    }
+  }
+  h3{
+    font-size: 20px;
+  }
+  p{
+    font-size: 12px;
+  }
+  .love{
+    text-align: center;
+  }
   .new{
     .karting-championship{
       margin-bottom: 15px;
@@ -53,8 +132,41 @@
     // }
   }
 }
+.drink,.event{
+  .button-sets{
+    button{
+      width: 100%;
+    }
+    button+button{
 
-.attractions{
+      margin: 10px auto;
+    }
+  }
+  .restaurants{
+    top:0;
+  }
+
+  .reviews{
+    width: 100%;
+    text-align: center;
+  }
+  .trip{
+    width: 44%;
+    text-align: center;
+  }
+  .total-reviews{
+    width: 50%;
+    text-align: center;
+    margin-left: 0;
+  }
+  .zomato,.rate{
+    span{
+      text-decoration: none;
+    }
+  }
+}
+
+.attractions,.stars{
     .new-detail,.news-detail,.new-details{
       h3{
         font-size: 20px;
@@ -62,6 +174,7 @@
       p{
         font-size: 12px;
       }
+
     }
     .button-set{
       button{
@@ -71,12 +184,104 @@
     .karting-championship{
       margin-bottom: 15px;
     }
-    .love button {
-    padding: 10px 35px;
+    .love{
+      text-align: center;
+      button {
+      padding: 10px 35px;
+    }
+    }
+}
+.host-party{
+  .form{
+    margin-bottom: 0;
+  }
+  .packagings{
+    .slant-col{
+      transform: skew(0);
+      &:before{
+        left: 0;
+      transform: skew(0);
+      }
+      .slant-box{
+          transform: skew(0);
+      }
+    }
+    .slant-column{
+      margin-top: 15px;
+        transform: skew(0);
+        .slant-box{
+            transform: skew(0);
+        }
+      &:before{
+        right: 0;
+        transform: skew(0);
+      }
+.customize-layer{
+  right: 0;
+}
+.chef{
+  left: 0;
+}
+    }
+  }
+
+}
+.side-buttons{
+  top: 10%;
+}
+.connect-button,.live-chat{
+padding: 0;
+  img{
+    width: 25%;
+    margin: 0 auto;
+  }
+  p{
+    text-align: center;
+    font-size: 10px;
+    margin: 0px;
   }
 }
 
+.live-chat{
+  padding: 10px 30px;
+  img{
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
+ .host-party{
+   .more {
+     button{
+       margin-left: 0;
+     }
+ }
+
+}
+.side-menu{
+  width: 270px !important;
+  top: 5%;
+}
+.side{
+  top:30%;
+}
+.close-it{
+left: -20px;
+a{
+  height: 20px;
+  width: 20px;
+}
+}
+
+.login-signup{
+  background-position: center;
+  .form-group{
+    margin-bottom: 5px;
+  }
+  .form-control{
+    height: 35px;
+  }
+}
 
 
     .slant-col {
@@ -233,11 +438,31 @@
             @include flex(auto);
         }
     }
-
     //*footer ends*//
+.reversing,.reversed{
+  .slant-in{
+    .mover{
+      top: 65px;
+    }
+  }
+}
+
+.reverse{
+  .form{
+    .form-group,.btn{
+        width: 100%;
+        margin: 10px auto;
+
+    }
+  }
+}
+
 }
 @media (max-width: $screen-sm-max) {
-.whats-new{
+  .divider,.or{
+    display: none;
+  }
+.whats-new,.drink,.event,.dealings{
   .new{
     .new-detail{
       h3{
@@ -255,8 +480,109 @@
     }
   }
 }
+.drink,.event{
+.restaurants{
+  top: 0;
+}
+    .reviews{
+      width: 100%;
+      text-align: center;
+    }
+    .trip{
+      width: 44%;
+      text-align: center;
+    }
+    .total-reviews{
+      width: 50%;
+      text-align: center;
+      margin-left: 0;
+    }
+  .button-sets{
+    button{
+      width: 100%;
+    }
+    button+button{
+
+      margin: 10px auto;
+    }
+  }
+
+  .more{
+    button{
+      margin-left: 30px;
+    }
+  }
+}
+.attractions,.stars{
+  h3{
+    font-size: 20px;
+  }
+  .new-detail,.news-detail,.new-details{
+    height: 400px;
+    p{
+      margin: 10px 0;
+      span{
+    display: block;
+    height: 20px;
+
+      }
+    }
+
+    .button-set {
+    height: 150px;
+    button{
+      width: 100%;
+    }
+    button+button {
+        margin-top: 5px;
+    }
+}
+
+.love{
+      button{
+        padding: 5px 35px;
+      }
+}
+  }
+
+}
+
+.stars{
+  .new-detail,.new-details,.news-detail{
+    height: auto;
+  }
+  .checker {
+    margin: 0 5px;
+}
+}
 
 
+
+
+.host-party{
+  h3{
+    font-size: 20px;
+  }
+  .special,.packagings{
+    .chef{
+      left: 0;
+    }
+    p{
+        font-size: 20px;
+    }
+  }
+  p,span{
+    font-size: 12px;
+  }
+  .love{
+    button{
+      padding: 10px 35px!important;
+    }
+  }
+.blue-package{
+  width: 80%;
+}
+}
   .corporate,.birthday,.prewedding,.kitty{
     margin-top: -8px;
     .banner-info{
@@ -324,7 +650,8 @@
           right: 0;
       }
       .cities {
-          right: 160px;
+        top: 41px;
+left: 25px;
       }
       .logo-smaash {
           display: inline-block;
@@ -518,7 +845,8 @@
             right: 0;
         }
         .cities {
-            right: 160px;
+          top: 41px;
+left: 25px;
         }
         .logo-smaash {
             display: inline-block;
@@ -770,7 +1098,8 @@
             width: 35%;
         }
         .cities {
-            right: 101px;
+          top: 41px;
+left: 25px;
             padding: 8px;
         }
     }
@@ -790,7 +1119,7 @@
   width: 100px;
 }
 .full-height{
-  height: 230px;
+  height: 300px;
 }
 
 }
@@ -857,4 +1186,17 @@
     .landing-kartbanner{
       min-height: 400px;
     }
+// .drink{
+//   .total-reviews{
+//     margin-left: 7px;
+//   }
+//   .zomato,.rate{
+//     padding: 5px;
+//   }
+//   .trip{
+//     width: 80px;
+//   }
+// }
+
+
 }

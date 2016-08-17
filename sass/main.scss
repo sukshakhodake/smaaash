@@ -191,7 +191,7 @@ $menu-height: 80px !default;
     .cities {
         background-color: $brand-purple;
         @include transform(skew(15deg));
-        @include position(absolute,0 200px null null);
+        @include position(absolute,52px null null 25px);
         box-shadow: -3px 3px #000, -3px 0 #000;
         padding: 8px 15px;
         cursor: pointer;
@@ -675,9 +675,13 @@ $menu-height: 80px !default;
     display: block;
 }
 .logo-smaash {
-    display: inline-block;
+    position: absolute;
+    top: 10px;
+    z-index: 999;
+    left: 20px;
     height: $menu-height - 10px;
-    margin-top: 10px;
+    // display: inline-block;
+    // margin-top: 10px;
     img {
         width: auto;
         height: 100%;
@@ -1049,6 +1053,15 @@ $menu-height: 80px !default;
         padding: 10px 20px;
         border: 1px solid #000;
         margin: 0 10px;
+        &:hover{
+          background-color: $brand-green;
+        }
+        &:active{
+          background-color: $brand-green;
+        }
+        &:focus{
+          outline: 0;
+        }
     }
     }
 }
@@ -1169,6 +1182,86 @@ img.fancybox-image {
     left: 0;
     width: 100%;
     z-index: 999;
+}
+#axis,#axe{
+   transition: all 900ms ease;
+}
+#axis:hover .rotate360cw{
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+}
+#axe:hover .transform{
+   transform: translate(0px,-5px);
+}
+.side-menu {
+    width: 650px;
+    position: fixed;
+    top: 35%;
+    right : -450px;
+    z-index: 99999;
+}
+.menu-in {
+    transform: translateX(-450px);
+    transition: all .3s linear;
+}
+
+.menu-out {
+    transform: translateX(250px);
+    transition: all .3s linear;
+}
+
+.checker{
+  margin: 0 10px;
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  /* checkbox aspect */
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    left:0;
+    padding: 10px;
+    border: 1px solid #aaa;
+    background: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+  }
+  /* checked mark aspect */
+  [type="checkbox"]:not(:checked) + label:after,
+  [type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 5px; left: 4px;
+    font-size: 18px;
+    line-height: 0.8;
+    color: #000;
+    transition: all .2s;
+  }
+  /* checked mark aspect changes */
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @import "fancybox-override";
