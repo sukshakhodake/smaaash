@@ -769,6 +769,7 @@ button{
 }
 .zomato-reviews{
   margin-top: 20px;
+  display: inline-block;
 }
 .reviews,.total-reviews{
   vertical-align: top;
@@ -777,7 +778,20 @@ button{
   margin-left: 10px;
 }
 }
-
+.tripadvisor-reviews{
+  display: inline-block;
+  li{
+    list-style-type: none;
+    a{
+      display: inline-block;
+      height: 50px;
+      width: 115px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
 
 
 

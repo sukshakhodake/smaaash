@@ -74,8 +74,15 @@ body {
 .brand-ortitle {
     color: #FB5627;
 }
+.cdsROW.narrow .cdsLocName {
+    opacity: 0;
+}
+.tripadvisor-reviews{
+  img{
+    opacity: 1 !important;
+  }
 
-
+}
 .brand-red {
     background-color: $brand-red;
 }

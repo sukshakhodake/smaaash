@@ -165,7 +165,11 @@
     }
   }
 }
-
+.zomato-reviews,.tripadvisor-reviews{
+  display: block !important;
+  text-align: center;
+  margin-top: 10px!important;
+}
 .attractions,.stars{
     .new-detail,.news-detail,.new-details{
       h3{
@@ -227,7 +231,7 @@
 
 }
 .side-buttons{
-  top: 10%;
+  top: 19%;
 }
 .connect-button,.live-chat{
 padding: 0;
@@ -263,7 +267,7 @@ padding: 0;
   top: 5%;
 }
 .side{
-  top:30%;
+  top:40%;
 }
 .close-it{
 left: -20px;
