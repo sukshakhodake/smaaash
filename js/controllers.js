@@ -48,7 +48,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type");
             $scope.attraction = $scope.content.Attraction;
+            console.log("$scope.attraction",$scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
+            console.log("$scope.whatsnew",$scope.whatsnew);
             $scope.hostParty = $scope.content["Host a Party"];
         } else {
 
@@ -680,7 +682,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.getCityName = function(cityname) {
-            console.log('mycityname', cityname);
+            // console.log('mycityname', cityname);
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
             if($state.current.name == "explore-smaaash"){

@@ -8,7 +8,7 @@
   <div class="col-md-6">
   <div class="login">
     <h3 class="uppercase">login</h3>
-    <form class="form">
+    <form class="form" name="loginForm">
       <div class="form-group">
       <input type="email" class="form-control"  placeholder="User Id" >
       </div>
@@ -28,18 +28,23 @@
   <div class="col-md-6">
   <div class="signup">
     <h3 class="uppercase">sign up</h3>
-    <form class="form">
+    <form class="form" name="signUpForm" >
       <div class="form-group">
-      <input type="text" class="form-control"  placeholder="User Name" >
+
+      <input type="text" class="form-control" ng-model="userData.name"  placeholder="User Name" name="name" required>
+      <div class="error-msg" ng-show="signUpForm.name.$error.required && signUpForm.name.$touched">Please Enter Your User Name</div>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control"  placeholder="Email ID" >
+        <input type="email" class="form-control" ng-model="userData.email"  placeholder="Email ID" name="email" required>
+        <div class="error-msg" ng-show="signUpForm.email.$error.required && signUpForm.email.$touched">Please Enter Your Email ID</div>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control"  placeholder="Password" >
+        <input type="password" class="form-control"ng-model="userData.password"  placeholder="Password" name="password" required>
+        <div class="error-msg" ng-show="signUpForm.password.$error.required && signUpForm.password.$touched">Please Enter Your Password</div>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control"  placeholder="Re-Enter Password" >
+        <input type="password" ng-model="userData.password" class="form-control"  placeholder="Re-Enter Password" name="confirmPassword" required >
+        <div class="error-msg" ng-show="signUpForm.confirmPassword.$error.required && signUpForm.confirmPassword.$touched">Please Re-Enter Your Password</div>
       </div>
         <button type="button" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
     </form>
