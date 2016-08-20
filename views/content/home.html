@@ -1,5 +1,7 @@
 <div class="landing-banner" auto-height>
+  <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
     <div class="inner-banner"></div>
+    <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
     <div class="container">
       <!-- <div class="video">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/YHcLnUmhTyA" frameborder="0" allowfullscreen></iframe>
@@ -38,16 +40,19 @@
     <div class="col-md-6">
     <div class="login">
       <h3 class="uppercase">login</h3>
-      <form class="form" name="login">
+      <form class="form" name="login" ng-submit="userLogin(userData)" >
         <div class="form-group">
-        <input type="email" class="form-control"  placeholder="User Id" name="userId" required ng-model="userData.userId">
-        <div class="error-msg" ng-show="login.userId.$error.required && login.userId.$touched">Please Enter Your User Id</div>
+        <input type="email" class="form-control"  placeholder="User Id" name="email"  ng-model="userData.email" required>
+
+        <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control"  placeholder="Password" name="password" required ng-model="userData.password">
+          <input type="password" class="form-control"  placeholder="password" name="password" required ng-model="userData.password">
             <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
         </div>
-          <button type="button" class="btn btn-default brand-yellow" type="submit"><span class="uppercase">login</span></button>
+          <button type="submit" class="btn btn-default brand-yellow" ><span class="uppercase">login</span></button>
+          <!-- <div ng-if="msg">{{message}}</div>
+          <div ng-if="!msg">{{success}}</div> -->
       </form>
       <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
       <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with  Google</button>
@@ -60,24 +65,27 @@
     <div class="col-md-6">
     <div class="signup">
       <h3 class="uppercase">sign up</h3>
-      <form class="form" name="signUp">
+      <form class="form" name="signUp" ng-submit="signupLogin(signupData)" >
         <div class="form-group">
-        <input type="text" class="form-control"  placeholder="User Name" name="userName"  required ng-model="userSignUp.userName">
-        <div class="error-msg" ng-show="signUp.userName.$error.required && signUp.userName.$touched">Please Enter Your User Name</div>
+        <input type="text" class="form-control"  placeholder="User Name" name="name"  required ng-model="signupData.name">
+        <div class="error-msg" ng-show="signUp.name.$error.required && signUp.name.$touched">Please Enter Your User Name</div>
         </div>
         <div class="form-group">
-          <input type="email" class="form-control"  placeholder="Email ID" name="email" required ng-model="userSignUp.email">
+          <input type="email" class="form-control"  placeholder="Email ID" name="email" required ng-model="signupData.email">
           <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control"  placeholder="Password" name="password" required ng-model="userSignUp.password">
+          <input type="password" class="form-control"  placeholder="Password" name="password" required ng-model="signupData.password">
           <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control"  placeholder="Re-Enter Password" name="confirmPassword"  required ng-model="userSignUp.confirmPassword">
+          <input type="password" class="form-control"  placeholder="Re-Enter Password" name="confirmPassword"  required ng-model="signupData.confirmPassword">
           <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter  Your Password</div>
         </div>
-          <button type="button" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
+          <button type="submit" class="btn4  btn-default brand-blue" ><span class="uppercase brand-white">sign up</span></button>
+          <div ng-if="duplicate">Email ID Already Exist.</div>
+          <div ng-if="duplicatepass">Please enter correct password.</div>
+          <div ng-if="signupForm">Submitted Successfully !.</div>
       </form>
     </div>
     </div>

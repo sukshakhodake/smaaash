@@ -48,24 +48,113 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type");
             $scope.attraction = $scope.content.Attraction;
-            console.log("$scope.attraction",$scope.attraction);
+            console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
-            console.log("$scope.whatsnew",$scope.whatsnew);
+            console.log("$scope.whatsnew", $scope.whatsnew);
             $scope.hostParty = $scope.content["Host a Party"];
         } else {
 
         }
 
 
-    })
+    });
+    $scope.msg=false;
+    $scope.formComplete = false;
+    $scope.userData={};
+    $scope.userLogin=function(userData){
+      if($scope.userData){
+        console.log("$scope.userData",$scope.userData);
+        NavigationService.login($scope.userData,function(data){
+          console.log("data",data);
+          if (data.value==true) {
+            $scope.formComplete = true;
+            //
+            // $scope.success="Submitted Successfully !";
+            //   $scope.msg=true;
+          }
+          else {
+            $scope.message="Please Enter Valid Email Id & Password"
+          }
+        })
+        $timeout(function() {
+            $scope.formComplete = false;
+        }, 2000);
+        $scope.userData = {};
+      }
+
+    }
+    // $scope.msg = false;
+    // $scope.loginForm = false;
+    // $scope.userData = {};
+    // $scope.userLogin = function(userData) {
+    //     if ($scope.userData) {
+    //         console.log('userData', $scope.userData);
+    //         NavigationService.login($scope.userData, function(data) {
+    //             if (data.value) {
+    //                 console.log('fcfgcvc');
+    //                 $scope.loginForm = true;
+    //                   $scope.msg = false;
+    //                   $scope.success="Submitted Successfully !";
+    //             } else {
+    //                 $scope.message = "Please Enter Valid Email ID & Password";
+    //                 $scope.msg = true;
+    //             }
+    //
+    //         });
+    //     }
+
+
+        // // $timeout(function() {
+        // //     $scope.loginForm = false;
+        // // }, 2000);
+        // $scope.userData = {};
+    // }
+
+    $scope.signupForm = false;
+    $scope.duplicatepass = false;
+    $scope.signupData = {};
+    $scope.duplicate = false;
+    $scope.signupLogin = function(signupData) {
+        console.log("$scope.signupData ", $scope.signupData);
+        if ($scope.signupData) {
+            if ($scope.signupData.password == $scope.signupData.confirmPassword) {
+                $scope.duplicatepass = false;
+                NavigationService.signup($scope.signupData, function(data) {
+                    if (data.value) {
+                        $scope.signupForm = true;
+$scope.signupData ={};
+
+                    } else {
+                        $scope.duplicate = true;
+
+                    }
+                })
+            }else{
+              console.log('in else');
+                $scope.duplicatepass = true;
+
+            }
+
+
+        }
+
+        // $timeout(function() {
+        //     $scope.signupForm = false;
+        //       // $scope.signupData = {};
+        // }, 2000);
+
+    }
+
+
+
 
 
     $scope.viewMore = function() {
-      $uibModal.open({
-        animation: true,
-        templateUrl: "views/modal/login.html",
-        scope: $scope
-      });
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/login.html",
+            scope: $scope
+        });
     };
 
     $scope.mySlides1 = [
@@ -130,11 +219,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.animationsEnabled = true;
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
     // $scope.menu = "menu-out";
@@ -223,11 +312,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -262,11 +351,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -293,11 +382,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -432,7 +521,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
+.controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("explore-smaaash");
     $scope.menutitle = NavigationService.makeactive("Explore Smaaash");
@@ -465,19 +554,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //
     // }
 
-  globalfunction.changeExplore = function () {
-    if($.jStorage.get("city") !== null){
-      NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
-          if (data.value) {
-              $scope.smaaash = _.chunk(data.data, 3);
-              console.log("$scope.smaaash", $scope.smaaash);
-          }
-      });
-    }else{
-      $state.go('home');
-    }
-  };
-  globalfunction.changeExplore();
+    globalfunction.changeExplore = function() {
+        if ($.jStorage.get("city") !== null) {
+            NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
+                if (data.value) {
+                    $scope.smaaash = _.chunk(data.data, 3);
+                    console.log("$scope.smaaash", $scope.smaaash);
+                }
+            });
+        } else {
+            $state.go('home');
+        }
+    };
+    globalfunction.changeExplore();
     // $scope.scrollMore($scope.objfilter);
 })
 
@@ -508,7 +597,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/Top-banner.jpg',
         'img/Top-banner.jpg',
         'img/Top-banner.jpg',
-      'img/Top-banner.jpg'
+        'img/Top-banner.jpg'
     ];
     // $scope.menu = "menu-out";
     // $scope.getMenu = function() {
@@ -526,11 +615,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -566,11 +655,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -597,11 +686,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -628,11 +717,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // });
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
-      if($scope.menu == "menu-out") {
-        $scope.menu = "menu-in";
-      }else {
-        $scope.menu = "menu-out";
-      }
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
     };
 
 })
@@ -669,7 +758,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService,$state) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
@@ -685,8 +774,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // console.log('mycityname', cityname);
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
-            if($state.current.name == "explore-smaaash"){
-              globalfunction.changeExplore();
+            if ($state.current.name == "explore-smaaash") {
+                globalfunction.changeExplore();
             };
             // if($state.current.name == "explore"){
             //   $state.go('home');
@@ -721,7 +810,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     })
-    .controller('footerctrl', function($scope, TemplateService,NavigationService) {
+    .controller('footerctrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService;
         $scope.footer = function(val) {
             if (val == $scope.showFooter) {
@@ -756,9 +845,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         };
-        NavigationService.getTypes(function(data){
-          $scope.types=data.data;
-          console.log("$scope.types",$scope.types);
+        NavigationService.getTypes(function(data) {
+            $scope.types = data.data;
+            console.log("$scope.types", $scope.types);
         })
     })
 

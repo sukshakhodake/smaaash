@@ -19,97 +19,119 @@ var uploadurl = imgurl;
 var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function($http) {
-  var navigation = [{
-    name: "Home",
-    classis: "active",
-    anchor: "home",
-    subnav: [{
-      name: "Subnav1",
-      classis: "active",
-      anchor: "home"
-    }]
-  }];
+    var navigation = [{
+        name: "Home",
+        classis: "active",
+        anchor: "home",
+        subnav: [{
+            name: "Subnav1",
+            classis: "active",
+            anchor: "home"
+        }]
+    }];
 
-  return {
-    getnav: function() {
-      return navigation;
-    },
+    return {
+        getnav: function() {
+            return navigation;
+        },
 
-    makeactive: function(menuname) {
-      for (var i = 0; i < navigation.length; i++) {
-        if (navigation[i].name == menuname) {
-          navigation[i].classis = "active";
-        } else {
-          navigation[i].classis = "";
-        }
-      }
-      return menuname;
-    },
-
-    getCity: function(callback) {
-            $http({
-            url: adminurl + 'city/getAllCityByOrder',
-            method: 'POST',
-            withCredentials: true
-        }).success(callback);
-    },
-    getSlider: function(id,callback) {
-            $http({
-            url: adminurl + 'slider/getAllSliderByOrder',
-            method: 'POST',
-            withCredentials: true,
-            data:{
-              _id:id
+        makeactive: function(menuname) {
+            for (var i = 0; i < navigation.length; i++) {
+                if (navigation[i].name == menuname) {
+                    navigation[i].classis = "active";
+                } else {
+                    navigation[i].classis = "";
+                }
             }
-        }).success(callback);
-    },
-    getHomeContent: function(callback) {
+            return menuname;
+        },
+
+        getCity: function(callback) {
             $http({
-            url: adminurl + 'exploresmash/getHomeContent',
-            method: 'POST',
-            withCredentials: true
-        }).success(callback);
-    },
-    getExploresmash: function(request,callback) {
+                url: adminurl + 'city/getAllCityByOrder',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+        getSlider: function(id, callback) {
             $http({
-            url: adminurl + 'exploresmash/findLimited',
-            method: 'POST',
-            withCredentials: true,
-            data:request
-        }).success(callback);
-    },
-    getOneExploresmash: function(id, callback) {
-           $http({
-            url: adminurl + 'exploresmash/getOne',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getAllExploreSmashByCity: function(id, callback) {
-           $http({
-            url: adminurl + 'exploresmash/getAllExploreSmashByCity',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-
-    getTypes: function(callback) {
+                url: adminurl + 'slider/getAllSliderByOrder',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    _id: id
+                }
+            }).success(callback);
+        },
+        getHomeContent: function(callback) {
             $http({
-            url: adminurl + 'Type/getAll',
-            method: 'POST',
-            withCredentials: true
-        }).success(callback);
-    },
+                url: adminurl + 'exploresmash/getHomeContent',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+        getExploresmash: function(request, callback) {
+            $http({
+                url: adminurl + 'exploresmash/findLimited',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getOneExploresmash: function(id, callback) {
+            $http({
+                url: adminurl + 'exploresmash/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    _id: id
+                }
+
+            }).success(callback);
+        },
+        getAllExploreSmashByCity: function(id, callback) {
+            $http({
+                url: adminurl + 'exploresmash/getAllExploreSmashByCity',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    _id: id
+                }
+
+            }).success(callback);
+        },
+
+        getTypes: function(callback) {
+            $http({
+                url: adminurl + 'Type/getAll',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+
+        signup: function(signupData, callback) {
+
+            $http({
+                url: adminurl + 'signup/save',
+                method: 'POST',
+
+                data: signupData
+
+            }).success(callback);
+        },
+        login: function(userData, callback) {
+
+            $http({
+                url: adminurl + 'signup/login',
+                method: 'POST',
+
+                data: userData
+
+            }).success(callback);
+        },
 
 
 
-  };
+
+    };
 });
