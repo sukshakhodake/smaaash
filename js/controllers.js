@@ -55,93 +55,69 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
 
         }
-
-
     });
-    $scope.msg=false;
+
     $scope.formComplete = false;
-    $scope.userData={};
-    $scope.userLogin=function(userData){
-      if($scope.userData){
-        console.log("$scope.userData",$scope.userData);
-        NavigationService.login($scope.userData,function(data){
-          console.log("data",data);
-          if (data.value==true) {
-            $scope.formComplete = true;
-            //
-            // $scope.success="Submitted Successfully !";
-            //   $scope.msg=true;
-          }
-          else {
-            $scope.message="Please Enter Valid Email Id & Password"
-          }
-        })
-        $timeout(function() {
-            $scope.formComplete = false;
-        }, 2000);
-        $scope.userData = {};
-      }
+    $scope.userData = {};
+    $scope.valid = false;
+    $scope.userLogin = function(userData) {
+        if ($scope.userData) {
+            console.log("$scope.userData", $scope.userData);
+            NavigationService.login($scope.userData, function(data) {
+                console.log("data", data);
+                if (data.value == true) {
+                    $scope.valid = false;
+                    $scope.formComplete = true;
+                    $timeout(function() {
+                        $scope.formComplete = false;
+                        $scope.userData = {};
+                    }, 2000);
+                } else {
+                    $scope.valid = true;
+                }
 
-    }
-    // $scope.msg = false;
-    // $scope.loginForm = false;
-    // $scope.userData = {};
-    // $scope.userLogin = function(userData) {
-    //     if ($scope.userData) {
-    //         console.log('userData', $scope.userData);
-    //         NavigationService.login($scope.userData, function(data) {
-    //             if (data.value) {
-    //                 console.log('fcfgcvc');
-    //                 $scope.loginForm = true;
-    //                   $scope.msg = false;
-    //                   $scope.success="Submitted Successfully !";
-    //             } else {
-    //                 $scope.message = "Please Enter Valid Email ID & Password";
-    //                 $scope.msg = true;
-    //             }
-    //
-    //         });
-    //     }
-
-
-        // // $timeout(function() {
-        // //     $scope.loginForm = false;
-        // // }, 2000);
-        // $scope.userData = {};
-    // }
-
-    $scope.signupForm = false;
-    $scope.duplicatepass = false;
-    $scope.signupData = {};
-    $scope.duplicate = false;
-    $scope.signupLogin = function(signupData) {
-        console.log("$scope.signupData ", $scope.signupData);
-        if ($scope.signupData) {
-            if ($scope.signupData.password == $scope.signupData.confirmPassword) {
-                $scope.duplicatepass = false;
-                NavigationService.signup($scope.signupData, function(data) {
-                    if (data.value) {
-                        $scope.signupForm = true;
-$scope.signupData ={};
-
-                    } else {
-                        $scope.duplicate = true;
-
-                    }
-                })
-            }else{
-              console.log('in else');
-                $scope.duplicatepass = true;
-
-            }
+            })
 
 
         }
 
-        // $timeout(function() {
-        //     $scope.signupForm = false;
-        //       // $scope.signupData = {};
-        // }, 2000);
+    }
+
+
+    $scope.formCompleteSignup = false;
+
+    $scope.signupData = {};
+    $scope.pass = true;
+    $scope.emailExist = false;
+
+    $scope.signupLogin = function(signupData) {
+        console.log("$scope.signupData ", $scope.signupData);
+        if ($scope.signupData) {
+            if ($scope.signupData.password == $scope.signupData.confirmPassword) {
+                console.log('m true');
+                $scope.pass = true;
+                NavigationService.signup($scope.signupData, function(data) {
+                    console.log("$scope.signupData", $scope.signupData);
+                    if (data.value) {
+                        $scope.emailExist = false;
+                        $scope.formCompleteSignup = true;
+                        $timeout(function() {
+                            $scope.formCompleteSignup = false;
+                            $scope.signupData = {};
+                        }, 2000);
+
+                    } else {
+                        $scope.emailExist = true;
+                    }
+
+                })
+            } else {
+                console.log('m false');
+                $scope.pass = false;
+            }
+        }
+
+
 
     }
 

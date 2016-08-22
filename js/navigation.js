@@ -4,7 +4,7 @@
 // var adminurl = "http://192.168.1.103:1337/";
 // var adminurl = "http://104.197.84.255/";//pooja
 // var adminurl = "http://192.168.0.118:1337/";
-var adminurl = "http://192.168.0.106:1337/";
+var adminurl = "http://192.168.0.104:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;

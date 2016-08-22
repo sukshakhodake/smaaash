@@ -1,140 +1,151 @@
 <div class="landing-banner" auto-height>
-  <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
-    <div class="inner-banner"></div>
-    <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
-    <div class="container">
+   <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
+   <div class="inner-banner"></div>
+   <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
+   <div class="container">
       <!-- <div class="video">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/YHcLnUmhTyA" frameborder="0" allowfullscreen></iframe>
       </div> -->
       <div class="purple-butn" ng-click="scrollToHome();">
-        <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+         <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
       </div>
-    </div>
+   </div>
 </div>
-<div class="smaash-drops"  id="toHome" >
-    <div class="slidings">
-        <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
-        <li>
+<div class="smaash-drops" id="toHome">
+   <div class="slidings">
+      <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
+         <li>
             <img ng-src="{{s.image|uploadpath}}">
-        </li>
-    </flex-slider>
-    <ul class="custom-pagination">
-        <li ng-repeat="s in mySlides track by $index">{{s.ordering}}</li>
-    </ul>
+         </li>
+      </flex-slider>
+      <ul class="custom-pagination">
+         <li ng-repeat="s in mySlides track by $index">{{s.ordering}}</li>
+      </ul>
 
-</div>
-<div class="side-buttons">
-  <div class="connect-button" id="axis" ng-click="getMenu();" >
-    <!-- ng-click="viewMore();" -->
-    <div class="orange-rays"></div>
-    <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
-    <p class="uppercase brand-white">connect</p>
-  </div>
+   </div>
+   <div class="side-buttons">
+      <div class="connect-button" id="axis" ng-click="getMenu();">
+         <!-- ng-click="viewMore();" -->
+         <div class="orange-rays"></div>
+         <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
+         <p class="uppercase brand-white">connect</p>
+      </div>
 
-  <div class="side-menu {{menu}}">
-  <div class="close-it">
-      <a href="" class="text-uppercase" ng-click="getMenu();"><img src="img/menu.png" class="img-responsive" alt=""></a>
-  </div>
-  <div class="login-signup relative">
-    <div class="row">
-    <div class="col-md-6">
-    <div class="login">
-      <h3 class="uppercase">login</h3>
-      <form class="form" name="login" ng-submit="userLogin(userData)" >
-        <div class="form-group">
-        <input type="email" class="form-control"  placeholder="User Id" name="email"  ng-model="userData.email" required>
+      <div class="side-menu {{menu}}">
+         <div class="close-it">
+            <a href="" class="text-uppercase" ng-click="getMenu();"><img src="img/menu.png" class="img-responsive" alt=""></a>
+         </div>
+         <div class="login-signup relative">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="login">
+                     <h3 class="uppercase">login</h3>
+                     <form class="form" name="login" ng-submit="userLogin(userData)" ng-if="!formComplete">
+                        <div class="form-group">
+                           <input type="email" class="form-control" placeholder="User Id" name="email" ng-model="userData.email" required>
 
-        <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control"  placeholder="password" name="password" required ng-model="userData.password">
-            <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
-        </div>
-          <button type="submit" class="btn btn-default brand-yellow" ><span class="uppercase">login</span></button>
-          <!-- <div ng-if="msg">{{message}}</div>
-          <div ng-if="!msg">{{success}}</div> -->
-      </form>
-      <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
-      <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with  Google</button>
-    </div>
-    </div>
-    <div class="divider"></div>
-    <div class="or">
-      <span><img src="img/or.png" class="img-responsive" alt=""></span>
-    </div>
-    <div class="col-md-6">
-    <div class="signup">
-      <h3 class="uppercase">sign up</h3>
-      <form class="form" name="signUp" ng-submit="signupLogin(signupData)" >
-        <div class="form-group">
-        <input type="text" class="form-control"  placeholder="User Name" name="name"  required ng-model="signupData.name">
-        <div class="error-msg" ng-show="signUp.name.$error.required && signUp.name.$touched">Please Enter Your User Name</div>
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control"  placeholder="Email ID" name="email" required ng-model="signupData.email">
-          <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control"  placeholder="Password" name="password" required ng-model="signupData.password">
-          <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control"  placeholder="Re-Enter Password" name="confirmPassword"  required ng-model="signupData.confirmPassword">
-          <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter  Your Password</div>
-        </div>
-          <button type="submit" class="btn4  btn-default brand-blue" ><span class="uppercase brand-white">sign up</span></button>
-          <div ng-if="duplicate">Email ID Already Exist.</div>
-          <div ng-if="duplicatepass">Please enter correct password.</div>
-          <div ng-if="signupForm">Submitted Successfully !.</div>
-      </form>
-    </div>
-    </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="side">
-  <div class="live-chat" id="axe">
-      <div class="orange-rays"></div>
-      <img src="img/phone-aunty.png" class="img-responsive transform" alt="">
-      <div class="phone-aunty">
-        <p class="uppercase brand-white">live chat</p>
-    </div>
+                           <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
+                        </div>
+                        <div class="form-group">
+                           <input type="password" class="form-control" placeholder="password" name="password" required ng-model="userData.password">
+                           <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
+                        </div>
+                        <button type="submit" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
+                        <div ng-if="valid">Please Enter Valid Email Id & Password</div>
+                        <!-- <div ng-if="!msg">{{success}}</div> -->
+                     </form>
+                     <div ng-if="formComplete">
+                        <p class="text-center">Thank You</p>
+                     </div>
+                     <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
+                     <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with Google</button>
+                  </div>
+               </div>
+               <div class="divider"></div>
+               <div class="or">
+                  <span><img src="img/or.png" class="img-responsive" alt=""></span>
+               </div>
+               <div class="col-md-6">
+                  <div class="signup">
+                     <h3 class="uppercase">sign up</h3>
+                     <form class="form" name="signUp" ng-submit="signupLogin(signupData)" ng-if="!formCompleteSignup">
+                        <div class="form-group">
+                           <input type="text" class="form-control" placeholder="User Name" name="name" required ng-model="signupData.name">
+                           <div class="error-msg" ng-show="signUp.name.$error.required && signUp.name.$touched">Please Enter Your User Name</div>
+                        </div>
+                        <div class="form-group">
+                           <input type="email" class="form-control" placeholder="Email ID" name="email" required ng-model="signupData.email">
+                           <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
+                        </div>
+                        <div class="form-group">
+                           <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password">
+                           <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
+                        </div>
+                        <div class="form-group">
+                           <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword">
+                           <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
+                        </div>
 
-  </div>
-  </div>
+                        <button type="submit" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
+
+                        <!-- <div>{{msg}}</div> -->
+
+                        <!-- <div ng-if="duplicatepass">Please enter correct password.</div> -->
+                        <div ng-if="!pass">Pas does not match</div>
+                     </form>
+                     <div class="submit-thank" ng-if="formCompleteSignup">
+                        <p class="text-center">Thank You</p>
+                     </div>
+                     <div ng-if="emailExist">Email Id Already Exist</div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="side">
+      <div class="live-chat" id="axe">
+         <div class="orange-rays"></div>
+         <img src="img/phone-aunty.png" class="img-responsive transform" alt="">
+         <div class="phone-aunty">
+            <p class="uppercase brand-white">live chat</p>
+         </div>
+
+      </div>
+   </div>
 
 
 
 </div>
 <div class="new-slider">
-<div class="container">
-<div class="gallery">
-  <div class="slidings">
-    <div class="headings clearfix">
-      <h2 class="title slide-text pull-left">what's new</h2>
-    <p class="pull-right margin33 uppercase">view all</p>
-  </div>
-  <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
-          <li>
-            <div class="race relative">
-              <div class="img-bg">
-              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
-              </div>
-                <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
-              <div class="race-text">
-                  <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3>
-              </div>
+   <div class="container">
+      <div class="gallery">
+         <div class="slidings">
+            <div class="headings clearfix">
+               <h2 class="title slide-text pull-left">what's new</h2>
+               <p class="pull-right margin33 uppercase">view all</p>
             </div>
+            <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+               <li>
+                  <div class="race relative">
+                     <div class="img-bg">
+                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                     </div>
+                     <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                     <div class="race-text">
+                        <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3>
+                     </div>
+                  </div>
 
-          </li>
-      </flex-slider>
-  </div>
-</div>
-</div>
+               </li>
+            </flex-slider>
+         </div>
+      </div>
+   </div>
 </div>
 <div class="container">
-  <!-- <div class="slant-row reverse">
+   <!-- <div class="slant-row reverse">
   <div class="slant-col">
       <div class="slant-in brand-purple">
           <div class="slant-box half-height"></div>
@@ -155,76 +166,76 @@
       </div>
   </div>
   </div> -->
-  <div class="slant-row reversed">
+   <div class="slant-row reversed">
       <div class="slant-col ">
-    <div class="slant-in brand-green">
-        <div class="slant-box full-height">
-            <h2 class="brand-white">DEALS AND PACKAGES</h2>
-            <div class="mover">
-              <div class="slidings">
-                <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+         <div class="slant-in brand-green">
+            <div class="slant-box full-height">
+               <h2 class="brand-white">DEALS AND PACKAGES</h2>
+               <div class="mover">
+                  <div class="slidings">
+                     <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
-                            <a ui-sref="deals-packages">
-                          <div class="race relative">
-                            <div class="img-bg">
-                            <img src="img/monsoon.jpg" class="img-responsive" alt="">
-                            </div>
-                              <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
-                            <div class="race-text">
-                                <h3 class="margin0 brand-white">MONSOON DAY PASS!</h3>
-                            </div>
-                          </div>
-</a>
+                           <a ui-sref="deals-packages">
+                              <div class="race relative">
+                                 <div class="img-bg">
+                                    <img src="img/monsoon.jpg" class="img-responsive" alt="">
+                                 </div>
+                                 <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                                 <div class="race-text">
+                                    <h3 class="margin0 brand-white">MONSOON DAY PASS!</h3>
+                                 </div>
+                              </div>
+                           </a>
                         </li>
-                    </flex-slider>
-          </div>
-        </div>
-    </div>
- </div>
- </div>
- <div class="slant-col brand-blue pull-right">
-     <div class="slant-box full-height">
-         <h2 class="brand-white marginleft">Host A Party</h2>
-         <div class="mover">
-           <flex-slider class="carousel" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
-               <li>
-                 <a ui-sref="host-party">
-                   <img ng-src="{{s.image|uploadpath}}">
-                   </a>
-                   <h3 class="brand-white uppercase title">birthday parties</h3>
-               </li>
-           </flex-slider>
+                     </flex-slider>
+                  </div>
+               </div>
+            </div>
          </div>
-     </div>
- </div>
- </div>
-  <div class="new-sliding">
-  <div class="gallery">
-    <div class="slidings">
-      <div class="headings clearfix">
-        <h2 class="title slide-text pull-left">Buy Now</h2>
-      <p class="pull-right margin33 uppercase">view all</p>
-    </div>
-    <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
-            <li>
+      </div>
+      <div class="slant-col brand-blue pull-right">
+         <div class="slant-box full-height">
+            <h2 class="brand-white marginleft">Host A Party</h2>
+            <div class="mover">
+               <flex-slider class="carousel" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
+                  <li>
+                     <a ui-sref="host-party">
+                        <img ng-src="{{s.image|uploadpath}}">
+                     </a>
+                     <h3 class="brand-white uppercase title">birthday parties</h3>
+                  </li>
+               </flex-slider>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="new-sliding">
+      <div class="gallery">
+         <div class="slidings">
+            <div class="headings clearfix">
+               <h2 class="title slide-text pull-left">Buy Now</h2>
+               <p class="pull-right margin33 uppercase">view all</p>
+            </div>
+            <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+               <li>
 
-              <div class="race relative">
-                <div class="img-bg">
-                <img src="img/new/text.png" class="img-responsive" alt="">
-                </div>
-                  <a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
-                <div class="race-text">
-                    <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3>
-                </div>
-              </div>
+                  <div class="race relative">
+                     <div class="img-bg">
+                        <img src="img/new/text.png" class="img-responsive" alt="">
+                     </div>
+                     <a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
+                     <div class="race-text">
+                        <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3>
+                     </div>
+                  </div>
 
-            </li>
-        </flex-slider>
-    </div>
-  </div>
-  </div>
+               </li>
+            </flex-slider>
+         </div>
+      </div>
+   </div>
 
-<!-- <div class="slant-row">
+   <!-- <div class="slant-row">
     <div class="slant-col brand-green">
         <div class="slant-box full-height">
             <h2 class="brand-white">Attractions</h2>
@@ -267,93 +278,94 @@
     </div>
 </div>
 </div>  -->
- <div class="slant-row reversing">
-     <div class="slant-col">
-   <div class="slant-in brand-purply">
-       <div class="slant-box full-height">
-           <h2 class="brand-white">events</h2>
-           <div class="mover">
-               <div class="slidings">
-                 <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
-                         <li>
-                             <a ui-sref="events-challenges">
-                           <div class="race relative">
-                             <div class="img-bg">
-                             <img src="img/carnival.jpg" class="img-responsive" alt="">
-                             </div>
-                               <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
-                             <div class="race-text">
-                                 <h3 class="margin0 brand-white">smaaash cricket carnival</h3>
-                             </div>
-                           </div>
-</a>
-                         </li>
+   <div class="slant-row reversing">
+      <div class="slant-col">
+         <div class="slant-in brand-purply">
+            <div class="slant-box full-height">
+               <h2 class="brand-white">events</h2>
+               <div class="mover">
+                  <div class="slidings">
+                     <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                        <li>
+                           <a ui-sref="events-challenges">
+                              <div class="race relative">
+                                 <div class="img-bg">
+                                    <img src="img/carnival.jpg" class="img-responsive" alt="">
+                                 </div>
+                                 <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                                 <div class="race-text">
+                                    <h3 class="margin0 brand-white">smaaash cricket carnival</h3>
+                                 </div>
+                              </div>
+                           </a>
+                        </li>
                      </flex-slider>
-           </div>
-       </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="slant-col brand-blue pull-right">
+         <div class="slant-box full-height">
+            <h2 class="brand-white marginleft">Attractions</h2>
+            <div class="mover">
+               <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
+                  <li>
+                     <a ui-sref="attractions">
+                        <img ng-src="{{s.image|uploadpath}}">
+                     </a>
+                     <h3 class="brand-white uppercase title">sky karting</h3>
+                  </li>
+               </flex-slider>
+            </div>
+         </div>
+      </div>
    </div>
-</div>
-</div>
-<div class="slant-col brand-blue pull-right">
-    <div class="slant-box full-height">
-        <h2 class="brand-white marginleft">Attractions</h2>
-        <div class="mover">
-          <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
-              <li>
-                <a ui-sref="attractions">
-                  <img ng-src="{{s.image|uploadpath}}">
-                  </a>
-                  <h3 class="brand-white uppercase title">sky karting</h3>
-              </li>
-          </flex-slider>
-        </div>
-    </div>
-</div>
-</div>
-<div class="slant-row reverse">
-<div class="slant-col">
-    <div class="slant-in brand-green">
-        <div class="slant-box half-height">
-          <div class="heading clearfix">
-            <h2 class="title slide-text pull-left brand-white">FOOD AND BEVERAGES</h2>
-          <p class="pull-right  capitalize brand-white">view all</p>
-        </div>
-            <div class="colored-slider">
-            <flex-slider class="carousel" flex-slide="s in mySlides5 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
-                <li>
-                  <a ui-sref="">
-                    <img ng-src="{{s}}">
-                    </a>
-                </li>
-            </flex-slider>
-        </div>
-        </div>
-    </div>
-    <div class="slant-in brand-greenblu">
-        <div class="slant-box  half-height">
-            <h2 class="title slide-text marg brand-white">subscribe newsletter</h2>
-              <form class="form">
-                <div class="form-group inline-block">
-                    <input type="email" class="form-control" name="email" placeholder="Email Id">
-                </div>
-                  <button type="button" class="btn title brand-green  inline-block btn-default "><span class="brand-white capitalize">send</span></button>
-              </form>
-        </div>
-    </div>
-</div>
-<div class="slant-col brand-yellow pull-right">
-    <div class="rays"></div>
-    <div class="slant-box full-height">
-        <div class="mover">
-          <a class="know"  href="">Know More</a>
-            <img src="img/home/aunty.png" class="img-responsive" alt="Speed Karting"/>
-        </div>
-    </div>
-</div>
-</div>
+   <div class="slant-row reverse">
+      <div class="slant-col">
+         <div class="slant-in brand-green">
+            <div class="slant-box half-height">
+               <div class="heading clearfix">
+                  <h2 class="title slide-text pull-left brand-white">FOOD AND BEVERAGES</h2>
+                  <p class="pull-right  capitalize brand-white">view all</p>
+               </div>
+               <div class="colored-slider">
+                  <flex-slider class="carousel" flex-slide="s in mySlides5 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                     <li>
+                        <a ui-sref="">
+                           <img ng-src="{{s}}">
+                        </a>
+                     </li>
+                  </flex-slider>
+               </div>
+            </div>
+         </div>
+         <div class="slant-in brand-greenblu">
+            <div class="slant-box  half-height">
+               <h2 class="title slide-text marg brand-white">subscribe newsletter</h2>
+               <form class="form" name="subscribeForm">
+                  <div class="form-group inline-block">
+                     <input type="email" class="form-control" name="email" placeholder="Email Id" required ng-model="subscribeData.email">
+                     <div class="error-msg" ng-show="subscribeForm.email.$error.required && subscribeForm.email.$touched">Please Enter Your Email Id</div>
+                  </div>
+                  <button type="submit" class="btn title brand-green  inline-block btn-default "><span class="brand-white capitalize">send</span></button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div class="slant-col brand-yellow pull-right">
+         <div class="rays"></div>
+         <div class="slant-box full-height">
+            <div class="mover">
+               <a class="know" href="">Know More</a>
+               <img src="img/home/aunty.png" class="img-responsive" alt="Speed Karting" />
+            </div>
+         </div>
+      </div>
+   </div>
 
 
-<!-- <div class="slant-row">
+   <!-- <div class="slant-row">
 <div class="slant-col brand-green">
     <div class="slant-box full-height">
         <h2 class="brand-white">Facebook</h2>
@@ -401,34 +413,35 @@
     </div>
 </div>
 </div> -->
-<div class="social-media">
-  <div class="row">
-    <div class="col-md-4 col-sm-12 col-xs-12">
-<div class="facebook brand-green inline-block fb-mobile">
-  <h2 class="brand-white">Facebook</h2>
-  <div class="wdgett text-center">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSmaaashLive%2F&tabs=timeline&width=340&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=199489793739917" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-  </div>
-</div>
-</div>
-  <div class="col-md-4 col-sm-12 col-xs-12">
-<div class="facebook brand-red inline-block fb-mobile">
-  <h2 class="brand-white">Twitter</h2>
-  <div class="twitter-wdget ">
-      <div class="wdget text-center">
-          <a class="twitter-timeline" href="https://twitter.com/SmaaashLive">Tweets by SmaaashLive</a>
+   <div class="social-media">
+      <div class="row">
+         <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="facebook brand-green inline-block fb-mobile">
+               <h2 class="brand-white">Facebook</h2>
+               <div class="wdgett text-center">
+                  <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSmaaashLive%2F&tabs=timeline&width=340&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=199489793739917" width="340"
+                    height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="facebook brand-red inline-block fb-mobile">
+               <h2 class="brand-white">Twitter</h2>
+               <div class="twitter-wdget ">
+                  <div class="wdget text-center">
+                     <a class="twitter-timeline" href="https://twitter.com/SmaaashLive">Tweets by SmaaashLive</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class=" facebook brand-pink inline-block fb-mobile">
+               <h2 class="brand-white">Instagram</h2>
+               <div class="wdget">
+                  <iframe src="//lightwidget.com/widgets/540f7576f94f54419988e766fce81e6a.html" id="lightwidget_540f7576f9" name="lightwidget_540f7576f9" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+               </div>
+            </div>
+         </div>
       </div>
-  </div>
-</div>
-</div>
-  <div class="col-md-4 col-sm-12 col-xs-12">
-<div class=" facebook brand-pink inline-block fb-mobile">
-  <h2 class="brand-white">Instagram</h2>
-  <div class="wdget">
-      <iframe src="//lightwidget.com/widgets/540f7576f94f54419988e766fce81e6a.html" id="lightwidget_540f7576f9" name="lightwidget_540f7576f9"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
-  </div>
-</div>
-</div>
-</div>
-</div>
+   </div>
 </div>
