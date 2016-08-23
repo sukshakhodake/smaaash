@@ -47,12 +47,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (data.value) {
             $scope.homeContent = data.data;
             console.log("$scope.homeContentsdfg",$scope.homeContent);
-            $scope.content = _.groupBy($scope.homeContent, "type");
+            $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
             console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             console.log("$scope.whatsnew", $scope.whatsnew);
             $scope.hostParty = $scope.content["Host a Party"];
+            console.log("  $scope.hostParty",  $scope.hostParty);
         } else {
 
         }
