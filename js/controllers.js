@@ -1,7 +1,7 @@
 var globalfunction = {};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -46,6 +46,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getHomeContent(function(data) {
         if (data.value) {
             $scope.homeContent = data.data;
+            console.log("$scope.homeContentsdfg",$scope.homeContent);
             $scope.content = _.groupBy($scope.homeContent, "type");
             $scope.attraction = $scope.content.Attraction;
             console.log("$scope.attraction", $scope.attraction);
@@ -56,6 +57,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     });
+    NavigationService.getHomeBanner(function(data) {
+        $scope.banner = data.data;
+        // $scope.banner.homebanner=data.data;
+        console.log("$scope.banner", $scope.banner[0].homebanner);
+        $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
+        console.log("$scope.banner555555555555555", $scope.banner[0].homebanner);
+
+    })
     $scope.subscribeFormComplete = false;
     $scope.subscribeData = {};
     $scope.duplicate = false;
@@ -108,6 +117,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else {
                     $scope.valid = true;
                 }
+                $.jStorage.set("loginInfo",data);
+              $scope.userName=  $.jStorage.get("loginInfo").data.name;
+              console.log("  $scope.userName",  $scope.userName);
 
             })
 
@@ -115,7 +127,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     }
-
 
     $scope.formCompleteSignup = false;
 
@@ -153,6 +164,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     }
+
 
 
 
@@ -631,6 +643,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
+    $scope.formData={};
+
+    $scope.assistanceLogin=function(formData){
+      console.log("formData",formData);
+
+    }
+
+
+
+
 })
 
 
@@ -804,7 +826,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('$scope.getCity', $scope.getCity);
 
         })
-
+$scope.myName=$.jStorage.get("loginInfo");
+console.log("$scope.myName",$scope.myName);
 
 
 

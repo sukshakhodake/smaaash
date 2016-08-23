@@ -260,31 +260,35 @@
           <div class="col-md-4  col-sm-4"></div>
           <div class="col-md-4  col-sm-4">
             <div class="practice">
-            <form class="form">
+            <form class="form" name="user" ng-submit="assistanceLogin(formData)">
               <h3 class="text-center">Need assistance?</h3>
               <div class="form-group relative">
-                <input type="text" class=" form-control" placeholder="Name" required>
+                <input type="text" class=" form-control" placeholder="Name" name="name"   ng-model="formData.name" required>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name </div>
               </div>
               <div class="form-group relative">
-                <input type="email" class=" form-control" placeholder="Email ID">
+                <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="formData.email" required >
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email ID </div>
               </div>
               <div class="form-group relative ">
-                <input type="text" class="form-control" placeholder="Mobile .No">
+                <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                <div class="error-msg" ng-show="user.mobile.$error.required && user.mobile.$touched">Please Enter Your Mobile No </div>
               </div>
               <div class="form-group relative">
-                <input type="text" class=" form-control" placeholder="Occasion">
+                <input type="text" class=" form-control" placeholder="Occasion" name="occasion" ng-model="formData.occasion" required>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                 <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <div class="error-msg" ng-show="user.occasion.$error.required && user.occasion.$touched">Please Enter Occasion </div>
               </div>
               <div class="form-group ">
                 <div class="radio">
-                <input type="radio" id="radio4" name="radio" />
+                <input type="radio" id="radio4" name="userType" ng-model="formData.userType">
                 <label for="radio4">
                     <span></span> Adults</label>
-                    <input type="radio" id="radio3" name="radio" />
+                    <input type="radio" id="radio3" name="userType"  ng-model="formData.userType">
                     <label for="radio3">
                         <span></span> Children</label>
               </div>
@@ -298,7 +302,7 @@
 
                 <a href="" class="down"><i class="fa fa-calendar" aria-hidden="true"></i></a>
               </div>
-  <button type="button" class="btn4  btn-default brand-yellow"><span class="uppercase">submit</span></button>
+  <button type="submit" class="btn4  btn-default brand-yellow"><span class="uppercase">submit</span></button>
             </form>
           </div>
           </div>

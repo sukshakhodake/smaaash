@@ -1,6 +1,6 @@
-<div class="landing-banner" auto-height>
+<div class="landing-banner" auto-height ng-style="{'background':'url('+banner[0].homebanner+')no-repeat'}">
    <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
-   <div class="inner-banner"></div>
+   <!-- <div class="inner-banner"></div> -->
    <!-- <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}"> -->
    <div class="container">
       <!-- <div class="video">
@@ -78,7 +78,7 @@
                            <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
                         </div>
                         <div class="form-group">
-                           <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password">
+                           <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" >
                            <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
                         </div>
                         <div class="form-group">
@@ -132,9 +132,10 @@
                      <div class="img-bg">
                         <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                      </div>
-                     <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                     <a href="" class="pink-button" ><img src="img/home/button.png" class="img-responsive" alt=""></a>
                      <div class="race-text">
-                        <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3>
+                        <!-- <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3> -->
+                        <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
                      </div>
                   </div>
 
