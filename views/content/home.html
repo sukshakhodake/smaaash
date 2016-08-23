@@ -343,13 +343,17 @@
          <div class="slant-in brand-greenblu">
             <div class="slant-box  half-height">
                <h2 class="title slide-text marg brand-white">subscribe newsletter</h2>
-               <form class="form" name="subscribeForm">
+               <form class="form" name="subscribeForm" ng-if="!subscribeFormComplete" ng-submit="subscribeLogin(subscribeData)">
                   <div class="form-group inline-block">
                      <input type="email" class="form-control" name="email" placeholder="Email Id" required ng-model="subscribeData.email">
                      <div class="error-msg" ng-show="subscribeForm.email.$error.required && subscribeForm.email.$touched">Please Enter Your Email Id</div>
                   </div>
                   <button type="submit" class="btn title brand-green  inline-block btn-default "><span class="brand-white capitalize">send</span></button>
+                <div ng-if="duplicate">Email Already Exist</div>
                </form>
+               <div ng-if="subscribeFormComplete">
+                  <p class="text-center">Thank You For Subscribing.</p>
+               </div>
             </div>
          </div>
       </div>

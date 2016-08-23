@@ -56,6 +56,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     });
+    $scope.subscribeFormComplete = false;
+    $scope.subscribeData = {};
+    $scope.duplicate = false;
+    $scope.subscribeLogin = function(subscribeData) {
+        if ($scope.subscribeData) {
+            NavigationService.subscribe($scope.subscribeData, function(data) {
+
+                if (data.data.value == false) {
+                    console.log("data.valueIf", data.data.value);
+                    $scope.duplicate = true;
+                    $scope.subscribeFormComplete = false;
+
+                } else {
+                    console.log("data.valueElse", data.data.value);
+                    $scope.duplicate = false;
+                    $scope.subscribeFormComplete = true;
+                    $timeout(function() {
+                        $scope.subscribeFormComplete = false;
+                        $scope.subscribeData = {};
+                    }, 2000);
+                }
+            })
+        }
+
+    }
+
+
+
+
+
+
+
+
 
     $scope.formComplete = false;
     $scope.userData = {};
