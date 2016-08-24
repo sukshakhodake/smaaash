@@ -78,11 +78,11 @@
                            <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
                         </div>
                         <div class="form-group">
-                           <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" >
+                           <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" ng-minlength="6" ng-maxlength="8">
                            <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
                         </div>
                         <div class="form-group">
-                           <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword">
+                           <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword" >
                            <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
                         </div>
 
@@ -91,7 +91,7 @@
                         <!-- <div>{{msg}}</div> -->
 
                         <!-- <div ng-if="duplicatepass">Please enter correct password.</div> -->
-                        <div ng-if="!pass">Pas does not match</div>
+                        <div ng-if="!pass">password doesn't match or It should be Minimum 6 Characters & Maximum 8 Characters.</div>
                      </form>
                      <div class="submit-thank" ng-if="formCompleteSignup">
                         <p class="text-center">Thank You</p>
@@ -130,12 +130,13 @@
                <li>
                   <div class="race relative">
                      <div class="img-bg">
-                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="whats-new({id:s.type._id})">
                      </div>
                      <a href="" class="pink-button" ><img src="img/home/button.png" class="img-responsive" alt=""></a>
                      <div class="race-text">
                         <!-- <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3> -->
                         <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
+                          <div ng-if="!s.hometext">No data Found</div>
                      </div>
                   </div>
 
@@ -174,16 +175,17 @@
                <h2 class="brand-white">DEALS AND PACKAGES</h2>
                <div class="mover">
                   <div class="slidings">
-                     <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                     <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
                            <a ui-sref="deals-packages">
                               <div class="race relative">
                                  <div class="img-bg">
-                                    <img src="img/monsoon.jpg" class="img-responsive" alt="">
+                                    <img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                                  </div>
                                  <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
-                                 <div class="race-text">
-                                    <h3 class="margin0 brand-white">MONSOON DAY PASS!</h3>
+                                 <div class="race-text" >
+                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext">MONSOON DAY PASS!</h3>
+                                    <div ng-if="!s.hometext">No data Found</div>
                                  </div>
                               </div>
                            </a>
@@ -201,7 +203,7 @@
                <flex-slider class="carousel" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
                   <li>
                      <a ui-sref="host-party">
-                        <img ng-src="{{s.image|uploadpath}}">
+                        <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                      </a>
                      <h3 class="brand-white uppercase title">birthday parties</h3>
                   </li>
@@ -288,16 +290,17 @@
                <h2 class="brand-white">events</h2>
                <div class="mover">
                   <div class="slidings">
-                     <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                     <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
                            <a ui-sref="events-challenges">
                               <div class="race relative">
-                                 <div class="img-bg">
-                                    <img src="img/carnival.jpg" class="img-responsive" alt="">
+                                 <div class="img-bg" ng-if="s.image">
+                                    <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                                  </div>
                                  <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                                  <div class="race-text">
-                                    <h3 class="margin0 brand-white">smaaash cricket carnival</h3>
+                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext">smaaash cricket carnival</h3>
+                                    <div ng-if="!s.hometext">No Data Found</div>
                                  </div>
                               </div>
                            </a>
@@ -333,10 +336,10 @@
                   <p class="pull-right  capitalize brand-white">view all</p>
                </div>
                <div class="colored-slider">
-                  <flex-slider class="carousel" flex-slide="s in mySlides5 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+                  <flex-slider class="carousel" flex-slide="s in foodBeverages track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
                         <a ui-sref="">
-                           <img ng-src="{{s}}">
+                           <img ng-src="{{s.image|uploadpath}}">
                         </a>
                      </li>
                   </flex-slider>

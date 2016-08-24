@@ -68,7 +68,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   })
 
   .state('whats-new', {
-      url: "/whats-new",
+      url: "/whats-new/:id",
       templateUrl: "views/template.html",
       controller: 'NewCtrl'
   })

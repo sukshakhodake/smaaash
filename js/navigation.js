@@ -4,7 +4,7 @@
 // var adminurl = "http://192.168.1.103:1337/";
 // var adminurl = "http://104.197.84.255/";//pooja
 // var adminurl = "http://192.168.0.118:1337/";
-var adminurl = "http://104.154.89.21:82/"; 
+var adminurl = "http://104.154.89.21:82/";
 // var adminurl = "http://192.168.0.114:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
@@ -64,11 +64,14 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-        getHomeContent: function(callback) {
+        getHomeContent: function(id,callback) {
             $http({
                 url: adminurl + 'exploresmash/getHomeContent',
                 method: 'POST',
-                withCredentials: true
+                withCredentials: true,
+                data:{
+                  _id:id
+                }
             }).success(callback);
         },
         getExploresmash: function(request, callback) {
@@ -145,6 +148,17 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'configtwo/getAll',
                 method: 'POST',
                 withCredentials: true
+            }).success(callback);
+        },
+        getSingleExploreSmaaash: function(id, callback) {
+            $http({
+                url: adminurl + 'exploresmash/getSingleExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    _id: id
+                }
+
             }).success(callback);
         },
 

@@ -100,10 +100,10 @@
         <div class="container relative">
             <a ui-sref="home" class="logo-smaash"><img src="img/home/logo.png" alt="Smaaash"></a>
             <div class="cities" ng-click="toggleCity()">
-                <span ng-hide='showCity'>Choose City
+                <span ng-hide="flag.showCity">Choose City
                     <i class="fa fa-chevron-down"></i>
                 </span>
-                <span ng-show='showCity'>{{cityName}}
+                <span ng-show="flag.showCity">{{cityName}}
                     <i class="fa fa-chevron-down"></i>
                 </span>
             </div>

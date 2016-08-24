@@ -43,21 +43,74 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var attraction = [];
     var whatsnew = [];
     var hostParty = [];
-    NavigationService.getHomeContent(function(data) {
-        if (data.value) {
-            $scope.homeContent = data.data;
-            console.log("$scope.homeContentsdfg",$scope.homeContent);
-            $scope.content = _.groupBy($scope.homeContent, "type.name");
-            $scope.attraction = $scope.content.Attraction;
-            console.log("$scope.attraction", $scope.attraction);
-            $scope.whatsnew = $scope.content["What's new"];
-            console.log("$scope.whatsnew", $scope.whatsnew);
-            $scope.hostParty = $scope.content["Host a Party"];
-            console.log("  $scope.hostParty",  $scope.hostParty);
-        } else {
+    var deals = [];
+    var events = [];
+    var foodBeverages = [];
 
+
+
+    // if ($.jStorage.get("city") !== null) {
+    //
+    //     NavigationService.getHomeContent($.jStorage.get("city")._id, function(data) {
+    //         $scope.homeContent = data.data;
+    //         console.log("$scope.dataByCity", $scope.dataByCity);
+    //         if (data.value) {
+    //             $scope.homeContent = data.data;
+    //             console.log("$scope.homeContentsdfg", $scope.homeContent);
+    //             $scope.content = _.groupBy($scope.homeContent, "type.name");
+    //             $scope.attraction = $scope.content.Attraction;
+    //             console.log("$scope.attraction", $scope.attraction);
+    //             $scope.whatsnew = $scope.content["What's new"];
+    //             console.log("$scope.whatsnew", $scope.whatsnew);
+    //             $scope.hostParty = $scope.content["Host a party"];
+    //             console.log("  $scope.hostParty", $scope.hostParty);
+    //             $scope.deals = $scope.content["Deals and Packages"];
+    //             console.log("$scope.deals", $scope.deals);
+    //             $scope.events = $scope.content["Events"];
+    //             console.log("  $scope.events", $scope.events);
+    //             $scope.foodBeverages = $scope.content["Food and Beverages"];
+    //             console.log("$scope.foodBeverages", $scope.foodBeverages);
+    //         } else {
+    //
+    //         }
+    //     });
+    //
+    // } else {
+    //
+    // }
+    globalfunction.changeExplore = function() {
+      $scope.storage=$.jStorage.get("city");
+      console.log("infunction",$.jStorage.get("city"));
+        if ($.jStorage.get("city") !== null) {
+          NavigationService.getHomeContent($.jStorage.get("city")._id, function(data) {
+              $scope.homeContent = data.data;
+              console.log("$scope.dataByCity", $scope.dataByCity);
+              if (data.value) {
+                  $scope.homeContent = data.data;
+                  console.log("$scope.homeContentsdfg", $scope.homeContent);
+                  $scope.content = _.groupBy($scope.homeContent, "type.name");
+                  $scope.attraction = $scope.content.Attraction;
+                  console.log("$scope.attraction", $scope.attraction);
+                  $scope.whatsnew = $scope.content["What's new"];
+                  console.log("$scope.whatsnew", $scope.whatsnew);
+                  $scope.hostParty = $scope.content["Host a party"];
+                  console.log("  $scope.hostParty", $scope.hostParty);
+                  $scope.deals = $scope.content["Deals and Packages"];
+                  console.log("$scope.deals", $scope.deals);
+                  $scope.events = $scope.content["Events"];
+                  console.log("  $scope.events", $scope.events);
+                  $scope.foodBeverages = $scope.content["Food and Beverages"];
+                  console.log("$scope.foodBeverages", $scope.foodBeverages);
+              } else {
+
+              }
+          });
         }
-    });
+        //  else {
+        //     $state.go('home');
+        // }
+    };
+    // globalfunction.changeExplore();
     NavigationService.getHomeBanner(function(data) {
         $scope.banner = data.data;
         // $scope.banner.homebanner=data.data;
@@ -118,9 +171,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else {
                     $scope.valid = true;
                 }
-                $.jStorage.set("loginInfo",data);
-              $scope.userName=  $.jStorage.get("loginInfo").data.name;
-              console.log("  $scope.userName",  $scope.userName);
+                $.jStorage.set("loginInfo", data);
+                $scope.userName = $.jStorage.get("loginInfo").data.name;
+                console.log("  $scope.userName", $scope.userName);
 
             })
 
@@ -351,7 +404,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout ,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("whats-new");
     $scope.menutitle = NavigationService.makeactive("Whats New");
@@ -379,6 +432,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
+if($stateParams.id)
+{
+  NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
+    $scope.SingleExploreSmaaash=_.chunk(data.data,3);
+    console.log("$scope.data",$scope.data);
+
+  })
+
+}
 
 })
 
@@ -576,19 +638,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //
     // }
 
-    globalfunction.changeExplore = function() {
-        if ($.jStorage.get("city") !== null) {
-            NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
-                if (data.value) {
-                    $scope.smaaash = _.chunk(data.data, 3);
-                    console.log("$scope.smaaash", $scope.smaaash);
-                }
-            });
-        } else {
-            $state.go('home');
-        }
-    };
-    globalfunction.changeExplore();
+    // globalfunction.changeExplore = function() {
+    //     if ($.jStorage.get("city") !== null) {
+    //         NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
+    //             if (data.value) {
+    //                 $scope.smaaash = _.chunk(data.data, 3);
+    //                 console.log("$scope.smaaash", $scope.smaaash);
+    //             }
+    //         });
+    //     } else {
+    //         $state.go('home');
+    //     }
+    // };
+    // globalfunction.changeExplore();
     // $scope.scrollMore($scope.objfilter);
 })
 
@@ -644,10 +706,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.formData={};
+    $scope.formData = {};
 
-    $scope.assistanceLogin=function(formData){
-      console.log("formData",formData);
+    $scope.assistanceLogin = function(formData) {
+        console.log("formData", formData);
 
     }
 
@@ -796,19 +858,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $(window).scrollTop(0);
         });
         $scope.city = false;
-        $scope.showCity = false;
+        $scope.flag = {};
+        $scope.flag.showCity = false;
         $scope.toggleCity = function() {
             console.log('Toggle City');
             $scope.city = !$scope.city;
 
         };
+
+        NavigationService.getCity(function(data) {
+
+            $scope.getCity = data.data;
+            console.log('$scope.getCity', $scope.getCity);
+            if ($.jStorage.get("city") == null) {
+
+                // $.jStorage.set("data", $scope.getCity);
+                // $scope.cityMumbai = $.jStorage.get("cityName");
+                // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
+                var mumbai = _.find($scope.getCity,function (key) {
+                  if(key.name.toLowerCase() == "mumbai"){
+                    return key;
+                  }
+                });
+                console.log("mumnbai object",mumbai);
+                $scope.getCityName(mumbai);
+            }
+
+        })
+
         $scope.getCityName = function(cityname) {
             // console.log('mycityname', cityname);
+            console.log();
             $.jStorage.set("city", cityname);
             $scope.cityName = $.jStorage.get("city").name;
-            if ($state.current.name == "explore-smaaash") {
-                globalfunction.changeExplore();
+            $scope.flag.showCity = true;
+            console.log("mumbai",$scope.flag.showCity,$scope.cityName);
+            // if ($state.current.name == "explore-smaaash") {
+            //     globalfunction.changeExplore();
+            // };
+            console.log("$statessssssssssss",$state.current.name);
+            if($state.current.name == "home"){
+              globalfunction.changeExplore();
             };
+
             // if($state.current.name == "explore"){
             //   $state.go('home');
             // }
@@ -816,19 +908,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $scope.citySlide = $.jStorage.get("city")._id;
             // console.log('$scope.cityName',$scope.cityName);
 
-            $scope.showCity = true;
         }
+
+
         if ($.jStorage.get("city") !== null) {
             $scope.getCityName($.jStorage.get("city"))
         }
-        NavigationService.getCity(function(data) {
 
-            $scope.getCity = data.data;
-            console.log('$scope.getCity', $scope.getCity);
 
-        })
-$scope.myName=$.jStorage.get("loginInfo");
-console.log("$scope.myName",$scope.myName);
+
+
+
+
+        $scope.myName = $.jStorage.get("loginInfo");
+        console.log("$scope.myName", $scope.myName);
 
 
 
