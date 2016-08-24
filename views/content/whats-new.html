@@ -81,9 +81,14 @@
                 <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
                 </div>
                 <div class="new-detail">
-                <h3 class="margin0 height80" ng-bind-html="d.hometext"></h3>
-                <p ng-bind-html="d.description | limitTo:130"></p>
-                <div ng-if="!d.description">No Data Found</div>
+                <div class="min-he">
+                  <h3 class="margin0 height80" ng-bind-html="d.hometext"></h3>
+                </div>
+              <div class="min-h">
+                  <p ng-bind-html="d.description | limitTo:130"></p>
+                    <div ng-if="!d.description">No Data Found</div>
+              </div>
+
                 <span class="capitalize greeny">read more</span>
                 <div class="button-set">
                 <ul class="social-icons list-inline inline-block">
