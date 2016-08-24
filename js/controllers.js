@@ -432,6 +432,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
+    $scope.showMore=false;
+
 if($stateParams.id)
 {
   NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
@@ -441,6 +443,21 @@ if($stateParams.id)
   })
 
 }
+// $scope.showMore=false;
+// $scope.readMore=function(){
+//
+//   if($stateParams.id)
+//   {
+//     NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
+//       $scope.SingleExploreSmaaash=_.chunk(data.data,3);
+//       console.log("$scope.data",$scope.data);
+//
+//     })
+//
+//   }
+//   $scope.showMore=true;
+//
+// }
 
 })
 
