@@ -1518,6 +1518,7 @@ button{
         }
         .race{
           border: 1px solid #fff;
+          height: 251px;
           .pink-button{
             height: 40px;
             width: 40px;
@@ -1527,6 +1528,7 @@ button{
             transform: translate(-50%,-50%);
           }
           .race-text{
+            height: 100px;
             background-color: #173f95;
                 padding: 25px 10px;
                 h3{
@@ -1572,7 +1574,9 @@ button{
   .mover{
     .slidings{
       .race{
+        height: 251px;
         .race-text{
+          height: 100px;
           background-color: #000;
         }
       }
