@@ -198,7 +198,7 @@ $menu-height: 80px !default;
     .cities {
         background-color: $brand-purple;
         @include transform(skew(15deg));
-        @include position(absolute,52px null null 25px);
+        @include position(absolute,52px null null 0px);
         box-shadow: -3px 3px #000, -3px 0 #000;
         padding: 8px 15px;
         cursor: pointer;
