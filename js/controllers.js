@@ -393,6 +393,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
+    NavigationService.getStars(function(data){
+      $scope.stars=_.chunk(data.data,3);
+      console.log("$scope.stars",$scope.stars);
+    })
 
 })
 
@@ -874,6 +878,7 @@ if($stateParams.id)
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });
+        $scope.cityData = {}
         $scope.city = false;
         $scope.flag = {};
         $scope.flag.showCity = false;
@@ -882,50 +887,60 @@ if($stateParams.id)
             $scope.city = !$scope.city;
 
         };
-
-        NavigationService.getCity(function(data) {
-
-            $scope.getCity = data.data;
-            console.log('$scope.getCity', $scope.getCity);
-            if ($.jStorage.get("city") == null) {
-
-                // $.jStorage.set("data", $scope.getCity);
-                // $scope.cityMumbai = $.jStorage.get("cityName");
-                // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
-                var mumbai = _.find($scope.getCity,function (key) {
-                  if(key.name.toLowerCase() == "mumbai"){
-                    return key;
-                  }
-                });
-                console.log("mumnbai object",mumbai);
-                $scope.getCityName(mumbai);
-            }
-
-        })
-
         $scope.getCityName = function(cityname) {
-            // console.log('mycityname', cityname);
-            console.log();
             $.jStorage.set("city", cityname);
-            $scope.cityName = $.jStorage.get("city").name;
+            $scope.cityData = $.jStorage.get("city");
             $scope.flag.showCity = true;
-            console.log("mumbai",$scope.flag.showCity,$scope.cityName);
-            // if ($state.current.name == "explore-smaaash") {
-            //     globalfunction.changeExplore();
-            // };
+            console.log("mumbai",$scope.flag.showCity,$scope.cityData);
             console.log("$statessssssssssss",$state.current.name);
             if($state.current.name == "home"){
               globalfunction.changeExplore();
             };
 
-            // if($state.current.name == "explore"){
-            //   $state.go('home');
-            // }
-
-            // $scope.citySlide = $.jStorage.get("city")._id;
-            // console.log('$scope.cityName',$scope.cityName);
-
         }
+        $scope.getCity = function () {
+          NavigationService.getCity(function(data) {
+
+              if(data.value){
+                $scope.getCity = data.data;
+                if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
+
+                    // $.jStorage.set("data", $scope.getCity);
+                    // $scope.cityMumbai = $.jStorage.get("cityName");
+                    // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
+                    var mumbai = _.find($scope.getCity,function (key) {
+                      if(key.name.toLowerCase() == "mumbai"){
+                        return key;
+                      }
+                    });
+                    $scope.getCityName(mumbai);
+
+                }
+              }
+
+          });
+        }
+        $scope.getCity();
+        // NavigationService.getCity(function(data) {
+        //
+        //     $scope.getCity = data.data;
+        //     if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
+        //
+        //         // $.jStorage.set("data", $scope.getCity);
+        //         // $scope.cityMumbai = $.jStorage.get("cityName");
+        //         // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
+        //         var mumbai = _.find($scope.getCity,function (key) {
+        //           if(key.name.toLowerCase() == "mumbai"){
+        //             return key;
+        //           }
+        //         });
+        //         $scope.getCityName(mumbai);
+        //
+        //     }
+        //
+        // })
+
+
 
 
         if ($.jStorage.get("city") !== null) {

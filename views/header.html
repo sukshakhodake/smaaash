@@ -100,12 +100,15 @@
         <div class="container relative">
             <a ui-sref="home" class="logo-smaash"><img src="img/home/logo.png" alt="Smaaash"></a>
             <div class="cities" ng-click="toggleCity()">
-                <span ng-hide="flag.showCity">Choose City
+                <!-- <span ng-if="$.jStorage.get('city') === null">Choose City
                     <i class="fa fa-chevron-down"></i>
                 </span>
-                <span ng-show="flag.showCity">{{cityName}}
+                <span ng-if="$.jStorage.get('city') !== null || $.jStorage.get('city') !== ''">{{cityData.name}}
                     <i class="fa fa-chevron-down"></i>
-                </span>
+                </span> -->
+                <span>{{cityData.name || 'Choose City'}}
+                   <i class="fa fa-chevron-down"></i>
+               </span>
             </div>
             <div class="women-menu" ng-click="toggleMenu()">
                <div class="menu"><img src="img/home/menus.png" alt="Menu" no-drag ></div>

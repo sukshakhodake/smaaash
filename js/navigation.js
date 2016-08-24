@@ -161,6 +161,13 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        getStars: function(callback) {
+            $http({
+                url: adminurl + 'star/getAll',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
 
 
 
