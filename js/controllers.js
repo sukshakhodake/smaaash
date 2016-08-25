@@ -25,21 +25,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scrollTop: $("#toHome").offset().top
         }, 500);
     };
-    if ($.jStorage.get("city")) {
-        NavigationService.getSlider($.jStorage.get("city")._id, function(data) {
-            console.log('getSlider', data);
-            $scope.mySlides = data.data;
-            var i = 1;
-            _.each($scope.mySlides, function(n) {
 
-                n.ordering = i;
-                i++;
-            });
-            console.log("$scope.mySlides", $scope.mySlides);
+    NavigationService.getSlider(function(data) {
+        console.log('getSlider', data);
+        $scope.mySlides = data.data;
+        var i = 1;
+        _.each($scope.mySlides, function(n) {
 
+            n.ordering = i;
+            i++;
         });
+        console.log("$scope.mySlides", $scope.mySlides);
 
-    };
+    });
+
+
     var attraction = [];
     var whatsnew = [];
     var hostParty = [];
@@ -78,38 +78,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // } else {
     //
     // }
-    globalfunction.changeExplore = function() {
-      $scope.storage=$.jStorage.get("city");
-      console.log("infunction",$.jStorage.get("city"));
-        if ($.jStorage.get("city") !== null) {
-          NavigationService.getHomeContent($.jStorage.get("city")._id, function(data) {
-              $scope.homeContent = data.data;
-              console.log("$scope.dataByCity", $scope.dataByCity);
-              if (data.value) {
-                  $scope.homeContent = data.data;
-                  console.log("$scope.homeContentsdfg", $scope.homeContent);
-                  $scope.content = _.groupBy($scope.homeContent, "type.name");
-                  $scope.attraction = $scope.content.Attraction;
-                  console.log("$scope.attraction", $scope.attraction);
-                  $scope.whatsnew = $scope.content["What's new"];
-                  console.log("$scope.whatsnew", $scope.whatsnew);
-                  $scope.hostParty = $scope.content["Host a party"];
-                  console.log("  $scope.hostParty", $scope.hostParty);
-                  $scope.deals = $scope.content["Deals and Packages"];
-                  console.log("$scope.deals", $scope.deals);
-                  $scope.events = $scope.content["Events"];
-                  console.log("  $scope.events", $scope.events);
-                  $scope.foodBeverages = $scope.content["Food and Beverages"];
-                  console.log("$scope.foodBeverages", $scope.foodBeverages);
-              } else {
+    // globalfunction.changeExplore = function() {
 
-              }
-          });
-        }
-        //  else {
-        //     $state.go('home');
-        // }
-    };
+        NavigationService.getHomeContent(function(data) {
+            $scope.homeContent = data.data;
+            console.log("$scope.dataByCity", $scope.dataByCity);
+            if (data.value) {
+                $scope.homeContent = data.data;
+                console.log("$scope.homeContentsdfg", $scope.homeContent);
+                $scope.content = _.groupBy($scope.homeContent, "type.name");
+                $scope.attraction = $scope.content.Attraction;
+                console.log("$scope.attraction", $scope.attraction);
+                $scope.whatsnew = $scope.content["What's new"];
+                console.log("$scope.whatsnew", $scope.whatsnew);
+                $scope.hostParty = $scope.content["Host a party"];
+                console.log("  $scope.hostParty", $scope.hostParty);
+                $scope.deals = $scope.content["Deals and Packages"];
+                console.log("$scope.deals", $scope.deals);
+                $scope.events = $scope.content["Events"];
+                console.log("  $scope.events", $scope.events);
+                $scope.foodBeverages = $scope.content["Food and Beverages"];
+                console.log("$scope.foodBeverages", $scope.foodBeverages);
+            } else {
+
+            }
+        });
+
+
+    //  else {
+    //     $state.go('home');
+    // }
+
     // globalfunction.changeExplore();
     NavigationService.getHomeBanner(function(data) {
         $scope.banner = data.data;
@@ -393,10 +392,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-    NavigationService.getStars(function(data){
-      $scope.stars=_.chunk(data.data,3);
-      console.log("$scope.stars",$scope.stars);
-    })
+
+    $scope.objectfilter = {};
+    $scope.objectfilter.pagenumber = "";
+    $scope.objectfilter.pagesize = 6;
+    $scope.objectfilter.city=$.jStorage.get("cityid");
+
+    $scope.noviewmore = true;
+
+    // if ($.jStorage.get("city")) {
+    //     $scope.objectfilter.city = $.jStorage.get("city")._id;
+    // }
+
+
+    $scope.loadMore = function(input) {
+        $scope.objectfilter.pagenumber++;
+        NavigationService.getStars($scope.objectfilter, function(data) {
+            if (data.value) {
+                $scope.stars = _.chunk(data.data.data, 3);
+                console.log("$scope.stars", $scope.stars);
+
+                $scope.lastpage = data.data.totalpages;
+                if ($scope.lastpage <= $scope.objectfilter.pagenumber) {
+                    $scope.noviewmore = false;
+                }
+            }
+
+
+        })
+
+    };
+    $scope.loadMore($scope.objectfilter);
+    // NavigationService.getStars(function(data){
+    //   $scope.stars=_.chunk(data.data,3);
+    //   console.log("$scope.stars",$scope.stars);
+    // })
 
 })
 
@@ -408,7 +438,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout ,$stateParams) {
+.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("whats-new");
     $scope.menutitle = NavigationService.makeactive("Whats New");
@@ -436,36 +466,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-    $scope.showMore=false;
+    $scope.showMore = false;
 
-if($stateParams.id)
-{
-  NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
-    $scope.SingleExploreSmaaash=_.chunk(data.data,3);
-    console.log("$scope.data",$scope.data);
+    // if($.jStorage.get("city")){
+    //   $scope.jstorageId=$.jStorage.get("city")._id;
+    //   console.log("$scope.jstorageId",$scope.jstorageId);
 
-  })
 
-}
-// $scope.showMore=false;
-// $scope.readMore=function(){
-//
-//   if($stateParams.id)
-//   {
-//     NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
-//       $scope.SingleExploreSmaaash=_.chunk(data.data,3);
-//       console.log("$scope.data",$scope.data);
-//
-//     })
-//
-//   }
-//   $scope.showMore=true;
-//
-// }
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+
+        $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
+        console.log("$scope.SingleExploreSmaaash", $scope.SingleExploreSmaaash);
+
+    });
+
+
+
+
+
+
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -493,6 +516,13 @@ if($stateParams.id)
             $scope.menu = "menu-out";
         }
     };
+
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+  $scope.singleAttraction1=data.data;
+        $scope.singleAttraction = _.chunk(data.data, 3);
+        console.log("$scope.singleAttraction", $scope.singleAttraction);
+
+    });
 
 })
 
@@ -574,7 +604,7 @@ if($stateParams.id)
     ];
 })
 
-.controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("snow-rush");
     $scope.menutitle = NavigationService.makeactive("Snow Rush");
@@ -587,6 +617,11 @@ if($stateParams.id)
         'img/karting/shikar.png',
         'img/karting/blue.png'
     ];
+
+    NavigationService.getDetailExploreSmaaash($stateParams.id,function(data){
+$scope.detailExploreSmaash=data.data;
+console.log("$scope.detailExploreSmaash",$scope.detailExploreSmaash);
+    })
 })
 
 
@@ -683,7 +718,7 @@ if($stateParams.id)
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
@@ -731,8 +766,42 @@ if($stateParams.id)
 
     $scope.assistanceLogin = function(formData) {
         console.log("formData", formData);
+        if ($scope.formData) {
+            NavigationService.assistanceLoginSignup($scope.formData, function(data) {
+                console.log("assistanceLogin", data);
+            })
+        }
 
     }
+
+    // if($.jStorage.get("city")){
+    //   $scope.jstorageId=$.jStorage.get("city")._id;
+    //   console.log("$scope.jstorageId",$scope.jstorageId);
+
+
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+        // console.log("inNavigation",$scope.jstorageId)
+        $scope.SingleHostParty = _.chunk(data.data, 3);
+        console.log("$scope.SingleHostParty", $scope.SingleHostParty);
+
+    });
+        NavigationService.getAllHostPartySlider(function(data){
+          var i=1
+          $scope.hostPartySlider=_.each(data.data,function(key){
+            key.order=i;
+            i++;
+          });
+
+          console.log("$scope.hostPartySlider",$scope.hostPartySlider);
+        })
+
+        // _.each($scope.mySlides, function(n) {
+        //
+        //     n.ordering = i;
+        //     i++;
+        // });
+
+
 
 
 
@@ -748,26 +817,13 @@ if($stateParams.id)
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("events-challenges");
     $scope.menutitle = NavigationService.makeactive("Events and Challengest");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
+
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -776,29 +832,19 @@ if($stateParams.id)
             $scope.menu = "menu-out";
         }
     };
-
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+        $scope.events= _.chunk(data.data, 3);
+        console.log("$scope.events", $scope.events);
+    });
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
+
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -807,29 +853,23 @@ if($stateParams.id)
             $scope.menu = "menu-out";
         }
     };
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+
+        $scope.drinkParty= _.chunk(data.data, 3);
+        console.log("$scope.drinkParty", $scope.drinkParty);
+
+    });
+
 
 })
 
-.controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-packages");
     $scope.menutitle = NavigationService.makeactive("Deals Packages");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
+
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -838,6 +878,13 @@ if($stateParams.id)
             $scope.menu = "menu-out";
         }
     };
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+
+        $scope.SingleDealsPackages = _.chunk(data.data, 3);
+        console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
+
+    });
+
 
 })
 
@@ -850,13 +897,7 @@ if($stateParams.id)
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    // $scope.mySlides4 = [
-    //     'img/karting/blue.png',
-    //     'img/karting/sonakshi.png',
-    //     'img/karting/salman.png',
-    //     'img/karting/shikar.png',
-    //     'img/karting/blue.png'
-    // ];
+
 
 
     NavigationService.getOneExploresmash($stateParams.id, function(data) {
@@ -878,7 +919,10 @@ if($stateParams.id)
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });
-        $scope.cityData = {}
+        $scope.cityData = {
+            _id: $.jStorage.get("cityid"),
+            name: $.jStorage.get("city")
+        }
         $scope.city = false;
         $scope.flag = {};
         $scope.flag.showCity = false;
@@ -888,39 +932,52 @@ if($stateParams.id)
 
         };
         $scope.getCityName = function(cityname) {
-            $.jStorage.set("city", cityname);
-            $scope.cityData = $.jStorage.get("city");
-            $scope.flag.showCity = true;
-            console.log("mumbai",$scope.flag.showCity,$scope.cityData);
-            console.log("$statessssssssssss",$state.current.name);
-            if($state.current.name == "home"){
-              globalfunction.changeExplore();
+            console.log(cityname);
+            $.jStorage.set("cityid", cityname._id);
+            $.jStorage.set("city", cityname.name);
+
+            $scope.cityData = {
+                _id: $.jStorage.get("cityid"),
+                name: $.jStorage.get("city")
             };
 
+            $state.reload();
+
+
         }
-        $scope.getCity = function () {
-          NavigationService.getCity(function(data) {
+        $scope.getCity = function() {
+            NavigationService.getCity(function(data) {
 
-              if(data.value){
-                $scope.getCity = data.data;
-                if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
+                if (data.value) {
+                    $scope.getCity = data.data;
+                    if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
 
-                    // $.jStorage.set("data", $scope.getCity);
-                    // $scope.cityMumbai = $.jStorage.get("cityName");
-                    // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
-                    var mumbai = _.find($scope.getCity,function (key) {
-                      if(key.name.toLowerCase() == "mumbai"){
-                        return key;
-                      }
-                    });
-                    $scope.getCityName(mumbai);
+                        // $.jStorage.set("data", $scope.getCity);
+                        // $scope.cityMumbai = $.jStorage.get("cityName");
+                        // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
+                        var mumbai = _.find($scope.getCity, function(key) {
+                            if (key.name.toLowerCase() == "mumbai") {
+                                return key;
+                            }
+                        });
+                        $scope.getCityName(mumbai);
 
+                    }
                 }
-              }
 
-          });
+            });
         }
         $scope.getCity();
+
+        $scope.attraId="57bc4b2aeb9c91f1025a3b55";
+        $scope.dealsId="57bc4b5aeb9c91f1025a3b58";
+        $scope.hostpartyId="57bc4b10eb9c91f1025a3b54";
+        $scope.whatsnewId="57bc4af6eb9c91f1025a3b4f";
+        $scope.foodBeveragesId="57bc4b48eb9c91f1025a3b57";
+        $scope.eventId="57bd4e71a86ee9fa6770d4b2";
+
+
+
         // NavigationService.getCity(function(data) {
         //
         //     $scope.getCity = data.data;
@@ -939,13 +996,6 @@ if($stateParams.id)
         //     }
         //
         // })
-
-
-
-
-        if ($.jStorage.get("city") !== null) {
-            $scope.getCityName($.jStorage.get("city"))
-        }
 
 
 

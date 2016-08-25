@@ -37,6 +37,7 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         makeactive: function(menuname) {
+
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -54,27 +55,26 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        getSlider: function(id, callback) {
+        getSlider: function(callback) {
+            var data = {city:$.jStorage.get("cityid")};
             $http({
                 url: adminurl + 'slider/getAllSliderByOrder',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    _id: id
-                }
+                data: data
             }).success(callback);
         },
-        getHomeContent: function(id,callback) {
+        getHomeContent: function(callback) {
+            var data = {city:$.jStorage.get("cityid")};
             $http({
                 url: adminurl + 'exploresmash/getHomeContent',
                 method: 'POST',
                 withCredentials: true,
-                data:{
-                  _id:id
-                }
+                data:data
             }).success(callback);
         },
         getExploresmash: function(request, callback) {
+
             $http({
                 url: adminurl + 'exploresmash/findLimited',
                 method: 'POST',
@@ -83,14 +83,12 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getOneExploresmash: function(id, callback) {
+          var data = {_id:id,city:$.jStorage.get("cityid")};
             $http({
                 url: adminurl + 'exploresmash/getOne',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    _id: id
-                }
-
+                data: data
             }).success(callback);
         },
         getAllExploreSmashByCity: function(id, callback) {
@@ -150,24 +148,61 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        getSingleExploreSmaaash: function(id, callback) {
+        getSingleExploreSmaaash: function(id,callback) {
+            var data = {_id:id,city:$.jStorage.get("cityid")};
+
             $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    _id: id
-                }
+                data: data
 
             }).success(callback);
         },
-        getStars: function(callback) {
-            $http({
-                url: adminurl + 'star/getAll',
+
+        getStars: function(request, callback) {
+
+               $http({
+                url: adminurl + 'star/findLImited',
                 method: 'POST',
-                withCredentials: true
+                withCredentials: true,
+                data:request
+
+                }).success(callback);
+
+        },
+        assistanceLoginSignup: function(formData, callback) {
+
+            $http({
+                url: adminurl + 'assistance/save',
+                method: 'POST',
+
+                data: formData
+
             }).success(callback);
         },
+        getAllHostPartySlider: function(callback) {
+            var data = {city:$.jStorage.get("cityid")};
+            $http({
+                url: adminurl + 'slider/getAllHostPartySlider',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        getDetailExploreSmaaash: function(id,callback) {
+            var data = {_id:id,city:$.jStorage.get("cityid")};
+
+            $http({
+                url: adminurl + 'exploresmash/getDetailExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+
+            }).success(callback);
+        },
+
+
 
 
 

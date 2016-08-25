@@ -73,28 +73,29 @@
           </div>
           </div>
         <div class="new">
-          <div class="row">
-            <div class="col-md-4 col-sm-4">
+          <div class="row" ng-repeat="data in events">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
               <div class="karting-championship relative">
                 <div class="img-bg">
-                <img src="img/food/restro.jpg" class="img-responsive" alt="">
+                <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
                 </div>
                 <div class="restaurants">
                   <span>restaurants</span>
                 </div>
                 <div class="new-detail">
-                <h3 class="margin0 uppercase">mighty small</h3>
+                <h3 class="margin0 uppercase" ng-bind-html="d.hometext"></h3>
                 <div class="button-sets">
                   <button class="uppercase large green"><i class="fa fa-download" aria-hidden="true"></i>Pdf download</button>
                   <button class="uppercase larger green">enquiry</button>
                 </div>
-                <p>This Monsoon, enjoy the rains Smaaash Style! Starting 1st July get all games at packages starting at only Rs. 899!</p>
+                <p ng-bind-html="d.description"></p>
+                  <p ng-if="!d.description"> no data found</p>
                 <span class="capitalize greeny">read more</span>
                 <div class="zomato-reviews">
                   <div class="widget_wrap" style="width:auto;height:auto;"><a href="https://www.zomato.com/mumbai/smaaash-lower-parel?utm_source=referral-widget-43839&utm_medium=review_badge&utm_campaign=widget-business" target="_newtab"><img src="https://www.zomato.com/widgets/review_badge?badge_type=rating_large&res_id=43839&widget_lang=en"></a></div>
                 </div>
                 <div class="tripadvisor-reviews">
-                  
+
                   <div id="TA_cdsratingsonlynarrow114" class="TA_cdsratingsonlynarrow">
   <ul id="aIW8o1" class="TA_links 4ZwqHAGD">
   <li id="gg5o6UoRzs1" class="hzt8AUc6iU7E">
@@ -113,14 +114,13 @@
                   <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                   <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul>
-                <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-              </div> -->
+
               <div class="love"><button class="uppercase">know more</button></div>
             </div>
               </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4">
+            <!-- <div class="col-md-4 col-sm-4">
               <div class="karting-championship relative">
                 <div class="img-bg">
                 <img src="img/food/restro.jpg" class="img-responsive" alt="">
@@ -159,8 +159,7 @@
                   <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                   <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul>
-                <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-              </div> -->
+
               <div class="love"><button class="uppercase">know more</button></div>
             </div>
               </div>
@@ -205,16 +204,15 @@
                   <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                   <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul>
-                <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-              </div> -->
+
               <div class="love"><button class="uppercase">know more</button></div>
             </div>
               </div>
               </div>
-            </div>
+            </div> -->
                 </div>
                 </div>
-                <div class="new">
+                <!-- <div class="new">
                   <div class="row">
                     <div class="col-md-4 col-sm-4">
                       <div class="karting-championship relative">
@@ -255,8 +253,7 @@
                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                         </ul>
-                        <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-                      </div> -->
+
                       <div class="love"><button class="uppercase">know more</button></div>
                     </div>
                       </div>
@@ -301,8 +298,7 @@
                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                         </ul>
-                        <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-                      </div> -->
+
                       <div class="love"><button class="uppercase">know more</button></div>
                     </div>
                       </div>
@@ -347,16 +343,15 @@
                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                         </ul>
-                        <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-                      </div> -->
+
                       <div class="love"><button class="uppercase">know more</button></div>
                     </div>
                       </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="new">
+                </div> -->
+                <!-- <div class="new">
                   <div class="row">
                     <div class="col-md-4 col-sm-4">
                       <div class="karting-championship relative">
@@ -397,8 +392,7 @@
                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                         </ul>
-                        <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-                      </div> -->
+
                       <div class="love"><button class="uppercase">know more</button></div>
                     </div>
                       </div>
@@ -443,8 +437,7 @@
                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                         </ul>
-                        <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-                      </div> -->
+
                       <div class="love"><button class="uppercase">know more</button></div>
                     </div>
                       </div>
@@ -489,14 +482,13 @@
                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                         </ul>
-                        <!-- <div class="more inline-block"><button class="uppercase green">Gallery</button></div>
-                      </div> -->
+
                       <div class="love"><button class="uppercase">know more</button></div>
                     </div>
                       </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
           </div>
         </div>

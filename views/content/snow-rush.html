@@ -1,9 +1,9 @@
 <div class="landing-kartbanner">
-    <div class="karting-banner"></div>
+    <div class="karting-banner" ng-style="{'background-image':'url('+detailExploreSmaash.banner+')'}"></div>
 </div>
 <div class="kart-bg">
   <div class="container">
-      <h2 class="nav-name center">Snow Rush</h2>
+      <h2 class="nav-name center">{{detailExploreSmaash.hometext}}</h2>
       </div>
     </div>
 <div class="container">
@@ -12,18 +12,25 @@
         <div class="slant-col">
             <div class="slant-box full-height">
                 <h2>games description</h2>
-                  <p>When it comes to racing, our all new Sky Karting track is literally on a different level. India's first multi-level Karting arena, the new racers' paradise brings to you a racing track by the renowned Protek Karting (Germany), the best electric Go-Karts in the world and the some award-winning safety technology. Time to get those suits ready!</p>
+                  <p ng-bind-html="detailExploreSmaash.description"></p>
             </div>
         </div>
         <div class="slant-column pull-right">
                 <div class="slant-box half-height">
                     <h2>timings and pricing</h2>
-                    <h3 class="brand-ortitle title-text">Snow Rush</h3>
-                    <p>For 3 Mins <br>400/- Workdays | 500/- Weekends</p>
-                    <h3 class="brand-ortitle title-text">Advanced</h3>
+                    <div ng-repeat="data in detailExploreSmaash.timing">
+                      <h3 class="brand-ortitle title-text" >{{data.type}}</h3>
+                      <p>{{data.description}} <br>{{data.weekdayPrice}}/- Workdays | {{data.weekendPrice}}/- Weekends</p>
+                    </div>
+                    <div ng-if="detailExploreSmaash.timing.length == 0">
+                      No Timing Available
+                    </div>
+                    <!-- <h3 class="brand-ortitle title-text">Snow Rush</h3>
+                    <p>For 3 Mins <br>400/- Workdays | 500/- Weekends</p> -->
+                    <!-- <h3 class="brand-ortitle title-text">Advanced</h3>
                     <p>For  6 Mins <br>600/- Workdays | 700/- Weekends</p>
                     <h3 class="brand-ortitle title-text">Grand </h3>
-                    <p>For  8 Mins <br>700/- Workdays | 900/- Weekends</p>
+                    <p>For  8 Mins <br>700/- Workdays | 900/- Weekends</p> -->
                 </div>
         </div>
     </div>
@@ -33,13 +40,13 @@
         <div class="slant-col">
             <div class="slant-box full-height">
                 <h2>Technology</h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                  <p ng-bind-html="detailExploreSmaash.technology"></p>
             </div>
         </div>
         <div class="slant-column pull-right">
                 <div class="slant-box half-height">
                     <h2>deals and packages</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                    <p>{{detailExploreSmaash.deal}}</p>
                 </div>
         </div>
     </div>
@@ -49,13 +56,13 @@
          <div class="slant-col">
              <div class="slant-box full-height">
                  <h2>current events</h2>
-                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                   <p>{{detailExploreSmaash.currentEvent}}</p>
              </div>
          </div>
          <div class="slant-column pull-right">
                  <div class="slant-box half-height">
                      <h2>promotions</h2>
-                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                     <p ng-bind-html="detailExploreSmaash.promotion"></p>
                  </div>
          </div>
      </div>
@@ -63,10 +70,10 @@
     <div class="gallery">
       <div class="slidings">
           <h2 class="title slide-text">gallery</h2>
-          <flex-slider class="carousel" flex-slide="s in mySlides8 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+          <flex-slider class="carousel" flex-slide="s in detailExploreSmaash.gallery track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
               <li>
                 <a href="{{s}}" fancybox-box>
-                  <img ng-src="{{s}}">
+                  <img ng-src="{{s.image|uploadpath}}">
                   </a>
               </li>
           </flex-slider>

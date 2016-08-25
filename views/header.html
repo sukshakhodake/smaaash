@@ -14,7 +14,7 @@
                     <div class="col-flexing mobile-50 ">
                         <div class="registration bg-prop">
                             <a href="" class="text-center">
-                                <h3 class="nav-name"><span class="block">registration</span></h3>
+                                <h3 class="nav-name" ng-click=""><span class="block">registration</span></h3>
                             </a>
                         </div>
                     </div>
@@ -51,42 +51,42 @@
                 <div class="rows mobile-inlineblock top margin5">
                     <div class="col-flexing mobile-50  ">
                         <div class="exploring bg-prop ">
-                            <a ui-sref="explore-smaaash" class="text-center">
+                            <a ui-sref="attractions({id:attraId})" class="text-center">
                                 <h3 class="nav-name "><span class="block">explore </span>smaaash</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50 ">
                         <div class="food bg-prop ">
-                            <a href="" class="text-center">
+                            <a ui-sref="drink-party({id:foodBeveragesId})" class="text-center">
                                 <h3 class="nav-name "><span class="block">food &amp; </span>beverages</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50 ">
                         <div class="deals bg-prop">
-                            <a href="" class="text-center">
+                            <a ui-sref="deals-packages({id:dealsId})" class="text-center">
                                 <h3 class="nav-name"><span class="block">deals &amp; </span> packages</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50 ">
                         <div class="events bg-prop">
-                            <a href="" class="text-center">
+                            <a ui-sref="events-challenges({id:eventId})" class="text-center">
                                 <h1 class="nav-name "><span class="block">events &amp;</span> challenges</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50">
                         <div class="starts bg-prop">
-                            <a href="" class="text-center">
+                            <a ui-sref="stars" class="text-center">
                                 <h3 class="nav-name "><span class="block">stars at </span>smaaash</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50">
                         <div class="host bg-prop">
-                            <a href="" class="text-center">
+                            <a ui-sref="host-party({id:hostpartyId})" class="text-center">
                                 <h3 class="nav-name "><span class="block">host a </span>party</h3>
                             </a>
                         </div>
@@ -127,7 +127,7 @@
                         <ul class="list">
                             <li ng-repeat="city in getCity">
 
-                                <a ng-click="getCityName(city)" ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
+                                <a ng-click="getCityName(city)" ><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                             </li>
                             <!-- <li>
                                 <a href=""><img src="img/nav/hyderabad.png" class="img-responsive" alt=""></a>

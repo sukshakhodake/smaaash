@@ -122,22 +122,23 @@
         <div class="new">
           <div class="container">
             <h3 class="uppercase">media</h3>
-          <div class="row">
-            <div class="col-md-4 col-sm-4">
+
+          <div class="row"  ng-repeat="data in stars">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
               <div class="karting-championship">
                 <div class="brand-blue relative">
-                <img src="img/explore/explore1.png" class="img-responsive" alt="">
-                  <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+                  <a href="" class="pink-button" ng-if="d.url"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                 </div>
                 <div class="new-detail">
-                    <div class="views inline-block"><button class="uppercase bluey">view</button></div>
-                <h3 class="margin0 bluey">imran khan</h3>
-                <p>Mumbai</p>
+                    <!-- <div class="views inline-block"><button class="uppercase bluey">view</button></div> -->
+                <h3 class="margin0 bluey">{{d.title}}</h3>
+                <p>{{d.text}}</p>
 
                 </div>
                 </div>
               </div>
-            <div class="col-md-4 col-sm-4">
+            <!-- <div class="col-md-4 col-sm-4">
               <div class="karting-championship">
                 <div class="brand-purblu relative">
                 <img src="img/explore/explore1.png" class="img-responsive" alt="">
@@ -164,12 +165,12 @@
 
                 </div>
                 </div>
-            </div>
+            </div> -->
           </div>
 
         </div>
 </div>
-<div class="new">
+<!-- <div class="new">
   <div class="container">
   <div class="row">
     <div class="col-md-4 col-sm-4">
@@ -216,10 +217,10 @@
     </div>
   </div>
   <div class="loading">
-    <p class=" load-more text-center margin0">Load More...</p>
+    <p class=" load-more text-center margin0" ng-click="loadMore(objectfilter)">Load More...</p>
   </div>
 </div>
-</div>
+</div> -->
 <!-- <div class="new">
   <div class="container">
     <h3 class="uppercase">gallery</h3>
@@ -321,4 +322,7 @@
   </div>
 </div>
 </div> -->
+<div class="loading">
+  <p class=" load-more text-center margin0" ng-click="loadMore(objectfilter)" ng-if="noviewmore">Load More...</p>
+</div>
       </div>

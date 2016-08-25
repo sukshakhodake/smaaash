@@ -86,14 +86,14 @@
 <div class="host-party">
   <div class="smaash-drops hidden-xs">
     <div class="slidings">
-    <flex-slider class="carousel" flex-slide="s in mySlides9 track by $index"   manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
+    <flex-slider class="carousel" flex-slide="s in hostPartySlider track by $index"   manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
             <li>
-              <img ng-src="{{s}}">
+              <img ng-src="{{s.image|uploadpath}}">
             </li>
         </flex-slider>
         <ul class="custom-pagination list-inline">
-            <li>1</li>
-            <li>2</li>
+            <li >1</li>
+            <!-- <li>2</li> -->
             <!-- <li>3</li> -->
         </ul>
       </div>
@@ -278,27 +278,39 @@
                 <div class="error-msg" ng-show="user.mobile.$error.required && user.mobile.$touched">Please Enter Your Mobile No </div>
               </div>
               <div class="form-group relative">
-                <input type="text" class=" form-control" placeholder="Occasion" name="occasion" ng-model="formData.occasion" required>
+                <select name="categorydata" class="form-control" ng-model="formData.occasion" required>
+           <option ng-selected="true" value="">PLEASE SELECT Occasion</option>
+           <option value="bParty">Birthday Party</option>
+           <option value="dParty">Drink Party</option>
+         </select>
+                <!-- <input type="text" class=" form-control" placeholder="Occasion" name="occasion" ng-model="formData.occasion" required>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                 <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                <div class="error-msg" ng-show="user.occasion.$error.required && user.occasion.$touched">Please Enter Occasion </div>
+                <div class="error-msg" ng-show="user.occasion.$error.required && user.occasion.$touched">Please Enter Occasion </div> -->
               </div>
               <div class="form-group ">
                 <div class="radio">
-                <input type="radio" id="radio4" name="userType" ng-model="formData.userType">
+                <input type="radio" id="radio4" name="assistancefor" ng-model="formData.assistancefor">
                 <label for="radio4">
                     <span></span> Adults</label>
-                    <input type="radio" id="radio3" name="userType"  ng-model="formData.userType">
+                    <input type="radio" id="radio3" name="assistancefor"  ng-model="formData.assistancefor">
                     <label for="radio3">
                         <span></span> Children</label>
               </div>
               </div>
               <div class="form-group">
-                <input type="text" class="relative form-control" placeholder="How many people">
-                <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <select name="categorydata" class="form-control" ng-model="formData.noofpeople" required>
+           <option ng-selected="true" value="">Please Select No Of People</option>
+           <option value="1-5">1-5</option>
+           <option value="6-10">6-10</option>
+           <option value="21-50">21-50</option>
+           <option value="51-above">51-Above</option>
+         </select>
+                <!-- <input type="text" class="relative form-control" name="noofpeople" placeholder="How many people" ng-model="formData.noofpeople">
+                <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a> -->
               </div>
               <div class="form-group">
-                <input type="text" class="relative form-control" placeholder="Tentative date">
+                <input type="text" class="relative form-control" placeholder="Tentative date" ng-model="formData.date">
 
                 <a href="" class="down"><i class="fa fa-calendar" aria-hidden="true"></i></a>
               </div>
@@ -342,11 +354,11 @@
 
         </div>
         <div class="new">
-          <div class="row">
-            <div class="col-md-4 col-sm-4">
+          <div class="row" ng-repeat="data in SingleHostParty">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
               <div class="karting-championship">
 
-                <img src="img/new/Birthday.jpg" class="img-responsive" alt="">
+                <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
 
                 <div class="new-details">
                   <h3 class="margin0 bluey">BIRTHDAY PARTIES</h3>
@@ -365,7 +377,7 @@
             </div>
                 </div>
                 </div>
-            <div class="col-md-4 col-sm-4">
+            <!-- <div class="col-md-4 col-sm-4">
               <div class="karting-championship ">
 
                 <img src="img/new/Birthday.jpg" class="img-responsive" alt="">
@@ -408,10 +420,10 @@
             <div class="love "><button class="uppercase blue">VIEW MICROSITE</button></div>
             </div>
                 </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="new">
+        <!-- <div class="new">
           <div class="row">
             <div class="col-md-4 col-sm-4">
               <div class="karting-championship">
@@ -480,7 +492,7 @@
                 </div>
             </div>
           </div>
-        </div>
+        </div> -->
 <div class="packages">
   <div class="slant-row">
       <div class="slant-col relative brand-yellow">

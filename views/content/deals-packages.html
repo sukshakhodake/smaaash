@@ -74,15 +74,16 @@
           </div>
           </div>
         <div class="new">
-          <div class="row">
-            <div class="col-md-4 col-sm-4">
+          <div class="row" ng-repeat="data in SingleDealsPackages">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
               <div class="karting-championship">
                 <div class="img-bkg">
-                <img src="img/monsoon.jpg" class="img-responsive" alt="">
+                <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
                 </div>
                 <div class="new-detail">
-                <h3 class="margin0">Get Set Go Race On <br> Virat's favourite track</h3>
-                <p>This Monsoon, enjoy the rains Smaaash Style! Starting 1st July get all games at packages starting at only Rs. 899!</p>
+                <h3 class="margin0" ng-bind-html="d.hometext">Get Set Go Race On <br> Virat's favourite track</h3>
+                <p ng-bind-html="d.description">This Monsoon, enjoy the rains Smaaash Style! Starting 1st July get all games at packages starting at only Rs. 899!</p>
+                <div ng-if="!d.description">No Data Found</div>
                 <span class="capitalize greeny">read more</span>
                 <div class="button-set">
                 <ul class="social-icons list-inline inline-block">
@@ -102,7 +103,7 @@
             </div>
                 </div>
                 </div>
-            <div class="col-md-4 col-sm-4">
+            <!-- <div class="col-md-4 col-sm-4">
               <div class="karting-championship">
                 <div class="img-bkg">
                 <img src="img/monsoon.jpg" class="img-responsive" alt="">
@@ -151,10 +152,10 @@
               <div class="love"><button class="uppercase"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button></div>
             </div>
                 </div>
-            </div>
+            </div> -->
           </div>
         </div>
-<div class="new">
+<!-- <div class="new">
   <div class="row">
     <div class="col-md-4 col-sm-4">
       <div class="karting-championship">
@@ -311,6 +312,6 @@
         </div>
     </div>
   </div>
-</div>
+</div> -->
       </div>
 </div>
