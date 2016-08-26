@@ -1164,5 +1164,3 @@ console.log("wishlist",data);
 
 
 })
-
-;
