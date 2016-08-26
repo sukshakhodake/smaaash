@@ -96,7 +96,7 @@
             <!-- <li>2</li> -->
             <!-- <li>3</li> -->
          </ul>
-        
+
       </div>
       <div class="side-buttons">
          <div class="connect-button" id="axis" ng-click="getMenu();">
@@ -369,10 +369,14 @@
 
                   <div class="new-details">
                      <div ng-if="!d.hometext">No data found</div>
-                     <h3 class="margin0 bluey" ng-bind-html="d.hometext">BIRTHDAY PARTIES</h3>
-                     <p ng-bind-html="d.description">Render your friends speechless with a never-before-seen birthday celebration at Smaaash. With Smaaash attractions, delectable</p>
+                     <h3 class="margin0 bluey" ng-bind-html="d.hometext"></h3>
+                     <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description| limitTo:130"></p>
+                     <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc"></p>
                      <p ng-if="!d.description"> No data found</p>
-                     <span class="capitalize bluey">read more</span>
+                     <span class="capitalize bluey" ng-if="d.description.length > 130 && !moreDesc[d._id]"  ng-click="readMore(d._id,$index)">read more</span>
+                     <span class="capitalize bluey" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id,$index)">read less</span>
+
+
                      <div class="button-set">
                         <ul class="social-icons list-inline inline-block">
                            <p class="inline-block">Share</p>

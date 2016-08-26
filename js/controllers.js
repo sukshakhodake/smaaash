@@ -904,9 +904,22 @@ console.log("wishlist",data);
             $scope.menu = "menu-out";
         }
     };
+
+  $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+      $scope.events10=data.data;
         $scope.events = _.chunk(data.data, 3);
         console.log("$scope.events", $scope.events);
+        $scope.readMore=function(id,indexid){
+
+          console.log("3333333",id);
+          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+          console.log($scope.moreDesc);
+      $scope.myDesc = _.find($scope.events10,function(n){
+          return n._id==id;
+          // console.log($scope.myDesc);
+        }).description;
+      };
     });
 })
 
@@ -925,10 +938,21 @@ console.log("wishlist",data);
             $scope.menu = "menu-out";
         }
     };
+  $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-
+$scope.drinkParty10=data.data;
         $scope.drinkParty = _.chunk(data.data, 3);
         console.log("$scope.drinkParty", $scope.drinkParty);
+        $scope.readMore=function(id,indexid){
+
+          console.log(id);
+          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+          console.log($scope.moreDesc);
+      $scope.myDesc = _.find($scope.drinkParty10,function(n){
+          return n._id==id;
+          // console.log($scope.myDesc);
+        }).description;
+      };
 
     });
 
@@ -950,10 +974,22 @@ console.log("wishlist",data);
             $scope.menu = "menu-out";
         }
     };
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
 
+  $scope.moreDesc = {};
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+$scope.SingleDealsPackages10=data.data;
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
         console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
+        $scope.readMore=function(id,indexid){
+
+          console.log(id);
+          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+          console.log($scope.moreDesc);
+      $scope.myDesc = _.find($scope.SingleDealsPackages10,function(n){
+          return n._id==id;
+          // console.log($scope.myDesc);
+        }).description;
+      };
 
     });
     $scope.myWish=function(id){
