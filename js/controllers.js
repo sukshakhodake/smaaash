@@ -49,36 +49,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    // if ($.jStorage.get("city") !== null) {
-    //
-    //     NavigationService.getHomeContent($.jStorage.get("city")._id, function(data) {
-    //         $scope.homeContent = data.data;
-    //         console.log("$scope.dataByCity", $scope.dataByCity);
-    //         if (data.value) {
-    //             $scope.homeContent = data.data;
-    //             console.log("$scope.homeContentsdfg", $scope.homeContent);
-    //             $scope.content = _.groupBy($scope.homeContent, "type.name");
-    //             $scope.attraction = $scope.content.Attraction;
-    //             console.log("$scope.attraction", $scope.attraction);
-    //             $scope.whatsnew = $scope.content["What's new"];
-    //             console.log("$scope.whatsnew", $scope.whatsnew);
-    //             $scope.hostParty = $scope.content["Host a party"];
-    //             console.log("  $scope.hostParty", $scope.hostParty);
-    //             $scope.deals = $scope.content["Deals and Packages"];
-    //             console.log("$scope.deals", $scope.deals);
-    //             $scope.events = $scope.content["Events"];
-    //             console.log("  $scope.events", $scope.events);
-    //             $scope.foodBeverages = $scope.content["Food and Beverages"];
-    //             console.log("$scope.foodBeverages", $scope.foodBeverages);
-    //         } else {
-    //
-    //         }
-    //     });
-    //
-    // } else {
-    //
-    // }
-    // globalfunction.changeExplore = function() {
+
 
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
@@ -105,14 +76,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
 
-    //  else {
-    //     $state.go('home');
-    // }
 
-    // globalfunction.changeExplore();
     NavigationService.getHomeBanner(function(data) {
         $scope.banner = data.data;
-        // $scope.banner.homebanner=data.data;
+
         console.log("$scope.banner", $scope.banner[0].homebanner);
         $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
         console.log("$scope.banner555555555555555", $scope.banner[0].homebanner);
@@ -198,7 +165,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log("$scope.signupData", $scope.signupData);
 
                     if (data.value) {
-                      $.jStorage.set("loginDetail", data);
+                        $.jStorage.set("loginDetail", data);
 
 
 
@@ -481,26 +448,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //   $scope.jstorageId=$.jStorage.get("city")._id;
     //   console.log("$scope.jstorageId",$scope.jstorageId);
 
-// $scope.moreDesc=false;
+    // $scope.moreDesc=false;
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-$scope.SingleExploreSmaaash10=data.data;
+        $scope.SingleExploreSmaaash10 = data.data;
         $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
         console.log("$scope.SingleExploreSmaaash", $scope.SingleExploreSmaaash);
-        $scope.readMore=function(id,indexid){
+        $scope.readMore = function(id, indexid) {
 
-          console.log(id);
-          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-          console.log($scope.moreDesc);
-      $scope.myDesc = _.find($scope.SingleExploreSmaaash10,function(n){
-          return n._id==id;
-          // console.log($scope.myDesc);
-        }).description;
-      };
+            console.log(id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.SingleExploreSmaaash10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
+        };
     });
-    $scope.myWish=function(id){
-      NavigationService.wishList(id,function(data){
-  console.log("wishlist",data);
-      })
+    $scope.myWish = function(id) {
+        NavigationService.wishList(id, function(data) {
+            console.log("wishlist", data);
+        })
     }
 
 
@@ -544,10 +511,10 @@ $scope.SingleExploreSmaaash10=data.data;
         console.log("$scope.singleAttraction", $scope.singleAttraction);
 
     });
-    $scope.myWish=function(id){
-      NavigationService.wishList(id,function(data){
-console.log("wishlist",data);
-      })
+    $scope.myWish = function(id) {
+        NavigationService.wishList(id, function(data) {
+            console.log("wishlist", data);
+        })
     }
 
 })
@@ -905,21 +872,21 @@ console.log("wishlist",data);
         }
     };
 
-  $scope.moreDesc = {};
+    $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-      $scope.events10=data.data;
+        $scope.events10 = data.data;
         $scope.events = _.chunk(data.data, 3);
         console.log("$scope.events", $scope.events);
-        $scope.readMore=function(id,indexid){
+        $scope.readMore = function(id, indexid) {
 
-          console.log("3333333",id);
-          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-          console.log($scope.moreDesc);
-      $scope.myDesc = _.find($scope.events10,function(n){
-          return n._id==id;
-          // console.log($scope.myDesc);
-        }).description;
-      };
+            console.log("3333333", id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.events10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
+        };
     });
 })
 
@@ -938,21 +905,21 @@ console.log("wishlist",data);
             $scope.menu = "menu-out";
         }
     };
-  $scope.moreDesc = {};
+    $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-$scope.drinkParty10=data.data;
+        $scope.drinkParty10 = data.data;
         $scope.drinkParty = _.chunk(data.data, 3);
         console.log("$scope.drinkParty", $scope.drinkParty);
-        $scope.readMore=function(id,indexid){
+        $scope.readMore = function(id, indexid) {
 
-          console.log(id);
-          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-          console.log($scope.moreDesc);
-      $scope.myDesc = _.find($scope.drinkParty10,function(n){
-          return n._id==id;
-          // console.log($scope.myDesc);
-        }).description;
-      };
+            console.log(id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.drinkParty10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
+        };
 
     });
 
@@ -975,27 +942,27 @@ $scope.drinkParty10=data.data;
         }
     };
 
-  $scope.moreDesc = {};
+    $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-$scope.SingleDealsPackages10=data.data;
+        $scope.SingleDealsPackages10 = data.data;
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
         console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
-        $scope.readMore=function(id,indexid){
+        $scope.readMore = function(id, indexid) {
 
-          console.log(id);
-          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-          console.log($scope.moreDesc);
-      $scope.myDesc = _.find($scope.SingleDealsPackages10,function(n){
-          return n._id==id;
-          // console.log($scope.myDesc);
-        }).description;
-      };
+            console.log(id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
+        };
 
     });
-    $scope.myWish=function(id){
-      NavigationService.wishList(id,function(data){
-console.log("wishlist",data);
-      })
+    $scope.myWish = function(id) {
+        NavigationService.wishList(id, function(data) {
+            console.log("wishlist", data);
+        })
     }
 
 
@@ -1037,8 +1004,7 @@ console.log("wishlist",data);
             name: $.jStorage.get("city")
         }
 
-        // $scope.userLoginName = $.jStorage.get("signupData").name;
-        // console.log("$scope.userLoginName", $scope.userLoginName);
+
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
         console.log("$scope.userLoginDetails", $scope.userLoginDetails);
 
@@ -1071,9 +1037,7 @@ console.log("wishlist",data);
                     $scope.getCity = data.data;
                     if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
 
-                        // $.jStorage.set("data", $scope.getCity);
-                        // $scope.cityMumbai = $.jStorage.get("cityName");
-                        // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
+
                         var mumbai = _.find($scope.getCity, function(key) {
                             if (key.name.toLowerCase() == "mumbai") {
                                 return key;
@@ -1097,24 +1061,6 @@ console.log("wishlist",data);
 
 
 
-        // NavigationService.getCity(function(data) {
-        //
-        //     $scope.getCity = data.data;
-        //     if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
-        //
-        //         // $.jStorage.set("data", $scope.getCity);
-        //         // $scope.cityMumbai = $.jStorage.get("cityName");
-        //         // console.log("$scope.cityMumbaiasdfgh", $scope.cityMumbai);
-        //         var mumbai = _.find($scope.getCity,function (key) {
-        //           if(key.name.toLowerCase() == "mumbai"){
-        //             return key;
-        //           }
-        //         });
-        //         $scope.getCityName(mumbai);
-        //
-        //     }
-        //
-        // })
 
 
 
@@ -1135,6 +1081,16 @@ console.log("wishlist",data);
         $scope.toggleMenu = function() {
             $scope.menu = !$scope.menu;
         };
+        // $scope.menu = "menu-out";
+        // $scope.getMenu = function() {
+        //     if ($scope.menu == "menu-out") {
+        //         $scope.menu = "menu-in";
+        //     } else {
+        //         $scope.menu = "menu-out";
+        //     }
+        // };
+
+
 
     })
     .controller('footerctrl', function($scope, TemplateService, NavigationService) {
