@@ -84,299 +84,312 @@
 </div> -->
 
 <div class="host-party">
-  <div class="smaash-drops hidden-xs">
-    <div class="slidings">
-    <flex-slider class="carousel" flex-slide="s in hostPartySlider track by $index"   manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
+   <div class="smaash-drops hidden-xs">
+      <div class="slidings">
+         <flex-slider class="carousel" flex-slide="s in hostPartySlider track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
             <li>
-              <img ng-src="{{s.image|uploadpath}}">
+               <img ng-src="{{s.image|uploadpath}}">
             </li>
-        </flex-slider>
-        <ul class="custom-pagination list-inline">
-            <li >1</li>
+         </flex-slider>
+         <ul class="custom-pagination list-inline">
+            <li ng-repeat="s in hostPartySlider track by $index">{{s.order}}</li>
             <!-- <li>2</li> -->
             <!-- <li>3</li> -->
-        </ul>
+         </ul>
+        
       </div>
       <div class="side-buttons">
-        <div class="connect-button" id="axis" ng-click="getMenu();" >
-          <!-- ng-click="viewMore();" -->
-          <div class="orange-rays"></div>
-          <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
-          <p class="uppercase brand-white">connect</p>
-        </div>
+         <div class="connect-button" id="axis" ng-click="getMenu();">
+            <!-- ng-click="viewMore();" -->
+            <div class="orange-rays"></div>
+            <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
+            <p class="uppercase brand-white">connect</p>
+         </div>
 
-        <div class="side-menu menu-out">
-        <div class="close-it">
-            <a href="" class="text-uppercase" ng-click="closeMenu();"><img src="img/menu.png" class="img-responsive" alt=""></a>
-        </div>
-        <div class="login-signup relative">
-          <div class="row">
-          <div class="col-md-6">
-          <div class="login">
-            <h3 class="uppercase">login</h3>
-            <form class="form">
-              <div class="form-group">
-              <input type="email" class="form-control"  placeholder="User Id" >
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control"  placeholder="Password" >
-              </div>
-                <button type="button" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
-            </form>
-            <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
-            <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with  Google</button>
-          </div>
-          </div>
-          <div class="divider"></div>
-          <div class="or">
-            <span><img src="img/or.png" class="img-responsive" alt=""></span>
-          </div>
-          <div class="col-md-6">
-          <div class="signup">
-            <h3 class="uppercase">sign up</h3>
-            <form class="form">
-              <div class="form-group">
-              <input type="text" class="form-control"  placeholder="User Name" >
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control"  placeholder="Email ID" >
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control"  placeholder="Password" >
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control"  placeholder="Re-Enter Password" >
-              </div>
-                <button type="button" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
-            </form>
-          </div>
-          </div>
-          </div>
-        </div>
-        </div>
-        </div>
-        <div class="side">
-        <div class="live-chat" id="axe">
+         <div class="side-menu menu-out">
+            <div class="close-it">
+               <a href="" class="text-uppercase" ng-click="closeMenu();"><img src="img/menu.png" class="img-responsive" alt=""></a>
+            </div>
+            <div class="login-signup relative">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="login">
+                        <h3 class="uppercase">login</h3>
+                        <form class="form">
+                           <div class="form-group">
+                              <input type="email" class="form-control" placeholder="User Id">
+                           </div>
+                           <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Password">
+                           </div>
+                           <button type="button" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
+                        </form>
+                        <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
+                        <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with Google</button>
+                     </div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="or">
+                     <span><img src="img/or.png" class="img-responsive" alt=""></span>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="signup">
+                        <h3 class="uppercase">sign up</h3>
+                        <form class="form">
+                           <div class="form-group">
+                              <input type="text" class="form-control" placeholder="User Name">
+                           </div>
+                           <div class="form-group">
+                              <input type="email" class="form-control" placeholder="Email ID">
+                           </div>
+                           <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Password">
+                           </div>
+                           <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Re-Enter Password">
+                           </div>
+                           <button type="button" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="side">
+         <div class="live-chat" id="axe">
             <div class="orange-rays"></div>
             <img src="img/phone-aunty.png" class="img-responsive transform" alt="">
             <div class="phone-aunty">
-              <p class="uppercase brand-white">live chat</p>
-          </div>
+               <p class="uppercase brand-white">live chat</p>
+            </div>
 
-        </div>
-        </div>
-  </div>
+         </div>
+      </div>
+   </div>
 
-  <div class="smaash-drops hidden-lg hidden-md hidden-sm">
-    <div class="slidings">
-    <flex-slider class="carousel" flex-slide="s in mySlides10 track by $index"   manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
+   <div class="smaash-drops hidden-lg hidden-md hidden-sm">
+      <div class="slidings">
+         <flex-slider class="carousel" flex-slide="s in mySlides10 track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
             <li>
-              <img ng-src="{{s}}">
+               <img ng-src="{{s}}">
             </li>
-        </flex-slider>
-        <ul class="custom-pagination list-inline">
+         </flex-slider>
+         <ul class="custom-pagination list-inline">
             <li>1</li>
             <li>2</li>
             <!-- <li>3</li> -->
-        </ul>
+         </ul>
       </div>
       <div class="side-buttons">
-        <div class="connect-button" id="axis" ng-click="getMenu();" >
-          <!-- ng-click="viewMore();" -->
-          <div class="orange-rays"></div>
-          <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
-          <p class="uppercase brand-white">connect</p>
-        </div>
+         <div class="connect-button" id="axis" ng-click="getMenu();">
+            <!-- ng-click="viewMore();" -->
+            <div class="orange-rays"></div>
+            <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
+            <p class="uppercase brand-white">connect</p>
+         </div>
 
-        <div class="side-menu menu-out">
-        <div class="close-it">
-            <a href="" class="text-uppercase" ng-click="closeMenu();"><img src="img/menu.png" class="img-responsive" alt=""></a>
-        </div>
-        <div class="login-signup relative">
-          <div class="row">
-          <div class="col-md-6">
-          <div class="login">
-            <h3 class="uppercase">login</h3>
-            <form class="form">
-              <div class="form-group">
-              <input type="email" class="form-control"  placeholder="User Id" >
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control"  placeholder="Password" >
-              </div>
-                <button type="button" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
-            </form>
-            <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
-            <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with  Google</button>
-          </div>
-          </div>
-          <div class="divider"></div>
-          <div class="or">
-            <span><img src="img/or.png" class="img-responsive" alt=""></span>
-          </div>
-          <div class="col-md-6">
-          <div class="signup">
-            <h3 class="uppercase">sign up</h3>
-            <form class="form">
-              <div class="form-group">
-              <input type="text" class="form-control"  placeholder="User Name" >
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control"  placeholder="Email ID" >
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control"  placeholder="Password" >
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control"  placeholder="Re-Enter Password" >
-              </div>
-                <button type="button" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
-            </form>
-          </div>
-          </div>
-          </div>
-        </div>
-        </div>
-        </div>
-        <div class="side">
-        <div class="live-chat" id="axe">
+         <div class="side-menu menu-out">
+            <div class="close-it">
+               <a href="" class="text-uppercase" ng-click="closeMenu();"><img src="img/menu.png" class="img-responsive" alt=""></a>
+            </div>
+            <div class="login-signup relative">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="login">
+                        <h3 class="uppercase">login</h3>
+                        <form class="form">
+                           <div class="form-group">
+                              <input type="email" class="form-control" placeholder="User Id">
+                           </div>
+                           <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Password">
+                           </div>
+                           <button type="button" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
+                        </form>
+                        <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
+                        <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with Google</button>
+                     </div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="or">
+                     <span><img src="img/or.png" class="img-responsive" alt=""></span>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="signup">
+                        <h3 class="uppercase">sign up</h3>
+                        <form class="form">
+                           <div class="form-group">
+                              <input type="text" class="form-control" placeholder="User Name">
+                           </div>
+                           <div class="form-group">
+                              <input type="email" class="form-control" placeholder="Email ID">
+                           </div>
+                           <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Password">
+                           </div>
+                           <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Re-Enter Password">
+                           </div>
+                           <button type="button" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="side">
+         <div class="live-chat" id="axe">
             <div class="orange-rays"></div>
             <img src="img/phone-aunty.png" class="img-responsive transform" alt="">
             <div class="phone-aunty">
-              <p class="uppercase brand-white">live chat</p>
-          </div>
+               <p class="uppercase brand-white">live chat</p>
+            </div>
 
-        </div>
-        </div>
+         </div>
       </div>
+   </div>
 
 
 
 
-      <div class="container relative">
-        <div class="form-content">
-        <div class="row">
-          <div class="col-md-4 col-sm-4"></div>
-          <div class="col-md-4  col-sm-4"></div>
-          <div class="col-md-4  col-sm-4">
-            <div class="practice">
-            <form class="form" name="user" ng-submit="assistanceLogin(formData)">
-              <h3 class="text-center">Need assistance?</h3>
-              <div class="form-group relative">
-                <input type="text" class=" form-control" placeholder="Name" name="name"   ng-model="formData.name" required>
-                <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name </div>
-              </div>
-              <div class="form-group relative">
-                <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="formData.email" required >
-                <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email ID </div>
-              </div>
-              <div class="form-group relative ">
-                <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits>
-                <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                <div class="error-msg" ng-show="user.mobile.$error.required && user.mobile.$touched">Please Enter Your Mobile No </div>
-              </div>
-              <div class="form-group relative">
-                <select name="categorydata" class="form-control" ng-model="formData.occasion" required>
-           <option ng-selected="true" value="">PLEASE SELECT Occasion</option>
-           <option value="bParty">Birthday Party</option>
-           <option value="dParty">Drink Party</option>
-         </select>
-                <!-- <input type="text" class=" form-control" placeholder="Occasion" name="occasion" ng-model="formData.occasion" required>
+   <div class="container relative">
+      <div class="form-content">
+         <div class="row">
+            <div class="col-md-4 col-sm-4"></div>
+            <div class="col-md-4  col-sm-4"></div>
+            <div class="col-md-4  col-sm-4">
+               <div class="practice">
+                  <form class="form" name="user" ng-submit="assistanceLogin(formData)" ng-if="!formCompleteAssistance">
+                     <h3 class="text-center">Need assistance?</h3>
+                     <div class="form-group relative">
+                        <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="formData.name" required>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name </div>
+                     </div>
+                     <div class="form-group relative">
+                        <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="formData.email" required>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email ID </div>
+                     </div>
+                     <div class="form-group relative ">
+                        <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.mobile.$error.required && user.mobile.$touched">Please enter your mobile no. </div>
+                     </div>
+                     <div class="form-group relative">
+                        <select name="categorydata" class="form-control" ng-model="formData.occasion" required>
+                           <option ng-selected="true" value="">Please select occasion</option>
+                           <option value="bParty">Birthday Party</option>
+                           <option value="dParty">Drink Party</option>
+                        </select>
+                        <!-- <input type="text" class=" form-control" placeholder="Occasion" name="occasion" ng-model="formData.occasion" required>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                 <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                 <div class="error-msg" ng-show="user.occasion.$error.required && user.occasion.$touched">Please Enter Occasion </div> -->
-              </div>
-              <div class="form-group ">
-                <div class="radio">
-                <input type="radio" id="radio4" name="assistancefor" ng-model="formData.assistancefor">
-                <label for="radio4">
-                    <span></span> Adults</label>
-                    <input type="radio" id="radio3" name="assistancefor"  ng-model="formData.assistancefor">
-                    <label for="radio3">
-                        <span></span> Children</label>
-              </div>
-              </div>
-              <div class="form-group">
-                <select name="categorydata" class="form-control" ng-model="formData.noofpeople" required>
-           <option ng-selected="true" value="">Please Select No Of People</option>
-           <option value="1-5">1-5</option>
-           <option value="6-10">6-10</option>
-           <option value="21-50">21-50</option>
-           <option value="51-above">51-Above</option>
-         </select>
-                <!-- <input type="text" class="relative form-control" name="noofpeople" placeholder="How many people" ng-model="formData.noofpeople">
+                     </div>
+                     <div class="form-group ">
+                        <div class="radio">
+                           <input type="radio" id="radio4" name="assistancefor" value="Adults" ng-model="formData.assistancefor" required>
+                           <label for="radio4">
+                              <span></span> Adults</label>
+                           <input type="radio" id="radio3" name="assistancefor" value="Children" ng-model="formData.assistancefor" required>
+                           <label for="radio3">
+                              <span></span> Children</label>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <select name="categorydata" class="form-control" ng-model="formData.noofpeople" required>
+                           <option ng-selected="true" value="">Please select no. Of people</option>
+                           <option value="1-5">1-5</option>
+                           <option value="6-10">6-10</option>
+                           <option value="21-50">21-50</option>
+                           <option value="51-above">51-Above</option>
+                        </select>
+                        <!-- <input type="text" class="relative form-control" name="noofpeople" placeholder="How many people" ng-model="formData.noofpeople">
                 <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a> -->
-              </div>
-              <div class="form-group">
-                <input type="text" class="relative form-control" placeholder="Tentative date" ng-model="formData.date">
+                     </div>
+                     <div class="form-group">
+                        <input type="text" class="relative form-control" placeholder="Tentative date" ng-model="formData.date">
 
-                <a href="" class="down"><i class="fa fa-calendar" aria-hidden="true"></i></a>
-              </div>
-  <button type="submit" class="btn4  btn-default brand-yellow"><span class="uppercase">submit</span></button>
-            </form>
-          </div>
-          </div>
-        </div>
-</div>
-        <div class="packagings ">
-          <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="slant-col relative brand-yellow">
-                  <div class="slant-box full-height">
-                    <div class="special">
-                      <div class="birth"></div>
-                      <p class="uppercase text-center margin0 brand-white">If it's your<br>B'day or Anniversary</p>
-                      <p class="uppercase text-center margin0 brand-white "><span class="f12"><span class="brand-orange">click here</span>to get a deal on your </span><br>special occassion</p>
-                    </div>
+                        <a href="" class="down"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                     </div>
+                     <button type="submit" class="btn4  btn-default brand-yellow"><span class="uppercase">submit</span></button>
+                  </form>
+                  <div class="submit-thank" ng-if="formCompleteAssistance">
+                     <p class="text-center">Thank You</p>
                   </div>
-              </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="packagings ">
+         <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+               <div class="slant-col relative brand-yellow">
+                  <div class="slant-box full-height">
+                     <div class="special">
+                        <div class="birth"></div>
+                        <p class="uppercase text-center margin0 brand-white">If it's your
+                           <br>B'day or Anniversary</p>
+                        <p class="uppercase text-center margin0 brand-white "><span class="f12"><span class="brand-orange">click here</span>to get a deal on your </span>
+                           <br>special occassion</p>
+                     </div>
+                  </div>
+               </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="slant-column relative  brand-orangy pull-left ">
-                <div class="customize"></div>
-                <div class="customize-layer">
-                  <img src="img/layer.png" class="img-responsive" alt="">
-                </div>
-                      <div class="slant-box half-height">
-        <div class="customize-text brand-white">
-          <div class="chef">
-              <img src="img/cake.png" class="img-responsive" alt="">
+               <div class="slant-column relative  brand-orangy pull-left ">
+                  <div class="customize"></div>
+                  <div class="customize-layer">
+                     <img src="img/layer.png" class="img-responsive" alt="">
+                  </div>
+                  <div class="slant-box half-height">
+                     <div class="customize-text brand-white">
+                        <div class="chef">
+                           <img src="img/cake.png" class="img-responsive" alt="">
+                        </div>
+                        <p>Customise
+                           <br>your package</p>
+                     </div>
+                  </div>
+               </div>
+
             </div>
-        <p>Customise<br>your package</p>
-        </div>
-                      </div>
-              </div>
+         </div>
 
-          </div>
-          </div>
-
-        </div>
-        <div class="new">
-          <div class="row" ng-repeat="data in SingleHostParty">
+      </div>
+      <div class="new">
+         <div class="row" ng-repeat="data in SingleHostParty">
             <div class="col-md-4 col-sm-4" ng-repeat="d in data">
-              <div class="karting-championship">
+               <div class="karting-championship">
 
-                <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+                  <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
 
-                <div class="new-details">
-                  <h3 class="margin0 bluey">BIRTHDAY PARTIES</h3>
-                  <p>Render your friends speechless with a never-before-seen birthday celebration at Smaaash. With Smaaash attractions, delectable</p>
-                <span class="capitalize bluey">read more</span>
-                <div class="button-set">
-                <ul class="social-icons list-inline inline-block">
-                  <p class="inline-block">Share</p>
-                  <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                  <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                  <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                </ul>
-                <div class="more inline-block "><button class="uppercase "><i class="fa fa-phone" aria-hidden="true"></i>get call</button></div>
-              </div>
-            <div class="love "><button class="uppercase blue">VIEW MICROSITE</button></div>
+                  <div class="new-details">
+                     <div ng-if="!d.hometext">No data found</div>
+                     <h3 class="margin0 bluey" ng-bind-html="d.hometext">BIRTHDAY PARTIES</h3>
+                     <p ng-bind-html="d.description">Render your friends speechless with a never-before-seen birthday celebration at Smaaash. With Smaaash attractions, delectable</p>
+                     <p ng-if="!d.description"> No data found</p>
+                     <span class="capitalize bluey">read more</span>
+                     <div class="button-set">
+                        <ul class="social-icons list-inline inline-block">
+                           <p class="inline-block">Share</p>
+                           <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <div class="more inline-block ">
+                           <button class="uppercase "><i class="fa fa-phone" aria-hidden="true"></i>get call</button>
+                        </div>
+                     </div>
+                     <div class="love ">
+                        <button class="uppercase blue">VIEW MICROSITE</button>
+                     </div>
+                  </div>
+               </div>
             </div>
-                </div>
-                </div>
             <!-- <div class="col-md-4 col-sm-4">
               <div class="karting-championship ">
 
@@ -421,9 +434,9 @@
             </div>
                 </div>
             </div> -->
-          </div>
-        </div>
-        <!-- <div class="new">
+         </div>
+      </div>
+      <!-- <div class="new">
           <div class="row">
             <div class="col-md-4 col-sm-4">
               <div class="karting-championship">
@@ -493,32 +506,34 @@
             </div>
           </div>
         </div> -->
-<div class="packages">
-  <div class="slant-row">
-      <div class="slant-col relative brand-yellow">
-          <div class="slant-box full-height">
-              <div class="blue-ray"></div>
-              <div class="blue-package">
-                <!-- <div class="package-rays"></div> -->
-                <p class="brand-white">View our Packages <br>starting from '700</p>
-              </div>
-          </div>
+      <div class="packages">
+         <div class="slant-row">
+            <div class="slant-col relative brand-yellow">
+               <div class="slant-box full-height">
+                  <div class="blue-ray"></div>
+                  <div class="blue-package">
+                     <!-- <div class="package-rays"></div> -->
+                     <p class="brand-white">View our Packages
+                        <br>starting from '700</p>
+                  </div>
+               </div>
+            </div>
+            <div class="slant-column relative  brand-orangy pull-right ">
+               <div class="customize"></div>
+               <div class="customize-layer">
+                  <img src="img/layer.png" class="img-responsive" alt="">
+               </div>
+               <div class="slant-box half-height">
+                  <div class="customize-text brand-white">
+                     <div class="chef">
+                        <img src="img/cake.png" class="img-responsive" alt="">
+                     </div>
+                     <p>Customise
+                        <br>your package</p>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="slant-column relative  brand-orangy pull-right ">
-        <div class="customize"></div>
-        <div class="customize-layer">
-          <img src="img/layer.png" class="img-responsive" alt="">
-        </div>
-              <div class="slant-box half-height">
-<div class="customize-text brand-white">
-  <div class="chef">
-      <img src="img/cake.png" class="img-responsive" alt="">
-    </div>
-<p>Customise<br>your package</p>
+   </div>
 </div>
-              </div>
-      </div>
-  </div>
-</div>
-</div>
-      </div>

@@ -82,6 +82,7 @@
                 </div>
                 <div class="new-detail">
                 <h3 class="margin0" ng-bind-html="d.hometext">Get Set Go Race On <br> Virat's favourite track</h3>
+                <h3 ng-if="!d.hometext">No data found</h3>
                 <p ng-bind-html="d.description">This Monsoon, enjoy the rains Smaaash Style! Starting 1st July get all games at packages starting at only Rs. 899!</p>
                 <div ng-if="!d.description">No Data Found</div>
                 <span class="capitalize greeny">read more</span>
@@ -98,7 +99,7 @@
                   <button class=" uppercase"><i class="fa fa-shopping-cart" aria-hidden="true"></i>buy</button>
               </div>
               <div class="love">
-                <button class="uppercase"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button>
+                <button class="uppercase" ng-click="myWish(d._id)"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button>
               </div>
             </div>
                 </div>

@@ -84,12 +84,15 @@
                 <div class="min-he">
                   <h3 class="margin0 height80" ng-bind-html="d.hometext"></h3>
                 </div>
+
               <div class="min-h">
-                  <p ng-bind-html="d.description | limitTo:130"></p>
+                  <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | limitTo:130"></p>
+                  <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc"></p>
                     <div ng-if="!d.description">No Data Found</div>
               </div>
 
-                <span class="capitalize greeny">read more</span>
+                <span class="capitalize greeny" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id,$index)">read more</span>
+                <span class="capitalize greeny" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id,$index)">read less</span>
                 <div class="button-set">
                 <ul class="social-icons list-inline inline-block">
                   <p class="inline-block">Share</p>
@@ -99,7 +102,7 @@
                 </ul>
                 <div class="more inline-block"><button class="uppercase green">know more</button></div>
               </div>
-              <div class="love"><button class="uppercase"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button></div>
+              <div class="love"><button class="uppercase" ng-click="myWish(d._id)"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button></div>
             </div>
                 </div>
                 </div>

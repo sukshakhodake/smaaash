@@ -201,11 +201,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        wishList: function(id,callback) {
+            var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
+            $http({
+                url: adminurl + 'wishlist/save',
+                method: 'POST',
+                withCredentials: true,
+                data:data
+            }).success(callback);
+        },
 
 
-
-
-
-
-    };
+  };
 });
