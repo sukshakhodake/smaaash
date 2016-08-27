@@ -1305,7 +1305,7 @@ button{
     }
   }
 }
-.attractions,.stars{
+.attractions,.stars,.leadership{
   .pink-button{
     height: 50px;
     width: 50px;
@@ -1406,6 +1406,20 @@ button{
   .marglef{
     margin-left: 3px;
   }
+}
+.leadership{
+  .new-detail{
+    border:1px solid #000;
+    border-top: none;
+    p{
+      color: #000;
+    }
+    span{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
 }
 //new home//
 .headings,.heading{

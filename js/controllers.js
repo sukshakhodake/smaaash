@@ -405,12 +405,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wedding-parties");
     $scope.menutitle = NavigationService.makeactive("PreWedding Parties");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.wedding = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/enquiry.html",
+            scope: $scope
+        });
+    };
+
 })
 
 .controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -474,6 +482,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
+})
+
+
+.controller('LeaderCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("leader");
+    $scope.menutitle = NavigationService.makeactive("Leadership");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
+    };
 })
 
 .controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -1081,14 +1106,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toggleMenu = function() {
             $scope.menu = !$scope.menu;
         };
-        // $scope.menu = "menu-out";
-        // $scope.getMenu = function() {
-        //     if ($scope.menu == "menu-out") {
-        //         $scope.menu = "menu-in";
-        //     } else {
-        //         $scope.menu = "menu-out";
-        //     }
-        // };
+        $scope.menu = "menu-out";
+        $scope.getMenu = function() {
+            if ($scope.menu == "menu-out") {
+                $scope.menu = "menu-in";
+            } else {
+                $scope.menu = "menu-out";
+            }
+        };
 
 
 

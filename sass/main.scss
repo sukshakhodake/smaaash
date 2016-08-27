@@ -114,6 +114,10 @@ body {
     display: inline-block;
 }
 
+.greeny{
+  color:$brand-green;
+}
+
 .mt10{
   margin-top: 10px;
 }
@@ -1286,7 +1290,26 @@ img.fancybox-image {
     transform: scale(1);
   }
 }
-
+//leadership
+.leadership{
+  img{
+    margin: 0 auto;
+  }
+}
+.enquiry-form{
+  padding: 20px;
+  textarea{
+    resize: none;
+    height: 70px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #000;
+    padding: 5px;
+    &:focus{
+      outline: 0;
+    }
+  }
+}
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";

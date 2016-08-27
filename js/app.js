@@ -118,6 +118,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'AccountCtrl'
     })
 
+    .state('leader', {
+        url: "/leader",
+        templateUrl: "views/template.html",
+        controller: 'LeaderCtrl'
+    })
+
 
     .state('host-party', {
         url: "/host-party/:id",
