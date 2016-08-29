@@ -202,7 +202,9 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         wishList: function(id,callback) {
+          console.log("nAV",id);
             var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
+          
             $http({
                 url: adminurl + 'wishlist/save',
                 method: 'POST',
@@ -210,15 +212,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data:data
             }).success(callback);
         },
-        userWishList: function(callback) {
-            var data = {user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
-            $http({
-                url: adminurl + 'wishlist/getWishlistByUser',
-                method: 'POST',
-                withCredentials: true,
-                data:data
-            }).success(callback);
-        },
+        // userWishList: function(callback) {
+        //     var data = {user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
+        //     $http({
+        //         url: adminurl + 'wishlist/getWishlistByUser',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data:data
+        //     }).success(callback);
+        // },
 
 
 
