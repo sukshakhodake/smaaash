@@ -424,7 +424,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,  $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("whats-new");
     $scope.menutitle = NavigationService.makeactive("Whats New");
@@ -475,12 +475,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }).description;
         };
     });
+
+
     $scope.myWish = function(id) {
-        console.log("idNews", id);
-        NavigationService.wishList(id, function(data) {
-            console.log("wishlist", data);
-        })
+
+        if ($.jStorage.get("loginDetail") == null) {
+
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
+        } else {
+            NavigationService.wishList(id, function(data) {
+
+                console.log("wishlist", data);
+            })
+        }
+
+    };
+    $scope.addedToWishList = function() {
+        if ($.jStorage.get("loginDetail") != null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlist.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
+        }
+
     }
+    // $scope.myWish = function(id) {
+    //     console.log("idNews", id);
+    //     NavigationService.wishList(id, function(data) {
+    //         console.log("wishlist", data);
+    //     })
+    // }
 
 
 
