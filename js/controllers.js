@@ -131,6 +131,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.login($scope.userData, function(data) {
                 console.log("data", data);
                 if (data.value == true) {
+                    $.jStorage.set("loginDetail", data);
                     $scope.valid = false;
                     $scope.formComplete = true;
                     $timeout(function() {
@@ -167,7 +168,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log("$scope.signupData", $scope.signupData);
 
                     if (data.value) {
-                        $.jStorage.set("loginDetail", data);
+
 
 
 
