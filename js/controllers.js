@@ -540,19 +540,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.myWish = function(id) {
-        NavigationService.wishList(id, function(data) {
-            console.log("wishlist", data);
-        })
+
+        if ($.jStorage.get("loginDetail") == null) {
+
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
+        } else {
+            NavigationService.wishList(id, function(data) {
+
+                console.log("wishlist", data);
+            })
+        }
+
     };
     $scope.addedToWishList = function() {
+            if ($.jStorage.get("loginDetail") != null) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlist.html',
+                    scope: $scope
+                        // backdropClass: 'backcolor'
+                });
+            }
 
-        $uibModal.open({
-            animation: true,
-            templateUrl: 'views/modal/wishlist.html',
-            scope: $scope
-                // backdropClass: 'backcolor'
-        });
-    }
+        }
+        // $scope.myWish = function(id) {
+        //     NavigationService.wishList(id, function(data) {
+        //         console.log("wishlist", data);
+        //     })
+        // };
+        // $scope.addedToWishList = function() {
+        //
+        //     $uibModal.open({
+        //         animation: true,
+        //         templateUrl: 'views/modal/wishlist.html',
+        //         scope: $scope
+        //             // backdropClass: 'backcolor'
+        //     });
+        // }
 
 })
 
@@ -1009,7 +1039,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         } else {
             NavigationService.wishList(id, function(data) {
-                $scope.login = false;
+
                 console.log("wishlist", data);
             })
         }
