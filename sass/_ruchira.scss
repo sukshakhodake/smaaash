@@ -834,7 +834,7 @@ button{
 .landing-banner {
     position: relative;
     background-image: url("../img/home/landing-bg.jpg");
-    background-size: cover;
+    background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
     .iner-banner {

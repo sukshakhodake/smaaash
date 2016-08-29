@@ -173,7 +173,7 @@ a {
 .landing-banner {
     position: relative;
     background-image: url("../img/home/landing-bg.jpg");
-    background-size: cover;
+    background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
     .inner-banner {
@@ -997,7 +997,7 @@ $menu-height: 80px !default;
     }
     .mover {
         width: 90%;
-        @include position( absolute,null null 0 0);
+        @include position( absolute,null null null 0);
         display: block;
     }
 }
@@ -1082,6 +1082,15 @@ $menu-height: 80px !default;
     }
     }
 }
+
+.reversing{
+  .slant-box{
+    .mover{
+        @include position( absolute,null 20px null null);
+    }
+  }
+}
+
 .full-height {
     height: 442px;
     overflow: hidden;
