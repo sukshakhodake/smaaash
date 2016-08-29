@@ -407,7 +407,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+.controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wedding-parties");
     $scope.menutitle = NavigationService.makeactive("PreWedding Parties");
@@ -475,7 +475,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     });
     $scope.myWish = function(id) {
-      console.log("idNews",id);
+        console.log("idNews", id);
         NavigationService.wishList(id, function(data) {
             console.log("wishlist", data);
         })
@@ -504,7 +504,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -543,6 +543,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.wishList(id, function(data) {
             console.log("wishlist", data);
         })
+    };
+    $scope.addedToWishList = function() {
+
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/wishlist.html',
+            scope: $scope
+                // backdropClass: 'backcolor'
+        });
     }
 
 })
@@ -954,7 +963,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
+.controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-packages");
     $scope.menutitle = NavigationService.makeactive("Deals Packages");
@@ -988,17 +997,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.myWish = function(id) {
-        NavigationService.wishList(id, function(data) {
-            console.log("wishlist", data);
-        })
+
+        if ($.jStorage.get("loginDetail") == null) {
+
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
+        } else {
+            NavigationService.wishList(id, function(data) {
+                $scope.login = false;
+                console.log("wishlist", data);
+            })
+        }
+
     };
     $scope.addedToWishList = function() {
+        if ($.jStorage.get("loginDetail") != null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlist.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
+        }
 
-      var modalInstance = $uibModal.open({
-        animation: true,
-        templateUrl: 'views/modal/wishlist.html',
-        // backdropClass: 'backcolor'
-      });
     }
 
 
@@ -1031,12 +1057,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 .controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
-  $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
-  $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
-  $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
-  $scope.whatsnewId = "57bc4af6eb9c91f1025a3b4f";
-  $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
-  $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
+        $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
+        $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
+        $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
+        $scope.whatsnewId = "57bc4af6eb9c91f1025a3b4f";
+        $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
+        $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
@@ -1093,8 +1119,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCity();
-
-
 
 
 
@@ -1168,16 +1192,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getTypes(function(data) {
             $scope.types = data.data;
             // if($scope.types)
-            _.each($scope.types,function(n){
-              if(n.name=='Whats new'){
-                console.log('here');
-              }
+            _.each($scope.types, function(n) {
+                if (n.name == 'Whats new') {
+                    console.log('here');
+                }
             })
             console.log("$scope.types", $scope.types);
         });
-        $scope.attrctionId="57bc4b2aeb9c91f1025a3b55";
-        $scope.drinkandPartyId="57bc4b48eb9c91f1025a3b57";
-        $scope.dealsandpackagesId="57bc4b5aeb9c91f1025a3b58";
+        $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
+        $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
+        $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
     })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
