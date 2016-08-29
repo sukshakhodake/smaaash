@@ -1209,10 +1209,7 @@ button{
   color: $brand-pink;
 }
   .new{
-    .karting-championship{
-        margin: 20px 0;
-    }
-
+    margin: 20px 0;
   }
   span{
     text-decoration: underline;
@@ -2154,5 +2151,8 @@ button{
 
   }
 
+}
+.karting-championship{
+  margin-bottom: 20px !important;
 }
 //new home//
