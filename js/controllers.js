@@ -76,6 +76,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     });
+    NavigationService.getCity(function(data){
+      $scope.data=data.data;
+      console.log("homegetcity",  $scope.data);
+    });
 
 
 
@@ -166,6 +170,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.pass = true;
                 NavigationService.signup($scope.signupData, function(data) {
                     console.log("$scope.signupData", $scope.signupData);
+                    console.log("$scope.signupDataforData",data);
 
                     if (data.value) {
 
@@ -858,7 +863,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-
+$scope.moreDesc = {};
     $scope.formCompleteSignup = false;
 
     $scope.signupData = {};
@@ -920,12 +925,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // if($.jStorage.get("city")){
     //   $scope.jstorageId=$.jStorage.get("city")._id;
     //   console.log("$scope.jstorageId",$scope.jstorageId);
+    // NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    //     $scope.SingleExploreSmaaash10 = data.data;
+    //     $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
+    //     console.log("$scope.SingleExploreSmaaash", $scope.SingleExploreSmaaash);
+    //     $scope.readMore = function(id, indexid) {
+    //
+    //         console.log(id);
+    //         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+    //         console.log($scope.moreDesc);
+    //         $scope.myDesc = _.find($scope.SingleExploreSmaaash10, function(n) {
+    //             return n._id == id;
+    //             // console.log($scope.myDesc);
+    //         }).description;
+    //     };
+    // });
 
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        // console.log("inNavigation",$scope.jstorageId)
+        $scope.SingleHostParty10 = data.data;
         $scope.SingleHostParty = _.chunk(data.data, 3);
         console.log("$scope.SingleHostParty", $scope.SingleHostParty);
+        $scope.readMore = function(id, indexid) {
+
+            console.log(id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.SingleHostParty10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
+        };
 
     });
     NavigationService.getAllHostPartySlider(function(data) {
