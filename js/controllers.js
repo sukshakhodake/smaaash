@@ -869,10 +869,15 @@ $scope.moreDesc = {};
     $scope.signupData = {};
     $scope.pass = true;
     $scope.emailExist = false;
+    // $scope.validCity=false;
 
     $scope.signupLogin = function(signupData) {
         console.log("$scope.signupData ", $scope.signupData);
         if ($scope.signupData) {
+
+          // if ($scope.signupData.city== $.jStorage.get("cityid")) {
+          //
+          // }
             if ($scope.signupData.password == $scope.signupData.confirmPassword) {
                 console.log('m true');
                 $scope.pass = true;
