@@ -76,6 +76,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     });
+    NavigationService.getCity(function(data){
+      $scope.data=data.data;
+      console.log("homegetcity",  $scope.data);
+    });
 
 
 
@@ -166,6 +170,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.pass = true;
                 NavigationService.signup($scope.signupData, function(data) {
                     console.log("$scope.signupData", $scope.signupData);
+                    console.log("$scope.signupDataforData",data);
 
                     if (data.value) {
 

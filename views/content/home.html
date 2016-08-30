@@ -78,25 +78,40 @@
                            <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
                         </div>
                         <div class="form-group">
+                           <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="signupData.mobile" required only-digits>
+
+                           <div class="error-msg" ng-show="signUp.mobile.$error.required && signUp.mobile.$touched">Please enter your mobile no. </div>
+                        </div>
+
+                        <div class="form-group">
+                          <select name="categorydata" class="form-control" ng-model="signupData.city" required>
+                             <option ng-selected="true" value="">Please select city</option>
+                             <option value="{{d._id}}" ng-repeat="d in data">{{d.name}}</option>
+
+                          </select>
+                        </div>
+                        <div class="form-group">
                            <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" ng-minlength="6" ng-maxlength="8">
                            <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
                         </div>
                         <div class="form-group">
-                           <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword" >
+                           <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword">
                            <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
                         </div>
+  <div ng-if="!pass">password doesn't match or It should be Minimum 6 Characters & Maximum 8 Characters.</div>
+                        <div ng-if="emailExist">Email Id Already Exist</div>
 
                         <button type="submit" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
 
                         <!-- <div>{{msg}}</div> -->
 
                         <!-- <div ng-if="duplicatepass">Please enter correct password.</div> -->
-                        <div ng-if="!pass">password doesn't match or It should be Minimum 6 Characters & Maximum 8 Characters.</div>
+
                      </form>
                      <div class="submit-thank" ng-if="formCompleteSignup">
                         <p class="text-center">Thank You</p>
                      </div>
-                     <div ng-if="emailExist">Email Id Already Exist</div>
+
 
                   </div>
                </div>
@@ -132,11 +147,11 @@
                      <div class="img-bg">
                         <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="whats-new({id:s.type._id})">
                      </div>
-                     <a href="" class="pink-button" ><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                     <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      <div class="race-text">
                         <!-- <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3> -->
                         <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
-                          <div ng-if="!s.hometext">No data Found</div>
+                        <div ng-if="!s.hometext">No data Found</div>
                      </div>
                   </div>
 
@@ -183,7 +198,7 @@
                                     <img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                                  </div>
                                  <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                                 <div class="race-text" >
+                                 <div class="race-text">
                                     <h3 class="margin0 brand-white" ng-bind-html="s.hometext">MONSOON DAY PASS!</h3>
                                     <div ng-if="!s.hometext">No data Found</div>
                                  </div>
@@ -205,7 +220,7 @@
                      <a ui-sref="host-party({id:s.type._id})">
                         <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                      </a>
-                     <h3 class="brand-white uppercase title">birthday parties</h3>
+                     <h3 class="brand-white uppercase title" ng-bind-html="s.hometext"></h3>
                   </li>
                </flex-slider>
                <div ng-if="!hostParty">No Data Found</div>
@@ -355,7 +370,7 @@
                      <div class="error-msg" ng-show="subscribeForm.email.$error.required && subscribeForm.email.$touched">Please Enter Your Email Id</div>
                   </div>
                   <button type="submit" class="btn title brand-green  inline-block btn-default "><span class="brand-white capitalize">send</span></button>
-                <div ng-if="duplicate">Email Already Exist</div>
+                  <div ng-if="duplicate">Email Already Exist</div>
                </form>
                <div ng-if="subscribeFormComplete">
                   <p class="text-center">Thank You For Subscribing.</p>
