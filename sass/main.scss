@@ -1100,9 +1100,14 @@ $menu-height: 80px !default;
 
 .reversing{
   .slant-box{
+
     .mover{
         @include position( absolute,null 10px null null);
     }
+  }
+  .tops{
+      position: absolute;
+    bottom: 65px;
   }
 }
 

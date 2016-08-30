@@ -259,7 +259,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 
     $scope.mySlides7 = [
-        'img/explore/explore5.png',
+        'img/explore5.png',
         'img/explore/explore2.png',
         'img/explore/explore3.png',
         'img/explore/explore4.png',
