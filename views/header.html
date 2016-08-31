@@ -152,4 +152,107 @@
 
         </div>
     </div>
+    <div class="side-buttons">
+       <div class="connect-button" id="axis" ng-click="getMenus();">
+
+          <div class="orange-rays"></div>
+          <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
+          <p class="uppercase brand-white">connect</p>
+       </div>
+
+       <div class="side-menu">
+          <div class="close-it">
+             <a href="" class="text-uppercase" ng-click="getMenus();"><img src="img/menu.png" class="img-responsive" alt=""></a>
+          </div>
+          <div class="login-signup relative">
+             <div class="row">
+                <div class="col-md-6">
+                   <div class="login">
+                      <h3 class="uppercase">login</h3>
+                      <form class="form" name="login" ng-submit="userLogin(userData)" ng-if="!formComplete">
+                         <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Id" name="email" ng-model="userData.email" required>
+
+                            <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
+                         </div>
+                         <div class="form-group">
+                            <input type="password" class="form-control" placeholder="password" name="password" required ng-model="userData.password">
+                            <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
+                         </div>
+                         <button type="submit" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
+                         <div ng-if="valid">Please Enter Valid Email Id & Password</div>
+
+                      </form>
+                      <div ng-if="formComplete">
+                         <p class="text-center">Thank You</p>
+                      </div>
+                      <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
+                      <button type="button" class="buton relative "><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with Google</button>
+                   </div>
+                </div>
+                <div class="divider"></div>
+                <div class="or">
+                   <span><img src="img/or.png" class="img-responsive" alt=""></span>
+                </div>
+                <div class="col-md-6">
+                   <div class="signup">
+                      <h3 class="uppercase">sign up</h3>
+                      <form class="form" name="signUp" ng-submit="signupLogin(signupData)" ng-if="!formCompleteSignup">
+                         <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Complete Name" name="name" required ng-model="signupData.name">
+                            <div class="error-msg" ng-show="signUp.name.$error.required && signUp.name.$touched">Please Enter Your User Name</div>
+                         </div>
+                         <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email ID" name="email" required ng-model="signupData.email">
+                            <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
+                         </div>
+                         <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="signupData.mobile" required only-digits>
+
+                            <div class="error-msg" ng-show="signUp.mobile.$error.required && signUp.mobile.$touched">Please enter your mobile no. </div>
+                         </div>
+                         <div class="form-group">
+                           <select name="categorydata" class="form-control" ng-model="signupData.city" required>
+                              <option ng-selected="true" value="">Please select city</option>
+                              <option value="{{d._id}}" ng-repeat="d in data">{{d.name}}</option>
+
+                           </select>
+                           <div ng-if="validCity">Please select valid city.</div>
+                         </div>
+                         <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" ng-minlength="6" ng-maxlength="8">
+                            <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
+                         </div>
+                         <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword">
+                            <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
+                         </div>
+   <div ng-if="!pass">password doesn't match or It should be Minimum 6 Characters & Maximum 8 Characters.</div>
+                         <div ng-if="emailExist">Email Id Already Exist</div>
+
+                         <button type="submit" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
+
+
+                      </form>
+                      <div class="submit-thank" ng-if="formCompleteSignup">
+                         <p class="text-center">Thank You</p>
+                      </div>
+
+
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="side">
+       <div class="live-chat" id="axe">
+          <div class="orange-rays"></div>
+          <img src="img/phone-aunty.png" class="img-responsive transform" alt="">
+          <div class="phone-aunty">
+             <p class="uppercase brand-white">live chat</p>
+          </div>
+
+       </div>
+    </div>
 </div>
