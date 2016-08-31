@@ -72,10 +72,15 @@
           <h2 class="title slide-text">gallery</h2>
           <flex-slider class="carousel" flex-slide="s in detailExploreSmaash.gallery track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
               <li>
+                <!-- <a href="{{s}}" fancybox-box> -->
+                  <img ng-src="{{s.image|uploadpath}}">
+                  <!-- </a> -->
+              </li>
+              <!-- <li>
                 <a href="{{s}}" fancybox-box>
                   <img ng-src="{{s.image|uploadpath}}">
                   </a>
-              </li>
+              </li> -->
           </flex-slider>
       </div>
     </div>

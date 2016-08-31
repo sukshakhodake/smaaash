@@ -268,13 +268,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/cakey.png'
     ];
     $scope.animationsEnabled = true;
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
+    };
+
     // $scope.menu = "menu-out";
     // $scope.getMenu = function() {
-    //     if ($scope.menu == "menu-out") {
-    //         $scope.menu = "menu-in";
-    //     } else {
-    //         $scope.menu = "menu-out";
-    //     }
+    //     $(".side-menu").addClass("menu-in");
+    //     $(".side-menu").removeClass("menu-out");
+    // };
+    // $scope.closeMenu = function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // };
+    //
+    // $(".template.content").click(function() {
+    //     $(".side-menu").removeClass("menu-in");
+    //     $(".side-menu").addClass("menu-out");
+    // });
+    // $scope.opening = function(size) {
+    //
+    //     // var modalInstance = $uibModal.opening({
+    //     //     animation: $scope.animationsEnabled,
+    //     //     templateUrl: 'views/modal/login.html',
+    //     //     controller: 'HomeCtrl',
+    //     //     size: size,
+    //     //     resolve: {
+    //     //         items: function() {
+    //     //             return $scope.items;
+    //     //         }
+    //     //     }
+    //     // });
+    //
     // };
 
 
@@ -1210,7 +1240,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state,$timeout, $uibModal, $filter) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -1297,7 +1327,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = !$scope.menu;
         };
         $scope.menu = "menu-out";
-        $scope.getMenus = function() {
+        $scope.getMenu = function() {
             if ($scope.menu == "menu-out") {
                 $scope.menu = "menu-in";
             } else {
