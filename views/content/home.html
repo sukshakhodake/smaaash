@@ -89,7 +89,7 @@
                              <option value="{{d._id}}" ng-repeat="d in data">{{d.name}}</option>
 
                           </select>
-                          <!-- <div ng-if="validCity">Please select valid city.</div> -->
+                          <div ng-if="validCity">Please select valid city.</div>
                         </div>
                         <div class="form-group">
                            <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" ng-minlength="6" ng-maxlength="8">
@@ -334,7 +334,7 @@
                <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="470" item-margin="33" animation="slide" animationLoop="true" prev-text="" next-text="">
                   <li>
                      <a ui-sref="attractions({id:s.type._id})">
-                        <img ng-if="s.homeimage" ng-src="{{s.homeimage|uploadpath}}">
+                        <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                      </a>
                      <h3 class="brand-white uppercase title  tops" ng-bind-html="s.hometext"></h3>
                   </li>

@@ -76,9 +76,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     });
-    NavigationService.getCity(function(data){
-      $scope.data=data.data;
-      console.log("homegetcity",  $scope.data);
+    NavigationService.getCity(function(data) {
+        $scope.data = data.data;
+        console.log("homegetcity", $scope.data);
     });
 
 
@@ -97,15 +97,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.subscribeLogin = function(subscribeData) {
         if ($scope.subscribeData) {
             NavigationService.subscribe($scope.subscribeData, function(data) {
-
                 if (data.data.value == false) {
                     console.log("data.valueIf", data.data.value);
                     $scope.duplicate = true;
                     $scope.subscribeFormComplete = false;
-
                 } else {
                     console.log("data.valueElse", data.data.value);
-
                     $scope.duplicate = false;
                     $scope.subscribeFormComplete = true;
                     $timeout(function() {
@@ -157,46 +154,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.formCompleteSignup = false;
-
     $scope.signupData = {};
     $scope.pass = true;
     $scope.emailExist = false;
-
+    $scope.validCity = false;
     $scope.signupLogin = function(signupData) {
         console.log("$scope.signupData ", $scope.signupData);
         if ($scope.signupData) {
-            if ($scope.signupData.password == $scope.signupData.confirmPassword) {
-                console.log('m true');
-                $scope.pass = true;
-                NavigationService.signup($scope.signupData, function(data) {
-                    console.log("$scope.signupData", $scope.signupData);
-                    console.log("$scope.signupDataforData",data);
+            if ($scope.signupData.city == $.jStorage.get("cityid")) {
+                $scope.validCity = false;
+                if ($scope.signupData.password == $scope.signupData.confirmPassword) {
+                    console.log('m true');
+                    $scope.pass = true;
+                    NavigationService.signup($scope.signupData, function(data) {
+                        console.log("$scope.signupData", $scope.signupData);
+                        console.log("$scope.signupDataforData", data);
+                        if (data.value) {
+                            $scope.emailExist = false;
+                            $scope.formCompleteSignup = true;
+                            $timeout(function() {
+                                $scope.formCompleteSignup = false;
+                                $scope.signupData = {};
+                            }, 2000);
 
-                    if (data.value) {
+                        } else {
+                            $scope.emailExist = true;
+                        }
 
-
-
-
-                        $scope.emailExist = false;
-                        $scope.formCompleteSignup = true;
-                        $timeout(function() {
-                            $scope.formCompleteSignup = false;
-                            $scope.signupData = {};
-                        }, 2000);
-
-                    } else {
-                        $scope.emailExist = true;
-                    }
-
-                })
+                    })
+                } else {
+                    console.log('m false');
+                    $scope.pass = false;
+                }
             } else {
-                console.log('m false');
-                $scope.pass = false;
+                console.log("im in else");
+                $scope.validCity = true;
             }
         }
-
-
-
     }
 
 
@@ -393,18 +387,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getStars($scope.objectfilter, function(data) {
             if (data.value) {
-              console.log($scope.objectfilter.pagenumber);
-              if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
-                _.each(data.data, function(n){
-                  $scope.stars.push(n)
-                });
-                if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                console.log($scope.objectfilter.pagenumber);
+                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+                    _.each(data.data, function(n) {
+                        $scope.stars.push(n)
+                    });
+                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                        $scope.noviewmore = false;
+                    }
+                } else {
+                    console.log("in else last array");
                     $scope.noviewmore = false;
                 }
-              }else {
-                console.log("in else last array");
-                $scope.noviewmore = false;
-              }
 
             }
 
@@ -433,7 +427,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,  $uibModal) {
+.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("whats-new");
     $scope.menutitle = NavigationService.makeactive("Whats New");
@@ -506,22 +500,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
     $scope.addedToWishList = function() {
-        if ($.jStorage.get("loginDetail") != null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlist.html',
-                scope: $scope
-                    // backdropClass: 'backcolor'
-            });
-        }
+            if ($.jStorage.get("loginDetail") != null) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlist.html',
+                    scope: $scope
+                        // backdropClass: 'backcolor'
+                });
+            }
 
-    }
-    // $scope.myWish = function(id) {
-    //     console.log("idNews", id);
-    //     NavigationService.wishList(id, function(data) {
-    //         console.log("wishlist", data);
-    //     })
-    // }
+        }
+        // $scope.myWish = function(id) {
+        //     console.log("idNews", id);
+        //     NavigationService.wishList(id, function(data) {
+        //         console.log("wishlist", data);
+        //     })
+        // }
 
 
 
@@ -863,7 +857,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-$scope.moreDesc = {};
+    $scope.moreDesc = {};
     $scope.formCompleteSignup = false;
 
     $scope.signupData = {};
@@ -875,9 +869,7 @@ $scope.moreDesc = {};
         console.log("$scope.signupData ", $scope.signupData);
         if ($scope.signupData) {
 
-          // if ($scope.signupData.city== $.jStorage.get("cityid")) {
-          //
-          // }
+
             if ($scope.signupData.password == $scope.signupData.confirmPassword) {
                 console.log('m true');
                 $scope.pass = true;
@@ -979,99 +971,96 @@ $scope.moreDesc = {};
     //     i++;
     // });
     // angular.module('ui.bootstrap.demo').controller('DatepickerPopupDemoCtrl', function ($scope) {
-      $scope.today = function() {
+    $scope.today = function() {
         $scope.dt = new Date();
-      };
-      $scope.today();
+    };
+    $scope.today();
 
-      $scope.clear = function() {
+    $scope.clear = function() {
         $scope.dt = null;
-      };
+    };
 
-      $scope.inlineOptions = {
+    $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
         showWeeks: true
-      };
+    };
 
-      $scope.dateOptions = {
+    $scope.dateOptions = {
         dateDisabled: disabled,
         formatYear: 'yy',
         maxDate: new Date(2020, 5, 22),
         minDate: new Date(),
         startingDay: 1
-      };
+    };
 
-      // Disable weekend selection
-      function disabled(data) {
+    // Disable weekend selection
+    function disabled(data) {
         var date = data.date,
-          mode = data.mode;
+            mode = data.mode;
         return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-      }
+    }
 
-      $scope.toggleMin = function() {
+    $scope.toggleMin = function() {
         $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
         $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
-      };
+    };
 
-      $scope.toggleMin();
+    $scope.toggleMin();
 
-      $scope.open1 = function() {
+    $scope.open1 = function() {
         $scope.popup1.opened = true;
-      };
+    };
 
-      $scope.open2 = function() {
+    $scope.open2 = function() {
         $scope.popup2.opened = true;
-      };
+    };
 
-      $scope.setDate = function(year, month, day) {
+    $scope.setDate = function(year, month, day) {
         $scope.dt = new Date(year, month, day);
-      };
+    };
 
-      $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-      $scope.format = $scope.formats[0];
-      $scope.altInputFormats = ['M!/d!/yyyy'];
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+    $scope.altInputFormats = ['M!/d!/yyyy'];
 
-      $scope.popup1 = {
+    $scope.popup1 = {
         opened: false
-      };
+    };
 
-      $scope.popup2 = {
+    $scope.popup2 = {
         opened: false
-      };
+    };
 
-      var tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      var afterTomorrow = new Date();
-      afterTomorrow.setDate(tomorrow.getDate() + 1);
-      $scope.events = [
-        {
-          date: tomorrow,
-          status: 'full'
-        },
-        {
-          date: afterTomorrow,
-          status: 'partially'
-        }
-      ];
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date();
+    afterTomorrow.setDate(tomorrow.getDate() + 1);
+    $scope.events = [{
+        date: tomorrow,
+        status: 'full'
+    }, {
+        date: afterTomorrow,
+        status: 'partially'
+    }];
 
-      function getDayClass(data) {
+    function getDayClass(data) {
         var date = data.date,
-          mode = data.mode;
+            mode = data.mode;
         if (mode === 'day') {
-          var dayToCheck = new Date(date).setHours(0,0,0,0);
+            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
 
-          for (var i = 0; i < $scope.events.length; i++) {
-            var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+            for (var i = 0; i < $scope.events.length; i++) {
+                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
 
-            if (dayToCheck === currentDay) {
-              return $scope.events[i].status;
+                if (dayToCheck === currentDay) {
+                    return $scope.events[i].status;
+                }
             }
-          }
         }
 
         return '';
-      }
+    }
 
 
 
