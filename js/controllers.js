@@ -647,6 +647,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("customizepackage");
+    $scope.menutitle = NavigationService.makeactive("Customize Package");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.menu = "menu-out";
+    $scope.getMenu = function() {
+        if ($scope.menu == "menu-out") {
+            $scope.menu = "menu-in";
+        } else {
+            $scope.menu = "menu-out";
+        }
+    };
+    
+})
+
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("birthday-parties");

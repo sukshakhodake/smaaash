@@ -89,6 +89,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'WeddingCtrl'
     })
 
+    .state('customizepackage', {
+        url: "/customizepackage",
+        templateUrl: "views/template.html",
+        controller: 'CustomizePackageCtrl'
+    })
+
     .state('kitty-parties', {
         url: "/kitty-parties",
         templateUrl: "views/template.html",
