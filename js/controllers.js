@@ -268,14 +268,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/cakey.png'
     ];
     $scope.animationsEnabled = true;
-    $scope.menu = "menu-out";
-    $scope.getMenu = function() {
-        if ($scope.menu == "menu-out") {
-            $scope.menu = "menu-in";
-        } else {
-            $scope.menu = "menu-out";
-        }
-    };
+    // $scope.menu = "menu-out";
+    // $scope.getMenu = function() {
+    //     if ($scope.menu == "menu-out") {
+    //         $scope.menu = "menu-in";
+    //     } else {
+    //         $scope.menu = "menu-out";
+    //     }
+    // };
 
     // $scope.menu = "menu-out";
     // $scope.getMenu = function() {
@@ -1326,16 +1326,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toggleMenu = function() {
             $scope.menu = !$scope.menu;
         };
-        $scope.menu = "menu-out";
-        $scope.getMenu = function() {
-            if ($scope.menu == "menu-out") {
-                $scope.menu = "menu-in";
-            } else {
-                $scope.menu = "menu-out";
-            }
-        };
+
+        // $scope.menus = "menu-out";
+        
 
 
+        // $scope.getMenus = function() {
+        //     $(".side-menu").addClass("menu-in");
+        //     $(".side-menu").removeClass("menu-out");
+        // };
+        // $scope.closeMenus = function() {
+        //     $(".side-menu").removeClass("menu-in");
+        //     $(".side-menu").addClass("menu-out");
+        // };
+        //
+        // $(".template.content").click(function() {
+        //     $(".side-menu").removeClass("menu-in");
+        //     $(".side-menu").addClass("menu-out");
+        // });
 
     })
     .controller('footerctrl', function($scope, TemplateService, NavigationService) {
