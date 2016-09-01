@@ -661,7 +661,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-    
+
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1344,8 +1344,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = !$scope.menu;
         };
 
+        $scope.menus = "menu-out";
+        $scope.getMenus = function() {
+          if ($scope.menus == "menu-out") {
+              $scope.menus = "menu-in";
+          } else {
+              $scope.menus = "menu-out";
+          }
+        };
+
         // $scope.menus = "menu-out";
-        
+
 
 
         // $scope.getMenus = function() {

@@ -660,7 +660,6 @@ $brand-white:#fff !default;
     height: 80px;
   }
 }
-
 .kart-bg{
       background-image: url("../img/karting/kartingbg.png");
       background-repeat: no-repeat;
@@ -2166,29 +2165,3 @@ button{
 }
 
 //new home//
-///customizepackag
-.backcp{
-  background-image: url("../img/navbg/image9.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  margin-top: -8px;
-  .nav-name{
-    padding: 35px 0 0;
-    font-size: 30px;
-    height: 80px;
-  }
-}
-
-.viewing1{
-  border: 0px solid $brand-blue;
-  button{
-    border: 1px solid $brand-blue;
-  padding: 5px 10px;
-  font-size: 14px;
-  border-radius: 5px;
-  background-color: #fff;
-  }
-}
-.bd-col{
-  border: 1px solid $brand-blue;
-}
