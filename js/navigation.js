@@ -204,7 +204,7 @@ var navigationservice = angular.module('navigationservice', [])
         wishList: function(id,callback) {
           console.log("nAV",id);
             var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
-          
+
             $http({
                 url: adminurl + 'wishlist/save',
                 method: 'POST',
@@ -219,6 +219,14 @@ var navigationservice = angular.module('navigationservice', [])
         //         method: 'POST',
         //         withCredentials: true,
         //         data:data
+        //     }).success(callback);
+        // },
+
+        // logout: function(callback) {
+        //     $.jStorage.flush();
+        //     return $http({
+        //         url: adminurl + 'signup/logout',
+        //         method: 'POST',
         //     }).success(callback);
         // },
 
