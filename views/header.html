@@ -14,7 +14,7 @@
                     <div class="col-flexing mobile-50 ">
                         <div class="registration bg-prop">
                             <a href="" class="text-center">
-                                <h3 class="nav-name" ng-click="getMenu()"><span class="block">registration</span></h3>
+                                <h3 class="nav-name" ng-click="getMenus();"><span class="block">registration</span></h3>
                             </a>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                          <div class="form-group">
                            <select name="categorydata" class="form-control" ng-model="signupData.city" required>
                               <option ng-selected="true" value="">Please select city</option>
-                              <option value="{{d._id}}" ng-repeat="d in data">{{d.name}}</option>
+                              <option value="{{d._id}}" ng-repeat="d in getCity">{{d.name}}</option>
 
                            </select>
                            <div ng-if="validCity">Please select valid city.</div>

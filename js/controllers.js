@@ -76,10 +76,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     });
-    NavigationService.getCity(function(data) {
-        $scope.data = data.data;
-        console.log("homegetcity", $scope.data);
-    });
+    // NavigationService.getCity(function(data) {
+    //     $scope.data = data.data;
+    //     console.log("homegetcity", $scope.data);
+    // });
 
 
 
@@ -123,35 +123,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.formComplete = false;
-    $scope.userData = {};
-    $scope.valid = false;
-    $scope.userLogin = function(userData) {
-        if ($scope.userData) {
-            console.log("$scope.userData", $scope.userData);
-            NavigationService.login($scope.userData, function(data) {
-                console.log("data", data);
-                if (data.value == true) {
-                    $.jStorage.set("loginDetail", data);
-                    $scope.valid = false;
-                    $scope.formComplete = true;
-                    $timeout(function() {
-                        $scope.formComplete = false;
-                        $scope.userData = {};
-                    }, 2000);
-                } else {
-                    $scope.valid = true;
-                }
-                $.jStorage.set("loginInfo", data);
-                $scope.userName = $.jStorage.get("loginInfo").data.name;
-                console.log("  $scope.userName", $scope.userName);
-
-            })
-
-
-        }
-
-    }
+    // $scope.formComplete = false;
+    // $scope.userData = {};
+    // $scope.valid = false;
+    // $scope.userLogin = function(userData) {
+    //     if ($scope.userData) {
+    //         console.log("$scope.userData", $scope.userData);
+    //         NavigationService.login($scope.userData, function(data) {
+    //             console.log("data", data);
+    //             if (data.value == true) {
+    //                 $.jStorage.set("loginDetail", data);
+    //                 $scope.valid = false;
+    //                 $scope.formComplete = true;
+    //                 $timeout(function() {
+    //                     $scope.formComplete = false;
+    //                     $scope.userData = {};
+    //                 }, 2000);
+    //             } else {
+    //                 $scope.valid = true;
+    //             }
+    //             $.jStorage.set("loginInfo", data);
+    //             $scope.userName = $.jStorage.get("loginInfo").data.name;
+    //             console.log("  $scope.userName", $scope.userName);
+    //
+    //         })
+    //
+    //
+    //     }
+    //
+    // }
 
     $scope.formCompleteSignup = false;
     $scope.signupData = {};
@@ -1257,7 +1257,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state,$timeout) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -1304,6 +1304,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 if (data.value) {
                     $scope.getCity = data.data;
+                    console.log("$scope.getCity ",$scope.getCity );
                     if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
 
 
@@ -1323,7 +1324,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-
+        // NavigationService.getCity(function(data) {
+        //     $scope.data = data.data;
+        //     console.log("homegetcity", $scope.data);
+        // });
 
 
 
@@ -1353,23 +1357,76 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           }
         };
 
-        // $scope.menus = "menu-out";
+        $scope.formCompleteSignup = false;
+        $scope.signupData = {};
+        $scope.pass = true;
+        $scope.emailExist = false;
+        $scope.validCity = false;
+        $scope.signupLogin = function(signupData) {
+            console.log("$scope.signupData ", $scope.signupData);
+            if ($scope.signupData) {
+                if ($scope.signupData.city == $.jStorage.get("cityid")) {
+                    $scope.validCity = false;
+                    if ($scope.signupData.password == $scope.signupData.confirmPassword) {
+                        console.log('m true');
+                        $scope.pass = true;
+                        NavigationService.signup($scope.signupData, function(data) {
+                            console.log("$scope.signupData", $scope.signupData);
+                            console.log("$scope.signupDataforData", data);
+                            if (data.value) {
+                                $scope.emailExist = false;
+                                $scope.formCompleteSignup = true;
+                                $timeout(function() {
+                                    $scope.formCompleteSignup = false;
+                                    $scope.signupData = {};
+                                }, 2000);
+
+                            } else {
+                                $scope.emailExist = true;
+                            }
+
+                        })
+                    } else {
+                        console.log('m false');
+                        $scope.pass = false;
+                    }
+                } else {
+                    console.log("im in else");
+                    $scope.validCity = true;
+                }
+            }
+        }
 
 
+        $scope.formComplete = false;
+        $scope.userData = {};
+        $scope.valid = false;
+        $scope.userLogin = function(userData) {
+            if ($scope.userData) {
+                console.log("$scope.userData", $scope.userData);
+                NavigationService.login($scope.userData, function(data) {
+                    console.log("data", data);
+                    if (data.value == true) {
+                        $.jStorage.set("loginDetail", data);
+                        $scope.valid = false;
+                        $scope.formComplete = true;
+                        $timeout(function() {
+                            $scope.formComplete = false;
+                            $scope.userData = {};
+                        }, 2000);
+                    } else {
+                        $scope.valid = true;
+                    }
+                    $.jStorage.set("loginInfo", data);
+                    $scope.userName = $.jStorage.get("loginInfo").data.name;
+                    console.log("  $scope.userName", $scope.userName);
 
-        // $scope.getMenus = function() {
-        //     $(".side-menu").addClass("menu-in");
-        //     $(".side-menu").removeClass("menu-out");
-        // };
-        // $scope.closeMenus = function() {
-        //     $(".side-menu").removeClass("menu-in");
-        //     $(".side-menu").addClass("menu-out");
-        // };
-        //
-        // $(".template.content").click(function() {
-        //     $(".side-menu").removeClass("menu-in");
-        //     $(".side-menu").addClass("menu-out");
-        // });
+                })
+
+
+            }
+
+        }
 
     })
     .controller('footerctrl', function($scope, TemplateService, NavigationService) {
