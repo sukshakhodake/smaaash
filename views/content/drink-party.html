@@ -20,7 +20,7 @@
                      <div class="button-sets">
                         <button class="uppercase large green">Book Now</button>
                         <button class="uppercase larger green">Menu</button>
-                     </div>
+                     </div><pre>{{moreDesc[d._id]}}</pre>
                      <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | limitTo:130"></p>
                      <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc"></p>
                      <!-- <p ng-bind-html="d.description">This Monsoon, enjoy the rains Smaaash Style! Starting 1st July get all games at packages starting at only Rs. 899!</p> -->

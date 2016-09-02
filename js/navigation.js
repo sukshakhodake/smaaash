@@ -229,7 +229,17 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
             }).success(callback);
         },
-
+        // buyOnline: function(id,callback) {
+        //   console.log("nAV",id);
+        //     var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
+        //
+        //     $http({
+        //         url: adminurl + 'wishlist/save',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data:data
+        //     }).success(callback);
+        // },
 
 
   };

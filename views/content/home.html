@@ -127,16 +127,17 @@
                <h2 class="title slide-text pull-left">Buy Now</h2>
                <p class="pull-right margin33 uppercase">view all</p>
             </div>
-            <flex-slider class="carousel" flex-slide="s in mySlides6 track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
+            <flex-slider class="carousel" flex-slide="s in buyOnline track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                <li>
 
                   <div class="race relative">
                      <div class="img-bg">
-                        <img src="img/new/text.png" class="img-responsive" alt="">
+                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                      </div>
                      <a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
                      <div class="race-text">
-                        <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3>
+                        <h3 class="margin0 brand-white" ng-bind-html="s.hometext"> </h3>
+                        <h3 ng-if="!s.hometext">No data found</h3>
                      </div>
                   </div>
 

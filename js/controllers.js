@@ -72,6 +72,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("  $scope.events", $scope.events);
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             console.log("$scope.foodBeverages", $scope.foodBeverages);
+            $scope.buyOnline = $scope.content["Buy Online"];
+            console.log("$scope.buyOnline", $scope.buyOnline);
         } else {
 
         }
@@ -1153,6 +1155,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
+            console.log("  $scope.moreDesc[id]", $scope.moreDesc[id]);
             $scope.myDesc = _.find($scope.drinkParty10, function(n) {
                 return n._id == id;
                 // console.log($scope.myDesc);
@@ -1227,22 +1230,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     }
-    $scope.buy=function(){
-      if ($.jStorage.get("loginDetail") == null) {
+    $scope.buy = function(id) {
+        if ($.jStorage.get("loginDetail") == null) {
 
-          console.log("am in if");
-          $uibModal.open({
-              animation: true,
-              templateUrl: 'views/modal/wishlistsigup.html',
-              scope: $scope
-                  
-          });
-      } else {
-          // NavigationService.wishList(id, function(data) {
-          //
-          //     console.log("wishlist", data);
-          // })
-      }
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+
+            });
+        } else {
+            // NavigationService.buyOnline(id, function(data) {
+            //
+            //     console.log("buyOnline", data);
+            // })
+        }
     }
 
 
@@ -1274,7 +1277,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -1440,7 +1443,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }
 
-        }
+        };
+        $scope.myCart = function() {
+            if ($.jStorage.get("loginDetail") == null) {
+                console.log("am in if");
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlistsigup.html',
+                    scope: $scope
+                });
+            } else {
+                console.log("im in else");
+                $state.go("cart");
+            }
+        };
 
 
     })
