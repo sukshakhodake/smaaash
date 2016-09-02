@@ -1227,6 +1227,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     }
+    $scope.buy=function(){
+      if ($.jStorage.get("loginDetail") == null) {
+
+          console.log("am in if");
+          $uibModal.open({
+              animation: true,
+              templateUrl: 'views/modal/wishlistsigup.html',
+              scope: $scope
+                  
+          });
+      } else {
+          // NavigationService.wishList(id, function(data) {
+          //
+          //     console.log("wishlist", data);
+          // })
+      }
+    }
 
 
 })
@@ -1257,7 +1274,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state,$timeout) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -1273,7 +1290,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: $.jStorage.get("city")
         }
 
-
+        // $.jStorage.get("loginDetail") == null
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
         console.log("$scope.userLoginDetails", $scope.userLoginDetails);
 
@@ -1304,7 +1321,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 if (data.value) {
                     $scope.getCity = data.data;
-                    console.log("$scope.getCity ",$scope.getCity );
+                    console.log("$scope.getCity ", $scope.getCity);
                     if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
 
 
@@ -1324,19 +1341,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-        // NavigationService.getCity(function(data) {
-        //     $scope.data = data.data;
-        //     console.log("homegetcity", $scope.data);
-        // });
-
-
-
-
-
-        $scope.myName = $.jStorage.get("loginInfo");
-        console.log("$scope.myName", $scope.myName);
-
-
 
 
 
@@ -1350,11 +1354,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.menus = "menu-out";
         $scope.getMenus = function() {
-          if ($scope.menus == "menu-out") {
-              $scope.menus = "menu-in";
-          } else {
-              $scope.menus = "menu-out";
-          }
+            if ($scope.menus == "menu-out") {
+                $scope.menus = "menu-in";
+            } else {
+                $scope.menus = "menu-out";
+            }
         };
 
         $scope.formCompleteSignup = false;
@@ -1407,6 +1411,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.login($scope.userData, function(data) {
                     console.log("data", data);
                     if (data.value == true) {
+                        location.reload();
                         $.jStorage.set("loginDetail", data);
                         $scope.valid = false;
                         $scope.formComplete = true;
@@ -1417,16 +1422,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     } else {
                         $scope.valid = true;
                     }
-                    $.jStorage.set("loginInfo", data);
-                    $scope.userName = $.jStorage.get("loginInfo").data.name;
-                    console.log("  $scope.userName", $scope.userName);
+
 
                 })
 
 
             }
 
+        };
+        $scope.logout = function() {
+            if ($.jStorage.get("loginDetail") != null) {
+                NavigationService.logout(function(data) {
+                    console.log("logout", data);
+                    location.reload();
+                })
+            } else {
+
+            }
+
         }
+
 
     })
     .controller('footerctrl', function($scope, TemplateService, NavigationService) {

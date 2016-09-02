@@ -11,8 +11,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50 ">
-                        <div class="registration bg-prop">
+                    <div class="col-flexing mobile-50 " ng-show="userLoginDetails==null" >
+                        <div class="registration bg-prop" >
                             <a href="" class="text-center">
                                 <h3 class="nav-name" ng-click="getMenus();"><span class="block">registration</span></h3>
                             </a>
@@ -39,10 +39,24 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50">
+                    <div class="col-flexing mobile-50" ng-hide="userLoginDetails==null">
                         <div class="log bg-prop">
                             <a href="" class="text-center">
                                 <h3 class="nav-name"><span class="block">Hi...<br/>{{userLoginDetails.data.name}}</span></h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-flexing mobile-50" ng-show="userLoginDetails==null">
+                        <div class="log bg-prop">
+                            <a href="" class="text-center">
+                                <h3 class="nav-name" ng-click="getMenus();"><span class="block">Login</span></h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-flexing mobile-50" ng-hide="userLoginDetails==null">
+                        <div class="log bg-prop">
+                            <a href="" class="text-center">
+                                <h3 class="nav-name" ng-click="logout();"><span class="block">Logout</span></h3>
                             </a>
                         </div>
                     </div>

@@ -222,13 +222,13 @@ var navigationservice = angular.module('navigationservice', [])
         //     }).success(callback);
         // },
 
-        // logout: function(callback) {
-        //     $.jStorage.flush();
-        //     return $http({
-        //         url: adminurl + 'signup/logout',
-        //         method: 'POST',
-        //     }).success(callback);
-        // },
+        logout: function(callback) {
+            $.jStorage.flush();
+            return $http({
+                url: adminurl + 'register/logout',
+                method: 'POST',
+            }).success(callback);
+        },
 
 
 
