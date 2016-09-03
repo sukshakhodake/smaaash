@@ -204,7 +204,7 @@ var navigationservice = angular.module('navigationservice', [])
         wishList: function(id,callback) {
           console.log("nAV",id);
             var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
-          
+
             $http({
                 url: adminurl + 'wishlist/save',
                 method: 'POST',
@@ -222,6 +222,24 @@ var navigationservice = angular.module('navigationservice', [])
         //     }).success(callback);
         // },
 
+        logout: function(callback) {
+            $.jStorage.flush();
+            return $http({
+                url: adminurl + 'register/logout',
+                method: 'POST',
+            }).success(callback);
+        },
+        // buyOnline: function(id,callback) {
+        //   console.log("nAV",id);
+        //     var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
+        //
+        //     $http({
+        //         url: adminurl + 'wishlist/save',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data:data
+        //     }).success(callback);
+        // },
 
 
   };

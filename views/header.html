@@ -11,10 +11,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50 ">
-                        <div class="registration bg-prop">
+                    <div class="col-flexing mobile-50 " ng-show="userLoginDetails==null" >
+                        <div class="registration bg-prop" >
                             <a href="" class="text-center">
-                                <h3 class="nav-name" ng-click="getMenu()"><span class="block">registration</span></h3>
+                                <h3 class="nav-name" ng-click="getMenus();"><span class="block">registration</span></h3>
                             </a>
                         </div>
                     </div>
@@ -25,24 +25,38 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50 ">
+                    <div class="col-flexing mobile-50 " >
                         <div class="cart bg-prop">
-                            <a href="" class="text-center">
-                                <h3 class="nav-name"><span class="block">my cart</span></h3>
+                            <a  class="text-center">
+                                <h3 class="nav-name" ng-click="myCart();"><span class="block">my cart</span></h3>
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50">
+                    <div class="col-flexing mobile-50" ng-hide="userLoginDetails==null">
                         <div class="account bg-prop">
                             <a href="" class="text-center">
                                 <h3 class=" nav-name nav-naming"><span class="block">my</span> account</h3>
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50">
+                    <div class="col-flexing mobile-50" ng-hide="userLoginDetails==null">
                         <div class="log bg-prop">
                             <a href="" class="text-center">
                                 <h3 class="nav-name"><span class="block">Hi...<br/>{{userLoginDetails.data.name}}</span></h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-flexing mobile-50" ng-show="userLoginDetails==null">
+                        <div class="log bg-prop">
+                            <a href="" class="text-center">
+                                <h3 class="nav-name" ng-click="getMenus();"><span class="block">Login</span></h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-flexing mobile-50" ng-hide="userLoginDetails==null">
+                        <div class="log bg-prop">
+                            <a href="" class="text-center">
+                                <h3 class="nav-name" ng-click="logout();"><span class="block">Logout</span></h3>
                             </a>
                         </div>
                     </div>
@@ -214,7 +228,7 @@
                          <div class="form-group">
                            <select name="categorydata" class="form-control" ng-model="signupData.city" required>
                               <option ng-selected="true" value="">Please select city</option>
-                              <option value="{{d._id}}" ng-repeat="d in data">{{d.name}}</option>
+                              <option value="{{d._id}}" ng-repeat="d in getCity">{{d.name}}</option>
 
                            </select>
                            <div ng-if="validCity">Please select valid city.</div>
