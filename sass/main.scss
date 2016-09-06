@@ -1342,6 +1342,12 @@ img.fancybox-image {
 .pointer{
   cursor: pointer;
 }
+
+.margno{
+  p{
+    margin: 0!important;
+}
+}
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";

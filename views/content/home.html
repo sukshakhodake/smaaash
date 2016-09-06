@@ -34,16 +34,18 @@
             </div>
             <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                <li>
-                  <div class="race relative">
+                  <div class="race relative margno">
                      <div class="img-bg">
                         <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="whats-new({id:s.type._id})">
                      </div>
                      <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      <div class="race-text">
                         <!-- <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3> -->
+                         <div class="min-h">
                         <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
                         <div ng-if="!s.hometext">No data Found</div>
                      </div>
+                   </div>
                   </div>
 
                </li>
@@ -130,15 +132,17 @@
             <flex-slider class="carousel" flex-slide="s in buyOnline track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                <li>
 
-                  <div class="race relative">
+                  <div class="race relative margno">
                      <div class="img-bg">
                         <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                      </div>
                      <a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
                      <div class="race-text">
+                        <div class="min-h">
                         <h3 class="margin0 brand-white" ng-bind-html="s.hometext"> </h3>
                         <h3 ng-if="!s.hometext">No data found</h3>
                      </div>
+                   </div>
                   </div>
 
                </li>
