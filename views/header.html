@@ -1,6 +1,6 @@
 <div ng-controller="headerctrl" ng-class="{'menu-opened': menu == true}">
     <nav class="nav-menu sticky-butn">
-        <div class="smaash-menu">
+        <div class="smaash-menu" >
           <div class="cut hidden-md visible-xs" ng-click="$dismiss();"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="row">
                 <div class="rows mobile-inlineblock margin5">
@@ -108,8 +108,10 @@
                 </div>
             </div>
         </div>
-    </nav>
 
+    </nav>
+    <!-- <div class="overlay">
+    </div> -->
     <div class="dropdowns">
         <div class="container relative">
             <a ui-sref="home" class="logo-smaash"><img src="img/home/logo.png" alt="Smaaash"></a>
@@ -124,7 +126,7 @@
                    <i class="fa fa-chevron-down"></i>
                </span>
             </div>
-            <div class="women-menu" ng-click="toggleMenu()">
+            <div class="women-menu" ng-click="toggleMenu()" ng-class="{'overlay':menu==true}">
                <div class="menu"><img src="img/home/menus.png" alt="Menu" no-drag ></div>
               <figure class="woman-menu">
                   <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">

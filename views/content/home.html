@@ -30,15 +30,15 @@
          <div class="slidings">
             <div class="headings clearfix">
                <h2 class="title slide-text pull-left">what's new</h2>
-               <p class="pull-right margin33 uppercase">view all</p>
+               <p class="pull-right margin33 uppercase" ui-sref="whats-new({id:whatsnew[0].type._id})">view all</p>
             </div>
             <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                <li>
                   <div class="race relative margno">
                      <div class="img-bg">
-                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="whats-new({id:s.type._id})">
+                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="cockpit">
                      </div>
-                     <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                     <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      <div class="race-text">
                         <!-- <h3 class="margin0 brand-white">Get Set Go Race On <br> Virat's favourite track</h3> -->
                          <div class="min-h">

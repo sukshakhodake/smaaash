@@ -1348,6 +1348,17 @@ img.fancybox-image {
     margin: 0!important;
 }
 }
+.overlay{
+  position: absolute;
+   z-index: 999;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   display: block;
+   height: 600px;
+   background: rgba(0,0,0,0.0);
+}
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";
