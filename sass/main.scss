@@ -1229,6 +1229,7 @@ $menu-height: 80px !default;
         margin: 0 auto;
     }
 }
+
 img.fancybox-image {
     opacity: 1;
 }
@@ -1359,6 +1360,51 @@ img.fancybox-image {
    height: 600px;
    background: rgba(0,0,0,0.0);
 }
+
+.deals-packages{
+.landing-kartbanner {
+   background-image: url("../img/new/newdeals.png");
+}
+.deals-details{  
+    h3{
+ font-family: $body-font;
+    }
+    p{
+font-weight: 600;
+    }
+ ul{
+    margin: 0;
+    li{
+      a{
+        .fa{
+          color: #ccc;
+          font-size: 25px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  
+.more{
+  button{
+      background-color: $brand-green;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 25px;
+    color: #fff;
+    .fa{
+      margin: 0 5px;
+    }
+  }
+}
+}
+}
+
+
+
+
+
 @import "fancybox-override";
 @import "ruchira";
 @import "mobile";
