@@ -833,7 +833,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
@@ -1081,9 +1081,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return '';
     }
 
+$scope.direct=function(){
+  $uibModal.open({
+      animation: true,
+      templateUrl: "views/modal/host-popup.html",
+      scope: $scope
+  });
 
-
-
+};
 
 })
 

@@ -49,7 +49,7 @@ $brand-white:#fff !default;
       margin: 20px 0 0 0;
     }
     .banner-buttons{
-      margin-top: 35px;
+      margin-top: 20px;
       .btn1{
         box-shadow: -3px 3px #000, -3px 0px #000;
         margin: 0 20px 0 10px;
@@ -780,17 +780,24 @@ button{
 }
 .tripadvisor-reviews{
   display: inline-block;
-  li{
-    list-style-type: none;
-    a{
-      display: inline-block;
-      height: 50px;
-      width: 115px;
-      img{
-        width: 100%;
+  ul{
+    border-left: 1px solid;
+    vertical-align: middle;
+    padding: 0 0 0 10px;
+    margin: 0 0 0px 15px !important;
+    li{
+      list-style-type: none;
+      a{
+        display: inline-block;
+        height: 30px;
+        width: 115px;
+        img{
+          width: 100%;
+        }
       }
     }
   }
+
 }
 
 
@@ -1376,6 +1383,7 @@ button{
       background-color: #fff;
       border: 1px solid #29a8df;
       padding: 5px 15px;
+      border-radius: 3px;
     }
   }
 .view{
@@ -2107,7 +2115,7 @@ a{
   background-position: center;
 }
 
-.practice{
+.practice,.host-popup{
   .form{
     border: 2px solid #000;
     padding: 10px 20px;
@@ -2163,5 +2171,27 @@ button{
 .slides-down{
     top: 90%;
 }
+.extra{
+  .pink-button{
+    height: 40px;
+    width: 40px;
+    // border: 2px solid #fff;
+    // border-radius: 100%;
+    position: absolute;
+    top: 78%;
+    right:57%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+.attractions{
+  h3{
+    p{
+      color: $brand-blue !important;
+      margin-bottom: 0;
+    }
+  }
+}
+
 
 //new home//

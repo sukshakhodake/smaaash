@@ -30,7 +30,7 @@
          <div class="slidings">
             <div class="headings clearfix">
                <h2 class="title slide-text pull-left">what's new</h2>
-               <p class="pull-right margin33 uppercase" ui-sref="whats-new({id:whatsnew[0].type._id})">view all</p>
+               <p class="pull-right margin33" ui-sref="whats-new({id:whatsnew[0].type._id})">View All</p>
             </div>
             <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                <li>
@@ -90,7 +90,7 @@
                                  <div class="img-bg">
                                     <img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                                  </div>
-                                 <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                                 <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                                  <div class="race-text">
                                     <h3 class="margin0 brand-white" ng-bind-html="s.hometext">MONSOON DAY PASS!</h3>
                                     <div ng-if="!s.hometext">No data Found</div>
@@ -107,12 +107,13 @@
       <div class="slant-col brand-blue pull-right">
          <div class="slant-box full-height">
             <h2 class="brand-white marginleft">Host A Party</h2>
-            <div class="mover">
-               <flex-slider class="carousel" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
+            <div class="mover extra">
+               <flex-slider class="carousel relative" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
                   <li>
                      <a ui-sref="host-party({id:s.type._id})">
                         <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                      </a>
+                        <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                      <h3 class="brand-white uppercase title" ng-bind-html="s.hometext"></h3>
                   </li>
                </flex-slider>
@@ -244,12 +245,12 @@
             <div class="slant-box half-height">
                <div class="heading clearfix">
                   <h2 class="title slide-text pull-left brand-white">FOOD AND BEVERAGES</h2>
-                  <p class="pull-right  capitalize brand-white">view all</p>
+                  <p class="pull-right  capitalize brand-white" ui-sref="drink-party({id:foodBeverages[0].type._id})">view all</p>
                </div>
                <div class="colored-slider">
                   <flex-slider class="carousel" flex-slide="s in foodBeverages track by $index" item-width="240" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
-                        <a ui-sref="drink-party({id:s.type._id})">
+                        <a ui-sref="cockpit">
                            <img ng-src="{{s.image|uploadpath}}">
                         </a>
                      </li>

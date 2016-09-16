@@ -63,7 +63,9 @@
                      <a href="" class="pink-button" ng-if="d.url"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                   </div>
                   <div class="new-detail">
-
+                    <div class="views inline-block">
+                       <button class="uppercase bluey" ui-sref="snow-rush({id:d._id})">view</button>
+                    </div>
                      <h3 class="margin0 bluey">{{d.title}}</h3>
                      <p>{{d.text}}</p>
 
@@ -76,6 +78,35 @@
       </div>
    </div>
 
+   <div class="loading">
+      <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="noviewmore">Load More...</p>
+
+   </div>
+   <div class="new">
+      <div class="container">
+         <h3 class="uppercase">gallery</h3>
+         <div class="row" ng-repeat="data in stars track by $index">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
+               <div class="karting-championship">
+                  <div class="brand-blue relative">
+                     <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+                     <a href="" class="pink-button" ng-if="d.url"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                  </div>
+                  <div class="new-detail">
+                    <div class="views inline-block">
+                       <button class="uppercase bluey" ui-sref="snow-rush({id:d._id})">view</button>
+                    </div>
+                     <h3 class="margin0 bluey">{{d.title}}</h3>
+                     <p>{{d.text}}</p>
+
+                  </div>
+               </div>
+            </div>
+
+         </div>
+
+      </div>
+   </div>
    <div class="loading">
       <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="noviewmore">Load More...</p>
 
