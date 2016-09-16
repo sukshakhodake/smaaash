@@ -2250,7 +2250,7 @@ p,span{
   }
 }
 
-.practice{
+.practice,.entry-form{
      .btn6{
     height: auto;
     width: 120px;
@@ -2262,7 +2262,13 @@ p,span{
     }
 }
 }
-
+.entry-form{
+  .form-group{
+    width: 20%;
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
 .slid{
     margin: 20px ;
       .flex-control-nav {
@@ -2302,7 +2308,59 @@ p,span{
     padding: 10px 20px;
 }
 
+.custom{
+  .forms{
+  .form-control{
+        height: 40px;
+        border-radius: 10px;
+       background-color:  #ccc ;
+      }
+       .required{
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      font-size: 8px;
+      color: $brand-red;
+    }
+   .game-type{
+     a{
+       color: #000;
+     }
+   } 
+  }
 
+}
+
+.width50 {
+  background: rgba(0, 43, 127, 0.59);
+
+    .modal-dialog {
+        width: 50%;
+    }
+}
+
+.hosts-pop{
+  padding: 40px 0;
+}
+
+
+// .modal-content{
+//   box-shadow: none;
+//   border: none;
+//   background-color: transparent;
+// }
+.host-pop {
+    position: relative;
+    background-color: transparent;
+    background-image: url(../img/new/box-pop.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    background-position: center;
+}
 
 
 //new pages//
