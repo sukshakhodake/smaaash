@@ -1756,7 +1756,7 @@ button{
   }
 }
 }
-.login-signup{
+.login-signup,.host-pop{
   padding:10px 20px;
   background-color: #ebebeb;
   background-image: url("../img/lay.png");
@@ -2115,7 +2115,7 @@ a{
   background-position: center;
 }
 
-.practice,.host-popup{
+.practice,.host-pop{
   .form{
     border: 2px solid #000;
     padding: 10px 20px;
@@ -2148,6 +2148,16 @@ button{
   &:focus{
     outline: 0;
   }
+}
+
+.host-pop{
+.form{
+  border: none;
+}
+h3{
+  color: #fff;
+}
+
 }
 .whats-new{
 

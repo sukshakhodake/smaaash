@@ -1090,6 +1090,14 @@ $scope.direct=function(){
 
 };
 
+$scope.direction=function(){
+$uibModal.open({
+    animation:true,
+    templateUrl:"views/modal/hosts-popup.html",
+    scope:$scope
+})
+};
+
 })
 
 
