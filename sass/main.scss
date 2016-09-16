@@ -1212,7 +1212,7 @@ $menu-height: 80px !default;
 //*footer ends*//
 .landing-kartbanner {
     position: relative;
-    background-image: url("../img/home/landing-bg.jpg");
+   background-image: url("../img/new/banner.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1221,7 +1221,7 @@ $menu-height: 80px !default;
     .karting-banner {
         max-width: 1170px;
         @include position(absolute,20px 0 20px 0);
-        background-image: url("../img/karting/Banner.png");
+        
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

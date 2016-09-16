@@ -719,18 +719,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 })
 
-.controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams ,$state, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("snow-rush");
     $scope.menutitle = NavigationService.makeactive("Snow Rush");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.mySlides8 = [
-        'img/karting/blue.png',
-        'img/karting/sonakshi.png',
-        'img/karting/salman.png',
-        'img/karting/shikar.png',
-        'img/karting/blue.png'
+    
+$scope.$on('$viewContentLoaded', function() {
+        $(window).scroll(function() {
+            var scroller = $(document).scrollTop();
+            var height = $(window).height() - 40;
+            if (height <= scroller) {
+                $('body').addClass('show-header');
+            } else {
+                $('body').removeClass('show-header');
+            }
+        });
+    });
+
+    $scope.scrollToSnow = function() {
+        $('html, body').animate({
+            scrollTop: $("#toSnow").offset().top
+        }, 500);
+    };
+
+    $scope.mySlides12 = [
+        'img/new/slid.png',
+        'img/new/slid.png',
+         'img/new/slid.png',
+          'img/new/slid.png',
+        'img/new/slid.png'
     ];
 
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {

@@ -1051,14 +1051,13 @@ button{
     margin-bottom: 15px;
   .slidings{
   margin: 60px 20px 0;
-    .flex-control-nav,
-    .flex-prev {
+    .flex-control-nav {
       display: none;
     }
     .flexslider{
        margin-bottom: 20px;
     }
-    .flex-next{
+    .flex-next,.flex-prev{
       display: block;
       height: 50px;
       width: 50px;
@@ -1067,6 +1066,12 @@ button{
     content: "";
     @include square(100%);
     background: url("../img/home/arrow.png")no-repeat;
+    background-size: contain;
+  }
+  .flex-direction-nav a.flex-prev:before{
+    content: "";
+    @include square(100%);
+    background: url("../img/new/ahead.png")no-repeat;
     background-size: contain;
   }
   }
@@ -1086,7 +1091,7 @@ button{
   background-position: 0 -31px;
 }
 
-.purple-butn{
+.purple-butn,.pink-butn{
   width: 50px;
   height: 50px;
   border-radius: 100%;
@@ -1108,6 +1113,11 @@ button{
         display: block;
       }
     }
+}
+.pink-butn{
+  background-color: $brand-pink
+  
+  ;
 }
 // .articles{
 //   .slant-col:before{
@@ -1489,8 +1499,7 @@ button{
 
     .slidings{
     margin: 20px ;
-      .flex-control-nav,
-      .flex-prev {
+      .flex-control-nav{
         display: none;
       }
       .flexslider{
@@ -1501,7 +1510,7 @@ button{
            }
          }
       }
-      .flex-next{
+      .flex-next,.flex-prev{
         display: block;
         height: 50px;
         width: 50px;
@@ -1510,6 +1519,12 @@ button{
       content: "";
       @include square(100%);
       background: url("../img/home/arrow.png")no-repeat;
+      background-size: contain;
+    }
+    .flex-direction-nav a.flex-prev:before{
+      content: "";
+      @include square(100%);
+      background: url("../img/new/ahead.png")no-repeat;
       background-size: contain;
     }
     }
@@ -1957,10 +1972,10 @@ a{
         position: absolute;
         top: 6px;
         right: 20px;
-        height: 35px;
-        width: 35px;
-        padding: 5px;
-        border: 1px solid #000;
+        // height: 35px;
+        // width: 35px;
+        // padding: 5px;
+        // border: 1px solid #000;
         cursor: pointer;
       }
     }
@@ -2064,9 +2079,7 @@ a{
       text-decoration: none;
     }
   }
-
-
-  }
+}
 }
 
 .radio {
@@ -2151,14 +2164,48 @@ button{
 }
 
 .host-pop{
+  position: relative;
+    background-color: #000;
+    background-image: url(../img/new/box-pop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    background-position: 100% 100%;
 .form{
   border: none;
 }
 h3{
   color: #fff;
 }
-
+.checkout{
+  button{
+    display: inline-block;
+    vertical-align: middle;
+   
+  }
 }
+p,span{
+  color: #fff;
+}
+.close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 1;
+}
+ .btn-default{
+      height: auto;
+    width: 120px;
+    background-color: transparent;
+    border: transparent;
+    margin: 0 auto;
+    &:active{
+      background-color: transparent;
+    }
+}
+}
+
 .whats-new{
 
   .new-detail{
@@ -2202,6 +2249,54 @@ h3{
     }
   }
 }
+
+.practice{
+     .btn6{
+    height: auto;
+    width: 120px;
+    background-color: transparent !important;
+    border: transparent;
+    margin: 0 auto;
+    &:active{
+      background-color: transparent;
+    }
+}
+}
+
+.slid{
+    margin: 20px ;
+      .flex-control-nav {
+        display: none;
+      }
+      .flexslider{
+         margin-bottom: 20px;
+         .slides{
+           li+li{
+             margin: 0 30px;
+           }
+         }
+      }
+      .flex-next,.flex-prev{
+        display: block;
+        height: 50px;
+        width: 50px;
+      }
+    .flex-direction-nav a.flex-next:before{
+      content: "";
+      @include square(100%);
+      background: url("../img/home/arrow.png")no-repeat;
+      background-size: contain;
+    }
+     .flex-direction-nav a.flex-prev:before{
+      content: "";
+      @include square(100%);
+      background: url("../img/new/ahead.png")no-repeat;
+      background-size: contain;
+    }
+
+}
+
+
 
 
 //new home//
