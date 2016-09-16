@@ -20,7 +20,7 @@ $.jStorage.set("cityid","577f4d106b78e0bc03724800");
 //             $.jStorage.set("city","bengaluru");
 //             break;
 //             case "Andra Pradesh":
-//             $.jStorage.set("city","hyderabad");
+//             $.jStorage.set("city","hyderabad");deal
 //             break;
 //             case "Telangana":
 //             $.jStorage.set("city","hyderabad");
@@ -63,6 +63,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         url: "/event",
         templateUrl: "views/template.html",
         controller: 'EventCtrl'
+    })
+
+    .state('dealsp', {
+        url: "/dealsp",
+        templateUrl: "views/template.html",
+        controller: 'DealspCtrl'
     })
 
     .state('drink-party', {
