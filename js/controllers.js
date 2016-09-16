@@ -1113,7 +1113,7 @@ $scope.direct=function(){
       animation: true,
       templateUrl: "views/modal/host-popup.html",
       scope: $scope,
-        windowClass:"width50"
+      windowClass: "no-white-bg"
   });
 
 };

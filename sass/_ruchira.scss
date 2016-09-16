@@ -2338,6 +2338,13 @@ p,span{
         width: 50%;
     }
 }
+.no-white-bg {
+  .modal-content {
+    box-shadow: none;
+    border: none;
+    background-color: transparent; 
+  }
+}
 
 .hosts-pop{
   padding: 40px 0;
