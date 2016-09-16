@@ -1130,7 +1130,8 @@ $scope.direction=function(){
 $uibModal.open({
     animation:true,
     templateUrl:"views/modal/hosts-popup.html",
-    scope:$scope
+    scope:$scope,
+     windowClass: "no-white-bg"
 })
 };
 
