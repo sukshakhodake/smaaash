@@ -1283,6 +1283,14 @@ $uibModal.open({
 
 })
 
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("deals-inner");
+    $scope.menutitle = NavigationService.makeactive("Deals Inner");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    })
 
 
 .controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {

@@ -71,6 +71,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'DealsCtrl'
     })
 
+     .state('deals-inner', {
+        url: "/deals-inner",
+        templateUrl: "views/template.html",
+        controller: 'DealsInnerCtrl'
+    })
+
     .state('events-challenges', {
         url: "/events-challenges/:id",
         templateUrl: "views/template.html",
