@@ -343,6 +343,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('EventCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("event");
+    $scope.menutitle = NavigationService.makeactive("Events");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
 .controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("stars");
@@ -725,7 +733,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Snow Rush");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    
+
 $scope.$on('$viewContentLoaded', function() {
         $(window).scroll(function() {
             var scroller = $(document).scrollTop();
