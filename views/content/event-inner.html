@@ -1,0 +1,99 @@
+<div class="deals-event">
+<div class="landing-kartbanner">
+    <div class="pink-butn" ng-click="scrollToSnow;">
+         <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+      </div>
+</div>
+<div class="kart-bg" id="toSnow">
+  <div class="container">
+      <h2 class="nav-name center">smaaash cricket carnival</h2>
+      </div>
+    </div>
+    <div class="container">
+  <div class="karting1">
+    <div class="slant-row">
+        <div class="slant-col">
+            <div class="slant-box full-height">
+                <h2>EVENT DESCRIPTION</h2>
+              <p>Smaaash Cricket Carnival is the stuff dreams are made of. Form your team of 6 (5 + 1 Sub) and face the bowling legends of cricket in Smaaash Cricket. What’s up for grabs you ask? How about a chance of winning cash prizes worth Rs 16 Lakhs, and a chance to represent Team Tendulkar or Team Kohli? The registrations open on May 25, 2016. Time to put your pads on and bring out the big shots.</p>
+<div class="button-set">
+                        <ul class="social-icons list-inline inline-block">
+                           <p class="inline-block">Share</p>
+                           <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <div class="more inline-block">
+                           <button class="uppercase green">Buy Now</button>
+                        </div>
+                     </div>
+            </div>
+        </div>
+        <div class="slant-column pull-right">
+                <div class="slant-box half-height">
+                    <h2>REGISTRATION</h2>
+                       <form class="form">
+                     <div class="form-group relative">
+                        <input type="text" class=" form-control" placeholder="Name" required>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                     </div>
+                     <div class="form-group relative">
+                        <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="formData.email" required>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                       
+                     </div>
+                     <div class="form-group relative ">
+                        <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        
+                     </div>
+                     <div class="form-group">
+
+                        <input type="text" class="form-control" placeholder="Date of Birth" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" />
+                        <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                     </div>
+                     <button type="submit" class=" btn6 btn-default block"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+                  </form>
+                </div>
+        </div>
+    </div>
+   </div>
+     <div class="karting1">
+    <div class="slant-row">
+        <div class="slant-col">
+            <div class="slant-box full-height">
+                <h2>games description</h2>
+                  <p ng-bind-html="detailExploreSmaash.description"></p>
+            </div>
+        </div>
+        <div class="slant-column pull-right">
+                <div class="slant-box half-height">
+                    <h2>timings and pricing</h2>
+                    <div ng-repeat="data in detailExploreSmaash.timing">
+                      <h3 class="brand-ortitle title-text" >{{data.type}}</h3>
+                      <p>{{data.description}} <br>{{data.weekdayPrice}}/- Workdays | {{data.weekendPrice}}/- Weekends</p>
+                    </div>
+                    <div ng-if="detailExploreSmaash.timing.length == 0">
+                      No Timing Available
+                    </div>
+                    <!-- <h3 class="brand-ortitle title-text">Snow Rush</h3>
+                    <p>For 3 Mins <br>400/- Workdays | 500/- Weekends</p> -->
+                    <!-- <h3 class="brand-ortitle title-text">Advanced</h3>
+                    <p>For  6 Mins <br>600/- Workdays | 700/- Weekends</p>
+                    <h3 class="brand-ortitle title-text">Grand </h3>
+                    <p>For  8 Mins <br>700/- Workdays | 900/- Weekends</p> -->
+                </div>
+        </div>
+    </div>
+   </div>
+   <div class="deals-details">
+<h3>deal description</h3>
+<p>Each team will get 10 overs (8 match overs + 2 trail overs) to put their highest possible total on the board | Level: Amateur (for all categories) | Teams can register and play any day/any time during Smaaash center operational hours (regular waiting applicable) | Teams can re-register to try and score better through the league phase till August 16, 2016 | All scores will be displayed on the leader board at Smaaash Center.</p>
+<div class="button-set">
+                        <div class="more">
+                           <button class="uppercase green">Buy Now</button>
+                        </div>
+                     </div>
+</div>
+    </div>
+    </div>

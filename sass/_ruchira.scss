@@ -2306,6 +2306,14 @@ p,span{
   border: 2px solid #000;
     margin: 20px 0;
     padding: 10px 20px;
+     h3 {
+            font-family: $body-font;
+        }
+
+        p {
+            font-weight: 600;
+        }
+
 }
 
 .custom{
