@@ -1104,7 +1104,8 @@ $scope.direct=function(){
   $uibModal.open({
       animation: true,
       templateUrl: "views/modal/host-popup.html",
-      scope: $scope
+      scope: $scope,
+        windowClass:"width50"
   });
 
 };
