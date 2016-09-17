@@ -1580,7 +1580,7 @@ img.fancybox-image {
             li {
                 a {
                     .fa {
-                        color: #ccc;
+                        color: #e5e5e5;
                         font-size: 25px;
                         vertical-align: middle;
                     }
@@ -1604,6 +1604,7 @@ img.fancybox-image {
 
         .brand-orangy {
        background-color: $brand-orangy !important;
+       margin-left: 0!important;
 }
 
 
@@ -1623,7 +1624,8 @@ img.fancybox-image {
                 margin-bottom: 5px;
             }
             .form-control{
-                height: 35px;    
+                height: 35px; 
+                background-color: #e5e5e5;   
             }
 
 .button-set{
@@ -1687,7 +1689,7 @@ img.fancybox-image {
             li {
                 a {
                     .fa {
-                        color: #ccc;
+                        color: #e5e5e5;
                         font-size: 25px;
                         vertical-align: middle;
                     }
