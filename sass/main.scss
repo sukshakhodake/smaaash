@@ -1601,13 +1601,39 @@ img.fancybox-image {
                 }
             }
         }
+
+        .brand-orangy {
+       background-color: $brand-orangy !important;
+}
+
+
         .karting1{
+            .slant-col:before{
+            height: 278px;
+            }
+            .full-height,.half-height{
+                height: 245px;
+            }
+            .slant-column:before{
+                height: 277px;
+            }
+
+
             .form-group{
-                margin-bottom: 0;
+                margin-bottom: 5px;
             }
             .form-control{
-                height: 30px;
+                height: 35px;
+                border-radius: 10px;
+                background-color:  #ccc ;
             }
+                .required{
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      font-size: 8px;
+      color: $brand-red;
+    }
         }
 }
 .deals-packages {
