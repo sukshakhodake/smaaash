@@ -1609,7 +1609,6 @@ img.fancybox-image {
 
         .karting1{
             .slant-col{
-            width: 52%;
             &:before{
             height: 278px;
             }
@@ -1645,7 +1644,33 @@ img.fancybox-image {
         right: 10px;
         color: #ccc;
     }
+
+.prize-name{
+    margin-top: 10px;
+    p{
+        vertical-align: top;
+          margin: 0;
+    }
+}
+
+.prize-value{
+    p{
+    vertical-align: bottom;
+    margin: 0;
+    }
+}
+
+.orange{
+    color:  #fb5627;
+    font-size: 16px;
+    font-weight: 600;
+}
+
         }
+
+
+
+
 }
 .deals-packages {
     .landing-kartbanner {
