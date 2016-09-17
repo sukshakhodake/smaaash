@@ -1610,10 +1610,17 @@ img.fancybox-image {
 
         .karting1{
             .slant-col{
+                width: 51%;
             &:before{
             height: 278px;
             }
         }
+
+.slant-column{
+    width: 47%;
+}
+
+
             .full-height,.half-height{
                 height: 245px;
             }
@@ -1648,7 +1655,7 @@ img.fancybox-image {
     }
 
 .prize-name{
-    margin-top: 10px;
+    margin-top: 5px;
     p{
         vertical-align: top;
           margin: 0;
@@ -1663,14 +1670,25 @@ img.fancybox-image {
 }
 
 .orange{
-    color:  #fb5627;
+    color:  $brand-orangy;
     font-size: 16px;
     font-weight: 600;
 }
 
         }
 
-
+.button-sets{
+    button{
+    background-color: #32b544;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    }
+    button+button{
+         background-color:$brand-orangy;
+    }
+}
 
 
 }
