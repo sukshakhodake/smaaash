@@ -1608,32 +1608,42 @@ img.fancybox-image {
 
 
         .karting1{
-            .slant-col:before{
+            .slant-col{
+            width: 52%;
+            &:before{
             height: 278px;
             }
+        }
             .full-height,.half-height{
                 height: 245px;
             }
             .slant-column:before{
                 height: 277px;
             }
-
-
             .form-group{
                 margin-bottom: 5px;
             }
             .form-control{
-                height: 35px;
-      
-      
-      
+                height: 35px;    
             }
+
+.button-set{
+    padding-top: 70px;
+}
+
                 .required{
       position: absolute;
       top: 5px;
-      right: 8px;
-      font-size: 8px;
+      right: 10px;
+      font-size: 10px;
       color: $brand-red;
+    }
+
+    .down{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #ccc;
     }
         }
 }
