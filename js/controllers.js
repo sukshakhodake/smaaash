@@ -770,6 +770,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return '';
     }
 
+  $scope.showDiv = false;
+
+    $scope.openShowDiv = function() {
+        $scope.showDiv = true;
+        
+    }
+    $scope.showNow=false;
+
+     $scope.openShowNow = function() {
+        $scope.showNow = true;
+        
+    }
+
+
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
