@@ -1760,7 +1760,7 @@ img.fancybox-image {
 
 .race-eve {
     border: 1px solid #fff;
-    height: 251px;
+    // height: 251px;
 
     .race-text{
       background-color: #000;
@@ -1769,13 +1769,16 @@ img.fancybox-image {
               font-family: $body-font;
               font-size: 20px;
           }
+          .min-h{
+             min-height: 20px;
+          }
     }
 
     .pink-button {
         height: 40px;
         width: 40px;
         position: absolute;
-        top: 85%;
+        top: 75%;
         right: 0;
         transform: translate(-50%,-50%);
     }
