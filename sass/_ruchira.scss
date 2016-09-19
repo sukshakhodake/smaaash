@@ -2369,6 +2369,55 @@ p,span{
     color: inherit;
   }
   }
+  .starter{
+    label{
+      font-family: "American Purpose";
+    font-size: 30px;
+    margin-right: 10px;
+    vertical-align: top;
+      // color: #ccc;
+    }
+    .form-control{
+      display: inline-block;
+    width: 25%;
+    -webkit-appearance: none;
+    border-radius: 10px;
+    background-color: #ebebeb;
+    box-shadow: 0px 3px 1px #ccc inset;
+    border: none;
+    }
+    .radio{
+      display: inline-block;
+    }
+    a{
+      position: absolute;
+    top: 10px;
+    right: 30%;
+    color: #000;
+    }
+    .solution{
+      display: inline-block;
+      a{
+ position: absolute;
+    top: 10px;
+    left: 50%;
+      }
+      .required{
+      position: absolute;
+    top: 5px;
+    left: 49%;
+    font-size: 8px;
+    color: #ea1c22;
+    }
+    }
+    .required{
+      position: absolute;
+    top: 5px;
+    right: 32%;
+    font-size: 8px;
+    color: #ea1c22;
+    }
+  }
 
 }
 
