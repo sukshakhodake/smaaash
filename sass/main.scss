@@ -1763,11 +1763,14 @@ img.fancybox-image {
 }
 //SagarM CSS HERe
 .events1 {
-        background-image: url("../img/event/bg-hdr-event.png");
+    .backg-eve{
+background-image: url("../img/event/bg-hdr-event.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         margin-top: -8px;
         // height: 70px;
+    }
+        
 
         .nav-name {
             padding: 35px 0 0;

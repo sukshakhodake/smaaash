@@ -112,7 +112,9 @@
             <div class="mover extra">
                <flex-slider class="carousel relative" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true" prev-text="" next-text="">
                   <li>
+                       
                      <a ui-sref="host-party({id:s.type._id})">
+                          <!--<div class="rays"></div>-->
                         <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                      </a>
                         <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
