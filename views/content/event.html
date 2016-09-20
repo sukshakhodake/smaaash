@@ -11,7 +11,7 @@
                   <div class="img-bg">
                       <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="event-inner({id:d._id})">
                   </div>
-                  <img src="img/home/button.png" class="pink-button img-responsive" alt="">
+                  <img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="d.video">
                   <div class="race-text">
 
                       <div class="min-h">
