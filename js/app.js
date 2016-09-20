@@ -362,3 +362,19 @@ firstapp.directive('onlyDigits', function() {
         }
     };
 });
+firstapp.directive('scrolldown', function($compile, $parse) {
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function($scope, element, attrs) {
+      var $element = $(element);
+      // var windowHeight = $(window).height();
+      $scope.scrollDown = function() {
+        $('html,body').animate({
+            scrollTop: $(".second").offset().top
+          },
+          'slow');
+      }
+    }
+  };
+});

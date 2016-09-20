@@ -460,7 +460,15 @@ a{
     }
   }
 }
+.tripadvisor-reviews ul{
+  border-left: none;
+}
 
+.cdsROW.narrow{
+  width:auto;
+}
+
+}
 }
 @media (max-width: $screen-sm-max) {
   .divider,.or{
