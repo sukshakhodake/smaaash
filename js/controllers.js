@@ -349,6 +349,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Events");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.moreDesc = {};
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+        $scope.events10 = data.data;
+        $scope.events = _.chunk(data.data, 3);
+        console.log("$scope.events", $scope.events);
+        $scope.readMore = function(id, indexid) {
+
+            console.log("3333333", id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.events10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
+        };
+    });
 })
 
 .controller('DealspCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -357,6 +373,72 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+        $scope.moreDesc = {};
+        NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+            $scope.SingleDealsPackages10 = data.data;
+            $scope.SingleDealsPackages = _.chunk(data.data, 3);
+            console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
+            $scope.readMore = function(id, indexid) {
+
+                console.log(id);
+                $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+                console.log($scope.moreDesc);
+                $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
+                    return n._id == id;
+                    // console.log($scope.myDesc);
+                }).description;
+            };
+
+        });
+        $scope.myWish = function(id) {
+
+            if ($.jStorage.get("loginDetail") == null) {
+
+                console.log("am in if");
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlistsigup.html',
+                    scope: $scope
+                        // backdropClass: 'backcolor'
+                });
+            } else {
+                NavigationService.wishList(id, function(data) {
+
+                    console.log("wishlist", data);
+                })
+            }
+
+        };
+        $scope.addedToWishList = function() {
+            if ($.jStorage.get("loginDetail") != null) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlist.html',
+                    scope: $scope
+                        // backdropClass: 'backcolor'
+                });
+            }
+
+        }
+        $scope.buy = function(id) {
+            if ($.jStorage.get("loginDetail") == null) {
+
+                console.log("am in if");
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlistsigup.html',
+                    scope: $scope
+
+                });
+            } else {
+                // NavigationService.buyOnline(id, function(data) {
+                //
+                //     console.log("buyOnline", data);
+                // })
+            }
+        }
+
 })
 
 .controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -774,13 +856,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.openShowDiv = function() {
         $scope.showDiv = true;
-        
+
     }
     $scope.showNow=false;
 
      $scope.openShowNow = function() {
         $scope.showNow = true;
-        
+
     }
 
 
