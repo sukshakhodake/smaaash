@@ -47,10 +47,10 @@
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                         
                      </div>
-                     <div class="form-group">
+                     <div class="form-group relative">
 
-                        <input type="text" class="form-control" placeholder="Date of Birth" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" />
-                        <a href="" class="down"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                        <input type="text" class="form-control " placeholder="Date of Birth" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" />
+                        <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                      </div>
                      <button type="submit" class=" btn6 btn-default block"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
                   </form>
