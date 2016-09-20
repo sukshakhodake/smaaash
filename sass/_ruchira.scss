@@ -1598,9 +1598,9 @@ button{
             transform: translate(-50%,-50%);
           }
           .race-text{
-            height: 100px;
-            background-color: #173f95;
-                padding: 25px 10px;
+            // height: 100px;
+           
+                padding: 21px 10px;
                 h3{
                     font-family: $body-font;
                     font-size: 20px;
@@ -1611,6 +1611,10 @@ button{
       }
     }
   }
+  .race-textbg{
+ background-color: #173f95;
+  }
+  
 
 }
 

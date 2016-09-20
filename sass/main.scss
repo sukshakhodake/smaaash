@@ -1189,6 +1189,7 @@ $menu-height: 80px !default;
     .mover {
         right: 0;
         left: auto;
+        // bottom: 0;
     }
 
     .slant-col {
@@ -1278,6 +1279,15 @@ $menu-height: 80px !default;
         }
     }
 }
+
+.reverse{
+    .mover{
+        bottom: 0;
+    }
+}
+
+
+
 
 .reversing {
     .slant-box {
