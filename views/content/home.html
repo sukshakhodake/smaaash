@@ -92,8 +92,10 @@
                                  </div>
                                  <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                                  <div class="race-text">
+                                       <div class="min-hi">
                                     <h3 class="margin0 brand-white" ng-bind-html="s.hometext">MONSOON DAY PASS!</h3>
                                     <div ng-if="!s.hometext">No data Found</div>
+                                 </div>
                                  </div>
                               </div>
                            </a>
@@ -137,7 +139,8 @@
                      <div class="img-bg">
                         <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                      </div>
-                     <a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
+                     <a href="" class="buy-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
+                     <!--<a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>-->
                      <div class="race-text">
                         <div class="min-h">
                         <h3 class="margin0 brand-white" ng-bind-html="s.hometext"> </h3>
@@ -209,10 +212,12 @@
                                  <div class="img-bg" ng-if="s.image">
                                     <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                                  </div>
-                                 <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                                  <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                                  <div class="race-text race-textbg">
+                                     <div class="min-hi">
                                     <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
                                     <div ng-if="!s.hometext">No Data Found</div>
+                                 </div>
                                  </div>
                               </div>
                            </a>

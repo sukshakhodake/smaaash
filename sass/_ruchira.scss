@@ -1498,13 +1498,17 @@ button{
   .gallery{
     .race{
       height: 250px;
-      .pink-button{
-        height: 40px;
+      .pink-button,.buy-button{
+        height: auto;
         width: 40px;
         position: absolute;
         top: 60%;
         right: 0%;
         transform: translate(-50%,-50%);
+      }
+      .buy-button{
+           height: auto;
+        width: 66px;
       }
       .race-text{
         background-color: #000;
@@ -1559,19 +1563,19 @@ button{
 }
 
 
-.new-sliding{
-  .race{
-    .pink-button{
-      height: 60px;
-      width: 60px;
-      position: absolute;
-      top: 67%;
-      right: 0%;
-      transform: translate(-50%,-50%);
-    }
-  }
+// .new-sliding{
+//   .race{
+//     .pink-button{
+//       height: 60px;
+//       width: 60px;
+//       position: absolute;
+//       top: 67%;
+//       right: 0%;
+//       transform: translate(-50%,-50%);
+//     }
+//   }
 
-}
+// }
 .reversing,.reversed{
   .slant-in{
     .mover{
@@ -1588,9 +1592,9 @@ button{
         }
         .race{
           border: 1px solid #fff;
-          height: 251px;
+          // height: 251px;
           .pink-button{
-            height: 40px;
+            height: auto;
             width: 40px;
             position: absolute;
             top: 60%;
@@ -1648,7 +1652,7 @@ button{
   .mover{
     .slidings{
       .race{
-        height: 251px;
+        // height: 251px;
         .race-text{
           height: 100px;
           background-color: #000;
@@ -2273,7 +2277,7 @@ p,span{
 }
 .extra{
   .pink-button{
-    height: 40px;
+    height: auto;
     width: 40px;
     // border: 2px solid #fff;
     // border-radius: 100%;
