@@ -60,13 +60,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('event', {
-        url: "/event",
+        url: "/event/:id",
         templateUrl: "views/template.html",
         controller: 'EventCtrl'
     })
 
     .state('dealsp', {
-        url: "/dealsp",
+        url: "/dealsp/:id",
         templateUrl: "views/template.html",
         controller: 'DealspCtrl'
     })
@@ -84,13 +84,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
      .state('deals-inner', {
-        url: "/deals-inner",
+        url: "/deals-inner/:id",
         templateUrl: "views/template.html",
         controller: 'DealsInnerCtrl'
     })
 
     .state('event-inner', {
-        url: "/event-inner",
+        url: "/event-inner/:id",
         templateUrl: "views/template.html",
         controller: 'EventInnerCtrl'
     })

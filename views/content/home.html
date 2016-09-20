@@ -85,7 +85,7 @@
                   <div class="slidings">
                      <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
-                           <a ui-sref="deals-packages({id:s.type._id})">
+                           <a ui-sref="dealsp({id:s.type._id})">
                               <div class="race relative">
                                  <div class="img-bg">
                                     <img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
@@ -204,7 +204,7 @@
                   <div class="slidings">
                      <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="280" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
-                           <a ui-sref="events-challenges({id:s.type._id})">
+                           <a ui-sref="event({id:s.type._id})">
                               <div class="race relative">
                                  <div class="img-bg" ng-if="s.image">
                                     <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
