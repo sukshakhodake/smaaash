@@ -343,7 +343,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('EventCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+.controller('EventCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -367,77 +367,77 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
-.controller('DealspCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+.controller('DealspCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-        $scope.moreDesc = {};
-        NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-            $scope.SingleDealsPackages10 = data.data;
-            $scope.SingleDealsPackages = _.chunk(data.data, 3);
-            console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
-            $scope.readMore = function(id, indexid) {
+    $scope.moreDesc = {};
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+        $scope.SingleDealsPackages10 = data.data;
+        $scope.SingleDealsPackages = _.chunk(data.data, 3);
+        console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
+        $scope.readMore = function(id, indexid) {
 
-                console.log(id);
-                $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-                console.log($scope.moreDesc);
-                $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
-                    return n._id == id;
-                    // console.log($scope.myDesc);
-                }).description;
-            };
-
-        });
-        $scope.myWish = function(id) {
-
-            if ($.jStorage.get("loginDetail") == null) {
-
-                console.log("am in if");
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlistsigup.html',
-                    scope: $scope
-                        // backdropClass: 'backcolor'
-                });
-            } else {
-                NavigationService.wishList(id, function(data) {
-
-                    console.log("wishlist", data);
-                })
-            }
-
+            console.log(id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
+                return n._id == id;
+                // console.log($scope.myDesc);
+            }).description;
         };
-        $scope.addedToWishList = function() {
-            if ($.jStorage.get("loginDetail") != null) {
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlist.html',
-                    scope: $scope
-                        // backdropClass: 'backcolor'
-                });
-            }
 
+    });
+    $scope.myWish = function(id) {
+
+        if ($.jStorage.get("loginDetail") == null) {
+
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
+        } else {
+            NavigationService.wishList(id, function(data) {
+
+                console.log("wishlist", data);
+            })
         }
-        $scope.buy = function(id) {
-            if ($.jStorage.get("loginDetail") == null) {
 
-                console.log("am in if");
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlistsigup.html',
-                    scope: $scope
-
-                });
-            } else {
-                // NavigationService.buyOnline(id, function(data) {
-                //
-                //     console.log("buyOnline", data);
-                // })
-            }
+    };
+    $scope.addedToWishList = function() {
+        if ($.jStorage.get("loginDetail") != null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlist.html',
+                scope: $scope
+                    // backdropClass: 'backcolor'
+            });
         }
+
+    }
+    $scope.buy = function(id) {
+        if ($.jStorage.get("loginDetail") == null) {
+
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+
+            });
+        } else {
+            // NavigationService.buyOnline(id, function(data) {
+            //
+            //     console.log("buyOnline", data);
+            // })
+        }
+    }
 
 })
 
@@ -638,6 +638,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
+    $scope.moreDesc = {};
+    NavigationService.getLeader(function(data) {
+        $scope.leadership = data.data;
+        console.log("leadership", $scope.leadership);
+        $scope.readMore = function(id, indexid) {
+
+            console.log(id);
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            console.log($scope.moreDesc);
+            $scope.myDesc = _.find($scope.leadership, function(n) {
+                return n._id == id;
+
+            }).description;
+        };
+    })
+
+
 })
 
 .controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
@@ -761,7 +778,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-       $scope.today = function() {
+    $scope.today = function() {
         $scope.dt = new Date();
     };
     $scope.today();
@@ -852,15 +869,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return '';
     }
 
-  $scope.showDiv = false;
+    $scope.showDiv = false;
 
     $scope.openShowDiv = function() {
         $scope.showDiv = true;
 
     }
-    $scope.showNow=false;
+    $scope.showNow = false;
 
-     $scope.openShowNow = function() {
+    $scope.openShowNow = function() {
         $scope.showNow = true;
 
     }
@@ -921,14 +938,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 })
 
-.controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams ,$state, $filter) {
+.controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("snow-rush");
     $scope.menutitle = NavigationService.makeactive("Snow Rush");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-$scope.$on('$viewContentLoaded', function() {
+    $scope.$on('$viewContentLoaded', function() {
         $(window).scroll(function() {
             var scroller = $(document).scrollTop();
             var height = $(window).height() - 40;
@@ -949,8 +966,8 @@ $scope.$on('$viewContentLoaded', function() {
     $scope.mySlides12 = [
         'img/new/slid.png',
         'img/new/slid.png',
-         'img/new/slid.png',
-          'img/new/slid.png',
+        'img/new/slid.png',
+        'img/new/slid.png',
         'img/new/slid.png'
     ];
 
@@ -1054,7 +1071,7 @@ $scope.$on('$viewContentLoaded', function() {
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
@@ -1302,24 +1319,24 @@ $scope.$on('$viewContentLoaded', function() {
         return '';
     }
 
-$scope.direct=function(){
-  $uibModal.open({
-      animation: true,
-      templateUrl: "views/modal/host-popup.html",
-      scope: $scope,
-      windowClass: "no-white-bg"
-  });
+    $scope.direct = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/host-popup.html",
+            scope: $scope,
+            windowClass: "no-white-bg"
+        });
 
-};
+    };
 
-$scope.direction=function(){
-$uibModal.open({
-    animation:true,
-    templateUrl:"views/modal/hosts-popup.html",
-    scope:$scope,
-     windowClass: "no-white-bg"
-})
-};
+    $scope.direction = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/hosts-popup.html",
+            scope: $scope,
+            windowClass: "no-white-bg"
+        })
+    };
 
 })
 
@@ -1498,7 +1515,7 @@ $uibModal.open({
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
     })
 
-    })
+})
 
 .controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
@@ -1506,7 +1523,7 @@ $uibModal.open({
     $scope.menutitle = NavigationService.makeactive("Events Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-     $scope.today = function() {
+    $scope.today = function() {
         $scope.dt = new Date();
     };
     $scope.today();
@@ -1597,17 +1614,17 @@ $uibModal.open({
         return '';
     }
 
-    $scope.formData={};
-$scope.formSubmit=function(){
-  console.log("formData",  $scope.formData);
-}
+    $scope.formData = {};
+    $scope.formSubmit = function() {
+        console.log("formData", $scope.formData);
+    }
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
     })
 
 
-    })
+})
 
 
 

@@ -229,6 +229,14 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
             }).success(callback);
         },
+
+        getLeader: function(callback) {
+            $http({
+                url: adminurl + 'leader/getAllLeader',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
         // buyOnline: function(id,callback) {
         //   console.log("nAV",id);
         //     var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
