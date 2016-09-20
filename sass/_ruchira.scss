@@ -673,6 +673,19 @@ $brand-white:#fff !default;
     height: 80px;
   }
 }
+.snow-bg{
+  background-image: url("../img/new/ban.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-top: 0px;
+      height: 100px;
+      margin-top: 0px;
+  .nav-name{
+    padding: 35px 0 0;
+    font-size: 30px;
+    height: 80px;
+  }
+}
 
 .drink,.event{
   .greeny{
@@ -2362,7 +2375,14 @@ p,span{
 }
 
 .custom{
+  
   .forms{
+    .form-group{
+      p{
+        font-size: 12px;
+    font-style: italic;
+      }
+    }
   .form-control{
         height: 40px;
         border-radius: 10px;
@@ -2378,6 +2398,7 @@ p,span{
       color: $brand-red;
     }
    .game-type{
+     width: 20%;
      a{
        color: #000;
      }
@@ -2415,7 +2436,7 @@ p,span{
     a{
       position: absolute;
     top: 10px;
-    right: 30%;
+    right: 10px;
     color: #000;
     }
     .solution{
@@ -2436,7 +2457,7 @@ p,span{
     .required{
       position: absolute;
     top: 5px;
-    right: 32%;
+    right: 10px;
     font-size: 8px;
     color: #ea1c22;
     }
