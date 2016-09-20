@@ -1494,8 +1494,8 @@ $uibModal.open({
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.detailExploreSmaash = data.data;
-        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+        $scope.detailDealsInner = data.data;
+        console.log("$scope.detailDealsInner", $scope.detailDealsInner);
     })
 
     })
@@ -1602,8 +1602,8 @@ $scope.formSubmit=function(){
   console.log("formData",  $scope.formData);
 }
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.detailExploreSmaash = data.data;
-        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+        $scope.detailEventsInner = data.data;
+        console.log("$scope.detailEventsInner", $scope.detailEventsInner);
     })
 
 

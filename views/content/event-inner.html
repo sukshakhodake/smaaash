@@ -1,12 +1,12 @@
 <div class="deals-event">
-   <div class="landing-kartbanner">
+   <div class="landing-kartbanner" ng-style="{'background':'url('+detailEventsInner.banner+')no-repeat'}">
       <div class="pink-butn" ng-click="scrollToSnow;">
          <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
       </div>
    </div>
    <div class="snow-bg" id="toSnow">
       <div class="container">
-         <h2 class="nav-name center" ng-bind-html="detailExploreSmaash.hometext">smaaash cricket carnival</h2>
+         <h2 class="nav-name center" ng-bind-html="detailEventsInner.hometext">smaaash cricket carnival</h2>
       </div>
    </div>
    <div class="container">
@@ -14,7 +14,7 @@
          <div class="slant-row">
             <div class="slant-col">
                <div class="slant-box full-height">
-                  <div ng-bind-html="detailExploreSmaash.description"></div>
+                  <div ng-bind-html="detailEventsInner.description"></div>
                   <!-- <h2>EVENT DESCRIPTION</h2>
               <p>Smaaash Cricket Carnival is the stuff dreams are made of. Form your team of 6 (5 + 1 Sub) and face the bowling legends of cricket in Smaaash Cricket. What’s up for grabs you ask? How about a chance of winning cash prizes worth Rs 16 Lakhs, and a chance to represent Team Tendulkar or Team Kohli? The registrations open on May 25, 2016. Time to put your pads on and bring out the big shots.</p> -->
                   <div class="button-set">
