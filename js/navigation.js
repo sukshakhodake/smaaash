@@ -131,6 +131,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        eventInnerForm: function(userData, callback) {
+
+            $http({
+                url: adminurl + 'enquiry/save',
+                method: 'POST',
+
+                data: userData
+
+            }).success(callback);
+        },
         subscribe: function(subscribeData, callback) {
 
             $http({
@@ -142,10 +152,12 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getHomeBanner: function(callback) {
+          var data={city:$.jStorage.get("cityid")};
             $http({
                 url: adminurl + 'configtwo/getAll',
                 method: 'POST',
-                withCredentials: true
+                withCredentials: true,
+                data:data
             }).success(callback);
         },
         getSingleExploreSmaaash: function(id,callback) {

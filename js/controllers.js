@@ -507,7 +507,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
     $scope.fetchData();
-
+    NavigationService.getMediaGallery(function(data) {
+        $scope.mediagallery = data.data;
+        console.log("$scope.mediagallery", $scope.mediagallery);
+    })
 
 })
 
@@ -1617,13 +1620,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.formData = {};
+    $scope.formComplete = false;
+    $scope.exist=false;
+    $scope.formData.varstatus="eventRegistration";
     $scope.formSubmit = function() {
         console.log("formData", $scope.formData);
+        if ($scope.formData) {
+            NavigationService.eventInnerForm($scope.formData, function(data) {
+
+                if (data.data.value === false) {
+                  $scope.exist=true;
+                    $scope.formComplete = false;
+                    console.log("iminelseif", data);
+                } else  {
+                    console.log("iminif", data);
+                    $scope.formComplete = true;
+                    $scope.exist=false;
+                    $timeout(function() {
+                        $scope.formComplete = false;
+                        $scope.exist=false;
+                        $scope.formData = {};
+                    }, 2000);
+                }
+            })
+        }
     }
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
-        $scope.detailEventsInner.banner=$filter('uploadpath')($scope.detailEventsInner.banner);
+        $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
     })
 
 })
