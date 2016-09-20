@@ -1,127 +1,131 @@
 <div class="deals-event">
-<div class="landing-kartbanner">
-    <div class="pink-butn" ng-click="scrollToSnow;">
+   <div class="landing-kartbanner">
+      <div class="pink-butn" ng-click="scrollToSnow;">
          <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
       </div>
-</div>
-<div class="snow-bg" id="toSnow">
-  <div class="container">
-      <h2 class="nav-name center">smaaash cricket carnival</h2>
+   </div>
+   <div class="snow-bg" id="toSnow">
+      <div class="container">
+         <h2 class="nav-name center" ng-bind-html="detailExploreSmaash.hometext">smaaash cricket carnival</h2>
       </div>
-    </div>
-    <div class="container">
-  <div class="karting1">
-    <div class="slant-row">
-        <div class="slant-col">
-            <div class="slant-box full-height">
-                <h2>EVENT DESCRIPTION</h2>
-              <p>Smaaash Cricket Carnival is the stuff dreams are made of. Form your team of 6 (5 + 1 Sub) and face the bowling legends of cricket in Smaaash Cricket. What’s up for grabs you ask? How about a chance of winning cash prizes worth Rs 16 Lakhs, and a chance to represent Team Tendulkar or Team Kohli? The registrations open on May 25, 2016. Time to put your pads on and bring out the big shots.</p>
-<div class="button-set">
-                        <ul class="social-icons list-inline inline-block">
-                           <p class="inline-block">Share</p>
-                           <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                           <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                           <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                        </ul>
-                        <div class="more inline-block">
-                           <button class="uppercase green">Buy Now</button>
-                        </div>
+   </div>
+   <div class="container">
+      <div class="karting1">
+         <div class="slant-row">
+            <div class="slant-col">
+               <div class="slant-box full-height">
+                  <div ng-bind-html="detailExploreSmaash.description"></div>
+                  <!-- <h2>EVENT DESCRIPTION</h2>
+              <p>Smaaash Cricket Carnival is the stuff dreams are made of. Form your team of 6 (5 + 1 Sub) and face the bowling legends of cricket in Smaaash Cricket. What’s up for grabs you ask? How about a chance of winning cash prizes worth Rs 16 Lakhs, and a chance to represent Team Tendulkar or Team Kohli? The registrations open on May 25, 2016. Time to put your pads on and bring out the big shots.</p> -->
+                  <div class="button-set">
+                     <ul class="social-icons list-inline inline-block">
+                        <p class="inline-block">Share</p>
+                        <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                     </ul>
+                     <div class="more inline-block">
+                        <button class="uppercase green">Buy Now</button>
                      </div>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="slant-column pull-right">
-                <div class="slant-box half-height">
-                    <h2>REGISTRATION</h2>
-                       <form class="form registerate">
+            <div class="slant-column pull-right">
+               <div class="slant-box half-height">
+                  <h2>REGISTRATION</h2>
+                  <form class="form registerate" name="registration" ng-submit="formSubmit(formData)">
                      <div class="form-group relative">
-                        <input type="text" class=" form-control" placeholder="Name" required>
+                        <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="formData.name" required>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="registration.name.$error.required && registration.name.$touched">Please Enter Your Name </div>
                      </div>
                      <div class="form-group relative">
                         <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="formData.email" required>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                       
+                        <div class="error-msg" ng-show="registration.email.$error.required && registration.email.$touched">Please Enter Your Email </div>
                      </div>
                      <div class="form-group relative ">
                         <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                        
+                        <div class="error-msg" ng-show="registration.mobile.$error.required && registration.mobile.$touched">Please Enter Your Mobile .No </div>
                      </div>
                      <div class="form-group">
 
                         <input type="text" class="form-control" placeholder="Date of Birth" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" />
+
                         <a href="" class="down"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                      </div>
                      <button type="submit" class=" btn6 btn-default block"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
                   </form>
-                </div>
-        </div>
-    </div>
-   </div>
-     <div class="karting1">
-    <div class="slant-row">
-        <div class="slant-col">
-            <div class="slant-box full-height">
-                <h2>PRIZES</h2>
-               <div class="prize-name ">
-                   <p class="inline-block">National Winner:-</p>
-                   <div class="prize-value inline-block">
-                   <p><span class="orange">`5,00,000 </span> (Winner) </p>
-                   <p><span class="orange">`3,00,000  </span> (Runner Up)</p>
-               </div>               
                </div>
-                 <div class="prize-name ">
-                   <p class="inline-block"> League Rounds:- </p>
-                   <div class="prize-value inline-block">
-                   <p><span class="orange">Trophies & Kits </span>(Under 16)</p>
-                   <p><span class="orange"> `50,000 & `25,000  </span>(Corpate) </p>
-                   <p><span class="orange"> `15,000 & `10,000  </span>(College)</p>
-                   <p><span class="orange"> `50,000 & `25,000  </span>(Open)</p>
-                   <p><span class="orange"> `15,000 & `10,000 </span> (Women)</p>
-               </div>               
-               </div>
-                                                                                                                                  
             </div>
-                                              
-        </div>
-        <div class="slant-column pull-right">
-                <div class="slant-box half-height">
-                    <h2>SCHEDULE</h2>
-                        <div class="prize-name ">
-                   <p class="inline-block"> Registration Fees:-</p>
-                   <div class="prize-value inline-block">
-                   <p><span class="orange">  `750      </span> (Under 16)</p>
-                   <p><span class="orange">  `1000    </span> (Under 25) </p>
-                    <p><span class="orange">  `2000       </span> (Corpate)</p>
-                     <p><span class="orange">   `2000     </span> (Open)</p>
-                    <p><span class="orange">    `1000     </span> (Women) </p>
-                     
-               </div>               
-               </div>
-                 <div class="prize-name ">
-                   <div class="prize-value inline-block">
-                   <p>Registration Begin:-<span class="orange"> 25th May 2016 </span></p>
-                   <p>League Rounds:-<span class="orange">   25th May to 16th Aug 2016 </span></p>
-                   <p>Knockout Phase:-<span class="orange">   20th Aug to 4th Sep 2016  </span></p>
-               </div>               
-               </div>
-                  
-                  <div class="button-sets">
-  <button class="uppercase green">Buy Now</button>
-    <button class="uppercase blue">download</button>
-                  </div>                                                                                                                                               
-                </div>
-        </div>
-    </div>
-   </div>
-   <div class="deals-details">
-<h3>deal description</h3>
-<p>Each team will get 10 overs (8 match overs + 2 trail overs) to put their highest possible total on the board | Level: Amateur (for all categories) | Teams can register and play any day/any time during Smaaash center operational hours (regular waiting applicable) | Teams can re-register to try and score better through the league phase till August 16, 2016 | All scores will be displayed on the leader board at Smaaash Center.</p>
-<div class="button-set">
-                        <div class="more">
-                           <button class="uppercase brand-orangy">terms and conditions</button>
-                        </div>
+         </div>
+      </div>
+      <div class="karting1">
+         <div class="slant-row">
+            <div class="slant-col">
+               <div class="slant-box full-height">
+                  <h2>PRIZES</h2>
+                  <div class="prize-name ">
+                     <p class="inline-block">National Winner:-</p>
+                     <div class="prize-value inline-block">
+                        <p><span class="orange">`5,00,000 </span> (Winner) </p>
+                        <p><span class="orange">`3,00,000  </span> (Runner Up)</p>
                      </div>
+                  </div>
+                  <div class="prize-name ">
+                     <p class="inline-block"> League Rounds:- </p>
+                     <div class="prize-value inline-block">
+                        <p><span class="orange">Trophies & Kits </span>(Under 16)</p>
+                        <p><span class="orange"> `50,000 & `25,000  </span>(Corpate) </p>
+                        <p><span class="orange"> `15,000 & `10,000  </span>(College)</p>
+                        <p><span class="orange"> `50,000 & `25,000  </span>(Open)</p>
+                        <p><span class="orange"> `15,000 & `10,000 </span> (Women)</p>
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+            <div class="slant-column pull-right">
+               <div class="slant-box half-height">
+                  <h2>SCHEDULE</h2>
+                  <div class="prize-name ">
+                     <p class="inline-block"> Registration Fees:-</p>
+                     <div class="prize-value inline-block">
+                        <p><span class="orange">  `750      </span> (Under 16)</p>
+                        <p><span class="orange">  `1000    </span> (Under 25) </p>
+                        <p><span class="orange">  `2000       </span> (Corpate)</p>
+                        <p><span class="orange">   `2000     </span> (Open)</p>
+                        <p><span class="orange">    `1000     </span> (Women) </p>
+
+                     </div>
+                  </div>
+                  <div class="prize-name ">
+                     <div class="prize-value inline-block">
+                        <p>Registration Begin:-<span class="orange"> 25th May 2016 </span></p>
+                        <p>League Rounds:-<span class="orange">   25th May to 16th Aug 2016 </span></p>
+                        <p>Knockout Phase:-<span class="orange">   20th Aug to 4th Sep 2016  </span></p>
+                     </div>
+                  </div>
+
+                  <div class="button-sets">
+                     <button class="uppercase green">Buy Now</button>
+                     <button class="uppercase blue">download</button>
+                  </div> 
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="deals-details">
+         <h3>deal description</h3>
+         <p>Each team will get 10 overs (8 match overs + 2 trail overs) to put their highest possible total on the board | Level: Amateur (for all categories) | Teams can register and play any day/any time during Smaaash center operational hours (regular
+            waiting applicable) | Teams can re-register to try and score better through the league phase till August 16, 2016 | All scores will be displayed on the leader board at Smaaash Center.</p>
+         <div class="button-set">
+            <div class="more">
+               <button class="uppercase brand-orangy">terms and conditions</button>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-    </div>
-    </div>

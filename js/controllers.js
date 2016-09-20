@@ -343,7 +343,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('EventCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EventCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -367,7 +367,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
-.controller('DealspCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('DealspCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
@@ -1493,6 +1493,10 @@ $uibModal.open({
     $scope.menutitle = NavigationService.makeactive("Deals Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+        $scope.detailExploreSmaash = data.data;
+        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+    })
 
     })
 
@@ -1502,6 +1506,16 @@ $uibModal.open({
     $scope.menutitle = NavigationService.makeactive("Events Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.formData={};
+$scope.formSubmit=function(){
+  console.log("formData",  $scope.formData);
+}
+    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+        $scope.detailExploreSmaash = data.data;
+        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+    })
+
 
     })
 
