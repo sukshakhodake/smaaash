@@ -2034,7 +2034,7 @@ a{
         position: relative;
         .slidings {
             .custom-pagination {
-                @include position(absolute,null null 32px 20px);
+                @include position(absolute,null null 37px 20px);
                 margin: 0;
                 li {
                     float: left;

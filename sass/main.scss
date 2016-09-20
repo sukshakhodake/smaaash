@@ -304,7 +304,7 @@ $menu-height: 80px !default;
 
     .slidings {
         .custom-pagination {
-            @include position(absolute,null 20px 32px null);
+            @include position(absolute,null 20px 37px null);
             margin: 0;
 
             li {
@@ -1615,6 +1615,11 @@ img.fancybox-image {
             height: 287px;
             }
         }
+        .slant-box{
+            p{
+                font-size: 14px;
+            }
+        }
 
 .slant-column{
     width: 47%;
@@ -1638,7 +1643,7 @@ img.fancybox-image {
             }
 
 .button-set{
-    padding-top: 75px;
+    padding-top: 50px;
 }
 
                 .required{
@@ -1681,6 +1686,7 @@ img.fancybox-image {
     font-weight: 600;
 }
 .button-sets{
+    margin-top: 4px;
     button+button{
     margin-left: 15px;
     }
