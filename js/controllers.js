@@ -973,6 +973,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailExploreSmaash = data.data;
+        $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+
         console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
     })
 })
@@ -1621,8 +1623,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
+        $scope.detailEventsInner.banner=$filter('uploadpath')($scope.detailEventsInner.banner);
     })
-
 
 })
 

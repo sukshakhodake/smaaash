@@ -212,6 +212,14 @@ var navigationservice = angular.module('navigationservice', [])
                 data:data
             }).success(callback);
         },
+        getMediaGallery: function(callback) {
+            $http({
+                url: adminurl + 'mediagallery/getAllMediaGallery',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+
         // userWishList: function(callback) {
         //     var data = {user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
         //     $http({
