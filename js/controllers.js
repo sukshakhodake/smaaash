@@ -510,6 +510,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getMediaGallery(function(data) {
         $scope.mediagallery = data.data;
         console.log("$scope.mediagallery", $scope.mediagallery);
+    });
+    NavigationService.getCity(function(data){
+      $scope.allCity=data.data;
     })
 
 })
@@ -884,8 +887,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showNow = true;
 
     }
+$scope.customizeformData={};
+$scope.submit=function(){
+  console.log("$scope.customizeformData",$scope.customizeformData);
 
-
+}
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1624,24 +1630,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.formData = {};
     $scope.formComplete = false;
-    $scope.exist=false;
-    $scope.formData.varstatus="eventRegistration";
+    $scope.exist = false;
+    $scope.formData.varstatus = "eventRegistration";
     $scope.formSubmit = function() {
         console.log("formData", $scope.formData);
         if ($scope.formData) {
             NavigationService.eventInnerForm($scope.formData, function(data) {
 
                 if (data.data.value === false) {
-                  $scope.exist=true;
+                    $scope.exist = true;
                     $scope.formComplete = false;
                     console.log("iminelseif", data);
-                } else  {
+                } else {
                     console.log("iminif", data);
                     $scope.formComplete = true;
-                    $scope.exist=false;
+                    $scope.exist = false;
                     $timeout(function() {
                         $scope.formComplete = false;
-                        $scope.exist=false;
+                        $scope.exist = false;
                         $scope.formData = {};
                     }, 2000);
                 }

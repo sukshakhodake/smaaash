@@ -1,11 +1,11 @@
 <div class="attractions custom events1">
-    <div class="backg-eve">
-        <div class="container">
-            <h2 class="nav-name center">Customize Your Package</h2>
-        </div>
-    </div>
+   <div class="backg-eve">
+      <div class="container">
+         <h2 class="nav-name center">Customize Your Package</h2>
+      </div>
+   </div>
 
-        <!--<div class="forms">
+   <!--<div class="forms">
 <div class="container">
             <div class="game-type inline-block">
                 <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -132,13 +132,13 @@
          <form action="" class="help-form ">
             <div class="form-group ">
                <div class="radio text-center">
-                  <input type="radio" id="radio5" name="food-style" value="vegeterian" required>
+                  <input type="radio" id="radio5" name="food-style" value="vegeterian" ng-model="customizeformData.foodStyle" required>
                   <label for="radio5">
                      <span></span> Vegeterian</label>
-                  <input type="radio" id="radio6" name="food-style" value="non-vegeterian" required>
+                  <input type="radio" id="radio6" name="food-style" value="non-vegeterian" ng-model="customizeformData.foodStyle" required>
                   <label for="radio6">
                      <span></span> Non-vegeterian</label>
-                  <input type="radio" id="radio7" name="food-style" value="both" required>
+                  <input type="radio" id="radio7" name="food-style" value="both" ng-model="customizeformData.foodStyle"  required>
                   <label for="radio7">
                      <span></span> Both</label>
                </div>
@@ -153,10 +153,10 @@
                         <label for="starter">starter</label>
                         <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                        <select class="form-control" id="starter">
-                           <option>00</option>
-                           <option>00</option>
-                           <option>00</option>
+                        <select class="form-control" id="starter" ng-model="customizeformData.starter">
+                           <option value="01">01</option>
+                           <option value="02">02</option>
+                           <option value="03">03</option>
                         </select>
                      </div>
                   </div>
@@ -165,10 +165,10 @@
                         <label for="desert">dessert</label>
                         <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                        <select class="form-control" id="desert">
-                           <option>00</option>
-                           <option>00</option>
-                           <option>00</option>
+                        <select class="form-control" id="desert" ng-model="customizeformData.dessert">
+                           <option value="01">01</option>
+                           <option value="02">02</option>
+                           <option value="03">03</option>
                         </select>
                      </div>
                   </div>
@@ -182,10 +182,10 @@
                            <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                         </div>
 
-                        <select class="form-control" id="main-course">
-                           <option>00</option>
-                           <option>00</option>
-                           <option>00</option>
+                        <select class="form-control" id="main-course" ng-model="customizeformData.mainCourse">
+                           <option value="01">01</option>
+                           <option value="02">02</option>
+                           <option value="03">03</option>
                         </select>
                      </div>
                   </div>
@@ -193,10 +193,10 @@
                      <div class="form-group ">
                         <label>alcohol</label>
                         <div class="radio text-center">
-                           <input type="radio" id="radio8" name="alcohol-style" value="yes" required>
+                           <input type="radio" id="radio8" name="alcohol-style" value="yes" ng-model="customizeformData.alcoholStyle" required>
                            <label for="radio8">
                               <span></span> yes</label>
-                           <input type="radio" id="radio9" name="alcohol-style" value="no" required>
+                           <input type="radio" id="radio9" name="alcohol-style" value="no" ng-model="customizeformData.alcoholStyle" required>
                            <label for="radio9">
                               <span></span> no</label>
                         </div>
@@ -207,61 +207,61 @@
 
 
          </form>
-   <div class="entry-form1" ng-hide="showDiv">
-         <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
-         <p class="text-center">
-            Our executive will revert shortly
-         </p>
-         <form class=" forms entry-form text-center" action="index.html" method="post">
-            <div class="form-group relative">
-               <input type="text" class=" form-control" placeholder="Name" required>
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+         <div class="entry-form1" ng-hide="showDiv">
+            <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
+            <p class="text-center">
+               Our executive will revert shortly
+            </p>
+            <form class=" forms entry-form text-center" action="index.html" method="post">
+               <div class="form-group relative">
+                  <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name"required>
+                  <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
-            </div>
-            <div class="form-group relative">
-               <input type="tel" class=" form-control" placeholder="Mobile no." required>
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+               </div>
+               <div class="form-group relative">
+                  <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required>
+                  <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
-            </div>
-            <div class="form-group relative">
-               <input type="email" class=" form-control" placeholder="Email ID" name="email" required>
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+               </div>
+               <div class="form-group relative">
+                  <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="customizeformData.email" name="email" required>
+                  <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
-            </div>
-            <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
-         </form>
-      </div>
-      <div class="entry-form2" ng-if="showDiv" ng-hide="showNow">
-         <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
-         <p class="text-center">
-            Our executive will revert shortly
-         </p>
-         <form class=" forms entry-form text-center" action="index.html" method="post">
-            <div class="form-group relative">
-               <input type="tel" class=" form-control" placeholder="Mobile no." required>
-               <span class="required needed"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-               <p>Want to change your Mobile Number ?</p>
+               </div>
+               <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+            </form>
+         </div>
+         <div class="entry-form2" ng-if="showDiv" ng-hide="showNow">
+            <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
+            <p class="text-center">
+               Our executive will revert shortly
+            </p>
+            <form class=" forms entry-form text-center" action="index.html" method="post">
+               <div class="form-group relative">
+                  <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required>
+                  <span class="required needed"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  <p>Want to change your Mobile Number ?</p>
 
-            </div>
-            <div class="form-group relative">
-               <input type="email" class=" form-control" placeholder="Email ID" name="email" required>
-               <span class="required needed"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-               <p>Want to change your Email ID ?</p>
-            </div>
-            <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
-         </form>
-      </div>
-      <div class="entry-form3" ng-if="showNow">
-         <div class="get-call">
-            <h3 class="text-center">thank you</h3>
-            <p class="text-center">we will get back to you soon</p>
-            <div class="checkout text-center">
-               <span>Check Out</span>
-               <button type="submit" class="btn6  btn-default"><img src="img/new/pay.png" class="img-responsive" alt=""></button>
+               </div>
+               <div class="form-group relative">
+                  <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="customizeformData.email" required>
+                  <span class="required needed"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  <p>Want to change your Email ID ?</p>
+               </div>
+               <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow();submit(customizeformData)"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+            </form>
+         </div>
+         <div class="entry-form3" ng-if="showNow">
+            <div class="get-call">
+               <h3 class="text-center">thank you</h3>
+               <p class="text-center">we will get back to you soon</p>
+               <div class="checkout text-center">
+                  <span>Check Out</span>
+                  <button type="submit" class="btn6  btn-default"><img src="img/new/pay.png" class="img-responsive" alt=""></button>
+               </div>
             </div>
          </div>
       </div>
-      </div>
-   
+
    </div>
 </div>
