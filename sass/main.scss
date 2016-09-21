@@ -1425,6 +1425,7 @@ $menu-height: 80px !default;
     background-position: center;
     margin-top: -38px;
     min-height: 767px;
+    background-size: cover;
 
     .karting-banner {
         max-width: 1170px;
@@ -1586,6 +1587,7 @@ img.fancybox-image {
 .deals-event{
     .landing-kartbanner {
          background-image: url("../img/new/banner.png");
+         background-size: cover;
     }
      ul {
             margin: 0;
@@ -1728,6 +1730,7 @@ img.fancybox-image {
 .deals-packages {
     .landing-kartbanner {
         background-image: url("../img/new/newdeals.png");
+        background-size: cover;
     }
 
 
@@ -1860,7 +1863,7 @@ background-image: url("../img/event/bg-hdr-event.png");
           transform: translate(-50%,-50%);
       }
     }
-fancybox-opened .fancybox-skin{
+.fancybox-opened .fancybox-skin{
         box-shadow: none;
 }
 
