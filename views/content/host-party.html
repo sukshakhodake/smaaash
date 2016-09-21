@@ -242,11 +242,11 @@
                      <!-- <div ng-if="!d.hometext">No data found</div>
                      <h3 class="margin0 bluey" ng-bind-html="d.hometext"></h3> -->
                      <div class="min-h">
-                        <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description| limitTo:130"></p>
+                        <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | rmvStartEndSpace | limitTo:130"></p>
                         <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc"></p>
                         <p ng-if="!d.description"> No data found</p>
-                        <span class="capitalize bluey" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id,$index)">read more</span>
-                        <span class="capitalize bluey" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id,$index)">read less</span>
+                        <span class="capitalize bluey" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id,$index)">{{moreDesc[d._id]}}read more</span>
+                        <span class="capitalize bluey" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id,$index)">{{moreDesc[d._id]}}read less</span>
                      </div>
 
                      <div class="button-set">

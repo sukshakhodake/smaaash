@@ -65,7 +65,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.whatsnew = $scope.content["What's new"];
             console.log("$scope.whatsnew", $scope.whatsnew);
             $scope.hostParty = $scope.content["Host a party"];
-            console.log("  $scope.hostParty", $scope.hostParty);
+            console.log(" 8888888 $scope.hostParty", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
             console.log("$scope.deals", $scope.deals);
             $scope.events = $scope.content["Events"];
@@ -1203,20 +1203,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleHostParty10 = data.data;
+        // _.each($scope.SingleHostParty10,function (key) {
+        //   $scope.moreDesc[key._id]=
+        // });
         $scope.SingleHostParty = _.chunk(data.data, 3);
         console.log("$scope.SingleHostParty", $scope.SingleHostParty);
-        $scope.readMore = function(id, indexid) {
 
-            console.log(id);
-            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-            console.log($scope.moreDesc);
-            $scope.myDesc = _.find($scope.SingleHostParty10, function(n) {
-                return n._id == id;
-                // console.log($scope.myDesc);
-            }).description;
-        };
 
     });
+    $scope.readMore = function(id, indexid) {
+
+        console.log(id);
+        $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        $scope.myDesc = _.find($scope.SingleHostParty10, function(n) {
+            return n._id == id;
+            // console.log($scope.myDesc);
+        }).description;
+    };
     NavigationService.getAllHostPartySlider(function(data) {
         var i = 1;
         $scope.hostPartySlider = _.each(data.data, function(key) {
