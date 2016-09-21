@@ -114,7 +114,13 @@
     </div> -->
     <div class="dropdowns">
         <div class="container relative">
-            <a ui-sref="home" class="logo-smaash"><img src="img/home/logo.png" alt="Smaaash"></a>
+            <a ui-sref="home" class="logo-smaash">
+                <img src="img/home/logo.png" width="14" height="16" alt="Smaaash" usemap="#mapname">
+               
+                </a>
+ <map name="mapname">
+    <area shape="rect" coords="48,341,294,275" ui-sref="home" alt="alttext">
+</map>
             <div class="cities" ng-click="toggleCity()">
                 <!-- <span ng-if="$.jStorage.get('city') === null">Choose City
                     <i class="fa fa-chevron-down"></i>
