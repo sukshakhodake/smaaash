@@ -56,7 +56,9 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSlider: function(callback) {
-            var data = {city:$.jStorage.get("cityid")};
+            var data = {
+                city: $.jStorage.get("cityid")
+            };
             $http({
                 url: adminurl + 'slider/getAllSliderByOrder',
                 method: 'POST',
@@ -65,12 +67,14 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getHomeContent: function(callback) {
-            var data = {city:$.jStorage.get("cityid")};
+            var data = {
+                city: $.jStorage.get("cityid")
+            };
             $http({
                 url: adminurl + 'exploresmash/getHomeContent',
                 method: 'POST',
                 withCredentials: true,
-                data:data
+                data: data
             }).success(callback);
         },
         getExploresmash: function(request, callback) {
@@ -83,7 +87,10 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getOneExploresmash: function(id, callback) {
-          var data = {_id:id,city:$.jStorage.get("cityid")};
+            var data = {
+                _id: id,
+                city: $.jStorage.get("cityid")
+            };
             $http({
                 url: adminurl + 'exploresmash/getOne',
                 method: 'POST',
@@ -132,7 +139,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         eventInnerForm: function(userData, callback) {
-
             $http({
                 url: adminurl + 'enquiry/save',
                 method: 'POST',
@@ -152,16 +158,21 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getHomeBanner: function(callback) {
-          var data={city:$.jStorage.get("cityid")};
+            var data = {
+                city: $.jStorage.get("cityid")
+            };
             $http({
                 url: adminurl + 'configtwo/getAll',
                 method: 'POST',
                 withCredentials: true,
-                data:data
+                data: data
             }).success(callback);
         },
-        getSingleExploreSmaaash: function(id,callback) {
-            var data = {_id:id,city:$.jStorage.get("cityid")};
+        getSingleExploreSmaaash: function(id, callback) {
+            var data = {
+                _id: id,
+                city: $.jStorage.get("cityid")
+            };
 
             $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
@@ -174,13 +185,13 @@ var navigationservice = angular.module('navigationservice', [])
 
         getStars: function(request, callback) {
 
-               $http({
+            $http({
                 url: adminurl + 'star/findLImited',
                 method: 'POST',
                 withCredentials: true,
-                data:request
+                data: request
 
-                }).success(callback);
+            }).success(callback);
 
         },
         assistanceLoginSignup: function(formData, callback) {
@@ -193,8 +204,11 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+
         getAllHostPartySlider: function(callback) {
-            var data = {city:$.jStorage.get("cityid")};
+            var data = {
+                city: $.jStorage.get("cityid")
+            };
             $http({
                 url: adminurl + 'slider/getAllHostPartySlider',
                 method: 'POST',
@@ -202,8 +216,11 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        getDetailExploreSmaaash: function(id,callback) {
-            var data = {_id:id,city:$.jStorage.get("cityid")};
+        getDetailExploreSmaaash: function(id, callback) {
+            var data = {
+                _id: id,
+                city: $.jStorage.get("cityid")
+            };
 
             $http({
                 url: adminurl + 'exploresmash/getDetailExploreSmaaash',
@@ -213,15 +230,19 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        wishList: function(id,callback) {
-          console.log("nAV",id);
-            var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
+        wishList: function(id, callback) {
+            console.log("nAV", id);
+            var data = {
+                exploresmash: id,
+                user: $.jStorage.get("loginDetail").data._id,
+                city: $.jStorage.get("cityid")
+            };
 
             $http({
                 url: adminurl + 'wishlist/save',
                 method: 'POST',
                 withCredentials: true,
-                data:data
+                data: data
             }).success(callback);
         },
         getMediaGallery: function(callback) {
@@ -257,6 +278,16 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+        hostGetCall: function(formData, callback) {
+
+            $http({
+                url: adminurl + 'callenquiry/save',
+                method: 'POST',
+
+                data: formData
+
+            }).success(callback);
+        },
         // buyOnline: function(id,callback) {
         //   console.log("nAV",id);
         //     var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
@@ -270,5 +301,5 @@ var navigationservice = angular.module('navigationservice', [])
         // },
 
 
-  };
+    };
 });

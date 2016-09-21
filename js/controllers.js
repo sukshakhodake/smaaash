@@ -511,8 +511,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.mediagallery = data.data;
         console.log("$scope.mediagallery", $scope.mediagallery);
     });
-    NavigationService.getCity(function(data){
-      $scope.allCity=data.data;
+    NavigationService.getCity(function(data) {
+        $scope.allCity = data.data;
     })
 
 })
@@ -887,11 +887,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showNow = true;
 
     }
-$scope.customizeformData={};
-$scope.submit=function(){
-  console.log("$scope.customizeformData",$scope.customizeformData);
+    $scope.customizeformData = {};
+    $scope.submit = function() {
+        console.log("$scope.customizeformData", $scope.customizeformData);
 
-}
+    }
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1338,19 +1338,38 @@ $scope.submit=function(){
             animation: true,
             templateUrl: "views/modal/host-popup.html",
             scope: $scope,
+            controller: 'HostCtrl',
             windowClass: "no-white-bg"
         });
 
     };
 
     $scope.direction = function() {
+
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/hosts-popup.html",
             scope: $scope,
+            
             windowClass: "no-white-bg"
         })
     };
+    $scope.formData = {};
+    $scope.submitform=false;
+    $scope.formData.city = $.jStorage.get("cityid");
+    $scope.submitHostPopup = function() {
+        console.log("$scope.formData", $scope.formData);
+        if ($scope.formData) {
+            NavigationService.hostGetCall($scope.formData, function(data) {
+                console.log("data", data);
+                if (data.value===true) {
+
+                 $scope.submitform=true;
+
+                }
+            })
+        }
+    }
 
 })
 

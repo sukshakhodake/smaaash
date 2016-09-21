@@ -10,7 +10,7 @@
             <div class="col-md-4 col-sm-4" ng-repeat="d in data">
                <div class="karting-championship relative">
                   <div class="img-bg heights">
-                     <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+                     <img ng-src="{{d.homeimage|uploadpath}}" class="img-responsive" alt="">
                   </div>
                   <div class="restaurants">
                      <span>restaurants</span>
@@ -21,8 +21,8 @@
                         <button class="uppercase large green">Book Now</button>
                         <button class="uppercase larger green">Menu</button>
                      </div>
-                     <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | limitTo:130"></p>
-                     <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc"></p>
+                     <p ng-hide="moreDesc[d._id]">{{d.description | htmlToPlaintext|shorten:130}}</p>
+                     <p ng-show="moreDesc[d._id]">{{myDesc| htmlToPlaintext}}</p>
                      <!-- <p ng-bind-html="d.description">This Monsoon, enjoy the rains Smaaash Style! Starting 1st July get all games at packages starting at only Rs. 899!</p> -->
                      <div ng-if="!d.description">No Data Found</div>
                      <!-- <span class="capitalize greeny">read more</span> -->
@@ -58,7 +58,9 @@
                         </div>
                      </div>
                      <div class="love">
-                        <button class="uppercase">know more</button>
+                        <a href={{d.sublink}}>
+                           <button class="uppercase" ng-disabled="!d.sublink">know more</button>
+                        </a>
                      </div>
                   </div>
                </div>
