@@ -1350,7 +1350,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             animation: true,
             templateUrl: "views/modal/hosts-popup.html",
             scope: $scope,
-            
+
             windowClass: "no-white-bg"
         })
     };
@@ -1546,6 +1546,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
+          $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+
     })
 
 })

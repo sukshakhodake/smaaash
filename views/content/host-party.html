@@ -1,88 +1,3 @@
-<!-- <div class="hosting">
-  <div class="backg">
-      <div class="container">
-          <h2 class="nav-name center">host a party</h2>
-      </div>
-  </div>
-  <div class="container">
-      <div class="games">
-          <div class="rows no-flex">
-              <div class="col-flexing">
-                  <div class="gaming heigh brand-blue">
-                      <div class="anti-scew pads20">
-                          <div class="straight">
-                                <h2 class="text-center wedding">corporate <br>parties</h2>
-                              <a href=""><img src="img/corpoparties.png" class=" img-responsive" alt="smaaash cricket"></a>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-flexing">
-                  <div class="smaaash-gaming heigh brand-pink">
-                      <div class="anti-scew pads20">
-                          <div class="straight">
-                                <h2 class="text-center wedding">kitty <br>parties</h2>
-                              <a href=""><img src="img/kityparties.png" class="img-responsive" alt="cockpit 360"></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-flexing">
-                  <div class="smash-gaming">
-                      <div class="gaming heigh brand-darkblue ">
-                          <div class="anti-scew pads20">
-                              <div class="straight">
-                                <h2 class="text-center wedding">pre wedding <br>parties</h2>
-                                  <a href=""><img src="img/preparties.png" class="img-responsive" alt="snow rush"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="games">
-          <div class="rows no-flex">
-              <div class="col-flexing">
-                  <div class="gaming heigh brand-red">
-                      <div class="anti-scew pads20">
-                          <div class="straight">
-                              <h2 class="text-center wedding">birthday <br>parties</h2>
-                              <a href=""><img src="img/birthparties.png" class="img-responsive" alt="twilight bowling"></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-flexing">
-                  <div class="smaaash-gaming heigh brand-green">
-                      <div class="anti-scew pads20">
-                          <div class="straight">
-                              <h2 class="text-center wedding">team building events</h2>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-flexing">
-                  <div class="smash-gaming">
-                      <div class="gaming heigh brand-purple">
-                          <div class="anti-scew pads20">
-                              <div class="straight">
-                                    <h2 class="text-center wedding">play date</h2>
-
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div> -->
-
 <div class="host-party">
    <div class="smaash-drops hidden-xs">
       <div class="slidings">
@@ -153,10 +68,7 @@
                            <option value="kittyParty">Kitty Parties</option>
                            <option value="PreWeddingParty">Pre-Wedding Parties</option>
                         </select>
-                        <!-- <input type="text" class=" form-control" placeholder="Occasion" name="occasion" ng-model="formData.occasion" required>
-                <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                <a href="" class="arrows-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                <div class="error-msg" ng-show="user.occasion.$error.required && user.occasion.$touched">Please Enter Occasion </div> -->
+                      
                      </div>
                      <div class="form-group ">
                         <div class="radio">
@@ -242,8 +154,8 @@
                      <!-- <div ng-if="!d.hometext">No data found</div>
                      <h3 class="margin0 bluey" ng-bind-html="d.hometext"></h3> -->
                      <div class="min-h">
-                        <p ng-hide="moreDesc[d._id]" >{{d.description | htmlToPlaintext|shorten:130}}</p>
-                        <p ng-show="moreDesc[d._id]" >{{myDesc | htmlToPlaintext}}</p>
+                        <p ng-hide="moreDesc[d._id]">{{d.description | htmlToPlaintext|shorten:130}}</p>
+                        <p ng-show="moreDesc[d._id]">{{myDesc | htmlToPlaintext}}</p>
                         <p ng-if="!d.description"> No data found</p>
                         <span class="capitalize bluey" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id,$index)">read more</span>
                         <span class="capitalize bluey" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id,$index)">read less</span>
