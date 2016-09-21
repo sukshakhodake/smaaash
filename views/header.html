@@ -116,7 +116,7 @@
         <div class="container relative">
             <a ui-sref="home" class="logo-smaash">
                 <img src="img/home/logo.png" width="14" height="16" alt="Smaaash" usemap="#mapname">
-               
+
                 </a>
  <map name="mapname">
     <area shape="rect" coords="48,341,294,275" ui-sref="home" alt="alttext">
@@ -229,7 +229,7 @@
                             <div class="error-msg" ng-show="signUp.email.$error.required && signUp.email.$touched">Please Enter Your Email ID</div>
                          </div>
                          <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="signupData.mobile" required only-digits>
+                            <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="signupData.mobile" required only-digits maxlength="10" minlength="10">
 
                             <div class="error-msg" ng-show="signUp.mobile.$error.required && signUp.mobile.$touched">Please enter your mobile no. </div>
                          </div>

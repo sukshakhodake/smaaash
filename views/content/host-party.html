@@ -54,7 +54,7 @@
                         <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email ID </div>
                      </div>
                      <div class="form-group relative ">
-                        <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits>
+                        <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="formData.mobile" required only-digits maxlength="10" minlength="10">
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                         <div class="error-msg" ng-show="user.mobile.$error.required && user.mobile.$touched">Please enter your mobile no. </div>
                      </div>
@@ -68,7 +68,7 @@
                            <option value="kittyParty">Kitty Parties</option>
                            <option value="PreWeddingParty">Pre-Wedding Parties</option>
                         </select>
-                      
+
                      </div>
                      <div class="form-group ">
                         <div class="radio">
