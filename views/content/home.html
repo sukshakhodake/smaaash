@@ -1,8 +1,12 @@
 <div class="landing-banner" >
-   <div class="inner" auto-height ng-style="{'background':'url('+banner[0].homebanner+')no-repeat'}" fancybox-box  data-fancybox-type="iframe" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto"  href="https://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" width="560px" height="349px" >
+   <div class="inner" auto-height ng-if="!banner[0].homebanner && banner[0].homebanner ==''" fancybox-box  data-fancybox-type="iframe" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto"  href="https://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" width="560px" height="349px" >
 
      <img ng-src="{{banner[0].thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100" ng-if="(banner[0].thumbnail || banner[0].thumbnail != '')">
      <img ng-src="{{banner[0].videourl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(banner[0].thumbnail || banner[0].thumbnail != '')">
+   </div>
+
+   <div ng-if="banner[0].homebanner && banner[0].homebanner !=''" class="inner" auto-height ng-style="{'background':'url('+banner[0].homebanner+')no-repeat'}" fancybox-box  data-fancybox-type="iframe" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto" >
+
    </div>
 
 <!-- <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{moviefindOne.theatricalTrailerUrl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" data-fancybox-type="iframe">
