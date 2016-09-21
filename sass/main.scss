@@ -1420,12 +1420,11 @@ $menu-height: 80px !default;
 .landing-kartbanner {
     position: relative;
     background-image: url("../img/new/banner.png");
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     margin-top: -38px;
     min-height: 767px;
-    background-size: cover;
+    background-size: cover!important;
 
     .karting-banner {
         max-width: 1170px;
