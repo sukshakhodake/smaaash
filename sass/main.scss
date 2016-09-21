@@ -1860,9 +1860,37 @@ background-image: url("../img/event/bg-hdr-event.png");
           transform: translate(-50%,-50%);
       }
     }
+fancybox-opened .fancybox-skin{
+        box-shadow: none;
+}
+
+.fancybox-skin {
+    position: relative;
+    background:transparent;
+    box-shadow: none;
+    color: #444;
+    text-shadow: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+ .fancybox-close{
+     position: absolute;
+    top: 0;
+    right: 0;
+ }
+
+// .html5-video-player .video-stream{
+   
+// }
+.html5-video-player .video-click-tracking, .html5-video-player .video-stream{
+ width: 768px;
+    height: 432px;
+}
 
 
-
-    @import "fancybox-override";
     @import "ruchira";
     @import "mobile";
+    @import "fancybox-override";
+
