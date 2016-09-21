@@ -852,20 +852,21 @@ button{
   overflow-y: scroll;
 }
 .landing-banner {
-    position: relative;
+    
+    .inner {
+      position: relative;
     background-image: url("../img/home/landing-bg.jpg");
     background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
-    .iner-banner {
-        max-width: 1170px;
-        @include position(absolute,20px 0 20px 0);
-        background-image: url("../img/home/mbanner.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        cursor: pointer;
-        margin: 0 auto;
+        // max-width: 1170px;
+        // @include position(absolute,20px 0 20px 0);
+        // background-image: url("../img/home/mbanner.png");
+        // background-size: contain;
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // cursor: pointer;
+        // margin: 0 auto;
     }
 }
 .margin5{ margin-top: 5px; }

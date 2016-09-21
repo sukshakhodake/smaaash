@@ -224,21 +224,20 @@ a {
 //*main banner starts*//
 
 .landing-banner {
-    position: relative;
+    .inner-banner {
+        position: relative;
     background-image: url("../img/home/landing-bg.jpg");
     background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
-
-    .inner-banner {
-        max-width: 1170px;
-        @include position(absolute,20px 0 20px 0);
-        background-image: url("../img/home/virat.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        cursor: pointer;
-        margin: 0 auto;
+    //     max-width: 1170px;
+    //     @include position(absolute,20px 0 20px 0);
+    //     background-image: url("../img/home/virat.png");
+    //    background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    //     background-position: center;
+    //     cursor: pointer;
+    //     margin: 0 auto;
     }
 }
 //*main banner ends*//
