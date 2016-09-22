@@ -1,8 +1,15 @@
-<div ng-if="!banner[0].homebanner" class="inner" auto-height fancybox-box data-fancybox-type="iframe" frameborder="0" allowfullscreen scrolling="auto" href="https://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-  width="560px" height="349px">
-
-   <img ng-src="{{banner[0].thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100" ng-if="(banner[0].thumbnail || banner[0].thumbnail != '')">
-   <img ng-src="{{banner[0].videourl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(banner[0].thumbnail || banner[0].thumbnail != '')">
+<div ng-if="!banner[0].homebanner" class="inner relative" auto-height >
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fA1FdqRFV4U?rel=0&amp;controls=0&amp;&amp;showinfo=0&amp;modestbranding=1" frameborder="0" allowfullscreen="" style="
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+" class="">
+</iframe>
+  
 </div>
 <div class="landing-banner">
    <div ng-if="banner[0].homebanner" class="inner" auto-height ng-style="{'background':'url('+banner[0].homebanner+')no-repeat'}" fancybox-box data-fancybox-type="iframe" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto">
