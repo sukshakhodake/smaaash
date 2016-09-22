@@ -93,12 +93,15 @@
                               <button class="uppercase bluey">SELECT</button>
                            </div>
                            <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
-                           <pre>{{male}}</pre>
+
                            <p>Game For:
-                             <span class="bluey"> {{male}} | {{female}} & {{children}} </span>
-                             <!-- <span class="bluey" ng-if"data.gamefor == '1'"> male</span>
-                             <span class="bluey" ng-if"data.gamefor == '2'">female </span>
-                             <span class="bluey" ng-if"data.gamefor == '3'"> children </span> -->
+                             <span class="bluey">
+                                <span ng-repeat="per in data.gameforarray track by $index">{{per}} <span ng-if="$index<data.gameforarray.length-2">|</span>
+                             <span ng-if="$index==data.gameforarray.length-2">&</span> </span></span>
+                             <span ng-if="data.gameforarray==''"> - </span>
+                             <!-- <span class="bluey" ng-if="male == 1"> male</span>
+                             <span class="bluey" ng-if="female == 1">female </span>
+                             <span class="bluey" ng-if="children == '3'"> children </span> -->
                            </p>
                         </div>
                      </div>

@@ -927,28 +927,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("allCity", $scope.allCity);
     });
     var id = "57bc4b2aeb9c91f1025a3b55";
-
-    $scope.female="";
-    $scope.children="";
+    $scope.male = '';
+    $scope.female = '';
+    $scope.children = '';
     NavigationService.getSingleExploreSmaaash(id, function(data) {
         $scope.customizepackage = data.data;
         console.log("$scope.customizepackage", $scope.customizepackage);
-      // _.each($scope.customizepackage, function(data) {
-      //   console.log(data.gamefor[1],"888888888");
-      //     if (data.gamefor == "1") {
-      //       console.log('in if');
-      //       $scope.male="Male";
-      //     }
-      //     else if (data.gamefor === "2") {
-      //       $scope.female="Female";
-      //     }
-      //     else if (data.gamefor === "3") {
-      //         $scope.children="Children";
-      //     }
-    $scope.male=  _.find($scope.customizepackage, function(obj) {
-    return obj.gamefor === "1"
+      _.each($scope.customizepackage, function(data) {
+console.log(data.gamefor);
+data.gameforarray = [];
+_.each(data.gamefor,function(n){
+  switch (n) {
+    case '1':
+      data.gameforarray.push('Male')
+      break;
+      case '2':
+        data.gameforarray.push('Female')
+        break;
+        case '3':
+          data.gameforarray.push('Children')
+          break;
+    default:
+
+  }
+
+
+});
+$scope.male = _.indexOf(data.gamefor,'1');
+$scope.female = _.indexOf(data.gamefor,'2');
+$scope.children = _.indexOf(data.gamefor,'3');
+
+console.log($scope.male,'888888888888');
+console.log($scope.female,'999999999999');
+          // if (data.gamefor[0] === "1") {
+          //   $scope.male="Male";
+          // }
+          // if (data.gamefor[1] === "2") {
+          //   $scope.female="Female";
+          // }
+          // if (data.gamefor[2] === "3") {
+          //     $scope.children="Children";
+          // }
       });
-      console.log("***",$scope.male);
 
 
     });
