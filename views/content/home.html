@@ -43,7 +43,10 @@
                <li>
                   <div class="race relative margno">
                      <div class="img-bg">
-                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="whats-new({id:s.type._id})">
+                         <a ui-sref="whats-new({id:s.type._id})">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" >
+                         </a>
+                       
                      </div>
                      <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      <!-- <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a> -->
@@ -89,6 +92,7 @@
          <div class="slant-in brand-green">
             <div class="slant-box full-height">
                <h2 class="brand-white">DEALS AND PACKAGES</h2>
+                    <p class="pull-right  capitalize brand-white">view all</p>
                <div class="mover">
                   <div class="slidings">
                      <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
@@ -150,7 +154,10 @@
 
                   <div class="race relative margno">
                      <div class="img-bg">
-                        <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                         <a href="#">
+                             <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                         </a>
+                        
                      </div>
                      <a href="" class="buy-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
                      <!--<a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>-->
@@ -216,11 +223,13 @@
          <div class="slant-in brand-purply">
             <div class="slant-box full-height">
                <h2 class="brand-white">events</h2>
+                 <p class="pull-right  capitalize brand-white">view all</p>
                <div class="mover">
                   <div class="slidings">
                      <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="280" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
                            <a ui-sref="event({id:s.type._id})">
+                             
                               <div class="race relative">
                                  <div class="img-bg" ng-if="s.image">
                                     <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
