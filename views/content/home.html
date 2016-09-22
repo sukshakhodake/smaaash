@@ -1,5 +1,5 @@
 
-   <div ng-if="!banner[0].homebanner" class="inner" auto-height fancybox-box  data-fancybox-type="iframe" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto"  href="https://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" width="560px" height="349px" >
+   <div ng-if="!banner[0].homebanner" class="inner" auto-height fancybox-box  data-fancybox-type="iframe" frameborder="0"  allowfullscreen scrolling="auto"  href="https://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" width="560px" height="349px" >
 
      <img ng-src="{{banner[0].thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100" ng-if="(banner[0].thumbnail || banner[0].thumbnail != '')">
      <img ng-src="{{banner[0].videourl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(banner[0].thumbnail || banner[0].thumbnail != '')">

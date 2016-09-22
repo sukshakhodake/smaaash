@@ -262,12 +262,18 @@ firstapp.directive('fancyboxBox', function($document) {
                 openEffect: 'fade',
                 closeEffect: 'fade',
                 closeBtn: true,
+                 iframe : {
+     	allowfullscreen   : 'true',
+    },
+                
                 helpers: {
                     media: {}
                 }
+                
             });
         }
     };
+    // iframe.setAttribute('allowFullScreen', '');
 });
 
 firstapp.directive('autoHeight', function($compile, $parse) {
