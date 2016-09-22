@@ -888,9 +888,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showNow = true;
 
     }
+
     $scope.customizeformData = {};
-    $scope.submit = function() {
+    $scope.submit = function(formData) {
         console.log("$scope.customizeformData", $scope.customizeformData);
+        if (formData.isEmpty()) {
+          console.log("imin");
+          console.log("$scope.customizeformData",$scope.customizeformData);
+        }else {
+          console.log("tttt");
+        }
 
     }
     NavigationService.getCity(function(data) {
