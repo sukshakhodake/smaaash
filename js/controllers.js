@@ -513,6 +513,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
+        console.log("allCity",  $scope.allCity);
     })
 
 })
@@ -892,6 +893,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("$scope.customizeformData", $scope.customizeformData);
 
     }
+    NavigationService.getCity(function(data) {
+        $scope.allCity = data.data;
+        console.log("allCity",  $scope.allCity);
+    })
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {

@@ -27,35 +27,41 @@
             <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
             <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
             <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-            <select class="form-control">
-               <option>Occassion</option>
-               <option>Occassion</option>
-               <option>Occassion</option>
+            <select class="form-control" ng-model="customizeformData.occasion">
+               <option ng-selected="true" value="">Occasion</option>
+               <option value="bParty">Birthday Party</option>
+               <option value="dParty">Drink Party</option>
+               <option value="CorporateParty">Corporate Parties</option>
+               <option value="kittyParty">Kitty Parties</option>
+               <option value="PreWeddingParty">Pre-Wedding Parties</option>
 
             </select>
          </div>
          <div class="game-type inline-block">
             <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
             <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-            <select class="form-control">
-               <option>How many people</option>
-               <option>How many people</option>
-               <option>How many people</option>
+            <select class="form-control" ng-model="customizeformData.noofpeople">
+               <option ng-selected="true" value="">How Many people</option>
+               <option value="1-5">1-5</option>
+               <option value="6-10">6-10</option>
+               <option value="21-50">21-50</option>
+               <option value="51-above">51-Above</option>
 
             </select>
          </div>
          <div class=" game-type form-group inline-block">
             <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-            <input type="text" class="form-control" placeholder="Tentative date" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date"
+            <input type="text" class="form-control" placeholder="Tentative date" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="customizeformData.date"
             />
             <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
          </div>
          <div class="game-type inline-block">
             <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-            <select class="form-control">
-               <option>Hyderabad</option>
-               <option>Mumbai</option>
-               <option>Noida</option>
+            <select class="form-control" ng-model="customizeformData.city">
+               <option ng-selected="true" value="">Select City</option>
+               <option ng-repeat="data in allCity" value={{data.name}}>{{data.name}}</option>
+               <!-- <option>Mumbai</option>
+               <option>Noida</option> -->
 
             </select>
          </div>
@@ -138,7 +144,7 @@
                   <input type="radio" id="radio6" name="food-style" value="non-vegeterian" ng-model="customizeformData.foodStyle" required>
                   <label for="radio6">
                      <span></span> Non-vegeterian</label>
-                  <input type="radio" id="radio7" name="food-style" value="both" ng-model="customizeformData.foodStyle"  required>
+                  <input type="radio" id="radio7" name="food-style" value="both" ng-model="customizeformData.foodStyle" required>
                   <label for="radio7">
                      <span></span> Both</label>
                </div>
@@ -214,7 +220,7 @@
             </p>
             <form class=" forms entry-form text-center" action="index.html" method="post">
                <div class="form-group relative">
-                  <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name"required>
+                  <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name" required>
                   <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
                </div>
@@ -229,6 +235,7 @@
 
                </div>
                <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+               <!-- <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
             </form>
          </div>
          <div class="entry-form2" ng-if="showDiv" ng-hide="showNow">
@@ -248,7 +255,8 @@
                   <span class="required needed"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                   <p>Want to change your Email ID ?</p>
                </div>
-               <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow();submit(customizeformData)"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+               <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+               <!-- <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow();submit(customizeformData)"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
             </form>
          </div>
          <div class="entry-form3" ng-if="showNow">
