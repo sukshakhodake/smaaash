@@ -265,11 +265,11 @@ firstapp.directive('fancyboxBox', function($document) {
                  iframe : {
      	allowfullscreen   : 'true',
     },
-                
+
                 helpers: {
                     media: {}
                 }
-                
+
             });
         }
     };
