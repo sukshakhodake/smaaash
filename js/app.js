@@ -262,9 +262,11 @@ firstapp.directive('fancyboxBox', function($document) {
                 openEffect: 'fade',
                 closeEffect: 'fade',
                 closeBtn: true,
-                iframe: {
-                    allowfullscreen: 'true',
-                },
+
+                type:'iframe',
+                 iframe : {
+     	allowfullscreen   : 'true',
+    },
 
                 helpers: {
                     media: {}
@@ -273,7 +275,15 @@ firstapp.directive('fancyboxBox', function($document) {
             });
         }
     };
-    // iframe.setAttribute('allowFullScreen', '');
+//     iframe.setAttribute('allowFullScreen', '');
+//     $('.fancybox').fancybox({
+// 	afterLoad: function(e) {
+// 		$(e.inner).find('iframe').attr({
+// 			'webkitallowfullscreen': true,
+// 			'mozallowfullscreen': true
+// 		});
+// 	}
+// });
 });
 
 firstapp.directive('autoHeight', function($compile, $parse) {
