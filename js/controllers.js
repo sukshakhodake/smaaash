@@ -513,7 +513,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
-        console.log("allCity",  $scope.allCity);
+        console.log("allCity", $scope.allCity);
     })
 
 })
@@ -891,18 +891,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.customizeformData = {};
     $scope.submit = function(formData) {
-        console.log("$scope.customizeformData", $scope.customizeformData);
-        if (formData.isEmpty()) {
-          console.log("imin");
-          console.log("$scope.customizeformData",$scope.customizeformData);
-        }else {
-          console.log("tttt");
+
+        if (Object.keys($scope.customizeformData).length != 0) {
+
+            console.log("imin");
+            console.log("$scope.customizeformData", $scope.customizeformData);
+        } else {
+            console.log("tttt");
         }
 
     }
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
-        console.log("allCity",  $scope.allCity);
+        console.log("allCity", $scope.allCity);
     })
 })
 
@@ -1367,16 +1368,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
     $scope.formData = {};
-    $scope.submitform=false;
+    $scope.submitform = false;
     $scope.formData.city = $.jStorage.get("cityid");
     $scope.submitHostPopup = function() {
         console.log("$scope.formData", $scope.formData);
         if ($scope.formData) {
             NavigationService.hostGetCall($scope.formData, function(data) {
                 console.log("data", data);
-                if (data.value===true) {
+                if (data.value === true) {
 
-                 $scope.submitform=true;
+                    $scope.submitform = true;
 
                 }
             })
@@ -1558,7 +1559,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
-          $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+        $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
 
     })
 

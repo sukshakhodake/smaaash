@@ -90,12 +90,12 @@
             <div class="slant-box full-height">
                <h2 class="brand-white">DEALS AND PACKAGES</h2>
 
-                    <p class="pull-right  capitalize brand-white border-bot">view all</p>
+                    <p class="pull-right  capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id})">view all</p>
                <div class="mover">
                   <div class="slidings">
                      <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="320" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
-                           <a ui-sref="dealsp({id:s.type._id})">
+                           <a ui-sref="deals-inner({id:s._id})">
                               <div class="race relative">
                                  <div class="img-bg">
                                     <img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
@@ -218,13 +218,13 @@
          <div class="slant-in brand-purply">
             <div class="slant-box full-height">
                <h2 class="brand-white">events</h2>
-                 <p class="pull-right  capitalize brand-white border-bot">view all</p>
+                 <p class="pull-right  capitalize brand-white border-bot" ui-sref="event({id:events[0].type._id})">view all</p>
 
                <div class="mover">
                   <div class="slidings">
                      <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="320" animation="slide" animationLoop="true" prev-text="" next-text="">
                         <li>
-                           <a ui-sref="event({id:s.type._id})">
+                           <a ui-sref="event-inner({id:s._id})">
                               <div class="race relative">
                                  <div class="img-bg" ng-if="s.image">
                                     <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
