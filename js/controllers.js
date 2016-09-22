@@ -876,19 +876,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return '';
     }
 
-    $scope.showDiv = false;
-
-    $scope.openShowDiv = function() {
-        $scope.showDiv = true;
-
-    }
-    $scope.showNow = false;
-
-    $scope.openShowNow = function() {
-        $scope.showNow = true;
-
-    }
-
+    // $scope.showDiv = false;
+    //
+    // $scope.openShowDiv = function() {
+    //     $scope.showDiv = true;
+    //
+    // }
+    // $scope.showNow = false;
+    //
+    // $scope.openShowNow = function() {
+    //     $scope.showNow = true;
+    //
+    // }
+  $scope.showDiv = false;
+  $scope.showNow = false;
     $scope.customizeformData = {};
     $scope.submit = function(formData) {
 
@@ -896,10 +897,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             console.log("imin");
             console.log("$scope.customizeformData", $scope.customizeformData);
+                $scope.showDiv = true;
         } else {
             console.log("tttt");
         }
 
+    }
+    $scope.submit1=function(formData){
+      if (Object.keys($scope.customizeformData).length != 0) {
+
+          console.log("imin");
+          console.log("$scope.customizeformData", $scope.customizeformData);
+              $scope.showNow = true;
+      } else {
+          console.log("tttt");
+      }
     }
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
