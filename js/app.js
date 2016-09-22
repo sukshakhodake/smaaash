@@ -1,6 +1,6 @@
 // JavaScript Document
-$.jStorage.set("city","Mumbai");
-$.jStorage.set("cityid","577f4d106b78e0bc03724800");
+$.jStorage.set("city", "Mumbai");
+$.jStorage.set("cityid", "577f4d106b78e0bc03724800");
 // if (!$.jStorage.get("city")) {
 //     $.holdReady(false);
 //
@@ -83,7 +83,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'DealsCtrl'
     })
 
-     .state('deals-inner', {
+    .state('deals-inner', {
         url: "/deals-inner/:id",
         templateUrl: "views/template.html",
         controller: 'DealsInnerCtrl'
@@ -262,9 +262,9 @@ firstapp.directive('fancyboxBox', function($document) {
                 openEffect: 'fade',
                 closeEffect: 'fade',
                 closeBtn: true,
-                 iframe : {
-     	allowfullscreen   : 'true',
-    },
+                iframe: {
+                    allowfullscreen: 'true',
+                },
 
                 helpers: {
                     media: {}
@@ -369,28 +369,28 @@ firstapp.directive('onlyDigits', function() {
     };
 });
 firstapp.directive('scrolldown', function($compile, $parse) {
-  return {
-    restrict: 'EA',
-    replace: false,
-    link: function($scope, element, attrs) {
-      var $element = $(element);
-      // var windowHeight = $(window).height();
-      $scope.scrollDown = function() {
-        $('html,body').animate({
-            scrollTop: $(".second").offset().top
-          },
-          'slow');
-      }
-    }
-  };
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function($scope, element, attrs) {
+            var $element = $(element);
+            // var windowHeight = $(window).height();
+            $scope.scrollDown = function() {
+                $('html,body').animate({
+                        scrollTop: $(".second").offset().top
+                    },
+                    'slow');
+            }
+        }
+    };
 });
-firstapp.filter('rmvStartEndSpace',function () {
-return function (input) {
-if(input){
-  console.log(input);
-  return input.toString().trim();
-}
-};
+firstapp.filter('rmvStartEndSpace', function() {
+    return function(input) {
+        if (input) {
+            console.log(input);
+            return input.toString().trim();
+        }
+    };
 });
 firstapp.filter('youtubethumb', function() {
     return function(input, onlyid) {
@@ -462,8 +462,7 @@ firstapp.filter('shorten', function() {
     }
 });
 firstapp.filter('htmlToPlaintext', function() {
-   return function(text) {
-     return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
-   };
- }
-);
+    return function(text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+});

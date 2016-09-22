@@ -888,35 +888,70 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     $scope.showNow = true;
     //
     // }
-  $scope.showDiv = false;
-  $scope.showNow = false;
+    $scope.showEditForm = false;
+    $scope.showForm = false;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.showEditForm = true;
+        $scope.showForm = false;
+    } else if ($.jStorage.get("loginDetail") === null) {
+        $scope.showForm = true;
+        $scope.showEditForm = false;
+    }
+    $scope.showDiv = false;
+    $scope.showNow = false;
     $scope.customizeformData = {};
-    $scope.submit = function(formData) {
+    $scope.submitCustomizeForm = function(formData) {
+            console.log("  $scope.customizeformData", $scope.customizeformData);
+            // if (Object.keys($scope.customizeformData).length != 0) {
+            //
+            //     console.log("imin");
+            //     console.log("$scope.customizeformData", $scope.customizeformData);
+            //         $scope.showDiv = true;
+            // } else {
+            //     console.log("tttt");
+            // }
 
-        if (Object.keys($scope.customizeformData).length != 0) {
-
-            console.log("imin");
-            console.log("$scope.customizeformData", $scope.customizeformData);
-                $scope.showDiv = true;
-        } else {
-            console.log("tttt");
         }
-
-    }
-    $scope.submit1=function(formData){
-      if (Object.keys($scope.customizeformData).length != 0) {
-
-          console.log("imin");
-          console.log("$scope.customizeformData", $scope.customizeformData);
-              $scope.showNow = true;
-      } else {
-          console.log("tttt");
-      }
-    }
+        // $scope.submit1=function(formData){
+        //   if (Object.keys($scope.customizeformData).length != 0) {
+        //
+        //       console.log("imin");
+        //       console.log("$scope.customizeformData", $scope.customizeformData);
+        //           $scope.showNow = true;
+        //   } else {
+        //       console.log("tttt");
+        //   }
+        // }
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
         console.log("allCity", $scope.allCity);
-    })
+    });
+    var id = "57bc4b2aeb9c91f1025a3b55";
+
+    $scope.female="";
+    $scope.children="";
+    NavigationService.getSingleExploreSmaaash(id, function(data) {
+        $scope.customizepackage = data.data;
+        console.log("$scope.customizepackage", $scope.customizepackage);
+      // _.each($scope.customizepackage, function(data) {
+      //   console.log(data.gamefor[1],"888888888");
+      //     if (data.gamefor == "1") {
+      //       console.log('in if');
+      //       $scope.male="Male";
+      //     }
+      //     else if (data.gamefor === "2") {
+      //       $scope.female="Female";
+      //     }
+      //     else if (data.gamefor === "3") {
+      //         $scope.children="Children";
+      //     }
+    $scope.male=  _.find($scope.customizepackage, function(obj) {
+    return obj.gamefor === "1"
+      });
+      console.log("***",$scope.male);
+
+
+    });
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout) {
