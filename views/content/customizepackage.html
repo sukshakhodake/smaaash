@@ -213,23 +213,24 @@
                   </div>
                </div>
             </div>
-    <div class="entry-form1" ng-hide="showDiv">
-            <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
-            <p class="text-center">
+    <div class="entry-form1 text-center" >
+      <!--ng-hide="showDiv"-->
+            <h3>PLEASE ENTER YOUR CONTACT DETAILS</h3>
+            <p >
                Our executive will revert shortly
             </p>
             <form class=" forms entry-form text-center" >
-               <div class="form-group relative">
+               <div class="form-group inline-block  relative">
                   <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name" required>
                   <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
                </div>
-               <div class="form-group relative">
+               <div class="form-group inline-block relative">
                   <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required only-Digits  maxlength="10" minlength="10">
                   <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
                </div>
-               <div class="form-group relative">
+               <div class="form-group inline-block relative">
                   <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="customizeformData.email" name="email" required>
                   <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
@@ -238,7 +239,8 @@
                <!-- <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
             </form>
          </div>
-         <div class="entry-form2" ng-if="showDiv" ng-hide="showNow">
+         <div class="entry-form2" >
+           <!--ng-if="showDiv" ng-hide="showNow"-->
             <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
             <p class="text-center">
                Our executive will revert shortly
