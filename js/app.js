@@ -432,14 +432,19 @@ firstapp.filter('youtubethumb', function() {
 //         }
 //     };
 // });
-// firstapp.filter('rawHtml', ['$sce',
-//  function($sce) {
-//    return function(val) {
-//      console.log(val);
-//      return $sce.trustAsHtml(val);
-//    };
-//  }
-// ]);
+firstapp.filter('rawHtml', ['$sce',
+ function($sce) {
+   return function(val) {
+     console.log(val);
+     return $sce.trustAsHtml(val);
+   };
+ }
+]);
+firstapp.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
 // firstapp.filter('cut', function() {
 //     return function(value, wordwise, max, tail) {
 //         if (!value) return '';

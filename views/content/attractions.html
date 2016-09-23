@@ -4,8 +4,8 @@
          <h2 class="nav-name center">attractions</h2>
       </div>
    </div>
-     <div class="forms brand-blue">
-   <div class="container">
+   <div class="forms brand-blue">
+      <div class="container">
          <div class="search-green">
             <input type="text" class="form-control" placeholder="Search">
             <div class="microscope">
@@ -31,11 +31,11 @@
             </select>
          </div>
       </div>
-    </div>
-    <div class="container">
+   </div>
+   <div class="container">
       <div class="new">
-         <div class="row" ng-repeat="data in singleAttraction">
-            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
+         <div class="row">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in singleAttraction">
                <div class="karting-championship">
                   <div class="brand-blue relative he">
                      <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
@@ -47,8 +47,13 @@
                      </div>
                      <div class="min-h">
                         <h3 class="margin0 bluey" ng-bind-html="d.hometext"></h3>
+                        <p>Game For:
+                           <span class="bluey capitalize">
+                             <span ng-repeat="per in d.gameforarray track by $index">{{per}} <span ng-if="$index<d.gameforarray.length-2">|</span>
+                           <span ng-if="$index==d.gameforarray.length-2">&</span> </span>
+                           </span>
+                           <span ng-if="d.gameforarray==''"> - </span>
 
-                        <p>Game For: <span class="bluey capitalize">{{d.gamefor[0]}} | {{d.gamefor[1]}} <span  ng-show="d.gamefor[2]">&amp;</span> {{d.gamefor[2]}}</span>
                         </p>
                      </div>
                      <div class="button-set">

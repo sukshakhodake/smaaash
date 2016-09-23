@@ -19,6 +19,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     });
+    $scope.showVideo = false;
+    $scope.showVid = function() {
+        $scope.showVideo = true;
+
+    }
+
 
     $scope.scrollToHome = function() {
         $('html, body').animate({
@@ -91,6 +97,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("$scope.banner", $scope.banner[0].homebanner);
         $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
         console.log("$scope.banner555555555555555", $scope.banner[0].homebanner);
+        console.log($scope.banner[0].thumbnail);
 
     })
     $scope.subscribeFormComplete = false;
@@ -692,13 +699,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-
+    $scope.male = '';
+    $scope.female = '';
+    $scope.children = '';
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.singleAttraction1 = data.data;
-        $scope.singleAttraction = _.chunk(data.data, 3);
+        $scope.singleAttraction = data.data;
+
         console.log("$scope.singleAttraction", $scope.singleAttraction);
 
+
+
+
+            _.each($scope.singleAttraction, function(data) {
+
+                data.gameforarray = [];
+                _.each(data.gamefor, function(n) {
+                    switch (n) {
+                        case '1':
+                            data.gameforarray.push('Male')
+                            break;
+                        case '2':
+                            data.gameforarray.push('Female')
+                            break;
+                        case '3':
+                            data.gameforarray.push('Children')
+                            break;
+                        default:
+
+                    }
+
+
+                });
+
+
+            });
+
+
+
     });
+
+
     $scope.myWish = function(id) {
 
         if ($.jStorage.get("loginDetail") == null) {
@@ -893,35 +933,74 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     if ($.jStorage.get("loginDetail") != null) {
         $scope.showEditForm = true;
         $scope.showForm = false;
+        $scope.editData = $.jStorage.get("loginDetail");
+        console.log("$scope.editData", $scope.editData.data.mobile);
     } else if ($.jStorage.get("loginDetail") === null) {
         $scope.showForm = true;
         $scope.showEditForm = false;
     }
-    $scope.showDiv = false;
-    $scope.showNow = false;
+    // $scope.showDiv = false;
+    $scope.showThank = false;
+    $scope.emailExist = false;
+
     $scope.customizeformData = {};
+    // if ($.jStorage.get("loginDetail") != null) {
+    //   $scope.customizeformData.email=editData.data.mobile;
+    //   $scope.customizeformData.mobile=editData.data.email;
+    // }
+    $scope.customizeformData.games = [];
+
+    $scope.goToGames = function(val) {
+        console.log("val", val);
+        console.log($scope.customizeformData);
+        var foundIndex = _.findIndex($scope.customizeformData.games, function(key) {
+            return key == val;
+        });
+        if (foundIndex == -1) {
+            $scope.customizeformData.games.push(val);
+        } else {
+            $scope.customizeformData.games.splice(foundIndex, 1);
+        }
+
+        console.log("****", $scope.customizeformData.games);
+    };
+
+    NavigationService.getOne(function(data) {
+        $scope.customizeformData.mobile = data.data.mobile;
+        $scope.customizeformData.email = data.data.email;
+    })
+
     $scope.submitCustomizeForm = function(formData) {
+
+        if (Object.keys($scope.customizeformData).length != 0) {
+
             console.log("  $scope.customizeformData", $scope.customizeformData);
-            // if (Object.keys($scope.customizeformData).length != 0) {
-            //
-            //     console.log("imin");
-            //     console.log("$scope.customizeformData", $scope.customizeformData);
-            //         $scope.showDiv = true;
-            // } else {
-            //     console.log("tttt");
-            // }
+            console.log("imin");
+            console.log("$scope.customizeformData", $scope.customizeformData);
+            NavigationService.signup($scope.customizeformData, function(data) {
+                if (data.value === true) {
+                    $scope.showThank = true;
+                    $scope.emailExist = false;
+                    console.log("datain if", data);
+                    $scope.customizeformData = {};
+                    // $timeout(function() {
+                    //     $scope.showThank = false;
+                    //       $scope.emailExist=false;
+                    //     // $scope.customizeformData = {};
+                    // }, 2000);
+                } else if (data.value === false) {
+                    console.log("im ijn else if ", data);
+                    $scope.emailExist = true;
+                }
+            })
+
+        } else {
+            console.log("tttt");
 
         }
-        // $scope.submit1=function(formData){
-        //   if (Object.keys($scope.customizeformData).length != 0) {
-        //
-        //       console.log("imin");
-        //       console.log("$scope.customizeformData", $scope.customizeformData);
-        //           $scope.showNow = true;
-        //   } else {
-        //       console.log("tttt");
-        //   }
-        // }
+
+    }
+
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
         console.log("allCity", $scope.allCity);
@@ -932,43 +1011,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.children = '';
     NavigationService.getSingleExploreSmaaash(id, function(data) {
         $scope.customizepackage = data.data;
-        console.log("$scope.customizepackage", $scope.customizepackage);
-      _.each($scope.customizepackage, function(data) {
-console.log(data.gamefor);
-data.gameforarray = [];
-_.each(data.gamefor,function(n){
-  switch (n) {
-    case '1':
-      data.gameforarray.push('Male')
-      break;
-      case '2':
-        data.gameforarray.push('Female')
-        break;
-        case '3':
-          data.gameforarray.push('Children')
-          break;
-    default:
 
-  }
+        _.each($scope.customizepackage, function(data) {
+
+            data.gameforarray = [];
+            _.each(data.gamefor, function(n) {
+                switch (n) {
+                    case '1':
+                        data.gameforarray.push('Male')
+                        break;
+                    case '2':
+                        data.gameforarray.push('Female')
+                        break;
+                    case '3':
+                        data.gameforarray.push('Children')
+                        break;
+                    default:
+
+                }
 
 
-});
-$scope.male = _.indexOf(data.gamefor,'1');
-$scope.female = _.indexOf(data.gamefor,'2');
-$scope.children = _.indexOf(data.gamefor,'3');
+            });
 
-console.log($scope.male,'888888888888');
-console.log($scope.female,'999999999999');
-          // if (data.gamefor[0] === "1") {
-          //   $scope.male="Male";
-          // }
-          // if (data.gamefor[1] === "2") {
-          //   $scope.female="Female";
-          // }
-          // if (data.gamefor[2] === "3") {
-          //     $scope.children="Children";
-          // }
-      });
+
+        });
 
 
     });
