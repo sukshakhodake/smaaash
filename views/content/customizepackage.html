@@ -68,7 +68,7 @@
                      <div class="karting-championship  marginbot">
                         <div class="brand-blue relative">
                            <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
-                           <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                           <a  ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
                         </div>
                         <div class="new-detail">
                            <div class="viewing1 views inline-block">
@@ -172,7 +172,7 @@
                            <option value="02">02</option>
                            <option value="03">03</option>
                         </select>
- <div ng-if="selectStarter">Please select one of these.</div>
+ <div class="error" ng-if="selectStarter">Please select one of these.</div>
 
                      </div>
                      <div ng-if="customizeform.starters.$error.required"></div>
@@ -189,7 +189,7 @@
                            <option value="03">03</option>
                         </select>
                         <div ng-show="customizeform.dsr.$error.required"></div>
-                         <div ng-if="selectDessert">Please select one of these.</div>
+                         <div class="error" ng-if="selectDessert">Please select one of these.</div>
                      </div>
                   </div>
                </div>
@@ -208,7 +208,7 @@
                            <option value="03">03</option>
                         </select>
                         <div ng-show="customizeform.mainCourse.$error.required"></div>
-                        <div ng-if="selectmainCourse">Please select one of these.</div>
+                        <div class="error" ng-if="selectmainCourse">Please select one of these.</div>
                      </div>
                   </div>
                   <div class="starter">
@@ -246,7 +246,7 @@
                   <div class="form-group inline-block relative">
                      <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="customizeformData.email" name="email" required>
                      <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                     <div ng-if="emailExist">Email Already Exist</div>
+                     <div class="error" ng-if="emailExist">Email Already Exist</div>
 
                   </div>
                   <button type="submit" class=" btn6 btn-default block mt10 "><img src="img/new/submit.png" class="img-responsive" alt=""></button>
