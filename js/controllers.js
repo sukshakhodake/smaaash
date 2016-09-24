@@ -1919,7 +1919,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flag = {};
         $scope.flag.showCity = false;
         $scope.toggleCity = function() {
-            console.log('Toggle City');
+
             $scope.city = !$scope.city;
 
         };
@@ -2054,7 +2054,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.logout = function() {
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
-                    console.log("logout", data);
+                  
                     location.reload();
                 })
             } else {
