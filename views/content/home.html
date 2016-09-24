@@ -1,5 +1,5 @@
 <div class="inner relative">
-   <iframe width="560" height="315" ng-if="!banner[0].homebanner && banner[0].videourl && showVideo" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen=""
+   <iframe width="560" height="315" ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen=""
      style="
     position: absolute;
     left: 0;
@@ -19,8 +19,7 @@
 
 </div>
 <div class="landing-banner" ng-if="banner[0].homebanner && !banner[0].videourl">
-   <div ng-if="banner[0].homebanner && !banner[0].videourl||banner[0].thumbnail" class="inner" auto-height ng-style="{'background':'url('+banner[0].homebanner+')no-repeat'}" 
-     mozallowfullscreen="" allowfullscreen="" scrolling="auto">
+   <div ng-if="banner[0].homebanner && !banner[0].videourl||banner[0].thumbnail" class="inner" auto-height ng-style="{'background':'url('+banner[0].homebanner+')no-repeat'}" mozallowfullscreen="" allowfullscreen="" scrolling="auto">
    </div>
 
 </div>
