@@ -955,7 +955,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.goToGames = function(val) {
         console.log("val", val);
-        console.log($scope.customizeformData);
+        // console.log($scope.customizeformData);
         var foundIndex = _.findIndex($scope.customizeformData.games, function(key) {
             return key == val;
         });
@@ -1005,10 +1005,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                   if (data.value === true) {
                       $scope.showThank = true;
                       $scope.emailExist = false;
-                  
+
 
                       console.log("datain if", data);
                       $scope.customizeformData = {};
+                      $scope.customizeformData.games = [];
                       // $timeout(function() {
                       //     $scope.showThank = false;
                       //       $scope.emailExist=false;
