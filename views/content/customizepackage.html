@@ -173,6 +173,7 @@
 
                      </div>
                      <div ng-if="customizeform.starters.$error.required"></div>
+                     <div ng-if="selectStarter">Please select one of these.</div>
                   </div>
                   <div class="starter text-right">
                      <div class="form-group">
@@ -185,6 +186,7 @@
                            <option value="03">03</option>
                         </select>
                         <div ng-show="customizeform.dsr.$error.required"></div>
+                         <div ng-if="selectDessert">Please select one of these.</div>
                      </div>
                   </div>
                </div>
@@ -203,6 +205,7 @@
                            <option value="03">03</option>
                         </select>
                         <div ng-show="customizeform.mainCourse.$error.required"></div>
+                        <div ng-if="selectmainCourse">Please select one of these.</div>
                      </div>
                   </div>
                   <div class="starter">

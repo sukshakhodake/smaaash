@@ -942,6 +942,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // $scope.showDiv = false;
     $scope.showThank = false;
     $scope.emailExist = false;
+    $scope.selectStarter=false;
+    $scope.selectDessert=false;
+    $scope.selectmainCourse=false;
 
     $scope.customizeformData = {};
     // if ($.jStorage.get("loginDetail") != null) {
@@ -979,22 +982,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("  $scope.customizeformData", $scope.customizeformData);
             console.log("imin");
             console.log("$scope.customizeformData", $scope.customizeformData);
-            NavigationService.signup($scope.customizeformData, function(data) {
-                if (data.value === true) {
-                    $scope.showThank = true;
-                    $scope.emailExist = false;
-                    console.log("datain if", data);
-                    $scope.customizeformData = {};
-                    // $timeout(function() {
-                    //     $scope.showThank = false;
-                    //       $scope.emailExist=false;
-                    //     // $scope.customizeformData = {};
-                    // }, 2000);
-                } else if (data.value === false) {
-                    console.log("im ijn else if ", data);
-                    $scope.emailExist = true;
-                }
-            })
+            if (!$scope.customizeformData.starter) {
+              $scope.selectStarter=true;
+                $scope.selectDessert=false;
+                  $scope.selectmainCourse=false;
+            };
+            if (!$scope.customizeformData.dessert) {
+                $scope.selectDessert=true;
+                $scope.selectStarter=false;
+                  $scope.selectmainCourse=false;
+            };
+            if (!$scope.customizeformData.mainCourse) {
+                $scope.selectDessert=false;
+                $scope.selectStarter=false;
+                $scope.selectmainCourse=true;
+            };
+            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse) {
+              $scope.selectDessert=false;
+              $scope.selectStarter=false;
+                $scope.selectmainCourse=false;
+              NavigationService.signup($scope.customizeformData, function(data) {
+                  if (data.value === true) {
+                      $scope.showThank = true;
+                      $scope.emailExist = false;
+                  
+
+                      console.log("datain if", data);
+                      $scope.customizeformData = {};
+                      // $timeout(function() {
+                      //     $scope.showThank = false;
+                      //       $scope.emailExist=false;
+                      //     // $scope.customizeformData = {};
+                      // }, 2000);
+                  } else if (data.value === false) {
+                      console.log("im ijn else if ", data);
+                      $scope.emailExist = true;
+                  }
+              })
+            }
+            else {
+
+            }
+
 
         } else {
             console.log("tttt");
