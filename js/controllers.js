@@ -92,13 +92,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     NavigationService.getHomeBanner(function(data) {
-        $scope.banner = data.data;
-
-        // console.log("$scope.banner", $scope.banner[0].homebanner);
-        $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
-        // console.log("$scope.banner555555555555555", $scope.banner[0].homebanner);
-        // console.log($scope.banner[0].thumbnail);
-
+        if (data.value) {
+            $scope.banner = data.data;
+            if ($scope.banner!='') {
+                $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
+            }
+        }
     })
     $scope.subscribeFormComplete = false;
     $scope.subscribeData = {};
@@ -107,11 +106,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if ($scope.subscribeData) {
             NavigationService.subscribe($scope.subscribeData, function(data) {
                 if (data.data.value == false) {
-                    // console.log("data.valueIf", data.data.value);
                     $scope.duplicate = true;
                     $scope.subscribeFormComplete = false;
                 } else {
-                    // console.log("data.valueElse", data.data.value);
                     $scope.duplicate = false;
                     $scope.subscribeFormComplete = true;
                     $timeout(function() {
@@ -942,9 +939,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // $scope.showDiv = false;
     $scope.showThank = false;
     $scope.emailExist = false;
-    $scope.selectStarter=false;
-    $scope.selectDessert=false;
-    $scope.selectmainCourse=false;
+    $scope.selectStarter = false;
+    $scope.selectDessert = false;
+    $scope.selectmainCourse = false;
 
     $scope.customizeformData = {};
     // if ($.jStorage.get("loginDetail") != null) {
@@ -983,45 +980,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("imin");
             console.log("$scope.customizeformData", $scope.customizeformData);
             if (!$scope.customizeformData.starter) {
-              $scope.selectStarter=true;
-                $scope.selectDessert=false;
-                  $scope.selectmainCourse=false;
+                $scope.selectStarter = true;
+                $scope.selectDessert = false;
+                $scope.selectmainCourse = false;
             };
             if (!$scope.customizeformData.dessert) {
-                $scope.selectDessert=true;
-                $scope.selectStarter=false;
-                  $scope.selectmainCourse=false;
+                $scope.selectDessert = true;
+                $scope.selectStarter = false;
+                $scope.selectmainCourse = false;
             };
             if (!$scope.customizeformData.mainCourse) {
-                $scope.selectDessert=false;
-                $scope.selectStarter=false;
-                $scope.selectmainCourse=true;
+                $scope.selectDessert = false;
+                $scope.selectStarter = false;
+                $scope.selectmainCourse = true;
             };
             if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse) {
-              $scope.selectDessert=false;
-              $scope.selectStarter=false;
-                $scope.selectmainCourse=false;
-              NavigationService.signup($scope.customizeformData, function(data) {
-                  if (data.value === true) {
-                      $scope.showThank = true;
-                      $scope.emailExist = false;
+                $scope.selectDessert = false;
+                $scope.selectStarter = false;
+                $scope.selectmainCourse = false;
+                NavigationService.signup($scope.customizeformData, function(data) {
+                    if (data.value === true) {
+                        $scope.showThank = true;
+                        $scope.emailExist = false;
 
 
-                      console.log("datain if", data);
-                      $scope.customizeformData = {};
-                      $scope.customizeformData.games = [];
-                      // $timeout(function() {
-                      //     $scope.showThank = false;
-                      //       $scope.emailExist=false;
-                      //     // $scope.customizeformData = {};
-                      // }, 2000);
-                  } else if (data.value === false) {
-                      console.log("im ijn else if ", data);
-                      $scope.emailExist = true;
-                  }
-              })
-            }
-            else {
+                        console.log("datain if", data);
+                        $scope.customizeformData = {};
+                        $scope.customizeformData.games = [];
+                        // $timeout(function() {
+                        //     $scope.showThank = false;
+                        //       $scope.emailExist=false;
+                        //     // $scope.customizeformData = {};
+                        // }, 2000);
+                    } else if (data.value === false) {
+                        console.log("im ijn else if ", data);
+                        $scope.emailExist = true;
+                    }
+                })
+            } else {
 
             }
 
@@ -1165,10 +1161,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2']
         $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58']
         $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56']
-        // console.log("$scope.event",$scope.event);
-        // console.log("$scope.deals",$scope.deals);
-        // console.log("$scope.promotions",$scope.promotions);
-        // console.log("$scope.content", $scope.content);
+            // console.log("$scope.event",$scope.event);
+            // console.log("$scope.deals",$scope.deals);
+            // console.log("$scope.promotions",$scope.promotions);
+            // console.log("$scope.content", $scope.content);
     })
 })
 
@@ -2054,7 +2050,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.logout = function() {
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
-                  
+
                     location.reload();
                 })
             } else {

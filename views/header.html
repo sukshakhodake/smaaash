@@ -202,7 +202,7 @@
                             <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
                          </div>
                          <button type="submit" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
-                         <div ng-if="valid">Please Enter Valid Email Id & Password</div>
+                         <div class="error" ng-if="valid">Please Enter Valid Email Id & Password</div>
 
                       </form>
                       <div ng-if="formComplete">
@@ -239,7 +239,7 @@
                               <option value="{{d._id}}" ng-repeat="d in getCity">{{d.name}}</option>
 
                            </select>
-                           <div ng-if="validCity">Please select valid city.</div>
+                           <div class="error" ng-if="validCity">Please select valid city.</div>
                          </div>
                          <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" ng-minlength="6" ng-maxlength="8">
@@ -249,8 +249,8 @@
                             <input type="password" class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword">
                             <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
                          </div>
-   <div ng-if="!pass">password doesn't match or It should be Minimum 6 Characters & Maximum 8 Characters.</div>
-                         <div ng-if="emailExist">Email Id Already Exist</div>
+   <div class="error" ng-if="!pass">password doesn't match or It should be Minimum 6 Characters & Maximum 8 Characters.</div>
+                         <div class="error" ng-if="emailExist">Email Id Already Exist</div>
 
                          <button type="submit" class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
 
