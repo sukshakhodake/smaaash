@@ -68,15 +68,17 @@
                      <div class="karting-championship  marginbot">
                         <div class="brand-blue relative">
                            <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
-                           <a href="" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                           <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt=""></a>
                         </div>
                         <div class="new-detail">
                            <div class="viewing1 views inline-block">
                               <span class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</span>
                               <!-- <button class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</button> -->
                            </div>
+                             <div class="min-h">
                            <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
-
+</div>
+ <div class="min-h">
                            <p>Game For:
                               <span class="bluey">
                                 <span ng-repeat="per in data.gameforarray track by $index">{{per}} <span ng-if="$index<data.gameforarray.length-2">|</span>
@@ -85,6 +87,7 @@
                               <span ng-if="data.gameforarray==''"> - </span>
 
                            </p>
+                         </div>
                         </div>
                      </div>
                   </div>
