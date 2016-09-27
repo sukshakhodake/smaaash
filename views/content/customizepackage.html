@@ -1,19 +1,19 @@
 <div class="attractions custom events1">
-   <div class="backg-eve">
+  <div class="backg-eve">
+    <div class="container">
+      <h2 class="nav-name center">Customize Your Package</h2>
+    </div>
+  </div>
+
+
+  <form class="help-form " ng-submit="submitCustomizeForm(customizeformData)" name="customizeform">
+    <div class="forms">
       <div class="container">
-         <h2 class="nav-name center">Customize Your Package</h2>
-      </div>
-   </div>
-
-
-   <form class="help-form " ng-submit="submitCustomizeForm(customizeformData)" name="customizeform">
-      <div class="forms">
-         <div class="container">
-            <div class="game-type inline-block">
-               <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-               <select class="form-control" ng-model="customizeformData.occasion" name="occasion" required>
+        <div class="game-type inline-block">
+          <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+          <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+          <select class="form-control" ng-model="customizeformData.occasion" name="occasion" required>
                   <option ng-selected="true" value="">Occasion</option>
                   <option value="bParty">Birthday Party</option>
                   <option value="dParty">Drink Party</option>
@@ -22,13 +22,13 @@
                   <option value="PreWeddingParty">Pre-Wedding Parties</option>
 
                </select>
-               <div ng-show="customizeform.occasion.$error.required"></div>
+          <div ng-show="customizeform.occasion.$error.required"></div>
 
-            </div>
-            <div class="game-type inline-block">
-               <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-               <select class="form-control" ng-model="customizeformData.noofpeople" name="noofpeople" required>
+        </div>
+        <div class="game-type inline-block">
+          <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+          <select class="form-control" ng-model="customizeformData.noofpeople" name="noofpeople" required>
                   <option ng-selected="true" value="">How Many people</option>
                   <option value="1-5">1-5</option>
                   <option value="6-10">6-10</option>
@@ -36,18 +36,18 @@
                   <option value="51-above">51-Above</option>
 
                </select>
-               <div ng-show="customizeform.noofpeople.$error.required"></div>
+          <div ng-show="customizeform.noofpeople.$error.required"></div>
 
-            </div>
-            <div class=" game-type form-group inline-block">
-               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-               <input type="text" class="form-control" placeholder="Tentative date" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="customizeformData.date"
-               />
-               <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
-            </div>
-            <div class="game-type inline-block">
-               <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-               <select class="form-control" ng-model="customizeformData.city" name="city">
+        </div>
+        <div class=" game-type form-group inline-block">
+          <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+          <input type="text" class="form-control" placeholder="Tentative date" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="customizeformData.date"
+          />
+          <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+        </div>
+        <div class="game-type inline-block">
+          <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <select class="form-control" ng-model="customizeformData.city" name="city">
                   <option ng-selected="true" value="">Select City</option>
                   <option ng-repeat="data in allCity" value="{{data._id}}">{{data.name}}</option>
                   <!-- <option>Mumbai</option>
@@ -55,47 +55,49 @@
 
                </select>
 
-            </div>
-         </div>
+        </div>
       </div>
-      <div class="container">
+    </div>
+    <div class="container">
 
-         <div class="help-section">
-            <div class="new">
-               <h3 class="text-center">GAMES</h3>
-               <div class="row">
-                  <div class="col-md-3 col-sm-3" ng-repeat="data in customizepackage">
-                     <div class="karting-championship  marginbot">
-                        <div class="brand-blue relative">
-                           <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
-                           <a ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
-                        </div>
-                        <div class="new-detail">
-                           <div class="viewing1 views inline-block">
-                              <span class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</span>
-                              <!-- <button class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</button> -->
-                           </div>
-                           <div class="min-h">
-                              <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
-                           </div>
-                           <div class="min-h">
-                              <p>Game For:
-                                 <span class="bluey">
-                                <span ng-repeat="per in data.gameforarray track by $index">{{per}} <span ng-if="$index<data.gameforarray.length-2">|</span>
-                                 <span ng-if="$index==data.gameforarray.length-2">&</span> </span>
-                                 </span>
-                                 <span ng-if="data.gameforarray==''"> - </span>
 
-                              </p>
-                           </div>
-                        </div>
-                     </div>
+      <div class="help-section">
+        <div class="new">
+          <h3 class="text-center">GAMES</h3>
+          <div class="row">
+            <div class="col-md-3 col-sm-3" ng-repeat="data in customizepackage">
+              <div class="karting-championship  marginbot">
+                <div class="brand-blue relative height">
+                  <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
+                  <a ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
+                </div>
+                <div class="new-detail">
+                  <div class="viewing1 views inline-block">
+                    <span class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</span>
+                    <!-- <button class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</button> -->
                   </div>
+                  <div class="min-h">
+                    <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
+                  </div>
+                  <div class="min-h">
+                    <p>Game For:
+                      <span class="bluey">
+                                <span ng-repeat="per in data.gameforarray track by $index">{{per}} <span ng-if="$index<data.gameforarray.length-2">|</span>
+                      <span ng-if="$index==data.gameforarray.length-2">&</span> </span>
+                      </span>
+                      <span ng-if="data.gameforarray==''"> - </span>
+
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 
 
-                  <!-- <div class="col-md-3 col-sm-3">
+            <!-- <div class="col-md-3 col-sm-3">
                      <div class="karting-championship  marginbot">
                         <div class="brand-blue relative">
                            <img src="img/explore/explore1.png" class="img-responsive" alt="">
@@ -140,54 +142,57 @@
                         </div>
                      </div>
                   </div> -->
-               </div>
-            </div>
-            <h3 class="text-center">help us help you</h3>
-            <div class="form-group ">
-               <div class="radio text-center">
-                  <input type="radio" id="radio5" name="food-style" value="vegeterian" ng-model="customizeformData.foodStyle">
-                  <label for="radio5">
+          </div>
+        </div>
+        <h3 class="text-center">help us help you</h3>
+        <div class="form-group ">
+          <div class="radio text-center">
+            <input type="radio" id="radio5" name="food-style" value="vegeterian" ng-model="customizeformData.foodStyle">
+            <label for="radio5">
                      <span></span> Vegeterian</label>
-                  <input type="radio" id="radio6" name="food-style" value="non-vegeterian" ng-model="customizeformData.foodStyle">
-                  <label for="radio6">
+            <input type="radio" id="radio6" name="food-style" value="non-vegeterian" ng-model="customizeformData.foodStyle">
+            <label for="radio6">
                      <span></span> Non-vegeterian</label>
-                  <input type="radio" id="radio7" name="food-style" value="both" ng-model="customizeformData.foodStyle">
-                  <label for="radio7">
+            <input type="radio" id="radio7" name="food-style" value="both" ng-model="customizeformData.foodStyle">
+            <label for="radio7">
                      <span></span> Both</label>
-               </div>
-            </div>
+          </div>
+        </div>
 
 
-            <div class="row">
-               <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
 
-                  <div class="starter text-right">
-                     <div class="form-group">
-                        <label for="starter">starter</label>
-                        <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                        <select class="form-control" id="starter" ng-model="customizeformData.starter" name="starters" required>
+            <div class="starter text-right">
+              <div class="form-group">
+                <label for="starter">starter</label>
+                <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                <select class="form-control" id="starter" ng-model="customizeformData.starter" name="starters" required>
 
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
                         </select>
+
                         <div class="error" ng-if="selectStarter">Please select an item in the Starter.</div>
 
-                     </div>
-                     <div ng-if="customizeform.starters.$error.required"></div>
 
-                  </div>
-                  <div class="starter text-right">
-                     <div class="form-group">
-                        <label for="desert">dessert</label>
-                        <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                        <select class="form-control" id="desert" ng-model="customizeformData.dessert" name="dsr" required>
+              </div>
+              <div ng-if="customizeform.starters.$error.required"></div>
+
+            </div>
+            <div class="starter text-right">
+              <div class="form-group">
+                <label for="desert">dessert</label>
+                <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                <select class="form-control" id="desert" ng-model="customizeformData.dessert" name="dsr" required>
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
                         </select>
+
                         <div ng-show="customizeform.dsr.$error.required"></div>
                         <div class="error" ng-if="selectDessert">Please select an item in the Dessert .</div>
                      </div>
@@ -202,11 +207,12 @@
                            <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                         </div>
 
-                        <select class="form-control" id="main-course" ng-model="customizeformData.mainCourse" name="mainCourse" required>
+                <select class="form-control" id="main-course" ng-model="customizeformData.mainCourse" name="mainCourse" required>
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
                         </select>
+
                         <div ng-show="customizeform.mainCourse.$error.required"></div>
                         <div class="error" ng-if="selectmainCourse">Please select an item in the Main Course.</div>
                      </div>
@@ -217,54 +223,56 @@
                         <div class="radio text-center">
                            <input type="radio" id="radio8" name="alcohol-style" value="yes" ng-model="customizeformData.alcohol">
                            <label for="radio8">
-                              <span></span> yes</label>
-                           <input type="radio" id="radio9" name="alcohol-style" value="no" ng-model="customizeformData.alcohol">
-                           <label for="radio9">
+
+                                              <span></span> yes</label>
+                  <input type="radio" id="radio9" name="alcohol-style" value="no" ng-model="customizeformData.alcohol">
+                  <label for="radio9">
                               <span></span> no</label>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                </div>
+              </div>
             </div>
-            <div class="entry-form1 text-center" ng-if="showForm">
-               <!-- <div class="entry-form1 text-center" ng-if="showForm" > -->
-               <!--ng-hide="showDiv"-->
-               <h3>PLEASE ENTER YOUR CONTACT DETAILS</h3>
-               <p>
-                  Our executive will revert shortly
-               </p>
-               <div class=" forms entry-form text-center">
-                  <div class="form-group inline-block  relative">
-                     <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name" required>
-                     <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <div class="entry-form1 text-center" ng-if="showForm">
+          <!-- <div class="entry-form1 text-center" ng-if="showForm" > -->
+          <!--ng-hide="showDiv"-->
+          <h3>PLEASE ENTER YOUR CONTACT DETAILS</h3>
+          <p>
+            Our executive will revert shortly
+          </p>
+          <div class=" forms entry-form text-center">
+            <div class="form-group inline-block  relative">
+              <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name" required>
+              <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
 
-                  </div>
-                  <div class="form-group inline-block relative">
-                     <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required only-Digits maxlength="10" minlength="10">
-                     <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="form-group inline-block relative">
-                     <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="customizeformData.email" name="email" required>
-                     <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                     <div class="error" ng-if="emailExist">Email Already Exist</div>
-
-                  </div>
-                  <button type="submit" class=" btn6 btn-default block mt10 "><img src="img/new/submit.png" class="img-responsive" alt=""></button>
-                  <!-- <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
-               </div>
             </div>
-            <div class="entry-form2" ng-if="showEditForm">
-               <!-- <div class="entry-form2" ng-if="showEditForm"> -->
-               <!--ng-if="showDiv" ng-hide="showNow"-->
-               <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
-               <p class="text-center">
-                  Our executive will revert shortly
-               </p>
-               <div class=" forms entry-form text-center">
-                  <div class="form-group relative">
-                     <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required maxlength="10" minlength="10" only-Digits>
-                     <span class="required needed" ng-click="goToEdit()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                     <p>Want to change your Mobile Number ?</p>
+            <div class="form-group inline-block relative">
+              <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required only-Digits maxlength="10" minlength="10">
+              <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+            </div>
+            <div class="form-group inline-block relative">
+              <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="customizeformData.email" name="email" required>
+              <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+              <div class="error" ng-if="emailExist">Email Already Exist</div>
+
+            </div>
+            <button type="submit" class=" btn6 btn-default block mt10 "><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+            <!-- <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
+          </div>
+        </div>
+        <div class="entry-form2" ng-if="showEditForm">
+          <!-- <div class="entry-form2" ng-if="showEditForm"> -->
+          <!--ng-if="showDiv" ng-hide="showNow"-->
+          <h3 class="text-center">PLEASE ENTER YOUR CONTACT DETAILS</h3>
+          <p class="text-center">
+            Our executive will revert shortly
+          </p>
+          <div class=" forms entry-form text-center">
+            <div class="form-group relative">
+              <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required maxlength="10" minlength="10" only-Digits>
+              <span class="required needed" ng-click="goToEdit()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+              <p>Want to change your Mobile Number ?</p>
+
 
                   </div>
                   <div class="form-group relative">
@@ -275,22 +283,32 @@
                   <button type="submit" class=" btn6 btn-default block" ><img src="img/new/submit.png" class="img-responsive" alt=""></button>
                   <!-- <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow();submit(customizeformData)"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
                </div>
+
             </div>
+            <div class="form-group relative">
+              <input type="email" class=" form-control" placeholder="Email ID" name="email" required ng-model="customizeformData.email">
+              <span class="required needed" ng-click="goToEdit()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+              <p>Want to change your Email ID ?</p>
+            </div>
+            <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+            <!-- <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow();submit(customizeformData)"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
+          </div>
+        </div>
 
-   </form>
+  </form>
 
-   <div class="entry-form3" ng-if="showThank">
+  <div class="entry-form3" ng-if="showThank">
 
-      <div class="get-call">
-         <h3 class="text-center">thank you</h3>
-         <p class="text-center">we will get back to you soon</p>
-         <div class="checkout text-center">
-            <span>Check Out</span>
-            <button type="submit" class="btn6  btn-default"><img src="img/new/pay.png" class="img-responsive" alt=""></button>
-         </div>
+    <div class="get-call">
+      <h3 class="text-center">thank you</h3>
+      <p class="text-center">we will get back to you soon</p>
+      <div class="checkout text-center">
+        <span>Check Out</span>
+        <button type="submit" class="btn6  btn-default"><img src="img/new/pay.png" class="img-responsive" alt=""></button>
       </div>
-   </div>
-   </div>
+    </div>
+  </div>
+  </div>
 
-   </div>
+  </div>
 </div>
