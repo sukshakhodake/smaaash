@@ -117,7 +117,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-
     $scope.formCompleteSignup = false;
     $scope.signupData = {};
     $scope.pass = true;
@@ -372,7 +371,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Stars");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    
+
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -1089,19 +1088,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.billingForm = {};
-    console.log('in ctrl');
+
     $scope.formSubmit = function(formData, formValid) {
-        console.log('cgfdfgdgfgfc');
-        if (formData && formValid.$valid) {
-            // $scope.showform=true;
-            $scope.open();
-            console.log('in fun');
+        if (formData ) {
+            if (Object.keys($scope.billingForm).length != 0) {
+              $scope.open();
+
+            }
+
         }
 
     }
     $scope.animationsEnabled = true;
     $scope.open = function(size) {
-
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'views/modal/form-success.html',
