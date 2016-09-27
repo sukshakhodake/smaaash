@@ -1,19 +1,19 @@
 <div class="enquiry-form brand-purply">
-  <h2 class="uppercase title brand-white">enquiry</h2>
-    <a href="" class="close text-uppercase brand-white" ng-click="$dismiss();">close</a>
-  <form action="" class="form" name="enquiryForm">
-    <div class="form-group">
-    <input type="text" class="form-control"  placeholder="User Name" name="name" >
-    <div class="error-msg" ng-show="enquiryForm.name.$error.required && enquiryForm.name.$touched">Please Enter Your User Name</div>
-    </div>
-    <div class="form-group">
-    <input type="email" class="form-control"  placeholder="Email Id" name="email">
-    <div class="error-msg" ng-show="enquiryForm.email.$error.required && enquiryForm.email.$touched">Please Enter Your Email ID</div>
-    </div>
-    <div class="form-group">
-    <input type="text" class="form-control"  placeholder="Mobile no." name="mobile">
-    <div class="error-msg" ng-show="enquiryForm.mobile.$error.required && enquiryForm.mobile.$touched">Please enter your mobile no. </div>
-    </div>
-      <textarea  placeholder="Comment"></textarea>
-  </form>
+   <h2 class="uppercase title brand-white">enquiry</h2>
+   <a href="" class="close text-uppercase brand-white" ng-click="$dismiss();">close</a>
+   <form  class="form" name="enquiryForm">
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="User Name" name="name">
+         <div class="error-msg" ng-show="enquiryForm.name.$error.required && enquiryForm.name.$touched">Please Enter Your User Name</div>
+      </div>
+      <div class="form-group">
+         <input type="email" class="form-control" placeholder="Email Id" name="email">
+         <div class="error-msg" ng-show="enquiryForm.email.$error.required && enquiryForm.email.$touched">Please Enter Your Email ID</div>
+      </div>
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="Mobile no." name="mobile">
+         <div class="error-msg" ng-show="enquiryForm.mobile.$error.required && enquiryForm.mobile.$touched">Please enter your mobile no. </div>
+      </div>
+      <textarea placeholder="Comment"></textarea>
+   </form>
 </div>

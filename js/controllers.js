@@ -439,7 +439,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/enquiry.html",
-            scope: $scope
+            controller: 'WeddingCtrl',
+            scope: $scope,
+
         });
     };
 
@@ -1090,9 +1092,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.billingForm = {};
 
     $scope.formSubmit = function(formData, formValid) {
-        if (formData ) {
+        if (formData) {
             if (Object.keys($scope.billingForm).length != 0) {
-              $scope.open();
+                $scope.open();
 
             }
 
