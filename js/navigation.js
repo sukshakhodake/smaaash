@@ -314,5 +314,17 @@ var navigationservice = angular.module('navigationservice', [])
         // },
 
 
+        editUserData: function(signupData, callback) {
+
+            $http({
+                url: adminurl + 'signup/save',
+                method: 'POST',
+
+                data: signupData
+
+            }).success(callback);
+        },
+
+
     };
 });

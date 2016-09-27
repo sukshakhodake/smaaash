@@ -68,26 +68,26 @@
                      <div class="karting-championship  marginbot">
                         <div class="brand-blue relative">
                            <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
-                           <a  ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
+                           <a ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
                         </div>
                         <div class="new-detail">
                            <div class="viewing1 views inline-block">
                               <span class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</span>
                               <!-- <button class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</button> -->
                            </div>
-                             <div class="min-h">
-                           <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
-</div>
- <div class="min-h">
-                           <p>Game For:
-                              <span class="bluey">
+                           <div class="min-h">
+                              <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
+                           </div>
+                           <div class="min-h">
+                              <p>Game For:
+                                 <span class="bluey">
                                 <span ng-repeat="per in data.gameforarray track by $index">{{per}} <span ng-if="$index<data.gameforarray.length-2">|</span>
-                              <span ng-if="$index==data.gameforarray.length-2">&</span> </span>
-                              </span>
-                              <span ng-if="data.gameforarray==''"> - </span>
+                                 <span ng-if="$index==data.gameforarray.length-2">&</span> </span>
+                                 </span>
+                                 <span ng-if="data.gameforarray==''"> - </span>
 
-                           </p>
-                         </div>
+                              </p>
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -172,7 +172,7 @@
                            <option value="02">02</option>
                            <option value="03">03</option>
                         </select>
- <div class="error" ng-if="selectStarter">Please select one of these.</div>
+                        <div class="error" ng-if="selectStarter">Please select an item in the Starter.</div>
 
                      </div>
                      <div ng-if="customizeform.starters.$error.required"></div>
@@ -189,7 +189,7 @@
                            <option value="03">03</option>
                         </select>
                         <div ng-show="customizeform.dsr.$error.required"></div>
-                         <div class="error" ng-if="selectDessert">Please select one of these.</div>
+                        <div class="error" ng-if="selectDessert">Please select an item in the Dessert .</div>
                      </div>
                   </div>
                </div>
@@ -208,7 +208,7 @@
                            <option value="03">03</option>
                         </select>
                         <div ng-show="customizeform.mainCourse.$error.required"></div>
-                        <div class="error" ng-if="selectmainCourse">Please select one of these.</div>
+                        <div class="error" ng-if="selectmainCourse">Please select an item in the Main Course.</div>
                      </div>
                   </div>
                   <div class="starter">
@@ -268,11 +268,11 @@
 
                   </div>
                   <div class="form-group relative">
-                     <input type="email" class=" form-control" placeholder="Email ID" name="email"  required ng-model="customizeformData.email">
+                     <input type="email" class=" form-control" placeholder="Email ID" name="email" required ng-model="customizeformData.email">
                      <span class="required needed" ng-click="goToEdit()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                      <p>Want to change your Email ID ?</p>
                   </div>
-                  <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow()"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+                  <button type="submit" class=" btn6 btn-default block" ><img src="img/new/submit.png" class="img-responsive" alt=""></button>
                   <!-- <button type="submit" class=" btn6 btn-default block" ng-click="openShowNow();submit(customizeformData)"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
                </div>
             </div>

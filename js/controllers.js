@@ -59,42 +59,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
-        // console.log("$scope.dataByCity", $scope.dataByCity);
+
         if (data.value) {
             $scope.homeContent = data.data;
-            // console.log("$scope.homeContentsdfg", $scope.homeContent);
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
-            //
-            // console.log($scope.myAttratcionId);
-            // console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
-            // console.log("$scope.whatsnew", $scope.whatsnew);
             $scope.hostParty = $scope.content["Host a party"];
-            // console.log(" 8888888 $scope.hostParty", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
-            // console.log("$scope.deals", $scope.deals);
             $scope.events = $scope.content["Events"];
-            // console.log("  $scope.events", $scope.events);
             $scope.foodBeverages = $scope.content["Food and Beverages"];
-            // console.log("$scope.foodBeverages", $scope.foodBeverages);
             $scope.buyOnline = $scope.content["Buy Online"];
-            // console.log("$scope.buyOnline", $scope.buyOnline);
+
         } else {
 
         }
     });
-    // NavigationService.getCity(function(data) {
-    //     $scope.data = data.data;
-    //     console.log("homegetcity", $scope.data);
-    // });
+
 
 
 
     NavigationService.getHomeBanner(function(data) {
         if (data.value) {
             $scope.banner = data.data;
-            if ($scope.banner!='') {
+            if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
             }
         }
@@ -129,35 +117,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    // $scope.formComplete = false;
-    // $scope.userData = {};
-    // $scope.valid = false;
-    // $scope.userLogin = function(userData) {
-    //     if ($scope.userData) {
-    //         console.log("$scope.userData", $scope.userData);
-    //         NavigationService.login($scope.userData, function(data) {
-    //             console.log("data", data);
-    //             if (data.value == true) {
-    //                 $.jStorage.set("loginDetail", data);
-    //                 $scope.valid = false;
-    //                 $scope.formComplete = true;
-    //                 $timeout(function() {
-    //                     $scope.formComplete = false;
-    //                     $scope.userData = {};
-    //                 }, 2000);
-    //             } else {
-    //                 $scope.valid = true;
-    //             }
-    //             $.jStorage.set("loginInfo", data);
-    //             $scope.userName = $.jStorage.get("loginInfo").data.name;
-    //             console.log("  $scope.userName", $scope.userName);
-    //
-    //         })
-    //
-    //
-    //     }
-    //
-    // }
 
     $scope.formCompleteSignup = false;
     $scope.signupData = {};
@@ -274,44 +233,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/cakey.png'
     ];
     $scope.animationsEnabled = true;
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     if ($scope.menu == "menu-out") {
-    //         $scope.menu = "menu-in";
-    //     } else {
-    //         $scope.menu = "menu-out";
-    //     }
-    // };
-
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
-    // $scope.opening = function(size) {
-    //
-    //     // var modalInstance = $uibModal.opening({
-    //     //     animation: $scope.animationsEnabled,
-    //     //     templateUrl: 'views/modal/login.html',
-    //     //     controller: 'HomeCtrl',
-    //     //     size: size,
-    //     //     resolve: {
-    //     //         items: function() {
-    //     //             return $scope.items;
-    //     //         }
-    //     //     }
-    //     // });
-    //
-    // };
 
 
     $scope.$on('$viewContentLoaded', function(event) {
@@ -390,7 +311,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.moreDesc);
             $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
                 return n._id == id;
-                // console.log($scope.myDesc);
+
             }).description;
         };
 
@@ -404,7 +325,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 animation: true,
                 templateUrl: 'views/modal/wishlistsigup.html',
                 scope: $scope
-                    // backdropClass: 'backcolor'
+
             });
         } else {
             NavigationService.wishList(id, function(data) {
@@ -420,7 +341,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 animation: true,
                 templateUrl: 'views/modal/wishlist.html',
                 scope: $scope
-                    // backdropClass: 'backcolor'
+
             });
         }
 
@@ -451,20 +372,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Stars");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
+    
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -913,25 +821,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return '';
     }
 
-    // $scope.showDiv = false;
-    //
-    // $scope.openShowDiv = function() {
-    //     $scope.showDiv = true;
-    //
-    // }
-    // $scope.showNow = false;
-    //
-    // $scope.openShowNow = function() {
-    //     $scope.showNow = true;
-    //
-    // }
+
     $scope.showEditForm = false;
     $scope.showForm = false;
     if ($.jStorage.get("loginDetail") != null) {
         $scope.showEditForm = true;
         $scope.showForm = false;
-        $scope.editData = $.jStorage.get("loginDetail");
-        console.log("$scope.editData", $scope.editData.data.mobile);
+
     } else if ($.jStorage.get("loginDetail") === null) {
         $scope.showForm = true;
         $scope.showEditForm = false;
@@ -944,10 +840,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.selectmainCourse = false;
 
     $scope.customizeformData = {};
-    // if ($.jStorage.get("loginDetail") != null) {
-    //   $scope.customizeformData.email=editData.data.mobile;
-    //   $scope.customizeformData.mobile=editData.data.email;
-    // }
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.customizeformData._id = $.jStorage.get("loginDetail").data._id
+    }
+
+
     $scope.customizeformData.games = [];
 
     $scope.goToGames = function(val) {
@@ -968,6 +865,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getOne(function(data) {
             $scope.customizeformData.mobile = data.data.mobile;
             $scope.customizeformData.email = data.data.email;
+            console.log(" data.data.email", data.data.email);
         })
 
     }
@@ -994,7 +892,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = true;
             };
-            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse) {
+            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse && !$scope.customizeformData._id) {
                 $scope.selectDessert = false;
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = false;
@@ -1017,7 +915,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.emailExist = true;
                     }
                 })
-            } else {
+            } else if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse && $scope.customizeformData._id) {
+                $scope.selectDessert = false;
+                $scope.selectStarter = false;
+                $scope.selectmainCourse = false;
+                NavigationService.editUserData($scope.customizeformData, function(data) {
+                    console.log("$scope.customizeformData in editUserData", $scope.customizeformData);
+                    console.log("editUserData", data);
+                    if (data.value === true) {
+                        $scope.showThank = true;
+                        $scope.emailExist = false;
+                        $scope.customizeformData = {};
+                        $scope.customizeformData.games = [];
+                        // location.reload();
+
+                    } else if (data.value === false) {
+                        console.log("im ijn else if ", data);
+                        // $scope.emailExist = true;
+                    }
+                });
 
             }
 
@@ -1031,7 +947,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
-        // console.log("allCity", $scope.allCity);
     });
     var id = "57bc4b2aeb9c91f1025a3b55";
     $scope.male = '';
@@ -1161,10 +1076,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2']
         $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58']
         $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56']
-            // console.log("$scope.event",$scope.event);
-            // console.log("$scope.deals",$scope.deals);
-            // console.log("$scope.promotions",$scope.promotions);
-            // console.log("$scope.content", $scope.content);
+
     })
 })
 
@@ -1211,47 +1123,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Explore Smaaash");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $scope.smaaash = [];
-    // $scope.objfilter = {};
-    // $scope.objfilter.pagenumber = 0;
-    // $scope.objfilter.pagesize = 10;
-    // $scope.show = true;
 
-    // $scope.scrollMore = function(input) {
-    //     $scope.objfilter.pagenumber++;
-    //     NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
-    //         if (data.value) {
-    //             $scope.exploresmash = _.chunk(data.data, 3);
-    //             console.log("$scope.exploresmash", $scope.exploresmash);
-    //             _.each($scope.exploresmash, function(value) {
-    //                 $scope.smaaash.push(value);
-    //             });
-    //
-    //
-    //             $scope.lastpage = data.data.totalpages;
-    //
-    //         }
-    //
-    //
-    //
-    //     });
-    //
-    // }
-
-    // globalfunction.changeExplore = function() {
-    //     if ($.jStorage.get("city") !== null) {
-    //         NavigationService.getAllExploreSmashByCity($.jStorage.get("city")._id, function(data) {
-    //             if (data.value) {
-    //                 $scope.smaaash = _.chunk(data.data, 3);
-    //                 console.log("$scope.smaaash", $scope.smaaash);
-    //             }
-    //         });
-    //     } else {
-    //         $state.go('home');
-    //     }
-    // };
-    // globalfunction.changeExplore();
-    // $scope.scrollMore($scope.objfilter);
 })
 
 
@@ -1367,26 +1239,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
-    // if($.jStorage.get("city")){
-    //   $scope.jstorageId=$.jStorage.get("city")._id;
-    //   console.log("$scope.jstorageId",$scope.jstorageId);
-    // NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-    //     $scope.SingleExploreSmaaash10 = data.data;
-    //     $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
-    //     console.log("$scope.SingleExploreSmaaash", $scope.SingleExploreSmaaash);
-    //     $scope.readMore = function(id, indexid) {
-    //
-    //         console.log(id);
-    //         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-    //         console.log($scope.moreDesc);
-    //         $scope.myDesc = _.find($scope.SingleExploreSmaaash10, function(n) {
-    //             return n._id == id;
-    //             // console.log($scope.myDesc);
-    //         }).description;
-    //     };
-    // });
-
-
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleHostParty10 = data.data;
         // _.each($scope.SingleHostParty10,function (key) {
@@ -1416,12 +1268,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("$scope.hostPartySlider", $scope.hostPartySlider);
     })
 
-    // _.each($scope.mySlides, function(n) {
-    //
-    //     n.ordering = i;
-    //     i++;
-    // });
-    // angular.module('ui.bootstrap.demo').controller('DatepickerPopupDemoCtrl', function ($scope) {
+
     $scope.today = function() {
         $scope.dt = new Date();
     };
@@ -1879,7 +1726,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getOneExploresmash($stateParams.id, function(data) {
         $scope.mySlides4 = data.data;
-        console.log("$scope.mySlides4", $scope.mySlides4);
         $scope.mySlides4.banner = $filter('uploadpath')($scope.mySlides4.banner);
 
 
@@ -1907,9 +1753,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: $.jStorage.get("city")
         }
 
-        // $.jStorage.get("loginDetail") == null
+
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
-        console.log("$scope.userLoginDetails", $scope.userLoginDetails);
+        // console.log("$scope.userLoginDetails", $scope.userLoginDetails);
 
         $scope.city = false;
         $scope.flag = {};
@@ -2113,11 +1959,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.types = data.data;
             // if($scope.types)
             _.each($scope.types, function(n) {
-                    if (n.name == 'Whats new') {
-                        console.log('here');
-                    }
-                })
-                // console.log("$scope.types", $scope.types);
+                if (n.name == 'Whats new') {
+                    console.log('here');
+                }
+            })
+
         });
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
