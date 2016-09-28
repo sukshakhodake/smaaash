@@ -34,8 +34,8 @@
                </div>
             </div>
          </div>
-         <div class="col-md-6" ng-hide="">
-            <form name="formBilling" class="form" ng-submit="formSubmit(billingForm)">
+         <div class="col-md-6" >
+            <form name="formBilling" class="form" ng-submit="formSubmit(billingForm)" ng-if="!formComplete">
                <h2 class="title">billing information</h2>
                <div class="form-group">
                   <input type="text" class="form-control" ng-model="billingForm.name" name="name" placeholder="Name" required aplha-only>
@@ -62,7 +62,7 @@
                   <div class="error-msg" ng-show="formBilling.pincode.$error.required && formBilling.pincode.$touched">Please enter pincode.</div>
                </div>
                <div class="form-group">
-                  <input type="tel" class="form-control" name="mobile" ng-model="billingForm.mobile" placeholder="Mobile" required only-Digits >
+                  <input type="tel" class="form-control" name="mobile" ng-model="billingForm.mobile" placeholder="Mobile" required only-Digits maxlength="10" >
                   <div class="error-msg" ng-show="formBilling.mobile.$error.required && formBilling.mobile.$touched">Please enter your mobile number.</div>
                </div>
                <div class="form-group">

@@ -324,6 +324,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        // confirmOrder: function(billingForm, callback) {
+        //
+        //     $http({
+        //         url: adminurl + 'signup/save',
+        //         method: 'POST',
+        //
+        //         data: billingForm
+        //
+        //     }).success(callback);
+        // },
 
 
     };

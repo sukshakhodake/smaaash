@@ -275,15 +275,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.events10 = data.data;
-        $scope.events = _.chunk(data.data, 3);
+        $scope.events = data.data;
+        // $scope.events = _.chunk(data.data, 3);
         console.log("$scope.events", $scope.events);
-        $scope.readMore = function(id, indexid) {
+        $scope.readMore = function(id) {
 
             console.log("3333333", id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
-            $scope.myDesc = _.find($scope.events10, function(n) {
+            $scope.myDesc = _.find($scope.events, function(n) {
                 return n._id == id;
                 // console.log($scope.myDesc);
             }).description;
@@ -1090,17 +1090,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.billingForm = {};
+    $scope.formComplete = false;
 
-    $scope.formSubmit = function(formData, formValid) {
+    $scope.formSubmit = function(formData) {
         if (formData) {
             if (Object.keys($scope.billingForm).length != 0) {
+                // NavigationService.confirmOrder($scope.billingForm, function(data) {
+                //     console.log("$scope.billingForm", data);
+                // })
+                $scope.formComplete = true;
                 $scope.open();
+                $timeout(function() {
+                    $scope.formComplete = false;
+                    $scope.billingForm = {};
+                }, 2000);
+
 
             }
+
 
         }
 
     }
+
     $scope.animationsEnabled = true;
     $scope.open = function(size) {
         var modalInstance = $uibModal.open({
@@ -1241,22 +1253,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.SingleHostParty10 = data.data;
-        // _.each($scope.SingleHostParty10,function (key) {
-        //   $scope.moreDesc[key._id]=
-        // });
-        $scope.SingleHostParty = _.chunk(data.data, 3);
+        $scope.SingleHostParty = data.data;
         console.log("$scope.SingleHostParty", $scope.SingleHostParty);
 
 
     });
-    $scope.readMore = function(id, indexid) {
-
+    $scope.readMore = function(id) {
         console.log(id);
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-        $scope.myDesc = _.find($scope.SingleHostParty10, function(n) {
+        $scope.myDesc = _.find($scope.SingleHostParty, function(n) {
             return n._id == id;
-            // console.log($scope.myDesc);
         }).description;
     };
     NavigationService.getAllHostPartySlider(function(data) {
@@ -1431,7 +1437,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.events10 = data.data;
         $scope.events = _.chunk(data.data, 3);
         console.log("$scope.events", $scope.events);
-        $scope.readMore = function(id, indexid) {
+        $scope.readMore = function(id) {
 
             console.log("3333333", id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
@@ -1461,8 +1467,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.drinkParty10 = data.data;
-        $scope.drinkParty = _.chunk(data.data, 3);
+        $scope.drinkParty = data.data;
+
         console.log("$scope.drinkParty", $scope.drinkParty);
         $scope.readMore = function(id, indexid) {
 
@@ -1470,7 +1476,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
             console.log("  $scope.moreDesc[id]", $scope.moreDesc[id]);
-            $scope.myDesc = _.find($scope.drinkParty10, function(n) {
+            $scope.myDesc = _.find($scope.drinkParty, function(n) {
                 return n._id == id;
                 // console.log($scope.myDesc);
             }).description;

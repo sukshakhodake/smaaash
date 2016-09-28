@@ -5,18 +5,17 @@
       </div>
    </div>
    <div class="container">
-      <div class="row" ng-repeat="data in events">
-         <div class="col-md-4" ng-repeat="d in data">
+      <div class="row">
+         <div class="col-md-4" ng-repeat="data in events">
             <div class="race-eve relative margno">
                <div class="img-bg">
-                  <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="event-inner({id:d._id})">
+                  <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="" ui-sref="event-inner({id:data._id})">
                </div>
-               <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="d.video"></a>
-
+               <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>
                <div class="race-text">
 
                   <div class="min-h">
-                     <h3 class="margin0 brand-white" ng-bind-html="d.hometext">smaaash cricket carnival</h3>
+                     <h3 class="margin0 brand-white" ng-bind-html="data.hometext">smaaash cricket carnival</h3>
 
                   </div>
                </div>
