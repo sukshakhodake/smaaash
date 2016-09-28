@@ -1041,9 +1041,9 @@ $menu-height: 80px !default;
         @include position( absolute,
         null null null 0);
     }
-    &.brand-green {
+    &.brand-purply {
         &:before {
-            background-color: $brand-green;
+            background-color: $brand-purply;
         }
     }
     &.brand-blue {
@@ -1240,10 +1240,10 @@ $menu-height: 80px !default;
             null 10px null null);
         }
     }
-    .tops {
-        position: absolute;
-        bottom: 65px;
-    }
+    // .tops {
+    //     position: absolute;
+    //     bottom: 65px;
+    // }
 }
 
 .full-height {
