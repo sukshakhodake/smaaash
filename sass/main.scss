@@ -1513,7 +1513,8 @@ img.fancybox-image {
     }
 }
 
-.overlay {
+.overlay,
+.overlays {
     position: absolute;
     z-index: 999;
     top: 0;
@@ -1523,6 +1524,14 @@ img.fancybox-image {
     display: block;
     height: 600px;
     background: rgba(0, 0, 0, 0.0);
+}
+
+.overlays {
+    height: 810px;
+    background: rgba(0, 0, 0, 0.11);
+    a {
+        margin-right: 20px;
+    }
 }
 
 .deals-event {
@@ -1812,6 +1821,12 @@ img.fancybox-image {
 
 .error {
     color: #ff0000;
+}
+
+.fa-times-circle-o:before {
+    content: "\f05c";
+    color: #000;
+    font-size: 30px;
 }
 
 @import "ruchira";
