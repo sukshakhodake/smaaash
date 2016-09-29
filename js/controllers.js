@@ -664,9 +664,7 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
         }
 
     };
-    NavigationService.showWishList(function(data){
-      console.log("showWishList",data);
-    })
+
     $scope.addedToWishList = function() {
             if ($.jStorage.get("loginDetail") != null) {
                 $uibModal.open({
@@ -719,6 +717,11 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     $scope.menutitle = NavigationService.makeactive("Wishlist");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    NavigationService.showWishList(function(data){
+      $scope.showWishList=data.data
+      console.log("showWishList",  $scope.showWishList.wishList);
+    })
 })
 
 .controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
