@@ -180,6 +180,9 @@ body {
 
 .min-hi {
     min-height: 30px;
+    h3 {
+        margin: 0!important;
+    }
 }
 
 img.loading {
@@ -315,7 +318,7 @@ $menu-height: 80px !default;
     .slidings {
         .custom-pagination {
             @include position(absolute,
-            null 20px 37px null);
+            null 20px 32px null);
             margin: 0;
             li {
                 float: left;
@@ -1132,12 +1135,21 @@ $menu-height: 80px !default;
         font-size: 30px;
         margin: 0;
         display: inline-block;
+        margin-left: -20px;
     }
     .mover {
         width: 90%;
         @include position( absolute,
         null null null 0);
         display: block;
+    }
+}
+
+.slant-box {
+    .heading {
+        h2 {
+            margin-left: -39px;
+        }
     }
 }
 

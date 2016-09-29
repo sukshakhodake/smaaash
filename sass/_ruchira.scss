@@ -45,7 +45,7 @@ $brand-white:#fff !default;
 }
 
 .marg {
-  margin-left: 25px !important;
+  margin-left: 15px !important;
 }
 
 .corporate {
@@ -1571,7 +1571,7 @@ $brand-white:#fff !default;
       }
       .race-text {
         background-color: #000;
-        padding: 25px 10px;
+        padding: 15px 10px;
         h3 {
           font-family: $body-font;
           font-size: 20px;
@@ -1710,7 +1710,7 @@ $brand-white:#fff !default;
       .race {
         // height: 251px;
         .race-text {
-          height: 100px;
+          // height: 100px;
           background-color: #000;
         }
       }
@@ -2636,6 +2636,20 @@ button {
     right: 8px;
     font-size: 8px;
     color: $brand-red;
+  }
+}
+
+.attractions {
+  .button-set {
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.love {
+  button {
+    width: 100%;
   }
 }
 
