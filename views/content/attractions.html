@@ -1,75 +1,76 @@
 <div class="attractions">
-   <div class="deals2">
-      <div class="container">
-         <h2 class="nav-name center">attractions</h2>
+  <div class="deals2">
+    <div class="container">
+      <h2 class="nav-name center">attractions</h2>
+    </div>
+  </div>
+  <div class="forms brand-blue">
+    <div class="container">
+      <div class="search-green">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="microscope">
+          <img src="img/new/bino.png" class="img-responsive" alt="">
+        </div>
       </div>
-   </div>
-   <div class="forms brand-blue">
-      <div class="container">
-         <div class="search-green">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="microscope">
-               <img src="img/new/bino.png" class="img-responsive" alt="">
+
+      <div class="game-type inline-block">
+        <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+        <select class="form-control">
+               <option>All</option>
+               <option>All</option>
+               <option>All</option>
+            </select>
+      </div>
+      <div class="game-type inline-block">
+        <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+        <select class="form-control">
+               <option>Game Type</option>
+               <option>Game Type</option>
+               <option>Game Type</option>
+
+            </select>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="new">
+      <div class="row">
+        <div class="col-md-4 col-sm-4" ng-repeat="d in singleAttraction">
+          <div class="karting-championship">
+            <div class="brand-blue relative he">
+              <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+              <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a>
             </div>
-         </div>
-
-         <div class="game-type inline-block">
-            <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <select class="form-control">
-               <option>All</option>
-               <option>All</option>
-               <option>All</option>
-            </select>
-         </div>
-         <div class="game-type inline-block">
-            <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <select class="form-control">
-               <option>Game Type</option>
-               <option>Game Type</option>
-               <option>Game Type</option>
-
-            </select>
-         </div>
-      </div>
-   </div>
-   <div class="container">
-      <div class="new">
-         <div class="row">
-            <div class="col-md-4 col-sm-4" ng-repeat="d in singleAttraction">
-               <div class="karting-championship">
-                  <div class="brand-blue relative he">
-                     <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
-                   <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a>
-                  </div>
-                  <div class="new-detail">
-                     <div class="views inline-block">
-                        <button class="uppercase bluey" ui-sref="snow-rush({id:d._id})">view</button>
-                     </div>
-                     <div class="min-h">
-                        <h3 class="margin0 bluey" ng-bind-html="d.hometext"></h3>
-                        <p>Game For:
-                           <span class="bluey capitalize">
+            <div class="new-detail">
+              <div class="views inline-block">
+                <button class="uppercase bluey" ui-sref="snow-rush({id:d._id})">view</button>
+              </div>
+              <div class="min-h">
+                <h3 class="margin0 bluey" ng-bind-html="d.hometext"></h3>
+                <p>Game For:
+                  <span class="bluey capitalize">
                              <span ng-repeat="per in d.gameforarray track by $index">{{per}} <span ng-if="$index<d.gameforarray.length-2">|</span>
-                           <span ng-if="$index==d.gameforarray.length-2">&</span> </span>
-                           </span>
-                           <span ng-if="d.gameforarray==''"> - </span>
+                  <span ng-if="$index==d.gameforarray.length-2">&</span> </span>
+                  </span>
+                  <span ng-if="d.gameforarray==''"> - </span>
 
-                        </p>
-                     </div>
-                     <div class="button-set">
-                        <!-- <button class="uppercase blue">events</button>
-                        <button class="uppercase blue">deals and packages</button>
-                        <button class="uppercase blue">buy now</button> -->
-                     </div>
-                     <div class="love">
-                        <button class="uppercase" ng-click="myWish(d._id) ; addedToWishList();"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button>
-                     </div>
-                  </div>
-               </div>
+                </p>
+              </div>
+              <div class="button-set">
+                <!-- <button class="uppercase blue">events</button>
+                        <button class="uppercase blue">deals and packages</button>-->
+                <button class="uppercase blue">buy now</button>
+              </div>
+              <div class="love">
+                <button class="uppercase" ng-click="myWish(d._id) ; addedToWishList();"><i class="fa fa-heart-o" aria-hidden="true"></i>would love to try</button>
+              </div>
             </div>
+          </div>
+        </div>
 
-         </div>
       </div>
+    </div>
 
-   </div>
+  </div>
 </div>

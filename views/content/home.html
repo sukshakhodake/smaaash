@@ -1,4 +1,4 @@
-<div class="inner relative">
+<div class="inner relative pointer">
     <iframe width="560" height="315" ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
         frameborder="0" allowfullscreen="" style="
     position: absolute;
@@ -116,12 +116,13 @@
         <div class="slant-col ">
             <div class="slant-in brand-green">
                 <div class="slant-box full-height">
-                    <h2 class="brand-white">DEALS AND PACKAGES</h2>
+                    <h2 class="brand-white pull-left">DEALS AND PACKAGES</h2>
 
                     <p class="pull-right  capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id})">view all</p>
+                    <div class="clearfix"></div>
                     <div class="mover">
                         <div class="slidings">
-                            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="320" animation="slide" animationLoop="true"
+                            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="430" animation="slide" animationLoop="true"
                                 prev-text="" next-text="">
                                 <li>
                                     <a ui-sref="deals-inner({id:s._id})">
@@ -152,10 +153,11 @@
         <div class="slant-col brand-blue pull-right">
             <div class="slant-box full-height">
                 <h2 class="brand-white marginleft">Host A Party</h2>
+                <p class="pull-right  capitalize brand-white border-bot">view all</p>
                 <div class="mover extra">
                     <flex-slider class="carousel relative" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true"
                         prev-text="" next-text="">
-                        <li style="height:350px;">
+                        <li>
 
                             <a ui-sref="host-party({id:s.type._id})">
                                 <!--<div class="rays"></div>-->
@@ -252,12 +254,12 @@
         <div class="slant-col">
             <div class="slant-in brand-blue ">
                 <div class="slant-box full-height">
-                    <h2 class="brand-white">events</h2>
+                    <h2 class="brand-white pull-left">events</h2>
                     <p class="pull-right  capitalize brand-white border-bot" ui-sref="event({id:events[0].type._id})">view all</p>
-
+                    <div class="clearfix"></div>
                     <div class="mover">
                         <div class="slidings">
-                            <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="320" animation="slide" animationLoop="true"
+                            <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="430" animation="slide" animationLoop="true"
                                 prev-text="" next-text="">
                                 <li>
                                     <a ui-sref="event-inner({id:s._id})">
@@ -285,6 +287,7 @@
         <div class="slant-col  brand-purply pull-right">
             <div class="slant-box full-height change">
                 <h2 class="brand-white marginleft">Attractions</h2>
+                <p class="pull-right  capitalize brand-white border-bot">view all</p>
                 <div class="mover">
                     <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="470" item-margin="33" animation="slide"
                         animationLoop="true" prev-text="" next-text="">
