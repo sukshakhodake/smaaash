@@ -174,8 +174,8 @@
 
         </div>
     </div>
-    <div class="side-buttons" ng-class="{'slide-down': menu == true}">
-       <div class="connect-button" id="axis" ng-click="getMenus();">
+    <div class="side-buttons" ng-class="{'slide-down': menu == true}" ng-hide="showConnect">
+       <div class="connect-button" id="axis" ng-click="getMenus();" >
 
           <div class="orange-rays"></div>
           <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
@@ -268,10 +268,10 @@
           </div>
        </div>
     </div>
-    <div class="side" ng-class="{'slides-down': menu == true}">
+    <div class="side" ng-class="{'slides-down': menu == true}" ng-hide="showAunty">
        <div class="live-chat" id="axe">
           <div class="orange-rays"></div>
-          <img src="img/phone-aunty.png" class="img-responsive transform" alt="">
+          <img src="img/phone-aunty.png" class="img-responsive transform" alt="" >
           <div class="phone-aunty">
              <p class="uppercase brand-white">live chat</p>
           </div>
