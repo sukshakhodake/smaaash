@@ -1555,7 +1555,7 @@ $brand-white:#fff !default;
   }
   .gallery {
     .race {
-      height: 250px;
+      // height: 250px;
       .pink-button,
       .buy-button {
         height: auto;
@@ -1583,12 +1583,12 @@ $brand-white:#fff !default;
     border: 2px solid #000;
     margin-bottom: 15px;
     .slidings {
-      margin: 20px;
+      margin: 10px;
       .flex-control-nav {
         display: none;
       }
       .flexslider {
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         .slides {
           li+li {
             margin: 0 30px;

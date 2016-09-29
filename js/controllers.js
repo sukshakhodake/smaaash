@@ -23,6 +23,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showVid = function() {
         $scope.showVideo = true;
 
+    };
+    $scope.showVidFalse = function() {
+        $scope.showVideo = false;
     }
 
 
@@ -1843,11 +1846,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         NavigationService.signup($scope.signupData, function(data) {
                             console.log("$scope.signupData", $scope.signupData);
                             console.log("$scope.signupDataforData", data);
-                            if (data.value===true) {
+                            if (data.value === true) {
                                 $.jStorage.set("loginDetail", data);
                                 $scope.emailExist = false;
                                 $scope.formCompleteSignup = true;
-                                  location.reload();
+
+                                location.reload();
                                 $timeout(function() {
                                     $scope.formCompleteSignup = false;
                                     $scope.signupData = {};
