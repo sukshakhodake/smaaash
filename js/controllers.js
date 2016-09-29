@@ -708,6 +708,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+
 .controller('WishlistCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wishlist");
@@ -1854,9 +1855,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         NavigationService.signup($scope.signupData, function (data) {
                             console.log("$scope.signupData", $scope.signupData);
                             console.log("$scope.signupDataforData", data);
-                            if (data.value) {
+                            if (data.value === true) {
+                                $.jStorage.set("loginDetail", data);
                                 $scope.emailExist = false;
                                 $scope.formCompleteSignup = true;
+
+                                location.reload();
                                 $timeout(function () {
                                     $scope.formCompleteSignup = false;
                                     $scope.signupData = {};
