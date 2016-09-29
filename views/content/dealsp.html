@@ -1,57 +1,29 @@
 <div class="deals2">
-   <div class="backg-deal">
-      <div class="container">
-         <h2 class="nav-name center ">Deals &amp; Packages</h2>
-      </div>
-   </div>
-   <div class="container">
-      <div class="row" ng-repeat="data in SingleDealsPackages">
-         <div class="col-md-4" ng-repeat="d in data">
-            <div class="race-eve relative margno">
-               <div class="img-bg">
-                  <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="deals-inner({id:d._id})">
-               </div>
-               <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="d.video"></a>
-
-               <div class="race-text">
-
-                  <div class="min-h">
-                     <h3 class="margin0 brand-white" ng-bind-html="d.hometext"></h3>
-                     <h3 class="margin0" ng-if="!d.hometext">No data found</h3>
-
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- <div class="col-md-4">
+    <div class="backg-deal">
+        <div class="container">
+            <h2 class="nav-name center ">Deals &amp; Packages</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" ng-repeat="data in SingleDealsPackages">
+            <div class="col-md-4" ng-repeat="d in data">
                 <div class="race-eve relative margno">
                     <div class="img-bg">
-                        <img src="img/deals/deal-tab.png" class="img-responsive" alt="">
+                        <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="deals-inner({id:d._id})">
                     </div>
-                    <img src="img/home/button.png" class="pink-button img-responsive" alt="">
+                    <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                        class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="d.video"></a>
+
                     <div class="race-text">
+
                         <div class="min-h">
-                            <h3 class="margin0 brand-white">monsoon day pass</h3>
+                            <h3 class="margin0 brand-white" ng-bind-html="d.hometext"></h3>
+                            <h3 class="margin0" ng-if="!d.hometext">No data found</h3>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="race-eve relative margno">
-                    <div class="img-bg">
-                        <img src="img/deals/deal-tab.png" class="img-responsive" alt="">
-                    </div>
-                    <img src="img/home/button.png" class="pink-button img-responsive" alt="">
-                    <div class="race-text">
-
-                        <div class="min-h">
-                            <h3 class="margin0 brand-white">monsoon day pass</h3>
-
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-      </div>
-   </div>
+        </div>
+    </div>
 </div>
