@@ -1874,7 +1874,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.formCompleteSignup = false;
                                     $scope.signupData = {};
                                 }, 2000);
-                              location.reload();
+                                location.reload();
+                                $state.go("account");
                             } else {
                                 $scope.emailExist = true;
                             }
@@ -1907,7 +1908,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             $scope.formComplete = false;
                             $scope.userData = {};
                         }, 2000);
-                      location.reload();
+                        location.reload();
                     } else {
                         $scope.valid = true;
                     }
@@ -1923,8 +1924,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.logout = function() {
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
-
-                    $state.reload();
+                    location.reload();
+                    $state.go("home");
                 })
             } else {
 
@@ -1932,18 +1933,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.myCart = function() {
-            if ($.jStorage.get("loginDetail") == null) {
+            if ($.jStorage.get("loginDetail") === null) {
                 console.log("am in if");
                 $uibModal.open({
                     animation: true,
                     templateUrl: 'views/modal/wishlistsigup.html',
                     scope: $scope
                 });
-            } else {
+            } else if ($.jStorage.get("loginDetail") != null) {
                 console.log("im in else");
                 $state.go("cart");
             }
         };
+
+        $scope.myAccount = function() {
+            if ($.jStorage.get("loginDetail") != null) {
+                $state.go("account");
+            };
+        }
+
+
+
+
 
 
     })
