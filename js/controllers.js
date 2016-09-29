@@ -1850,17 +1850,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 $.jStorage.set("loginDetail", data);
                                 $scope.emailExist = false;
                                 $scope.formCompleteSignup = true;
-
-                                location.reload();
+                                $state.reload();
                                 $timeout(function() {
                                     $scope.formCompleteSignup = false;
                                     $scope.signupData = {};
                                 }, 2000);
-
                             } else {
                                 $scope.emailExist = true;
                             }
-
                         })
                     } else {
                         console.log('m false');
@@ -1883,7 +1880,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.login($scope.userData, function(data) {
                     console.log("data", data);
                     if (data.value == true) {
-                        location.reload();
+                      $state.reload();
                         $.jStorage.set("loginDetail", data);
                         $scope.valid = false;
                         $scope.formComplete = true;
@@ -1906,7 +1903,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
 
-                    location.reload();
+                    $state.reload();
                 })
             } else {
 
