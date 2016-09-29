@@ -34,7 +34,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scrollTop: $("#toHome").offset().top
         }, 500);
     };
-
+$scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         // console.log('getSlider', data);
         $scope.mySlides = data.data;
@@ -67,6 +67,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
+            console.log("  $scope.attraction",  $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
@@ -656,13 +657,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     // backdropClass: 'backcolor'
             });
         } else {
-            NavigationService.wishList(id, function(data) {
+            NavigationService.addToWishList(id, function(data) {
 
                 console.log("wishlist", data);
             })
         }
 
     };
+    NavigationService.showWishList(function(data){
+      console.log("showWishList",data);
+    })
     $scope.addedToWishList = function() {
             if ($.jStorage.get("loginDetail") != null) {
                 $uibModal.open({
@@ -1176,6 +1180,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/Top-banner.jpg',
         'img/Top-banner.jpg'
     ];
+
     // $scope.menu = "menu-out";
     // $scope.getMenu = function() {
     //     $(".side-menu").addClass("menu-in");
@@ -1875,7 +1880,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.signupData = {};
                                 }, 2000);
                                 location.reload();
-                                $state.go("account");
+
+                                // $state.go("account");
                             } else {
                                 $scope.emailExist = true;
                             }

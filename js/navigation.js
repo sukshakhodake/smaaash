@@ -128,11 +128,11 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        getOne: function( callback) {
-          var data = {
-              _id:$.jStorage.get("loginDetail").data._id,
+        getOne: function(callback) {
+            var data = {
+                _id: $.jStorage.get("loginDetail").data._id,
 
-          };
+            };
             $http({
                 url: adminurl + 'signup/getOne',
                 method: 'POST',
@@ -243,16 +243,32 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        wishList: function(id, callback) {
+
+
+
+        addToWishList: function(id, callback) {
             console.log("nAV", id);
             var data = {
-                exploresmash: id,
                 user: $.jStorage.get("loginDetail").data._id,
-                city: $.jStorage.get("cityid")
+                wishList: {
+                    exploresmash: id,
+                    city: $.jStorage.get("cityid")
+                }
             };
-
             $http({
-                url: adminurl + 'wishlist/save',
+                url: adminurl + 'signup/addToWishList',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        showWishList: function(callback) {
+            // console.log("nAV", id);
+            var data = {
+                user: $.jStorage.get("loginDetail").data._id,
+            };
+            $http({
+                url: adminurl + 'signup/showWishList',
                 method: 'POST',
                 withCredentials: true,
                 data: data

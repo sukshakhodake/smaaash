@@ -157,7 +157,7 @@
         <div class="slant-col brand-blue pull-right">
             <div class="slant-box full-height">
                 <h2 class="brand-white marginleft">Host A Party</h2>
-                <p class="pull-right  capitalize brand-white border-bot">view all</p>
+                <p class="pull-right  capitalize brand-white border-bot" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
                 <div class="mover extra">
                     <flex-slider class="carousel relative" flex-slide="s in hostParty track by $index" item-width="470" animation="slide" animationLoop="true"
                         prev-text="" next-text="">
@@ -291,7 +291,7 @@
         <div class="slant-col  brand-purply pull-right">
             <div class="slant-box full-height change">
                 <h2 class="brand-white marginleft">Attractions</h2>
-                <p class="pull-right  capitalize brand-white border-bot">view all</p>
+                <p class="pull-right  capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
                 <div class="mover">
                     <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="470" item-margin="33" animation="slide"
                         animationLoop="true" prev-text="" next-text="">

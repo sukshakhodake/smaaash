@@ -231,7 +231,7 @@
 
                          </div>
                          <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="signupData.mobile" required only-digits maxlength="10" minlength="10">
+                            <input type="text" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="signupData.mobile" required only-digits maxlength="10" minlength="10">
 
                             <div class="error-msg" ng-show="signUp.mobile.$error.required && signUp.mobile.$touched">Please enter your mobile no. </div>
                          </div>
@@ -244,7 +244,7 @@
                            <div class="error" ng-if="validCity">Please select valid city.</div>
                          </div>
                          <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password" ng-minlength="6" ng-maxlength="8">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="signupData.password"  ng-maxlength="14">
                             <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div>
                          </div>
                          <div class="form-group">
