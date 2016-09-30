@@ -275,7 +275,7 @@ $menu-height: 80px !default;
         z-index: 999;
     }
     .cities {
-        background-color: $brand-purple;
+        background-color: $brand-orange;
         @include transform(skew(15deg));
         @include position(absolute,
         52px null null 5px);
@@ -1414,7 +1414,7 @@ img.fancybox-image {
 .side-menu {
     width: 650px;
     position: fixed;
-    top: 35%;
+    top: 20%;
     right: -450px;
     z-index: 99999;
 }
