@@ -34,7 +34,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scrollTop: $("#toHome").offset().top
         }, 500);
     };
-$scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
+    $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         // console.log('getSlider', data);
         $scope.mySlides = data.data;
@@ -67,7 +67,7 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
-            console.log("  $scope.attraction",  $scope.attraction);
+            console.log("  $scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
@@ -492,7 +492,6 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
         $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
         console.log("$scope.SingleExploreSmaaash", $scope.SingleExploreSmaaash);
         $scope.readMore = function(id, indexid) {
-
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
@@ -504,42 +503,28 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     });
 
 
-    $scope.myWish = function(id) {
-
+    $scope.addedToWishList = function(id) {
         if ($.jStorage.get("loginDetail") == null) {
-
             console.log("am in if");
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/wishlistsigup.html',
                 scope: $scope
-                    // backdropClass: 'backcolor'
             });
-        } else {
-            NavigationService.wishList(id, function(data) {
-
+        } else if ($.jStorage.get("loginDetail") != null) {
+            NavigationService.addToWishList(id, function(data) {
                 console.log("wishlist", data);
-            })
-        }
-
-    };
-    $scope.addedToWishList = function() {
-            if ($.jStorage.get("loginDetail") != null) {
                 $uibModal.open({
                     animation: true,
                     templateUrl: 'views/modal/wishlist.html',
                     scope: $scope
-                        // backdropClass: 'backcolor'
                 });
-            }
-
+            })
         }
-        // $scope.myWish = function(id) {
-        //     console.log("idNews", id);
-        //     NavigationService.wishList(id, function(data) {
-        //         console.log("wishlist", data);
-        //     })
-        // }
+
+    };
+
+
 
 
 
@@ -587,20 +572,7 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     $scope.menutitle = NavigationService.makeactive("Attractions");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
+
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -614,14 +586,8 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     $scope.children = '';
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.singleAttraction = data.data;
-
         console.log("$scope.singleAttraction", $scope.singleAttraction);
-
-
-
-
         _.each($scope.singleAttraction, function(data) {
-
             data.gameforarray = [];
             _.each(data.gamefor, function(n) {
                 switch (n) {
@@ -635,61 +601,36 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
                         data.gameforarray.push('Children')
                         break;
                     default:
-
                 }
-
-
             });
-
         });
     });
 
 
-    $scope.myWish = function(id) {
-
+    $scope.addedToWishList = function(id) {
         if ($.jStorage.get("loginDetail") == null) {
-
             console.log("am in if");
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/wishlistsigup.html',
                 scope: $scope
-                    // backdropClass: 'backcolor'
             });
-        } else {
+        } else if ($.jStorage.get("loginDetail") != null) {
             NavigationService.addToWishList(id, function(data) {
-
                 console.log("wishlist", data);
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlist.html',
+                    scope: $scope
+                });
             })
         }
 
     };
 
-    $scope.addedToWishList = function() {
-            if ($.jStorage.get("loginDetail") != null) {
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlist.html',
-                    scope: $scope
-                        // backdropClass: 'backcolor'
-                });
-            }
 
-        }
-        // $scope.myWish = function(id) {
-        //     NavigationService.wishList(id, function(data) {
-        //         console.log("wishlist", data);
-        //     })
-        // };
-        // $scope.addedToWishList = function() {
-        //
-        //     $uibModal.open({
-        //         animation: true,
-        //         templateUrl: 'views/modal/wishlist.html',
-        //         scope: $scope
-        //             // backdropClass: 'backcolor'
-        //     });
-        // }
+
+
 
 })
 
@@ -717,11 +658,68 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     $scope.menutitle = NavigationService.makeactive("Wishlist");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.attraction = '';
+    $scope.whatsnew = '';
+    if ($.jStorage.get("loginDetail") != null) {
+      NavigationService.showWishList(function(data) {
+          $scope.showWishList = data.data
+              // console.log("showWishList", $scope.showWishList.wishList);
+          _.each($scope.showWishList.wishList, function(data) {
+              // console.log("data", data);
+              data.pageName = [];
 
-    NavigationService.showWishList(function(data){
-      $scope.showWishList=data.data
-      console.log("showWishList",  $scope.showWishList.wishList);
-    })
+              _.each(data.exploresmash, function(n) {
+                  switch (n) {
+                      case '57bc4b2aeb9c91f1025a3b55':
+                          data.pageName.push("Attraction")
+                          break;
+                      case '57bc4af6eb9c91f1025a3b4f':
+                          data.pageName.push("What's new")
+                          break;
+                          // case '3':
+                          //     data.pageName.push('Children')
+                          //     break;
+                      default:
+                  }
+              });
+          });
+
+      });
+    }
+
+    $scope.removeFromWishList = function(id) {
+        // console.log("id", id);
+        NavigationService.removeFromWishList(id, function(data) {
+            console.log("data", data);
+            if ($.jStorage.get("loginDetail") != null) {
+              NavigationService.showWishList(function(data) {
+                  $scope.showWishList = data.data
+                      // console.log("showWishList", $scope.showWishList.wishList);
+                  _.each($scope.showWishList.wishList, function(data) {
+                      // console.log("data", data);
+                      data.pageName = [];
+
+                      _.each(data.exploresmash, function(n) {
+                          switch (n) {
+                              case '57bc4b2aeb9c91f1025a3b55':
+                                  data.pageName.push("Attraction")
+                                  break;
+                              case '57bc4af6eb9c91f1025a3b4f':
+                                  data.pageName.push("What's new")
+                                  break;
+                                  // case '3':
+                                  //     data.pageName.push('Children')
+                                  //     break;
+                              default:
+                          }
+                      });
+                  });
+
+              });
+            }
+        })
+    };
+
 })
 
 .controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1088,10 +1086,14 @@ $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailExploreSmaash = data.data;
         $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
-        $scope.content = _.groupBy($scope.detailExploreSmaash.multipleattraction, 'attraction.type');
-        $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2']
-        $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58']
-        $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56']
+      
+        $scope.content = _.groupBy($scope.detailExploreSmaash.multipleattraction[0].attraction, 'type');
+        $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
+        $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
+        $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
+        console.log("  $scope.deals", $scope.deals);
+        console.log(" $scope.event", $scope.event);
+        console.log("    $scope.promotions ",   $scope.promotions );
 
     })
 })

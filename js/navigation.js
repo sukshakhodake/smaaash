@@ -274,6 +274,19 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
+        removeFromWishList: function(id,callback) {
+          console.log("inNav",id);
+            var data = {
+                user: $.jStorage.get("loginDetail").data._id,
+                _id:id
+            };
+            $http({
+                url: adminurl + 'signup/deleteWishList',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
         getMediaGallery: function(callback) {
             $http({
                 url: adminurl + 'mediagallery/getAllMediaGallery',
