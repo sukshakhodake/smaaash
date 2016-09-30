@@ -1165,7 +1165,7 @@ $brand-white:#fff !default;
   border-radius: 100%;
   background-color: $brand-purply;
   position: absolute;
-  top: 128%;
+  top: 78%;
   left: 50%;
   text-align: center;
   line-height: 12px;
@@ -1210,6 +1210,11 @@ $brand-white:#fff !default;
       }
     }
   }
+}
+
+.bg-black {
+  background-color: #000;
+  padding: 20px 0;
 }
 
 .articles {
@@ -1699,7 +1704,9 @@ $brand-white:#fff !default;
     // }
     h3 {
       font-size: 30px;
-      margin-top: -40px;
+      margin-top: 0px;
+      text-align: left;
+      margin-left: 10px;
     }
   }
 }
