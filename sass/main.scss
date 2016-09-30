@@ -1105,7 +1105,8 @@ $menu-height: 80px !default;
                 .flex-direction-nav .flex-prev {
                     display: none;
                 }
-                .flex-next {
+                .flex-next,
+                .flex-prev {
                     display: block;
                     height: 50px;
                     width: 50px;
@@ -1119,7 +1120,7 @@ $menu-height: 80px !default;
                 .flex-direction-nav a.flex-prev:before {
                     content: "";
                     @include square(100%);
-                    background: url("../img/home/ahead.png")no-repeat;
+                    background: url("../img/new/ahead.png")no-repeat;
                     background-size: contain;
                 }
             }
@@ -1946,6 +1947,10 @@ img.fancybox-image {
 }
 
 .slant-in .slant-box .slidings .flexslider .flex-direction-nav .flex-prev {
+    display: block;
+}
+
+.mover .flexslider .flex-direction-nav .flex-prev {
     display: block;
 }
 
