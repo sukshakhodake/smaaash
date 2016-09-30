@@ -54,7 +54,7 @@
               <li>
                 <!-- <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY"> -->
                 <a ui-sref="deals-inner({id:s._id})">
-                  <img ng-src="{{s.icon|uploadpath}}">
+                  <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
                   </a>
               </li>
           </flex-slider>
@@ -72,7 +72,7 @@
               <li>
                 <a ui-sref="event-inner({id:s._id})">
                 <!-- <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY"> -->
-                  <img ng-src="{{s.icon|uploadpath}}">
+                  <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
                   </a>
               </li>
           </flex-slider>
@@ -86,7 +86,7 @@
               <!-- <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY"> -->
               <!-- <a ui-sref="event-inner({id:s._id})"> -->
 
-                  <img ng-src="{{s.icon|uploadpath}}">
+                  <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
                   <!-- </a> -->
               </li>
           </flex-slider>
@@ -100,7 +100,7 @@
           <flex-slider class="carousel" flex-slide="s in detailExploreSmaash.gallery track by $index" item-width="250" animation="slide" animationLoop="true" prev-text="" next-text="">
               <li>
                 <!-- <a href="{{s}}" fancybox-box> -->
-                  <img ng-src="{{s.image|uploadpath}}">
+                  <img ng-src="{{s.image|uploadpath}}" >
                   <!-- </a> -->
               </li>
               <!-- <li>

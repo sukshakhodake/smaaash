@@ -514,11 +514,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if ($.jStorage.get("loginDetail") != null) {
             NavigationService.addToWishList(id, function(data) {
                 console.log("wishlist", data);
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlist.html',
-                    scope: $scope
-                });
+                if (data.value) {
+                    // var indexF = _.findIndex($scope.wishlist, function(key) {
+                    //     console.log("key", key.product._id, 'id', product);
+                    //     return key.product._id == product;
+                    // });
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/wishlist.html',
+                        scope: $scope
+                    });
+                }
+
             })
         }
 
@@ -606,6 +613,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     });
 
+    function showWishList() {
+        NavigationService.showWishList(function(data) {
+            $scope.userwishlist = data.data.wishList;
+            console.log("$scope.userwishlist", $scope.userwishlist);
+        })
+    }
+
+    showWishList();
 
     $scope.addedToWishList = function(id) {
         if ($.jStorage.get("loginDetail") == null) {
@@ -616,18 +631,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         } else if ($.jStorage.get("loginDetail") != null) {
-            NavigationService.addToWishList(id, function(data) {
-                console.log("wishlist", data);
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlist.html',
-                    scope: $scope
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            if (findIndex !== -1) {
+                NavigationService.removeFromWishList(id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                    };
+
                 });
-            })
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
+
+          
+
         }
-
     };
-
 
 
 
@@ -660,65 +694,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.attraction = '';
     $scope.whatsnew = '';
-    if ($.jStorage.get("loginDetail") != null) {
-        NavigationService.showWishList(function(data) {
-            $scope.showWishList = data.data
-                // console.log("showWishList", $scope.showWishList.wishList);
-            _.each($scope.showWishList.wishList, function(data) {
-                // console.log("data", data);
-                data.pageName = [];
 
-                _.each(data.exploresmash, function(n) {
-                    switch (n) {
-                        case '57bc4b2aeb9c91f1025a3b55':
-                            data.pageName.push("Attraction")
-                            break;
-                        case '57bc4af6eb9c91f1025a3b4f':
-                            data.pageName.push("What's new")
-                            break;
-                            // case '3':
-                            //     data.pageName.push('Children')
-                            //     break;
-                        default:
-                    }
+    function getuserWishList() {
+        if ($.jStorage.get("loginDetail") != null) {
+            NavigationService.showWishList(function(data) {
+                $scope.showWishList = data.data;
+                _.each($scope.showWishList.wishList, function(data) {
+                    data.pageName = [];
+                    _.each(data.exploresmash, function(n) {
+                        switch (n) {
+                            case '57bc4b2aeb9c91f1025a3b55':
+                                data.pageName.push("Attraction")
+                                break;
+                            case '57bc4af6eb9c91f1025a3b4f':
+                                data.pageName.push("What's new")
+                                break;
+                                // case '3':
+                                //     data.pageName.push('Children')
+                                //     break;
+                            default:
+                        }
+                    });
                 });
             });
+        }
+    };
+    getuserWishList();
 
-        });
-    }
 
     $scope.removeFromWishList = function(id) {
-        // console.log("id", id);
         NavigationService.removeFromWishList(id, function(data) {
-            console.log("data", data);
-            if ($.jStorage.get("loginDetail") != null) {
-                NavigationService.showWishList(function(data) {
-                    $scope.showWishList = data.data
-                        // console.log("showWishList", $scope.showWishList.wishList);
-                    _.each($scope.showWishList.wishList, function(data) {
-                        // console.log("data", data);
-                        data.pageName = [];
-
-                        _.each(data.exploresmash, function(n) {
-                            switch (n) {
-                                case '57bc4b2aeb9c91f1025a3b55':
-                                    data.pageName.push("Attraction")
-                                    break;
-                                case '57bc4af6eb9c91f1025a3b4f':
-                                    data.pageName.push("What's new")
-                                    break;
-                                    // case '3':
-                                    //     data.pageName.push('Children')
-                                    //     break;
-                                default:
-                            }
-                        });
-                    });
-
-                });
-            }
-        })
+            getuserWishList();
+        });
     };
+
 
 })
 
@@ -1088,21 +1097,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
         console.log($scope.detailExploreSmaash.multipleattraction);
         var attractions = [];
-        _.each($scope.detailExploreSmaash.multipleattraction,function(multi) {
-          _.each(multi.attraction,function (attr) {
-            attr.icon = multi.icon;
-            // attr.myid=attr._id;
-            attractions.push(attr);
-          })
+        _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
+            _.each(multi.attraction, function(attr) {
+                attr.icon = multi.icon;
+                // attr.myid=attr._id;
+                attractions.push(attr);
+            })
         })
         console.log(attractions);
         $scope.content = _.groupBy(attractions, 'type');
         $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
         $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
         $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
-        console.log("$scope.promotions",$scope.promotions)
-        console.log("$scope.event",$scope.event);
-        console.log("$scope.deals",$scope.deals);
+        console.log("$scope.promotions", $scope.promotions)
+        console.log("$scope.event", $scope.event);
+        console.log("$scope.deals", $scope.deals);
     })
 
 
