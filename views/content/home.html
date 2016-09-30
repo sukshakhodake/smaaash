@@ -164,12 +164,13 @@
                         <li>
 
                             <a ui-sref="host-party({id:s.type._id})">
-                                <!--<div class="rays"></div>-->
                                 <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                             </a>
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                            <h3 class="brand-white uppercase title text-center" ng-bind-html="s.hometext"></h3>
+                            <div class="carousel-text bg-black">
+                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                            </div>
                         </li>
                     </flex-slider>
                     <div ng-if="!hostParty">No Data Found</div>
@@ -295,11 +296,14 @@
                 <div class="mover">
                     <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="470" item-margin="33" animation="slide"
                         animationLoop="true" prev-text="" next-text="">
-                        <li style="height:350px; width:470px;">
+                        <li>
                             <a ui-sref="attractions({id:s.type._id})">
                                 <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
                             </a>
-                            <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                            <div class="carousel-text bg-black">
+                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                            </div>
+
                         </li>
                     </flex-slider>
                 </div>

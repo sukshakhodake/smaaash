@@ -275,17 +275,12 @@ $menu-height: 80px !default;
         z-index: 999;
     }
     .cities {
-        // background-color: $brand-orange;
-        // @include transform(skew(15deg));
         @include position(absolute,
-        37px null null 5px);
-        border-bottom: 43px solid $brand-orange;
-        border-left: 5px solid transparent;
-        border-right: 16px solid transparent;
-        height: 0;
-        width: 15%;
-        box-shadow: 0px 2px #000, 0px 0 #000;
-        padding: 8px 60px;
+        52px null null 5px);
+        background-color: #fc5626;
+        // width: 50px;
+        transform: skew(15deg);
+        box-shadow: -3px 3px #000, 1px 0 #000;
         cursor: pointer;
         span {
             display: block;
@@ -293,7 +288,9 @@ $menu-height: 80px !default;
             color: white;
             font-size: 14px;
             text-align: center;
-            margin: 21px -20px 0;
+            // margin: 21px -20px 0;
+            padding: 10px 40px;
+            transform: skew(-15deg);
             text-shadow: 1px 1px black, -1px 0 black, 0 -1px black, -1px -1px black, 0 1px black, 1px 0 black, -1px 1px black, 1px -1px black;
         }
     }
@@ -1952,6 +1949,15 @@ img.fancybox-image {
 
 .mover .flexslider .flex-direction-nav .flex-prev {
     display: block;
+    height: 50px;
+    width: 50px;
+}
+
+.flex-direction-nav a.flex-prev:before {
+    content: "";
+    @include square(100%);
+    background: url("../img/new/ahead.png")no-repeat;
+    background-size: contain;
 }
 
 @import "ruchira";
