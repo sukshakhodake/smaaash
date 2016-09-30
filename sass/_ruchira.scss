@@ -2660,18 +2660,47 @@ button {
   }
 }
 
-.slant-in .slant-box {
-  padding: 15px 7% 0 0;
-  .form {
-    margin-bottom: 0px;
-    margin-left: 52px;
-  }
-}
-
-.marg {
-  margin-left: 55px !important;
-}
-
+// .slant-in .slant-box {
+//   padding: 15px 7% 0 0;
+//   .form {
+//     margin-bottom: 0px;
+//     margin-left: 52px;
+//   }
+// }
+// .reverse {
+//   .slant-in {
+//     &.brand-blue {
+//       &:before {
+//         left: -20%;
+//       }
+//     }
+//     &.brand-green {
+//       &:before {
+//         content: "";
+//         @include transform(skew(15deg));
+//         width: 50%;
+//         height: 100%;
+//         position: absolute;
+//         left: -20%;
+//         background-color: $brand-green;
+//       }
+//     }
+//     &.brand-purply {
+//       &:before {
+//         // content: "";
+//         // @include transform(skew(15deg));
+//         width: 50%;
+//         height: 100%;
+//         position: absolute;
+//         left: -20%;
+//         background-color: $brand-purply;
+//       }
+//     }
+//   }
+//   .half-height {
+//     height: 230px;
+//   }
+// }
 // iframe{
 //   position: absolute;
 //     left: 0;
