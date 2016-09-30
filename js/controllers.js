@@ -586,7 +586,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.children = '';
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.singleAttraction = data.data;
-        console.log("$scope.singleAttraction", $scope.singleAttraction);
+        // console.log("$scope.singleAttraction", $scope.singleAttraction);
         _.each($scope.singleAttraction, function(data) {
             data.gameforarray = [];
             _.each(data.gamefor, function(n) {
@@ -661,30 +661,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.attraction = '';
     $scope.whatsnew = '';
     if ($.jStorage.get("loginDetail") != null) {
-      NavigationService.showWishList(function(data) {
-          $scope.showWishList = data.data
-              // console.log("showWishList", $scope.showWishList.wishList);
-          _.each($scope.showWishList.wishList, function(data) {
-              // console.log("data", data);
-              data.pageName = [];
+        NavigationService.showWishList(function(data) {
+            $scope.showWishList = data.data
+                // console.log("showWishList", $scope.showWishList.wishList);
+            _.each($scope.showWishList.wishList, function(data) {
+                // console.log("data", data);
+                data.pageName = [];
 
-              _.each(data.exploresmash, function(n) {
-                  switch (n) {
-                      case '57bc4b2aeb9c91f1025a3b55':
-                          data.pageName.push("Attraction")
-                          break;
-                      case '57bc4af6eb9c91f1025a3b4f':
-                          data.pageName.push("What's new")
-                          break;
-                          // case '3':
-                          //     data.pageName.push('Children')
-                          //     break;
-                      default:
-                  }
-              });
-          });
+                _.each(data.exploresmash, function(n) {
+                    switch (n) {
+                        case '57bc4b2aeb9c91f1025a3b55':
+                            data.pageName.push("Attraction")
+                            break;
+                        case '57bc4af6eb9c91f1025a3b4f':
+                            data.pageName.push("What's new")
+                            break;
+                            // case '3':
+                            //     data.pageName.push('Children')
+                            //     break;
+                        default:
+                    }
+                });
+            });
 
-      });
+        });
     }
 
     $scope.removeFromWishList = function(id) {
@@ -692,30 +692,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.removeFromWishList(id, function(data) {
             console.log("data", data);
             if ($.jStorage.get("loginDetail") != null) {
-              NavigationService.showWishList(function(data) {
-                  $scope.showWishList = data.data
-                      // console.log("showWishList", $scope.showWishList.wishList);
-                  _.each($scope.showWishList.wishList, function(data) {
-                      // console.log("data", data);
-                      data.pageName = [];
+                NavigationService.showWishList(function(data) {
+                    $scope.showWishList = data.data
+                        // console.log("showWishList", $scope.showWishList.wishList);
+                    _.each($scope.showWishList.wishList, function(data) {
+                        // console.log("data", data);
+                        data.pageName = [];
 
-                      _.each(data.exploresmash, function(n) {
-                          switch (n) {
-                              case '57bc4b2aeb9c91f1025a3b55':
-                                  data.pageName.push("Attraction")
-                                  break;
-                              case '57bc4af6eb9c91f1025a3b4f':
-                                  data.pageName.push("What's new")
-                                  break;
-                                  // case '3':
-                                  //     data.pageName.push('Children')
-                                  //     break;
-                              default:
-                          }
-                      });
-                  });
+                        _.each(data.exploresmash, function(n) {
+                            switch (n) {
+                                case '57bc4b2aeb9c91f1025a3b55':
+                                    data.pageName.push("Attraction")
+                                    break;
+                                case '57bc4af6eb9c91f1025a3b4f':
+                                    data.pageName.push("What's new")
+                                    break;
+                                    // case '3':
+                                    //     data.pageName.push('Children')
+                                    //     break;
+                                default:
+                            }
+                        });
+                    });
 
-              });
+                });
             }
         })
     };
@@ -1086,16 +1086,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailExploreSmaash = data.data;
         $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
-      
-        $scope.content = _.groupBy($scope.detailExploreSmaash.multipleattraction[0].attraction, 'type');
+        console.log($scope.detailExploreSmaash.multipleattraction);
+        var attractions = [];
+        _.each($scope.detailExploreSmaash.multipleattraction,function(multi) {
+          _.each(multi.attraction,function (attr) {
+            attr.icon = multi.icon;
+            // attr.myid=attr._id;
+            attractions.push(attr);
+          })
+        })
+        console.log(attractions);
+        $scope.content = _.groupBy(attractions, 'type');
         $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
         $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
         $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
-        console.log("  $scope.deals", $scope.deals);
-        console.log(" $scope.event", $scope.event);
-        console.log("    $scope.promotions ",   $scope.promotions );
-
+        console.log("$scope.promotions",$scope.promotions)
+        console.log("$scope.event",$scope.event);
+        console.log("$scope.deals",$scope.deals);
     })
+
+
+
+
 })
 
 
