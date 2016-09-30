@@ -275,19 +275,25 @@ $menu-height: 80px !default;
         z-index: 999;
     }
     .cities {
-        background-color: $brand-orange;
-        @include transform(skew(15deg));
+        // background-color: $brand-orange;
+        // @include transform(skew(15deg));
         @include position(absolute,
-        52px null null 5px);
-        box-shadow: -3px 3px #000, -3px 0 #000;
-        padding: 8px 25px;
+        37px null null 5px);
+        border-bottom: 43px solid $brand-orange;
+        border-left: 5px solid transparent;
+        border-right: 16px solid transparent;
+        height: 0;
+        width: 15%;
+        box-shadow: 0px 2px #000, 0px 0 #000;
+        padding: 8px 60px;
         cursor: pointer;
         span {
-            @include transform(skew(-15deg));
             display: block;
-            font-family: $body-font;
+            font-family: "American Purpose";
             color: white;
-            font-size: 16px;
+            font-size: 14px;
+            text-align: center;
+            margin: 21px -20px 0;
             text-shadow: 1px 1px black, -1px 0 black, 0 -1px black, -1px -1px black, 0 1px black, 1px 0 black, -1px 1px black, 1px -1px black;
         }
     }
@@ -296,7 +302,7 @@ $menu-height: 80px !default;
         0 80px null null);
         cursor: pointer;
         img {
-            height: $menu-height - 5px;
+            height: $menu-height + 5px;
             width: auto;
         }
     }
@@ -1032,13 +1038,13 @@ $menu-height: 80px !default;
 }
 
 .slant-col {
-    @include transform(skew(-15deg));
+    // @include transform(skew(-15deg));
     position: relative;
     width: 49%;
     float: left;
     &:before {
-        content: "";
-        @include transform(skew(15deg));
+        // content: "";
+        // @include transform(skew(15deg));
         width: 50%;
         height: 100%;
         @include position( absolute,
@@ -1062,8 +1068,8 @@ $menu-height: 80px !default;
         margin-top: 20px;
     }
     &:before {
-        content: "";
-        @include transform(skew(15deg));
+        // content: "";
+        // @include transform(skew(15deg));
         width: 50%;
         height: 100%;
         @include position(absolute,
@@ -1128,28 +1134,23 @@ $menu-height: 80px !default;
 }
 
 .slant-box {
-    @include transform(skew(15deg));
+    // @include transform(skew(15deg));
     padding: 15px 15px 0;
     h2 {
         font-family: $body-font;
         font-size: 30px;
         margin: 0;
         display: inline-block;
-        margin-left: -20px;
+        margin-left: 20px;
     }
     .mover {
-        width: 90%;
+        // width: 90%;
         @include position( absolute,
         null null null 0);
         display: block;
     }
-}
-
-.slant-box {
-    .heading {
-        h2 {
-            margin-left: -39px;
-        }
+    .margno {
+        margin: 0;
     }
 }
 
@@ -1195,8 +1196,8 @@ $menu-height: 80px !default;
         }
         &.brand-green {
             &:before {
-                content: "";
-                @include transform(skew(15deg));
+                // content: "";
+                // @include transform(skew(15deg));
                 width: 50%;
                 height: 100%;
                 position: absolute;
@@ -1206,8 +1207,8 @@ $menu-height: 80px !default;
         }
         &.brand-purply {
             &:before {
-                content: "";
-                @include transform(skew(15deg));
+                // content: "";
+                // @include transform(skew(15deg));
                 width: 50%;
                 height: 100%;
                 position: absolute;
@@ -1827,6 +1828,90 @@ img.fancybox-image {
     content: "\f05c";
     color: #000;
     font-size: 30px;
+}
+
+.slant-cols {
+    @include transform(skew(-15deg));
+    position: relative;
+    width: 49%;
+    float: left;
+    &:before {
+        content: "";
+        @include transform(skew(15deg));
+        width: 50%;
+        height: 100%;
+        @include position( absolute,
+        null null null 0);
+    }
+    &.brand-green {
+        &:before {
+            background-color: $brand-green;
+        }
+    }
+    &.brand-blue {
+        &:before {
+            background-color: $brand-blue;
+        }
+    }
+}
+
+.slant-ins {
+    position: relative;
+    +.slant-ins {
+        margin-top: 20px;
+    }
+    &:before {
+        content: "";
+        @include transform(skew(15deg));
+        width: 50%;
+        height: 100%;
+        @include position(absolute,
+        null -20% null null);
+    }
+    &.brand-blue {
+        &:before {
+            background-color: $brand-blue;
+        }
+    }
+    &.brand-darkblue {
+        &:before {
+            background-color: $brand-darkblue;
+        }
+    }
+    &.brand-pink {
+        &:before {
+            background-color: $brand-pink;
+        }
+    }
+    &.brand-red {
+        &:before {
+            background-color: $brand-red;
+        }
+    }
+    .slant-boxes {
+        padding: 15px 7% 0;
+        .slidings {
+            .flexslider {
+                background: transparent;
+                border-color: transparent;
+                .flex-control-nav,
+                .flex-direction-nav .flex-prev {
+                    display: none;
+                }
+                .flex-next {
+                    display: block;
+                    height: 50px;
+                    width: 50px;
+                }
+                .flex-direction-nav a.flex-next:before {
+                    content: "";
+                    @include square(100%);
+                    background: url("../img/home/arrow.png")no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+    }
 }
 
 @import "ruchira";

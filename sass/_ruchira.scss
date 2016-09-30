@@ -1165,7 +1165,7 @@ $brand-white:#fff !default;
   border-radius: 100%;
   background-color: $brand-purply;
   position: absolute;
-  bottom: 15px;
+  top: 128%;
   left: 50%;
   text-align: center;
   line-height: 12px;
@@ -1174,7 +1174,7 @@ $brand-white:#fff !default;
   font-size: 12px;
   font-family: $body-font;
   cursor: pointer;
-  box-shadow: 2px 2px 0px #340d51;
+  // box-shadow: 2px 2px 0px #340d51;
   span {
     color: #fff;
     .fa {
@@ -1634,7 +1634,7 @@ $brand-white:#fff !default;
   .slant-in {
     .mover {
       right: 0;
-      left: 5px;
+      left: 10px;
       top: 65px;
       .slidings {
         li {
@@ -2658,6 +2658,18 @@ button {
   .new {
     margin: 20px 0;
   }
+}
+
+.slant-in .slant-box {
+  padding: 15px 7% 0 0;
+  .form {
+    margin-bottom: 0px;
+    margin-left: 52px;
+  }
+}
+
+.marg {
+  margin-left: 55px !important;
 }
 
 // iframe{
