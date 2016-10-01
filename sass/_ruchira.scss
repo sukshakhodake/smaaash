@@ -1171,7 +1171,7 @@ $brand-white:#fff !default;
   line-height: 12px;
   padding-top: 15px;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   font-family: $body-font;
   cursor: pointer;
   // box-shadow: 2px 2px 0px #340d51;
@@ -2693,22 +2693,22 @@ button {
     .mover {
       .flexslider {
         ul li:nth-child(6n+6) {
-          background-color: black;
+          background-color: $brand-purple;
         }
         ul li:nth-child(6n+5) {
-          background-color: green;
+          background-color: $brand-blue;
         }
         ul li:nth-child(6n+4) {
-          background-color: blue;
+          background-color: $brand-green;
         }
         ul li:nth-child(6n+3) {
-          background-color: red;
+          background-color: $brand-yellow;
         }
         ul li:nth-child(6n+2) {
-          background-color: pink;
+          background-color: $brand-orangy;
         }
         ul li:nth-child(6n+1) {
-          background-color: yellow;
+          background-color: $brand-darkblue;
         }
       }
     }
