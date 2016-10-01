@@ -71,9 +71,11 @@
                            <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
                            <a ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
                         </div>
-                        <div class="new-detail">
+                        <div class="new-detail" >
                            <div class="viewing1 views inline-block">
-                              <span class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</span>
+                              <button type="button" class="uppercase bluey"  ng-click="goToGames(data._id,data,$index)" ng-hide="data.selected">SELECT</button>
+                              <button type="button" class="uppercase bluey" ng-class="{selected:data.selected}" ng-click="goToGames(data._id,data)" ng-show="data.selected">SELECTED</button>
+                              <!-- <span >SELECT</span> -->
                               <!-- <button class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</button> -->
                            </div>
                            <div class="min-h">
@@ -175,7 +177,7 @@
                            <option value="03">03</option>
                         </select>
 
-                        <div class="error" ng-if="selectStarter">Please select an item in the Starter.</div>
+                        <div class="error" ng-if="selectStarter">Please select Starter.</div>
 
 
                      </div>
@@ -194,7 +196,7 @@
                         </select>
 
                         <div ng-show="customizeform.dsr.$error.required"></div>
-                        <div class="error" ng-if="selectDessert">Please select an item in the Dessert .</div>
+                        <div class="error" ng-if="selectDessert">Please select Dessert .</div>
                      </div>
                   </div>
                </div>
@@ -214,7 +216,7 @@
                         </select>
 
                         <div ng-show="customizeform.mainCourse.$error.required"></div>
-                        <div class="error" ng-if="selectmainCourse">Please select an item in the Main Course.</div>
+                        <div class="error" ng-if="selectmainCourse">Please select the Main Course.</div>
                      </div>
                   </div>
                   <div class="starter">

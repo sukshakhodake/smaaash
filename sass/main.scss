@@ -31,7 +31,10 @@ $brand-orangy: #fc5626 !default;
     font-family: "American Purpose";
     src: url("../fonts/AmericanPurpose.ttf");
 }
-
+button.selected {
+  background: $brand-bluey !important;
+  color:white !important;
+}
 @font-face {
     font-family: "Galano Grotesque";
     src: url("../fonts/GalanoGrotesque.otf");

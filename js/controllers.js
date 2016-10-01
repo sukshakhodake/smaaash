@@ -687,8 +687,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return key.exploresmash._id === id;
             });
             console.log("findIndex", findIndex);
-
             if (findIndex !== -1) {
+                console.log("findIndex", findIndex);
                 constraints = _.find($scope.userwishlist, function(key) {
                     return key.exploresmash._id === id;
                 });
@@ -849,7 +849,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout,  $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("customizepackage");
     $scope.menutitle = NavigationService.makeactive("Customize Package");
@@ -980,9 +980,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.customizeformData.games = [];
 
-    $scope.goToGames = function(val) {
+
+    $scope.goToGames = function(val, data) {
+        data.selected = !data.selected;
         console.log("val", val);
-        // console.log($scope.customizeformData);
         var foundIndex = _.findIndex($scope.customizeformData.games, function(key) {
             return key == val;
         });
@@ -991,14 +992,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             $scope.customizeformData.games.splice(foundIndex, 1);
         }
-
         console.log("****", $scope.customizeformData.games);
     };
+
+
+
     if ($.jStorage.get("loginDetail") != null) {
         NavigationService.getOne(function(data) {
             $scope.customizeformData.mobile = data.data.mobile;
             $scope.customizeformData.email = data.data.email;
-            console.log(" data.data.email", data.data.email);
+            // console.log(" data.data.email", data.data.email);
         })
 
     }
@@ -1033,16 +1036,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (data.value === true) {
                         $scope.showThank = true;
                         $scope.emailExist = false;
-
-
                         console.log("datain if", data);
                         $scope.customizeformData = {};
                         $scope.customizeformData.games = [];
-                        // $timeout(function() {
-                        //     $scope.showThank = false;
-                        //       $scope.emailExist=false;
-                        //     // $scope.customizeformData = {};
-                        // }, 2000);
+                        $timeout(function() {
+                          $state.reload();
+                            // $scope.showThank = false;
+                            //   $scope.emailExist=false;
+                            // $scope.customizeformData = {};
+                        }, 2000);
                     } else if (data.value === false) {
                         console.log("im ijn else if ", data);
                         $scope.emailExist = true;
@@ -1056,11 +1058,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log("$scope.customizeformData in editUserData", $scope.customizeformData);
                     console.log("editUserData", data);
                     if (data.value === true) {
+
                         $scope.showThank = true;
                         $scope.emailExist = false;
                         $scope.customizeformData = {};
                         $scope.customizeformData.games = [];
-                        // location.reload();
+                        $timeout(function() {
+                          $state.reload();
+                            // $scope.showThank = false;
+                            //   $scope.emailExist=false;
+                            // $scope.customizeformData = {};
+                        }, 3000);
+
 
                     } else if (data.value === false) {
                         console.log("im ijn else if ", data);
