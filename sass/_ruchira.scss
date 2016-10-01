@@ -1566,7 +1566,7 @@ $brand-white:#fff !default;
         height: auto;
         width: 40px;
         position: absolute;
-        top: 60%;
+        top: 65%;
         right: 0%;
         transform: translate(-50%, -50%);
       }
@@ -2684,55 +2684,36 @@ button {
   margin-right: 15px !important;
 }
 
-// .slant-in .slant-box {
-//   padding: 15px 7% 0 0;
-//   .form {
-//     margin-bottom: 0px;
-//     margin-left: 52px;
-//   }
-// }
-// .reverse {
-//   .slant-in {
-//     &.brand-blue {
-//       &:before {
-//         left: -20%;
-//       }
-//     }
-//     &.brand-green {
-//       &:before {
-//         content: "";
-//         @include transform(skew(15deg));
-//         width: 50%;
-//         height: 100%;
-//         position: absolute;
-//         left: -20%;
-//         background-color: $brand-green;
-//       }
-//     }
-//     &.brand-purply {
-//       &:before {
-//         // content: "";
-//         // @include transform(skew(15deg));
-//         width: 50%;
-//         height: 100%;
-//         position: absolute;
-//         left: -20%;
-//         background-color: $brand-purply;
-//       }
-//     }
-//   }
-//   .half-height {
-//     height: 230px;
-//   }
-// }
-// iframe{
-//   position: absolute;
-//     left: 0;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     width: 100%;
-//     height: 100%;
-// }
+.l20 {
+  left: 20px !important;
+}
+
+.reversing {
+  .change {
+    .mover {
+      .flexslider {
+        ul li:nth-child(6n+6) {
+          background-color: black;
+        }
+        ul li:nth-child(6n+5) {
+          background-color: green;
+        }
+        ul li:nth-child(6n+4) {
+          background-color: blue;
+        }
+        ul li:nth-child(6n+3) {
+          background-color: red;
+        }
+        ul li:nth-child(6n+2) {
+          background-color: pink;
+        }
+        ul li:nth-child(6n+1) {
+          background-color: yellow;
+        }
+      }
+    }
+  }
+}
+
 //new pages//
 //new home//
