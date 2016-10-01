@@ -15,18 +15,22 @@
 
       <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select class="form-control">
-               <option>All</option>
-               <option>All</option>
-               <option>All</option>
+        <select class="form-control" ng-model="searchFilter.gemeFor">
+           <option ng-selected="true" value="">Select </option>
+               <option>Male</option>
+               <option>Female</option>
+               <option>Children</option>
             </select>
       </div>
       <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select class="form-control">
-               <option>Game Type</option>
-               <option>Game Type</option>
-               <option>Game Type</option>
+        <select class="form-control" ng-model="searchFilter.gemeType">
+             <option ng-selected="true" value="">Select </option>
+               <option>All</option>
+               <option>VR</option>
+               <option>Sports</option>
+               <option>Arcade</option>
+               <option>Others</option>
 
             </select>
       </div>

@@ -718,62 +718,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     showWishList();
                 });
             }
-
-
-
-
         }
     };
-
-
-
-
-
-    $scope.addTowishlist = function(product) {
-        NavigationService.getProfile(function(data) {
-                if (data.value) {
-                    var indexF = _.findIndex($scope.wishlist, function(key) {
-                        console.log("key", key.product._id, 'id', product);
-                        return key.product._id == product;
-                    });
-                    if (indexF !== -1) {
-                        $scope.remove = function() {
-                            NavigationService.deleteWishlistByProduct($scope.variables.removeitem, function(data) {
-                                $scope.response = data;
-                                if ($scope.response.value === true) {
-                                    removemod.close();
-                                    getWishlist();
-                                }
-                            });
-                        };
-                        $scope.openRemoveModal = function(product) {
-                            $scope.variables.removeitem = product;
-                            console.log($scope.variables);
-                            removemod = $uibModal.open({
-                                animation: true,
-                                templateUrl: "views/modal/removeitem.html",
-                                scope: $scope
-                            });
-                        };
-                        $scope.openRemoveModal(product);
-                    } else {
-                        NavigationService.saveWishlist(product, function(data) {
-                            $uibModal.open({
-                                animation: true,
-                                templateUrl: 'views/modal/added-wishlist.html',
-                            });
-                            getWishlist();
-                        });
-                    }
-                } else {
-                    globalfunction.signUp();
-                }
-            },
-            function(err) {
-                console.log(err);
-            });
-    };
-
+$scope.searchFilter={};
 
 
 })
@@ -999,13 +946,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     if ($.jStorage.get("loginDetail") != null) {
         NavigationService.getOne(function(data) {
-            $scope.customizeformData.mobile = data.data.mobile;
-            $scope.customizeformData.email = data.data.email;
-            // console.log(" data.data.email", data.data.email);
+           $scope.customizeformData = data.data;
+            console.log(" getOne", data.data);
         })
 
     }
-
+    $scope.isInGame = function(id) {
+        var indexF = _.findIndex($scope.customizeformData.games, function(key) {
+            return key._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     $scope.submitCustomizeForm = function(formData) {
 
         if (Object.keys($scope.customizeformData).length != 0) {
