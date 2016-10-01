@@ -482,11 +482,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.showMore = false;
 
-    // if($.jStorage.get("city")){
-    //   $scope.jstorageId=$.jStorage.get("city")._id;
-    //   console.log("$scope.jstorageId",$scope.jstorageId);
 
-    // $scope.moreDesc=false;
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleExploreSmaaash10 = data.data;
         $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
@@ -502,6 +498,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     });
 
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
+    }
 
     $scope.addedToWishList = function(id) {
         if ($.jStorage.get("loginDetail") == null) {
@@ -512,24 +527,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         } else if ($.jStorage.get("loginDetail") != null) {
-            NavigationService.addToWishList(id, function(data) {
-                console.log("wishlist", data);
-                if (data.value) {
-                    // var indexF = _.findIndex($scope.wishlist, function(key) {
-                    //     console.log("key", key.product._id, 'id', product);
-                    //     return key.product._id == product;
-                    // });
-                    $uibModal.open({
-                        animation: true,
-                        templateUrl: 'views/modal/wishlist.html',
-                        scope: $scope
-                    });
-                }
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            console.log("findIndex", findIndex);
+            if (findIndex !== -1) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
+                    };
 
-            })
+                });
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
         }
 
     };
+
+
 
 
 
@@ -613,15 +651,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     });
 
-    function showWishList() {
-        NavigationService.showWishList(function(data) {
-            $scope.userwishlist = data.data.wishList;
-            console.log("$scope.userwishlist", $scope.userwishlist);
-        })
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
     }
 
-    showWishList();
 
+
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     $scope.addedToWishList = function(id) {
         if ($.jStorage.get("loginDetail") == null) {
             console.log("am in if");
@@ -635,11 +686,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(id, '////////');
                 return key.exploresmash._id === id;
             });
+            console.log("findIndex", findIndex);
+
             if (findIndex !== -1) {
-                NavigationService.removeFromWishList(id, function(data) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
                     console.log(data, 'removed data');
                     if (data.value) {
                         showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
                     };
 
                 });
@@ -658,11 +720,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
 
-          
+
 
         }
     };
 
+
+
+
+
+    $scope.addTowishlist = function(product) {
+        NavigationService.getProfile(function(data) {
+                if (data.value) {
+                    var indexF = _.findIndex($scope.wishlist, function(key) {
+                        console.log("key", key.product._id, 'id', product);
+                        return key.product._id == product;
+                    });
+                    if (indexF !== -1) {
+                        $scope.remove = function() {
+                            NavigationService.deleteWishlistByProduct($scope.variables.removeitem, function(data) {
+                                $scope.response = data;
+                                if ($scope.response.value === true) {
+                                    removemod.close();
+                                    getWishlist();
+                                }
+                            });
+                        };
+                        $scope.openRemoveModal = function(product) {
+                            $scope.variables.removeitem = product;
+                            console.log($scope.variables);
+                            removemod = $uibModal.open({
+                                animation: true,
+                                templateUrl: "views/modal/removeitem.html",
+                                scope: $scope
+                            });
+                        };
+                        $scope.openRemoveModal(product);
+                    } else {
+                        NavigationService.saveWishlist(product, function(data) {
+                            $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/added-wishlist.html',
+                            });
+                            getWishlist();
+                        });
+                    }
+                } else {
+                    globalfunction.signUp();
+                }
+            },
+            function(err) {
+                console.log(err);
+            });
+    };
 
 
 
