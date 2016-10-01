@@ -289,21 +289,21 @@
                 </div>
             </div>
         </div>
-        <div class="slant-col  brand-purply pull-right">
+        <div class="slant-col   pull-right">
             <div class="slant-box full-height change">
                 <h2 class="brand-white marginleft">Attractions</h2>
                 <p class="pull-right  capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
                 <div class="mover">
                     <!--<flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="350" animation="slide" animationLoop="true"
                         prev-text="" next-text="">-->
-                    <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="480" item-margin="33" animation="slide"
+                    <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="500" item-margin="13" animation="slide"
                         animationLoop="true" prev-text="" next-text="">
                         <li>
                             <div>
                                 <a ui-sref="attractions({id:s.type._id})">
-                                    <img ng-src="{{s.image|uploadpath}}" style="width:480px;">
+                                    <img ng-src="{{s.image|uploadpath}}" style="width:500px;height: 333px;">
                                 </a>
-                                <div class="carousel-text bg-blacks">
+                                <div class="carousel-text bg-black">
                                     <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
                                 </div>
                             </div>
