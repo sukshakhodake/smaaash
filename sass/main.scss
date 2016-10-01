@@ -923,8 +923,10 @@ $menu-height: 80px !default;
 
 //*footer starts*//
 .footers {
-    background-color: black;
-    background-image: url("../img/home/footbg.png");
+    background-color: #001;
+    background-image: radial-gradient(white -35%, transparent 16%), radial-gradient(white -35%, transparent 16%);
+    background-size: 20px 20px;
+    background-position: 0 0, 30px 30px;
 }
 
 .footers-list {
@@ -1139,7 +1141,7 @@ $menu-height: 80px !default;
 
 .slant-box {
     // @include transform(skew(15deg));
-    padding: 15px 15px 0;
+    padding: 0px 15px 0;
     h2 {
         font-family: $body-font;
         font-size: 30px;
@@ -1960,7 +1962,8 @@ img.fancybox-image {
     background-size: contain;
 }
 
-.reversed {
+.reversed,
+.reversing {
     .full-height {
         height: 385px;
     }
@@ -1968,14 +1971,21 @@ img.fancybox-image {
         h2 {
             position: absolute;
             z-index: 99;
-            left: 20px;
+            left: 40px;
             top: 10px;
         }
     }
     .slides {
         li {
-            margin-right: 10px;
+            margin-right: 10px !important;
         }
+    }
+}
+
+.carousel-text {
+    h3 {
+        text-align: left;
+        margin-left: 15px;
     }
 }
 

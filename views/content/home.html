@@ -79,7 +79,7 @@
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                             <!-- <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a> -->
-                            <div class="race-text">
+                            <div class="race-text whites">
 
                                 <div class="min-h">
                                     <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
@@ -126,7 +126,7 @@
                     <div class="clearfix"></div>
                     <div class="mover">
                         <div class="slidings">
-                            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="430" animation="slide" animationLoop="true"
+                            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="350" animation="slide" animationLoop="true"
                                 prev-text="" next-text="">
                                 <li>
                                     <a ui-sref="deals-inner({id:s._id})">
@@ -159,7 +159,7 @@
                 <h2 class="brand-white marginleft">Host A Party</h2>
                 <p class="pull-right  capitalize brand-white border-bot" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
                 <div class="mover extra">
-                    <flex-slider class="carousel relative" flex-slide="s in hostParty track by $index" item-width="500" animation="slide" animationLoop="true"
+                    <flex-slider class="carousel relative" flex-slide="s in hostParty track by $index" item-width="550" animation="slide" animationLoop="true"
                         prev-text="" next-text="">
                         <li>
 
@@ -198,7 +198,7 @@
                             </div>
                             <a href="" class="buy-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
                             <!--<a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>-->
-                            <div class="race-text">
+                            <div class="race-text whites">
                                 <div class="min-h">
                                     <h3 class="margin0 brand-white" ng-bind-html="s.hometext"> </h3>
                                     <h3 ng-if="!s.hometext">No data found</h3>
@@ -264,7 +264,7 @@
                     <div class="clearfix"></div>
                     <div class="mover">
                         <div class="slidings">
-                            <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="430" animation="slide" animationLoop="true"
+                            <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="350" animation="slide" animationLoop="true"
                                 prev-text="" next-text="">
                                 <li>
                                     <a ui-sref="event-inner({id:s._id})">
@@ -294,15 +294,20 @@
                 <h2 class="brand-white marginleft">Attractions</h2>
                 <p class="pull-right  capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
                 <div class="mover">
-                    <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="500" item-margin="33" animation="slide"
+                    <!--<flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="350" animation="slide" animationLoop="true"
+                        prev-text="" next-text="">-->
+                    <flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="480" item-margin="33" animation="slide"
                         animationLoop="true" prev-text="" next-text="">
                         <li>
-                            <a ui-sref="attractions({id:s.type._id})">
-                                <img ng-if="s.image" ng-src="{{s.image|uploadpath}}">
-                            </a>
-                            <div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                            <div>
+                                <a ui-sref="attractions({id:s.type._id})">
+                                    <img ng-src="{{s.image|uploadpath}}" style="width:480px;">
+                                </a>
+                                <div class="carousel-text bg-blacks">
+                                    <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                                </div>
                             </div>
+
 
                         </li>
                     </flex-slider>
