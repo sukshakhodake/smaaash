@@ -195,6 +195,15 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+      searchExploreSmaaash: function(searchFilter, callback) {
+                $http({
+                url: adminurl + 'exploresmash/getSingleExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: searchFilter
+
+            }).success(callback);
+        },
 
         getStars: function(request, callback) {
 

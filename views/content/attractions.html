@@ -7,30 +7,30 @@
   <div class="forms brand-blue">
     <div class="container">
       <div class="search-green">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchFilter.search">
         <div class="microscope">
-          <img src="img/new/bino.png" class="img-responsive" alt="">
+          <img src="img/new/bino.png" class="img-responsive" alt=""  ng-click="goTOSearch(searchFilter)">
         </div>
       </div>
 
       <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select class="form-control" ng-model="searchFilter.gemeFor">
+        <select class="form-control" ng-model="searchFilter.gemeFor" ng-change="goTOSearch(searchFilter)">
            <option ng-selected="true" value="">Select </option>
-               <option>Male</option>
-               <option>Female</option>
-               <option>Children</option>
+               <option value="1">Male</option>
+               <option value="2">Female</option>
+               <option value="3">Children</option>
             </select>
       </div>
       <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select class="form-control" ng-model="searchFilter.gemeType">
+        <select class="form-control" ng-model="searchFilter.gemeType" ng-change="goTOSearch(searchFilter)">
              <option ng-selected="true" value="">Select </option>
-               <option>All</option>
-               <option>VR</option>
-               <option>Sports</option>
-               <option>Arcade</option>
-               <option>Others</option>
+               <option value="All">All</option>
+               <option value="VR">VR</option>
+               <option value="Sports">Sports</option>
+               <option value="Arcade">Arcade</option>
+               <option value="Others">Others</option>
 
             </select>
       </div>

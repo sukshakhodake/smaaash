@@ -720,7 +720,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
     };
-$scope.searchFilter={};
+    $scope.searchFilter = {};
+    $scope.searchFilter._id = $stateParams.id;
+    $scope.searchFilter.city = $.jStorage.get("cityid");
+
+    $scope.goTOSearch = function(searchFilter) {
+        NavigationService.searchExploreSmaaash($scope.searchFilter, function(data) {
+            console.log("data", data);
+        });
+
+    }
+
 
 
 })
@@ -796,7 +806,7 @@ $scope.searchFilter={};
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout,  $state) {
+.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("customizepackage");
     $scope.menutitle = NavigationService.makeactive("Customize Package");
@@ -946,7 +956,7 @@ $scope.searchFilter={};
 
     if ($.jStorage.get("loginDetail") != null) {
         NavigationService.getOne(function(data) {
-           $scope.customizeformData = data.data;
+            $scope.customizeformData = data.data;
             console.log(" getOne", data.data);
         })
 
@@ -995,7 +1005,7 @@ $scope.searchFilter={};
                         $scope.customizeformData = {};
                         $scope.customizeformData.games = [];
                         $timeout(function() {
-                          $state.reload();
+                            $state.reload();
                             // $scope.showThank = false;
                             //   $scope.emailExist=false;
                             // $scope.customizeformData = {};
@@ -1019,7 +1029,7 @@ $scope.searchFilter={};
                         $scope.customizeformData = {};
                         $scope.customizeformData.games = [];
                         $timeout(function() {
-                          $state.reload();
+                            $state.reload();
                             // $scope.showThank = false;
                             //   $scope.emailExist=false;
                             // $scope.customizeformData = {};
