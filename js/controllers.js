@@ -386,76 +386,99 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.objectfilter = {};
-    $scope.objectfilter.pagenumber = 1;
+    $scope.objectfilter.pagenumber = 0;
+    // $scope.objectfilter.pagenumber = 1;
     $scope.objectfilter.pagesize = 6;
     $scope.objectfilter.city = $.jStorage.get("cityid");
-    var lastpage = 1;
+    // var lastpage = 1;
     $scope.noviewmore = true;
     $scope.stars = [];
 
-    // if ($.jStorage.get("city")) {
-    //     $scope.objectfilter.city = $.jStorage.get("city")._id;
-    // }
+      $scope.fetchData = function() {
+        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        NavigationService.getStars($scope.objectfilter, function(data) {
+          console.log(data.data.totalpages);
+            if (data.value) {
+                console.log($scope.objectfilter.pagenumber);
+                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+                    _.each(data.data.data, function(n) {
+                      console.log(n);
+                        $scope.stars.push(n)
+                    });
+                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                        $scope.noviewmore = false;
+                    }
+                } else {
+                    console.log("in else last array");
+                    $scope.noviewmore = false;
+                }
+
+            }
+
+
+        })
+
+    };
+$scope.fetchData();
+$scope.fetchSearchedData = function() {
+  $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+  NavigationService.getStars($scope.objectfilter, function(data) {
+    console.log(data.data.totalpages);
+      if (data.value) {
+          console.log($scope.objectfilter.pagenumber);
+          if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+              _.each(data.data.data, function(n) {
+                console.log(n);
+                  $scope.stars.push(n)
+              });
+              if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                  $scope.noviewmore = false;
+              }
+          } else {
+              console.log("in else last array");
+              $scope.noviewmore = false;
+          }
+
+      }
+
+
+  })
+
+};
+
+    // $scope.myStar = function() {
+    //     NavigationService.getStars($scope.objectfilter, function(data) {
+    //         lastPage = data.data.totalpages;
+    //         console.log(data.data.totalpages);
+    //         console.log($scope.objectfilter.pagenumber);
+    //         // if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+    //         _.each(data.data.data, function(n) {
+    //             console.log(n);
+    //             $scope.stars.push(n)
+    //         });
+    //         // }
+    //     })
+    // };
+
+    // $scope.myStar();
 
 
     // $scope.fetchData = function() {
-    //     $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
-    //     NavigationService.getStars($scope.objectfilter, function(data) {
-    //       console.log(data.data.totalpages);
-    //         if (data.value) {
-    //             console.log($scope.objectfilter.pagenumber);
-    //             if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
-    //                 _.each(data.data.data, function(n) {
-    //                   console.log(n);
-    //                     $scope.stars.push(n)
-    //                 });
-    //                 if (data.data.totalpages === $scope.objectfilter.pagenumber) {
-    //                     $scope.noviewmore = false;
-    //                 }
-    //             } else {
-    //                 console.log("in else last array");
-    //                 $scope.noviewmore = false;
-    //             }
-    //
-    //         }
+    //     // $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+    //     $scope.myStar();
+    //     if (lastPage > $scope.objectfilter.pagenumber) {
+    //         ++$scope.objectfilter.pagenumber;
+    //         // $scope.myStar();
+    //         $scope.noviewmore = false;
     //
     //
-    //     })
-    //
+    //     } else {
+    //         $scope.stars = [];
+    //         $scope.myStar();
+    //         console.log("in else last array");
+    //         $scope.noviewmore = false;
+    //     }
     // };
-    $scope.myStar = function() {
-        NavigationService.getStars($scope.objectfilter, function(data) {
-            lastPage = data.data.totalpages;
-            console.log(data.data.totalpages);
-            console.log($scope.objectfilter.pagenumber);
-            // if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
-            _.each(data.data.data, function(n) {
-                console.log(n);
-                $scope.stars.push(n)
-            });
-            // }
-        })
-    };
-
-    $scope.myStar();
-
-
-    $scope.fetchData = function() {
-        // $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
-        $scope.myStar();
-        if (lastPage > $scope.objectfilter.pagenumber) {
-            ++$scope.objectfilter.pagenumber;
-            // $scope.myStar();
-            $scope.noviewmore = false;
-
-
-        } else {
-            $scope.stars = [];
-            $scope.myStar();
-            console.log("in else last array");
-            $scope.noviewmore = false;
-        }
-    };
     //
 
 
