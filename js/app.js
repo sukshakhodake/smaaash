@@ -504,3 +504,6 @@ firstapp.directive('aplhaOnly', function () {
         }
     };
 });
+firstapp.filter('urlEncode', [function() {
+    return window.encodeURIComponent;
+}]);

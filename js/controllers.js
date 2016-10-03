@@ -386,10 +386,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.objectfilter = {};
-    $scope.objectfilter.pagenumber = 0;
+    $scope.objectfilter.pagenumber = 1;
     $scope.objectfilter.pagesize = 6;
     $scope.objectfilter.city = $.jStorage.get("cityid");
-
+    var lastpage = 1;
     $scope.noviewmore = true;
     $scope.stars = [];
 
@@ -398,30 +398,68 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // }
 
 
-    $scope.fetchData = function() {
-        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+    // $scope.fetchData = function() {
+    //     $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+    //     NavigationService.getStars($scope.objectfilter, function(data) {
+    //       console.log(data.data.totalpages);
+    //         if (data.value) {
+    //             console.log($scope.objectfilter.pagenumber);
+    //             if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+    //                 _.each(data.data.data, function(n) {
+    //                   console.log(n);
+    //                     $scope.stars.push(n)
+    //                 });
+    //                 if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+    //                     $scope.noviewmore = false;
+    //                 }
+    //             } else {
+    //                 console.log("in else last array");
+    //                 $scope.noviewmore = false;
+    //             }
+    //
+    //         }
+    //
+    //
+    //     })
+    //
+    // };
+    $scope.myStar = function() {
         NavigationService.getStars($scope.objectfilter, function(data) {
-            if (data.value) {
-                console.log($scope.objectfilter.pagenumber);
-                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
-                    _.each(data.data, function(n) {
-                        $scope.stars.push(n)
-                    });
-                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
-                        $scope.noviewmore = false;
-                    }
-                } else {
-                    console.log("in else last array");
-                    $scope.noviewmore = false;
-                }
-
-            }
-
-
+            lastPage = data.data.totalpages;
+            console.log(data.data.totalpages);
+            console.log($scope.objectfilter.pagenumber);
+            // if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+            _.each(data.data.data, function(n) {
+                console.log(n);
+                $scope.stars.push(n)
+            });
+            // }
         })
-
     };
-    $scope.fetchData();
+
+    $scope.myStar();
+
+
+    $scope.fetchData = function() {
+        // $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        $scope.myStar();
+        if (lastPage > $scope.objectfilter.pagenumber) {
+            ++$scope.objectfilter.pagenumber;
+            // $scope.myStar();
+            $scope.noviewmore = false;
+
+
+        } else {
+            $scope.stars = [];
+            $scope.myStar();
+            console.log("in else last array");
+            $scope.noviewmore = false;
+        }
+    };
+    //
+
+
+    // $scope.fetchData();
     NavigationService.getMediaGallery(function(data) {
         $scope.mediagallery = data.data;
         console.log("$scope.mediagallery", $scope.mediagallery);
@@ -451,7 +489,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("whats-new");
     $scope.menutitle = NavigationService.makeactive("Whats New");
@@ -482,7 +520,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.showMore = false;
 
-
+    $scope.myUrl = window.location.href;
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleExploreSmaaash10 = data.data;
         $scope.SingleExploreSmaaash = _.chunk(data.data, 3);
@@ -626,30 +664,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
+    // $scope.male = '';
+    // $scope.female = '';
+    // $scope.children = '';
+    // NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    //     $scope.singleAttraction = data.data;
+    //     // console.log("$scope.singleAttraction", $scope.singleAttraction);
+    //     _.each($scope.singleAttraction, function(data) {
+    //         data.gameforarray = [];
+    //         _.each(data.gamefor, function(n) {
+    //             switch (n) {
+    //                 case '1':
+    //                     data.gameforarray.push('Male')
+    //                     break;
+    //                 case '2':
+    //                     data.gameforarray.push('Female')
+    //                     break;
+    //                 case '3':
+    //                     data.gameforarray.push('Children')
+    //                     break;
+    //                 default:
+    //             }
+    //         });
+    //     });
+    // });
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.singleAttraction = data.data;
-        // console.log("$scope.singleAttraction", $scope.singleAttraction);
-        _.each($scope.singleAttraction, function(data) {
-            data.gameforarray = [];
-            _.each(data.gamefor, function(n) {
-                switch (n) {
-                    case '1':
-                        data.gameforarray.push('Male')
-                        break;
-                    case '2':
-                        data.gameforarray.push('Female')
-                        break;
-                    case '3':
-                        data.gameforarray.push('Children')
-                        break;
-                    default:
-                }
+    $scope.filter = {};
+    $scope.filter._id = $stateParams.id;
+    $scope.goTOSearch = function(filter) {
+        NavigationService.searchExploreSmaaash($scope.filter, function(data) {
+            $scope.singleAttraction = data.data;
+            // console.log("$scope.singleAttraction", $scope.singleAttraction);
+            _.each($scope.singleAttraction, function(data) {
+                data.gameforarray = [];
+                _.each(data.gamefor, function(n) {
+                    switch (n) {
+                        case '1':
+                            data.gameforarray.push('Male')
+                            break;
+                        case '2':
+                            data.gameforarray.push('Female')
+                            break;
+                        case '3':
+                            data.gameforarray.push('Children')
+                            break;
+                        default:
+                    }
+                });
             });
         });
-    });
+
+
+    }
+    $scope.goTOSearch($scope.filter);
+
 
     if ($.jStorage.get("loginDetail") != null) {
         function showWishList() {
@@ -720,17 +790,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
     };
-    $scope.searchFilter = {};
-    $scope.searchFilter._id = $stateParams.id;
-    $scope.searchFilter.city = $.jStorage.get("cityid");
-
-    $scope.goTOSearch = function(searchFilter) {
-        NavigationService.searchExploreSmaaash($scope.searchFilter, function(data) {
-            console.log("data", data);
-        });
-
-    }
-
 
 
 })
@@ -1274,6 +1333,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+        $scope.myUrl = window.location.href;
 
     $scope.mySlides9 = [
         'img/hosting.jpg',
@@ -1579,7 +1639,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Drink Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.myUrl = window.location.href;
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -1700,6 +1760,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Deals Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+      $scope.myUrl = window.location.href;
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
@@ -1715,6 +1776,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Events Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.myUrl = window.location.href;
     $scope.today = function() {
         $scope.dt = new Date();
     };

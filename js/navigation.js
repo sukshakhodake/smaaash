@@ -186,7 +186,6 @@ var navigationservice = angular.module('navigationservice', [])
                 _id: id,
                 city: $.jStorage.get("cityid")
             };
-
             $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
                 method: 'POST',
@@ -195,12 +194,15 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-      searchExploreSmaaash: function(searchFilter, callback) {
+      searchExploreSmaaash: function(filter, callback) {
+        if(filter){
+          filter.city=$.jStorage.get("cityid");
+        }
                 $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
                 method: 'POST',
                 withCredentials: true,
-                data: searchFilter
+                data: filter
 
             }).success(callback);
         },

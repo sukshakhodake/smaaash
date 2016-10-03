@@ -7,16 +7,17 @@
    <div class="forms brand-blue">
       <div class="container">
          <div class="search-green">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" ng-model="objectfilter.search">
             <div class="microscope ">
-               <img src="img/new/bino.png" class="img-responsive" alt="">
+               <img src="img/new/bino.png" class="img-responsive" alt="" ng-click="fetchData()">
             </div>
          </div>
 
          <div class="game-type inline-block">
             <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <select class="form-control">
-               <option ng-repeat="data in allCity">{{data.name}}</option>
+            <select class="form-control" ng-model="objectfilter.city" ng-change="fetchData()">
+               <option ng-selected="true" value="">Select </option>
+               <option ng-repeat="data in allCity" value="{{data._id}}">{{data.name}}</option>
                <!-- <option>Gurgoan</option>
                <option>Hyderabad</option>
                <option>Benglauru</option>
@@ -24,7 +25,7 @@
             </select>
          </div>
 
-         <div class="checker inline-block">
+         <!-- <div class="checker inline-block">
             <input type="checkbox" id="test1" />
             <label for="test1">All</label>
          </div>
@@ -35,15 +36,15 @@
          <div class="checker inline-block">
             <input type="checkbox" id="test3" />
             <label for="test3">Gallery</label>
-         </div>
+         </div> -->
       </div>
 
    </div>
    <div class="new">
       <div class="container">
          <h3 class="uppercase">stars at smaaash</h3>
-         <div class="row" ng-repeat="data in stars track by $index">
-            <div class="col-md-4 col-sm-4" ng-repeat="d in data">
+         <div class="row">
+            <div class="col-md-4 col-sm-4" ng-repeat="d in stars">
                <div class="karting-championship">
                   <div class="brand-blue relative">
                      <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
