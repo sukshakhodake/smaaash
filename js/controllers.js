@@ -369,7 +369,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("stars");
     $scope.menutitle = NavigationService.makeactive("Stars");
@@ -394,15 +394,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.noviewmore = true;
     $scope.stars = [];
 
-      $scope.fetchData = function() {
+    $scope.fetchData = function() {
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getStars($scope.objectfilter, function(data) {
-          console.log(data.data.totalpages);
+            console.log(data.data.totalpages);
             if (data.value) {
                 console.log($scope.objectfilter.pagenumber);
                 if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
                     _.each(data.data.data, function(n) {
-                      console.log(n);
+                        // console.log(n);
                         $scope.stars.push(n)
                     });
                     if (data.data.totalpages === $scope.objectfilter.pagenumber) {
@@ -419,32 +419,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
 
     };
-$scope.fetchData();
-$scope.fetchSearchedData = function() {
-  $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
-  NavigationService.getStars($scope.objectfilter, function(data) {
-    console.log(data.data.totalpages);
-      if (data.value) {
-          console.log($scope.objectfilter.pagenumber);
-          if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
-              _.each(data.data.data, function(n) {
-                console.log(n);
-                  $scope.stars.push(n)
-              });
-              if (data.data.totalpages === $scope.objectfilter.pagenumber) {
-                  $scope.noviewmore = false;
-              }
-          } else {
-              console.log("in else last array");
-              $scope.noviewmore = false;
-          }
+    $scope.fetchData();
 
-      }
+    $scope.fetchSearchedData = function() {
+      $scope.objectfilter.pagenumber=0;
+        $scope.objectfilter.pagesize = 6;
+          $scope.stars = [];
+            $scope.noviewmore = true;
+            $scope.objectfilter.city=$scope.objectfilter.city;
+
+        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        NavigationService.getStars($scope.objectfilter, function(data) {
+            console.log(data.data.totalpages);
+            if (data.value) {
+                console.log($scope.objectfilter.pagenumber);
+                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+                    _.each(data.data.data, function(n) {
+                        // console.log(n);
+                        $scope.stars.push(n)
+                    });
+                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                        $scope.noviewmore = false;
+                    }
+                } else {
+                    console.log("in else last array");
+                    $scope.noviewmore = false;
+                }
+
+            }
 
 
-  })
+        })
 
-};
+    };
+    // $scope.fetchSearchedData();
+
 
     // $scope.myStar = function() {
     //     NavigationService.getStars($scope.objectfilter, function(data) {
@@ -512,7 +521,7 @@ $scope.fetchSearchedData = function() {
 
 })
 
-.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$location) {
+.controller('NewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("whats-new");
     $scope.menutitle = NavigationService.makeactive("Whats New");
@@ -1034,15 +1043,6 @@ $scope.fetchSearchedData = function() {
         console.log("****", $scope.customizeformData.games);
     };
 
-
-
-    if ($.jStorage.get("loginDetail") != null) {
-        NavigationService.getOne(function(data) {
-            $scope.customizeformData = data.data;
-            console.log(" getOne", data.data);
-        })
-
-    }
     $scope.isInGame = function(id) {
         var indexF = _.findIndex($scope.customizeformData.games, function(key) {
             return key._id == id;
@@ -1053,6 +1053,14 @@ $scope.fetchSearchedData = function() {
             return false;
         }
     }
+    if ($.jStorage.get("loginDetail") != null) {
+        NavigationService.getOne(function(data) {
+            $scope.customizeformData = data.data;
+            console.log(" getOne", data.data);
+        })
+
+    }
+
     $scope.submitCustomizeForm = function(formData) {
 
         if (Object.keys($scope.customizeformData).length != 0) {
@@ -1356,7 +1364,7 @@ $scope.fetchSearchedData = function() {
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-        $scope.myUrl = window.location.href;
+    $scope.myUrl = window.location.href;
 
     $scope.mySlides9 = [
         'img/hosting.jpg',
@@ -1783,7 +1791,7 @@ $scope.fetchSearchedData = function() {
     $scope.menutitle = NavigationService.makeactive("Deals Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-      $scope.myUrl = window.location.href;
+    $scope.myUrl = window.location.href;
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
