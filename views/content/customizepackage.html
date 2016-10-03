@@ -72,25 +72,26 @@
                            <a ng-if="data.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="data.video"></a>
                         </div>
                         <div class="new-detail">
+                           <!-- <div class="viewing1 views inline-block">
+                              <button type="button" class="uppercase bluey" ng-click="goToGames(data._id,data)"  ng-class="{selected :isInGame(data._id),selected:data.selected}">SELECT</button>
+
+                              <button type="button" class="uppercase bluey" ng-class="{selected:data.selected ,selected: !isInGame(data._id)}" ng-click="goToGames(data._id,data)" ng-show="data.selected">SELECTED</button>
+                           </div> -->
                            <div class="viewing1 views inline-block">
                               <button type="button" class="uppercase bluey" ng-click="goToGames(data._id,data)" ng-hide="data.selected" ng-class="{selected :isInGame(data._id)}">SELECT</button>
                               <button type="button" class="uppercase bluey" ng-class="{selected:data.selected ,selected: !isInGame(data._id)}" ng-click="goToGames(data._id,data)" ng-show="data.selected">SELECTED</button>
-                              <!-- <span >SELECT</span> -->
-                              <!-- <button class="uppercase bluey" ng-click="goToGames(data._id)">SELECT</button> -->
                            </div>
                            <div class="min-h">
                               <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
                            </div>
                            <div class="min-h">
-                              <p>Game For:
+                              <p ng-if="data.gameforarray.length!=0" class="margin0">Game For:
                                  <span class="bluey">
                                 <span ng-repeat="per in data.gameforarray track by $index">{{per}} <span ng-if="$index<data.gameforarray.length-2">|</span>
                                  <span ng-if="$index==data.gameforarray.length-2">&</span> </span>
                                  </span>
                                  <span ng-if="data.gameforarray==''"> - </span>
-
                               </p>
-
                            </div>
                         </div>
                      </div>
