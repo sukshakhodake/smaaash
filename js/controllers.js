@@ -369,7 +369,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
+.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("stars");
     $scope.menutitle = NavigationService.makeactive("Stars");
@@ -422,11 +422,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.fetchData();
 
     $scope.fetchSearchedData = function() {
-      $scope.objectfilter.pagenumber=0;
+        $scope.objectfilter.pagenumber = 0;
         $scope.objectfilter.pagesize = 6;
-          $scope.stars = [];
-            $scope.noviewmore = true;
-            $scope.objectfilter.city=$scope.objectfilter.city;
+        $scope.stars = [];
+        $scope.noviewmore = true;
+        $scope.objectfilter.city = $scope.objectfilter.city;
 
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getStars($scope.objectfilter, function(data) {
