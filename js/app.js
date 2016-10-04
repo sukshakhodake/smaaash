@@ -212,6 +212,18 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'SponsorCtrl'
     })
 
+    .state('contact', {
+        url: "/contact",
+        templateUrl: "views/template.html",
+        controller: 'ContactCtrl'
+    })
+
+    .state('benefit', {
+        url: "/benefit",
+        templateUrl: "views/template.html",
+        controller: 'BenefitCtrl'
+    })
+
     .state('explore', {
         url: "/explore/:id",
         templateUrl: "views/template.html",
