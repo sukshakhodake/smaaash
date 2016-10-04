@@ -1067,6 +1067,7 @@ $brand-white:#fff !default;
     }
     p {
       font-size: 13px;
+      margin: 0;
     }
     h3 {
       font-size: 16px;
@@ -2010,7 +2011,7 @@ $brand-white:#fff !default;
 .connect-button,
 .live-chat {
   background-color: $brand-orange;
-  padding: 5px 20px;
+  padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -2035,7 +2036,7 @@ $brand-white:#fff !default;
 .live-chat {
   display: block;
   background-color: $brand-green;
-  padding: 20px 49px;
+  padding: 5px 10px;
   .orange-rays {
     position: absolute;
     top: 0;
@@ -2056,6 +2057,20 @@ $brand-white:#fff !default;
     position: absolute;
     bottom: 0;
     right: 20px;
+  }
+}
+
+.live-chat {
+  span {
+    display: block;
+    font-family: "American Purpose";
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    // margin: 21px -20px 0;
+    padding: 5px 20px;
+    transform: skew(-15deg);
+    text-shadow: 1px 1px black, -1px 0 black, 0 -1px black, -1px -1px black, 0 1px black, 1px 0 black, -1px 1px black, 1px -1px black;
   }
 }
 

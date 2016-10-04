@@ -295,17 +295,6 @@ $menu-height: 80px !default;
         transform: skew(15deg);
         box-shadow: -3px 3px #000, 1px 0 #000;
         cursor: pointer;
-        span {
-            display: block;
-            font-family: "American Purpose";
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            // margin: 21px -20px 0;
-            padding: 15px 40px 8px;
-            transform: skew(-15deg);
-            text-shadow: 1px 1px black, -1px 0 black, 0 -1px black, -1px -1px black, 0 1px black, 1px 0 black, -1px 1px black, 1px -1px black;
-        }
     }
     .menu {
         @include position(absolute,
@@ -628,7 +617,7 @@ $menu-height: 80px !default;
         width: 60px;
         height: 150px;
         border-left: 1px solid transparent!important;
-        dislay: block;
+        display: block;
         @include position( absolute,
         null null null-27px);
         @include transform(skew(10deg));
@@ -663,7 +652,7 @@ $menu-height: 80px !default;
         width: 60px;
         height: 150px;
         border-left: 1px solid transparent!important;
-        dislay: block;
+        display: block;
         @include position( absolute,
         null null null-27px);
         @include transform(skew(10deg));
@@ -745,7 +734,7 @@ $menu-height: 80px !default;
             width: 60px;
             height: 208px;
             border-left: 1px solid transparent !important;
-            dislay: block;
+            display: block;
             position: absolute;
             right: -27px;
             @include position( absolute,
@@ -785,7 +774,7 @@ $menu-height: 80px !default;
             height: 195px;
             width: 68px;
             border-left: 1px solid transparent !important;
-            dislay: block;
+            display: block;
             @include position( absolute,
             null-49px null null);
             @include transform(skew(10deg));
