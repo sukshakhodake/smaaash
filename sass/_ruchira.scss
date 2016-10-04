@@ -1312,67 +1312,72 @@ $brand-white:#fff !default;
     border: 1px solid #000;
     border-top: none;
     padding: 20px;
-    p {
-      margin: 15px 0;
-    }
+    margin: 15px 0;
   }
-  .new-details {
-    border: 1px solid $brand-blue;
-    border-top: none;
-    padding: 20px;
-  }
-  ul {
-    margin: 0;
-    li {
-      a {
-        .fa {
-          color: #ccc;
-          font-size: 25px;
-          vertical-align: middle;
-        }
-      }
-    }
-  }
-  .button-set {
-    padding: 30px 0;
-  }
-  .more {
-    button {
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      margin-left: 25px;
-      color: #fff;
+}
+
+.new-details {
+  border: 1px solid $brand-blue;
+  border-top: none;
+  padding: 20px;
+}
+
+ul {
+  margin: 0;
+  li {
+    a {
       .fa {
-        margin: 0 5px;
+        color: #ccc;
+        font-size: 25px;
+        vertical-align: middle;
       }
     }
   }
-  .love,
-  .buys {
+}
+
+.button-set {
+  padding: 30px 0;
+}
+
+.more {
+  button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 25px;
+    color: #fff;
+    .fa {
+      margin: 0 5px;
+    }
+  }
+}
+
+.love,
+.buys {
+  text-align: center;
+  button {
     text-align: center;
-    button {
-      text-align: center;
-      background-color: #ccc;
-      border: none;
-      width: 100%;
-      padding: 10px 0;
-      border-radius: 5px;
-      font-weight: 700;
-      .fa {
-        margin: 0 5px;
-      }
+    background-color: #ccc;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-weight: 700;
+    .fa {
+      margin: 0 5px;
     }
   }
-  .buys {
-    button {
-      margin: 10px 0;
-    }
+}
+
+.buys {
+  button {
+    margin: 10px 0;
   }
-  .social-icons {
-    p {
-      color: #d4d4d4;
-    }
+}
+
+.social-icons {
+  p {
+    color: #d4d4d4;
   }
 }
 
@@ -2728,6 +2733,18 @@ button {
         }
       }
     }
+  }
+}
+
+.drink {
+  .new-detail {
+    min-height: 470px;
+  }
+}
+
+.host-party {
+  .new-details {
+    min-height: 344px;
   }
 }
 
