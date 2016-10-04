@@ -67,6 +67,10 @@ body {
     display: none;
 }
 
+.bluey {
+    color: $brand-bluey;
+}
+
 .show-header {
     .fix-hidden {
         display: block;

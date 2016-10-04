@@ -1407,7 +1407,8 @@ $brand-white:#fff !default;
 
 .attractions,
 .stars,
-.leadership {
+.leadership,
+.sponsors {
   .pink-button {
     height: 50px;
     width: 50px;
@@ -1518,8 +1519,7 @@ $brand-white:#fff !default;
   }
 }
 
-.leadership,
-.sponsors {
+.leadership {
   .new-detail {
     border: 1px solid #000;
     border-top: none;
