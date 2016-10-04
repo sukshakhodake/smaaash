@@ -31,10 +31,12 @@ $brand-orangy: #fc5626 !default;
     font-family: "American Purpose";
     src: url("../fonts/AmericanPurpose.ttf");
 }
+
 button.selected {
-  background: $brand-bluey !important;
-  color:white !important;
+    background: $brand-bluey !important;
+    color: white !important;
 }
+
 @font-face {
     font-family: "Galano Grotesque";
     src: url("../fonts/GalanoGrotesque.otf");
@@ -186,6 +188,10 @@ body {
     h3 {
         margin: 0!important;
     }
+}
+
+.min-hiss {
+    min-height: 40px;
 }
 
 img.loading {
@@ -1537,7 +1543,7 @@ img.fancybox-image {
 }
 
 .overlays {
-    height: 700px;
+    height: 300px;
     background: rgba(0, 0, 0, 0.0);
     a {
         margin-right: 20px;
