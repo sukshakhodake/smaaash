@@ -1031,6 +1031,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       data.selected = !data.selected;
       $scope.selectedIds = _.map(_.filter($scope.customizepackage,"selected"),"_id");
       console.log($scope.selectedIds);
+    $scope.customizeformData.games=$scope.selectedIds;
     };
 
     if ($.jStorage.get("loginDetail") != null) {
