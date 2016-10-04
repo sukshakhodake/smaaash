@@ -82,7 +82,7 @@
                             <div class="race-text whites">
 
                                 <div class="min-hiss">
-                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
+                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext | shorten :30"></h3>
                                     <div ng-if="!s.hometext">No data Found</div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
 
                                             <div class="race-text">
                                                 <div class="min-hi">
-                                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext">MONSOON DAY PASS!</h3>
+                                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext | shorten :30">MONSOON DAY PASS!</h3>
                                                     <div ng-if="!s.hometext">No data Found</div>
                                                 </div>
                                             </div>
@@ -169,7 +169,7 @@
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                             <div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
                             </div>
                         </li>
                     </flex-slider>
