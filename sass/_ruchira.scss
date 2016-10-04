@@ -2702,11 +2702,21 @@ button {
 }
 
 .reversing .slides li {
-  margin-right: 15px !important;
+  // margin-right: 15px !important;
 }
 
 .l20 {
   left: 20px !important;
+}
+
+.ab {
+  position: absolute;
+}
+
+.lastmin {
+  position: absolute;
+  right: 10px;
+  z-index: 99;
 }
 
 .reversing {
