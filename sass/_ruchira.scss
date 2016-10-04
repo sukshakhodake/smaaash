@@ -467,10 +467,10 @@ $brand-white:#fff !default;
   height: auto;
   background-image: url(../img/nav/bgblue.png);
   background-size: cover;
-  // position: absolute;
-  // left: 50%;
-  // top: 50%;
-  // @include transform(translate(-50%, -50%));
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
   h2 {
     text-shadow: 1px 1px black, -1px 0px black, 0px -1px black, -1px -1px black, 0px 1px black, 1px 0px black, -1px 1px black, 1px -1px black;
     padding-top: 15px;
@@ -1312,7 +1312,7 @@ $brand-white:#fff !default;
     border: 1px solid #000;
     border-top: none;
     padding: 20px;
-    margin: 15px 0;
+    margin: 0;
   }
 }
 
@@ -2748,15 +2748,14 @@ button {
   }
 }
 
-.smaaash-cities {
-  width: 100%;
-  height: auto;
-  background-image: url(../img/nav/bgblue.png);
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-}
-
+// .smaaash-cities {
+//   width: 100%;
+//   height: auto;
+//   background-image: url(../img/nav/bgblue.png);
+//   background-size: cover;
+//   position: absolute;
+//   top: 0px;
+// }
 .whats-new .new-detail {
   border: 1px solid #000;
   border-top: none;
