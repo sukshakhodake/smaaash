@@ -30,9 +30,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.scrollToHome = function() {
+      $scope.showVideo = false;
         $('html, body').animate({
             scrollTop: $("#toHome").offset().top
         }, 500);
+
     };
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
@@ -1029,9 +1031,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.selectedIds = [];
     $scope.goToGames=function(val,data){
       data.selected = !data.selected;
-      $scope.selectedIds = _.map(_.filter($scope.customizepackage,"selected"),"_id");
-      console.log($scope.selectedIds);
-    $scope.customizeformData.games=$scope.selectedIds;
+      $scope.customizeformData.games = _.map(_.filter($scope.customizepackage,"selected"),"_id");
+      console.log($scope.customizeformData.games);
+    // $scope.customizeformData.games=$scope.selectedIds;
     };
 
     if ($.jStorage.get("loginDetail") != null) {
