@@ -126,9 +126,9 @@
                      <img src="img/layer.png" class="img-responsive" alt="">
                   </div>
                   <div class="slant-box half-height">
-                     <div class="customize-text brand-white">
+                     <div class="customize-text brand-white" ui-sref="customizepackage">
                         <div class="chef">
-                           <img src="img/cake.png" class="img-responsive" alt="">
+                           <img src="img/cake.png" class="img-responsive" alt="" >
                         </div>
                         <p>Customise
                            <br>your package</p>
@@ -180,9 +180,24 @@
                            <button class="uppercase " ng-click="direct();"><i class="fa fa-phone" aria-hidden="true"></i>get call</button>
                         </div>
                      </div>
-                     <div class="love ">
-                        <a href={{data.sublink}}  target="_blank">
-                           <button class="uppercase blue" ng-disabled="!data.sublink">VIEW MICROSITE</button>
+                     <div class="love " ng-if="data.hostAPartyType=='57d6a09dbd5eb9846074b419'">
+                        <a ui-sref="birthday-parties({id:data._id})">
+                           <button class="uppercase blue" >VIEW DETAIL</button>
+                        </a>
+                     </div>
+                     <div class="love " ng-if="data.hostAPartyType=='57e1429c3da62fae1dfc560c'">
+                        <a ui-sref="kitty-parties({id:data._id})">
+                           <button class="uppercase blue" >VIEW DETAIL</button>
+                        </a>
+                     </div>
+                     <div class="love " ng-if="data.hostAPartyType=='57d6a027bd5eb9846074b418'">
+                        <a ui-sref="wedding-parties({id:data._id})">
+                           <button class="uppercase blue" >VIEW DETAIL</button>
+                        </a>
+                     </div>
+                     <div class="love " ng-if="data.hostAPartyType=='57e142483da62fae1dfc55f2'">
+                        <a ui-sref="corporate-parties({id:data._id})">
+                           <button class="uppercase blue" >VIEW DETAIL</button>
                         </a>
                      </div>
                   </div>

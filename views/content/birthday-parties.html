@@ -1,12 +1,12 @@
 <div class="birthday">
   <figure>
-    <img src="img/Host.jpg" class="img-responsive" alt="image" />
+    <img ng-src="img/Host.jpg" class="img-responsive" alt="image" />
   </figure>
   <div class="container">
     <div class="banner-info">
     <div class="banner-text">
-      <h2 class="title brand-white">birthday parties</h2>
-      <p class="brand-white title-text texts">Render your friends speechless with a never-before-seen birthday celebration at Smaaash.With Smaaash attractions , delectable foods and theme-party options to choose from , why host a  party ,when you can host a carnival. </p>
+      <h2 class="title brand-white" ng-bind-html="parties.hometext"></h2>
+      <p class="brand-white title-text texts" ng-bind-html="parties.description"> </p>
     </div>
     <div class="banner-buttons  hidden-xs">
       <button type="button" class="btn title brand-green btn1 btn-default"><span class="brand-white" >buy<i class="fa fa-shopping-cart" aria-hidden="true"></i></span></button>

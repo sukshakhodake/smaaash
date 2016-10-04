@@ -120,7 +120,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     })
 
     .state('kitty-parties', {
-        url: "/kitty-parties",
+        url: "/kitty-parties/:id",
         templateUrl: "views/template.html",
         controller: 'KittyCtrl'
     })
@@ -169,7 +169,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     })
 
     .state('birthday-parties', {
-        url: "/birthday-parties",
+        url: "/birthday-parties/:id",
         templateUrl: "views/template.html",
         controller: 'BirthdayCtrl'
     })
