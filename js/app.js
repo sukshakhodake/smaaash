@@ -206,6 +206,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     })
 
 
+    .state('sponsor', {
+        url: "/sponsor",
+        templateUrl: "views/template.html",
+        controller: 'SponsorCtrl'
+    })
+
     .state('explore', {
         url: "/explore/:id",
         templateUrl: "views/template.html",
@@ -504,6 +510,6 @@ firstapp.directive('aplhaOnly', function () {
         }
     };
 });
-firstapp.filter('urlEncode', [function() {
+firstapp.filter('urlEncode', [function () {
     return window.encodeURIComponent;
 }]);
