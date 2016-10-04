@@ -20,7 +20,7 @@
                      <div class="min-h">
                         <p ng-hide="moreDesc[d._id]">{{d.description | htmlToPlaintext|shorten:130}}</p>
                         <p ng-show="moreDesc[d._id]">{{myDesc|htmlToPlaintext}}</p>
-                        <div ng-if="!d.description">No Data Found</div>
+                        <div ng-if="!d.description">No description</div>
                      </div>
 
                      <span class="capitalize greeny" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id,$index)">read more</span>
