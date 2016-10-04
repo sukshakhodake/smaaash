@@ -85,7 +85,7 @@
                               <button type="button" class="uppercase bluey" ng-class="{selected:data.selected ,selected: !isInGame(data._id)}" ng-click="goToGames(data._id,data)" ng-show="data.selected">SELECTED</button>
                            </div> -->
                            <div class="min-h">
-                              <h3 class="margin0 bluey" ng-bind-html="data.hometext"></h3>
+                              <h3 class="margin0 bluey" ng-bind-html="data.hometext | shorten :18"></h3>
                            </div>
                            <div class="min-h">
                               <p ng-if="data.gameforarray.length!=0" class="margin0">Game For:
