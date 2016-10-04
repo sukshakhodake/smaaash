@@ -1994,6 +1994,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
         $scope.template = TemplateService;
+        $scope.city = true;
+
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });
@@ -2005,22 +2007,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.currentdate = new Date();
         //popup
         // $.jStorage.get('popNot');
-        $scope.popme = function() {
-            $uibModal.open({
-                templateUrl: 'views/modal/popup.html',
-                scope:$scope
-            });
-        };
-        $scope.city = true;
+        // $scope.popme = function() {
+        //     $uibModal.open({
+        //         templateUrl: 'views/modal/popup.html',
+        //         scope : $scope
+        //     });
+        // };
         // $scope.popme();
-        $scope.close = function() {
-            $.jStorage.set('popNot', true);
-        };
+        // $scope.close = function() {
+        //     $.jStorage.set('popNot', true);
+        // };
 
-        if (!$.jStorage.get('popNot')) {
-          console.log("hera");
-            $scope.popme();
-        }
+        // if (!$.jStorage.get('popNot')) {
+        //   console.log("hera");
+        //     $scope.popme();
+        // }
         //popup ennd
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
         // console.log("$scope.userLoginDetails", $scope.userLoginDetails);
