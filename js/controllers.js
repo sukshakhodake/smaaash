@@ -1030,7 +1030,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.goToGames = function(val, data) {
-        data.selected = !data.selected;
+        // data.selected = !data.selected;
+        console.log("data.selected",data.selected);
         console.log("val", val);
         var foundIndex = _.findIndex($scope.customizeformData.games, function(key) {
             return key == val;
@@ -1043,14 +1044,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("****", $scope.customizeformData.games);
     };
 
-    $scope.isInGame = function(id) {
+    $scope.isInGame = function(id,data) {
         var indexF = _.findIndex($scope.customizeformData.games, function(key) {
             return key._id == id;
+            data.selected[key._id]=true;
         })
         if (indexF !== -1) {
             return true;
+            data.selected[key._id]=true
         } else {
             return false;
+            data.selected[key._id]=false;
         }
     }
     if ($.jStorage.get("loginDetail") != null) {
