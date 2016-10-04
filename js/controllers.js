@@ -1029,34 +1029,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.customizeformData.games = [];
 
 
-    $scope.goToGames = function(val, data) {
-        data.selected = !data.selected;
-        console.log("data.selected",data.selected);
-        console.log("val", val);
-        var foundIndex = _.findIndex($scope.customizeformData.games, function(key) {
-            return key == val;
-        });
-        if (foundIndex == -1) {
-            $scope.customizeformData.games.push(val);
-        } else {
-            $scope.customizeformData.games.splice(foundIndex, 1);
-        }
-        console.log("****", $scope.customizeformData.games);
-    };
+    // var select;
+    // var selected;
+    // $scope.goToGames = function(val, data) {
+    //     console.log("val", val);
+    //     // data.selected = !data.selected;
+    //     // console.log("data.selected", data.selected);
+    //     var foundIndex = _.findIndex($scope.customizeformData.games, function(key) {
+    //         return key == val;
+    //         console.log("val", val);
+    //         console.log("*******", foundIndex);
+    //     });
+    //     if (foundIndex == -1) {
+    //         $scope.customizeformData.games.push(val);
+    //         console.log("in push");
+    //         data.selected = "selected";
+    //     } else {
+    //         $scope.customizeformData.games.splice(foundIndex, 1);
+    //         data.selected = false;
+    //         console.log("in splice");
+    //     }
+    //     console.log("****", $scope.customizeformData.games);
+    // };
+    $scope.goToGames=function(val,data){
+      console.log("val",val);
+         data.selected = !data.selected;
+      var foundIndex = _.findIndex(  $scope.customizeformData.games ,function(key){
+        return key === val;
+      });
+      console.log("foundIndex",foundIndex);
+      if (foundIndex === -1) {
+         $scope.customizeformData.games.push(val);
+          console.log("in push");
+      }else {
+          $scope.customizeformData.games.splice(foundIndex, 1);
+        console.log("in splice");
+      }
+  console.log("****", $scope.customizeformData.games);
+    }
 
-    $scope.isInGame = function(id,data) {
+    $scope.isInGame = function(id, data) {
         var indexF = _.findIndex($scope.customizeformData.games, function(key) {
             return key._id == id;
-            // data.selected[key._id]=true;
         })
         if (indexF !== -1) {
             return true;
-            // data.selected[key._id]=true
         } else {
-            return false;
-            // data.selected[key._id]=false;
+            return false;;
         }
     }
+
+
+
+
     if ($.jStorage.get("loginDetail") != null) {
         NavigationService.getOne(function(data) {
             $scope.customizeformData = data.data;

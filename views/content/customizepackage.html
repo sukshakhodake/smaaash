@@ -74,9 +74,9 @@
                         <div class="new-detail">
                            <div class="viewing1 views inline-block">
                               <button type="button" class="uppercase bluey" ng-click="goToGames(data._id,data)"
-                              ng-class="{selected:data.selected }" ng-if="!isInGame(data._id,data)&& !data.selected">SELECT</button>{{data.selected}}
+                              ng-class="{selected:data.selected }" ng-if="!isInGame(data._id,data)" ng-hide="data.selected">SELECT</button>
 
-                              <button type="button" class="uppercase bluey" ng-class="{selected:isInGame(data._id,data)}"  ng-click="goToGames(data._id,data)" ng-show="isInGame(data._id,data) && data.selected">SELECTED</button>
+                              <button type="button" class="uppercase bluey selected" ng-class="{selected:isInGame(data._id,data)}"  ng-click="goToGames(data._id,data)" ng-show="isInGame(data._id,data) || data.selected">SELECTED</button>
                            </div>
 
 
