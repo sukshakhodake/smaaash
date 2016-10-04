@@ -139,8 +139,9 @@
                                 <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                             </li>
                         </ul>
+                        <p class="text-center">{{currentdate|date:'h:mm a'}}|{{currentdate|date:'d LLLL yyyy'}}</p>
                     </div>
-                    {{currentdate|date:'h:mm a'}}|{{currentdate|date:'d LLLL yyyy'}}
+
                 </div>
             </div>
 
