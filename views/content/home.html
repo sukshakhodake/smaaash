@@ -161,7 +161,7 @@
                 <div class="mover extra" ng-if="hostParty">
                     <flex-slider class="carousel relative" item-margin="0" flex-slide="s in hostParty track by $index" animation="slide" animationLoop="true"
                         prev-text="" next-text="">
-                        <li ng-if="s.hostAPartyType =='57d6a09dbd5eb9846074b419'">
+                        <li ng-if="s.hostAPartyType ==='57d6a09dbd5eb9846074b419'">
                             <a ui-sref="birthday-parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
@@ -174,7 +174,7 @@
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
                             </div>
                         </li>
-                        <li ng-if="s.hostAPartyType =='57d6a027bd5eb9846074b418'">
+                        <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                             <a ui-sref="wedding-parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
@@ -187,7 +187,7 @@
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
                             </div>
                         </li>
-                        <li ng-if="s.hostAPartyType =='57e142483da62fae1dfc55f2'">
+                        <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
                             <a ui-sref="corporate-parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
@@ -200,7 +200,7 @@
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
                             </div>
                         </li>
-                        <li ng-if="s.hostAPartyType =='57e1429c3da62fae1dfc560c'">
+                        <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                             <a ui-sref="kitty-parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>

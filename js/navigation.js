@@ -1,21 +1,8 @@
-// var adminurl = "";
-// var imgurl = "http://wohlig.co.in/rdbackend/uploads/";
-
-// var adminurl = "http://192.168.1.103:1337/";
-// var adminurl = "http://104.197.84.255/";//pooja
-// var adminurl = "http://192.168.0.103:1337/";//local
 var adminurl = "http://104.155.129.33:82/"; //server
 // var adminurl = "http://192.168.0.114:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
-// if(isproduction)
-// {
-//   adminURL =  "http://www.wohlig.co.in/demo/index.php";
-// }
-// else {
-//   adminURL = "http://localhost/demo/index.php";
-// }
 
 var navigationservice = angular.module('navigationservice', [])
 
@@ -254,9 +241,6 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-
-
-
         addToWishList: function(id, callback) {
             console.log("nAV", id);
             var data = {
