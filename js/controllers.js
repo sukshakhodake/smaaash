@@ -2045,9 +2045,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flag = {};
         $scope.flag.showCity = false;
         $scope.toggleCity = function () {
-
             $scope.city = !$scope.city;
-
         };
         $scope.getCityName = function (cityname) {
             console.log(cityname);
@@ -2102,7 +2100,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menus = "menu-out";
         $scope.showAunty = false;
         $scope.getMenus = function () {
-
             if ($scope.menus == "menu-out") {
                 $scope.menus = "menu-in";
                 $scope.showAunty = true;
@@ -2265,8 +2262,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         NavigationService.getTypes(function (data) {
             $scope.types = data.data;
-            // if($scope.types)
-            _.each($scope.types, function (n) {
+              _.each($scope.types, function (n) {
                 if (n.name == 'Whats new') {
                     console.log('here');
                 }
