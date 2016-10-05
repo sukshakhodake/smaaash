@@ -32,7 +32,8 @@
     "fancyBox": "fancybox#^2.1.5",
     "angulartics-google-analytics": "^0.1.4",
     "jStorage": "^0.4.12",
-    "ng-dialog": "*"
+    "ng-dialog": "*",
+  
   },
   "devDependencies": {
     "angular-translate": "^2.11.0"
