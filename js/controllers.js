@@ -72,13 +72,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
-            console.log("  $scope.attraction", $scope.attraction);
+            // console.log("  $scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
+            console.log("  $scope.hostParty ",  $scope.hostParty );
 
         } else {
 
@@ -268,7 +269,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
-.controller('CorporateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('CorporateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("corporate-parties");
     $scope.menutitle = NavigationService.makeactive("Corporate Parties");
@@ -278,7 +279,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.corporate = data.data;
         console.log("$scope.corporate", $scope.corporate);
 
-    })
+    });
+    $scope.corporateParty = function () {
+       $uibModal.open({
+           animation: true,
+           templateUrl: "views/modal/enquiry.html",
+           scope: $scope
+
+       })
+   };
 })
 
 .controller('EventCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -519,32 +528,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("PreWedding Parties");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.wedding = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/enquiry.html",
-            scope: $scope
 
-        })
-    };
-    // $scope.wedding = function() {
-    //     console.log("dddd");
-    //     $uibModal.open({
-    //         animation: true,
-    //         templateUrl: "views/modal/enquiry.html",
-    //         controller: 'WeddingCtrl',
-    //         scope: $scope
-    //
-    //     });
-    // }
 
-    // };
 
     NavigationService.getDetailExploreSmaaash($stateParams.id, function (data) {
         $scope.wedding = data.data;
         console.log("$scope.wedding", $scope.wedding);
 
     });
+    $scope.weddingParty = function () {
+       $uibModal.open({
+           animation: true,
+           templateUrl: "views/modal/enquiry.html",
+           scope: $scope
+
+       })
+   };
 
 
 })
@@ -917,7 +916,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('KittyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('KittyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("kitty-parties");
     $scope.menutitle = NavigationService.makeactive("Kitty Parties");
@@ -928,6 +927,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("$scope.kitty", $scope.kitty);
 
     });
+    $scope.kittyParty = function () {
+       $uibModal.open({
+           animation: true,
+           templateUrl: "views/modal/enquiry.html",
+           scope: $scope
+
+       })
+   };
 })
 
 .controller('CustomizePackageCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -1183,7 +1190,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
-.controller('BirthdayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('BirthdayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("birthday-parties");
     $scope.menutitle = NavigationService.makeactive("Birthday Parties");
@@ -1194,7 +1201,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.parties = data.data;
         console.log("$scope.parties", $scope.parties);
 
-    })
+    });
+    $scope.birthdayParty = function () {
+       $uibModal.open({
+           animation: true,
+           templateUrl: "views/modal/enquiry.html",
+           scope: $scope
+
+       })
+   };
 })
 
 .controller('SportsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
