@@ -1,17 +1,30 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
 
-.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter) {
+.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    var openL = {};
+    $scope.openpops = function () {
+        openL = ngDialog.open({
+            template: 'views/content/popup.html',
+            className: 'smaaash-cities',
+            scope: $scope
+        });
+        console.log(openL)
 
+    };
+    $scope.currentdate = new Date();
 
 
 
     $scope.$on('$viewContentLoaded', function () {
+        if (!$.jStorage.get("popupShow")) {
+            $scope.openpops();
+        }
         $(window).scroll(function () {
             var scroller = $(document).scrollTop();
             var height = $(window).height() - 40;
@@ -61,6 +74,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var events = [];
     var foodBeverages = [];
 
+    $scope.getCities = {};
+    NavigationService.getCity(function (data) {
+        $scope.getCities = data.data;
+    });
+
+    $scope.getCityName = function (cityname) {
+
+        $.jStorage.set("cityid", cityname._id);
+        $.jStorage.set("city", cityname.name);
+        $.jStorage.set("popupShow", true)
+        $scope.cityData = {
+            _id: $.jStorage.get("cityid"),
+            name: $.jStorage.get("city")
+        };
+        openL.close(true);
+        $state.reload();
+    }
 
 
 
@@ -79,7 +109,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
-            console.log("  $scope.hostParty ",  $scope.hostParty );
+            console.log("  $scope.hostParty ", $scope.hostParty);
 
         } else {
 
@@ -281,13 +311,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.corporateParty = function () {
-       $uibModal.open({
-           animation: true,
-           templateUrl: "views/modal/enquiry.html",
-           scope: $scope
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/enquiry.html",
+            scope: $scope
 
-       })
-   };
+        })
+    };
 })
 
 .controller('EventCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -537,13 +567,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.weddingParty = function () {
-       $uibModal.open({
-           animation: true,
-           templateUrl: "views/modal/enquiry.html",
-           scope: $scope
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/enquiry.html",
+            scope: $scope
 
-       })
-   };
+        })
+    };
 
 
 })
@@ -916,7 +946,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('KittyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
+.controller('KittyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("kitty-parties");
     $scope.menutitle = NavigationService.makeactive("Kitty Parties");
@@ -928,13 +958,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.kittyParty = function () {
-       $uibModal.open({
-           animation: true,
-           templateUrl: "views/modal/enquiry.html",
-           scope: $scope
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/enquiry.html",
+            scope: $scope
 
-       })
-   };
+        })
+    };
 })
 
 .controller('CustomizePackageCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -1190,7 +1220,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
-.controller('BirthdayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
+.controller('BirthdayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("birthday-parties");
     $scope.menutitle = NavigationService.makeactive("Birthday Parties");
@@ -1203,13 +1233,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.birthdayParty = function () {
-       $uibModal.open({
-           animation: true,
-           templateUrl: "views/modal/enquiry.html",
-           scope: $scope
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/enquiry.html",
+            scope: $scope
 
-       })
-   };
+        })
+    };
 })
 
 .controller('SportsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
@@ -2262,7 +2292,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         NavigationService.getTypes(function (data) {
             $scope.types = data.data;
-              _.each($scope.types, function (n) {
+            _.each($scope.types, function (n) {
                 if (n.name == 'Whats new') {
                     console.log('here');
                 }
