@@ -519,11 +519,11 @@ firstapp.filter('urlEncode', [function() {
     return window.encodeURIComponent;
 }]);
 
-// firstapp.filter('englishNumeralDate',function(){
-//   return function (value) {
-//     if(value){
-//       console.log(angular.isDate(value));
-//       return moment(new Date(value)).format("Mo MMMM YYYY");
-//     }
-//   };
-// });
+firstapp.filter('englishNumeralDate',function(){
+  return function (value) {
+    if(value){
+      console.log(angular.isDate(value));
+      return moment(new Date(value)).format("Mo MMMM  YYYY");
+    }
+  };
+});
