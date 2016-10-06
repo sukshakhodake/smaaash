@@ -523,7 +523,7 @@ firstapp.filter('englishNumeralDate',function(){
   return function (value) {
     if(value){
       console.log(angular.isDate(value));
-      return moment(new Date(value)).format("Mo MMMM  YYYY");
+      return moment(new Date(value)).format("Do MMMM YYYY");
     }
   };
 });

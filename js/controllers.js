@@ -2051,6 +2051,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.currentdate = new Date();
+      
+        console.log("$scope.currentdate",$scope.currentdate);
         // popup
         // $.jStorage.get('popNot');
         // $scope.popme = function () {
