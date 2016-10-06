@@ -33,7 +33,8 @@
     "angulartics-google-analytics": "^0.1.4",
     "jStorage": "^0.4.12",
     "ng-dialog": "*",
-  
+     "moment": "^2.15.1"
+
   },
   "devDependencies": {
     "angular-translate": "^2.11.0"
