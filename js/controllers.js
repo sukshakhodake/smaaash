@@ -12,7 +12,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         openL = ngDialog.open({
             template: 'views/content/popup.html',
             className: 'smaaash-cities',
-            scope: $scope
+            scope: $scope,
+            controller:'headerctrl'
         });
         console.log(openL)
 
