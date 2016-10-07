@@ -1194,7 +1194,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log("$scope.customizeformData in editUserData", $scope.customizeformData);
                     console.log("editUserData", data);
                     if (data.value === true) {
-
                         $scope.showThank = true;
                         $scope.emailExist = false;
                         $scope.customizeformData = {};
@@ -1206,17 +1205,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             // $scope.customizeformData = {};
                         }, 3000);
 
-
                     } else if (data.value === false) {}
                 });
-
             }
-
-
         } else {}
 
     }
-
     NavigationService.getCity(function(data) {
         $scope.allCity = data.data;
     });
@@ -1226,11 +1220,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.children = '';
     NavigationService.getSingleExploreSmaaash(id, function(data) {
         $scope.customizepackage = data.data;
+        console.log("$scope.customizepackage", $scope.customizepackage);
         _.each($scope.customizepackage, function(data) {
             data.gameforarray = [];
+
             var index = _.findIndex($scope.customizeformData.games, {
                 _id: data._id
+
             });
+            console.log("$scope.customizeformData.games", $scope.customizeformData.games);
             if (index >= 0) {
                 data.selected = true;
             }
@@ -1247,7 +1245,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         data.gameforarray.push('Children')
                         break;
                     default:
-
                 }
             });
         });

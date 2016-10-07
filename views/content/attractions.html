@@ -52,12 +52,12 @@
               </div>
               <div class="min-h">
                 <h3 class="margin0 bluey" ng-bind-html="d.hometext | shorten :25"></h3>
-                <p>Game For:
+                <p ng-hide="d.gameforarray==''">Game For:
                   <span class="bluey capitalize">
                              <span ng-repeat="per in d.gameforarray track by $index">{{per}} <span ng-if="$index<d.gameforarray.length-2">|</span>
                   <span ng-if="$index==d.gameforarray.length-2">&</span> </span>
                   </span>
-                  <span ng-if="d.gameforarray==''"> - </span>
+                
 
                 </p>
               </div>
