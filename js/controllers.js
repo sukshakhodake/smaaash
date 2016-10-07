@@ -346,6 +346,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    $scope.moreDesc = {};
+        NavigationService.getSponsors(function(data){
+          console.log("data",data.data);
+          $scope.sponsor=data.data.sponsor;
+          $scope.esteem=data.data.esteem;
+          $scope.contact=data.data.contact;
+        });
+        $scope.readMore = function (id, indexid) {
+            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+            $scope.myDesc = _.find($scope.sponsor, function (n) {
+                return n._id == id;
+            }).content;
+
+        };
+
+
 })
 
 .controller('EventCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {

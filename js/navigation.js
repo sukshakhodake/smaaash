@@ -358,6 +358,15 @@ var navigationservice = angular.module('navigationservice', [])
         //
         //     }).success(callback);
         // },
+        getSponsors: function(callback) {
+
+            $http({
+                url: adminurl + 'sponsor/getAllSponsorPageDetail',
+                method: 'POST',
+                withCredentials: true
+
+            }).success(callback);
+        },
 
 
     };
