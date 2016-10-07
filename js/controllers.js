@@ -397,15 +397,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.SingleDealsPackages10 = data.data;
-        $scope.SingleDealsPackages = _.chunk(data.data, 3);
+        $scope.SingleDealsPackages = data.data;
         console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
         $scope.readMore = function(id, indexid) {
-
-            console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-            console.log($scope.moreDesc);
-            $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
+            $scope.myDesc = _.find($scope.SingleDealsPackages, function(n) {
                 return n._id == id;
 
             }).description;
@@ -413,23 +409,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.myWish = function(id) {
-
         if ($.jStorage.get("loginDetail") == null) {
-
             console.log("am in if");
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/wishlistsigup.html',
                 scope: $scope
-
             });
         } else {
             NavigationService.wishList(id, function(data) {
-
                 console.log("wishlist", data);
             })
         }
-
     };
     $scope.addedToWishList = function() {
         if ($.jStorage.get("loginDetail") != null) {
@@ -1822,15 +1813,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.SingleDealsPackages10 = data.data;
-        $scope.SingleDealsPackages = _.chunk(data.data, 3);
+        $scope.SingleDealsPackages = data.data;
         console.log("$scope.SingleDealsPackages", $scope.SingleDealsPackages);
         $scope.readMore = function(id, indexid) {
 
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
-            $scope.myDesc = _.find($scope.SingleDealsPackages10, function(n) {
+            $scope.myDesc = _.find($scope.SingleDealsPackages, function(n) {
                 return n._id == id;
                 // console.log($scope.myDesc);
             }).description;

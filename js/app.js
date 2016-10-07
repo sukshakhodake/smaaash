@@ -527,3 +527,11 @@ firstapp.filter('englishNumeralDate',function(){
     }
   };
 });
+firstapp.filter('englishNumeralTime',function(){
+  return function (value) {
+    if(value){
+      console.log(angular.isDate(value));
+      return moment(new Date(value)).format("h:mm a");
+    }
+  };
+});
