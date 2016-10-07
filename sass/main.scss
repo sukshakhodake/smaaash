@@ -2016,6 +2016,24 @@ img.fancybox-image {
     }
 }
 
+.telephone,
+.email {
+    margin-top: 5px;
+    i {
+        margin-right: 5px;
+    }
+    span {
+        display: inline-block;
+        margin-right: 5px;
+    }
+    p {
+        font-size: 12px;
+    }
+    a {
+        color: #000;
+    }
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

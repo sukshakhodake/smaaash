@@ -1533,6 +1533,13 @@ ul {
   }
 }
 
+.sponsors {
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
 .leadership {
   .new-detail {
     border: 1px solid #000;
