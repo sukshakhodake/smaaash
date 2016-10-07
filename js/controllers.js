@@ -353,7 +353,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.esteem=data.data.esteem;
           $scope.contact=data.data.contact;
         });
-        $scope.readMore = function (id, indexid) {
+        $scope.readMore = function (id) {
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             $scope.myDesc = _.find($scope.sponsor, function (n) {
                 return n._id == id;
