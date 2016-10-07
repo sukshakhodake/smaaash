@@ -2008,6 +2008,14 @@ img.fancybox-image {
     width: 100%;
 }
 
+.contacts {
+    margin-bottom: 40px;
+    h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

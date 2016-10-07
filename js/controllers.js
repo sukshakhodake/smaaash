@@ -13,7 +13,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             template: 'views/content/popup.html',
             className: 'smaaash-cities',
             scope: $scope,
-            controller:'headerctrl'
+            controller: 'headerctrl'
         });
         console.log(openL)
 
@@ -319,6 +319,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         })
     };
+})
+
+.controller('BenefitCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("benefit");
+    $scope.menutitle = NavigationService.makeactive("Benefit");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
+
+.controller('SponsorCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("sponsor");
+    $scope.menutitle = NavigationService.makeactive("Sponsor");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
 })
 
 .controller('EventCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -2051,8 +2069,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.currentdate = new Date();
-      
-        console.log("$scope.currentdate",$scope.currentdate);
+
+        console.log("$scope.currentdate", $scope.currentdate);
         // popup
         // $.jStorage.get('popNot');
         // $scope.popme = function () {
