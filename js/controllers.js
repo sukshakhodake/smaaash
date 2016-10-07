@@ -1566,24 +1566,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
         $scope.SingleHostParty = data.data;
-        console.log($scope.SingleHostParty);
         $scope.content = _.groupBy($scope.SingleHostParty, 'hostAPartyType');
-
-
         $scope.birthday = $scope.content['57d6a09dbd5eb9846074b419'];
         $scope.kittyparties = $scope.content['57e1429c3da62fae1dfc560c'];
         $scope.wedding = $scope.content['57d6a027bd5eb9846074b418'];
         $scope.corporate = $scope.content['57e142483da62fae1dfc55f2'];
 
 
-        console.log("$scope.birthday", $scope.birthday)
-        console.log("$scope.kittyparties", $scope.kittyparties);
-        console.log("$scope.wedding", $scope.wedding);
-        console.log("$scope.corporate", $scope.corporate);
-
-
-        // console.log("$scope.SingleHostParty", $scope.SingleHostParty);
-        // console.log("$scope.content", $scope.content);
 
 
     });
@@ -1601,7 +1590,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             i++;
         });
 
-        // console.log("$scope.hostPartySlider", $scope.hostPartySlider);
+
     })
 
 
@@ -2095,7 +2084,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.currentdate = new Date();
 
-        console.log("$scope.currentdate", $scope.currentdate);
+      
         // popup
         // $.jStorage.get('popNot');
         // $scope.popme = function () {
