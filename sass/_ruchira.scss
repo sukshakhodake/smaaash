@@ -722,7 +722,8 @@ $brand-white:#fff !default;
 }
 
 .drink,
-.event {
+.event,
+.contact {
   .greeny {
     color: $brand-green;
   }
@@ -1248,7 +1249,8 @@ $brand-white:#fff !default;
 .host-party,
 .drink,
 .event,
-.dealings {
+.dealings,
+.contact {
   h3 {
     font-family: $body-font;
     font-size: 30px;
@@ -1534,7 +1536,7 @@ ul {
 }
 
 .sponsors {
-  span {
+  .greeny {
     text-decoration: underline;
     cursor: pointer;
   }
@@ -2819,6 +2821,14 @@ button {
 
 .color6 {
   background-color: $brand-darkblue;
+}
+
+.direction {
+  .address {
+    address {
+      margin-bottom: 0;
+    }
+  }
 }
 
 //new pages//
