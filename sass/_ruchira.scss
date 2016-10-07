@@ -1590,7 +1590,7 @@ ul {
         height: auto;
         width: 40px;
         position: absolute;
-        top: 70%;
+        top: 75%;
         right: 0%;
         transform: translate(-50%, -50%);
       }
@@ -1620,7 +1620,7 @@ ul {
         margin-bottom: 0px;
         .slides {
           li+li {
-            margin: 0 30px;
+            margin: 0 10px;
           }
         }
       }
@@ -2006,6 +2006,12 @@ ul {
   }
 }
 
+.login-signup {
+  .or {
+    z-index: none;
+  }
+}
+
 .close-it {
   position: absolute;
   left: -50px;
@@ -2028,6 +2034,8 @@ ul {
 
 .side {
   top: 50%;
+  right: -40px;
+  transform: rotate(90deg);
 }
 
 .connect-button,

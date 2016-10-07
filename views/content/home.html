@@ -79,10 +79,10 @@
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                             <!-- <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a> -->
-                            <div class="race-text whites">
+                            <div class="race-text whites" ui-sref="whats-new({id:s.type._id})">
 
                                 <div class="min-hiss">
-                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext | shorten :30"></h3>
+                                    <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext | shorten :30"></h3>
                                     <div ng-if="!s.hometext">No title.</div>
                                 </div>
                             </div>
@@ -139,9 +139,9 @@
 
 
 
-                                            <div class="race-text">
+                                            <div class="race-text" ui-sref="deals-inner({id:s._id})">
                                                 <div class="min-hi">
-                                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext | shorten :30">MONSOON DAY PASS!</h3>
+                                                    <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext | shorten :30">MONSOON DAY PASS!</h3>
                                                     <div ng-if="!s.hometext">No data Found</div>
                                                 </div>
                                             </div>
@@ -345,8 +345,8 @@
                                 <a ui-sref="attractions({id:s.type._id})">
                                     <img ng-src="{{s.image|uploadpath}}" noloading="true" style="width: 86%; margin:0 auto;">
                                 </a>
-                                <div class="carousel-text bg-black">
-                                    <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext"></h3>
+                                <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
+                                    <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
                                 </div>
                             </div>
 
@@ -383,7 +383,7 @@
                     <form class="form" name="subscribeForm" ng-if="!subscribeFormComplete" ng-submit="subscribeLogin(subscribeData)">
                         <div class="form-group inline-block">
                             <input type="email" class="form-control" name="email" placeholder="Email Id" required ng-model="subscribeData.email">
-                            <div class="error-msg" ng-show="subscribeForm.email.$error.required && subscribeForm.email.$touched">Please Enter Your Email Id</div>
+                            <!--<div class="error-msg" ng-show="subscribeForm.email.$error.required && subscribeForm.email.$touched">Please Enter Your Email Id</div>-->
                         </div>
                         <button type="submit" class="btn title brand-green  inline-block btn-default "><span class="brand-white capitalize">send</span></button>
                         <div ng-if="duplicate">Email Already Exist</div>
