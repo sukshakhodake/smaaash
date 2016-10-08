@@ -98,21 +98,36 @@
                 </div>
             </div>
         </div>
+        <!--<div class="gallery">
+            <h2 class="title slide-text">gallery</h2>
+            <div class="gallery-grid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>-->
         <div class="gallery">
             <div class="slidings">
                 <h2 class="title slide-text">gallery</h2>
                 <flex-slider class="carousel" flex-slide="s in detailExploreSmaash.gallery track by $index" item-width="250" animation="slide"
                     animationLoop="true" prev-text="" next-text="">
                     <li>
-                        <!-- <a href="{{s}}" fancybox-box> -->
-                        <img ng-src="{{s.image|uploadpath}}">
-                        <!-- </a> -->
+
+                        <img ng-src="{{s.image|uploadpath}}" ng-click="imagemodal();">
+
                     </li>
-                    <!-- <li>
-                <a href="{{s}}" fancybox-box>
-                  <img ng-src="{{s.image|uploadpath}}">
-                  </a>
-              </li> -->
+
                 </flex-slider>
             </div>
         </div>
