@@ -170,8 +170,8 @@
                             </a> -->
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                            <div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
+                            <div class="carousel-text bg-black" ui-sref="birthday-parties({id:s._id})">
+                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
                             </div>
                         </li>
                         <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
@@ -241,7 +241,7 @@
                             <!--<a href="" class="pink-button"><img src="img/buy.png" class="img-responsive" alt=""></a>-->
                             <div class="race-text whites">
                                 <div class="min-hiss">
-                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext"> </h3>
+                                    <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"> </h3>
                                     <h3 ng-if="!s.hometext">No data found</h3>
                                 </div>
                             </div>
@@ -315,9 +315,9 @@
                                             </div>
                                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                                            <div class="race-text race-textbg">
+                                            <div class="race-text race-textbg" ui-sref="event-inner({id:s._id})">
                                                 <div class="min-hi">
-                                                    <h3 class="margin0 brand-white" ng-bind-html="s.hometext"></h3>
+                                                    <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"></h3>
                                                     <div ng-if="!s.hometext">No Data Found</div>
                                                 </div>
                                             </div>
