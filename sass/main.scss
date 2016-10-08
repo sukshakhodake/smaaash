@@ -2034,6 +2034,13 @@ img.fancybox-image {
     }
 }
 
+.gallery-grid {
+    padding: 10px;
+    .new {
+        padding: 10px;
+    }
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

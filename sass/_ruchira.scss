@@ -1133,6 +1133,11 @@ $brand-white:#fff !default;
     }
     .flexslider {
       margin-bottom: 20px;
+      .slides {
+        li {
+          margin-right: 10px !important;
+        }
+      }
     }
     .flex-next,
     .flex-prev {

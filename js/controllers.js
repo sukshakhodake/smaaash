@@ -1374,24 +1374,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     $scope.imagemodal = function () {
         $uibModal.open({
-            animation: true;
-            templateUr: "views/"
+            animation: true,
+            templateUrl: "views/modal/image.html",
+            scope: $scope
         })
-    }
+    };
 
 
 
 })
-$scope.birthdayParty = function () {
-    $uibModal.open({
-        animation: true,
-        templateUrl: "views/modal/enquiry.html",
-        scope: $scope
-
-    })
-};
-
-
 
 .controller('ConfirmCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -1768,7 +1759,7 @@ $scope.birthdayParty = function () {
     });
 })
 
-.controller('DrinkCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('DrinkCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
@@ -1802,6 +1793,13 @@ $scope.birthdayParty = function () {
 
     });
 
+    $scope.imagesmodal = function () {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/images.html",
+            scope: $scope
+        })
+    };
 
 })
 
