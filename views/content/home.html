@@ -1,6 +1,6 @@
 <div class="inner relative pointer">
 
-    <iframe width="560" height="315" ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
+    <iframe class="stopv"width="560" height="315" ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
         frameborder="0" allowfullscreen="" style="
     position: absolute;
     left: 0;
@@ -9,7 +9,7 @@
     bottom: 0;
     width: 100%;
     height: 100%;
-" class="">
+" class="" >
 
     </iframe>
     <div class="overlays" ng-show="showVideo">
