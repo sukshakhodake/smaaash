@@ -76,7 +76,9 @@ body {
         display: block;
     }
 }
-
+.cdc{
+  opacity: 0;
+}
 .title {
     font-family: $body-font;
 }

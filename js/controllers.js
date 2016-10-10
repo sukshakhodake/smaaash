@@ -32,7 +32,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.showVidFalse = function() {
         $scope.showVideo = false;
-    }
+    };
 
 
     $scope.$on('$viewContentLoaded', function() {
@@ -44,12 +44,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var height = $(window).height() - 40;
             if (height <= scroller) {
                 $('body').addClass('show-header');
+
             } else {
                 $('body').removeClass('show-header');
+
             }
         });
     });
+    $(window).scroll(function() {
+        var scroller = $(document).scrollTop();
+        var height = $(window).height() - 40;
+        if (height <= scroller) {
+          var vdo = document.getElementsByClassName('stopv');
+          //vdo.pause();
 
+            $scope.showVideo = false;
+        }
+    });
 
     $scope.scrollToHome = function() {
         $scope.showVideo = false;
@@ -135,8 +146,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         console.log("$scope.banner", $scope.banner);
-        $scope.video=document.getElementsByTagName("iframe"), fraction = 0.8;;
-        console.log($scope.video);
+        // $scope.video = document.getElementsByClassName("stopv")[0], fraction = 0.8;
+        var video = document.getElementsByClassName("stopv")[0],
+            fraction = 0.8;
+        console.log(video);
+
+        function checkScroll() {
+            // var x = video.offsetLeft,
+            //     y = video.offsetTop,
+            //     w = video.offsetWidth,
+            //     h = video.offsetHeight,
+            //     r = x + w, //right
+            //     b = y + h, //bottom
+            //     visibleX, visibleY, visible;
+            //
+            // visibleX = Math.max(0, Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset));
+            // visibleY = Math.max(0, Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset));
+            //
+            // visible = visibleX * visibleY / (w * h);
+
+            //  if (visible > fraction) {
+            //      video.play();
+            //
+            //  } else {
+            //      video.pause();
+            //  }
+
+            $('video').each(function() {
+                console.log("in video");
+                if ($(this).is(":in-viewport")) {
+                    $(this)[0].play();
+                    console.log("in if video");
+                } else {
+                    $(this)[0].pause();
+                    console.log("in else video");
+                }
+            })
+        }
+        checkScroll();
+        window.addEventListener('scroll', checkScroll, true);
+        window.addEventListener('resize', checkScroll, false);
     });
     $timeout(function() {
         console.log($scope.video);
