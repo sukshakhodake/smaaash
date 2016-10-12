@@ -11,6 +11,7 @@ var jsArray = [
     './bower_components/ui-router/release/angular-ui-router.min.js',
     './bower_components/angular-flexslider/angular-flexslider.js',
     './bower_components/angular-translate/angular-translate.js',
+    './bower_components/ng-dialog/js/ngDialog.js',
     './bower_components/lodash/lodash.js',
     './bower_components/angulartics/dist/angulartics.min.js',
     './bower_components/jStorage/jstorage.min.js',
@@ -145,7 +146,7 @@ gulp.task('minify:css', function() {
     var concat = require('gulp-concat');
     return gulp.src('./w/main.css')
 
-        .pipe(minifyCss({
+    .pipe(minifyCss({
             keepSpecialComments: 0,
             rebase: false
         }))
@@ -199,7 +200,7 @@ gulp.task('uglify:js', function() {
     var uglify = require('gulp-uglify');
     var stripDebug = require('gulp-strip-debug');
     return gulp.src('./w/w.js')
-      //  .pipe(stripDebug())
+        //  .pipe(stripDebug())
         .pipe(uglify({
             mangle: false
         }))
