@@ -13,14 +13,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             template: 'views/content/popup.html',
             className: 'smaaash-cities',
             scope: $scope,
-            controller: 'headerctrl'
+            closeByEscape: true
         });
-        console.log(openL)
-
+        console.log(openL);
     };
 
 
+    $scope.getCity = function () {
+        NavigationService.getCity(function (data) {
 
+            if (data.value) {
+                $scope.getCity = data.data;
+                if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+                    var mumbai = _.find($scope.getCity, function (key) {
+                        if (key.name.toLowerCase() == "mumbai") {
+                            return key;
+                        }
+                    });
+                    $scope.getCityName(mumbai);
+                }
+            }
+
+        });
+    }
+    $scope.getCity();
 
 
     $scope.currentdate = new Date();
@@ -117,17 +133,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
     $scope.getCityName = function (cityname) {
-
         $.jStorage.set("cityid", cityname._id);
         $.jStorage.set("city", cityname.name);
-        $.jStorage.set("popupShow", true)
+        $.jStorage.set("popupShow", true);
         $scope.cityData = {
             _id: $.jStorage.get("cityid"),
             name: $.jStorage.get("city")
         };
-        openL.close(true);
-        $state.reload();
-    }
+        console.log(openL);
+        ngDialog.closeAll("Change");
+        $(".ngdialog").remove();
+    };
 
 
 
@@ -207,9 +223,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         window.addEventListener('scroll', checkScroll, true);
         window.addEventListener('resize', checkScroll, false);
     });
-    $timeout(function () {
-        console.log($scope.video);
-    }, 2000);
 
     $scope.subscribeFormComplete = false;
     $scope.subscribeData = {};
@@ -247,16 +260,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.emailExist = false;
     $scope.validCity = false;
     $scope.signupLogin = function (signupData) {
-        console.log("$scope.signupData ", $scope.signupData);
+
         if ($scope.signupData) {
             if ($scope.signupData.city == $.jStorage.get("cityid")) {
                 $scope.validCity = false;
                 if ($scope.signupData.password == $scope.signupData.confirmPassword) {
-                    console.log('m true');
+
                     $scope.pass = true;
                     NavigationService.signup($scope.signupData, function (data) {
-                        console.log("$scope.signupData", $scope.signupData);
-                        console.log("$scope.signupDataforData", data);
                         if (data.value) {
                             $scope.emailExist = false;
                             $scope.formCompleteSignup = true;
@@ -271,11 +282,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                     })
                 } else {
-                    console.log('m false');
                     $scope.pass = false;
                 }
             } else {
-                console.log("im in else");
                 $scope.validCity = true;
             }
         }
@@ -2206,36 +2215,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         }
-        $scope.getCity = function () {
-            NavigationService.getCity(function (data) {
-
-                if (data.value) {
-                    $scope.getCity = data.data;
-
-                    if ($.jStorage.get("city") == null || $.jStorage.get('city') === '') {
-
-
-                        var mumbai = _.find($scope.getCity, function (key) {
-                            if (key.name.toLowerCase() == "mumbai") {
-                                return key;
-                            }
-                        });
-                        $scope.getCityName(mumbai);
-
-                    }
-                }
-
-            });
-        }
-        $scope.getCity();
-
-
-
-
-
-
-
-
 
         $scope.menu = false;
         $scope.toggleMenu = function () {
