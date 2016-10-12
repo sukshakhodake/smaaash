@@ -73,8 +73,7 @@
                         </div>
                         <div class="new-detail">
                            <div class="viewing1 views inline-block">
-                              <button type="button" class="uppercase bluey" ng-click="goToGames(data._id,data)"
-                              ng-hide="data.selected">SELECT</button>
+                              <button type="button" class="uppercase bluey" ng-click="goToGames(data._id,data)" ng-hide="data.selected">SELECT</button>
                               <button type="button" class="uppercase bluey selected" ng-click="goToGames(data._id,data)" ng-show="data.selected">SELECTED</button>
                            </div>
 
@@ -175,7 +174,7 @@
                         <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                         <select class="form-control" id="starter" ng-model="customizeformData.starter" name="starters" required>
-
+                           <option ng-selected="true" value="">00</option>
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
@@ -194,6 +193,7 @@
                         <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                         <select class="form-control" id="desert" ng-model="customizeformData.dessert" name="dsr" required>
+                           <option ng-selected="true" value="">00</option>
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
@@ -214,6 +214,7 @@
                         </div>
 
                         <select class="form-control" id="main-course" ng-model="customizeformData.mainCourse" name="mainCourse" required>
+                          <option ng-selected="true" value="">00</option>
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
