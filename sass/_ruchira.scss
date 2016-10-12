@@ -1287,6 +1287,25 @@ $brand-white:#fff !default;
     padding: 20px;
     margin: 0;
   }
+  .map-image {
+    h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+  }
+}
+
+.contact-div {
+  padding: 20px 0 0;
+}
+
+.contact-div:last-child {
+  margin-bottom: 20px;
+}
+
+.meetup {
+  border: 1px solid #000;
+  padding: 10px;
 }
 
 .new-details {
@@ -2735,6 +2754,12 @@ button {
 .drink {
   .new-detail {
     min-height: 470px;
+  }
+}
+
+.sponsors {
+  .new-detail {
+    min-height: 180px;
   }
 }
 
