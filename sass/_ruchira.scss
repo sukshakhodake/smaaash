@@ -609,22 +609,6 @@ $brand-white:#fff !default;
   }
 }
 
-.gaming {
-  &.brand-red {
-    &:before {
-      background-color: $brand-red;
-    }
-  }
-}
-
-.gaming {
-  &.brand-blue {
-    &:before {
-      background-color: $brand-blue;
-    }
-  }
-}
-
 .smash-gaming {
   .gaming {
     margin: 5px;
@@ -642,9 +626,7 @@ $brand-white:#fff !default;
     height: 100%;
     position: absolute;
     left: 329px;
-    // right: -18px;
     transform: skew(3deg);
-    // background-color: #2a3890;
   }
   .gaming {
     &.brand-purple {
@@ -662,11 +644,6 @@ $brand-white:#fff !default;
   }
 }
 
-// .gaming{
-//   width: 367px;
-//   height: 347px;
-//   margin-left: 20px;
-// }
 //*explore ends*//
 //* *//
 .bg {
@@ -894,14 +871,6 @@ $brand-white:#fff !default;
     background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
-    // max-width: 1170px;
-    // @include position(absolute,20px 0 20px 0);
-    // background-image: url("../img/home/mbanner.png");
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // cursor: pointer;
-    // margin: 0 auto;
   }
 }
 
@@ -1116,7 +1085,6 @@ $brand-white:#fff !default;
     font-weight: 600;
     text-align: justify;
     cursor: pointer;
-    // border-bottom: 1px solid #fff;
   }
   h3 {
     margin: 10px 0 0 15px;
@@ -1166,7 +1134,6 @@ $brand-white:#fff !default;
   margin-top: -27px;
   margin-left: -19px;
   background-image: url("../img/karting/About.png");
-  // background-image: url("../img/karting/man.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #f6e9fd;
@@ -1189,7 +1156,6 @@ $brand-white:#fff !default;
   font-size: 14px;
   font-family: $body-font;
   cursor: pointer;
-  // box-shadow: 2px 2px 0px #340d51;
   span {
     color: #fff;
     .fa {
@@ -1202,11 +1168,6 @@ $brand-white:#fff !default;
   background-color: $brand-pink;
 }
 
-// .articles{
-//   .slant-col:before{
-//       background-color: #f6e9fd;
-//   }
-// }
 .articles {
   .slant-col {
     &.brand-black {
@@ -1271,9 +1232,6 @@ $brand-white:#fff !default;
       line-height: 1.1;
       text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px -2px 0 #000;
     }
-    // p+p{
-    //     line-height: 0.6;
-    // }
     span {
       text-decoration: none;
       padding: 4px 20px;
@@ -1342,9 +1300,36 @@ ul {
   li {
     a {
       .fa {
-        color: #ccc;
+        color: rgba(204, 204, 204, 0.49);
         font-size: 25px;
         vertical-align: middle;
+        &:hover {
+          color: #3b5998;
+        }
+      }
+    }
+  }
+  li+li {
+    a {
+      .fa {
+        color: rgba(204, 204, 204, 0.49);
+        font-size: 25px;
+        vertical-align: middle;
+        &:hover {
+          color: #1dcaff;
+        }
+      }
+    }
+  }
+  li+li+li {
+    a {
+      .fa {
+        color: rgba(204, 204, 204, 0.49);
+        font-size: 25px;
+        vertical-align: middle;
+        &:hover {
+          color: #d34836;
+        }
       }
     }
   }
@@ -1442,20 +1427,13 @@ ul {
     margin: 20px 0;
   }
   .new-detail,
-  .news-detail,
-  .new-details {
+  {
     border: 1px solid #29a8df;
     border-top: none;
     padding: 20px;
     p {
       color: #ccc;
     }
-  }
-  .news-detail {
-    border: 1px solid #642c91;
-  }
-  .new-details {
-    border: 1px solid #2a3890;
   }
   .love {
     button {
@@ -1481,7 +1459,6 @@ ul {
     color: $brand-darkblue;
   }
   .blue {
-    background-color: $brand-blue;
     color: #fff;
     padding: 10px 50px;
   }
@@ -1489,30 +1466,12 @@ ul {
   .view,
   .viewing {
     button {
-      background-color: #fff;
       border: 1px solid #29a8df;
+      background-color: #fff;
       padding: 5px 15px;
       border-radius: 3px;
       &:active {
         background-color: #29a8df;
-        color: #fff;
-      }
-    }
-  }
-  .view {
-    button {
-      border: 1px solid #642c91;
-      &:active {
-        background-color: #642c91;
-        color: #fff;
-      }
-    }
-  }
-  .viewing {
-    button {
-      border: 1px solid #2a3890;
-      &:active {
-        background-color: #2a3890;
         color: #fff;
       }
     }
@@ -1526,6 +1485,7 @@ ul {
   .button-set {
     button {
       color: #fff;
+      background-color: #29a8df;
       padding: 10px 9px;
       border: none;
       border-radius: 6px;
@@ -1589,7 +1549,6 @@ ul {
   }
   .gallery {
     .race {
-      // height: 250px;
       .pink-button,
       .buy-button {
         height: auto;
@@ -1651,18 +1610,6 @@ ul {
   }
 }
 
-// .new-sliding{
-//   .race{
-//     .pink-button{
-//       height: 60px;
-//       width: 60px;
-//       position: absolute;
-//       top: 67%;
-//       right: 0%;
-//       transform: translate(-50%,-50%);
-//     }
-//   }
-// }
 .reversing,
 .reversed {
   .slant-in {
@@ -1676,7 +1623,6 @@ ul {
         }
         .race {
           border: 1px solid #fff;
-          // height: 251px;
           .pink-button {
             height: auto;
             width: 40px;
@@ -1686,7 +1632,6 @@ ul {
             transform: translate(-50%, -50%);
           }
           .race-text {
-            // height: 100px;
             padding: 21px 10px;
             h3 {
               font-family: $body-font;
@@ -1697,13 +1642,6 @@ ul {
       }
     }
   }
-  // .slant-box{
-  //   .mover{
-  //       li{
-  //         margin: 0 10px;
-  //       }
-  //   }
-  // }
   .race-textbg {
     background-color: #173f95;
   }
@@ -1712,15 +1650,11 @@ ul {
 .reversed {
   .slant-col {
     .slant-box {
-      // h2{
-      //   margin-left:50px;
-      // }
       h3 {
         font-size: 30px;
       }
       .mover {
         right: 5px;
-        // top: 60px;
       }
     }
   }
@@ -1728,9 +1662,6 @@ ul {
 
 .reversing {
   .slant-box {
-    // h2{
-    //   margin-left:50px;
-    // }
     h3 {
       font-size: 30px;
       margin-top: 0px;
@@ -1744,9 +1675,7 @@ ul {
   .mover {
     .slidings {
       .race {
-        // height: 251px;
         .race-text {
-          // height: 100px;
           background-color: #000;
         }
       }
@@ -1789,10 +1718,6 @@ ul {
     border-bottom: 2px solid #000;
     border-right: 2px solid #000;
     border-top: 2px solid #000;
-    // background-image: url("../img/rays.png");
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center;
     &:before {
       content: "";
       transform: skew(10deg);
@@ -1841,9 +1766,6 @@ ul {
     right: 0;
     bottom: 0;
   }
-  // .package-rays{
-  //     background-image: url("../img/ray.png");
-  // }
   .customize {
     background-image: url("../img/yel-ray.png");
     background-repeat: no-repeat;
@@ -2102,7 +2024,6 @@ ul {
     color: white;
     font-size: 14px;
     text-align: center;
-    // margin: 21px -20px 0;
     padding: 5px 20px;
     transform: skew(-15deg);
     text-shadow: 1px 1px black, -1px 0 black, 0 -1px black, -1px -1px black, 0 1px black, 1px 0 black, -1px 1px black, 1px -1px black;
@@ -2128,10 +2049,6 @@ ul {
         position: absolute;
         top: 6px;
         right: 20px;
-        // height: 35px;
-        // width: 35px;
-        // padding: 5px;
-        // border: 1px solid #000;
         cursor: pointer;
       }
     }
@@ -2253,7 +2170,6 @@ ul {
     height: 11px;
     margin: -1px 4px 0 0;
     cursor: pointer;
-    // border: 1px solid #000;
     border-radius: 100%;
     box-shadow: 0px 3px 2px rgba(20, 12, 12, 0.27) inset;
   }
@@ -2318,11 +2234,6 @@ button {
   }
 }
 
-// .views {
-//   &:hover {
-//     transform: rotateX(-180deg);
-//   }
-// }
 .views {
   &:hover {
     button {
@@ -2430,8 +2341,6 @@ button {
   .pink-button {
     height: auto;
     width: 40px;
-    // border: 2px solid #fff;
-    // border-radius: 100%;
     position: absolute;
     top: 78%;
     right: 57%;
@@ -2645,11 +2554,6 @@ button {
   padding: 40px 0;
 }
 
-// .modal-content{
-//   box-shadow: none;
-//   border: none;
-//   background-color: transparent;
-// }
 .host-pop {
   position: relative;
   background-color: transparent;
@@ -2765,10 +2669,6 @@ button {
   }
 }
 
-.reversing .slides li {
-  // margin-right: 15px !important;
-}
-
 .l20 {
   left: 20px !important;
 }
@@ -2822,14 +2722,6 @@ button {
   }
 }
 
-// .smaaash-cities {
-//   width: 100%;
-//   height: auto;
-//   background-image: url(../img/nav/bgblue.png);
-//   background-size: cover;
-//   position: absolute;
-//   top: 0px;
-// }
 .whats-new .new-detail {
   border: 1px solid #000;
   border-top: none;
@@ -2846,30 +2738,6 @@ button {
   }
 }
 
-.color1 {
-  background-color: $brand-orangy;
-}
-
-.color2 {
-  background-color: $brand-yellow;
-}
-
-.color3 {
-  background-color: $brand-green;
-}
-
-.color4 {
-  background-color: $brand-blue;
-}
-
-.color5 {
-  background-color: $brand-purple;
-}
-
-.color6 {
-  background-color: $brand-darkblue;
-}
-
 .direction {
   .address {
     address {
@@ -2878,5 +2746,13 @@ button {
   }
 }
 
+.race {
+  transition: all 600ms ease;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+//not
 //new pages//
 //new home//

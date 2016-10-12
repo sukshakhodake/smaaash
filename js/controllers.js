@@ -18,8 +18,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(openL)
 
     };
+
+
+
+
+
     $scope.currentdate = new Date();
 
+    $scope.showVideo = false;
+    $scope.showVid = function () {
+        $scope.showVideo = true;
+
+    };
+    $scope.showVidFalse = function () {
+        $scope.showVideo = false;
+    };
 
 
     $scope.$on('$viewContentLoaded', function () {
@@ -31,20 +44,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var height = $(window).height() - 40;
             if (height <= scroller) {
                 $('body').addClass('show-header');
+
             } else {
                 $('body').removeClass('show-header');
+
             }
         });
     });
-    $scope.showVideo = false;
-    $scope.showVid = function () {
-        $scope.showVideo = true;
+    $(window).scroll(function () {
+        var scroller = $(document).scrollTop();
+        var height = $(window).height() - 40;
+        if (height <= scroller) {
+            var vdo = document.getElementsByClassName('stopv');
+            //vdo.pause();
 
-    };
-    $scope.showVidFalse = function () {
-        $scope.showVideo = false;
-    }
-
+            $scope.showVideo = false;
+        }
+    });
 
     $scope.scrollToHome = function () {
         $scope.showVideo = false;
@@ -119,15 +135,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-
+    $scope.video = '';
     NavigationService.getHomeBanner(function (data) {
         if (data.value) {
             $scope.banner = data.data;
+
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
             }
+
         }
-    })
+
+        // $scope.video = document.getElementsByClassName("stopv")[0], fraction = 0.8;
+        var video = document.getElementsByClassName("stopv")[0],
+            fraction = 0.8;
+        console.log(video);
+
+        function checkScroll() {
+            // var x = video.offsetLeft,
+            //     y = video.offsetTop,
+            //     w = video.offsetWidth,
+            //     h = video.offsetHeight,
+            //     r = x + w, //right
+            //     b = y + h, //bottom
+            //     visibleX, visibleY, visible;
+            //
+            // visibleX = Math.max(0, Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset));
+            // visibleY = Math.max(0, Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset));
+            //
+            // visible = visibleX * visibleY / (w * h);
+
+            //  if (visible > fraction) {
+            //      video.play();
+            //
+            //  } else {
+            //      video.pause();
+            //  }
+
+            $('video').each(function () {
+                console.log("in video");
+                if ($(this).is(":in-viewport")) {
+                    $(this)[0].play();
+                    console.log("in if video");
+                } else {
+                    $(this)[0].pause();
+                    console.log("in else video");
+                }
+            })
+        }
+        checkScroll();
+        window.addEventListener('scroll', checkScroll, true);
+        window.addEventListener('resize', checkScroll, false);
+    });
+    $timeout(function () {
+        console.log($scope.video);
+    }, 2000);
+
     $scope.subscribeFormComplete = false;
     $scope.subscribeData = {};
     $scope.duplicate = false;
@@ -386,6 +449,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }).description;
         };
     });
+
+
 })
 
 .controller('DealspCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -1775,19 +1840,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
     $scope.moreDesc = {};
+    $scope.statuses = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
         $scope.drinkParty = data.data;
 
         console.log("$scope.drinkParty", $scope.drinkParty);
         $scope.readMore = function (id, indexid) {
-
+            $scope.statuses.spaceindex = indexid;
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
             console.log("  $scope.moreDesc[id]", $scope.moreDesc[id]);
             $scope.myDesc = _.find($scope.drinkParty, function (n) {
                 return n._id == id;
-                // console.log($scope.myDesc);
             }).description;
         };
 
@@ -1902,12 +1967,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('EventInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('EventInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
     $scope.menutitle = NavigationService.makeactive("Events Inner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.pdfmodal = function () {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/pdf.html",
+            scope: $scope
+        })
+    };
+
+
     $scope.myUrl = window.location.href;
     $scope.today = function () {
         $scope.dt = new Date();
