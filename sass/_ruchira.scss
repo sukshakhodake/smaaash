@@ -1688,46 +1688,46 @@ ul {
   margin-top: 15px;
   .slant-box {
     height: 153px;
-    transform: skew(10deg);
+    // transform: skew(10deg);
   }
   .slant-column {
-    transform: skew(-10deg);
+    // transform: skew(-10deg);
     position: relative;
     width: 49%;
-    border-bottom: 2px solid #000;
-    border-left: 2px solid #000;
-    border-top: 2px solid #000;
+    // border-bottom: 2px solid #000;
+    // border-left: 2px solid #000;
+    // border-top: 2px solid #000;
     &:before {
       content: "";
-      transform: skew(10deg);
+      // transform: skew(10deg);
       width: 34px;
       height: 155px;
       position: absolute;
       right: 0;
       top: 0;
-      border-right: 2px solid #000;
-      border-bottom: 2px solid #000;
-      background-color: $brand-orangy;
+      // border-right: 2px solid #000;
+      // border-bottom: 2px solid #000;
+      // background-color: $brand-orangy;
     }
   }
   .slant-col {
-    transform: skew(-10deg);
+    // transform: skew(-10deg);
     position: relative;
-    width: 50%;
+    // width: 50%;
     float: left;
     border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
-    border-top: 2px solid #000;
+    // border-right: 2px solid #000;
+    // border-top: 2px solid #000;
     &:before {
       content: "";
-      transform: skew(10deg);
-      top: -2px;
+      // transform: skew(10deg);
+      // top: -2px;
       border-left: 2px solid #000;
       width: 35px;
-      height: 156px;
+      height: 154px;
       position: absolute;
       border-top: 2px solid #000;
-      top: -2px;
+      top: 0px;
       left: 0px;
       border-bottom: 1px solid #000;
       background-color: $brand-yellow;
@@ -1766,37 +1766,59 @@ ul {
     right: 0;
     bottom: 0;
   }
-  .customize {
-    background-image: url("../img/yel-ray.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  .customize-text {
-    font-family: $body-font;
-    font-size: 24px;
-    p {
+  // .customize {
+  //   background-image: url("../img/yel-ray.png");
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   background-position: center;
+  // }
+  // .customize-text {
+  //   font-family: $body-font;
+  //   font-size: 24px;
+  //   p {
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 40%;
+  //     font-size: 30px;
+  //     text-align: center;
+  //     line-height: 1.1;
+  //     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px -2px 0 #000;
+  //   }
+  //   .chef {
+  //     width: 150px;
+  //     height: 150px;
+  //     position: absolute;
+  //     top: 36px;
+  //     bottom: 0;
+  //     left: 39px;
+  //   }
+  // }
+  // .customize-layer {
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: -11px;
+  // }
+  .slant-column {
+    border: none;
+    transform: none;
+    .slant-box {
       position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
       bottom: 0;
-      left: 40%;
-      font-size: 30px;
-      text-align: center;
-      line-height: 1.1;
-      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px -2px 0 #000;
+      transform: skew(0deg);
+      img {
+        width: 70%;
+      }
     }
-    .chef {
-      width: 150px;
-      height: 150px;
-      position: absolute;
-      top: 36px;
-      bottom: 0;
-      left: 39px;
+    &:before {
+      transform: skew(0deg);
+      border: none;
     }
-  }
-  .customize-layer {
-    position: absolute;
-    bottom: 0;
-    right: -11px;
+    .half-height {
+      overflow: visible;
+    }
   }
 }
 

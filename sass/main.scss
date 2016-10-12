@@ -76,9 +76,11 @@ body {
         display: block;
     }
 }
-.cdc{
-  opacity: 0;
+
+.cdc {
+    opacity: 0;
 }
+
 .title {
     font-family: $body-font;
 }
@@ -108,7 +110,7 @@ body {
 }
 
 .cdsROW.narrow .cdsLocName {
-    opacity: 0;
+    opacity: 1;
 }
 
 .tripadvisor-reviews {
@@ -1853,111 +1855,6 @@ img.fancybox-image {
     font-size: 30px;
 }
 
-// .slant-cols {
-//     @include transform(skew(-15deg));
-//     position: relative;
-//     width: 49%;
-//     float: left;
-//     &:before {
-//         content: "";
-//         @include transform(skew(15deg));
-//         width: 50%;
-//         height: 100%;
-//         @include position( absolute,
-//         null null null 0);
-//         // background-color: $brand-green;
-//     }
-//     &.brand-blue {
-//         &:before {
-//             background-color: $brand-blue;
-//         }
-//     }
-// }
-// .slant-ins {
-//     position: relative;
-//     +.slant-ins {
-//         margin-top: 20px;
-//     }
-//     &:before {
-//         content: "";
-//         @include transform(skew(15deg));
-//         width: 50%;
-//         height: 100%;
-//         @include position(absolute,
-//         null -20% null null);
-//     }
-//     &.brand-blue {
-//         &:before {
-//             background-color: $brand-blue;
-//         }
-//     }
-//     &.brand-green {
-//         &:before {
-//             &:before {
-//                 content: "";
-//                 @include transform(skew(15deg));
-//                 width: 50%;
-//                 height: 100%;
-//                 position: absolute;
-//                 left: -20%;
-//                 background-color: $brand-green;
-//             }
-//         }
-//     }
-//     &.brand-darkblue {
-//         &:before {
-//             background-color: $brand-darkblue;
-//         }
-//     }
-//     &.brand-pink {
-//         &:before {
-//             background-color: $brand-pink;
-//         }
-//     }
-//     &.brand-red {
-//         &:before {
-//             background-color: $brand-red;
-//         }
-//     }
-//     .slant-boxes {
-//         padding: 15px 7% 0 0;
-//         h2 {
-//             margin-left: 55px;
-//         }
-//         @include transform(skew(15deg));
-//         .slidings {
-//             .flexslider {
-//                 background: transparent;
-//                 border-color: transparent;
-//                 .flex-control-nav,
-//                 .flex-direction-nav .flex-prev {
-//                     display: none;
-//                 }
-//                 .flex-next {
-//                     display: block;
-//                     height: 50px;
-//                     width: 50px;
-//                 }
-//                 .flex-direction-nav a.flex-next:before {
-//                     content: "";
-//                     @include square(100%);
-//                     background: url("../img/home/arrow.png")no-repeat;
-//                     background-size: contain;
-//                 }
-//             }
-//         }
-//         .form {
-//             margin-bottom: 0;
-//             margin-left: 13px;
-//         }
-//     }
-// }
-// .reverse .slant-col {
-//     transform: skew(-15deg);
-//     .slant-box {
-//         transform: skew(15deg);
-//     }
-// }
 .slant-in .slant-box {
     padding: 15px 7% 0 15px;
 }
@@ -2043,6 +1940,21 @@ img.fancybox-image {
     }
 }
 
+//ignore css//
+.packages {
+    margin-top: 50px;
+}
+
+.chef-img {
+    position: relative;
+    img {
+        width: 60%;
+        position: absolute;
+        top: -77px;
+    }
+}
+
+//ignore//
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
