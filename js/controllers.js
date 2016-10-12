@@ -19,16 +19,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-
-
-
-
     $scope.currentdate = new Date();
 
     $scope.showVideo = false;
     $scope.showVid = function () {
         $scope.showVideo = true;
-
     };
     $scope.showVidFalse = function () {
         $scope.showVideo = false;
@@ -51,17 +46,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     });
-    $(window).scroll(function () {
-        var scroller = $(document).scrollTop();
-        var height = $(window).height() - 40;
-        if (height <= scroller) {
-            var vdo = document.getElementsByClassName('stopv');
-            //vdo.pause();
-
-            $scope.showVideo = false;
-        }
-    });
-
     $scope.scrollToHome = function () {
         $scope.showVideo = false;
         $('html, body').animate({
@@ -145,73 +129,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         }
-
-        // $scope.video = document.getElementsByClassName("stopv")[0], fraction = 0.8;
-        var video = document.getElementsByClassName("stopv")[0],
-            fraction = 0.8;
-        console.log(video);
-
-        function checkScroll() {
-            // var x = video.offsetLeft,
-            //     y = video.offsetTop,
-            //     w = video.offsetWidth,
-            //     h = video.offsetHeight,
-            //     r = x + w, //right
-            //     b = y + h, //bottom
-            //     visibleX, visibleY, visible;
-            //
-            // visibleX = Math.max(0, Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset));
-            // visibleY = Math.max(0, Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset));
-            //
-            // visible = visibleX * visibleY / (w * h);
-
-            //  if (visible > fraction) {
-            //      video.play();
-            //
-            //  } else {
-            //      video.pause();
-            //  }
-
-            $('video').each(function () {
-                console.log("in video");
-                if ($(this).is(":in-viewport")) {
-                    $(this)[0].play();
-                    console.log("in if video");
-                } else {
-                    $(this)[0].pause();
-                    console.log("in else video");
-                }
-            })
-        }
-        checkScroll();
-        window.addEventListener('scroll', checkScroll, true);
-        window.addEventListener('resize', checkScroll, false);
-    });
-    $timeout(function () {
-        console.log($scope.video);
-    }, 2000);
-
-    $scope.subscribeFormComplete = false;
-    $scope.subscribeData = {};
-    $scope.duplicate = false;
-    $scope.subscribeLogin = function (subscribeData) {
-        if ($scope.subscribeData) {
-            NavigationService.subscribe($scope.subscribeData, function (data) {
-                if (data.data.value == false) {
-                    $scope.duplicate = true;
-                    $scope.subscribeFormComplete = false;
-                } else {
-                    $scope.duplicate = false;
-                    $scope.subscribeFormComplete = true;
-                    $timeout(function () {
+        $scope.subscribeFormComplete = false;
+        $scope.subscribeData = {};
+        $scope.duplicate = false;
+        $scope.subscribeLogin = function (subscribeData) {
+            if ($scope.subscribeData) {
+                NavigationService.subscribe($scope.subscribeData, function (data) {
+                    if (data.data.value == false) {
+                        $scope.duplicate = true;
                         $scope.subscribeFormComplete = false;
-                        $scope.subscribeData = {};
-                    }, 2000);
-                }
-            })
+                    } else {
+                        $scope.duplicate = false;
+                        $scope.subscribeFormComplete = true;
+                        $timeout(function () {
+                            $scope.subscribeFormComplete = false;
+                            $scope.subscribeData = {};
+                        }, 2000);
+                    }
+                })
+            }
+
         }
 
-    }
 
 
 
@@ -220,46 +159,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
+        $scope.formCompleteSignup = false;
+        $scope.signupData = {};
+        $scope.pass = true;
+        $scope.emailExist = false;
+        $scope.validCity = false;
+        $scope.signupLogin = function (signupData) {
+            console.log("$scope.signupData ", $scope.signupData);
+            if ($scope.signupData) {
+                if ($scope.signupData.city == $.jStorage.get("cityid")) {
+                    $scope.validCity = false;
+                    if ($scope.signupData.password == $scope.signupData.confirmPassword) {
+                        console.log('m true');
+                        $scope.pass = true;
+                        NavigationService.signup($scope.signupData, function (data) {
+                            console.log("$scope.signupData", $scope.signupData);
+                            console.log("$scope.signupDataforData", data);
+                            if (data.value) {
+                                $scope.emailExist = false;
+                                $scope.formCompleteSignup = true;
+                                $timeout(function () {
+                                    $scope.formCompleteSignup = false;
+                                    $scope.signupData = {};
+                                }, 2000);
 
-    $scope.formCompleteSignup = false;
-    $scope.signupData = {};
-    $scope.pass = true;
-    $scope.emailExist = false;
-    $scope.validCity = false;
-    $scope.signupLogin = function (signupData) {
-        console.log("$scope.signupData ", $scope.signupData);
-        if ($scope.signupData) {
-            if ($scope.signupData.city == $.jStorage.get("cityid")) {
-                $scope.validCity = false;
-                if ($scope.signupData.password == $scope.signupData.confirmPassword) {
-                    console.log('m true');
-                    $scope.pass = true;
-                    NavigationService.signup($scope.signupData, function (data) {
-                        console.log("$scope.signupData", $scope.signupData);
-                        console.log("$scope.signupDataforData", data);
-                        if (data.value) {
-                            $scope.emailExist = false;
-                            $scope.formCompleteSignup = true;
-                            $timeout(function () {
-                                $scope.formCompleteSignup = false;
-                                $scope.signupData = {};
-                            }, 2000);
+                            } else {
+                                $scope.emailExist = true;
+                            }
 
-                        } else {
-                            $scope.emailExist = true;
-                        }
-
-                    })
+                        })
+                    } else {
+                        console.log('m false');
+                        $scope.pass = false;
+                    }
                 } else {
-                    console.log('m false');
-                    $scope.pass = false;
+                    console.log("im in else");
+                    $scope.validCity = true;
                 }
-            } else {
-                console.log("im in else");
-                $scope.validCity = true;
             }
         }
-    }
 
 
 
@@ -268,99 +206,100 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.viewMore = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/login.html",
-            scope: $scope
-        });
-    };
+        $scope.viewMore = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/login.html",
+                scope: $scope
+            });
+        };
 
-    $scope.mySlides1 = [
-        'img/explore-img/vertigo.png',
-        'img/home/cockpit.png',
-        'img/explore-img/coaster.png'
-    ];
+        $scope.mySlides1 = [
+            'img/explore-img/vertigo.png',
+            'img/home/cockpit.png',
+            'img/explore-img/coaster.png'
+        ];
 
-    $scope.mySlides2 = [
-        'img/host/BirhdayParties.png',
-        'img/host/CorpPart.png',
-        'img/host/KittyParties.png',
-        'img/host/PlayDates.png',
-        'img/host/TeamEvents.png',
-        'img/host/WeddingParties.png'
-    ];
+        $scope.mySlides2 = [
+            'img/host/BirhdayParties.png',
+            'img/host/CorpPart.png',
+            'img/host/KittyParties.png',
+            'img/host/PlayDates.png',
+            'img/host/TeamEvents.png',
+            'img/host/WeddingParties.png'
+        ];
 
-    $scope.mySlides3 = [
-        'img/home/sachins.png',
-        'img/home/sachins.png'
-        // 'img/explore-img/coaster.png',
-        //   'img/explore-img/vertigo.png',
-        //   // 'img/explore-img/3.png'
-        //   // 'img/explore-img/4.png',
-        //   // 'img/explore-img/5.png',
-    ];
-    $scope.mySlides4 = [
-        'img/karting/blue.png',
-        'img/karting/sonakshi.png',
-        'img/karting/salman.png',
-        'img/karting/shikar.png',
-        'img/karting/blue.png'
-    ];
-    $scope.mySlides5 = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png'
-    ];
-    $scope.mySlides6 = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png'
-    ];
+        $scope.mySlides3 = [
+            'img/home/sachins.png',
+            'img/home/sachins.png'
+            // 'img/explore-img/coaster.png',
+            //   'img/explore-img/vertigo.png',
+            //   // 'img/explore-img/3.png'
+            //   // 'img/explore-img/4.png',
+            //   // 'img/explore-img/5.png',
+        ];
+        $scope.mySlides4 = [
+            'img/karting/blue.png',
+            'img/karting/sonakshi.png',
+            'img/karting/salman.png',
+            'img/karting/shikar.png',
+            'img/karting/blue.png'
+        ];
+        $scope.mySlides5 = [
+            'img/beverage.png',
+            'img/beverage1.png',
+            'img/beverage2.png'
+        ];
+        $scope.mySlides6 = [
+            'img/beverage.png',
+            'img/beverage1.png',
+            'img/beverage.png',
+            'img/beverage1.png',
+            'img/beverage2.png'
+        ];
 
-    $scope.mySlides7 = [
-        'img/explore5.png',
-        'img/explore/explore2.png',
-        'img/explore/explore3.png',
-        'img/explore/explore4.png',
-        'img/explore/explore5.png'
-    ];
+        $scope.mySlides7 = [
+            'img/explore5.png',
+            'img/explore/explore2.png',
+            'img/explore/explore3.png',
+            'img/explore/explore4.png',
+            'img/explore/explore5.png'
+        ];
 
-    $scope.mySlides8 = [
-        'img/cakey.png',
-        'img/cakey.png',
-        'img/cakey.png',
-        'img/cakey.png',
-        'img/cakey.png'
-    ];
-    $scope.animationsEnabled = true;
+        $scope.mySlides8 = [
+            'img/cakey.png',
+            'img/cakey.png',
+            'img/cakey.png',
+            'img/cakey.png',
+            'img/cakey.png'
+        ];
+        $scope.animationsEnabled = true;
 
 
-    $scope.$on('$viewContentLoaded', function (event) {
-        $timeout(function () {
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=329228207248886";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-
-            ! function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                    p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
+        $scope.$on('$viewContentLoaded', function (event) {
+            $timeout(function () {
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
                     js = d.createElement(s);
                     js.id = id;
-                    js.src = p + "://platform.twitter.com/widgets.js";
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=329228207248886";
                     fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");
-        }, 100);
-    });
+                }(document, 'script', 'facebook-jssdk'));
+
+                ! function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
+            }, 100);
+        });
+    })
 })
 
 .controller('CorporateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
@@ -1966,6 +1905,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 })
+
 
 .controller('EventInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
