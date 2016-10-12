@@ -48,7 +48,7 @@
             <div class="game-type inline-block">
                <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                <select class="form-control" ng-model="customizeformData.city" name="city">
-                  <option ng-selected="true" value="">Select City</option>
+                  <option ng-selected="true" value="">Select</option>
                   <option ng-repeat="data in allCity" value="{{data._id}}">{{data.name}}</option>
                   <!-- <option>Mumbai</option>
                <option>Noida</option> -->
@@ -214,7 +214,7 @@
                         </div>
 
                         <select class="form-control" id="main-course" ng-model="customizeformData.mainCourse" name="mainCourse" required>
-                          <option ng-selected="true" value="">00</option>
+                           <option ng-selected="true" value="">00</option>
                            <option value="01">01</option>
                            <option value="02">02</option>
                            <option value="03">03</option>
