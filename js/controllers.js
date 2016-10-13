@@ -1563,20 +1563,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/Top-banner.jpg'
     ];
 
-    // $scope.menu = "menu-out";
-    // $scope.getMenu = function() {
-    //     $(".side-menu").addClass("menu-in");
-    //     $(".side-menu").removeClass("menu-out");
-    // };
-    // $scope.closeMenu = function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // };
-    //
-    // $(".template.content").click(function() {
-    //     $(".side-menu").removeClass("menu-in");
-    //     $(".side-menu").addClass("menu-out");
-    // });
+
     $scope.menu = "menu-out";
     $scope.getMenu = function () {
         if ($scope.menu == "menu-out") {
@@ -1591,7 +1578,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.signupData = {};
     $scope.pass = true;
     $scope.emailExist = false;
-    // $scope.validCity=false;
 
     $scope.signupLogin = function (signupData) {
         console.log("$scope.signupData ", $scope.signupData);
@@ -1648,21 +1634,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
-        $scope.SingleHostParty = data.data;
+      $scope.SingleHostParty1 =data.data;
+        $scope.SingleHostParty = _.chunk(data.data,3);
         $scope.content = _.groupBy($scope.SingleHostParty, 'hostAPartyType');
         $scope.birthday = $scope.content['57d6a09dbd5eb9846074b419'];
         $scope.kittyparties = $scope.content['57e1429c3da62fae1dfc560c'];
         $scope.wedding = $scope.content['57d6a027bd5eb9846074b418'];
         $scope.corporate = $scope.content['57e142483da62fae1dfc55f2'];
+      });
 
-
-
-
-    });
+      // $scope.moreDesc = {};
+      // NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
+      //     $scope.events10 = data.data;
+      //     $scope.events = _.chunk(data.data, 3);
+      //     console.log("$scope.events", $scope.events);
+      //     $scope.readMore = function (id) {
+      //
+      //         console.log("3333333", id);
+      //         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+      //         console.log($scope.moreDesc);
+      //         $scope.myDesc = _.find($scope.events10, function (n) {
+      //             return n._id == id;
+      //
+      //         }).description;
+      //     };
+      // });
     $scope.readMore = function (id) {
         console.log(id);
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-        $scope.myDesc = _.find($scope.SingleHostParty, function (n) {
+        $scope.myDesc = _.find($scope.SingleHostParty1, function (n) {
             return n._id == id;
         }).description;
     };
@@ -1845,7 +1845,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.moreDesc);
             $scope.myDesc = _.find($scope.events10, function (n) {
                 return n._id == id;
-                // console.log($scope.myDesc);
+
             }).description;
         };
     });
@@ -1868,22 +1868,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
+      $scope.drinkParty1 =data.data;
         $scope.drinkParty = _.chunk(data.data, 3);
 
         console.log("$scope.drinkParty", $scope.drinkParty);
-        $scope.readMore = function (id, indexid) {
+        $scope.readMore = function (id) {
 
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
             console.log("  $scope.moreDesc[id]", $scope.moreDesc[id]);
-            $scope.myDesc = _.find($scope.drinkParty, function (n) {
+            $scope.myDesc = _.find($scope.drinkParty1, function (n) {
                 return n._id == id;
-                // console.log($scope.myDesc);
+
             }).description;
         };
 
     });
+
+
+
 
     $scope.imagesmodal = function () {
         $uibModal.open({

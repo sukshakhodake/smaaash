@@ -130,8 +130,8 @@
               <img src="img/layer.png" class="img-responsive" alt="">
             </div>
             <div class="slant-box half-height">
-              <div class="customize-text brand-white" ui-sref="customizepackage">
-                <div class="chef">
+              <div class="customize-text brand-white" >
+                <div class="chef" ui-sref="customizepackage">
                   <img src="img/cake.png" class="img-responsive" alt="">
                 </div>
                 <p>Customise
@@ -145,8 +145,8 @@
 
     </div>
     <div class="new">
-      <div class="row">
-        <div class="col-md-4 col-sm-4" ng-repeat="data in SingleHostParty">
+      <div class="row" ng-repeat="datas in SingleHostParty">
+        <div class="col-md-4 col-sm-4" ng-repeat="data in datas">
           <div class="karting-championship">
             <div class="brand-blue relative ">
               <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
@@ -375,7 +375,7 @@
           <div class="customize"></div>
 
           <div class="slant-box half-height">
-            <img src="img/newest/chefs.jpg" class="img-responsive" alt="">
+            <img src="img/newest/chefs.jpg" class="img-responsive" alt=""  ui-sref="customizepackage">
           </div>
         </div>
       </div>
