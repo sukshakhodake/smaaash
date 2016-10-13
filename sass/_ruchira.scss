@@ -2750,6 +2750,60 @@ button {
     }
   }
 }
+.attractions,.stars{
+  .col-md-4:nth-child(6n+1){
+    .karting-championship{
+      .brand-blue{
+              background-color: $brand-purple;
+      }
+      .new-detail{
+        border-color: $brand-purple;
+        .views{
+          button{
+            border-color:$brand-purple;
+          }
+        }
+        .bluey{
+        color:  $brand-purple;
+        }
+        .button-set{
+          button{
+              background-color: $brand-purple;
+          }
+        }
+      }
+    }
+
+  }
+
+  .col-md-4:nth-child(6n+2){
+    .karting-championship{
+      .brand-blue{
+              background-color: $brand-orangy;
+      }
+      .new-detail{
+          border-color: $brand-orangy;
+        .views{
+          button{
+            border-color:$brand-orangy;
+          }
+        }
+        .bluey{
+        color:  $brand-orangy;
+        }
+        .button-set{
+          button{
+              background-color: $brand-orangy;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
 
 .drink {
   .new-detail {
