@@ -1468,15 +1468,6 @@ ul {
       }
     }
   }
-  .bluey {
-    color: $brand-blue;
-  }
-  .purpley {
-    color: $brand-purblu;
-  }
-  .dark-bluey {
-    color: $brand-darkblue;
-  }
   .blue {
     color: #fff;
     padding: 10px 50px;
@@ -1490,7 +1481,6 @@ ul {
       padding: 5px 15px;
       border-radius: 3px;
       &:active {
-        background-color: #29a8df;
         color: #fff;
       }
     }
@@ -2283,27 +2273,6 @@ button {
   }
 }
 
-// button {
-//   &:after {
-//     background: #fff;
-//     content: "";
-//     height: 155px;
-//     left: -75px;
-//     opacity: .2;
-//     position: absolute;
-//     top: -50px;
-//     transform: rotate(35deg);
-//     transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-//     width: 50px;
-//     z-index: -10;
-//   }
-//   &:hover {
-//     &:after {
-//       left: 120%;
-//       transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-//     }
-//   }
-// }
 .host-pop {
   position: relative;
   background-color: #000;
@@ -2660,7 +2629,6 @@ button {
   }
   .form-control {
     display: inline-block;
-    // width: 25%;
     -webkit-appearance: none;
     border-radius: 10px;
     background-color: #ebebeb;
@@ -2750,60 +2718,155 @@ button {
     }
   }
 }
-.attractions,.stars{
-  .col-md-4:nth-child(6n+1){
-    .karting-championship{
-      .brand-blue{
-              background-color: $brand-purple;
+
+.attractions,
+.stars,
+.custom {
+  .col-md-3:nth-child(6n+1),
+  .col-md-4:nth-child(6n+1) {
+    .karting-championship {
+      .brand-blue {
+        background-color: $brand-darkblue;
       }
-      .new-detail{
-        border-color: $brand-purple;
-        .views{
-          button{
-            border-color:$brand-purple;
+      .new-detail {
+        border-color: $brand-darkblue;
+        .views {
+          button {
+            border-color: $brand-darkblue;
           }
         }
-        .bluey{
-        color:  $brand-purple;
+        .bluey {
+          color: $brand-darkblue;
         }
-        .button-set{
-          button{
-              background-color: $brand-purple;
+        .button-set {
+          button {
+            background-color: $brand-darkblue;
           }
         }
       }
     }
-
   }
-
-  .col-md-4:nth-child(6n+2){
-    .karting-championship{
-      .brand-blue{
-              background-color: $brand-orangy;
+  .col-md-3:nth-child(6n+2),
+  .col-md-4:nth-child(6n+2) {
+    .karting-championship {
+      .brand-blue {
+        background-color: $brand-orangy;
       }
-      .new-detail{
-          border-color: $brand-orangy;
-        .views{
-          button{
-            border-color:$brand-orangy;
+      .new-detail {
+        border-color: $brand-orangy;
+        .views {
+          button {
+            border-color: $brand-orangy;
           }
         }
-        .bluey{
-        color:  $brand-orangy;
+        .bluey {
+          color: $brand-orangy;
         }
-        .button-set{
-          button{
-              background-color: $brand-orangy;
+        .button-set {
+          button {
+            background-color: $brand-orangy;
+          }
+        }
+      }
+    }
+  }
+  .col-md-3:nth-child(6n+3),
+  .col-md-4:nth-child(6n+3) {
+    .karting-championship {
+      .brand-blue {
+        background-color: $brand-yellow;
+      }
+      .new-detail {
+        border-color: $brand-yellow;
+        .views {
+          button {
+            border-color: $brand-yellow;
+          }
+        }
+        .bluey {
+          color: $brand-yellow;
+        }
+        .button-set {
+          button {
+            background-color: $brand-yellow;
+          }
+        }
+      }
+    }
+  }
+  .col-md-3:nth-child(6n+4),
+  .col-md-4:nth-child(6n+4) {
+    .karting-championship {
+      .brand-blue {
+        background-color: $brand-green;
+      }
+      .new-detail {
+        border-color: $brand-green;
+        .views {
+          button {
+            border-color: $brand-green;
+          }
+        }
+        .bluey {
+          color: $brand-green;
+        }
+        .button-set {
+          button {
+            background-color: $brand-green;
+          }
+        }
+      }
+    }
+  }
+  .col-md-3:nth-child(6n+5),
+  .col-md-4:nth-child(6n+5) {
+    .karting-championship {
+      .brand-blue {
+        background-color: $brand-blue;
+      }
+      .new-detail {
+        border-color: $brand-blue;
+        .views {
+          button {
+            border-color: $brand-blue;
+          }
+        }
+        .bluey {
+          color: $brand-blue;
+        }
+        .button-set {
+          button {
+            background-color: $brand-blue;
+          }
+        }
+      }
+    }
+  }
+  .col-md-3:nth-child(6n+6),
+  .col-md-4:nth-child(6n+6) {
+    .karting-championship {
+      .brand-blue {
+        background-color: $brand-purple;
+      }
+      .new-detail {
+        border-color: $brand-purple;
+        .views {
+          button {
+            border-color: $brand-purple;
+          }
+        }
+        .bluey {
+          color: $brand-purple;
+        }
+        .button-set {
+          button {
+            background-color: $brand-purple;
           }
         }
       }
     }
   }
 }
-
-
-
-
 
 .drink {
   .new-detail {
