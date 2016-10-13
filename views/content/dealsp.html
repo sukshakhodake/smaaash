@@ -6,8 +6,8 @@
     </div>
     <div class="container">
         <div class="new">
-            <div class="row" >
-                <div class="col-md-4" ng-repeat="d in SingleDealsPackages">
+            <div class="row" ng-repeat="data in SingleDealsPackages">
+                <div class="col-md-4" ng-repeat="d in data">
                     <div class="race-eve relative margno">
                         <div class="img-bg">
                             <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="deals-inner({id:d._id})">

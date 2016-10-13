@@ -18,25 +18,9 @@
             <select class="form-control" ng-model="objectfilter.city" ng-change="fetchSearchedData()">
                <option ng-selected="true" value="">Select </option>
                <option ng-repeat="data in allCity" value="{{data._id}}">{{data.name}}</option>
-               <!-- <option>Gurgoan</option>
-               <option>Hyderabad</option>
-               <option>Benglauru</option>
-               <option>Noida</option> -->
-            </select>
+              </select>
          </div>
 
-         <!-- <div class="checker inline-block">
-            <input type="checkbox" id="test1" />
-            <label for="test1">All</label>
-         </div>
-         <div class="checker inline-block">
-            <input type="checkbox" id="test2" />
-            <label for="test2">Media</label>
-         </div>
-         <div class="checker inline-block">
-            <input type="checkbox" id="test3" />
-            <label for="test3">Gallery</label>
-         </div> -->
       </div>
 
    </div>
@@ -85,8 +69,7 @@
                         <button class="uppercase bluey" fancybox-box href="{{d.image|uploadpath}}">view</button>
 
                      </div>
-                     <!-- <h3 class="margin0 bluey">{{d.title}}</h3>
-                     <p>{{d.text}}</p> -->
+
 
                   </div>
                </div>
