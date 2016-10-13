@@ -697,9 +697,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter._id = $stateParams.id;
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
-            $scope.singleAttraction1 = data.data;
-            $scope.singleAttraction = _.chunk(data.data, 3);
-            _.each($scope.singleAttraction1, function(data) {
+            $scope.singleAttraction = data.data;
+
+            _.each($scope.singleAttraction, function(data) {
                 data.gameforarray = [];
                 _.each(data.gamefor, function(n) {
                     switch (n) {
@@ -1080,7 +1080,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.children = '';
     NavigationService.getSingleExploreSmaaash(id, function(data) {
         $scope.customizepackage = data.data;
-        $scope.customizepackage1 = _.chunk(data.data, 4)
+        // $scope.customizepackage1 = _.chunk(data.data, 4)
         console.log("$scope.customizepackage", $scope.customizepackage);
         _.each($scope.customizepackage, function(data) {
             data.gameforarray = [];
