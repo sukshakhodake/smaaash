@@ -1087,7 +1087,7 @@ $brand-white:#fff !default;
     cursor: pointer;
   }
   h3 {
-    margin: 10px 0 0 15px;
+    margin: 5px 0 0 15px;
   }
 }
 
@@ -1319,7 +1319,7 @@ ul {
   li {
     a {
       .fa {
-        color: rgba(204, 204, 204, 0.49);
+        color: #777;
         font-size: 25px;
         vertical-align: middle;
         &:hover {
@@ -1331,7 +1331,7 @@ ul {
   li+li {
     a {
       .fa {
-        color: rgba(204, 204, 204, 0.49);
+        color: #777;
         font-size: 25px;
         vertical-align: middle;
         &:hover {
@@ -1343,7 +1343,7 @@ ul {
   li+li+li {
     a {
       .fa {
-        color: rgba(204, 204, 204, 0.49);
+        color: #777;
         font-size: 25px;
         vertical-align: middle;
         &:hover {
@@ -2690,6 +2690,7 @@ button {
   position: absolute;
   right: 10px;
   z-index: 99;
+  top: 15px;
 }
 
 .reversing {
@@ -2886,6 +2887,12 @@ button {
   }
 }
 
+.attractions {
+  .new-detail {
+    min-height: 290px;
+  }
+}
+
 .whats-new .new-detail {
   border: 1px solid #000;
   border-top: none;
@@ -2913,7 +2920,7 @@ button {
 .race {
   transition: all 600ms ease;
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.06);
   }
 }
 

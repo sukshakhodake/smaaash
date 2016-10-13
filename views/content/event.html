@@ -8,7 +8,7 @@
         <div class="new">
             <div class="row" ng-repeat="datas in events">
                 <div class="col-md-4" ng-repeat="data in datas">
-                    <div class="race-eve relative margno">
+                    <div class="race-eve relative margno" ui-sref="event-inner({id:data._id})">
                         <div class="img-bg">
                             <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="" ui-sref="event-inner({id:data._id})">
                         </div>
