@@ -1868,7 +1868,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
-        $scope.drinkParty = data.data;
+        $scope.drinkParty = _.chunk(data.data, 3);
 
         console.log("$scope.drinkParty", $scope.drinkParty);
         $scope.readMore = function (id, indexid) {
