@@ -13,7 +13,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             template: 'views/content/popup.html',
             className: 'smaaash-cities',
             scope: $scope,
-            closeByEscape: true
+            closeByEscape: true,
+            // controller:'headerctrl'
         });
 
     };
