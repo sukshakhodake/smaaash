@@ -19,6 +19,7 @@ templateservicemod.service('TemplateService', function() {
 
   this.changecontent = function(page) {
     this.init();
+      $(".ngdialog").remove();
     var data = this;
     data.content = "views/content/" + page + ".html";
     return data;

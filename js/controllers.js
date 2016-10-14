@@ -24,24 +24,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.currentdate = new Date();
-$scope.showVideo ={};
+    $scope.showVideo = {};
     $scope.showVideo = false;
     $scope.showVid = function() {
         $scope.showVideo = true;
 
     };
-    // $scope.showVidFalse = function() {
-    //     $scope.showVideo = false;
-    // };
-  // $scope.showVideo ={};
     $scope.showVidFalse = function() {
-
         $scope.showVideo = false;
         $scope.$apply();
     };
     var fired = false;
     $scope.onScrollStopVideo = function() {
-
         window.addEventListener("scroll", function() {
             if (document.body.scrollTop >= 1000) {
                 $timeout(function() {
@@ -115,8 +109,8 @@ $scope.showVideo ={};
     });
 
     $scope.getCityName = function(cityname) {
-      console.log("cityname",cityname);
-      console.log(cityname.name);
+        console.log("cityname", cityname);
+        console.log(cityname.name);
         $.jStorage.set("cityid", cityname._id);
         $.jStorage.set("city", cityname.name);
         $.jStorage.set("popupShow", true);
@@ -130,8 +124,8 @@ $scope.showVideo ={};
         _id: $.jStorage.get("cityid"),
         name: $.jStorage.get("city")
     };
-console.log("after cityData");
-console.log("  $scope.cityData",  $scope.cityData);
+    console.log("after cityData");
+    console.log("  $scope.cityData", $scope.cityData);
 
 
     NavigationService.getHomeContent(function(data) {
@@ -1947,21 +1941,21 @@ console.log("  $scope.cityData",  $scope.cityData);
         });
 
         $scope.getCity = function() {
-             NavigationService.getCity(function(data) {
-                 if (data.value) {
-                     $scope.getCity = data.data;
-                     if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
-                         var mumbai = _.find($scope.getCity, function(key) {
-                             if (key.name.toLowerCase() == "mumbai") {
-                                 return key;
-                             }
-                         });
-                         $scope.getCityName(mumbai);
-                     }
-                 }
-             });
-         }
-         $scope.getCity();
+            NavigationService.getCity(function(data) {
+                if (data.value) {
+                    $scope.getCity = data.data;
+                    if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+                        var mumbai = _.find($scope.getCity, function(key) {
+                            if (key.name.toLowerCase() == "mumbai") {
+                                return key;
+                            }
+                        });
+                        $scope.getCityName(mumbai);
+                    }
+                }
+            });
+        }
+        $scope.getCity();
 
 
         $scope.currentdate = new Date();
@@ -1982,10 +1976,10 @@ console.log("  $scope.cityData",  $scope.cityData);
         }
 
         $scope.template.reFetchCity = function() {
-          $scope.cityData = {
-              _id: $.jStorage.get("cityid"),
-              name: $.jStorage.get("city")
-          };
+            $scope.cityData = {
+                _id: $.jStorage.get("cityid"),
+                name: $.jStorage.get("city")
+            };
         };
         $scope.template.reFetchCity();
 
