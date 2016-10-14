@@ -24,7 +24,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.currentdate = new Date();
-
+$scope.showVideo ={};
     $scope.showVideo = false;
     $scope.showVid = function() {
         $scope.showVideo = true;
@@ -33,7 +33,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // $scope.showVidFalse = function() {
     //     $scope.showVideo = false;
     // };
-
+  // $scope.showVideo ={};
     $scope.showVidFalse = function() {
 
         $scope.showVideo = false;
