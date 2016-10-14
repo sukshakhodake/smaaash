@@ -13,31 +13,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             template: 'views/content/popup.html',
             className: 'smaaash-cities',
             scope: $scope,
-            closeByEscape: true,
-            // controller:'headerctrl'
+            closeByEscape: true
         });
 
     };
 
 
-    $scope.getCity = function() {
-        NavigationService.getCity(function(data) {
 
-            if (data.value) {
-                $scope.getCity = data.data;
-                if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
-                    var mumbai = _.find($scope.getCity, function(key) {
-                        if (key.name.toLowerCase() == "mumbai") {
-                            return key;
-                        }
-                    });
-                    $scope.getCityName(mumbai);
-                }
-            }
 
-        });
-    }
-    $scope.getCity();
 
 
     $scope.currentdate = new Date();
@@ -132,19 +115,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
     $scope.getCityName = function(cityname) {
+      console.log("cityname",cityname);
+      console.log(cityname.name);
         $.jStorage.set("cityid", cityname._id);
         $.jStorage.set("city", cityname.name);
         $.jStorage.set("popupShow", true);
-        $scope.cityData = {
-            _id: $.jStorage.get("cityid"),
-            name: $.jStorage.get("city")
-        };
         console.log(openL);
         ngDialog.closeAll("Change");
         $(".ngdialog").remove();
+        $scope.template.reFetchCity();
     };
 
-
+    $scope.cityData = {
+        _id: $.jStorage.get("cityid"),
+        name: $.jStorage.get("city")
+    };
+console.log("after cityData");
+console.log("  $scope.cityData",  $scope.cityData);
 
 
     NavigationService.getHomeContent(function(data) {
@@ -432,8 +419,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.SingleDealsPackages = _.chunk(data.data,3);
-      });
+        $scope.SingleDealsPackages = _.chunk(data.data, 3);
+    });
 })
 
 .controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -458,10 +445,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.objectfilter.city = $.jStorage.get("cityid");
     $scope.noviewmore = true;
     $scope.stars = [];
+    $scope.notAvailable = false;
     $scope.fetchData = function() {
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getStars($scope.objectfilter, function(data) {
             console.log(data.data.totalpages);
+            console.log("getStars", data.data);
+            if (data.data.data.length === 0) {
+                $scope.notAvailable = true;
+            } else {
+                $scope.notAvailable = false;
+            }
             if (data.value) {
                 console.log($scope.objectfilter.pagenumber);
                 if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
@@ -480,7 +474,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
     $scope.fetchData();
-
+    $scope.message = false;
     $scope.fetchSearchedData = function() {
         $scope.objectfilter.pagenumber = 0;
         $scope.objectfilter.pagesize = 6;
@@ -491,6 +485,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getStars($scope.objectfilter, function(data) {
             console.log(data.data.totalpages);
+
+            if (data.data.data.length === 0) {
+                $scope.message = true;
+            } else {
+                $scope.message = false;
+            }
             if (data.value) {
                 console.log($scope.objectfilter.pagenumber);
                 if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
@@ -554,6 +554,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
+
+
     $scope.showMore = false;
 
     $scope.myUrl = window.location.href;
@@ -696,9 +698,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.children = '';
     $scope.filter = {};
     $scope.filter._id = $stateParams.id;
+    $scope.msg = false;
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
             $scope.singleAttraction = data.data;
+            if ($scope.singleAttraction.length === 0) {
+                $scope.msg = true;
+            } else {
+                $scope.msg = false;
+            }
 
             _.each($scope.singleAttraction, function(data) {
                 data.gameforarray = [];
@@ -833,7 +841,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             case '57bc4af6eb9c91f1025a3b4f':
                                 data.pageName.push("What's new")
                                 break;
-                              default:
+                            default:
                         }
                     });
                 });
@@ -955,6 +963,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         date: afterTomorrow,
         status: 'partially'
     }];
+
     function getDayClass(data) {
         var date = data.date,
             mode = data.mode;
@@ -1936,34 +1945,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });
-        $scope.cityData = {
-            _id: $.jStorage.get("cityid"),
-            name: $.jStorage.get("city")
-        }
+
+        $scope.getCity = function() {
+             NavigationService.getCity(function(data) {
+                 if (data.value) {
+                     $scope.getCity = data.data;
+                     if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+                         var mumbai = _.find($scope.getCity, function(key) {
+                             if (key.name.toLowerCase() == "mumbai") {
+                                 return key;
+                             }
+                         });
+                         $scope.getCityName(mumbai);
+                     }
+                 }
+             });
+         }
+         $scope.getCity();
+
 
         $scope.currentdate = new Date();
-
-
-        // popup
-        // $.jStorage.get('popNot');
-        // $scope.popme = function () {
-        //     $uibModal.open({
-        //         templateUrl: 'views/modal/popup.html',
-        //         scope: $scope
-        //     });
-        // };
-        // $scope.popme();
-        // $scope.close = function () {
-        //     $.jStorage.set('popNot', true);
-        // };
-
-        // if (!$.jStorage.get('popNot')) {
-        //     console.log("hera");
-        //     $scope.popme();
-        // }
-        //popup ennd
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
-        // console.log("$scope.userLoginDetails", $scope.userLoginDetails);
 
         $scope.city = false;
         $scope.flag = {};
@@ -1976,15 +1978,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $.jStorage.set("cityid", cityname._id);
             $.jStorage.set("city", cityname.name);
 
-            $scope.cityData = {
-                _id: $.jStorage.get("cityid"),
-                name: $.jStorage.get("city")
-            };
-
             $state.reload();
-
-
         }
+
+        $scope.template.reFetchCity = function() {
+          $scope.cityData = {
+              _id: $.jStorage.get("cityid"),
+              name: $.jStorage.get("city")
+          };
+        };
+        $scope.template.reFetchCity();
+
 
         $scope.menu = false;
         $scope.toggleMenu = function() {
