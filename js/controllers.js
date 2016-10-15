@@ -259,11 +259,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.mySlides3 = [
         'img/home/sachins.png',
         'img/home/sachins.png'
-        // 'img/explore-img/coaster.png',
-        //   'img/explore-img/vertigo.png',
-        //   // 'img/explore-img/3.png'
-        //   // 'img/explore-img/4.png',
-        //   // 'img/explore-img/5.png',
+      
     ];
     $scope.mySlides4 = [
         'img/karting/blue.png',
