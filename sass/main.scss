@@ -1962,6 +1962,12 @@ img.fancybox-image {
     background-position: center;
 }
 
+.point-image {
+    img {
+        width: 100%;
+    }
+}
+
 .avatar {
     .close {
         position: absolute;
@@ -1972,6 +1978,35 @@ img.fancybox-image {
     background-image:url("../img/profile/about-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.profile {
+    .row-flex {
+        @include display(flex);
+        width: 100%;
+    }
+    .col-flex {
+        @include flex(1);
+        display: block;
+        width: 100%;
+    }
+    .tab {
+        margin-top: 15px;
+        ul {
+            border: 1px solid #000;
+            li {
+                padding: 10px 0;
+                text-align: center;
+            }
+            li+li {
+                border-left: 1px solid #000;
+            }
+        }
+    }
+}
+
+.reward-table {
+    margin-top: 20px;
 }
 
 @import "ruchira";
