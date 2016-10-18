@@ -1997,6 +1997,11 @@ img.fancybox-image {
             li {
                 padding: 10px 0;
                 text-align: center;
+                p {
+                    font-family: "American Purpose";
+                    font-size: 20px;
+                    margin: 0;
+                }
             }
             li+li {
                 border-left: 1px solid #000;
@@ -2007,6 +2012,11 @@ img.fancybox-image {
 
 .reward-table {
     margin-top: 20px;
+    .table {
+        thead {
+            background-color: yellowgreen;
+        }
+    }
 }
 
 @import "ruchira";
