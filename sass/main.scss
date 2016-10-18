@@ -1955,6 +1955,13 @@ img.fancybox-image {
 }
 
 //ignore//
+.helping {
+    background-image: url("../img/event/bg-hdr-event.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
