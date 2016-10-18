@@ -229,6 +229,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'AboutCtrl'
     })
 
+    .state('profile', {
+        url: "/profile",
+        templateUrl: "views/template.html",
+        controller: 'ProfileCtrl'
+    })
+
 
     .state('confirm-order', {
         url: "/confirm-order",

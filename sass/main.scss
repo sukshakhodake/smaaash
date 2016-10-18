@@ -1962,6 +1962,18 @@ img.fancybox-image {
     background-position: center;
 }
 
+.avatar {
+    .close {
+        position: absolute;
+        top: -24px;
+        right: -24px;
+        opacity: 1;
+    }
+    background-image:url("../img/profile/about-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

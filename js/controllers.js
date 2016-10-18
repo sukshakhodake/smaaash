@@ -1582,6 +1582,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('ProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("profile");
+    $scope.menutitle = NavigationService.makeactive("Profile");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.avatar = function () {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/avatar.html",
+            scope: $scope,
+        })
+    };
+})
+
+
+
+
+
 .controller('EventsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("events-challenges");
