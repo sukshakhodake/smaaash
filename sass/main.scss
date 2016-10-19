@@ -1997,6 +1997,7 @@ img.fancybox-image {
             li {
                 padding: 10px 0;
                 text-align: center;
+                cursor: pointer;
             }
             li+li {
                 border-left: 1px solid #000;
@@ -2016,7 +2017,6 @@ img.fancybox-image {
     margin-top: 20px;
     .table {
         thead {
-            background-color: $brand-yellow !important;
             tr {
                 th {
                     border-top: 1px solid #000 !important;

@@ -1595,11 +1595,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope,
         })
     };
+
+    $scope.tab = "design";
+    $scope.classa = 'active';
+    $scope.classb = '';
+    $scope.classc = '';
+    $scope.classd = '';
+    $scope.classe = '';
+
+    $scope.tabchange = function (tab, a) {
+        $scope.tab = tab;
+        if (a == 1) {
+            $scope.classa = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 2) {
+            $scope.classb = 'active';
+            $scope.classa = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 3) {
+            $scope.classc = 'active';
+            $scope.classb = '';
+            $scope.classa = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+
+    };
+
+
 })
-
-
-
-
 
 .controller('EventsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
