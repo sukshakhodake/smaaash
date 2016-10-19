@@ -2017,6 +2017,30 @@ img.fancybox-image {
     }
 }
 
+.points {
+    padding-top: 30px;
+    .point-form {
+        padding: 20px 0;
+        .editing {
+            background: url("../img/profile/pen.png") no-repeat 95% 50%;
+        }
+        .arrows {
+            background: url("../img/profile/arrow.png") no-repeat 95% 50%;
+        }
+    }
+}
+
+.tab li :active:after {
+    content: "";
+    position: absolute;
+    top: 49px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 15px solid #000;
+    border-left: 15px solid transparent;
+}
+
 .reward-table {
     margin-top: 20px;
     .table {
