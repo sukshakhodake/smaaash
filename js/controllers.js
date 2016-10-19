@@ -118,6 +118,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ngDialog.closeAll("Change");
         $(".ngdialog").remove();
         $scope.template.reFetchCity();
+          $state.reload();
     };
 
     $scope.cityData = {
