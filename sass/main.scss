@@ -1997,16 +1997,18 @@ img.fancybox-image {
             li {
                 padding: 10px 0;
                 text-align: center;
-                p {
-                    font-family: "American Purpose";
-                    font-size: 20px;
-                    margin: 0;
-                }
             }
             li+li {
                 border-left: 1px solid #000;
             }
         }
+    }
+    p,
+    th {
+        font-family: "American Purpose";
+        font-size: 20px;
+        margin: 0;
+        color: #000 !important;
     }
 }
 
@@ -2014,7 +2016,14 @@ img.fancybox-image {
     margin-top: 20px;
     .table {
         thead {
-            background-color: yellowgreen;
+            background-color: $brand-yellow !important;
+            tr {
+                th {
+                    border-top: 1px solid #000 !important;
+                    border-bottom: 1px solid #000 !important;
+                    padding: 15px 0 !important;
+                }
+            }
         }
     }
 }
