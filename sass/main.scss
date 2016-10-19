@@ -1982,6 +1982,15 @@ img.fancybox-image {
 
 .profile-point {
     padding-top: 5px;
+    .articles {
+        .full-height,
+        .half-height {
+            height: 103px;
+        }
+        .slant-col:before {
+            height: 135px;
+        }
+    }
 }
 
 .profile {
@@ -2022,11 +2031,28 @@ img.fancybox-image {
     .point-form {
         padding: 20px 0;
         .editing {
+            border-radius: 5px;
             background: url("../img/profile/pen.png") no-repeat 95% 50%;
         }
-        .arrows {
+        .arrows-down {
             background: url("../img/profile/arrow.png") no-repeat 95% 50%;
         }
+        .w92 {
+            width: 92%;
+        }
+        .w30 {
+            width: 30%;
+        }
+        .w46 {
+            width: 46%;
+        }
+    }
+}
+
+.go {
+    display: block;
+    img {
+        margin: 0 auto;
     }
 }
 
