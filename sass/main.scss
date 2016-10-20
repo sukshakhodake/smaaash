@@ -2146,6 +2146,12 @@ img.fancybox-image {
     }
 }
 
+.parties {
+    .close {
+        z-index: 9999;
+    }
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

@@ -1,17 +1,19 @@
-<div class="party-gallery">
-    <flex-slider flex-slide="s in mySlides" slider-id="slider" prev-text="" next-text="" sync="#carousel" slideshow="false" animation="slide">
-        <li>
-            <div class="video-main">
-                <img ng-src="{{s}}" alt="" class="img-responsive">
-                <!--<a fancybox-box href="http://www.youtube.com/embed/{{video.url | youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+<div class="parties">
+    <a href="" class="close text-uppercase brand-white" ng-click="$dismiss();"><img src="img/new/close-popup.png" class="img-responsive" alt=""></a>
+    <div class="party-gallery">
+        <flex-slider flex-slide="s in mySlides" slider-id="slider" prev-text="" next-text="" sync="#carousel" slideshow="false" animation="slide">
+            <li>
+                <div class="video-main">
+                    <img ng-src="{{s}}" alt="" class="img-responsive">
+                    <!--<a fancybox-box href="http://www.youtube.com/embed/{{video.url | youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                     rel="movies" data-fancybox-type="iframe" rel="fancybox-button1">-->
-                <!--<img ng-src="{{video.url | youtubethumb:false}}" alt="" class="img-responsive">-->
-                <!--<i class="fa fa-play"></i>-->
-                <!--</a>-->
-            </div>
-        </li>
-    </flex-slider>
-    <!--<flex-slider class="carousel relative" animation="slide" animation-loop="false" slideshow="false" item-margin="20" prev-text=""
+                    <!--<img ng-src="{{video.url | youtubethumb:false}}" alt="" class="img-responsive">-->
+                    <!--<i class="fa fa-play"></i>-->
+                    <!--</a>-->
+                </div>
+            </li>
+        </flex-slider>
+        <!--<flex-slider class="carousel relative" animation="slide" animation-loop="false" slideshow="false" item-margin="20" prev-text=""
         next-text="">
         <li class="">
             <div class="row">
@@ -25,17 +27,18 @@
             </div>
         </li>
     </flex-slider>-->
-</div>
-<div class="image-nav">
-    <flex-slider class="carousel relative" flex-slide="s in mySlidess" animation="slide" animation-loop="false" item-width="205"
-        as-nav-for="#slider" slideshow="false" control-nav="false" prev-text="" next-text="" slider-id="carousel" animation-loop="false">
-        <li>
-            <div class="row">
+    </div>
+    <div class="image-nav">
+        <flex-slider class="carousel relative" flex-slide="s in mySlidess" animation="slide" animation-loop="false" item-width="205"
+            as-nav-for="#slider" slideshow="false" control-nav="false" prev-text="" next-text="" slider-id="carousel" animation-loop="false">
+            <li>
+                <div class="row">
 
-                <img ng-src="{{s}}" alt="">
+                    <img ng-src="{{s}}" alt="">
 
 
-            </div>
-        </li>
-    </flex-slider>
+                </div>
+            </li>
+        </flex-slider>
+    </div>
 </div>
