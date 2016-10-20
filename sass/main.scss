@@ -1963,9 +1963,33 @@ img.fancybox-image {
 }
 
 .point-image {
+    padding: 5px 14px;
     img {
         width: 100%;
+        border: 2px solid #000;
     }
+}
+
+.profile-details,
+.profile-detail {
+    padding: 0;
+    border: 2px solid #000;
+    background-image: url("../img/profile/profile-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 172px;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+
+.profile-detail {
+    padding: 30px 0;
+    background-image: url("../img/profile/amrit.png");
 }
 
 .avatar {
@@ -1981,19 +2005,20 @@ img.fancybox-image {
 }
 
 .profile-point {
-    padding-top: 5px;
-    .articles {
-        .full-height,
-        .half-height {
-            height: 103px;
-        }
-        .slant-col:before {
-            height: 135px;
-        }
-    }
+    padding-top: 15px;
 }
 
 .profile {
+    .profile-bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("../img/profile/amrit.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .row-flex {
         @include display(flex);
         width: 100%;
@@ -2004,7 +2029,6 @@ img.fancybox-image {
         width: 100%;
     }
     .tab {
-        margin-top: 15px;
         ul {
             border: 1px solid #000;
             li {
@@ -2017,12 +2041,20 @@ img.fancybox-image {
             }
         }
     }
-    p,
+    .tab-item p,
+    .profile-detail p,
     th {
         font-family: "American Purpose";
         font-size: 20px;
         margin: 0;
         color: #000 !important;
+    }
+    .profile-detail p {
+        color: #fff!important;
+        font-size: 30px;
+    }
+    .profile-detail p:last-child {
+        font-size: 20px;
     }
 }
 
@@ -2056,7 +2088,7 @@ img.fancybox-image {
     }
 }
 
-.tab li :active:after {
+.tab li.active-tab:after {
     content: "";
     position: absolute;
     top: 49px;

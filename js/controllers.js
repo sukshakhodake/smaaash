@@ -118,7 +118,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ngDialog.closeAll("Change");
         $(".ngdialog").remove();
         $scope.template.reFetchCity();
-          $state.reload();
+        $state.reload();
     };
 
     $scope.cityData = {
@@ -1607,7 +1607,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tabchange = function (tab, a) {
         $scope.tab = tab;
         if (a == 1) {
-            $scope.classa = 'active';
+            $scope.classa = 'active-tab';
             $scope.classb = '';
             $scope.classc = '';
             $scope.classd = '';
@@ -1615,7 +1615,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         if (a == 2) {
-            $scope.classb = 'active';
+            $scope.classb = 'active-tab';
             $scope.classa = '';
             $scope.classc = '';
             $scope.classd = '';
@@ -1623,7 +1623,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         if (a == 3) {
-            $scope.classc = 'active';
+            $scope.classc = 'active-tab';
             $scope.classb = '';
             $scope.classa = '';
             $scope.classd = '';

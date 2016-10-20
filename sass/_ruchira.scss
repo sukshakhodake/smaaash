@@ -1569,7 +1569,7 @@ ul {
       }
       .buy-button {
         height: auto;
-        width: 78px;
+        width: 76px;
       }
       .race-text {
         background-color: #000;
@@ -2265,14 +2265,13 @@ button {
   }
 }
 
-.views {
-  &:hover {
-    button {
-      transform: rotate(-20deg);
-    }
-  }
-}
-
+// .views {
+//   &:hover {
+//     button {
+//       transform: rotate(-20deg);
+//     }
+//   }
+// }
 .host-pop {
   position: relative;
   background-color: #000;
