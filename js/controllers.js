@@ -1210,33 +1210,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 
     NavigationService.getDetailExploreSmaaash($stateParams.id, function (data) {
-        $scope.detailExploreSmaash = data.data;
-        $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
-        console.log($scope.detailExploreSmaash.multipleattraction);
-        var attractions = [];
-        _.each($scope.detailExploreSmaash.multipleattraction, function (multi) {
-            _.each(multi.attraction, function (attr) {
-                attr.icon = multi.icon;
-                // attr.myid=attr._id;
-                attractions.push(attr);
+            $scope.detailExploreSmaash = data.data;
+            $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+            console.log($scope.detailExploreSmaash.multipleattraction);
+            var attractions = [];
+            _.each($scope.detailExploreSmaash.multipleattraction, function (multi) {
+                _.each(multi.attraction, function (attr) {
+                    attr.icon = multi.icon;
+                    // attr.myid=attr._id;
+                    attractions.push(attr);
+                })
             })
+            console.log(attractions);
+            $scope.content = _.groupBy(attractions, 'type');
+            $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
+            $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
+            $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
+            console.log("$scope.promotions", $scope.promotions)
+            console.log("$scope.event", $scope.event);
+            console.log("$scope.deals", $scope.deals);
         })
-        console.log(attractions);
-        $scope.content = _.groupBy(attractions, 'type');
-        $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
-        $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
-        $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
-        console.log("$scope.promotions", $scope.promotions)
-        console.log("$scope.event", $scope.event);
-        console.log("$scope.deals", $scope.deals);
-    })
-    $scope.imagemodal = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/image.html",
-            scope: $scope
-        })
-    };
+        // $scope.imagemodal = function () {
+        //     $uibModal.open({
+        //         animation: true,
+        //         templateUrl: "views/modal/image.html",
+        //         scope: $scope
+        //     })
+        // };
 
 
 
@@ -1716,6 +1716,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
 
+    $scope.showimg = false;
+    $scope.showVid = function () {
+        $scope.showimg = true;
+
+    };
 })
 
 .controller('DealsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {

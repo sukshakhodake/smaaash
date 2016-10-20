@@ -285,12 +285,6 @@ firstapp.directive('fancyboxBox', function ($document) {
                 openEffect: 'fade',
                 closeEffect: 'fade',
                 closeBtn: true,
-
-                // type: 'iframe',
-                // iframe: {
-                //     allowfullscreen: 'true',
-                // },
-
                 helpers: {
                     media: {}
                 }
@@ -298,16 +292,66 @@ firstapp.directive('fancyboxBox', function ($document) {
             });
         }
     };
-    //     iframe.setAttribute('allowFullScreen', '');
-    //     $('.fancybox').fancybox({
-    // 	afterLoad: function(e) {
-    // 		$(e.inner).find('iframe').attr({
-    // 			'webkitallowfullscreen': true,
-    // 			'mozallowfullscreen': true
-    // 		});
-    // 	}
-    // });
-});
+})
+
+firstapp.directive('fancyboxThumb', function ($document) {
+
+        return {
+            restrict: 'EA',
+            replace: false,
+            link: function (scope, element, attr) {
+                var $element = $(element);
+                var target;
+                if (attr.rel) {
+                    target = $("[rel='" + attr.rel + "']");
+                } else {
+                    target = element;
+                }
+
+                target.fancybox({
+                    nextEffect: 'none',
+                    prevEffect: 'none',
+                    padding: 0,
+                    helpers: {
+                        title: {
+                            type: 'over'
+                        },
+                        thumbs: {
+                            width: 50,
+                            height: 50
+                        }
+                    }
+                });
+            }
+        };
+    })
+    // firstapp.directive('fancyboxThumb', function ($document) {
+    //     $(".fancybox-thumb").fancybox({
+    //         prevEffect: 'none',
+    //         nextEffect: 'none',
+    //         helpers: {
+    //             title: {
+    //                 type: 'outside'
+    //             },
+    //             thumbs: {
+    //                 width: 50,
+    //                 height: 50
+    //             }
+    //         }
+    //     });
+
+
+
+//     iframe.setAttribute('allowFullScreen', '');
+//     $('.fancybox').fancybox({
+// 	afterLoad: function(e) {
+// 		$(e.inner).find('iframe').attr({
+// 			'webkitallowfullscreen': true,
+// 			'mozallowfullscreen': true
+// 		});
+// 	}
+// });
+// });
 
 firstapp.directive('autoHeight', function ($compile, $parse) {
     return {

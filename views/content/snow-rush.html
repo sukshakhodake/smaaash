@@ -123,8 +123,9 @@
                 <flex-slider class="carousel" flex-slide="s in detailExploreSmaash.gallery track by $index" item-width="250" animation="slide"
                     animationLoop="true" prev-text="" next-text="">
                     <li style="margin-right:10px;">
-
-                        <img ng-src="{{s.image|uploadpath}}" ng-click="imagemodal();">
+                        <a href="{{s.image|uploadpath}}" fancybox-thumb class="fancybox-thumb" rel="fancybox-thumb">
+                            <img ng-src="{{s.image|uploadpath}}">
+                        </a>
 
                     </li>
 
@@ -133,3 +134,20 @@
         </div>
     </div>
 </div>
+<!--<script>
+$(document).ready(function() {
+	$(".fancybox-thumb").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			}
+		}
+	});
+});
+</script>-->
