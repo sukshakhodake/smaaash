@@ -1704,14 +1704,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     });
-
+    $scope.mySlides = [
+        'img/beverage.png',
+        'img/beverage1.png',
+        'img/beverage2.png',
+    ];
+    $scope.mySlidess = [
+        'img/beverage.png',
+        'img/beverage1.png',
+        'img/beverage2.png',
+    ];
 
 
 
     $scope.imagesmodal = function () {
         $uibModal.open({
             animation: true,
-            templateUrl: "views/modal/images.html",
+            templateUrl: "views/modal/party.html",
             scope: $scope
         })
     };
