@@ -3,6 +3,40 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  //new pages
+  .height {
+    height: auto;
+  }
+  .helping {
+    .text-right {
+      text-align: center;
+    }
+  }
+  .help-form .entry-form .form-group {
+    width: 100% !important;
+  }
+  .custom .starter {
+    text-align: center;
+    .form-control {
+      width: 100%;
+    }
+    a {
+      top: 61px;
+    }
+    .required {
+      top: 52px;
+    }
+    .solution {
+      .required {
+        top: 52px;
+        left: 93%;
+      }
+      a {
+        top: 54px;
+        left: 93%;
+      }
+    }
+  }
   //new profile
   .profile-point {
     .profile-details,
@@ -30,9 +64,7 @@
     margin: 0;
   }
   .stars {
-    .new-detail,
-    .news-detail,
-    .new-details {
+    .new-detail {
       height: auto !important;
     }
     .load-more {
@@ -191,9 +223,7 @@
   }
   .attractions,
   .stars {
-    .new-detail,
-    .news-detail,
-    .new-details {
+    .new-detail {
       h3 {
         font-size: 20px;
       }
@@ -539,14 +569,11 @@
     h3 {
       font-size: 20px;
     }
-    .new-detail,
-    .news-detail,
-    .new-details {
+    .new-detail {
       height: 400px;
       p {
         margin: 10px 0;
         span {
-          display: block;
           height: 20px;
         }
       }
@@ -567,9 +594,7 @@
     }
   }
   .stars {
-    .new-detail,
-    .new-details,
-    .news-detail {
+    .new-detail {
       height: auto;
     }
     .checker {
@@ -638,9 +663,6 @@
         }
       }
     }
-    // img{
-    //   height: 300px;
-    // }
   }
   .banner-butons {
     margin-top: 10px;
@@ -1030,8 +1052,10 @@
   }
   .backg,
   .kart-bg,
-  .bg {
-    .nav-name {
+  .bg,
+  .events1 .backg-eve {
+    .nav-name,
+    .contact .backg {
       padding: 40px 0 0;
       height: 80px;
       font-size: 25px;
@@ -1204,7 +1228,7 @@
   }
   .text:before {
     content: "";
-    dislay: block;
+    display: block;
     position: absolute;
     height: 130px;
     width: 60px;
@@ -1225,15 +1249,4 @@
   .landing-kartbanner {
     min-height: 400px;
   }
-  // .drink{
-  //   .total-reviews{
-  //     margin-left: 7px;
-  //   }
-  //   .zomato,.rate{
-  //     padding: 5px;
-  //   }
-  //   .trip{
-  //     width: 80px;
-  //   }
-  // }
 }
