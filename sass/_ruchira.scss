@@ -2923,6 +2923,19 @@ button {
   }
 }
 
+//glypicon
+.glyphicon {
+  font-family: 'Fontawesome';
+}
+
+.glyphicon-chevron-right:before {
+  content: '\f054';
+}
+
+.glyphicon-chevron-left:before {
+  content: '\f053';
+}
+
 //not
 //new pages//
 //new home//

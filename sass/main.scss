@@ -1604,7 +1604,9 @@ img.fancybox-image {
     }
     .karting1 {
         .uib-datepicker-popup.dropdown-menu {
-            top: 30px;
+            left: 50px !important;
+            height: 80px;
+            overflow: scroll;
         }
         .slant-col {
             width: 51%;

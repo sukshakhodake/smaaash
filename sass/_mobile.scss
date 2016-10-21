@@ -3,6 +3,15 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  //event-inner
+  .deals-event .karting1 .slant-column:before,
+  .deals-event .karting1 .slant-col:before {
+    height: 332px;
+  }
+  .deals-event .karting1 .full-height,
+  .deals-event .karting1 .half-height {
+    height: 300px;
+  }
   //new pages
   .height {
     height: auto;
@@ -309,12 +318,14 @@
   .side-menu {
     width: 270px !important;
     top: 5%;
+    height: 500px;
+    overflow: scroll;
   }
   .side {
     top: 40%;
   }
   .close-it {
-    left: -20px;
+    left: 0px;
     a {
       height: 20px;
       width: 20px;
@@ -365,7 +376,7 @@
       }
     }
     .slant-col {
-      width: 100%;
+      width: 100% !important;
       transform: skew(0deg);
       margin-bottom: 10px;
       &:before {
@@ -380,7 +391,7 @@
       transform: skew(0deg);
     }
     .slant-column {
-      width: 100%;
+      width: 100% !important;
       transform: skew(0deg);
       &:before {
         height: 235px;
@@ -903,10 +914,14 @@
   .smaaash-cities {
     width: 260px;
     height: 500px;
+    margin-top: 40px;
     overflow-x: scroll;
     h2 {
       font-size: 16px;
       padding-top: 0;
+    }
+    p {
+      font-size: 12px;
     }
     .cross {
       width: 20px;
@@ -1241,6 +1256,7 @@
         a {
           img {
             width: 83%;
+            margin: 0 auto;
           }
         }
       }
