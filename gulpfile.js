@@ -3,7 +3,7 @@ var jsArray = [
     './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/flexslider/jquery.flexslider-min.js',
     './bower_components/fancyBox/source/jquery.fancybox.js',
-    './bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7',
+    './bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs.js',
     './bower_components/angular/angular.min.js',
     './bower_components/angular-sanitize/angular-sanitize.min.js',
     './bower_components/angular-animate/angular-animate.min.js',
