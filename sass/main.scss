@@ -1339,10 +1339,14 @@ $menu-height: 80px !default;
     }
 }
 
-.colored-slider {
+.colored-slider,
+.snowy .gallery {
     .slides {
         li {
-            margin: 0 10px 0 0 !important;
+            a {
+                display: block;
+                margin-left: 10px
+            }
         }
     }
 }
@@ -2150,8 +2154,10 @@ img.fancybox-image {
 
 .image-nav {
     .marglef .slides>li {
-        margin-right: 20px !important;
-        margin-left: 15px;
+        a {
+            display: block;
+            margin-left: 33px;
+        }
         img {
             background-color: #ccc;
             border: 5px solid #000;

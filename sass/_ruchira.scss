@@ -756,7 +756,7 @@ $brand-white:#fff !default;
   }
   .restaurants {
     position: absolute;
-    top: 30%;
+    top: 0;
     right: 10px;
     span {
       display: inline-block;
@@ -1101,11 +1101,11 @@ $brand-white:#fff !default;
     }
     .flexslider {
       margin-bottom: 20px;
-      .slides {
-        li {
-          margin-right: 10px !important;
-        }
-      }
+      // .slides {
+      //   li {
+      //     margin-right: 10px !important;
+      //   }
+      // }
     }
     .flex-next,
     .flex-prev {
@@ -1591,11 +1591,6 @@ ul {
       }
       .flexslider {
         margin-bottom: 0px;
-        .slides {
-          li+li {
-            margin: 0 10px;
-          }
-        }
       }
       .flex-next,
       .flex-prev {
@@ -1627,9 +1622,6 @@ ul {
       left: 10px;
       top: 65px;
       .slidings {
-        li {
-          margin: 0 10px;
-        }
         .race {
           border: 1px solid #fff;
           .pink-button {
@@ -2417,8 +2409,11 @@ button {
   .flexslider {
     margin-bottom: 20px;
     .slides {
-      li+li {
-        margin: 0 30px;
+      li {
+        a {
+          display: block;
+          margin-left: 10px;
+        }
       }
     }
   }
@@ -2918,6 +2913,7 @@ button {
 
 .race {
   transition: all 600ms ease;
+  margin-left: 10px;
   &:hover {
     transform: scale(1.06);
   }
