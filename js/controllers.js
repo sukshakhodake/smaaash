@@ -1712,7 +1712,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.mySlidess = [
         'img/beverage.png',
         'img/beverage1.png',
-        'img/beverage2.png',
     ];
 
 

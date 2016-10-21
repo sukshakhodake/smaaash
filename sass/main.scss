@@ -953,6 +953,13 @@ $menu-height: 80px !default;
     +.col-flexing {
         padding-left: 5px;
     }
+    h3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        height: 100px;
+        overflow: hidden;
+    }
 }
 
 .foot-list {
@@ -2124,6 +2131,9 @@ img.fancybox-image {
 
 .party-gallery,
 .image-nav {
+    .flexslider {
+        margin: 0 0 30px;
+    }
     .flex-direction-nav a.flex-next:before {
         content: "";
         width: 100%;
@@ -2137,8 +2147,9 @@ img.fancybox-image {
 }
 
 .image-nav {
-    li {
-        margin: 0 15px;
+    .marglef .slides>li {
+        margin-right: 20px !important;
+        margin-left: 15px;
         img {
             background-color: #ccc;
             border: 5px solid #000;
