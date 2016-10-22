@@ -2180,10 +2180,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
         }
 
-        function show() {
-            var div = document.getElementById('mydiv');
-            div.style.display = (div.style.display == "none") ? "block" : "none";
-        }
+        // function show() {
+        //     var div = document.getElementById('mydiv');
+        //     div.style.display = (div.style.display == "none") ? "block" : "none";
+        // }
+
+        // $scope.menu = true;
+        // $scope.shownavig = true;
+        $scope.closing = function () {
+            console.log('inside closing')
+            setTimeout(function () {
+                $scope.menu = false;
+            }, 500);
+            $scope.menu = true;
+        };
 
 
 

@@ -1700,7 +1700,7 @@ ul {
     // border-left: 2px solid #000;
     // border-top: 2px solid #000;
     &:before {
-      content: "";
+      // content: "";
       // transform: skew(10deg);
       width: 34px;
       height: 155px;
@@ -1717,11 +1717,11 @@ ul {
     position: relative;
     // width: 50%;
     float: left;
-    border-bottom: 2px solid #000;
+    // border-bottom: 2px solid #000;
     // border-right: 2px solid #000;
     // border-top: 2px solid #000;
     &:before {
-      content: "";
+      // content: "";
       // transform: skew(10deg);
       // top: -2px;
       border-left: 2px solid #000;

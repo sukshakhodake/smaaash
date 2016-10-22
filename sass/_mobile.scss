@@ -3,6 +3,9 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  .image-chefing {
+    margin-top: 0px;
+  }
   //event-inner
   .deals-event .karting1 .slant-column:before,
   .deals-event .karting1 .slant-col:before {
@@ -265,6 +268,7 @@
         }
         .slant-box {
           transform: skew(0);
+          padding: 0!important;
         }
       }
       .slant-column {
@@ -450,10 +454,14 @@
   .mobile-inlineblock {
     display: inline-block;
   }
-  .mobile-50 {
+  .mobile-50,
+  .mobiles-50 {
     width: 50%;
     float: left;
     margin-bottom: 5px;
+  }
+  .mobiles-50 {
+    width: 100%;
   }
   .menu-opened .smaash-menu {
     height: 500px;
@@ -847,6 +855,14 @@
 }
 
 @media (max-width:480px) {
+  .chef-img {
+    height: 150px;
+    img {
+      width: auto;
+      position: static;
+      top: 0;
+    }
+  }
   .karting1 .slant-box,
   .kartings.slant-box {
     margin: 30px 0 0 0;
@@ -915,8 +931,9 @@
       display: inline-block;
       height: 40px;
       margin-top: 5px;
+      width: 40%;
       img {
-        width: 40%;
+        width: auto;
       }
     }
   }
@@ -1186,9 +1203,6 @@
     margin: -8px 0;
   }
   .dropdowns {
-    .logo-smaash img {
-      width: 35%;
-    }
     .cities {
       top: 41px;
       left: 25px;

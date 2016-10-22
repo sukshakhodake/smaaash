@@ -1963,10 +1963,14 @@ img.fancybox-image {
 .chef-img {
     position: relative;
     img {
-        width: 60%;
+        width: auto;
         position: absolute;
-        top: -77px;
+        top: -65px;
     }
+}
+
+.image-chefing {
+    margin-top: 40px;
 }
 
 //ignore//
