@@ -23,18 +23,10 @@
                     <div class="slant-box half-height">
                         <h2>timings and pricing</h2>
                         <div ng-bind-html="detailExploreSmaash.timingAndPricing">
-                            <!-- <h3 class="brand-ortitle title-text" >{{data.type}}</h3>
-                      <p>{{data.description}} <br>{{data.weekdayPrice}}/- Workdays | {{data.weekendPrice}}/- Weekends</p> -->
                         </div>
                         <div ng-if="detailExploreSmaash.timingAndPricing.length == 0">
                             No Timing Available
                         </div>
-                        <!-- <h3 class="brand-ortitle title-text">Snow Rush</h3>
-                    <p>For 3 Mins <br>400/- Workdays | 500/- Weekends</p> -->
-                        <!-- <h3 class="brand-ortitle title-text">Advanced</h3>
-                    <p>For  6 Mins <br>600/- Workdays | 700/- Weekends</p>
-                    <h3 class="brand-ortitle title-text">Grand </h3>
-                    <p>For  8 Mins <br>700/- Workdays | 900/- Weekends</p> -->
                     </div>
                 </div>
             </div>
@@ -54,7 +46,7 @@
                         <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="200" animation="slide" animationLoop="true"
                             prev-text="" next-text="">
                             <li>
-                                <!-- <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY"> -->
+
                                 <a ui-sref="deals-inner({id:s._id})">
                                     <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
                                 </a>
@@ -98,25 +90,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="gallery">
-            <h2 class="title slide-text">gallery</h2>
-            <div class="gallery-grid">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a fancybox-box><img src="../img/newest/sponsorfirst.jpg" class="img-responsive" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
         <div class="gallery">
             <div class="slidings">
                 <h2 class="title slide-text">gallery</h2>
@@ -134,20 +107,3 @@
         </div>
     </div>
 </div>
-<!--<script>
-$(document).ready(function() {
-	$(".fancybox-thumb").fancybox({
-		prevEffect	: 'none',
-		nextEffect	: 'none',
-		helpers	: {
-			title	: {
-				type: 'outside'
-			},
-			thumbs	: {
-				width	: 50,
-				height	: 50
-			}
-		}
-	});
-});
-</script>-->

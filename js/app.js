@@ -77,11 +77,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'DrinkCtrl'
     })
 
-    .state('deals-packages', {
-        url: "/deals-packages/:id",
-        templateUrl: "views/template.html",
-        controller: 'DealsCtrl'
-    })
+
 
     .state('deals-inner', {
         url: "/deals-inner/:id",
@@ -95,11 +91,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'EventInnerCtrl'
     })
 
-    .state('events-challenges', {
-        url: "/events-challenges/:id",
-        templateUrl: "views/template.html",
-        controller: 'EventsCtrl'
-    })
 
     .state('stars', {
         url: "/stars",
@@ -190,14 +181,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'SnowCtrl'
         })
-
-
-    .state('explore-smaaash', {
-        url: "/explore-smaaash",
-        templateUrl: "views/template.html",
-        controller: 'ExploreSmaashCtrl'
-    })
-
 
     .state('sponsor', {
         url: "/sponsor",
