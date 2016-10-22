@@ -386,7 +386,7 @@ $brand-white:#fff !default;
 
 .comic-image:before {
   content: "";
-  dislay: block;
+  display: block;
   position: absolute;
   height: 137px;
   width: 60px;
@@ -430,7 +430,7 @@ $brand-white:#fff !default;
 
 .text:before {
   content: "";
-  dislay: block;
+  display: block;
   position: absolute;
   height: 142px;
   width: 60px;
@@ -537,17 +537,6 @@ $brand-white:#fff !default;
   }
 }
 
-// .navi{
-//   margin-right: 10px;
-//   padding: 25px 0;
-//   text-align: center;
-//   font-family: $body-font;
-//   background-image: -webkit-linear-gradient(#edef90 50%, #37d028);
-//   -webkit-background-clip: text;
-//   color: transparent;
-//   -webkit-text-stroke-width: 1px;
-//   -webkit-text-stroke-color: #000;
-// }
 //*menu ends*//
 //*explore starts*//
 .games {
@@ -1101,11 +1090,6 @@ $brand-white:#fff !default;
     }
     .flexslider {
       margin-bottom: 20px;
-      // .slides {
-      //   li {
-      //     margin-right: 10px !important;
-      //   }
-      // }
     }
     .flex-next,
     .flex-prev {
@@ -1242,17 +1226,11 @@ $brand-white:#fff !default;
   .img-bg {
     background-color: $brand-green;
   }
-  .img-bcg {
-    background-color: $brand-pink;
-  }
   .img-bkg {
     background-color: $brand-orange;
   }
   .green {
     background-color: $brand-green;
-  }
-  .pink {
-    background-color: $brand-pink;
   }
   .orange {
     background-color: $brand-orange;
@@ -1270,9 +1248,6 @@ $brand-white:#fff !default;
   }
   .orangy {
     color: $brand-orange;
-  }
-  .pinky {
-    color: $brand-pink;
   }
   .new {
     margin: 20px 0;
@@ -1445,8 +1420,7 @@ ul {
   .new {
     margin: 20px 0;
   }
-  .new-detail,
-  {
+  .new-detail {
     border: 1px solid #29a8df;
     border-top: none;
     padding: 20px;
@@ -1472,9 +1446,7 @@ ul {
     color: #fff;
     padding: 10px 50px;
   }
-  .views,
-  .view,
-  .viewing {
+  .views {
     button {
       border: 1px solid #29a8df;
       background-color: #fff;
@@ -1690,50 +1662,14 @@ ul {
   margin-bottom: 15px;
   .slant-box {
     height: 153px;
-    // transform: skew(10deg);
   }
   .slant-column {
-    // transform: skew(-10deg);
     position: relative;
     width: 49%;
-    // border-bottom: 2px solid #000;
-    // border-left: 2px solid #000;
-    // border-top: 2px solid #000;
-    &:before {
-      // content: "";
-      // transform: skew(10deg);
-      width: 34px;
-      height: 155px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      // border-right: 2px solid #000;
-      // border-bottom: 2px solid #000;
-      // background-color: $brand-orangy;
-    }
   }
   .slant-col {
-    // transform: skew(-10deg);
     position: relative;
-    // width: 50%;
     float: left;
-    // border-bottom: 2px solid #000;
-    // border-right: 2px solid #000;
-    // border-top: 2px solid #000;
-    &:before {
-      // content: "";
-      // transform: skew(10deg);
-      // top: -2px;
-      border-left: 2px solid #000;
-      width: 35px;
-      height: 154px;
-      position: absolute;
-      border-top: 2px solid #000;
-      top: 0px;
-      left: 0px;
-      border-bottom: 1px solid #000;
-      background-color: $brand-yellow;
-    }
   }
   .blue-package {
     width: 50%;
@@ -1768,38 +1704,6 @@ ul {
     right: 0;
     bottom: 0;
   }
-  // .customize {
-  //   background-image: url("../img/yel-ray.png");
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-  //   background-position: center;
-  // }
-  // .customize-text {
-  //   font-family: $body-font;
-  //   font-size: 24px;
-  //   p {
-  //     position: absolute;
-  //     bottom: 0;
-  //     left: 40%;
-  //     font-size: 30px;
-  //     text-align: center;
-  //     line-height: 1.1;
-  //     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px -2px 0 #000;
-  //   }
-  //   .chef {
-  //     width: 150px;
-  //     height: 150px;
-  //     position: absolute;
-  //     top: 36px;
-  //     bottom: 0;
-  //     left: 39px;
-  //   }
-  // }
-  // .customize-layer {
-  //   position: absolute;
-  //   bottom: 0;
-  //   right: -11px;
-  // }
   .slant-column {
     border: none;
     transform: none;
@@ -2209,18 +2113,6 @@ ul {
   }
 }
 
-.birth {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-image: url("../img/birth.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
 .practice,
 .host-pop {
   .form {
@@ -2258,13 +2150,6 @@ button {
   }
 }
 
-// .views {
-//   &:hover {
-//     button {
-//       transform: rotate(-20deg);
-//     }
-//   }
-// }
 .host-pop {
   position: relative;
   background-color: #000;
@@ -2932,7 +2817,3 @@ button {
 .glyphicon-chevron-left:before {
   content: '\f053';
 }
-
-//not
-//new pages//
-//new home//

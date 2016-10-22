@@ -114,12 +114,6 @@ body {
     opacity: 1;
 }
 
-.tripadvisor-reviews {
-    img {
-        opacity: 1 !important;
-    }
-}
-
 .brand-red {
     background-color: $brand-red;
 }
@@ -128,28 +122,12 @@ body {
     background-color: $brand-pink;
 }
 
-.brand-darkblue {
-    background-color: $brand-darkblue;
-}
-
-.brand-purple {
-    background-color: $brand-purple;
-}
-
 .brand-yellow {
     background-color: $brand-yellow;
 }
 
-.brand-purblu {
-    background-color: $brand-purblu;
-}
-
 .brand-greenblu {
     background-color: $brand-greenblu;
-}
-
-.brand-purply {
-    background-color: $brand-purply;
 }
 
 .relative {
@@ -296,7 +274,6 @@ $menu-height: 80px !default;
         @include position(absolute,
         46px null null 5px);
         background-color: #fc5626;
-        // width: 50px;
         transform: skew(15deg);
         box-shadow: -3px 3px #000, 1px 0 #000;
         cursor: pointer;
@@ -369,8 +346,7 @@ $menu-height: 80px !default;
     padding: 20px;
 }
 
-.close,
-#myDiv {
+.close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -418,7 +394,7 @@ $menu-height: 80px !default;
         width: 60px;
         height: 200px;
         border-left: 1px solid rgba(0, 0, 0, 0.05);
-        dislay: block;
+        display: block;
         @include position(absolute,
         null null null-27px);
         @include transform(skew(15deg));
@@ -472,7 +448,7 @@ $menu-height: 80px !default;
         width: 60px;
         height: 208px;
         border-left: 1px solid transparent!important;
-        dislay: block;
+        display: block;
         @include position(absolute,
         null-27px null null);
         @include transform(skew(15deg));
@@ -506,7 +482,7 @@ $menu-height: 80px !default;
         height: 208px;
         width: 60px;
         border-left: 1px solid transparent!important;
-        dislay: block;
+        display: block;
         @include position(absolute,
         null-27px null null);
         @include transform(skew(15deg));
@@ -813,8 +789,6 @@ $menu-height: 80px !default;
     z-index: 999;
     left: 20px;
     height: $menu-height - 10px;
-    // display: inline-block;
-    // margin-top: 10px;
     img {
         width: auto;
         height: 100%;
@@ -912,11 +886,6 @@ $menu-height: 80px !default;
     @include flex (1);
 }
 
-// .twitter-wdget{
-//    .wdget{
-//     overflow: hidden!important;
-//   }
-// }
 //*home page ends*//
 .social-media {
     margin-bottom: 15px;
@@ -1052,23 +1021,9 @@ $menu-height: 80px !default;
 }
 
 .slant-col {
-    // @include transform(skew(-15deg));
     position: relative;
     width: 49%;
     float: left;
-    &:before {
-        // content: "";
-        // @include transform(skew(15deg));
-        width: 50%;
-        height: 100%;
-        @include position( absolute,
-        null null null 0);
-    }
-    &.brand-purply {
-        &:before {
-            background-color: $brand-purply;
-        }
-    }
     &.brand-blue {
         &:before {
             background-color: $brand-blue;
@@ -1082,31 +1037,14 @@ $menu-height: 80px !default;
         margin-top: 20px;
     }
     &:before {
-        // content: "";
-        // @include transform(skew(15deg));
         width: 50%;
         height: 100%;
         @include position(absolute,
         null -20% null null);
     }
-    // &.brand-blue {
-    //     &:before {
-    //         background-color: $brand-blue;
-    //     }
-    // }
     &.brand-darkblue {
         &:before {
             background-color: $brand-darkblue;
-        }
-    }
-    &.brand-pink {
-        &:before {
-            background-color: $brand-pink;
-        }
-    }
-    &.brand-red {
-        &:before {
-            background-color: $brand-red;
         }
     }
     .slant-box {
@@ -1155,19 +1093,13 @@ $menu-height: 80px !default;
 }
 
 .slant-box {
-    // @include transform(skew(15deg));
-    // padding: 0px 15px 0;
     h2 {
         font-family: $body-font;
         font-size: 30px;
         margin: 0;
         display: inline-block;
-        // margin-left: 20px;
     }
     .mover {
-        // width: 90%;
-        // @include position( absolute,
-        // null null null 0);
         display: block;
     }
     .margno {
@@ -1181,20 +1113,9 @@ $menu-height: 80px !default;
     .mover {
         right: 0;
         left: auto;
-        // bottom: 0;
     }
     .slant-col {
         z-index: 1;
-        &:before {
-            content: "";
-            @include transform(skew(15deg));
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            right: -20%;
-            left: auto;
-            z-index: 0;
-        }
         .rays {
             background-image: url('../img/home/yellow-rays.png');
             background-size: cover;
@@ -1213,28 +1134,6 @@ $menu-height: 80px !default;
         &.brand-blue {
             &:before {
                 left: -20%;
-            }
-        }
-        &.brand-green {
-            &:before {
-                // content: "";
-                // @include transform(skew(15deg));
-                width: 50%;
-                height: 100%;
-                position: absolute;
-                left: -20%;
-                background-color: $brand-green;
-            }
-        }
-        &.brand-purply {
-            &:before {
-                // content: "";
-                // @include transform(skew(15deg));
-                width: 50%;
-                height: 100%;
-                position: absolute;
-                left: -20%;
-                background-color: $brand-purply;
             }
         }
     }
@@ -1281,18 +1180,6 @@ $menu-height: 80px !default;
     margin-top: 30px;
 }
 
-.reversing {
-    .slant-box {
-        // .mover {
-        //     @include position( absolute,
-        //     null 10px null null);
-    }
-}
-
-// .tops {
-//     position: absolute;
-//     bottom: 65px;
-// }
 .full-height {
     height: 442px;
     overflow: hidden;
@@ -1904,11 +1791,6 @@ img.fancybox-image {
             top: 10px;
         }
     }
-    .slides {
-        li {
-            // margin-right: 10px !important;
-        }
-    }
 }
 
 .carousel-text {
@@ -1955,7 +1837,7 @@ img.fancybox-image {
     }
 }
 
-//ignore css//
+//host-party final css//
 .packages {
     margin-top: 50px;
 }
@@ -1973,7 +1855,7 @@ img.fancybox-image {
     margin-top: 40px;
 }
 
-//ignore//
+//
 .helping {
     background-image: url("../img/event/bg-hdr-event.png");
     background-repeat: no-repeat;
