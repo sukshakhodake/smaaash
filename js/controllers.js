@@ -2180,7 +2180,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
         }
 
-
+        function show() {
+            var div = document.getElementById('mydiv');
+            div.style.display = (div.style.display == "none") ? "block" : "none";
+        }
 
 
 

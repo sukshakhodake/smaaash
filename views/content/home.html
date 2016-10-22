@@ -156,7 +156,7 @@
             </div>
         </div>
         <div class="slant-col brand-blue pull-right">
-            <div class="slant-box full-height">
+            <div class="slant-box pad0 full-height">
                 <p class=" capitalize brand-white border-bot lastmin" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
                 <h2 class="brand-white ">Host A Party</h2>
                 <div class="mover extra" ng-if="hostParty">
@@ -314,8 +314,6 @@
                                             <div class="img-bg" ng-if="s.image">
                                                 <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                                             </div>
-                                            <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                                                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>-->
                                             <div class="race-text race-textbg" ui-sref="event-inner({id:s._id})">
                                                 <div class="min-hi">
                                                     <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"></h3>
@@ -333,12 +331,11 @@
         </div>
 
         <div class="slant-col   pull-right">
-            <div class="slant-box full-height change">
+            <div class="slant-box pad0 full-height change">
                 <h2 class="brand-white ">Attractions</h2>
                 <p class="pull-right  capitalize brand-white border-bot lastmin" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
                 <div class="mover" ng-if="attraction">
-                    <!--<flex-slider class="carousel" flex-slide="s in attraction track by $index" item-width="350" animation="slide" animationLoop="true"
-                        prev-text="" next-text="">-->
+
                     <flex-slider class="carousel" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text=""
                         next-text="">
                         <li>
@@ -358,6 +355,50 @@
             </div>
         </div>
     </div>
+    <!--<div class="row">
+        <div class="col-md-6">
+            <div class="brand-blue">
+                <flex-slider class="carousel" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text=""
+                    next-text="">
+                    <li class="brand-blue">
+                        <div>
+                            <a ui-sref="snow-rush({id:s._id})">
+                                <img ng-src="{{s.image|uploadpath}}" noloading="true" style="width: 86%; margin:0 auto;">
+                            </a>
+                            <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
+                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
+                            </div>
+                        </div>
+
+
+                    </li>
+                </flex-slider>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="brand-blue">
+                <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="350" animation="slide" animationLoop="true"
+                    prev-text="" next-text="">
+                    <li>
+                        <a ui-sref="event-inner({id:s._id})">
+                            <div class="race relative">
+                                <div class="img-bg" ng-if="s.image">
+                                    <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                </div>
+                                <div class="race-text race-textbg" ui-sref="event-inner({id:s._id})">
+                                    <div class="min-hi">
+                                        <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"></h3>
+                                        <div ng-if="!s.hometext">No Data Found</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
+    </div>-->
     <div class="slant-row reverse">
         <div class="slant-col ">
             <div class="slant-in  brand-green">
@@ -397,7 +438,7 @@
         </div>
         <div class="slant-col brand-yellow pull-right">
             <div class="rays"></div>
-            <div class="slant-box full-height">
+            <div class="slant-box full-height full-heights">
                 <div class="mover ab">
                     <a class="know" href="">Know More</a>
                     <img src="img/home/aunty.png" class="img-responsive" alt="Speed Karting" />

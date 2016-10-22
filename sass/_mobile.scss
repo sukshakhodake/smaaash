@@ -96,9 +96,6 @@
   .form-content {
     top: -880px;
   }
-  .pad0 {
-    padding: 0;
-  }
   .game-type {
     width: auto !important;
     margin: 10px auto !important;
@@ -514,6 +511,9 @@
   .cdsROW.narrow {
     width: auto;
   }
+  .pad0 {
+    padding: 0 !important;
+  }
 }
 
 @media (max-width: $screen-sm-max) {
@@ -847,6 +847,10 @@
 }
 
 @media (max-width:480px) {
+  .karting1 .slant-box,
+  .kartings.slant-box {
+    margin: 30px 0 0 0;
+  }
   .fb-mobile {
     width: 100%;
     text-align: center;
@@ -854,7 +858,12 @@
     margin-bottom: 15px;
   }
   .purple-butn {
+    width: 40px;
+    height: 40px;
     left: 45%;
+    top: 110px;
+    padding-top: 10px;
+    font-size: 12px;
   }
   .corporate,
   .birthday,
@@ -985,8 +994,12 @@
     top: -2px;
     border-bottom: 1px solid #000;
   }
-  .full-height {
-    height: 300px;
+  .reversed .full-height,
+  .reversing .full-height {
+    height: auto !important;
+  }
+  .full-heights {
+    height: 300px !important;
   }
   .games {
     .col-flexing+.col-flexing {
