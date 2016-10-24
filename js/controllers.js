@@ -125,8 +125,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _id: $.jStorage.get("cityid"),
         name: $.jStorage.get("city")
     };
-    console.log("after cityData");
-    console.log("  $scope.cityData", $scope.cityData);
 
 
     NavigationService.getHomeContent(function (data) {
@@ -242,61 +240,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-    $scope.mySlides1 = [
-        'img/explore-img/vertigo.png',
-        'img/home/cockpit.png',
-        'img/explore-img/coaster.png'
-    ];
 
-    $scope.mySlides2 = [
-        'img/host/BirhdayParties.png',
-        'img/host/CorpPart.png',
-        'img/host/KittyParties.png',
-        'img/host/PlayDates.png',
-        'img/host/TeamEvents.png',
-        'img/host/WeddingParties.png'
-    ];
 
-    $scope.mySlides3 = [
-        'img/home/sachins.png',
-        'img/home/sachins.png'
 
-    ];
-    $scope.mySlides4 = [
-        'img/karting/blue.png',
-        'img/karting/sonakshi.png',
-        'img/karting/salman.png',
-        'img/karting/shikar.png',
-        'img/karting/blue.png'
-    ];
-    $scope.mySlides5 = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png'
-    ];
-    $scope.mySlides6 = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png'
-    ];
 
-    $scope.mySlides7 = [
-        'img/explore5.png',
-        'img/explore/explore2.png',
-        'img/explore/explore3.png',
-        'img/explore/explore4.png',
-        'img/explore/explore5.png'
-    ];
 
-    $scope.mySlides8 = [
-        'img/cakey.png',
-        'img/cakey.png',
-        'img/cakey.png',
-        'img/cakey.png',
-        'img/cakey.png'
-    ];
+
+
+
     $scope.animationsEnabled = true;
 
 
@@ -1201,13 +1152,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, 500);
     };
 
-    $scope.mySlides12 = [
-        'img/new/slid.png',
-        'img/new/slid.png',
-        'img/new/slid.png',
-        'img/new/slid.png',
-        'img/new/slid.png'
-    ];
+
 
     NavigationService.getDetailExploreSmaaash($stateParams.id, function (data) {
             $scope.detailExploreSmaash = data.data;
@@ -1230,13 +1175,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("$scope.event", $scope.event);
             console.log("$scope.deals", $scope.deals);
         })
-        // $scope.imagemodal = function () {
-        //     $uibModal.open({
-        //         animation: true,
-        //         templateUrl: "views/modal/image.html",
-        //         scope: $scope
-        //     })
-        // };
+
 
 
 
@@ -1313,13 +1252,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = window.location.href;
 
-    $scope.mySlides9 = [
-        'img/hosting.jpg',
-        'img/hosting.jpg',
-        'img/hosting.jpg',
-        'img/hosting.jpg',
-        'img/hosting.jpg'
-    ];
+
 
     $scope.mySlides10 = [
         'img/Top-banner.jpg',
@@ -1409,22 +1342,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.corporate = $scope.content['57e142483da62fae1dfc55f2'];
     });
 
-    // $scope.moreDesc = {};
-    // NavigationService.getSingleExploreSmaaash($stateParams.id, function (data) {
-    //     $scope.events10 = data.data;
-    //     $scope.events = _.chunk(data.data, 3);
-    //     console.log("$scope.events", $scope.events);
-    //     $scope.readMore = function (id) {
-    //
-    //         console.log("3333333", id);
-    //         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-    //         console.log($scope.moreDesc);
-    //         $scope.myDesc = _.find($scope.events10, function (n) {
-    //             return n._id == id;
-    //
-    //         }).description;
-    //     };
-    // });
+
     $scope.readMore = function (id) {
         console.log(id);
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
@@ -1704,15 +1622,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     });
-    $scope.mySlides = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png',
-    ];
-    $scope.mySlidess = [
-        'img/beverage.png',
-        'img/beverage1.png',
-    ];
 
 
 
@@ -2180,13 +2089,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
         }
 
-        // function show() {
-        //     var div = document.getElementById('mydiv');
-        //     div.style.display = (div.style.display == "none") ? "block" : "none";
-        // }
-
-        // $scope.menu = true;
-        // $scope.shownavig = true;
+      
         $scope.closing = function () {
             console.log('inside closing')
             setTimeout(function () {
