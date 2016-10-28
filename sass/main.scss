@@ -784,6 +784,51 @@ $menu-height: 80px !default;
     &:hover{
   color: #000;
     }
+    &:focus{
+        outline: 0;
+    }
+}
+.forgots{
+    background-image: url("../img/new/bggreen.png")!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    a,p{
+         display: block;
+         text-align: center;
+         color:#fff;
+         opacity: 1;
+    }
+   button{
+       background-color: transparent;
+   }
+}
+
+  .enquiry-forms{
+      padding: 50px 0;
+  }
+.reset-password{
+  background-image: url("../img/new/bgpurple.png");
+   background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+p{
+    color: #fff;
+}
+    button{      
+       background-color: transparent;
+  margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    }
+    .form-group{
+width: 50%;
+margin: 20px auto;
+    }
+  
 }
 .block {
     margin-left: 15px;

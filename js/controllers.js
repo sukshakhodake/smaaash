@@ -1878,6 +1878,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
+.controller('ResetCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("reset");
+    $scope.menutitle = NavigationService.makeactive("Reset");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    })
 
 
 
@@ -2098,7 +2106,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = true;
         };
 
+// $scope.reset=function(){
+// $uibModal.open({
+// animation:true,
+// templateUrl:"views/modal/reset.html",
+// scope:$scope,
+// })
+// };
 
+$scope.resets=function(){
+$uibModal.open({
+animation:true,
+templateUrl:"views/modal/forgot.html",
+scope:$scope,
+})
+};
 
 
     })

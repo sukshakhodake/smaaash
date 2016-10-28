@@ -77,6 +77,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'DrinkCtrl'
     })
 
+   .state('reset', {
+        url: "/reset",
+        templateUrl: "views/template.html",
+        controller: 'ResetCtrl'
+    })
 
 
     .state('deals-inner', {
