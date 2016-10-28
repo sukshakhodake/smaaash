@@ -1887,7 +1887,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
+.controller('PromotionCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("promotions");
+    $scope.menutitle = NavigationService.makeactive("Promotion");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
 
+    })
+
+    .controller('BlogCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("blog");
+    $scope.menutitle = NavigationService.makeactive("Blog");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    })
 
 .controller('ExploreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
