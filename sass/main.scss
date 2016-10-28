@@ -781,6 +781,9 @@ $menu-height: 80px !default;
     display: block;
     color: #000;
     text-align: center;
+    &:hover{
+  color: #000;
+    }
 }
 .block {
     margin-left: 15px;
