@@ -251,14 +251,14 @@
                     <flex-slider class="carousel" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text=""
                         next-text="">
                         <li>
-                            <div>
+                            <!--<div>-->
                                 <a ui-sref="snow-rush({id:s._id})">
                                     <img ng-src="{{s.image|uploadpath}}" noloading="true" style="width: 86%; margin:0 auto;">
                                 </a>
                                 <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
                                     <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
                                 </div>
-                            </div>
+                            <!--</div>-->
 
 
                         </li>

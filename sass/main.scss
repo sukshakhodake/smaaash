@@ -777,7 +777,11 @@ $menu-height: 80px !default;
     text-align: center;
     z-index: 3;
 }
-
+.forgot{
+    display: block;
+    color: #000;
+    text-align: center;
+}
 .block {
     margin-left: 15px;
     display: block;
