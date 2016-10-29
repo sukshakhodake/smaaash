@@ -1905,6 +1905,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
+     .controller('BlogInsideCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("blog-inside");
+    $scope.menutitle = NavigationService.makeactive("Blog Inside");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    })
+
 .controller('ExploreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("explore");
