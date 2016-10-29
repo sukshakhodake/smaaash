@@ -1799,19 +1799,7 @@ img.fancybox-image {
     }
 }
 
-.blog{
-    .new-detail {
-        min-height: 0px !important;
-        span{
-            padding: 0 10px 0 0;
-   
-        }
-        span+span{
-             border-left: 2px solid #ccc;
-              padding-left: 10px;
-        }
-    }
-}
+
 
 .error {
     color: #ff0000;
@@ -2124,6 +2112,60 @@ img.fancybox-image {
     }
 }
 
+.blog{
+    .race-text{
+        position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.56);
+    padding: 10px;
+    h3{
+        font-size: 20px!important;
+    } 
+    }
+    .new-detail {
+        min-height: 0px !important;
+        span{
+            padding: 0 10px 0 0;
+   
+        }
+        span+span{
+             border-left: 2px solid #ccc;
+              padding-left: 10px;
+        }
+    }
+    .social-ico{
+        // border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+        ul{
+            text-align: center;
+    margin: 0;
+    padding: 5px 0;
+    li{
+        padding-left: 10px;
+    padding-right: 10px;
+    .fa{
+        &:hover{
+           color: #ccc !important;
+        }
+    }
+    }
+        }
+    }
+    .social-icos{
+        border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    }
+}
+.button-bg{
+        width: 60px;
+    position: absolute;
+    top: 20px;
+}
 // .borderl{
 
 // border: 2px solid #ccc;
