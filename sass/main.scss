@@ -1799,6 +1799,20 @@ img.fancybox-image {
     }
 }
 
+.blog{
+    .new-detail {
+        min-height: 0px !important;
+        span{
+            padding: 0 10px 0 0;
+   
+        }
+        span+span{
+             border-left: 2px solid #ccc;
+              padding-left: 10px;
+        }
+    }
+}
+
 .error {
     color: #ff0000;
 }
@@ -2111,8 +2125,7 @@ img.fancybox-image {
 }
 
 // .borderl{
-//     &:before{
-//         content: "";
+
 // border: 2px solid #ccc;
 //     }
 // }

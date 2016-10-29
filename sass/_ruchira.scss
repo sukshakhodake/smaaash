@@ -2749,6 +2749,53 @@ button {
   }
 }
 
+.blog{
+  .col-md-6:nth-child(2){
+  .new-detail{
+ border-color: $brand-green;
+ .bluey {
+          color: $brand-green;
+        }
+           .button-set {
+          button {
+            background-color: $brand-green;
+          }
+        }
+  }
+
+   
+  }
+      .col-md-6:nth-child(3){
+        .new-detail{
+ border-color: $brand-purple;
+ .bluey {
+          color: $brand-purple;
+        }
+           .button-set {
+          button {
+            background-color: $brand-purple;
+          }
+        }
+        }
+
+  }
+        .col-md-6:nth-child(4){
+        .new-detail{
+ border-color: $brand-orange;
+ .bluey {
+          color: $brand-orange;
+        }
+           .button-set {
+          button {
+            background-color: $brand-orange;
+          }
+        }
+        }
+
+  }
+
+}
+
 .drink {
   .new-detail {
     min-height: 470px;
