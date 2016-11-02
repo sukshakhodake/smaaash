@@ -85,9 +85,10 @@
                  </div>
              </div>
              <div class="more-detail">
- <h4>cricket at smaaash</h4>
+ <h4 class="greeny">Cricket at Smaaash</h4>
  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem ducimus atque laborum impedit ipsam nulla nobis vel quia suscipit recusandae odit velit, blanditiis possimus. Quibusdam eligendi nulla officiis cum debitis.</p>
-             <div class="comment ">
+             <div class="comment">
+                 <div class="comment-symbols clearfix">
 <div class="symbols pull-left">
     <span><i class="fa fa-2x fa-heart-o" aria-hidden="true"></i></span>
     <span><i class="fa fa-2x fa-commenting-o" aria-hidden="true"></i></span>
@@ -107,10 +108,13 @@
                                     <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                <li><a href=""><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
                                 </ul>
-                                <div class="clearfix"></div>
+                 </div>
+
+                              
                                 <div class="user-comments">
                                     <div class="first-comment">
-                                        <div class="row">
+                                        <div class="cams">
+                 <div class="row">
                                             <div class="col-md-1">
                                                 <img src="img/phone-aunty.png" class="img-responsive" alt="">
                                             </div>
@@ -119,15 +123,32 @@
 <div class="symbols">
 <span>Like</span>
 <span>Reply</span>
-  <span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Jan,2016</span>
+ <span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Jan,2016</span>
  <span><i class="fa fa-clock-o" aria-hidden="true"></i> 01:20 p.m</span>
 
 </div>
-
-<!--<span><i class="fa fa-camera" aria-hidden="true"></i></span>
-<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>-->
-
 </div>
+                                        </div>
+                                        </div>
+                       
+                                       
+                                            <div class="cam">
+                                                 <div class="row">
+    <div class="col-md-1">
+                                                    <img src="img/phone-aunty.png" class="img-responsive" alt="">
+                                            </div>
+                                            <div class="col-md-11">
+                                             
+    <p>Write a comment</p>
+<div class="symbols ab ">
+<span><i class="fa fa-camera" aria-hidden="true"></i></span>
+<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+</div>
+                                            </div>
+                                             
+                                            </div>
+                                       <button type="submit" class="pull-right">POST</button>
+                                       <div class="clearfix"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -135,23 +156,65 @@
              </div>
              </div>
              <div class="blog-slider">
-      <flex-slider class="carousel marglef relative" flex-slide="s in myBlogslides" animation="slide" animation-loop="false" item-width="135"
+                 <div class="blog-directions clearfix">
+<span class="pull-left">
+    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+Previous Blog
+</span>
+<span class="pull-right">
+  
+Next Blog
+  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+</span>
+                 </div>
+      <flex-slider class="carousel marglef relative" flex-slide="s in myBlogslides" animation="slide" animation-loop="false" item-width="250"
             as-nav-for="#slider" slideshow="false" control-nav="false" prev-text="" next-text="" slider-id="carousel" animation-loop="false">
-            <li>
+            <li class="left">
                 <a href="">
-                    <div class="row">
-
-                        <img ng-src="{{s}}" alt="">
-
-
-                    </div>
+                   
+  <div class="row">
+      <div class="col-md-4">
+<img ng-src="{{s}}" alt="">
+      </div>
+      <div class="col-md-8">
+          <p>Mumbai</p>
+<p class="uppercase">Experience the drama of penalty shootout with super keeper.</p>
+      </div>
+  </div>
+  <!--<span class="slider-divs">
+      <span class="slide1 inline-block">
+<img ng-src="{{s}}" alt="">
+      </span>
+      <span class="slide1 inline-block">
+<p>Lorem ipsum dolor sit amet.</p>
+      </span>
+  </span>
+ -->
                 </a>
 
             </li>
+                 <!--<li class="right">
+                <a href="">
+                   
+
+  <div class="row">
+      <div class="col-md-6">
+<p>Lorem ipsum dolor. Nesciunt iste illo itaque, illum, amet rerum harum.</p>
+      </div>
+      <div class="col-md-6">
+<img ng-src="{{s}}" alt="">
+      </div>
+      
+  </div>
+
+                </a>-->
+
+            </li>
+        
         </flex-slider>
              </div>
              <div class="may-like">
-                 <h4>you may also like</h4>
+                 <h4>You May Also Like</h4>
                  <div class="row">
                    <div class="col-md-6">
                     <div class="race-eve relative margno">
@@ -178,7 +241,7 @@
                                 <div class="more inline-block">
 
 
-                                    <button class="uppercase green" ng-click="imagesmodal();">know more</button>
+                                    <button class="uppercase greeny" ng-click="imagesmodal();">know more</button>
 
                                 </div>
               
@@ -214,7 +277,7 @@
                                 <div class="more inline-block">
 
 
-                                    <button class="uppercase green" ng-click="imagesmodal();">know more</button>
+                                    <button class="uppercase greeny" ng-click="imagesmodal();">know more</button>
 
                                 </div>
               
