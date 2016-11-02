@@ -1911,6 +1911,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+        $scope.myBlogslides = [
+        'img/karting/blue.png',
+        'img/karting/sonakshi.png',
+        'img/karting/salman.png',
+        'img/karting/shikar.png',
+        'img/karting/blue.png'
+    ];
 
     })
 

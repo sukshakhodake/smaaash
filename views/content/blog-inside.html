@@ -87,12 +87,68 @@
              <div class="more-detail">
  <h4>cricket at smaaash</h4>
  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem ducimus atque laborum impedit ipsam nulla nobis vel quia suscipit recusandae odit velit, blanditiis possimus. Quibusdam eligendi nulla officiis cum debitis.</p>
-             <div class="comment">
+             <div class="comment ">
+<div class="symbols pull-left">
+    <span><i class="fa fa-2x fa-heart-o" aria-hidden="true"></i></span>
+    <span><i class="fa fa-2x fa-commenting-o" aria-hidden="true"></i></span>
+    <span><i class="fa  fa-heart" aria-hidden="true"></i> 15660 Likes</span>
+</div>
+ <ul class="social-icons list-inline inline-block pull-right">
+                                    <p class="inline-block">Share</p>
+                                    <li>
+                                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                               <li><a href=""><i class="fa fa-envelope-square" aria-hidden="true"></i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                <div class="user-comments">
+                                    <div class="first-comment">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <img src="img/phone-aunty.png" class="img-responsive" alt="">
+                                            </div>
+<div class="col-md-11">
+    <p>Lorem ipsum dolor sit amet architecto debitis, quas, quidem modi ducimus veniam, ut, necessitatibus nesciunt quibusdam. Enim, vero corporis deserunt tenetur cumque.</p>
+<div class="symbols">
+<span>Like</span>
+<span>Reply</span>
+  <span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Jan,2016</span>
+ <span><i class="fa fa-clock-o" aria-hidden="true"></i> 01:20 p.m</span>
+
+</div>
+
+<!--<span><i class="fa fa-camera" aria-hidden="true"></i></span>
+<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>-->
+
+</div>
+                                        </div>
+                                    </div>
+                                </div>
 
              </div>
              </div>
              <div class="blog-slider">
+      <flex-slider class="carousel marglef relative" flex-slide="s in myBlogslides" animation="slide" animation-loop="false" item-width="135"
+            as-nav-for="#slider" slideshow="false" control-nav="false" prev-text="" next-text="" slider-id="carousel" animation-loop="false">
+            <li>
+                <a href="">
+                    <div class="row">
 
+                        <img ng-src="{{s}}" alt="">
+
+
+                    </div>
+                </a>
+
+            </li>
+        </flex-slider>
              </div>
              <div class="may-like">
                  <h4>you may also like</h4>

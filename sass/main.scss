@@ -2160,17 +2160,21 @@ img.fancybox-image {
     padding-bottom: 20px;
     margin-top: 20px;
     }
+    .first-imgdetail{
+        padding: 20px 0;
+    }
 }
 .button-bg{
         width: 60px;
     position: absolute;
     top: 20px;
 }
-// .borderl{
+.symbols{
+    span{
+        margin: 0 20px;
+    }
+}
 
-// border: 2px solid #ccc;
-//     }
-// }
 
 
 @import "ruchira";
