@@ -1889,6 +1889,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.credentials._id = $.jStorage.get("loginId");
     $scope.wrongPass = false;
     $scope.passUpdated = false;
+    $scope.loggedInUser=$.jStorage.get("loggedInUser");
     console.log("$scope.credentials._id", $scope.credentials._id);
 
     $scope.formSubmit = function(credentials) {
@@ -2191,6 +2192,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.forgotPassword(credentials, function(data) {
                 console.log("data", data.data.id);
                 $.jStorage.set("loginId", data.data.id);
+                $.jStorage.set("loggedInUser",data.data.email);
                 if (data.value === true) {
                     $scope.changePass = true;
                     $scope.closeModal();
@@ -2200,7 +2202,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         scope: $scope,
                     })
                 }
+
             });
+            // location.reload();
 
         }
 
