@@ -2174,8 +2174,40 @@ img.fancybox-image {
         margin: 0 20px;
     }
 }
+.comment-symbols{
+     padding: 40px 0;
+}
+.user-comments{
+    padding: 40px 0;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+
+.cams,.cam{
+    padding: 10px 0;
+    .symbols{
+        padding: 5px 0;
+ border-bottom: 1px solid #ccc;
+    display: inline-block;
+    }
+   
+}
 
 
+.cam{
+    p{
+border-bottom: 2px solid #000;
+    }
+    .symbols{
+ bottom: 0;
+    right: 15px;
+    border: none;
+    span{
+        margin: 0;
+    }
+    }
+       
+}
 
 @import "ruchira";
 @import "mobile";
