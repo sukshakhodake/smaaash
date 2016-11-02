@@ -1913,9 +1913,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
         $scope.myBlogslides = [
         'img/karting/blue.png',
-        'img/karting/star.png',
+        // 'img/karting/star.png',
         'img/karting/sonakshi.png',
-        'img/karting/fidelis.png',
+        // 'img/karting/fidelis.png',
         'img/karting/salman.png',
         'img/karting/shikar.png'
     ];
