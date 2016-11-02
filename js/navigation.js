@@ -1,5 +1,5 @@
-var adminurl = "http://104.155.129.33:82/"; //server
-// var adminurl = "http://192.168.0.114:1337/";
+// var adminurl = "http://104.155.129.33:82/"; //server
+var adminurl = "http://192.168.1.103:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
@@ -345,6 +345,26 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: signupData
+
+            }).success(callback);
+        },
+        forgotPassword: function(credentials, callback) {
+
+            $http({
+                url: adminurl + 'signup/forgotPassword',
+                method: 'POST',
+
+                data: credentials
+
+            }).success(callback);
+        },
+        forgotPasswordSubmit: function(credentials, callback) {
+
+            $http({
+                url: adminurl + 'signup/forgotPasswordSubmit',
+                method: 'POST',
+
+                data: credentials
 
             }).success(callback);
         },
