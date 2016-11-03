@@ -2190,6 +2190,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.formSubmit = function(credentials) {
             NavigationService.forgotPassword(credentials, function(data) {
+              if (data) {
                 console.log("data", data.data.id);
                 $.jStorage.set("loginId", data.data.id);
                 $.jStorage.set("loggedInUser",data.data.email);
@@ -2202,6 +2203,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         scope: $scope,
                     })
                 }
+              }
+
 
             });
             // location.reload();
