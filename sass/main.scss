@@ -2113,6 +2113,11 @@ img.fancybox-image {
 }
 
 .blog{
+    .ad{
+        img{
+            margin: 0 auto;
+        }
+    }
     .race-text{
         position: absolute;
     bottom: 0;
