@@ -133,6 +133,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
+
             $scope.attraction = $scope.content.Attraction;
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
@@ -140,6 +141,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
+            $scope.promotion=$scope.content["Promotions"];
+            console.log("$scope.promotion",$scope.promotion);
+
         } else {}
     });
 
@@ -1922,6 +1926,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
+      console.log("data",data);
+      $scope.promotion=data.data;
+    })
+
 })
 
 .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
@@ -1980,6 +1989,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.whatsnewId = "57bc4af6eb9c91f1025a3b4f";
         $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
+        $scope.promotionId="57bc4b36eb9c91f1025a3b56";
         $scope.template = TemplateService;
         $scope.city = true;
 

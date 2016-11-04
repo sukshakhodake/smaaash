@@ -7,13 +7,60 @@
     <div class="container">
         <div class="new">
               <div class="row">
+                <div class="col-md-4" ng-repeat="data in promotion">
+                    <div class="race-eve relative margno">
+                        <div class="img-bg">
+                            <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="">
+                        </div>
+
+                        <div class="race-text">
+
+                            <div class="min-h">
+                                <h3 class="margin0 brand-white" ng-bind-html="data.hometext"></h3>
+                                <h3 class="margin0 brand-white" ng-if="!data.hometext">Nothing to show.</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                       <!-- <div class="col-md-4">
+                    <div class="race-eve relative margno">
+                        <div class="img-bg">
+                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
+                        </div>
+
+                        <div class="race-text">
+
+                            <div class="min-h">
+                                <h3 class="margin0 brand-white">promotions</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                       <div class="col-md-4">
+                    <div class="race-eve relative margno">
+                        <div class="img-bg">
+                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
+                        </div>
+
+                        <div class="race-text">
+
+                            <div class="min-h">
+                                <h3 class="margin0 brand-white">promotions</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="row">
                 <div class="col-md-4">
                     <div class="race-eve relative margno">
                         <div class="img-bg">
                             <img src="img/new/newdeals.png" class="img-responsive" alt="">
                         </div>
-                        <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>-->
+
                         <div class="race-text">
 
                             <div class="min-h">
@@ -28,8 +75,7 @@
                         <div class="img-bg">
                             <img src="img/new/newdeals.png" class="img-responsive" alt="">
                         </div>
-                        <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>-->
+
                         <div class="race-text">
 
                             <div class="min-h">
@@ -44,8 +90,7 @@
                         <div class="img-bg">
                             <img src="img/new/newdeals.png" class="img-responsive" alt="">
                         </div>
-                        <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>-->
+
                         <div class="race-text">
 
                             <div class="min-h">
@@ -55,57 +100,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="race-eve relative margno">
-                        <div class="img-bg">
-                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
-                        </div>
-                        <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>-->
-                        <div class="race-text">
-
-                            <div class="min-h">
-                                <h3 class="margin0 brand-white">promotions</h3>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                       <div class="col-md-4">
-                    <div class="race-eve relative margno">
-                        <div class="img-bg">
-                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
-                        </div>
-                        <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>-->
-                        <div class="race-text">
-
-                            <div class="min-h">
-                                <h3 class="margin0 brand-white">promotions</h3>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                       <div class="col-md-4">
-                    <div class="race-eve relative margno">
-                        <div class="img-bg">
-                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
-                        </div>
-                        <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{data.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="data.video"></a>-->
-                        <div class="race-text">
-
-                            <div class="min-h">
-                                <h3 class="margin0 brand-white">promotions</h3>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
