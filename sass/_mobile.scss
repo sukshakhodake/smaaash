@@ -7,6 +7,42 @@
   p,span{
     font-size: 12px;
   }
+  .new-detail {
+    height: 300px !important;
+}
+.city-share{
+  margin-top: 5px;
+.fa{
+  font-size: 14px;
+}
+}
+.symbols{
+  .fa-2x{
+     font-size: 1em;
+  }
+}
+.symbols,.social-icons{
+  float: none !important;
+    display: block;
+    text-align: center;
+   
+}
+
+
+}
+
+.blog{
+  .button-set{
+    .social-icons{
+      display: block;
+    text-align: center;
+    }
+    .more{
+      display: block;
+    margin-top: 20px;
+    text-align: center;
+    }
+  }
 }
 
 .symbols span {
