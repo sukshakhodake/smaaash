@@ -135,6 +135,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.content = _.groupBy($scope.homeContent, "type.name");
 
             $scope.attraction = $scope.content.Attraction;
+            console.log("$scope.attraction",$scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
