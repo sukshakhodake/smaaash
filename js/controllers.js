@@ -1960,6 +1960,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
+
+.controller('PracticeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("practice");
+    $scope.menutitle = NavigationService.makeactive("Practice");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+
+})
+
 .controller('ExploreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("explore");

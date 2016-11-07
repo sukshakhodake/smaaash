@@ -2243,6 +2243,27 @@ border-bottom: 2px solid #000;
 .news{
     padding-bottom: 20px;
 }
+//practice
+.img-bg{
+   
+
+figure{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+ img{
+        transition: all 800ms ease;
+ }
+}
+figure:hover img{
+  -webkit-transform: scale3d(1.2, 1.2, 1);
+          transform: scale3d(1.2, 1.2, 1);
+}
+
+}
+
+
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
