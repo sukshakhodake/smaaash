@@ -947,9 +947,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.selectmainCourse = false;
 
     $scope.customizeformData = {};
-    if ($.jStorage.get("loginDetail") != null) {
-        $scope.customizeformData._id = $.jStorage.get("loginDetail").data._id
-    }
+    // if ($.jStorage.get("loginDetail") != null) {
+    //     $scope.customizeformData._id = $.jStorage.get("loginDetail").data._id
+    // }
 
     $scope.customizeformData.games = [];
     $scope.selectedIds = [];
@@ -962,7 +962,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     if ($.jStorage.get("loginDetail") != null) {
         NavigationService.getOne(function(data) {
-            $scope.customizeformData = data.data;
+          console.log("data",data);
+            $scope.customizeformData.email = data.data.email;
+            $scope.customizeformData.mobile = data.data.mobile;
+            $scope.customizeformData.games = data.data.games;
             console.log(data.data.games);
         });
     }
@@ -985,11 +988,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = true;
             };
-            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse && !$scope.customizeformData._id) {
+            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse ) {
                 $scope.selectDessert = false;
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = false;
-                NavigationService.signup($scope.customizeformData, function(data) {
+                NavigationService.custom($scope.customizeformData, function(data) {
                     if (data.value === true) {
                         $scope.showThank = true;
                         $scope.emailExist = false;
@@ -1005,13 +1008,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.emailExist = true;
                     }
                 })
-            } else if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse && $scope.customizeformData._id) {
+            } else if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse ) {
                 $scope.selectDessert = false;
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = false;
-                NavigationService.editUserData($scope.customizeformData, function(data) {
+                NavigationService.custom($scope.customizeformData, function(data) {
                     console.log("$scope.customizeformData in editUserData", $scope.customizeformData);
-                    console.log("editUserData", data);
+                    console.log("custom", data);
                     if (data.value === true) {
                         $scope.showThank = true;
                         $scope.emailExist = false;

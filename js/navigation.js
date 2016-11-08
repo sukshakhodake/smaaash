@@ -115,6 +115,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        custom: function(signupData, callback) {
+
+            $http({
+                url: adminurl + 'custom/save',
+                method: 'POST',
+
+                data: signupData
+
+            }).success(callback);
+        },
         getOne: function(callback) {
             var data = {
                 _id: $.jStorage.get("loginDetail").data._id,
