@@ -50,7 +50,10 @@
         <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true"
             direction-nav="false">
             <li>
-                <img ng-src="{{s.image|uploadpath}}">
+                <a href="" >
+ <img ng-src="{{s.image|uploadpath}}">
+                </a>
+               
             </li>
         </flex-slider>
         <ul class="custom-pagination">
@@ -72,9 +75,15 @@
                     <li>
                         <div class="race relative margno">
                             <div class="img-bg">
-                                <a ui-sref="whats-new({id:s.type._id})">
-                                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                  <a ui-sref="whats-new({id:s.type._id})">
+                                    <figure>
+ <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                    </figure>
+                                   
                                 </a>
+                                <!--<a >
+                                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                </a>-->
 
                             </div>
                             <div class="race-text whites" ui-sref="whats-new({id:s.type._id})">
@@ -109,7 +118,10 @@
                                     <a ui-sref="deals-inner({id:s._id})">
                                         <div class="race relative">
                                             <div class="img-bg">
-                                                <img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                                <figure>
+<img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                                </figure>
+                                                
                                             </div>
                                             <div class="race-text" ui-sref="deals-inner({id:s._id})">
                                                 <div class="min-hi">
@@ -227,7 +239,10 @@
                                     <a ui-sref="event-inner({id:s._id})">
                                         <div class="race relative">
                                             <div class="img-bg" ng-if="s.image">
-                                                <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                                <figure>
+ <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                                                </figure>
+                                               
                                             </div>
                                             <div class="race-text race-textbg" ui-sref="event-inner({id:s._id})">
                                                 <div class="min-hi">
@@ -256,7 +271,7 @@
                         <li>
                             <!--<div>-->
                                 <a ui-sref="snow-rush({id:s._id})">
-                                    <img ng-src="{{s.image|uploadpath}}" noloading="true" style="width: 86%; margin:0 auto;">
+                                    <img ng-src="{{s.image|uploadpath}}" noloading="true" style=" margin:0 auto;">
                                 </a>
                                 <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
                                     <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
@@ -326,9 +341,16 @@
                         <flex-slider class="carousel" flex-slide="s in foodBeverages track by $index" item-width="240" animation="slide" animationLoop="true"
                             prev-text="" next-text="">
                             <li>
-                                <a ui-sref="drink-party({id:s.type._id})">
-                                    <img ng-src="{{s.image|uploadpath}}">
+                                 <div class="img-bg">
+ <a ui-sref="drink-party({id:s.type._id})">
+                                     <figure>
+ <img ng-src="{{s.image|uploadpath}}">
+                                    </figure>
+                                   
                                 </a>
+                                 </div>
+                                  
+                               
                             </li>
                         </flex-slider>
                     </div>

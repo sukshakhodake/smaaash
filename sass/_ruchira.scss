@@ -1288,7 +1288,7 @@ $brand-white:#fff !default;
   border-top: none;
   padding: 20px;
 }
-
+.blog{
 ul {
   margin: 0;
   li {
@@ -1352,6 +1352,31 @@ ul {
     }
   }
 }
+}
+
+
+.foots-list {
+    padding: 15px 0;
+    border-top: 1px solid #333;
+    li {
+        padding-left: 0;
+        padding-right: 0;
+        list-style-type: none;
+        margin: 0 5px;
+        font-family: $head-font;
+        text-decoration: none;
+        color: #666;
+        font-size: 12px;
+        cursor: default;
+        a {
+            color: #666;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
 
 .button-set {
   padding: 30px 0;
