@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -18,7 +18,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-
+ TemplateService.removeLoaderOn(1);
 
 
 
@@ -92,7 +92,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             n.ordering = i;
             i++;
         });
-
+        // TemplateService.removeLoader();
     });
 
 
@@ -2176,7 +2176,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.myAccount = function() {
             if ($.jStorage.get("loginDetail") != null) {
-                $state.go("account");
+                $state.go("profile");
             };
         }
 
