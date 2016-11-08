@@ -83,11 +83,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ResetCtrl'
     })
 
-     .state('practice', {
-        url: "/practice",
-        templateUrl: "views/template.html",
-        controller: 'PracticeCtrl'
-    })
+   
 
    .state('promotion', {
         url: "/promotion/:id",

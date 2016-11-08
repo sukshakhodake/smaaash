@@ -302,7 +302,11 @@ $menu-height: 80px !default;
 .smaash-drops {
     margin-bottom: 0;
     position: relative;
+    
     .slidings {
+         a{
+                    display: block;
+                }
         .custom-pagination {
             @include position(absolute,
             null 20px 32px null);
@@ -333,6 +337,7 @@ $menu-height: 80px !default;
                     margin-top: -5px;
                     margin-bottom: -5px;
                 }
+               
             }
         }
         .flexslider {
@@ -1011,27 +1016,7 @@ margin: 20px auto;
     }
 }
 
-.foots-list {
-    padding: 15px 0;
-    border-top: 1px solid #333;
-    li {
-        padding-left: 0;
-        padding-right: 0;
-        list-style-type: none;
-        margin: 0 5px;
-        font-family: $head-font;
-        text-decoration: none;
-        color: #666;
-        font-size: 12px;
-        cursor: default;
-        a {
-            color: #666;
-            &:hover {
-                color: #fff;
-            }
-        }
-    }
-}
+
 
 .ting {
     display: inline-block;
