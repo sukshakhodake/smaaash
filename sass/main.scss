@@ -150,7 +150,7 @@ body {
 }
 
 .height80 {
-    height: 80px !important;
+    height: 60px !important;
 }
 
 .pointer {
@@ -189,6 +189,7 @@ img.loading {
     opacity: 1;
     width: 32px !important;
     height: auto;
+     margin: 0 auto;  
 }
 
 img {
@@ -198,6 +199,8 @@ img {
 
 img.doneLoading {
     opacity: 1;
+ margin: 0 auto;
+    
 }
 
 nav li:hover .dropdown-menu {
@@ -2250,6 +2253,11 @@ figure:hover img{
 
 }
 
+.photos{
+    height: 200px;
+    width: 200px;
+    background-color: $brand-purple;
+}
 
 
 @import "ruchira";
