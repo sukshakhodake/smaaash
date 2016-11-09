@@ -311,7 +311,11 @@ var navigationservice = angular.module('navigationservice', [])
         // },
 
         logout: function(callback) {
-            $.jStorage.flush();
+            // $.jStorage.flush();
+              $.jStorage.set("loginDetail",null);
+              $.jStorage.set("loginId",null);
+              $.jStorage.set("loggedInUser",null);
+              $.jStorage.set("customizeobj",null);
             return $http({
                 url: adminurl + 'register/logout',
                 method: 'POST',

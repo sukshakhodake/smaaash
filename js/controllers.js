@@ -18,7 +18,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
- TemplateService.removeLoaderOn(1);
+    TemplateService.removeLoaderOn(1);
 
 
 
@@ -92,7 +92,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             n.ordering = i;
             i++;
         });
-        // TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
 
 
@@ -106,6 +106,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getCities = {};
     NavigationService.getCity(function(data) {
         $scope.getCities = data.data;
+        // TemplateService.removeLoader();
     });
 
     $scope.getCityName = function(cityname) {
@@ -135,17 +136,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.content = _.groupBy($scope.homeContent, "type.name");
 
             $scope.attraction = $scope.content.Attraction;
-            console.log("$scope.attraction",$scope.attraction);
+            console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
-            $scope.promotion=$scope.content["Promotions"];
-            console.log("$scope.promotion",$scope.promotion);
+            $scope.promotion = $scope.content["Promotions"];
+
 
         } else {}
+        // TemplateService.removeLoader();
     });
 
 
@@ -160,7 +162,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         }
-
+        // TemplateService.removeLoader();
 
     });
 
@@ -289,8 +291,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.corporate = data.data;
-        console.log("$scope.corporate", $scope.corporate);
-
     });
     $scope.corporateParty = function() {
         $uibModal.open({
@@ -960,14 +960,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    if ($.jStorage.get("loginDetail") != null) {
+    if ($.jStorage.get("loginDetail") != null && $.jStorage.get("customizeobj") === null) {
         NavigationService.getOne(function(data) {
-          console.log("data",data);
-            $scope.customizeformData.email = data.data.email;
-            $scope.customizeformData.mobile = data.data.mobile;
-            $scope.customizeformData.games = data.data.games;
-            console.log(data.data.games);
+            delete data.data._id;
+            console.log("data", data.data);
+            $scope.customizeformData = data.data;
         });
+    }
+    if ($.jStorage.get("customizeobj") != null) {
+        $scope.customizeformData.email = $.jStorage.get("customizeobj").email;
+        $scope.customizeformData.mobile = $.jStorage.get("customizeobj").mobile;
     }
     $scope.submitCustomizeForm = function(formData) {
 
@@ -988,19 +990,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = true;
             };
-            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse ) {
+            if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse) {
                 $scope.selectDessert = false;
                 $scope.selectStarter = false;
                 $scope.selectmainCourse = false;
                 NavigationService.custom($scope.customizeformData, function(data) {
                     if (data.value === true) {
+                        console.log("customizeformDataNormal", data);
                         $scope.showThank = true;
                         $scope.emailExist = false;
                         console.log("datain if", data);
+                        $.jStorage.set("customizeobj", data.data);
                         $scope.customizeformData = {};
                         $scope.customizeformData.games = [];
                         $timeout(function() {
-                            $state.reload();
+                            // $state.reload();
 
                         }, 2000);
                     } else if (data.value === false) {
@@ -1008,26 +1012,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.emailExist = true;
                     }
                 })
-            } else if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse ) {
-                $scope.selectDessert = false;
-                $scope.selectStarter = false;
-                $scope.selectmainCourse = false;
-                NavigationService.custom($scope.customizeformData, function(data) {
-                    console.log("$scope.customizeformData in editUserData", $scope.customizeformData);
-                    console.log("custom", data);
-                    if (data.value === true) {
-                        $scope.showThank = true;
-                        $scope.emailExist = false;
-                        $scope.customizeformData = {};
-                        $scope.customizeformData.games = [];
-                        $timeout(function() {
-                            $state.reload();
-
-                        }, 3000);
-
-                    } else if (data.value === false) {}
-                });
             }
+            //  else if ($scope.customizeformData.starter && $scope.customizeformData.dessert && $scope.customizeformData.mainCourse ) {
+            //     $scope.selectDessert = false;
+            //     $scope.selectStarter = false;
+            //     $scope.selectmainCourse = false;
+            //     NavigationService.custom($scope.customizeformData, function(data) {
+            //         console.log("$scope.customizeformData in editUserData", $scope.customizeformData);
+            //         console.log("customeditUserData", data);
+            //         if (data.value === true) {
+            //             $scope.showThank = true;
+            //             $scope.hideDiv=true
+            //             $scope.emailExist = false;
+            //             $scope.customizeformData = {};
+            //             $scope.customizeformData.games = [];
+            //             $timeout(function() {
+            //                 $scope.hideDiv=true
+            //                 $state.reload();
+            //
+            //             }, 3000);
+            //
+            //         } else if (data.value === false) {}
+            //     });
+            // }
         } else {}
 
     }
@@ -1040,7 +1047,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.children = '';
     NavigationService.getSingleExploreSmaaash(id, function(data) {
         $scope.customizepackage = data.data;
-        // $scope.customizepackage1 = _.chunk(data.data, 4)
+
         console.log("$scope.customizepackage", $scope.customizepackage);
         _.each($scope.customizepackage, function(data) {
             data.gameforarray = [];
@@ -1897,7 +1904,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.credentials._id = $.jStorage.get("loginId");
     $scope.wrongPass = false;
     $scope.passUpdated = false;
-    $scope.loggedInUser=$.jStorage.get("loggedInUser");
+    $scope.loggedInUser = $.jStorage.get("loggedInUser");
     console.log("$scope.credentials._id", $scope.credentials._id);
 
     $scope.formSubmit = function(credentials) {
@@ -1930,9 +1937,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.getSingleExploreSmaaash($stateParams.id,function(data){
-      console.log("data",data);
-      $scope.promotion=data.data;
+    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+        console.log("data", data);
+        $scope.promotion = data.data;
     })
 
 })
@@ -2004,7 +2011,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.whatsnewId = "57bc4af6eb9c91f1025a3b4f";
         $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
-        $scope.promotionId="57bc4b36eb9c91f1025a3b56";
+        $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
         $scope.template = TemplateService;
         $scope.city = true;
 
@@ -2215,20 +2222,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.formSubmit = function(credentials) {
             NavigationService.forgotPassword(credentials, function(data) {
-              if (data) {
-                console.log("data", data.data.id);
-                $.jStorage.set("loginId", data.data.id);
-                $.jStorage.set("loggedInUser",data.data.email);
-                if (data.value === true) {
-                    $scope.changePass = true;
-                    $scope.closeModal();
-                    $uibModal.open({
-                        animation: true,
-                        templateUrl: "views/modal/resetpassword.html",
-                        scope: $scope,
-                    })
+                if (data) {
+                    console.log("data", data.data.id);
+                    $.jStorage.set("loginId", data.data.id);
+                    $.jStorage.set("loggedInUser", data.data.email);
+                    if (data.value === true) {
+                        $scope.changePass = true;
+                        $scope.closeModal();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: "views/modal/resetpassword.html",
+                            scope: $scope,
+                        })
+                    }
                 }
-              }
 
 
             });

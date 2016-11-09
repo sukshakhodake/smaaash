@@ -84,7 +84,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ResetCtrl'
     })
 
-   
+
 
    .state('promotion', {
         url: "/promotion/:id",
@@ -483,7 +483,7 @@ firstapp.directive('img', function($compile, $parse) {
             var $element = $(element);
 
             if (!attrs.noloading) {
-                $element.after("<img src='img/loading.gif' class='loading' />");
+                // $element.after("<img src='img/loading.gif' class='loading' />");
                 var $loading = $element.next(".loading");
                 $element.load(function() {
                     $loading.remove();
