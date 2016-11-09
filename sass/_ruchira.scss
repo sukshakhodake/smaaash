@@ -1288,7 +1288,7 @@ $brand-white:#fff !default;
   border-top: none;
   padding: 20px;
 }
-.blog{
+.blog,.whats-new,.drink,.host-party{
 ul {
   margin: 0;
   li {
@@ -1584,13 +1584,14 @@ ul {
         height: auto;
         width: 40px;
         position: absolute;
-        top: 75%;
+        top: 72%;
         right: 0%;
         transform: translate(-50%, -50%);
       }
       .buy-button {
         height: auto;
-        width: 76px;
+        width: 76
+        px;
       }
       .race-text {
         background-color: #000;
@@ -2909,4 +2910,13 @@ button {
 
 .glyphicon-chevron-left:before {
   content: '\f053';
+}
+
+//remove later
+.whats-new{
+  .img-bg{
+  img{
+    width:100%;
+  }
+  }
 }
