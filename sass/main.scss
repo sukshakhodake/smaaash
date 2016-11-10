@@ -315,7 +315,7 @@ $menu-height: 80px !default;
                 }
         .custom-pagination {
             @include position(absolute,
-            null 20px 62px null);
+            null 20px 0px null);
             margin: 0;
             li {
                 float: left;
