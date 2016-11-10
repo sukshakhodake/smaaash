@@ -2254,9 +2254,16 @@ figure:hover img{
 }
 
 .photos{
-    height: 200px;
-    width: 200px;
+    height: 90px;
+    width: 125px;
+    padding-top: 25px;
     background-color: $brand-purple;
+    box-shadow: 4px 3px #000;
+    border-radius: 5px;
+    i{
+        color: rgba(0, 0, 0, 0.64);
+    font-size: 2em;
+    }
 }
 
 

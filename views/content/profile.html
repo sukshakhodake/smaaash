@@ -254,20 +254,40 @@
                     <div class="points" ng-show="tab=='team'">
                         <div class="row">
                             <div class="col-md-3 col-sm-3 col-xs-6">
+                                <!--<a href=""><img src="img/profile/addphoto.png" class="img-responsive" alt="" ng-click="avatar();"></a>-->
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-6">
                                 <a href="">
-                                    <div class="photos"></div>
+                                    <div class="photos">
+                                        <div class="photo-image text-center">
+                                     <i class="fa fa-plus" aria-hidden="true"></i>
+                                        <p class="uppercase brand-white">upload</p>
+                                        </div>
+                                     
+                                    </div>
                                 </a>
                                 <!--<upload-image ng-model="userForm.image"></upload-image>-->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-6">
-                                <a href=""><img src="img/profile/takephoto.png" class="img-responsive" alt=""></a>
+                                <a href=""><div class="photos">
+                                        <div class="photo-image text-center">
+                                     <i class="fa fa-camera" aria-hidden="true"></i>
+                                        <p class="uppercase brand-white">take photo</p>
+                                        </div>
+                                     
+                                    </div></a>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-6">
-                                <a href=""><img src="img/profile/takephoto.png" class="img-responsive" alt=""></a>
+                                <a  ng-click="avatar();">
+                                    <div class="photos">
+                                        <div class="photo-image text-center">
+                                     <!--<i class="fa fa-camera" aria-hidden="true"></i>-->
+                                        <p class="uppercase brand-white">select your avatar</p>
+                                        </div>
+                                     
+                                    </div></a>
                             </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <a href=""><img src="img/profile/addphoto.png" class="img-responsive" alt="" ng-click="avatar();"></a>
-                            </div>
+                            
                         </div>
                         <form class="point-form">
                             <label class="item w92">
