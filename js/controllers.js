@@ -1647,9 +1647,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.drinkParty1 = data.data;
+        $scope.mySlides= data.data;
         $scope.drinkParty = _.chunk(data.data, 3);
 
-        console.log("$scope.drinkParty", $scope.drinkParty);
         $scope.readMore = function(id) {
 
             console.log(id);
@@ -1666,24 +1666,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.imagesmodal = function() {
+    $scope.imagesmodal = function(index) {
+      console.log("index",index);
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/party.html",
             scope: $scope
         })
     };
+  //   $scope.mySlides = [
+  //      'img/beverage.png',
+  //       'img/beverage1.png',
+  //       'img/beverage2.png',
+  //  ];
+  //   $scope.mySlidess = [
+  //       'img/beverage.png',
+  //       'img/beverage1.png',
+  //       'img/beverage2.png',
+  //   ];
 
-$scope.mySlides = [
-       'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png',
-   ];
-    $scope.mySlidess = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png',
-    ];
     $scope.showimg = false;
     $scope.showVid = function() {
         $scope.showimg = true;
