@@ -12,7 +12,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         openL = ngDialog.open({
             template: 'views/content/popup.html',
             className: 'smaaash-cities',
-              className: 'backdroped',
+            appendClassName: 'backdroped',
             scope: $scope,
             closeByEscape: true
         });
