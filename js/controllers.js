@@ -11,8 +11,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openpops = function() {
         openL = ngDialog.open({
             template: 'views/content/popup.html',
-            className: 'smaaash-cities',
-            appendClassName: 'backdroped',
+            className: 'smaaash-cities ',
+            className: 'backdroped',
             scope: $scope,
             closeByEscape: true
         });
