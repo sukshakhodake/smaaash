@@ -1608,7 +1608,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-  TemplateService.removeLoaderOn(1);
+    TemplateService.removeLoaderOn(1);
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.events10 = data.data;
@@ -1624,7 +1624,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }).description;
         };
-          TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
 })
 
@@ -1647,9 +1647,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.drinkParty1 = data.data;
+        $scope.mySlides= data.data;
         $scope.drinkParty = _.chunk(data.data, 3);
 
-        console.log("$scope.drinkParty", $scope.drinkParty);
         $scope.readMore = function(id) {
 
             console.log(id);
@@ -1661,29 +1661,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }).description;
         };
-TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
 
 
 
-    $scope.imagesmodal = function() {
+    $scope.imagesmodal = function(index) {
+      console.log("index",index);
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/party.html",
             scope: $scope
         })
     };
+  //   $scope.mySlides = [
+  //      'img/beverage.png',
+  //       'img/beverage1.png',
+  //       'img/beverage2.png',
+  //  ];
+  //   $scope.mySlidess = [
+  //       'img/beverage.png',
+  //       'img/beverage1.png',
+  //       'img/beverage2.png',
+  //   ];
 
-$scope.mySlides = [
-       'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png',
-   ];
-    $scope.mySlidess = [
-        'img/beverage.png',
-        'img/beverage1.png',
-        'img/beverage2.png',
-    ];
     $scope.showimg = false;
     $scope.showVid = function() {
         $scope.showimg = true;
@@ -1697,7 +1698,7 @@ $scope.mySlides = [
     $scope.menutitle = NavigationService.makeactive("Deals Packages");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-  TemplateService.removeLoaderOn(1);
+    TemplateService.removeLoaderOn(1);
     $scope.menu = "menu-out";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
@@ -1721,7 +1722,7 @@ $scope.mySlides = [
                 // console.log($scope.myDesc);
             }).description;
         };
-  TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
     $scope.myWish = function(id) {
 
@@ -1786,7 +1787,7 @@ $scope.mySlides = [
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
-TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
 
 })
@@ -1888,7 +1889,7 @@ TemplateService.removeLoader();
 
         return '';
     }
-  TemplateService.removeLoaderOn(1);
+    TemplateService.removeLoaderOn(1);
     $scope.formData = {};
     $scope.formComplete = false;
     $scope.exist = false;
@@ -1919,7 +1920,7 @@ TemplateService.removeLoader();
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
         $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
-          TemplateService.removeLoader();
+        TemplateService.removeLoader();
     })
     $scope.pdfmodal = function() {
         $uibModal.open({
@@ -1974,7 +1975,7 @@ TemplateService.removeLoader();
     $scope.menutitle = NavigationService.makeactive("Promotion");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-TemplateService.removeLoaderOn(1);
+    TemplateService.removeLoaderOn(1);
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         console.log("data", data);
         $scope.promotion = data.data;
@@ -2027,13 +2028,13 @@ TemplateService.removeLoaderOn(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-TemplateService.removeLoaderOn(1);
+    TemplateService.removeLoaderOn(1);
 
 
     NavigationService.getOneExploresmash($stateParams.id, function(data) {
         $scope.mySlides4 = data.data;
         $scope.mySlides4.banner = $filter('uploadpath')($scope.mySlides4.banner);
-TemplateService.removeLoader();
+        TemplateService.removeLoader();
 
     });
 
@@ -2057,7 +2058,7 @@ TemplateService.removeLoader();
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });
-TemplateService.removeLoaderOn(1);
+        TemplateService.removeLoaderOn(1);
         $scope.getCity = function() {
             NavigationService.getCity(function(data) {
                 if (data.value) {
@@ -2259,6 +2260,7 @@ TemplateService.removeLoaderOn(1);
         }
         $scope.credentials = {};
         $scope.changePass = false;
+          $scope.invalidEmail=false;
 
         $scope.formSubmit = function(credentials) {
             NavigationService.forgotPassword(credentials, function(data) {
@@ -2274,6 +2276,8 @@ TemplateService.removeLoaderOn(1);
                             templateUrl: "views/modal/resetpassword.html",
                             scope: $scope,
                         })
+                    } else if (data.value === false) {
+                      $scope.invalidEmail=true;
                     }
                 }
 
@@ -2328,7 +2332,7 @@ TemplateService.removeLoaderOn(1);
                     console.log('here');
                 }
             })
-TemplateService.removeLoader();
+            TemplateService.removeLoader();
         });
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
