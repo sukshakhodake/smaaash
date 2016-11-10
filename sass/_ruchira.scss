@@ -2636,7 +2636,7 @@ button {
           background-color: $brand-green;
         }
         ul li:nth-child(6n+3) {
-          background-color: $brand-yellow;
+          background-color: $brand-pink;
         }
         ul li:nth-child(6n+2) {
           background-color: $brand-orangy;
@@ -2704,21 +2704,21 @@ button {
   .col-md-4:nth-child(6n+3) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-yellow;
+        background-color: $brand-pink;
       }
       .new-detail {
-        border-color: $brand-yellow;
+        border-color: $brand-pink;
         .views {
           button {
-            border-color: $brand-yellow;
+            border-color: $brand-pink;
           }
         }
         .bluey {
-          color: $brand-yellow;
+          color:  $brand-pink;
         }
         .button-set {
           button {
-            background-color: $brand-yellow;
+            background-color:  $brand-pink;
           }
         }
       }
