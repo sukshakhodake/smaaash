@@ -1674,6 +1674,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
 
+$scope.mySlides = [
+       'img/beverage.png',
+        'img/beverage1.png',
+        'img/beverage2.png',
+   ];
+    $scope.mySlidess = [
+        'img/beverage.png',
+        'img/beverage1.png',
+        'img/beverage2.png',
+    ];
     $scope.showimg = false;
     $scope.showVid = function() {
         $scope.showimg = true;
