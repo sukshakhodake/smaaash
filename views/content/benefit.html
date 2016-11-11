@@ -7,24 +7,23 @@
     <div class="container">
         <div class="new">
             <div class="row">
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-4" ng-repeat="data in benefits">
                     <div class="karting-championship  marginbot">
                         <div class="brand-orangy relative">
-                            <img src="img/newest/benefit1.jpg" class="img-responsive" alt="cmo">
+                            <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="cmo">
 
                         </div>
                         <div class="new-detail">
                             <div class="heading">
-                                <h3 class="margin0 brand-ortitle">rent our games</h3>
+                                <h3 class="margin0 brand-ortitle" ng-bind-html="data.name"></h3>
                             </div>
                             <div class="para-text">
-                                <p>As CMO, Ashok leads a strong Marketing management team. In this fast-growing segment of Smaaash
-                                    Entertainment, Ashok is responsible for Lead the thinking on overall</p>
+                                <p ng-bind-html="data.description"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4">
+                <!-- <div class="col-md-4 col-sm-4">
                     <div class="karting-championship  marginbot">
                         <div class="brand-orangy relative">
                             <img src="img/newest/benefit2.jpg" class="img-responsive" alt="cmo">
@@ -41,7 +40,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ var jsArray = [
     './bower_components/moment/min/moment.min.js',
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/angularjs-imageupload-directive/public/javascripts/imageupload.js',
+     './bower_components/webcam/dis/webcam.min.js',
     './bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
 
     './js/app.js',
