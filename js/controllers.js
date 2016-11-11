@@ -1354,11 +1354,12 @@ TemplateService.removeLoaderOn(1);
 
     }
     $scope.formData = {};
+      $scope.formData.city = $.jStorage.get("cityid");
     $scope.formCompleteAssistance = false;
     $scope.assistanceLogin = function(formData) {
         console.log("formData", formData);
-        if ($scope.formData) {
-            NavigationService.assistanceLoginSignup($scope.formData, function(data) {
+        if (formData) {
+            NavigationService.assistanceLoginSignup(formData, function(data) {
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
                     $scope.formCompleteAssistance = true;
@@ -1501,7 +1502,6 @@ TemplateService.removeLoaderOn(1);
             animation: true,
             templateUrl: "views/modal/host-popup.html",
             scope: $scope,
-            controller: 'HostCtrl',
             windowClass: "no-white-bg"
         });
 
@@ -1517,13 +1517,13 @@ TemplateService.removeLoaderOn(1);
             windowClass: "no-white-bg"
         })
     };
-    $scope.formData = {};
+    $scope.formDatapopup = {};
     $scope.submitform = false;
-    $scope.formData.city = $.jStorage.get("cityid");
-    $scope.submitHostPopup = function() {
-        console.log("$scope.formData", $scope.formData);
-        if ($scope.formData) {
-            NavigationService.hostGetCall($scope.formData, function(data) {
+    $scope.formDatapopup.city = $.jStorage.get("cityid");
+    $scope.submitHostPopup = function(formDatapopup) {
+        console.log("$scope.formDatapopup", formDatapopup);
+        if (formDatapopup) {
+            NavigationService.hostGetCall(formDatapopup, function(data) {
                 console.log("data", data);
                 if (data.value === true) {
 

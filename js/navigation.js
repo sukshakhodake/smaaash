@@ -329,13 +329,13 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        hostGetCall: function(formData, callback) {
+        hostGetCall: function(formDatapopup, callback) {
 
             $http({
                 url: adminurl + 'callenquiry/save',
                 method: 'POST',
 
-                data: formData
+                data: formDatapopup
 
             }).success(callback);
         },
