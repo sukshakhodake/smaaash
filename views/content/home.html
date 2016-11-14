@@ -104,8 +104,57 @@
 <div class="container">
     <div class="slant-row reversed">
         <div class="slant-col ">
-            <div class="slant-in brand-green">
-                <div class="slant-box full-height">
+            <div class="brand-green">
+                            <div class="slant-box pad0 full-height">
+                <p class=" capitalize brand-white border-bot lastmin" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
+                <h2 class="brand-white ">Host A Party</h2>
+                <div class="mover extra" ng-if="hostParty">
+                    <flex-slider class="carousel relative" item-margin="0" flex-slide="s in hostParty track by $index" animation="slide" animationLoop="true"
+                        prev-text="" next-text="">
+                        <li ng-if="s.hostAPartyType ==='57d6a09dbd5eb9846074b419'">
+                            <a ui-sref="birthday-parties({id:s._id})">
+                                <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                            </a>
+                            <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                            <div class="carousel-text bg-black" ui-sref="birthday-parties({id:s._id})">
+                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
+                            </div>
+                        </li>
+                        <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
+                            <a ui-sref="wedding-parties({id:s._id})">
+                                <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                            </a>
+                            <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>-->
+                            <!--<div class="carousel-text bg-black">
+                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
+                            </div>-->
+                        </li>
+                        <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
+                            <a ui-sref="corporate-parties({id:s._id})">
+                                <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                            </a>
+                            <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                            <div class="carousel-text bg-black">
+                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
+                            </div>
+                        </li>
+                        <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
+                            <a ui-sref="kitty-parties({id:s._id})">
+                                <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                            </a>
+                            <div class="carousel-text bg-black">
+                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
+                            </div>
+                        </li>
+                    </flex-slider>
+                    <div ng-if="!hostParty">No Data Found</div>
+                </div>
+
+            </div>
+                <!--<div class="slant-box full-height">
                     <h2 class="brand-white pull-left l20">DEALS AND PACKAGES</h2>
 
                     <p class="pull-right  capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id})">view all</p>
@@ -116,6 +165,7 @@
                                 prev-text="" next-text="">
                                 <li>
                                     <a ui-sref="deals-inner({id:s._id})">
+                                        
                                         <div class="race relative">
                                             <div class="img-bg">
                                                 <figure>
@@ -135,7 +185,7 @@
                             </flex-slider>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="slant-col brand-blue pull-right">
@@ -161,9 +211,9 @@
                             </a>
                             <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>-->
-                            <div class="carousel-text bg-black">
+                            <!--<div class="carousel-text bg-black">
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                         <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
                             <a ui-sref="corporate-parties({id:s._id})">
