@@ -831,25 +831,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
-    $scope.template = TemplateService.changecontent("kitty-parties");
-    $scope.menutitle = NavigationService.makeactive("Kitty Parties");
+    $scope.template = TemplateService.changecontent("parties");
+    $scope.menutitle = NavigationService.makeactive("Parties");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.kitty = data.data;
-        console.log("$scope.kitty", $scope.kitty);
+    NavigationService.getPartyInside($stateParams.id, function(data) {
+        $scope.party = data.data;
+        console.log("$scope.party", $scope.party);
         TemplateService.removeLoader();
 
     });
     $scope.kittyParty = function() {
-        $uibModal.open({
+      $scope.modalInstance=  $uibModal.open({
             animation: true,
             templateUrl: "views/modal/enquiry.html",
             scope: $scope
 
         })
     };
+    $scope.enquiryData={};
+    $scope.formSubmit=function(enquiryData){
+if (enquiryData) {
+  enquiryData.city= $.jStorage.get("cityid");
+  NavigationService.eventInnerForm(enquiryData,function(data){
+    if (data.value===true) {
+      $scope.formComplete=true;
+console.log("in in if ");
+$timeout(function() {
+    $scope.modalInstance.close();
+    $scope.formComplete=false;
+    $scope.enquiryData={};
+
+}, 2000);
+    }
+    else {
+      console.log("in else");
+    }
+  })
+
+}
+    }
 })
 
 .controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -1696,24 +1718,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.removeLoader();
     });
     $scope.imagesmodal = function() {
-      $uibModal.open({
+        $uibModal.open({
             animation: true,
             templateUrl: "views/modal/party.html",
             scope: $scope
         });
 
     };
-    $scope.mySlides = [
-            'img/beverage.png',
-             'img/beverage1.png',
-             'img/beverage2.png',
-        ];
-         $scope.mySlidess = [
-             'img/beverage.png',
-             'img/beverage1.png',
-             'img/beverage2.png',
-         ];
-  
+    // $scope.mySlides = [
+    //     'img/beverage.png',
+    //     'img/beverage1.png',
+    //     'img/beverage2.png',
+    // ];
+    // $scope.mySlidess = [
+    //     'img/beverage.png',
+    //     'img/beverage1.png',
+    //     'img/beverage2.png',
+    // ];
+    // NavigationService.getFoodGallery(id,function(data){
+    //
+    // })
+
+    $scope.getGallery = function(gid) {
+      console.log("aaa", gid);
+        NavigationService.getFoodGallery(gid, function(data) {
+            if (data.value) {
+                $scope.mySlides = data.data.gallery;
+                console.log("$scope.galleryData",$scope.mySlides);
+                if ($scope.mySlides.length>0) {
+                  $uibModal.open({
+                      animation: true,
+                      templateUrl: "views/modal/party.html",
+                      scope: $scope
+                  });
+                }
+                else{
+                  console.log("no data");
+                }
+
+
+            }
+        });
+    }
     $scope.showimg = false;
     $scope.showVid = function() {
         $scope.showimg = true;
@@ -1920,6 +1966,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     TemplateService.removeLoaderOn(1);
     $scope.formData = {};
+    $scope.formData.city=$.jStorage.get("cityid");
     $scope.formComplete = false;
     $scope.exist = false;
     $scope.formData.varstatus = "eventRegistration";

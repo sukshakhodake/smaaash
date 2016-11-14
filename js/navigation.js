@@ -1,5 +1,5 @@
 var adminurl = "http://104.155.129.33:82/"; //server
-// var adminurl = "http://192.168.1.105:1337/";
+// var adminurl = "http://192.168.1.102:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
@@ -74,6 +74,30 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getOneExploresmash: function(id, callback) {
+            var data = {
+                _id: id,
+                city: $.jStorage.get("cityid")
+            };
+            $http({
+                url: adminurl + 'exploresmash/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        getFoodGallery: function(id, callback) {
+            var data = {
+                _id: id,
+                city: $.jStorage.get("cityid")
+            };
+            $http({
+                url: adminurl + 'exploresmash/getOneExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        getPartyInside: function(id, callback) {
             var data = {
                 _id: id,
                 city: $.jStorage.get("cityid")

@@ -42,7 +42,7 @@ var firstapp = angular.module('firstapp', [
     'angulartics',
     'angulartics.google.analytics',
     'imageupload'
-    
+
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -136,8 +136,8 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'CustomizePackageCtrl'
     })
 
-    .state('kitty-parties', {
-        url: "/kitty-parties/:id",
+    .state('parties', {
+        url: "/parties/:id",
         templateUrl: "views/template.html",
         controller: 'KittyCtrl'
     })

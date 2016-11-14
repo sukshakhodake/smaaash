@@ -1,7 +1,8 @@
 <div class="enquiry-form brand-purple">
+  <div ng-if="!formComplete">
    <h2 class="uppercase title brand-white">enquiry</h2>
    <a href="" class="close text-uppercase brand-white" ng-click="$dismiss();">close</a>
-   <form  class="form" name="enquiryForm" ng-submit="formSubmit()">
+   <form  class="form" name="enquiryForm" ng-submit="formSubmit(enquiryData)">
       <div class="form-group">
          <input type="text" class="form-control" placeholder="User Name" name="name"  ng-model="enquiryData.name" required>
          <div class="error-msg" ng-show="enquiryForm.name.$error.required && enquiryForm.name.$touched">Please Enter Your User Name</div>
@@ -14,7 +15,9 @@
          <input type="text" class="form-control" placeholder="Mobile no." name="mobile" ng-model="enquiryData.mobile" required>
          <div class="error-msg" ng-show="enquiryForm.mobile.$error.required && enquiryForm.mobile.$touched">Please enter your mobile no. </div>
       </div>
-      <textarea placeholder="Comment"></textarea>
+      <textarea placeholder="Comment" ng-model="enquiryData.comment"></textarea>
       <button type="submit" name="button">submit</button>
    </form>
+   </div>
+   <div ng-if="formComplete" class="text-center"> Thank You.</div>
 </div>

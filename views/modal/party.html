@@ -4,7 +4,7 @@
         <flex-slider flex-slide="s in mySlides track by $index" slider-id="slider" prev-text="" next-text="" sync="#carousel" slideshow="false" animation="slide">
             <li>
                 <div class="video-main">
-                    <img ng-src="{{s}}" alt="" class="img-responsive">
+                    <img ng-src="{{s.image | uploadpath}}" alt="" class="img-responsive">
                 </div>
             </li>
         </flex-slider>
@@ -16,7 +16,7 @@
                 <a href="">
                     <div class="row">
 
-                        <img ng-src="{{s}}" alt="">
+                        <img ng-src="{{s.image | uploadpath}}" alt="" class="img-responsive">
 
 
                     </div>
