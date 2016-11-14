@@ -309,11 +309,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Benefit");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-TemplateService.removeLoaderOn(1);
-    NavigationService.getBenefit(function(data){
-    $scope.benefits=data.data;
-    TemplateService.removeLoader();
-  });
+    TemplateService.removeLoaderOn(1);
+    NavigationService.getBenefit(function(data) {
+        $scope.benefits = data.data;
+        TemplateService.removeLoader();
+    });
 
 })
 
@@ -1315,51 +1315,16 @@ TemplateService.removeLoaderOn(1);
     };
     TemplateService.removeLoaderOn(2);
     $scope.moreDesc = {};
-    $scope.formCompleteSignup = false;
 
-    $scope.signupData = {};
-    $scope.pass = true;
-    $scope.emailExist = false;
-
-    $scope.signupLogin = function(signupData) {
-        console.log("$scope.signupData ", $scope.signupData);
-        if ($scope.signupData) {
-
-
-            if ($scope.signupData.password == $scope.signupData.confirmPassword) {
-                console.log('m true');
-                $scope.pass = true;
-                NavigationService.signup($scope.signupData, function(data) {
-                    console.log("$scope.signupData", $scope.signupData);
-                    if (data.value) {
-                        $scope.emailExist = false;
-                        $scope.formCompleteSignup = true;
-                        $timeout(function() {
-                            $scope.formCompleteSignup = false;
-                            $scope.signupData = {};
-                        }, 2000);
-
-                    } else {
-                        $scope.emailExist = true;
-                    }
-
-                })
-            } else {
-                console.log('m false');
-                $scope.pass = false;
-            }
-        }
-
-
-
-    }
     $scope.formData = {};
-      $scope.formData.city = $.jStorage.get("cityid");
+
     $scope.formCompleteAssistance = false;
     $scope.assistanceLogin = function(formData) {
         console.log("formData", formData);
         if (formData) {
+            formData.city = $.jStorage.get("cityid");
             NavigationService.assistanceLoginSignup(formData, function(data) {
+                console.log("in nav", formData);
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
                     $scope.formCompleteAssistance = true;
@@ -1519,15 +1484,20 @@ TemplateService.removeLoaderOn(1);
     };
     $scope.formDatapopup = {};
     $scope.submitform = false;
-    $scope.formDatapopup.city = $.jStorage.get("cityid");
-    $scope.submitHostPopup = function(formDatapopup) {
-        console.log("$scope.formDatapopup", formDatapopup);
-        if (formDatapopup) {
-            NavigationService.hostGetCall(formDatapopup, function(data) {
+
+    $scope.submitHostPopup = function(formDatapop) {
+        if (formDatapop) {
+            formDatapop.city = $.jStorage.get("cityid");
+            NavigationService.hostGetCall(formDatapop, function(data) {
                 console.log("data", data);
                 if (data.value === true) {
-
                     $scope.submitform = true;
+                    $scope.formData = {};
+                    $timeout(function() {
+                        $scope.submitform = false;
+                        $scope.formDatapopup = {};
+                    }, 2000);
+
 
                 }
             })
@@ -1594,63 +1564,63 @@ TemplateService.removeLoaderOn(1);
         }
 
     };
-  //   var _video = null,
-  //      patData = null;
-  //       $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
-  //        $scope.channel = {};
-  //        $scope.webcamError = false;
-  //   $scope.onError = function (err) {
-  //       $scope.$apply(
-  //           function() {
-  //               $scope.webcamError = err;
-  //           }
-  //       );
-  //   };
-  //   $scope.onSuccess = function () {
-  //
-  //     _video = $scope.channel.video;
-  //     $scope.$apply(function() {
-  //         $scope.patOpts.w = _video.width;
-  //         $scope.patOpts.h = _video.height;
-  //
-  //     });
-  // };
-  // $scope.onStream = function (stream) {
-  //
-  //  };
-  //   $scope.makeSnapshot = function() {
-  //     console.log("_video",_video);
-  //     if (_video) {
-  //         var patCanvas = document.querySelector('#snapshot');
-  //         if (!patCanvas) return;
-  //
-  //         patCanvas.width = _video.width;
-  //         patCanvas.height = _video.height;
-  //         var ctxPat = patCanvas.getContext('2d');
-  //
-  //         var idata = getVideoData($scope.patOpts.x, $scope.patOpts.y, $scope.patOpts.w, $scope.patOpts.h);
-  //         ctxPat.putImageData(idata, 0, 0);
-  //
-  //         sendSnapshotToServer(patCanvas.toDataURL());
-  //
-  //         patData = idata;
-  //     }
-  // };
-  // $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
-  //     window.location.href = dataURL;
-  // };
-  // var getVideoData = function getVideoData(x, y, w, h) {
-  //      var hiddenCanvas = document.createElement('canvas');
-  //      hiddenCanvas.width = _video.width;
-  //      hiddenCanvas.height = _video.height;
-  //      var ctx = hiddenCanvas.getContext('2d');
-  //      ctx.drawImage(_video, 0, 0, _video.width, _video.height);
-  //      return ctx.getImageData(x, y, w, h);
-  //  };
-  //
-  //  var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
-  //       $scope.snapshotData = imgBase64;
-  //   };
+    //   var _video = null,
+    //      patData = null;
+    //       $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
+    //        $scope.channel = {};
+    //        $scope.webcamError = false;
+    //   $scope.onError = function (err) {
+    //       $scope.$apply(
+    //           function() {
+    //               $scope.webcamError = err;
+    //           }
+    //       );
+    //   };
+    //   $scope.onSuccess = function () {
+    //
+    //     _video = $scope.channel.video;
+    //     $scope.$apply(function() {
+    //         $scope.patOpts.w = _video.width;
+    //         $scope.patOpts.h = _video.height;
+    //
+    //     });
+    // };
+    // $scope.onStream = function (stream) {
+    //
+    //  };
+    //   $scope.makeSnapshot = function() {
+    //     console.log("_video",_video);
+    //     if (_video) {
+    //         var patCanvas = document.querySelector('#snapshot');
+    //         if (!patCanvas) return;
+    //
+    //         patCanvas.width = _video.width;
+    //         patCanvas.height = _video.height;
+    //         var ctxPat = patCanvas.getContext('2d');
+    //
+    //         var idata = getVideoData($scope.patOpts.x, $scope.patOpts.y, $scope.patOpts.w, $scope.patOpts.h);
+    //         ctxPat.putImageData(idata, 0, 0);
+    //
+    //         sendSnapshotToServer(patCanvas.toDataURL());
+    //
+    //         patData = idata;
+    //     }
+    // };
+    // $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
+    //     window.location.href = dataURL;
+    // };
+    // var getVideoData = function getVideoData(x, y, w, h) {
+    //      var hiddenCanvas = document.createElement('canvas');
+    //      hiddenCanvas.width = _video.width;
+    //      hiddenCanvas.height = _video.height;
+    //      var ctx = hiddenCanvas.getContext('2d');
+    //      ctx.drawImage(_video, 0, 0, _video.width, _video.height);
+    //      return ctx.getImageData(x, y, w, h);
+    //  };
+    //
+    //  var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
+    //       $scope.snapshotData = imgBase64;
+    //   };
 
 
 })
@@ -1709,7 +1679,7 @@ TemplateService.removeLoaderOn(1);
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.drinkParty1 = data.data;
-        $scope.mySlides= data.data;
+        console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
 
         $scope.readMore = function(id) {
@@ -1725,28 +1695,25 @@ TemplateService.removeLoaderOn(1);
         };
         TemplateService.removeLoader();
     });
-
-
-
-    $scope.imagesmodal = function(index) {
-      console.log("index",index);
-        $uibModal.open({
+    $scope.imagesmodal = function() {
+      $uibModal.open({
             animation: true,
             templateUrl: "views/modal/party.html",
             scope: $scope
-        })
-    };
-  //   $scope.mySlides = [
-  //      'img/beverage.png',
-  //       'img/beverage1.png',
-  //       'img/beverage2.png',
-  //  ];
-  //   $scope.mySlidess = [
-  //       'img/beverage.png',
-  //       'img/beverage1.png',
-  //       'img/beverage2.png',
-  //   ];
+        });
 
+    };
+    $scope.mySlides = [
+            'img/beverage.png',
+             'img/beverage1.png',
+             'img/beverage2.png',
+        ];
+         $scope.mySlidess = [
+             'img/beverage.png',
+             'img/beverage1.png',
+             'img/beverage2.png',
+         ];
+  
     $scope.showimg = false;
     $scope.showVid = function() {
         $scope.showimg = true;
@@ -2322,7 +2289,7 @@ TemplateService.removeLoaderOn(1);
         }
         $scope.credentials = {};
         $scope.changePass = false;
-          $scope.invalidEmail=false;
+        $scope.invalidEmail = false;
 
         $scope.formSubmit = function(credentials) {
             NavigationService.forgotPassword(credentials, function(data) {
@@ -2339,7 +2306,7 @@ TemplateService.removeLoaderOn(1);
                             scope: $scope,
                         })
                     } else if (data.value === false) {
-                      $scope.invalidEmail=true;
+                        $scope.invalidEmail = true;
                     }
                 }
 

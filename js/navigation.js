@@ -215,13 +215,13 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
 
         },
-        assistanceLoginSignup: function(formData, callback) {
+        assistanceLoginSignup: function(formdata, callback) {
 
             $http({
                 url: adminurl + 'assistance/save',
                 method: 'POST',
 
-                data: formData
+                data: formdata
 
             }).success(callback);
         },
