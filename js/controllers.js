@@ -309,6 +309,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Benefit");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+TemplateService.removeLoaderOn(1);
+    NavigationService.getBenefit(function(data){
+    $scope.benefits=data.data;
+    TemplateService.removeLoader();
+  });
 
 })
 
@@ -1349,11 +1354,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
     $scope.formData = {};
+      $scope.formData.city = $.jStorage.get("cityid");
     $scope.formCompleteAssistance = false;
     $scope.assistanceLogin = function(formData) {
         console.log("formData", formData);
-        if ($scope.formData) {
-            NavigationService.assistanceLoginSignup($scope.formData, function(data) {
+        if (formData) {
+            NavigationService.assistanceLoginSignup(formData, function(data) {
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
                     $scope.formCompleteAssistance = true;
@@ -1496,7 +1502,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             animation: true,
             templateUrl: "views/modal/host-popup.html",
             scope: $scope,
-            controller: 'HostCtrl',
             windowClass: "no-white-bg"
         });
 
@@ -1512,13 +1517,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: "no-white-bg"
         })
     };
-    $scope.formData = {};
+    $scope.formDatapopup = {};
     $scope.submitform = false;
-    $scope.formData.city = $.jStorage.get("cityid");
-    $scope.submitHostPopup = function() {
-        console.log("$scope.formData", $scope.formData);
-        if ($scope.formData) {
-            NavigationService.hostGetCall($scope.formData, function(data) {
+    $scope.formDatapopup.city = $.jStorage.get("cityid");
+    $scope.submitHostPopup = function(formDatapopup) {
+        console.log("$scope.formDatapopup", formDatapopup);
+        if (formDatapopup) {
+            NavigationService.hostGetCall(formDatapopup, function(data) {
                 console.log("data", data);
                 if (data.value === true) {
 
@@ -1589,6 +1594,63 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     };
+  //   var _video = null,
+  //      patData = null;
+  //       $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
+  //        $scope.channel = {};
+  //        $scope.webcamError = false;
+  //   $scope.onError = function (err) {
+  //       $scope.$apply(
+  //           function() {
+  //               $scope.webcamError = err;
+  //           }
+  //       );
+  //   };
+  //   $scope.onSuccess = function () {
+  //
+  //     _video = $scope.channel.video;
+  //     $scope.$apply(function() {
+  //         $scope.patOpts.w = _video.width;
+  //         $scope.patOpts.h = _video.height;
+  //
+  //     });
+  // };
+  // $scope.onStream = function (stream) {
+  //
+  //  };
+  //   $scope.makeSnapshot = function() {
+  //     console.log("_video",_video);
+  //     if (_video) {
+  //         var patCanvas = document.querySelector('#snapshot');
+  //         if (!patCanvas) return;
+  //
+  //         patCanvas.width = _video.width;
+  //         patCanvas.height = _video.height;
+  //         var ctxPat = patCanvas.getContext('2d');
+  //
+  //         var idata = getVideoData($scope.patOpts.x, $scope.patOpts.y, $scope.patOpts.w, $scope.patOpts.h);
+  //         ctxPat.putImageData(idata, 0, 0);
+  //
+  //         sendSnapshotToServer(patCanvas.toDataURL());
+  //
+  //         patData = idata;
+  //     }
+  // };
+  // $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
+  //     window.location.href = dataURL;
+  // };
+  // var getVideoData = function getVideoData(x, y, w, h) {
+  //      var hiddenCanvas = document.createElement('canvas');
+  //      hiddenCanvas.width = _video.width;
+  //      hiddenCanvas.height = _video.height;
+  //      var ctx = hiddenCanvas.getContext('2d');
+  //      ctx.drawImage(_video, 0, 0, _video.width, _video.height);
+  //      return ctx.getImageData(x, y, w, h);
+  //  };
+  //
+  //  var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
+  //       $scope.snapshotData = imgBase64;
+  //   };
 
 
 })

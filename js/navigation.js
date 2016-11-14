@@ -1,5 +1,5 @@
 var adminurl = "http://104.155.129.33:82/"; //server
-// var adminurl = "http://192.168.1.103:1337/";
+// var adminurl = "http://192.168.1.105:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
@@ -329,13 +329,13 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        hostGetCall: function(formData, callback) {
+        hostGetCall: function(formDatapopup, callback) {
 
             $http({
                 url: adminurl + 'callenquiry/save',
                 method: 'POST',
 
-                data: formData
+                data: formDatapopup
 
             }).success(callback);
         },
@@ -396,6 +396,15 @@ var navigationservice = angular.module('navigationservice', [])
 
             $http({
                 url: adminurl + 'sponsor/getAllSponsorPageDetail',
+                method: 'POST',
+                withCredentials: true
+
+            }).success(callback);
+        },
+        getBenefit: function(callback) {
+
+            $http({
+                url: adminurl + 'benefit/getAll',
                 method: 'POST',
                 withCredentials: true
 
