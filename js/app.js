@@ -153,11 +153,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'CartsCtrl'
     })
 
-    .state('wishlist', {
-        url: "/wishlist",
-        templateUrl: "views/template.html",
-        controller: 'WishlistCtrl'
-    })
 
     .state('whats-new', {
         url: "/whats-new/:id",

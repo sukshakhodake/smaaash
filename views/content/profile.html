@@ -51,6 +51,11 @@
                         <p class="text-uppercase">edit profile</p>
 
                      </li>
+                      <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
+
+                        <p class="text-uppercase">wishlist</p>
+
+                     </li>
                   </ul>
                </div>
                <div class="reward-table carts" ng-show="tab=='design'">
@@ -322,6 +327,39 @@
                         <img src="img/profile/update.png" alt="" class="img-responsive">
                      </a>
                   </form>
+               </div>
+               <div class="wishlist" ng-show="tab=='wishlist'">
+<div class="carts">
+  
+        <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th class="text-center uppercase ">Sr.No</th>
+                        <th class="text-center  uppercase ">Name of page</th>
+                        <th class="text-center uppercase ">remove</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="data in showWishList.wishList">
+                    <td class="text-center border-left">
+                        <img ng-if="data.exploresmash.image" ng-src="{{data.exploresmash.image|uploadpath}}" class="img-responsive" alt="">
+                        <img ng-if="data.exploresmash.homeimage" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive" alt="">
+                        <img ng-if="data.exploresmash.homeimage && data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive"
+                            alt="">
+                        <p class="mt10 uppercase" ng-bind-html="data.exploresmash.hometext"></p>
+                    </td>
+                    <td class="text-center">{{data.pageName[0]}}</td>
+                    <td class="text-center border-right">
+                        <div class="remove">
+                            <button class="uppercase" ng-click="removeFromWishList(data._id)">remove</button>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+   
+</div>
                </div>
             </div>
          </div>

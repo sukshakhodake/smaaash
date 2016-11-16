@@ -793,40 +793,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-    $scope.attraction = '';
-    $scope.whatsnew = '';
-
-    function getuserWishList() {
-        if ($.jStorage.get("loginDetail") != null) {
-            NavigationService.showWishList(function(data) {
-                $scope.showWishList = data.data;
-                _.each($scope.showWishList.wishList, function(data) {
-                    data.pageName = [];
-                    _.each(data.exploresmash, function(n) {
-                        switch (n) {
-                            case '57bc4b2aeb9c91f1025a3b55':
-                                data.pageName.push("Attraction")
-                                break;
-                            case '57bc4af6eb9c91f1025a3b4f':
-                                data.pageName.push("What's new")
-                                break;
-                            default:
-                        }
-                    });
-                });
-                TemplateService.removeLoader();
-
-            });
-        }
-    };
-    getuserWishList();
-
-
-    $scope.removeFromWishList = function(id) {
-        NavigationService.removeFromWishList(id, function(data) {
-            getuserWishList();
-        });
-    };
+   
 })
 
 .controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
@@ -1584,66 +1551,50 @@ $timeout(function() {
             $scope.classe = '';
 
         }
+            if (a == 4) {
+            $scope.classd = 'active-tab';
+            $scope.classb = '';
+            $scope.classa = '';
+            $scope.classc = '';
+            $scope.classe = '';
+
+        }
 
     };
-    //   var _video = null,
-    //      patData = null;
-    //       $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
-    //        $scope.channel = {};
-    //        $scope.webcamError = false;
-    //   $scope.onError = function (err) {
-    //       $scope.$apply(
-    //           function() {
-    //               $scope.webcamError = err;
-    //           }
-    //       );
-    //   };
-    //   $scope.onSuccess = function () {
-    //
-    //     _video = $scope.channel.video;
-    //     $scope.$apply(function() {
-    //         $scope.patOpts.w = _video.width;
-    //         $scope.patOpts.h = _video.height;
-    //
-    //     });
-    // };
-    // $scope.onStream = function (stream) {
-    //
-    //  };
-    //   $scope.makeSnapshot = function() {
-    //     console.log("_video",_video);
-    //     if (_video) {
-    //         var patCanvas = document.querySelector('#snapshot');
-    //         if (!patCanvas) return;
-    //
-    //         patCanvas.width = _video.width;
-    //         patCanvas.height = _video.height;
-    //         var ctxPat = patCanvas.getContext('2d');
-    //
-    //         var idata = getVideoData($scope.patOpts.x, $scope.patOpts.y, $scope.patOpts.w, $scope.patOpts.h);
-    //         ctxPat.putImageData(idata, 0, 0);
-    //
-    //         sendSnapshotToServer(patCanvas.toDataURL());
-    //
-    //         patData = idata;
-    //     }
-    // };
-    // $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
-    //     window.location.href = dataURL;
-    // };
-    // var getVideoData = function getVideoData(x, y, w, h) {
-    //      var hiddenCanvas = document.createElement('canvas');
-    //      hiddenCanvas.width = _video.width;
-    //      hiddenCanvas.height = _video.height;
-    //      var ctx = hiddenCanvas.getContext('2d');
-    //      ctx.drawImage(_video, 0, 0, _video.width, _video.height);
-    //      return ctx.getImageData(x, y, w, h);
-    //  };
-    //
-    //  var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
-    //       $scope.snapshotData = imgBase64;
-    //   };
+    $scope.attraction = '';
+    $scope.whatsnew = '';
 
+    function getuserWishList() {
+        if ($.jStorage.get("loginDetail") != null) {
+            NavigationService.showWishList(function(data) {
+                $scope.showWishList = data.data;
+                _.each($scope.showWishList.wishList, function(data) {
+                    data.pageName = [];
+                    _.each(data.exploresmash, function(n) {
+                        switch (n) {
+                            case '57bc4b2aeb9c91f1025a3b55':
+                                data.pageName.push("Attraction")
+                                break;
+                            case '57bc4af6eb9c91f1025a3b4f':
+                                data.pageName.push("What's new")
+                                break;
+                            default:
+                        }
+                    });
+                });
+                TemplateService.removeLoader();
+
+            });
+        }
+    };
+    getuserWishList();
+
+
+    $scope.removeFromWishList = function(id) {
+        NavigationService.removeFromWishList(id, function(data) {
+            getuserWishList();
+        });
+    };
 
 })
 
