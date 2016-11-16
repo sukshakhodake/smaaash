@@ -232,6 +232,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ExploreCtrl'
     })
 
+    .state('buy', {
+        url: "/buy",
+        templateUrl: "views/template.html",
+        controller: 'BuyCtrl'
+    })
+
     .state('about', {
         url: "/about",
         templateUrl: "views/template.html",
