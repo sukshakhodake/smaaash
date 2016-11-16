@@ -330,7 +330,7 @@
                </div>
                <div class="wishlist" ng-show="tab=='wishlist'">
 <div class="carts">
-  
+
         <div class="table-responsive">
             <table class="table ">
                 <thead>
@@ -342,8 +342,8 @@
                 </thead>
                 <tr ng-repeat="data in showWishList.wishList">
                     <td class="text-center border-left">
-                        <img ng-if="data.exploresmash.image" ng-src="{{data.exploresmash.image|uploadpath}}" class="img-responsive" alt="">
-                        <img ng-if="data.exploresmash.homeimage" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive" alt="">
+                        <img ng-if="data.exploresmash.image && !data.exploresmash.homeimage" ng-src="{{data.exploresmash.image|uploadpath}}" class="img-responsive" alt="">
+                        <img ng-if="data.exploresmash.homeimage && !data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive" alt="">
                         <img ng-if="data.exploresmash.homeimage && data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive"
                             alt="">
                         <p class="mt10 uppercase" ng-bind-html="data.exploresmash.hometext"></p>
@@ -358,7 +358,7 @@
                 </tr>
             </table>
         </div>
-   
+
 </div>
                </div>
             </div>
