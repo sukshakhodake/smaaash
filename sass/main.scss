@@ -1246,7 +1246,21 @@ margin: 20px auto;
     background-color: rgba(0, 0, 0, 0.35);
     z-index: 999;
 }
-
+.tabs-about{
+    padding: 20px 0;
+    margin: 0;
+    li{
+        padding: 0 10px;
+    border-right: 2px solid #000;
+    a{
+        font-size: 16px;
+        color: #666;
+    }
+    }
+    li:last-child{
+         border-right: none;
+    }
+}
 .colored-slider,
 .mover {
     .flexslider {
