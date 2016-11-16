@@ -2058,7 +2058,7 @@ ul {
     .slidings {
       .custom-pagination {
         @include position(absolute,
-        null null 37px 20px);
+        null null 0px 20px);
         margin: 0;
         li {
           float: left;

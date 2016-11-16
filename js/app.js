@@ -85,6 +85,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ResetCtrl'
     })
 
+  .state('promotion-inner', {
+        url: "/promotion-inner",
+        templateUrl: "views/template.html",
+        controller: 'PromotionInnerCtrl'
+    })
 
 
    .state('promotion', {
@@ -191,16 +196,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/smaaash-cricket",
             templateUrl: "views/template.html",
             controller: 'SportsCtrl'
-        })
-        .state('cockpit', {
-            url: "/cockpit",
-            templateUrl: "views/template.html",
-            controller: 'SportingCtrl'
-        })
-        .state('twilight', {
-            url: "/twilight",
-            templateUrl: "views/template.html",
-            controller: 'TwilightCtrl'
         })
         .state('snow-rush', {
             url: "/snow-rush/:id",
