@@ -102,6 +102,9 @@
     </div>
 </div>
 <div class="container">
+    <div class="row">
+
+    </div>
     <div class="slant-row reversed">
         <div class="slant-col ">
             <div class="brand-green">
@@ -125,11 +128,6 @@
                             <a ui-sref="parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
-                            <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>-->
-                            <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
                         </li>
                         <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
                             <a ui-sref="parties({id:s._id})">
@@ -154,38 +152,7 @@
                 </div>
 
             </div>
-                <!--<div class="slant-box full-height">
-                    <h2 class="brand-white pull-left l20">DEALS AND PACKAGES</h2>
-
-                    <p class="pull-right  capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id})">view all</p>
-                    <div class="clearfix"></div>
-                    <div class="mover">
-                        <div class="slidings">
-                            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="350" animation="slide" animationLoop="true"
-                                prev-text="" next-text="">
-                                <li>
-                                    <a ui-sref="deals-inner({id:s._id})">
-
-                                        <div class="race relative">
-                                            <div class="img-bg">
-                                                <figure>
-<img ng-if="s.image" ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
-                                                </figure>
-
-                                            </div>
-                                            <div class="race-text" ui-sref="deals-inner({id:s._id})">
-                                                <div class="min-hi">
-                                                    <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext | shorten :30">MONSOON DAY PASS!</h3>
-                                                    <div ng-if="!s.hometext">No data Found</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </flex-slider>
-                        </div>
-                    </div>
-                </div>-->
+               
             </div>
         </div>
         <div class="slant-col brand-blue pull-right">
@@ -209,11 +176,7 @@
                             <a ui-sref="parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
-                            <!--<a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                                class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>-->
-                            <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                           
                         </li>
                         <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
                             <a ui-sref="parties({id:s._id})">
@@ -319,14 +282,14 @@
                     <flex-slider class="carousel" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text=""
                         next-text="">
                         <li>
-                            <!--<div>-->
+                         
                                 <a ui-sref="snow-rush({id:s._id})">
                                     <img ng-src="{{s.image|uploadpath}}" noloading="true" style=" margin:0 auto;">
                                 </a>
                                 <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
                                     <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
                                 </div>
-                            <!--</div>-->
+                           
 
 
                         </li>
@@ -335,50 +298,7 @@
             </div>
         </div>
     </div>
-    <!--<div class="row">
-        <div class="col-md-6">
-            <div class="brand-blue">
-                <flex-slider class="carousel" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text=""
-                    next-text="">
-                    <li class="brand-blue">
-                        <div>
-                            <a ui-sref="snow-rush({id:s._id})">
-                                <img ng-src="{{s.image|uploadpath}}" noloading="true" style="width: 86%; margin:0 auto;">
-                            </a>
-                            <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
-                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
-                            </div>
-                        </div>
-
-
-                    </li>
-                </flex-slider>
-            </div>
-
-        </div>
-        <div class="col-md-6">
-            <div class="brand-blue">
-                <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="350" animation="slide" animationLoop="true"
-                    prev-text="" next-text="">
-                    <li>
-                        <a ui-sref="event-inner({id:s._id})">
-                            <div class="race relative">
-                                <div class="img-bg" ng-if="s.image">
-                                    <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
-                                </div>
-                                <div class="race-text race-textbg" ui-sref="event-inner({id:s._id})">
-                                    <div class="min-hi">
-                                        <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"></h3>
-                                        <div ng-if="!s.hometext">No Data Found</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </flex-slider>
-            </div>
-        </div>
-    </div>-->
+    
     <div class="slant-row reverse">
         <div class="slant-col ">
             <div class="slant-in  brand-green">
