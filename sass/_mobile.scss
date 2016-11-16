@@ -3,6 +3,9 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  .updates{
+    margin-top: 15px;
+  }
   .blog{
   p,span{
     font-size: 12px;

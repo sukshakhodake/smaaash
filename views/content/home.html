@@ -103,14 +103,15 @@
 </div>
 <div class="container">
     <div class="row">
+<div class="col-md-6">
+    <div class="updated">
 
-    </div>
-    <div class="slant-row reversed">
-        <div class="slant-col ">
-            <div class="brand-green">
-                            <div class="slant-box pad0 full-height">
-                <p class=" capitalize brand-white border-bot lastmin" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
+                       <div class="slant-box pad0 relative">
+                <p class=" capitalize brand-white border-bot" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
                 <h2 class="brand-white ">Host A Party</h2>
+                           
+              
+               
                 <div class="mover extra" ng-if="hostParty">
                     <flex-slider class="carousel relative" item-margin="0" flex-slide="s in hostParty track by $index" animation="slide" animationLoop="true"
                         prev-text="" next-text="">
@@ -120,9 +121,9 @@
                             </a>
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                            <div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
+                            <!--<div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
                                 <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                         <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                             <a ui-sref="parties({id:s._id})">
@@ -135,29 +136,29 @@
                             </a>
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                            <div class="carousel-text bg-black">
+                            <!--<div class="carousel-text bg-black">
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                         <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                             <a ui-sref="parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
-                            <div class="carousel-text bg-black">
+                            <!--<div class="carousel-text bg-black">
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                     </flex-slider>
                     <div ng-if="!hostParty">No Data Found</div>
                 </div>
 
             </div>
-               
-            </div>
-        </div>
-        <div class="slant-col brand-blue pull-right">
-            <div class="slant-box pad0 full-height">
-                <p class=" capitalize brand-white border-bot lastmin" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="updates">
+ <div class="slant-box pad0">
+                <p class=" capitalize brand-white border-bot" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
                 <h2 class="brand-white ">Host A Party</h2>
                 <div class="mover extra" ng-if="hostParty">
                     <flex-slider class="carousel relative" item-margin="0" flex-slide="s in hostParty track by $index" animation="slide" animationLoop="true"
@@ -168,9 +169,9 @@
                             </a>
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                            <div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
+                            <!--<div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
                                 <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                         <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                             <a ui-sref="parties({id:s._id})">
@@ -184,25 +185,28 @@
                             </a>
                             <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                            <div class="carousel-text bg-black">
+                            <!--<div class="carousel-text bg-black">
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                         <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                             <a ui-sref="parties({id:s._id})">
                                 <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                             </a>
-                            <div class="carousel-text bg-black">
+                            <!--<div class="carousel-text bg-black">
                                 <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>
+                            </div>-->
                         </li>
                     </flex-slider>
                     <div ng-if="!hostParty">No Data Found</div>
                 </div>
 
             </div>
-        </div>
     </div>
+   
+</div>
+    </div>
+
     <div class="new-sliding">
         <div class="gallery">
             <div class="slidings">

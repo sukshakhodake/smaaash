@@ -1487,9 +1487,7 @@ img.fancybox-image {
     }
 }
 
-.pointer {
-    cursor: pointer;
-}
+
 
 .margno {
     p {
@@ -1805,8 +1803,6 @@ img.fancybox-image {
     }
 }
 
-
-
 .error {
     color: #ff0000;
 }
@@ -1817,8 +1813,8 @@ img.fancybox-image {
     font-size: 30px;
 }
 
-.slant-in .slant-box {
-    padding: 15px 7% 0 15px;
+.new-sliding{
+  margin-top: 15px;
 }
 
 .slant-in .slant-box .slidings .flexslider .flex-direction-nav .flex-prev {
@@ -1838,20 +1834,34 @@ img.fancybox-image {
     background-size: contain;
 }
 
-.reversed,
-.reversing {
-    .full-height {
-        height: 385px;
-    }
+.updated,.updates {
+
     .slant-box {
-        h2 {
+        h2,p {
             position: absolute;
             z-index: 99;
-            left: 15px;
-            top: 10px;
+            top: 20px;
+        }
+        h2{
+              left: 10px;
+        }
+        p{
+            right:10px;
         }
     }
+    
 }
+.updates{
+.slant-box{
+     h2{
+              left: 20px;
+        }
+        p{
+            right:20px;
+        }
+}
+}
+
 
 .carousel-text {
     h3 {
@@ -2147,7 +2157,6 @@ img.fancybox-image {
         }
     }
     .social-ico{
-        // border-top: 2px solid #ccc;
     border-bottom: 2px solid #ccc;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -2203,7 +2212,6 @@ img.fancybox-image {
     }
 
 }
-
 
 .cam{
     p{
