@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload','webcam'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -87,11 +87,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         $scope.mySlides = data.data;
+        console.log("$scope.mySlides",$scope.mySlides);
         var i = 1;
         _.each($scope.mySlides, function(n) {
+            if (n.image) {
+              n.ordering = i;
+              i++;
+            }
 
-            n.ordering = i;
-            i++;
         });
         TemplateService.removeLoader();
     });
@@ -793,7 +796,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-   
+
 })
 
 .controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
