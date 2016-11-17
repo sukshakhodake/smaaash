@@ -1,5 +1,5 @@
 var adminurl = "http://104.155.129.33:82/"; //server
-// var adminurl = "http://192.168.1.102:1337/";
+// var adminurl = "http://192.168.0.105:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
@@ -350,6 +350,14 @@ var navigationservice = angular.module('navigationservice', [])
             $http({
                 url: adminurl + 'leader/getAllLeader',
                 method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+        getBlog: function(blogObj,callback) {
+            $http({
+                url: adminurl + 'blog/findLimited',
+                method: 'POST',
+                data:blogObj,
                 withCredentials: true
             }).success(callback);
         },

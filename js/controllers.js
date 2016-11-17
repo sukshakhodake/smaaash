@@ -144,6 +144,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
+            console.log("deals",  $scope.deals);
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
@@ -2121,6 +2122,47 @@ $timeout(function() {
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    // NavigationService.getBlog(objectBlog,function(data){
+    //
+    // })
+
+    $scope.objectfilter = {};
+    $scope.objectfilter.pagenumber = 0;
+    $scope.objectfilter.pagesize = 6;
+    $scope.objectfilter.city = $.jStorage.get("cityid");
+    $scope.noviewmore = true;
+    $scope.blogs = [];
+    $scope.notAvailable = false;
+    $scope.fetchData = function() {
+        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        NavigationService.getBlog($scope.objectfilter, function(data) {
+            console.log(data.data.totalpages);
+            console.log("getStars", data.data);
+            if (data.data.data.length === 0) {
+                $scope.notAvailable = true;
+            } else {
+                $scope.notAvailable = false;
+            }
+            if (data.value) {
+                console.log($scope.objectfilter.pagenumber);
+                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+                    _.each(data.data.data, function(n) {
+                        // console.log(n);
+                        $scope.blogs.push(n);
+                    });
+                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                        $scope.noviewmore = false;
+                    }
+                } else {
+                    console.log("in else last array");
+                    $scope.noviewmore = false;
+                }
+            }
+
+        })
+    };
+    $scope.fetchData();
 
 })
 
