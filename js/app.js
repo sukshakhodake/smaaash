@@ -515,6 +515,32 @@ firstapp.filter('uploadpath', function () {
         }
     };
 });
+firstapp.filter('uploadprofilepicture', function () {
+    return function (input, width, height, style) {
+        console.log(input);
+        var other = "";
+        if (width && width != "") {
+            other += "&width=" + width;
+        }
+        if (height && height != "") {
+            other += "&height=" + height;
+        }
+        if (style && style != "") {
+            other += "&style=" + style;
+        }
+        if (input) {
+            if (input.indexOf('https://') == -1) {
+                return imgpath + "?file=" + input + other;
+
+            } else {
+               
+                return input;
+            }
+        }else{
+            return 'img/profile/female.png';
+        }
+    };
+});
 
 firstapp.config(function ($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);

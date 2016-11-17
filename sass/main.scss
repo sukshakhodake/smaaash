@@ -1947,10 +1947,13 @@ img.fancybox-image {
 .profile-detail {
     padding: 0;
     border: 2px solid #000;
-    background-image: url("../img/profile/female.png");
+    // background-image: url("../img/profile/female.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 172px;
+    img{
+        width: 100%;
+    }
 }
 
 .badge {
@@ -1966,6 +1969,7 @@ img.fancybox-image {
 }
 
 .avatar {
+    padding: 25px 0px 10px;
     .close {
         position: absolute;
         top: -24px;
@@ -2278,7 +2282,7 @@ figure:hover img{
 
 }
 
-.photos{
+.photos,.btn-upload{
     height: 90px;
     width: 125px;
     padding-top: 25px;
@@ -2291,6 +2295,31 @@ figure:hover img{
     }
 }
 
+.points{
+       .btn-primary{
+           border:none;
+    &:hover{
+        background-color: $brand-purple !important;
+    }
+    } 
+    // .img-box{
+    //         width: 130px;
+    // height: 90px;
+    // position: absolute;
+    // img{
+    //     width:100%;
+    // }
+    // }
+}
+.btn-upload{
+    .btn-primary{
+        opacity: 0;
+    padding: 10px;
+    &:hover{
+        background-color: $brand-purple !important;
+    }
+    }
+}
 
 @import "ruchira";
 @import "mobile";

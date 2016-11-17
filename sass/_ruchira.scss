@@ -2920,7 +2920,28 @@ button {
   }
 }
 
-
 .new-slider{
   margin-top: 30px;
+}
+
+//avatar
+.avt{
+  display: inline-block;
+    margin-right: -4px;
+    margin-top: -6px;
+}
+.avatars, .avatarss {
+    background-image: url(../img/avatar/lady.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 250px;
+    height: 200px;
+    background-color: #01a69a;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+.avatarss{
+    background-image: url("../img/avatar/lady.png");
+    margin-left: -2px;
 }
