@@ -1457,7 +1457,7 @@ ul {
 .attractions,
 .stars,
 .leadership,
-.sponsors {
+.sponsors,.deals2 ,.events1{
   .pink-button {
     height: 50px;
     width: 50px;
@@ -1529,7 +1529,11 @@ ul {
     margin-left: 3px;
   }
 }
-
+.events1{
+  .new-detail{
+    min-height: 296px;
+  }
+}
 .sponsors {
   .greeny {
     text-decoration: underline;
@@ -2573,7 +2577,7 @@ button {
   }
 }
 
-.attractions {
+.attractions,.deals2,.events1 {
   .button-set {
     button {
       width: 100%;
@@ -2649,9 +2653,9 @@ button {
   }
 }
 
-.attractions,
+.attractions
 .stars,
-.custom {
+.custom,.deals2,.events1 {
   .col-md-3:nth-child(6n+1),
   .col-md-4:nth-child(6n+1) {
     .karting-championship {
