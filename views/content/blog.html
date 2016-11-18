@@ -20,6 +20,8 @@
  <div class="row">
         <div class="col-md-8">
             <div class="row">
+              <div ng-if="message" class="text-center">Nothing Available</div>
+              <div ng-if="notAvailable" class="text-center">Nothing Available</div>
                    <div class="col-md-6" ng-repeat="data in blogs">
                     <div class="race-eve relative margno">
                         <div class="img-bg">
@@ -58,114 +60,7 @@
              </div>
                     </div>
                 </div>
-                     <!-- <div class="col-md-6">
-                    <div class="race-eve relative margno">
-                        <div class="img-bg">
-                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
-                        </div>
-                                    <div class="new-detail">
-                 <h3 class="margin0 bluey  pointer">smaash cricket</h3>
-                 <span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Jan,2016</span>
-                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> 01:20 p.m</span>
-                         <div class="button-set">
-                                <ul class="social-icons list-inline inline-block">
-                                    <p class="inline-block">Share</p>
-                                    <li>
-                                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="more inline-block">
-
-
-                                    <button class="uppercase green" ng-click="imagesmodal();">know more</button>
-
-                                </div>
-
-                            </div>
-                                               <div class="love">
-                <button class="uppercase" ><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>like</button>
-              </div>
-             </div>
-                    </div>
-                </div> -->
-                       <!-- <div class="col-md-6">
-                    <div class="race-eve relative margno">
-                        <div class="img-bg">
-                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
-                        </div>
-                                    <div class="new-detail">
-                 <h3 class="margin0 bluey  pointer">smaash cricket</h3>
-                 <span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Jan,2016</span>
-                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> 01:20 p.m</span>
-                         <div class="button-set">
-                                <ul class="social-icons list-inline inline-block">
-                                    <p class="inline-block">Share</p>
-                                    <li>
-                                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="more inline-block">
-
-
-                                    <button class="uppercase green" ng-click="imagesmodal();">know more</button>
-
-                                </div>
-
-                            </div>
-                                               <div class="love">
-                <button class="uppercase" ><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>like</button>
-              </div>
-             </div>
-                    </div>
-                </div> -->
-                       <!-- <div class="col-md-6">
-                    <div class="race-eve relative margno">
-                        <div class="img-bg">
-                            <img src="img/new/newdeals.png" class="img-responsive" alt="">
-                        </div>
-                                    <div class="new-detail">
-                 <h3 class="margin0 bluey  pointer">smaash cricket</h3>
-                 <span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Jan,2016</span>
-                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> 01:20 p.m</span>
-                         <div class="button-set">
-                                <ul class="social-icons list-inline inline-block">
-                                    <p class="inline-block">Share</p>
-                                    <li>
-                                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="more inline-block">
-
-
-                                    <button class="uppercase green" ng-click="imagesmodal();">know more</button>
-
-                                </div>
-
-                            </div>
-                                               <div class="love">
-                <button class="uppercase" ><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>like</button>
-              </div>
-             </div>
-                    </div>
-                </div> -->
+                
             </div>
             <div class="loading">
               <p class=" load-more text-center margin0 pointer" ng-if="noviewmore" ng-click="fetchData()">Load More...</p>
