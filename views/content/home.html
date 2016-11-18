@@ -75,11 +75,7 @@
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                            </figure>
 
-                        </a>
-                        <!--<a >
-                                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
-                                </a>-->
-
+                        </a>                     
                      </div>
                      <div class="race-text whites" ui-sref="whats-new({id:s.type._id})">
 
@@ -100,13 +96,9 @@
    <div class="row">
       <div class="col-md-6">
          <div class="updated">
-
             <div class="slant-box pad0 relative">
                <p class=" capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id})">view all</p>
                <h2 class="brand-white ">Deals and Packages</h2>
-
-
-
                <div class="mover extra">
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in deals track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
@@ -134,10 +126,7 @@
                         <a ui-sref="parties({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
-                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                        <!--<div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
-                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>                     
                      </li>
                      <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                         <a ui-sref="parties({id:s._id})">
@@ -149,18 +138,12 @@
                         <a ui-sref="parties({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
-                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                        <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>                     
                      </li>
                      <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                         <a ui-sref="parties({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
-                        </a>
-                        <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                        </a>                     
                      </li>
                   </flex-slider>
                   <div ng-if="!hostParty">No Data Found</div>
@@ -212,19 +195,13 @@
             <div class="slant-box pad0 relative">
                <p class=" capitalize brand-white border-bot" ui-sref="event({id:events[0].type._id})">view all</p>
                <h2 class="brand-white ">events</h2>
-
-
-
                <div class="mover extra" >
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in events track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li >
                         <a ui-sref="event-inner({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
-                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                        <!--<div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
-                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>                     
                      </li>
                      <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                         <a ui-sref="parties({id:s._id})">
@@ -235,18 +212,12 @@
                         <a ui-sref="parties({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
-                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                        <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>                    
                      </li>
                      <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                         <a ui-sref="parties({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
-                        </a>
-                        <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
+                        </a>                
                      </li>
                   </flex-slider>
                   <div ng-if="!hostParty">No Data Found</div>
@@ -267,9 +238,6 @@
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                        <!--<div class="carousel-text bg-black" ui-sref="parties({id:s._id})">
-                                <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
                      </li>
                      <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                         <a ui-sref="parties({id:s._id})">
@@ -282,17 +250,11 @@
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
-                        <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
                      </li>
                      <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                         <a ui-sref="parties({id:s._id})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
-                        <!--<div class="carousel-text bg-black">
-                                <h3 class="brand-white uppercase title  text-center tops" ng-bind-html="s.hometext | shorten :30"></h3>
-                            </div>-->
                      </li>
                   </flex-slider>
                   <div ng-if="!hostParty">No Data Found</div>
@@ -303,68 +265,6 @@
 
       </div>
    </div>
-   <!--<div class="slant-row reversing">
-        <div class="slant-col">
-            <div class="slant-in brand-blue ">
-                <div class="slant-box full-height">
-                    <h2 class="brand-white pull-left l20">events</h2>
-                    <p class="pull-right  capitalize brand-white border-bot" ui-sref="event({id:events[0].type._id})">view all</p>
-                    <div class="clearfix"></div>
-                    <div class="mover">
-                        <div class="slidings">
-                            <flex-slider class="carousel" flex-slide="s in events track by $index" item-width="350" animation="slide" animationLoop="true"
-                                prev-text="" next-text="">
-                                <li>
-                                    <a ui-sref="event-inner({id:s._id})">
-                                        <div class="race relative">
-                                            <div class="img-bg" ng-if="s.image">
-                                                <figure>
- <img src="{{s.image|uploadpath}}" class="img-responsive" alt="">
-                                                </figure>
-
-                                            </div>
-                                            <div class="race-text race-textbg" ui-sref="event-inner({id:s._id})">
-                                                <div class="min-hi">
-                                                    <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"></h3>
-                                                    <div ng-if="!s.hometext">No Data Found</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </flex-slider>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slant-col   pull-right">
-            <div class="slant-box pad0 full-height change">
-                <h2 class="brand-white ">Attractions</h2>
-                <p class="pull-right  capitalize brand-white border-bot lastmin" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
-                <div class="mover" ng-if="attraction">
-
-                    <flex-slider class="carousel" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text=""
-                        next-text="">
-                        <li>
-
-                                <a ui-sref="snow-rush({id:s._id})">
-                                    <img ng-src="{{s.image|uploadpath}}" noloading="true" style=" margin:0 auto;">
-                                </a>
-                                <div class="carousel-text bg-black" ui-sref="attractions({id:s.type._id})">
-                                    <h3 class="brand-white uppercase title  pointer text-center tops" ng-bind-html="s.hometext"></h3>
-                                </div>
-
-
-
-                        </li>
-                    </flex-slider>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
    <div class="slant-row reverse mt15">
       <div class="slant-col ">
          <div class="slant-in  brand-green">

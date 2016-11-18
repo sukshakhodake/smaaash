@@ -650,6 +650,17 @@ margin: 20px auto;
     +.slant-in {
         margin-top: 20px;
     }
+     &:before {
+       width: 50%;
+        height: 100%;
+        @include position(absolute,
+        null -20% null null);
+     }
+     &.brand-darkblue {
+         &:before {
+             background-color: $brand-darkblue;
+         }
+    }
     .slant-box {
         padding: 15px 7% 0;
         .slidings {
@@ -897,6 +908,21 @@ margin: 20px auto;
         content: "\f106";
     }
 }
+.slant-row {
+    overflow: hidden;
+   margin-bottom: 15px;
+ }
+ 
+ .slant-col {
+     position: relative;
+    width: 49%;
+     float: left;
+     &.brand-blue {
+         &:before {
+             background-color: $brand-blue;
+         }
+     }
+ }
 
 //*footer ends*//
 .landing-kartbanner {
