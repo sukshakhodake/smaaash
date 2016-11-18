@@ -241,6 +241,13 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ProfileCtrl'
     })
 
+        .state('recharge', {
+        url: "/recharge",
+        templateUrl: "views/template.html",
+        controller: 'RechargeCtrl'
+    })
+
+
 
     .state('confirm-order', {
         url: "/confirm-order",

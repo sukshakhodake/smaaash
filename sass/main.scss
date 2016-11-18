@@ -412,7 +412,7 @@ $menu-height: 80px !default;
   .enquiry-forms{
       padding: 50px 0;
   }
-.reset-password{
+.reset-password,.recharge-main{
   background-image: url("../img/new/bgpurple.png");
    background-repeat: no-repeat;
     background-size: cover;
@@ -435,6 +435,16 @@ margin: 20px auto;
     }
 
 }
+
+.recharge-main{
+background-image: none;
+.fa-inr{
+    position: absolute;
+    top: 14px;
+    left: 6px;
+}
+}
+
 .block {
     margin-left: 15px;
     display: block;
