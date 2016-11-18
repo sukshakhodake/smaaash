@@ -113,10 +113,6 @@ body {
     color: #FB5627;
 }
 
-.cdsROW.narrow .cdsLocName {
-    opacity: 1;
-}
-
 .brand-red {
     background-color: $brand-red;
 }
@@ -360,9 +356,8 @@ $menu-height: 80px !default;
 }
 
 .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+     @include position(absolute,
+        10px 10px null null);
 }
 
 .backdroped {
@@ -376,409 +371,6 @@ $menu-height: 80px !default;
     }
 }
 
-//*slider ends*//
-//*slant1 row first starts*//
-.slant1 {
-    margin-bottom: 15px;
-    .comic-pane {
-        width: 578px;
-        height: 417px;
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    .text {
-        width: 524px;
-        max-height: 507px;
-        height: 419px;
-        padding-right: 28px;
-        @include position(absolute,
-        null null null-2px);
-        @include transform(skew(-15deg));
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        figure {
-            @include transform(skew(15deg));
-            margin-top: 8px;
-        }
-    }
-    .text:before {
-        content: "";
-        width: 60px;
-        height: 200px;
-        border-left: 1px solid rgba(0, 0, 0, 0.05);
-        display: block;
-        @include position(absolute,
-        null null null-27px);
-        @include transform(skew(15deg));
-        background: $brand-green;
-        -webkit-backface-visibility: hidden;
-    }
-    .text p {
-        width: 260px;
-        margin: 15px 0 0 -30px;
-        @include transform(skew(15deg));
-        color: #fff;
-        font-size: 30px;
-        line-height: 1.2em;
-    }
-    .comic-panes {
-        width: 649px;
-        height: 417px;
-        margin: 0 auto;
-        position: relative;
-        left: -62px;
-        overflow: hidden;
-        @include transform(skew(-15deg));
-    }
-    .images {
-        width: 50%;
-    }
-    .text1 {
-        width: 510px;
-        max-height: 507px;
-        height: 208px;
-        padding-right: 28px;
-        @include position(absolute,
-        null null null 29px);
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        figure {
-            @include transform(skew(15deg));
-            margin: -7% 0 0 12%;
-        }
-    }
-    .text1 p {
-        width: 260px;
-        margin: 15px 0 0 16px;
-        @include transform(skew(15deg));
-        color: #fff;
-        font-size: 30px;
-        line-height: 1.2em;
-    }
-    .text1:before {
-        content: "";
-        width: 60px;
-        height: 208px;
-        border-left: 1px solid transparent!important;
-        display: block;
-        @include position(absolute,
-        null-27px null null);
-        @include transform(skew(15deg));
-        background: $brand-blue;
-        -webkit-backface-visibility: hidden;
-    }
-    .text2 {
-        width: 570px;
-        max-height: 507px;
-        height: 208px;
-        padding-right: 28px;
-        @include position(absolute,
-        55% null null 29px);
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        figure {
-            @include transform(skew(15deg));
-            margin: 0 0 0 25%;
-        }
-    }
-    .text2 p {
-        width: 260px;
-        margin: 15px 0 0 16px;
-        @include transform(skew(15deg));
-        color: #fff;
-        font-size: 30px;
-        line-height: 1.2em;
-    }
-    .text2:before {
-        content: "";
-        height: 208px;
-        width: 60px;
-        border-left: 1px solid transparent!important;
-        display: block;
-        @include position(absolute,
-        null-27px null null);
-        @include transform(skew(15deg));
-        background: $brand-darkblue;
-        -webkit-backface-visibility: hidden;
-    }
-}
-
-.slant1 {
-    .comic-panes {
-        .text1,
-        .text2 {
-            .slidings {
-                .flexslider {
-                    background-color: $brand-blue;
-                    border: none;
-                }
-                .flex-control-nav,
-                .flex-prev {
-                    display: none;
-                }
-                .slides {
-                    li {
-                        @include transform(skew(10deg));
-                        margin: 0 38px;
-                    }
-                }
-                .flex-direction-nav a {
-                    width: 80px;
-                    height: 75px;
-                }
-                .flex-direction-nav a:before {
-                    width: 80px;
-                    height: 75px;
-                    content: url("../img/home/arrow.png");
-                }
-            }
-        }
-        .text2 {
-            .slidings {
-                .flexslider {
-                    background-color: $brand-darkblue;
-                    border: none;
-                }
-            }
-        }
-    }
-}
-
-//*slant1 row first ends*//
-//*slant2 starts*//
-.slant2 {
-    position: relative;
-    margin-bottom: 15px;
-    .comic-pane {
-        width: 560px;
-        height: 323px;
-        top: 0;
-        @include transform(skew(-10deg));
-        position: absolute;
-        overflow: hidden;
-    }
-    .comic-panes {
-        width: 592px;
-        height: 417px;
-        margin: 0 auto;
-        position: relative;
-        left: -3px;
-        overflow: hidden;
-    }
-    .games-images {
-        display: block;
-        width: 558px;
-        height: 323px;
-        @include position(absolute,
-        0 null null-27px);
-        @include transform(skew(10deg));
-        background-color: $brand-yellow;
-        background-image: url("../img/home/aunty.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        .arrows {
-            width: 10%;
-            @include position( absolute,
-            null 0px 32% null);
-            @include transform(translate(-50%,
-            -50%));
-        }
-    }
-    .text1 {
-        width: 543px;
-        max-height: 507px;
-        height: 150px;
-        padding-right: 28px;
-        @include position( absolute,
-        null null null 29px);
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        @include transform(skew(-10deg));
-        figure {
-            margin: -7% 0 0 12%;
-        }
-    }
-    .text1 p {
-        width: 260px;
-        margin: 15px 0 0 16px;
-        @include transform(skew(10deg));
-        color: #fff;
-        font-size: 30px;
-        line-height: 1.2em;
-    }
-    .text1:before {
-        content: "";
-        width: 60px;
-        height: 150px;
-        border-left: 1px solid transparent!important;
-        display: block;
-        @include position( absolute,
-        null null null-27px);
-        @include transform(skew(10deg));
-        background: $brand-purple;
-        -webkit-backface-visibility: hidden;
-    }
-    .text2 {
-        width: 510px;
-        max-height: 507px;
-        height: 150px;
-        padding-right: 28px;
-        @include position( absolute,
-        42% null null 29px);
-        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        @include transform(skew(-10deg));
-        figure {
-            @include transform(skew(10deg));
-            margin: 0 0 0 12%;
-        }
-    }
-    .text2 p {
-        width: 260px;
-        margin: 15px 0 0 16px;
-        @include transform(skew(10deg));
-        color: #fff;
-        font-size: 30px;
-        line-height: 1.2em;
-    }
-    .text2:before {
-        content: "";
-        width: 60px;
-        height: 150px;
-        border-left: 1px solid transparent!important;
-        display: block;
-        @include position( absolute,
-        null null null-27px);
-        @include transform(skew(10deg));
-        background: $brand-blue;
-        -webkit-backface-visibility: hidden;
-    }
-}
-
-//*slant2 ends*//
-//*slant1 last row starts*//
-.slant1 {
-    position: relative;
-    .comic-pane1 {
-        width: 500px;
-        height: 417px;
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden;
-        left: -36px;
-        .social {
-            .social-media {
-                .fb {
-                    width: 45%;
-                    margin: 0 auto;
-                }
-                @include transform(skew(10deg));
-            }
-            .text {
-                width: 524px;
-                max-height: 507px;
-                height: 419px;
-                padding-right: 28px;
-                @include position( absolute,
-                null null null-95px);
-                @include transform(skew(-10deg));
-                box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1;
-                p {
-                    margin-left: 75px;
-                }
-            }
-        }
-    }
-    .comic-panes1 {
-        width: 700px;
-        height: 208px;
-        margin: 0 auto;
-        position: relative;
-        left: -140px;
-        overflow: hidden;
-        @include transform(skew(-10deg));
-        .social-media {
-            .twitter {
-                width: 90%;
-                margin: 40px 0;
-            }
-            @include transform(skew(10deg));
-        }
-        .text1 {
-            width: 616px;
-            max-height: 507px;
-            height: 208px;
-            padding-right: 28px;
-            @include position( absolute,
-            null null null 29px);
-            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-            p {
-                width: 260px;
-                margin: 15px 0 0 16px;
-                @include transform(skew(10deg));
-                color: #fff;
-                font-size: 30px;
-                line-height: 1.2em;
-            }
-        }
-        .text1:before {
-            content: "";
-            width: 60px;
-            height: 208px;
-            border-left: 1px solid transparent !important;
-            display: block;
-            position: absolute;
-            right: -27px;
-            @include position( absolute,
-            null-27px null null);
-            @include transform(skew(10deg));
-            background: $brand-pink;
-        }
-    }
-    .comic-paness {
-        width: 740px;
-        height: 195px;
-        margin: 0 auto;
-        position: relative;
-        left: -177px;
-        overflow: hidden;
-        @include transform(skew(-10deg));
-        top: 14px;
-        .social-media {
-            .instagram {
-                width: 90%;
-                margin: 0 10px;
-            }
-            @include transform(skew(10deg));
-        }
-        .text2 {
-            width: 630px;
-            max-height: 507px;
-            height: 208px;
-            padding-right: 28px;
-            @include position( absolute,
-            0px null null 29px);
-            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-        }
-        .text2:before {
-            content: "";
-            height: 195px;
-            width: 68px;
-            border-left: 1px solid transparent !important;
-            display: block;
-            @include position( absolute,
-            null-49px null null);
-            @include transform(skew(10deg));
-            background: $brand-red;
-        }
-    }
-}
-
-//*slant1 last row ends*//
 .social-medias {
     margin-top: -80px;
 }
@@ -849,10 +441,9 @@ margin: 20px auto;
 }
 
 .logo-smaash {
-    position: absolute;
-    top: 10px;
+    @include position( absolute,
+    10px null null 20px);  
     z-index: 999;
-    left: 20px;
     height: $menu-height - 10px;
     img {
         width: auto;
@@ -904,18 +495,14 @@ margin: 20px auto;
 
 .buttons {
     width: 10%;
-    position: absolute;
-    bottom: 3%;
-    left: 42%;
+    @include position(absolute,null null 3% 42%);
     @include transform(translate(-50%,
     -50%));
 }
 
 .arrows {
     width: 10%;
-    position: absolute;
-    right: -6%;
-    bottom: 32%;
+    @include position(absolute, null -6% 32% null);
     @include transform(translate(-50%,
     -50%));
 }
@@ -1024,8 +611,6 @@ margin: 20px auto;
     }
 }
 
-
-
 .ting {
     display: inline-block;
 }
@@ -1060,37 +645,10 @@ margin: 20px auto;
     }
 }
 
-.slant-row {
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.slant-col {
-    position: relative;
-    width: 49%;
-    float: left;
-    &.brand-blue {
-        &:before {
-            background-color: $brand-blue;
-        }
-    }
-}
-
 .slant-in {
     position: relative;
     +.slant-in {
         margin-top: 20px;
-    }
-    &:before {
-        width: 50%;
-        height: 100%;
-        @include position(absolute,
-        null -20% null null);
-    }
-    &.brand-darkblue {
-        &:before {
-            background-color: $brand-darkblue;
-        }
     }
     .slant-box {
         padding: 15px 7% 0;
@@ -1128,9 +686,7 @@ margin: 20px auto;
 .know {
     display: block;
     color: #fff;
-    position: absolute;
-    top: 70%;
-    left: 30%;
+    @include position (absolute, 70% null null 30%);
     transform: translate(-50%, -50%);
     &:hover {
         color: $brand-yellow;
@@ -1152,9 +708,7 @@ margin: 20px auto;
     }
 }
 
-.reverse,
-.reversed,
-.reversing {
+.reverse{
     .mover {
         right: 0;
         left: auto;
@@ -1307,10 +861,8 @@ margin: 20px auto;
     padding: 10px;
     background-color: #FFFACF;
     border: 2px solid black;
-    position: absolute;
+    @include position (absolute, 45px 9px null null);
     z-index: 9;
-    top: 45px;
-    right: 9px;
     border-radius: 5px;
     &:before {
         content: "";
@@ -1319,9 +871,7 @@ margin: 20px auto;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
         border-bottom: 5px solid black;
-        position: absolute;
-        right: 5px;
-        top: -7px;
+         @include position (absolute, -7px 5px null null);
     }
 }
 
@@ -1468,12 +1018,6 @@ img.fancybox-image {
 }
 
 //leadership
-.leadership {
-    img {
-        margin: 0 auto;
-    }
-}
-
 .enquiry-form {
     padding: 20px;
     textarea {
@@ -1489,8 +1033,6 @@ img.fancybox-image {
     }
 }
 
-
-
 .margno {
     p {
         margin: 0 !important;
@@ -1499,12 +1041,8 @@ img.fancybox-image {
 
 .overlay,
 .overlays {
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    @include position (absolute, 0px 0px 0px 0px);
+     z-index: 999;
     display: block;
     height: 600px;
     background: rgba(0, 0, 0, 0.0);
@@ -1592,16 +1130,12 @@ img.fancybox-image {
             padding-top: 50px;
         }
         .required {
-            position: absolute;
-            top: 5px;
-            right: 10px;
+            @include position (absolute, 5px 10px null null);
             font-size: 10px;
             color: $brand-red;
         }
         .down {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+             @include position (absolute, 10px 10px null null);
             color: #000;
         }
         .prize-name {
@@ -1696,74 +1230,16 @@ img.fancybox-image {
     }
 }
 
-.bg-eve-tb {
-    padding: 2px 0px;
-    background: #000000;
-    font-family: $body-font;
-}
-
-.race-eve {
-    border: 1px solid #fff;
-    margin-bottom: 20px;
-    cursor: pointer;
-    .race-text {
-        background-color: #000;
-        padding: 25px 10px;
-        h3 {
-            font-family: $body-font;
-            font-size: 20px;
-        }
-        .min-h {
-            min-height: 20px;
-        }
-    }
-    .pink-button {
-        height: 40px;
-        width: 40px;
-        position: absolute;
-        top: 75%;
-        right: 0;
-        transform: translate(-50%, -50%);
-    }
-}
 
 .backg-deal {
     background-image: url("../img/deals/bg-hdr-deal.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-top: -8px;
-    // height: 70px;
     .nav-name {
         padding: 35px 0 0;
         font-size: 30px;
         height: 80px;
-    }
-}
-
-.bg-deal-tb {
-    padding: 2px 0px;
-    background: #000000;
-    font-family: $body-font;
-}
-
-.race-deal {
-    border: 1px solid #fff;
-    height: 251px;
-    .race-text {
-        background-color: #000;
-        padding: 25px 10px;
-        h3 {
-            font-family: $body-font;
-            font-size: 20px;
-        }
-    }
-    .pink-button {
-        height: 40px;
-        width: 40px;
-        position: absolute;
-        top: 85%;
-        right: 0;
-        transform: translate(-50%, -50%);
     }
 }
 
@@ -1783,9 +1259,7 @@ img.fancybox-image {
 }
 
 .fancybox-close {
-    position: absolute;
-    top: 0;
-    right: 0;
+  @include position(absolute, 0px 0px null null);
 }
 
 // .html5-video-player .video-stream{
@@ -1837,7 +1311,6 @@ img.fancybox-image {
 }
 
 .updated,.updates {
-
     .slant-box {
         h2,p {
             position: absolute;
@@ -1850,8 +1323,7 @@ img.fancybox-image {
         p{
             right:10px;
         }
-    }
-    
+    }   
 }
 .updates{
 .slant-box{
@@ -1864,16 +1336,11 @@ img.fancybox-image {
 }
 }
 
-
 .carousel-text {
     h3 {
         text-align: left;
         margin-left: 15px;
     }
-}
-
-.flex-viewport {
-    width: 100%;
 }
 
 .contacts {
@@ -1908,8 +1375,8 @@ img.fancybox-image {
         padding: 10px;
     }
 }
-
 //host-party final css//
+
 .packages {
     margin-top: 50px;
 }
@@ -1927,7 +1394,6 @@ img.fancybox-image {
     margin-top: 40px;
 }
 
-//
 .helping {
     background-image: url("../img/event/bg-hdr-event.png");
     background-repeat: no-repeat;
@@ -1947,9 +1413,6 @@ img.fancybox-image {
 .profile-detail {
     padding: 0;
     border: 2px solid #000;
-    // background-image: url("../img/profile/female.png");
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 172px;
     img{
         width: 100%;
@@ -1957,9 +1420,7 @@ img.fancybox-image {
 }
 
 .badge {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include position (absolute, 0px null null 0px);
     background-color: transparent;
 }
 
@@ -1971,9 +1432,7 @@ img.fancybox-image {
 .avatar {
     padding: 25px 0px 10px;
     .close {
-        position: absolute;
-        top: -24px;
-        right: -24px;
+        @include position (absolute, -24px -24px null null);
         opacity: 1;
     }
     background-image:url("../img/profile/about-bg.png");
@@ -1987,11 +1446,7 @@ img.fancybox-image {
 
 .profile {
     .profile-bg {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+      @include position(absolute, 0px 0px 0px 0px);
         background-image: url("../img/profile/amrit.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -2067,9 +1522,7 @@ img.fancybox-image {
 
 .tab li.active-tab:after {
     content: "";
-    position: absolute;
-    top: 49px;
-    left: 0;
+    @include position(absolute, 49px null null 0px);
     width: 0;
     height: 0;
     border-top: 15px solid #000;
@@ -2141,10 +1594,7 @@ img.fancybox-image {
         }
     }
     .race-text{
-        position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+        @include position (absolute, null 0px 0px 0px);
     background-color: rgba(0, 0, 0, 0.56);
     padding: 10px;
     h3{
@@ -2192,8 +1642,7 @@ img.fancybox-image {
 }
 .button-bg{
         width: 60px;
-    position: absolute;
-    top: 20px;
+        @include position (absolute,20px null null null);
 }
 .symbols{
     span{
@@ -2263,24 +1712,6 @@ border-bottom: 2px solid #000;
 .news{
     padding-bottom: 20px;
 }
-//practice
-.img-bg{
-
-
-figure{
-  width: 100%;
-  height: auto;
-  overflow: hidden;
- img{
-        transition: all 800ms ease;
- }
-}
-figure:hover img{
-  -webkit-transform: scale3d(1.2, 1.2, 1);
-          transform: scale3d(1.2, 1.2, 1);
-}
-
-}
 
 .photos,.btn-upload{
     height: 90px;
@@ -2301,16 +1732,7 @@ figure:hover img{
     &:hover{
         background-color: $brand-purple !important;
     }
-    } 
-    // .img-box{
-    //         width: 130px;
-    // height: 90px;
-    // position: absolute;
-    // img{
-    //     width:100%;
-    // }
-    // }
-}
+    } }
 .btn-upload{
     .btn-primary{
         opacity: 0;
