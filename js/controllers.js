@@ -2704,13 +2704,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
 
-        // $scope.reset=function(){
-        // $uibModal.open({
-        // animation:true,
-        // templateUrl:"views/modal/reset.html",
-        // scope:$scope,
-        // })
-        // };
+        $scope.otp=function(){
+        $uibModal.open({
+        animation:true,
+        templateUrl:"views/modal/otp.html",
+        scope:$scope,
+         windowClass: "no-white-bg"
+        })
+        };
 
         $scope.resets = function() {
             $scope.asd = $uibModal.open({
