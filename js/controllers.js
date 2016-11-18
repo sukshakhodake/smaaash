@@ -578,7 +578,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.fetchData();
     $scope.message = false;
-    $scope.fetchSearchedData = function() {
+    $scope.fetchSearchedData = function(objectfilter) {
         $scope.objectfilter.pagenumber = 0;
         $scope.objectfilter.pagesize = 6;
         $scope.stars = [];
@@ -2359,9 +2359,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    // NavigationService.getBlog(objectBlog,function(data){
-    //
-    // })
+
 
     $scope.objectfilter = {};
     $scope.objectfilter.pagenumber = 0;
@@ -2399,6 +2397,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
     $scope.fetchData();
+    $scope.message = false;
+    $scope.fetchSearchedData = function() {
+        $scope.objectfilter.pagenumber = 0;
+        $scope.objectfilter.pagesize = 6;
+        $scope.stars = [];
+        $scope.noviewmore = true;
+        $scope.objectfilter.city = $scope.objectfilter.city;
+
+        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        NavigationService.getBlog($scope.objectfilter, function(data) {
+            console.log(data.data.totalpages);
+
+            if (data.data.data.length === 0) {
+                $scope.message = true;
+            } else {
+                $scope.message = false;
+            }
+            if (data.value) {
+                console.log($scope.objectfilter.pagenumber);
+                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+                    _.each(data.data.data, function(n) {
+                        // console.log(n);
+                        $scope.stars.push(n)
+                    });
+                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                        $scope.noviewmore = false;
+                    }
+                } else {
+                    console.log("in else last array");
+                    $scope.noviewmore = false;
+                }
+            }
+            // TemplateService.removeLoader();
+        })
+    };
+
 
 })
 
