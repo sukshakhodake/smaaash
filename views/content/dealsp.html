@@ -22,12 +22,6 @@
               <div class="min-h">
                 <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :25" ui-sref="deals-inner({id:d._id})"></h3>
                   <p class="" ng-bind-html="d.description |htmlToPlaintext | shorten :140"></p>
-                <!--<p ng-hide="d.gameforarray==''">Game For:
-                  <span class="bluey capitalize">
-                             <span ng-repeat="per in d.gameforarray track by $index">{{per}} <span ng-if="$index<d.gameforarray.length-2">|</span>
-                  <span ng-if="$index==d.gameforarray.length-2">&</span> </span>
-                  </span>
-                </p>-->
               </div>
               <div class="button-set">
                 <button class="uppercase blue">buy now</button>
@@ -40,26 +34,6 @@
         </div>
         <div ng-if="msg" class="text-center">No Options Available As Per Your Criteria.</div>
       </div>
-            <!--<div class="row" ng-repeat="data in SingleDealsPackages">
-                <div class="col-md-4" ng-repeat="d in data">
-                    <div class="race-eve relative margno" ui-sref="deals-inner({id:d._id})">
-                        <div class="img-bg">
-                            <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="deals-inner({id:d._id})">
-                        </div>
-                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                            class="pink-button"><img src="img/home/button.png" class="pink-button img-responsive" alt="" ng-if="d.video"></a>
-
-                        <div class="race-text">
-
-                            <div class="min-h">
-                                <h3 class="margin0 brand-white" ng-bind-html="d.hometext | shorten :25"></h3>
-                                <h3 class="margin0" ng-if="!d.hometext">Nothing to show.</h3>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </div>
