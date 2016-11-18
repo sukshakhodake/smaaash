@@ -1,5 +1,5 @@
 <div class="deals-event" scrolldown>
-    <div class="landing-kartbanner" ng-style="{'background':'url('+detailEventsInner.banner+')no-repeat'}">
+    <div class="landing-kartbanner" ng-style="{'background':'url('+detailPromotionsInner.banner+')no-repeat'}">
         <div class="pink-butn" ng-click="scrollDown();">
             <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
         </div>
@@ -14,7 +14,7 @@
             <div class="slant-row">
                 <div class="slant-col">
                     <div class="slant-box full-height">
-                        <div ng-bind-html="detailEventsInner.description"></div>
+                        <div ng-bind-html="detailPromotionsInner.description"></div>
                         <div class="button-set">
                             <ul class="social-icons list-inline inline-block">
                                 <p class="inline-block">Share</p>
@@ -73,15 +73,19 @@
                 <div class="slant-col">
                     <div class="slant-box full-height">
                         <h2>PRIZES</h2>
-                        <div class="prize-name " ng-bind-html="detailEventsInner.prize">
-                        </div>
+                        <div class="prize-name " ng-bind-html="detailPromotionsInner.prize">
+                            </div>
+                        <div class="prize-name text-center " ng-if="detailPromotionsInner.prize === ''" >Nothing to show.</div>
+
                     </div>
                 </div>
                 <div class="slant-column pull-right">
                     <div class="slant-box half-height">
                         <h2>SCHEDULE</h2>
-                        <div class="prize-name " ng-bind-html="detailEventsInner.schedule">
+                        <div class="prize-name " ng-bind-html="detailPromotionsInner.schedule">
                         </div>
+                        <div class="prize-name text-center " ng-if="detailPromotionsInner.schedule === ''" >Nothing to show.</div>
+
                         <div class="button-sets">
                             <button class="uppercase green">Buy Now</button>
                             <button class="uppercase blue" ng-click="pdfmodal();">download</button>
@@ -91,7 +95,9 @@
             </div>
         </div>
         <div class="deals-details ">
-            <div ng-bind-html="detailEventsInner.deal "></div>
+            <div ng-bind-html="detailPromotionsInner.deal"></div>
+            <div class="prize-name text-center " ng-if="detailPromotionsInner.deal === ''" >Nothing to show.</div>
+
             <div class="button-set ">
                 <div class="more ">
                     <button class="uppercase brand-orangy ">terms and conditions</button>

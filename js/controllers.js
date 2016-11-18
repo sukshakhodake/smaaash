@@ -670,10 +670,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter = {};
     $scope.filter._id = $stateParams.id;
     $scope.msg = false;
+    $scope.singleAttraction1=[];
+    $scope.singleAttraction=[];
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
-            $scope.singleAttraction = data.data;
-            if ($scope.singleAttraction.length === 0) {
+          $scope.singleAttraction=data.data;
+            $scope.singleAttraction1 = _.chunk(data.data,3);
+
+            if ($scope.singleAttraction1.length === 0) {
+              console.log("imin");
                 $scope.msg = true;
             } else {
                 $scope.msg = false;
@@ -697,6 +702,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             });
             TemplateService.removeLoader();
+            console.log("$scope.singleAttraction1",$scope.singleAttraction1);
+            console.log("$scope.singleAttraction",$scope.singleAttraction);
         });
     }
     $scope.goTOSearch($scope.filter);
@@ -2009,7 +2016,7 @@ $timeout(function() {
     TemplateService.removeLoaderOn(1);
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         console.log("data", data);
-        $scope.promotion = data.data;
+        $scope.promotion = _.chunk(data.data,3);
         TemplateService.removeLoader();
     });
 
@@ -2022,11 +2029,7 @@ $timeout(function() {
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        console.log("data", data);
-        $scope.promotion = data.data;
-        TemplateService.removeLoader();
-    });
+
     $scope.today = function() {
         $scope.dt = new Date();
     };
@@ -2114,6 +2117,16 @@ $timeout(function() {
         }
         return '';
     }
+
+
+
+    $scope.myUrl = window.location.href;
+    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+        $scope.detailPromotionsInner = data.data;
+        console.log("$scope.detailPromotionsInner", $scope.detailPromotionsInner);
+        $scope.detailPromotionsInner.banner = $filter('uploadpath')($scope.detailPromotionsInner.banner);
+        TemplateService.removeLoader();
+    });
 })
 
 .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {

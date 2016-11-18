@@ -87,7 +87,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     })
 
   .state('promotion-inner', {
-        url: "/promotion-inner",
+        url: "/promotion-inner/:id",
         templateUrl: "views/template.html",
         controller: 'PromotionInnerCtrl'
     })
@@ -533,7 +533,7 @@ firstapp.filter('uploadprofilepicture', function () {
                 return imgpath + "?file=" + input + other;
 
             } else {
-               
+
                 return input;
             }
         }else{

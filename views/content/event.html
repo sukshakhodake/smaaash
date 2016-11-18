@@ -21,7 +21,7 @@
               </div>
               <div class="min-h">
                 <h3 class="margin0 bluey pointer" ng-bind-html="data.hometext | shorten :20" ui-sref="event-inner({id:data._id})"></h3>
-                 <p class=""  ng-bind-html="data.description |htmlToPlaintext | shorten :160"></p>
+                 <p class=""  ng-bind-html="data.description | htmlToPlaintext | shorten :130"></p>
                 <!--<p ng-hide="d.gameforarray==''">Game For:
                   <span class="bluey capitalize">
                              <span ng-repeat="per in d.gamef | shorten :160orarray track by $index">{{per}} <span ng-if="$index<d.gameforarray.length-2">|</span>
