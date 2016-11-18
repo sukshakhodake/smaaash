@@ -150,9 +150,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
 
-
+  TemplateService.removeLoader();
         } else {}
-        TemplateService.removeLoader();
+
     });
 
 
@@ -579,14 +579,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.fetchData();
     $scope.message = false;
     $scope.fetchSearchedData = function(objectfilter) {
-        $scope.objectfilter.pagenumber = 0;
-        $scope.objectfilter.pagesize = 6;
+        objectfilter.pagenumber = 0;
+        objectfilter.pagesize = 6;
         $scope.stars = [];
         $scope.noviewmore = true;
-        $scope.objectfilter.city = $scope.objectfilter.city;
+        objectfilter.city = $scope.objectfilter.city;
 
-        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
-        NavigationService.getStars($scope.objectfilter, function(data) {
+      objectfilter.pagenumber = objectfilter.pagenumber + 1;
+        NavigationService.getStars(objectfilter, function(data) {
             console.log(data.data.totalpages);
 
             if (data.data.data.length === 0) {
@@ -595,13 +595,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.message = false;
             }
             if (data.value) {
-                console.log($scope.objectfilter.pagenumber);
-                if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
+                console.log(objectfilter.pagenumber);
+                if (data.data.totalpages >= objectfilter.pagenumber) {
                     _.each(data.data.data, function(n) {
                         // console.log(n);
                         $scope.stars.push(n)
                     });
-                    if (data.data.totalpages === $scope.objectfilter.pagenumber) {
+                    if (data.data.totalpages === objectfilter.pagenumber) {
                         $scope.noviewmore = false;
                     }
                 } else {
@@ -2381,6 +2381,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.objectfilter.pagesize = 6;
     $scope.objectfilter._id = $.jStorage.get("cityid");
     $scope.noviewmore = true;
+    $scope.noviewmore1 = false;
     $scope.blogs = [];
     $scope.notAvailable = false;
     $scope.fetchData = function() {
@@ -2389,6 +2390,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(data.data.totalpages);
             console.log("getStars", data.data);
             if (data.data.data.length === 0) {
+              $scope.noviewmore = false;
+                $scope.noviewmore1 = true;
                 $scope.notAvailable = true;
             } else {
                 $scope.notAvailable = false;
