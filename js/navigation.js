@@ -85,6 +85,18 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
+        getOneBlog: function(id, callback) {
+            var data = {
+                _id: id,
+                // city: $.jStorage.get("cityid")
+            };
+            $http({
+                url: adminurl + 'blog/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
         getFoodGallery: function(id, callback) {
             var data = {
                 _id: id,
