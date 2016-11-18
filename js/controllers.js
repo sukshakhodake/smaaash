@@ -2373,7 +2373,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.objectfilter = {};
     $scope.objectfilter.pagenumber = 0;
     $scope.objectfilter.pagesize = 6;
-    $scope.objectfilter.city = $.jStorage.get("cityid");
+    $scope.objectfilter._id = $.jStorage.get("cityid");
     $scope.noviewmore = true;
     $scope.blogs = [];
     $scope.notAvailable = false;
