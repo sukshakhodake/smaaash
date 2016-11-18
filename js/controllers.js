@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload','webcam'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'webcam'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -87,12 +87,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         $scope.mySlides = data.data;
-        console.log("$scope.mySlides",$scope.mySlides);
+        console.log("$scope.mySlides", $scope.mySlides);
         var i = 1;
         _.each($scope.mySlides, function(n) {
             if (n.image) {
-              n.ordering = i;
-              i++;
+                n.ordering = i;
+                i++;
             }
 
         });
@@ -138,13 +138,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
-
+            console.log("$scope.content", $scope.content);
             $scope.attraction = $scope.content.Attraction;
             console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
-            console.log("deals",  $scope.deals);
+            console.log("deals", $scope.deals);
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
@@ -359,7 +359,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('EventCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -370,10 +370,79 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.events = _.chunk(data.data, 3);
         TemplateService.removeLoader();
-    })
+    });
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
+    }
+
+    $scope.addedToWishList = function(id) {
+        console.log("id", id);
+        if ($.jStorage.get("loginDetail") == null) {
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if ($.jStorage.get("loginDetail") != null) {
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            console.log("findIndex", findIndex);
+            if (findIndex !== -1) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
+                    };
+
+                });
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
+        }
+
+    };
 })
 
-.controller('DealspCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
@@ -384,6 +453,76 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
         TemplateService.removeLoader();
     });
+
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
+    }
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    $scope.addedToWishList = function(id) {
+        console.log("id", id);
+        if ($.jStorage.get("loginDetail") == null) {
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if ($.jStorage.get("loginDetail") != null) {
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            console.log("findIndex", findIndex);
+            if (findIndex !== -1) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
+                    };
+
+                });
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
+        }
+
+    };
 })
 
 .controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -670,15 +809,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter = {};
     $scope.filter._id = $stateParams.id;
     $scope.msg = false;
-    $scope.singleAttraction1=[];
-    $scope.singleAttraction=[];
+    $scope.singleAttraction1 = [];
+    $scope.singleAttraction = [];
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
-          $scope.singleAttraction=data.data;
-            $scope.singleAttraction1 = _.chunk(data.data,3);
+            $scope.singleAttraction = data.data;
+            $scope.singleAttraction1 = _.chunk(data.data, 3);
 
             if ($scope.singleAttraction1.length === 0) {
-              console.log("imin");
+                console.log("imin");
                 $scope.msg = true;
             } else {
                 $scope.msg = false;
@@ -702,8 +841,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             });
             TemplateService.removeLoader();
-            console.log("$scope.singleAttraction1",$scope.singleAttraction1);
-            console.log("$scope.singleAttraction",$scope.singleAttraction);
+
         });
     }
     $scope.goTOSearch($scope.filter);
@@ -821,34 +959,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.kittyParty = function() {
-      $scope.modalInstance=  $uibModal.open({
+        $scope.modalInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/modal/enquiry.html",
             scope: $scope
 
         })
     };
-    $scope.enquiryData={};
-    $scope.formSubmit=function(enquiryData){
-if (enquiryData) {
-  enquiryData.city= $.jStorage.get("cityid");
-  NavigationService.eventInnerForm(enquiryData,function(data){
-    if (data.value===true) {
-      $scope.formComplete=true;
-console.log("in in if ");
-$timeout(function() {
-    $scope.modalInstance.close();
-    $scope.formComplete=false;
-    $scope.enquiryData={};
+    $scope.enquiryData = {};
+    $scope.formSubmit = function(enquiryData) {
+        if (enquiryData) {
+            enquiryData.city = $.jStorage.get("cityid");
+            NavigationService.eventInnerForm(enquiryData, function(data) {
+                if (data.value === true) {
+                    $scope.formComplete = true;
+                    console.log("in in if ");
+                    $timeout(function() {
+                        $scope.modalInstance.close();
+                        $scope.formComplete = false;
+                        $scope.enquiryData = {};
 
-}, 2000);
-    }
-    else {
-      console.log("in else");
-    }
-  })
+                    }, 2000);
+                } else {
+                    console.log("in else");
+                }
+            })
 
-}
+        }
     }
 })
 
@@ -1562,7 +1699,7 @@ $timeout(function() {
             $scope.classe = '';
 
         }
-            if (a == 4) {
+        if (a == 4) {
             $scope.classd = 'active-tab';
             $scope.classb = '';
             $scope.classa = '';
@@ -1588,6 +1725,15 @@ $timeout(function() {
                                 break;
                             case '57bc4af6eb9c91f1025a3b4f':
                                 data.pageName.push("What's new")
+                                break;
+                            case '57bc4b36eb9c91f1025a3b56':
+                                data.pageName.push("Promotions")
+                                break;
+                            case '57bd4e71a86ee9fa6770d4b2':
+                                data.pageName.push("Events")
+                                break;
+                            case '57bc4b5aeb9c91f1025a3b58':
+                                data.pageName.push("Deals and Packages")
                                 break;
                             default:
                         }
@@ -1702,20 +1848,19 @@ $timeout(function() {
     // })
 
     $scope.getGallery = function(gid) {
-      console.log("aaa", gid);
+        console.log("aaa", gid);
         NavigationService.getFoodGallery(gid, function(data) {
             if (data.value) {
                 $scope.mySlides = data.data.gallery;
-                console.log("$scope.galleryData",$scope.mySlides);
-                if ($scope.mySlides.length>0) {
-                  $uibModal.open({
-                      animation: true,
-                      templateUrl: "views/modal/party.html",
-                      scope: $scope
-                  });
-                }
-                else{
-                  console.log("no data");
+                console.log("$scope.galleryData", $scope.mySlides);
+                if ($scope.mySlides.length > 0) {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: "views/modal/party.html",
+                        scope: $scope
+                    });
+                } else {
+                    console.log("no data");
                 }
 
 
@@ -1928,7 +2073,7 @@ $timeout(function() {
     }
     TemplateService.removeLoaderOn(1);
     $scope.formData = {};
-    $scope.formData.city=$.jStorage.get("cityid");
+    $scope.formData.city = $.jStorage.get("cityid");
     $scope.formComplete = false;
     $scope.exist = false;
     $scope.formData.varstatus = "eventRegistration";
@@ -2007,7 +2152,7 @@ $timeout(function() {
 
 })
 
-.controller('PromotionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotions");
     $scope.menutitle = NavigationService.makeactive("Promotion");
@@ -2016,9 +2161,78 @@ $timeout(function() {
     TemplateService.removeLoaderOn(1);
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         console.log("data", data);
-        $scope.promotion = _.chunk(data.data,3);
+        $scope.promotion = _.chunk(data.data, 3);
         TemplateService.removeLoader();
     });
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
+    }
+
+    $scope.addedToWishList = function(id) {
+        console.log("id", id);
+        if ($.jStorage.get("loginDetail") == null) {
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if ($.jStorage.get("loginDetail") != null) {
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            console.log("findIndex", findIndex);
+            if (findIndex !== -1) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
+                    };
+
+                });
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
+        }
+
+    };
 
 })
 

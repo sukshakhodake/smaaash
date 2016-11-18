@@ -33,31 +33,14 @@
                 <button class="uppercase blue">buy now</button>
               </div>
               <div class="love">
-                <button class="uppercase" ng-click="addedToWishList(d._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>would love to try</button>
+                <button class="uppercase" ng-click="addedToWishList(data._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(data._id),'fa-heart':isInWishlist(data._id)}" style="color:red;"></i>would love to try</button>
               </div>
             </div>
           </div>
         </div>
         <div ng-if="msg" class="text-center">No Options Available As Per Your Criteria.</div>
       </div>
-              <!--<div class="row">
-                <div class="col-md-4" ng-repeat="data in promotion">
-                    <div class="race-eve relative margno" ui-sref="promotion-inner">
-                        <div class="img-bg">
-                            <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="">
-                        </div>
 
-                        <div class="race-text">
-
-                            <div class="min-h">
-                                <h3 class="margin0 brand-white" ng-bind-html="data.hometext"></h3>
-                                <h3 class="margin0 brand-white" ng-if="!data.hometext">Nothing to show.</h3>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </div>
