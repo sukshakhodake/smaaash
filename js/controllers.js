@@ -1687,6 +1687,15 @@ $timeout(function() {
         });
 
     };
+    $scope.bookings = function(){
+    console.log("in in");
+    $uibModal.open({
+       animation:true,
+       templateUrl:"views/modal/bookings.html",
+       scope:$scope,
+         windowClass: "no-white-bg"
+    })
+};
     // $scope.mySlides = [
     //     'img/beverage.png',
     //     'img/beverage1.png',
@@ -2435,6 +2444,7 @@ $timeout(function() {
             }, 500);
             $scope.menu = true;
         };
+
 
         // $scope.reset=function(){
         // $uibModal.open({
