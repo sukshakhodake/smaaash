@@ -1833,6 +1833,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
+        $scope.pdfmodal = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/menu.html",
+            scope: $scope,
+        })
+    };
     $scope.bookings = function(){
     console.log("in in");
     $uibModal.open({

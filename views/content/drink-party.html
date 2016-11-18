@@ -21,7 +21,7 @@
                             </div>
                             <div class="button-sets">
                                 <button class="uppercase large green" ng-click="bookings();">Book Now</button>
-                                <button class="uppercase larger green">Menu</button>
+                                <button class="uppercase larger green" ng-click="pdfmodal();">Menu</button>
                             </div>
                             <div class="min-h">
                                 <p ng-hide="moreDesc[data._id]">{{data.description | htmlToPlaintext | shorten:130}}</p>
