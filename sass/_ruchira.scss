@@ -2459,32 +2459,32 @@ button {
       display: inline-block;
     }
     a {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: #000;
+         position: absolute;
+    top: 70%;
+    right: 10px;
+    color: #000;
     }
     .solution {
       display: inline-block;
       a {
         position: absolute;
-        top: 10px;
-        left: 50%;
+    top: 70%;
+    right: 15px;
       }
       .required {
         position: absolute;
-        top: 5px;
-        left: 49%;
-        font-size: 8px;
-        color: #ea1c22;
+    top: 65%;
+    right: 15px;
+    font-size: 8px;
+    color: #ea1c22;
       }
     }
     .required {
       position: absolute;
-      top: 5px;
-      right: 10px;
-      font-size: 8px;
-      color: #ea1c22;
+    top: 60%;
+    right: 10px;
+    font-size: 8px;
+    color: #ea1c22;
     }
   }
 }
