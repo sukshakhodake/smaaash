@@ -11,7 +11,7 @@
                <div class="row">
                   <div class="col-md-4 col-sm-4 col-xs-12">
                      <div class="profile-details">
-                         <img ng-src="{{userForm.image | uploadprofilepicture}}" alt="">
+                        <img ng-src="{{userForm.image | uploadprofilepicture}}" alt="">
                      </div>
                   </div>
                   <div class="col-md-8 col-sm-8 col-xs-12">
@@ -52,7 +52,7 @@
                         <p class="text-uppercase">edit profile</p>
 
                      </li>
-                      <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
+                     <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
 
                         <p class="text-uppercase">wishlist</p>
 
@@ -260,7 +260,7 @@
                <div class="points" ng-show="tab=='team'">
                   <div class="row">
                      <div class="col-md-3 col-sm-3 col-xs-6">
-                      
+
                      </div>
 
                      <div class="col-md-3 col-sm-3 col-xs-6">
@@ -284,14 +284,15 @@
                               </div>
 
                            </div>
-                           <!-- <webcam on-stream="onStream(stream,video)" on-access-denied="onError(err)" on-streaming="onSuccess(video)"> </webcam> -->
+
                         </a>
+
                      </div>
                      <div class="col-md-3 col-sm-3 col-xs-6">
                         <a ng-click="avatar();">
                            <div class="photos">
                               <div class="photo-image text-center">
-                                
+
                                  <p class="uppercase brand-white">select your avatar</p>
                               </div>
 
@@ -325,37 +326,36 @@
                   </form>
                </div>
                <div class="wishlist" ng-show="tab=='wishlist'">
-<div class="carts">
+                  <div class="carts">
 
-        <div class="table-responsive">
-            <table class="table ">
-                <thead>
-                    <tr>
-                        <th class="text-center uppercase ">Sr.No</th>
-                        <th class="text-center  uppercase ">Name of page</th>
-                        <th class="text-center uppercase ">remove</th>
-                    </tr>
-                </thead>
-                <tr ng-repeat="data in showWishList.wishList">
-                    <td class="text-center border-left">
-                        <img ng-if="data.exploresmash.image && !data.exploresmash.homeimage" ng-src="{{data.exploresmash.image|uploadpath}}" class="img-responsive" alt="">
-                        <img ng-if="data.exploresmash.homeimage && !data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive" alt="">
-                        <img ng-if="data.exploresmash.homeimage && data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive"
-                            alt="">
-                        <p class="mt10 uppercase" ng-bind-html="data.exploresmash.hometext"></p>
-                    </td>
-                    <td class="text-center">{{data.pageName[0]}}</td>
-                    <td class="text-center border-right">
-                        <div class="remove">
-                            <button class="uppercase" ng-click="removeFromWishList(data._id)">remove</button>
-                        </div>
-                    </td>
+                     <div class="table-responsive">
+                        <table class="table ">
+                           <thead>
+                              <tr>
+                                 <th class="text-center uppercase ">Sr.No</th>
+                                 <th class="text-center  uppercase ">Name of page</th>
+                                 <th class="text-center uppercase ">remove</th>
+                              </tr>
+                           </thead>
+                           <tr ng-repeat="data in showWishList.wishList">
+                              <td class="text-center border-left">
+                                 <img ng-if="data.exploresmash.image && !data.exploresmash.homeimage" ng-src="{{data.exploresmash.image|uploadpath}}" class="img-responsive" alt="">
+                                 <img ng-if="data.exploresmash.homeimage && !data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive" alt="">
+                                 <img ng-if="data.exploresmash.homeimage && data.exploresmash.image" ng-src="{{data.exploresmash.homeimage|uploadpath}}" class="img-responsive" alt="">
+                                 <p class="mt10 uppercase" ng-bind-html="data.exploresmash.hometext"></p>
+                              </td>
+                              <td class="text-center">{{data.pageName[0]}}</td>
+                              <td class="text-center border-right">
+                                 <div class="remove">
+                                    <button class="uppercase" ng-click="removeFromWishList(data._id)">remove</button>
+                                 </div>
+                              </td>
 
-                </tr>
-            </table>
-        </div>
+                           </tr>
+                        </table>
+                     </div>
 
-</div>
+                  </div>
                </div>
             </div>
          </div>

@@ -1819,8 +1819,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.drinkParty1 = data.data;
         console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
-
-        $scope.readMore = function(id) {
+                $scope.readMore = function(id) {
 
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;

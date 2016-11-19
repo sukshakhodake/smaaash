@@ -42,7 +42,8 @@ var firstapp = angular.module('firstapp', [
     'angulartics',
     'angulartics.google.analytics',
     'imageupload',
-    'webcam'
+    'webcam',
+    'ng-webcam'
 
 ]);
 

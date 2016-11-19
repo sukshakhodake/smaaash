@@ -2,6 +2,9 @@ var adminurl = "http://104.155.129.33:82/"; //server
 // var adminurl = "http://192.168.0.111:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
+// var pdfpath = imgurl + "readFile?file=";
+var pdfpath ="http://104.155.129.33:1337/upload/readFile?file";
+
 var uploadurl = imgurl;
 
 var navigationservice = angular.module('navigationservice', [])
