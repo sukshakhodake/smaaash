@@ -25,24 +25,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.currentdate = new Date();
-    $scope.showVideo = {};
-    $scope.showVideo = false;
+    // $scope.showVideo = {};
+    // $scope.showVideo = false;
     $scope.showVid = function() {
-        $scope.showVideo = true;
+        $scope.showthumbimage = !$scope.showthumbimage;
 
     };
-    $scope.showVidFalse = function() {
-        $scope.showVideo = false;
-        $scope.$apply();
-    };
+    // $scope.showVidFalse = function() {
+    //     $scope.showthumbimage = true;
+    //     $scope.$apply();
+    //     console.log("im in");
+    // };
     var fired = false;
     $scope.onScrollStopVideo = function() {
         window.addEventListener("scroll", function() {
-            if (document.body.scrollTop >= 1000) {
+            if (document.body.scrollTop >= 700) {
                 $timeout(function() {
-                    $scope.showVidFalse();
+                       $scope.showthumbimage = true;
 
-                }, 5000);
+
+                }, 2000);
                 fired = true;
             }
         }, true)
@@ -78,7 +80,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
     $scope.scrollToHome = function() {
-        $scope.showVideo = false;
+        // $scope.showVideo = false;
+        $scope.showthumbimage = true;
         $('html, body').animate({
             scrollTop: $("#toHome").offset().top
         }, 500);
@@ -161,6 +164,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getHomeBanner(function(data) {
         if (data.value) {
             $scope.banner = data.data;
+            console.log("  $scope.bannerDFDSFSD",  $scope.banner);
 
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
