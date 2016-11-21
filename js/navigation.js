@@ -144,6 +144,16 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
 
+        getUser: function(callback) {
+            $http({
+                url: adminurl + 'user/getall',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+
+
+
         signup: function(signupData, callback) {
 
             $http({
@@ -151,6 +161,27 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: signupData
+
+            }).success(callback);
+        },
+        CustomerRegistration: function(signupData, callback) {
+
+            $http({
+                url: adminurl + 'signup/CustomerRegistration',
+                method: 'POST',
+
+                data: signupData
+
+            }).success(callback);
+        },
+      
+        VerifyCustomerLogin: function(userData, callback) {
+
+            $http({
+                url: adminurl + 'signup/VerifyCustomerLogin',
+                method: 'POST',
+
+                data: userData
 
             }).success(callback);
         },
@@ -177,16 +208,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        login: function(userData, callback) {
-
-            $http({
-                url: adminurl + 'signup/login',
-                method: 'POST',
-
-                data: userData
-
-            }).success(callback);
-        },
+        // login: function(userData, callback) {
+        //
+        //     $http({
+        //         url: adminurl + 'signup/login',
+        //         method: 'POST',
+        //
+        //         data: userData
+        //
+        //     }).success(callback);
+        // },
         eventInnerForm: function(userData, callback) {
             $http({
                 url: adminurl + 'enquiry/save',
