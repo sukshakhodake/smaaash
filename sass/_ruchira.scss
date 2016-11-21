@@ -1341,7 +1341,7 @@ ul {
       .fa{
         color: #777;
         font-size: 25px;
-        vertical-align: middle;   
+        vertical-align: middle;
      &:hover {
           color: #833ab4;
   }
@@ -1353,7 +1353,7 @@ ul {
       .fa{
         color: #777;
         font-size: 25px;
-        vertical-align: middle;   
+        vertical-align: middle;
      &:hover {
           color: $brand-red;
   }
@@ -2664,10 +2664,142 @@ button {
   }
 }
 
-.attractions
-.stars,
+.attractions,
 .custom,.deals2,.events1 {
-  .col-md-3:nth-child(6n+1),
+  .row:nth-of-type(1), .row:nth-of-type(3),.row:nth-of-type(5)
+  {
+    .col-md-4:nth-of-type(1){
+      .brand-blue {
+        background-color: $brand-darkblue;
+      }
+       .new-detail {
+        border-color: $brand-darkblue;
+        .views {
+          button {
+            border-color: $brand-darkblue;
+          }
+        }
+        .bluey {
+          color: $brand-darkblue;
+        }
+        .button-set {
+          button {
+            background-color: $brand-darkblue;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(2){
+      .brand-blue {
+          background-color: $brand-orangy;
+      }
+           .new-detail {
+        border-color: $brand-orangy;
+        .views {
+          button {
+            border-color: $brand-orangy;
+          }
+        }
+        .bluey {
+          color: $brand-orangy;
+        }
+        .button-set {
+          button {
+            background-color: $brand-orangy;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(3){
+      .brand-blue {
+        background-color: $brand-pink;
+      }
+           .new-detail {
+        border-color: $brand-pink;
+        .views {
+          button {
+            border-color: $brand-pink;
+          }
+        }
+        .bluey {
+          color:  $brand-pink;
+        }
+        .button-set {
+          button {
+            background-color:  $brand-pink;
+          }
+        }
+      }
+    }
+  }
+    .row:nth-of-type(2),.row:nth-of-type(4),.row:nth-of-type(6){
+    .col-md-4:nth-of-type(1){
+     .brand-blue {
+        background-color: $brand-green;
+      }
+        .new-detail {
+        border-color: $brand-green;
+        .views {
+          button {
+            border-color: $brand-green;
+          }
+        }
+        .bluey {
+          color: $brand-green;
+        }
+        .button-set {
+          button {
+            background-color: $brand-green;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(2){
+    .brand-blue {
+        background-color: $brand-blue;
+      }
+      .new-detail {
+        border-color: $brand-blue;
+        .views {
+          button {
+            border-color: $brand-blue;
+          }
+        }
+        .bluey {
+          color: $brand-blue;
+        }
+        .button-set {
+          button {
+            background-color: $brand-blue;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(3){
+    .brand-blue {
+        background-color: $brand-purple;
+      }
+          .new-detail {
+        border-color: $brand-purple;
+        .views {
+          button {
+            border-color: $brand-purple;
+          }
+        }
+        .bluey {
+          color: $brand-purple;
+        }
+        .button-set {
+          button {
+            background-color: $brand-purple;
+          }
+        }
+      }
+    }
+  }
+}
+.custom, .stars{
+ .col-md-3:nth-child(6n+1),
   .col-md-4:nth-child(6n+1) {
     .karting-championship {
       .brand-blue {
@@ -2812,6 +2944,8 @@ button {
     }
   }
 }
+  
+
 
 .blog{
   .col-md-6:nth-child(2){
@@ -2827,7 +2961,7 @@ button {
         }
   }
 
-   
+
   }
       .col-md-6:nth-child(3){
         .new-detail{
@@ -2945,20 +3079,40 @@ button {
     margin-right: -4px;
     margin-top: -6px;
 }
-.avatars, .avatarss {
-    background-image: url(../img/avatar/lady.png);
+.avatars1,.avatars2,.avatars3,.avatars4,.avatars5,.avatars6{
+    background-image: url("../img/avatar/lady.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 250px;
     height: 200px;
-    background-color: #01a69a;
+    background-color: #01a69a;;
     border: 1px solid #fff;
     box-sizing: border-box;
 }
-.avatarss{
+.avatars2{
+    background-image: url("../img/avatar/arrow.png");
+
+}
+.avatars3{
     background-image: url("../img/avatar/lady.png");
-    margin-left: -2px;
+
+}
+// .avatarss{
+//     background-image: url("../img/avatar/lady.png");
+//     margin-left: -2px;
+// }
+.avatars4{
+    background-image: url("../img/avatar/arrow.png");
+
+}
+.avatars5{
+    background-image: url("../img/avatar/lady.png");
+
+}
+.avatars6{
+    background-image: url("../img/avatar/arrow.png");
+
 }
 //otp
 .bookings-pop{

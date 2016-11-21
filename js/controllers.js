@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'webcam'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -2317,6 +2317,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         showWishList();
     }
 
+
     $scope.addedToWishList = function(id) {
         console.log("id", id);
         if ($.jStorage.get("loginDetail") == null) {
@@ -2369,7 +2370,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
 
 })
 
-.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
     $scope.menutitle = NavigationService.makeactive("Promotion Inner");
@@ -2385,8 +2386,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.clear = function() {
         $scope.dt = null;
     };
-
-    $scope.inlineOptions = {
+  $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
         showWeeks: true
@@ -2425,7 +2425,13 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.setDate = function(year, month, day) {
         $scope.dt = new Date(year, month, day);
     };
-
+    $scope.pdfmodal = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/pdf.html",
+            scope: $scope,
+        })
+    };
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
     $scope.altInputFormats = ['M!/d!/yyyy'];

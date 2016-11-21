@@ -40,10 +40,7 @@ var firstapp = angular.module('firstapp', [
     'navigationservice',
     'pascalprecht.translate',
     'angulartics',
-    'angulartics.google.analytics',
-    'imageupload',
-    'webcam',
-    'ng-webcam'
+    'angulartics.google.analytics'
 
 ]);
 
