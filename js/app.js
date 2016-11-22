@@ -521,6 +521,7 @@ firstapp.filter('uploadpath', function () {
         }
     };
 });
+
 firstapp.filter('uploadprofilepicture', function () {
     return function (input, width, height, style) {
         console.log("input",input);

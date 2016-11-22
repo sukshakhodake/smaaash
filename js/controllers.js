@@ -1919,6 +1919,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.myUrl = window.location.href;
     $scope.menu = "menu-out";
     TemplateService.removeLoaderOn(1);
+    $scope.pdfpath ="http://104.155.129.33:82/upload/readFile?file";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
             $scope.menu = "menu-in";
@@ -1952,13 +1953,17 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         });
 
     };
-        $scope.pdfmodal = function() {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/menu.html",
-            scope: $scope,
-        })
-    };
+
+        $scope.pdfmodal = function(pdf) {
+          $scope.pdfdata = pdf;
+          if ($scope.pdfdata) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/menu.html",
+                scope: $scope,
+            })
+          }
+        };
     $scope.bookings = function(){
     console.log("in in");
     $uibModal.open({
@@ -2511,7 +2516,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
@@ -2595,6 +2600,74 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         })
     };
 
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
+    }
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    $scope.addedToWishList = function(id) {
+        console.log("id", id);
+        if ($.jStorage.get("loginDetail") == null) {
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if ($.jStorage.get("loginDetail") != null) {
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            console.log("findIndex", findIndex);
+            if (findIndex !== -1) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
+                    };
+
+                });
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
+        }
+
+    };
 
 })
 

@@ -56,7 +56,7 @@
 
                             </div>
                                                <div class="love">
-                <button class="uppercase" ><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(data._id),'fa-heart':isInWishlist(data._id)}" style="color:red;"></i>like</button>
+                <button class="uppercase" ng-click="addedToWishList(data._id);" ><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(data._id),'fa-heart':isInWishlist(data._id)}" style="color:red;"></i>like</button>
               </div>
              </div>
                     </div>
@@ -187,9 +187,9 @@
     </ul>
 </div>
 
-<div class="ad">
+<!-- <div class="ad">
     <img src="img/profile/avatar.png" class="img-responsive" alt="">
-</div>
+</div> -->
 
     </div>
 
