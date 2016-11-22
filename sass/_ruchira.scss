@@ -2666,7 +2666,8 @@ button {
 
 .attractions,
 .custom,.deals2,.events1 {
-  .row:nth-of-type(1), .row:nth-of-type(3),.row:nth-of-type(5)
+  .row:nth-of-type(odd)
+  // .row:nth-of-type(1), .row:nth-of-type(3),.row:nth-of-type(5)
   {
     .col-md-4:nth-of-type(1){
       .brand-blue {
@@ -2732,7 +2733,8 @@ button {
       }
     }
   }
-    .row:nth-of-type(2),.row:nth-of-type(4),.row:nth-of-type(6){
+  .row:nth-of-type(even){
+    // .row:nth-of-type(2),.row:nth-of-type(4),.row:nth-of-type(6){
     .col-md-4:nth-of-type(1){
      .brand-blue {
         background-color: $brand-green;
@@ -2768,7 +2770,7 @@ button {
         .bluey {
           color: $brand-blue;
         }
-        .button-set {
+        .button-set{
           button {
             background-color: $brand-blue;
           }
