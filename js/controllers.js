@@ -2768,7 +2768,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
                                     $scope.formCompleteSignup = false;
                                     $scope.signupData = {};
                                 }, 2000);
-                                location.reload();
+                                // location.reload();
 
                                 // $state.go("account");
                             } else {
@@ -2803,7 +2803,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
                             $scope.formComplete = false;
                             $scope.userData = {};
                         }, 2000);
-                        location.reload();
+                        // location.reload();
                     } else {
                         $scope.valid = true;
                     }
