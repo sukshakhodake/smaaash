@@ -43,7 +43,7 @@
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                         <div class="log bg-prop">
                             <a class="text-center">
-                                <h3 class="nav-name"><span class="block">Hi...<br/>{{userLoginDetails.data.CustomerName}}</span></h3>
+                                <h3 class="nav-name"><span class="block">Hi<br/>{{userLoginDetails.data.CustomerName}} ..</span></h3>
                             </a>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <h3 class="uppercase">login</h3>
                             <form class="form" name="login" ng-submit="userLogin(userData)" ng-if="!formComplete">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Mobile No." name="email" ng-model="userData.UserName" required>
+                                    <input type="text" class="form-control" placeholder="Mobile No." name="email" ng-model="userData.UserName" required>
 
                                     <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
                                 </div>
