@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog','imageupload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -1131,7 +1131,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getOne(function(data) {
             delete data.data._id;
             console.log("data", data.data);
-            $scope.customizeformData = data.data;
+            $scope.customizeformData.mobile = data.data.CustomerMobile;
+            $scope.customizeformData.email = data.data.CustomerEmail;
+            console.log("$scope.customizeformData ",$scope.customizeformData );
         });
     }
     if ($.jStorage.get("customizeobj") != null) {
@@ -2558,7 +2560,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     };
     $scope.fetchData();
     $scope.message = false;
-    $scope.fetchSearchedData = function() {
+    $scope.fetchSearchedData = function(objectfilter) {
         $scope.objectfilter.pagenumber = 0;
         $scope.objectfilter.pagesize = 6;
         $scope.stars = [];
@@ -2610,6 +2612,9 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         'img/karting/salman.png',
         'img/karting/shikar.png'
     ];
+    NavigationService.getDetailBlog($stateParams.id,function(data){
+      console.log("data",data);
+    })
 
 })
 

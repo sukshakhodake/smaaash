@@ -88,13 +88,13 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        getOneBlog: function(id, callback) {
+        getDetailBlog: function(id, callback) {
             var data = {
                 _id: id,
                 // city: $.jStorage.get("cityid")
             };
             $http({
-                url: adminurl + 'blog/getOne',
+                url: adminurl + 'blog/getDetailBlog',
                 method: 'POST',
                 withCredentials: true,
                 data: data
@@ -174,7 +174,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-      
+
         VerifyCustomerLogin: function(userData, callback) {
 
             $http({

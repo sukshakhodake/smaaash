@@ -9,7 +9,7 @@
       <div class="search-green">
         <input type="text" class="form-control" placeholder="Search" ng-model="objectfilter.search">
         <div class="microscope">
-          <img src="img/new/bino.png" class="img-responsive" alt="" ng-click="goTOSearch(objectfilter)">
+          <img src="img/new/bino.png" class="img-responsive" alt="" ng-click="fetchSearchedData(objectfilter)">
         </div>
       </div>
 
@@ -49,7 +49,8 @@
                                 <div class="more inline-block">
 
 
-                                    <button class="uppercase green" ng-click="imagesmodal();">know more</button>
+                                    <button class="uppercase green" ui-sref="blog-inside({id:data._id})">know more</button>
+                                    <!-- <button class="uppercase green" ng-click="imagesmodal();">know more</button> -->
 
                                 </div>
 
@@ -60,7 +61,7 @@
              </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="loading">
               <p class=" load-more text-center margin0 pointer" ng-if="noviewmore" ng-click="fetchData()">Load More...</p>
