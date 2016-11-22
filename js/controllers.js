@@ -1123,17 +1123,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.goToGames = function(val, data) {
         data.selected = !data.selected;
         $scope.customizeformData.games = _.map(_.filter($scope.customizepackage, "selected"), "_id");
-        console.log($scope.customizeformData.games);
+        console.log("wdehjhwd",$scope.customizeformData.games);
 
     };
 
     if ($.jStorage.get("loginDetail") != null && $.jStorage.get("customizeobj") === null) {
         NavigationService.getOne(function(data) {
-            delete data.data._id;
+            // delete data.data._id;
             console.log("data", data.data);
             $scope.customizeformData.mobile = data.data.CustomerMobile;
             $scope.customizeformData.email = data.data.CustomerEmail;
-            console.log("$scope.customizeformData ",$scope.customizeformData );
+
         });
     }
     if ($.jStorage.get("customizeobj") != null) {
@@ -2613,7 +2613,9 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         'img/karting/shikar.png'
     ];
     NavigationService.getDetailBlog($stateParams.id,function(data){
-      console.log("data",data);
+
+    $scope.blogInside=data.data;
+      console.log("  $scope.blogInside",  $scope.blogInside);
     })
 
 })
