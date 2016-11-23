@@ -11,12 +11,12 @@
                <div class="row">
                   <div class="col-md-4 col-sm-4 col-xs-12">
                      <div class="profile-details">
-                        <img ng-src="{{userForm.image | uploadprofilepicture}}" alt="">
+                      <img ng-src="{{userForm.image | uploadprofilepicture}}" alt="">
                      </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     {{profilePIc}}
-                  </div>
+                  </div> -->
                   <!-- <webcam on-stream="onStreang-click="makeSnapshot()"(stream)"
      on-access-denied="onError(err)"
      on-streaming="onSuccess()" ng-if="click">
@@ -277,7 +277,7 @@
                         <a href="">
                         </a>
                         <upload-image ng-model="userForm.image" no-view>
-                        </upload-image>
++                        </upload-image>
                      </div>
 
                      <!-- <webcam channel="channel" on-streaming="onSuccess()" on-error="onError(err)" on-stream="onStream(stream)"></webcam>

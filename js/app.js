@@ -40,7 +40,8 @@ var firstapp = angular.module('firstapp', [
     'navigationservice',
     'pascalprecht.translate',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    'imageupload'
 
 ]);
 
@@ -104,7 +105,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     })
 
            .state('blog-inside', {
-        url: "/blog-inside",
+        url: "/blog-inside/:id",
         templateUrl: "views/template.html",
         controller: 'BlogInsideCtrl'
     })
@@ -520,9 +521,10 @@ firstapp.filter('uploadpath', function () {
         }
     };
 });
+
 firstapp.filter('uploadprofilepicture', function () {
     return function (input, width, height, style) {
-        console.log(input);
+        console.log("input",input);
         var other = "";
         if (width && width != "") {
             other += "&width=" + width;

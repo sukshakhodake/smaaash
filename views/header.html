@@ -43,7 +43,7 @@
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                         <div class="log bg-prop">
                             <a class="text-center">
-                                <h3 class="nav-name"><span class="block">Hi<br/>{{userLoginDetails.data.CustomerName}} ..</span></h3>
+                                <h3 class="nav-name"><span class="block">Hi<br/><p ng-bind-html="userLoginDetails.data.CustomerName |htmlToPlaintext"> </p>.. </span></h3>
                             </a>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                                     <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
                                 </div>
                                 <button type="submit" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
-                                <div class="error" ng-if="valid">Please Enter Valid Email Id & Password</div>
+                                <div class="error" ng-if="valid">Please Enter Valid Mobile No. & Password</div>
 
                             </form>
                             <div ng-if="formComplete">

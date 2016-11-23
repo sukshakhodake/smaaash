@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog','imageupload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -1123,15 +1123,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.goToGames = function(val, data) {
         data.selected = !data.selected;
         $scope.customizeformData.games = _.map(_.filter($scope.customizepackage, "selected"), "_id");
-        console.log($scope.customizeformData.games);
+        console.log("wdehjhwd",$scope.customizeformData.games);
 
     };
 
     if ($.jStorage.get("loginDetail") != null && $.jStorage.get("customizeobj") === null) {
         NavigationService.getOne(function(data) {
-            delete data.data._id;
+            // delete data.data._id;
             console.log("data", data.data);
-            $scope.customizeformData = data.data;
+            $scope.customizeformData.mobile = data.data.CustomerMobile;
+            $scope.customizeformData.email = data.data.CustomerEmail;
+
         });
     }
     if ($.jStorage.get("customizeobj") != null) {
@@ -1917,6 +1919,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.myUrl = window.location.href;
     $scope.menu = "menu-out";
     TemplateService.removeLoaderOn(1);
+    $scope.pdfpath ="http://104.155.129.33:82/upload/readFile?file";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
             $scope.menu = "menu-in";
@@ -1950,13 +1953,17 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         });
 
     };
-        $scope.pdfmodal = function() {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/menu.html",
-            scope: $scope,
-        })
-    };
+
+        $scope.pdfmodal = function(pdf) {
+          $scope.pdfdata = pdf;
+          if ($scope.pdfdata) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/menu.html",
+                scope: $scope,
+            })
+          }
+        };
     $scope.bookings = function(){
     console.log("in in");
     $uibModal.open({
@@ -2509,7 +2516,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
@@ -2558,7 +2565,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     };
     $scope.fetchData();
     $scope.message = false;
-    $scope.fetchSearchedData = function() {
+    $scope.fetchSearchedData = function(objectfilter) {
         $scope.objectfilter.pagenumber = 0;
         $scope.objectfilter.pagesize = 6;
         $scope.stars = [];
@@ -2593,6 +2600,74 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         })
     };
 
+    if ($.jStorage.get("loginDetail") != null) {
+        function showWishList() {
+            NavigationService.showWishList(function(data) {
+                $scope.userwishlist = data.data.wishList;
+                console.log("$scope.userwishlist", $scope.userwishlist);
+            })
+        };
+        showWishList();
+    }
+    $scope.isInWishlist = function(id) {
+        var indexF = _.findIndex($scope.userwishlist, function(key) {
+            return key.exploresmash._id == id;
+        })
+        if (indexF !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    $scope.addedToWishList = function(id) {
+        console.log("id", id);
+        if ($.jStorage.get("loginDetail") == null) {
+            console.log("am in if");
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if ($.jStorage.get("loginDetail") != null) {
+            var findIndex = _.findIndex($scope.userwishlist, function(key) {
+                console.log(id, '////////');
+                return key.exploresmash._id === id;
+            });
+            console.log("findIndex", findIndex);
+            if (findIndex !== -1) {
+                constraints = _.find($scope.userwishlist, function(key) {
+                    return key.exploresmash._id === id;
+                });
+                console.log(constraints);
+                NavigationService.removeFromWishList(constraints._id, function(data) {
+                    console.log(data, 'removed data');
+                    if (data.value) {
+                        showWishList();
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/removeWishlist.html',
+                            scope: $scope
+                        });
+                    };
+
+                });
+            } else {
+                NavigationService.addToWishList(id, function(data) {
+                    console.log("wishlist", data);
+                    if (data.value) {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/wishlist.html',
+                            scope: $scope
+                        });
+                    }
+                    showWishList();
+                });
+            }
+
+        }
+
+    };
 
 })
 
@@ -2610,6 +2685,11 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         'img/karting/salman.png',
         'img/karting/shikar.png'
     ];
+    NavigationService.getDetailBlog($stateParams.id,function(data){
+
+    $scope.blogInside=data.data;
+      console.log("  $scope.blogInside",  $scope.blogInside);
+    })
 
 })
 
@@ -2768,7 +2848,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
                                     $scope.formCompleteSignup = false;
                                     $scope.signupData = {};
                                 }, 2000);
-                                location.reload();
+                                // location.reload();
 
                                 // $state.go("account");
                             } else {
@@ -2803,7 +2883,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
                             $scope.formComplete = false;
                             $scope.userData = {};
                         }, 2000);
-                        location.reload();
+                        // location.reload();
                     } else {
                         $scope.valid = true;
                     }
