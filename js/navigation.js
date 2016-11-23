@@ -463,10 +463,30 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        CustomerResetPassword: function(credentials, callback) {
+
+            $http({
+                url: adminurl + 'signup/CustomerResetPassword',
+                method: 'POST',
+
+                data: credentials
+
+            }).success(callback);
+        },
         forgotPasswordSubmit: function(credentials, callback) {
 
             $http({
                 url: adminurl + 'signup/forgotPasswordSubmit',
+                method: 'POST',
+
+                data: credentials
+
+            }).success(callback);
+        },
+        CustomerForgetPassword: function(credentials, callback) {
+
+            $http({
+                url: adminurl + 'signup/CustomerForgetPassword',
                 method: 'POST',
 
                 data: credentials

@@ -80,7 +80,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     })
 
    .state('reset', {
-        url: "/reset/:id",
+        url: "/reset",
         templateUrl: "views/template.html",
         controller: 'ResetCtrl'
     })

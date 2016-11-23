@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog','imageupload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -41,7 +41,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         window.addEventListener("scroll", function() {
             if (document.body.scrollTop >= 700) {
                 $timeout(function() {
-                       $scope.showthumbimage = true;
+                    $scope.showthumbimage = true;
 
 
                 }, 2000);
@@ -153,7 +153,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
 
-  TemplateService.removeLoader();
+            TemplateService.removeLoader();
         } else {}
 
     });
@@ -164,7 +164,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getHomeBanner(function(data) {
         if (data.value) {
             $scope.banner = data.data;
-            console.log("  $scope.bannerDFDSFSD",  $scope.banner);
+            console.log("  $scope.bannerDFDSFSD", $scope.banner);
 
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
@@ -589,9 +589,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.noviewmore = true;
         $scope.objectfilter.city = $scope.objectfilter.city;
 
-      $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getStars($scope.objectfilter, function(data) {
-          console.log("$scope.objectfilter",$scope.objectfilter);
+            console.log("$scope.objectfilter", $scope.objectfilter);
             console.log(data.data.totalpages);
 
             if (data.data.data.length === 0) {
@@ -1124,7 +1124,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.goToGames = function(val, data) {
         data.selected = !data.selected;
         $scope.customizeformData.games = _.map(_.filter($scope.customizepackage, "selected"), "_id");
-        console.log("wdehjhwd",$scope.customizeformData.games);
+        console.log("wdehjhwd", $scope.customizeformData.games);
 
     };
 
@@ -1343,7 +1343,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailExploreSmaash = data.data;
-        console.log("$scope.detailExploreSmaash",$scope.detailExploreSmaash);
+        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
         $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
         console.log($scope.detailExploreSmaash.multipleattraction);
         var attractions = [];
@@ -1683,15 +1683,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-$scope.getUser = function(){
-  NavigationService.getUser(function(data){
-    if(data.value== true){
-      $scope.userData = data.data[0];
-      console.log("$scope.userData",$scope.userData);
+    $scope.getUser = function() {
+        NavigationService.getUser(function(data) {
+            if (data.value == true) {
+                $scope.userData = data.data[0];
+                console.log("$scope.userData", $scope.userData);
+            }
+        });
     }
-  });
-}
-$scope.getUser();
+    $scope.getUser();
     $scope.tab = "design";
     $scope.classa = 'active';
     $scope.classb = '';
@@ -1778,101 +1778,106 @@ $scope.getUser();
             getuserWishList();
         });
     };
-  // $scope.click=false;
-    $scope.takePic=function(){
-      // $scope.click=!$scope.click;
-      console.log("inim");
-      $uibModal.open({
-          animation: true,
-          templateUrl: "views/modal/profilepic.html",
-          scope: $scope
-      });
+    // $scope.click=false;
+    $scope.takePic = function() {
+        // $scope.click=!$scope.click;
+        console.log("inim");
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/profilepic.html",
+            scope: $scope
+        });
     }
 
     var _video = null,
-            patData = null;
+        patData = null;
 
-        $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
+    $scope.patOpts = {
+        x: 0,
+        y: 0,
+        w: 25,
+        h: 25
+    };
 
-        // Setup a channel to receive a video property
-        // with a reference to the video element
-        // See the HTML binding in main.html
-        $scope.channel = {};
+    // Setup a channel to receive a video property
+    // with a reference to the video element
+    // See the HTML binding in main.html
+    $scope.channel = {};
 
-        $scope.webcamError = false;
-        $scope.onError = function (err) {
-            $scope.$apply(
-                function() {
-                    $scope.webcamError = err;
-                }
-            );
-        };
-
-        $scope.onSuccess = function () {
-            // The video element contains the captured camera data
-            _video = $scope.channel.video;
-            $scope.$apply(function() {
-                $scope.patOpts.w = _video.width;
-                $scope.patOpts.h = _video.height;
-                //$scope.showDemos = true;
-            });
-        };
-
-        $scope.onStream = function (stream) {
-            // You could do something manually with the stream.
-        };
-
-    	$scope.makeSnapshot = function(data) {
-            if (_video) {
-              console.log("_videosrc",_video);
-                var patCanvas = document.querySelector('#snapshot');
-                if (!patCanvas) return;
-
-                patCanvas.width = _video.width;
-                patCanvas.height = _video.height;
-                var ctxPat = patCanvas.getContext('2d');
-
-                var idata = getVideoData($scope.patOpts.x, $scope.patOpts.y, $scope.patOpts.w, $scope.patOpts.h);
-                ctxPat.putImageData(idata, 0, 0);
-
-                sendSnapshotToServer(patCanvas.toDataURL());
-
-                patData = idata;
-                console.log("patData",patData);
-
-
-                // $scope.downloadSnapshot();
+    $scope.webcamError = false;
+    $scope.onError = function(err) {
+        $scope.$apply(
+            function() {
+                $scope.webcamError = err;
             }
-        };
+        );
+    };
 
-        /**
-         * Redirect the browser to the URL given.
-         * Used to download the image by passing a dataURL string
-         */
-        $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
-            window.location.href = dataURL;
-        };
+    $scope.onSuccess = function() {
+        // The video element contains the captured camera data
+        _video = $scope.channel.video;
+        $scope.$apply(function() {
+            $scope.patOpts.w = _video.width;
+            $scope.patOpts.h = _video.height;
+            //$scope.showDemos = true;
+        });
+    };
 
-        var getVideoData = function getVideoData(x, y, w, h) {
-            var hiddenCanvas = document.createElement('canvas');
-            hiddenCanvas.width = _video.width;
-            hiddenCanvas.height = _video.height;
-            var ctx = hiddenCanvas.getContext('2d');
-            ctx.drawImage(_video, 0, 0, _video.width, _video.height);
-            return ctx.getImageData(x, y, w, h);
-        };
+    $scope.onStream = function(stream) {
+        // You could do something manually with the stream.
+    };
+
+    $scope.makeSnapshot = function(data) {
+        if (_video) {
+            console.log("_videosrc", _video);
+            var patCanvas = document.querySelector('#snapshot');
+            if (!patCanvas) return;
+
+            patCanvas.width = _video.width;
+            patCanvas.height = _video.height;
+            var ctxPat = patCanvas.getContext('2d');
+
+            var idata = getVideoData($scope.patOpts.x, $scope.patOpts.y, $scope.patOpts.w, $scope.patOpts.h);
+            ctxPat.putImageData(idata, 0, 0);
+
+            sendSnapshotToServer(patCanvas.toDataURL());
+
+            patData = idata;
+            console.log("patData", patData);
 
 
-        /**
-         * This function could be used to send the image data
-         * to a backend server that expects base64 encoded images.
-         *
-         * In this example, we simply store it in the scope for display.
-         */
-        var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
-            $scope.snapshotData = imgBase64;
-console.log("$scope.snapshotData",$scope.snapshotData);
-        };
+            // $scope.downloadSnapshot();
+        }
+    };
+
+    /**
+     * Redirect the browser to the URL given.
+     * Used to download the image by passing a dataURL string
+     */
+    $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
+        window.location.href = dataURL;
+    };
+
+    var getVideoData = function getVideoData(x, y, w, h) {
+        var hiddenCanvas = document.createElement('canvas');
+        hiddenCanvas.width = _video.width;
+        hiddenCanvas.height = _video.height;
+        var ctx = hiddenCanvas.getContext('2d');
+        ctx.drawImage(_video, 0, 0, _video.width, _video.height);
+        return ctx.getImageData(x, y, w, h);
+    };
+
+
+    /**
+     * This function could be used to send the image data
+     * to a backend server that expects base64 encoded images.
+     *
+     * In this example, we simply store it in the scope for display.
+     */
+    var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
+        $scope.snapshotData = imgBase64;
+        console.log("$scope.snapshotData", $scope.snapshotData);
+    };
 
 })
 
@@ -1920,7 +1925,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.myUrl = window.location.href;
     $scope.menu = "menu-out";
     TemplateService.removeLoaderOn(1);
-    $scope.pdfpath ="http://104.155.129.33:82/upload/readFile?file";
+    $scope.pdfpath = "http://104.155.129.33:82/upload/readFile?file";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
             $scope.menu = "menu-in";
@@ -1933,7 +1938,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         $scope.drinkParty1 = data.data;
         console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
-                $scope.readMore = function(id) {
+        $scope.readMore = function(id) {
 
             console.log(id);
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
@@ -1955,25 +1960,25 @@ console.log("$scope.snapshotData",$scope.snapshotData);
 
     };
 
-        $scope.pdfmodal = function(pdf) {
-          $scope.pdfdata = pdf;
-          if ($scope.pdfdata) {
+    $scope.pdfmodal = function(pdf) {
+        $scope.pdfdata = pdf;
+        if ($scope.pdfdata) {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/menu.html",
                 scope: $scope,
             })
-          }
-        };
-    $scope.bookings = function(){
-    console.log("in in");
-    $uibModal.open({
-       animation:true,
-       templateUrl:"views/modal/bookings.html",
-       scope:$scope,
-         windowClass: "no-white-bg"
-    })
-};
+        }
+    };
+    $scope.bookings = function() {
+        console.log("in in");
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/bookings.html",
+            scope: $scope,
+            windowClass: "no-white-bg"
+        })
+    };
     // $scope.mySlides = [
     //     'img/beverage.png',
     //     'img/beverage1.png',
@@ -2247,15 +2252,15 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         TemplateService.removeLoader();
     })
     $scope.pdfmodal = function(pdf) {
-      console.log("im in");
-      $scope.pdfdata = pdf;
-      if ($scope.pdfdata) {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/menu.html",
-            scope: $scope,
-        })
-      }
+        console.log("im in");
+        $scope.pdfdata = pdf;
+        if ($scope.pdfdata) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/menu.html",
+                scope: $scope,
+            })
+        }
     };
 })
 
@@ -2268,31 +2273,29 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.navigation = NavigationService.getnav();
 
     $scope.credentials = {};
-    $scope.credentials._id = $.jStorage.get("loginId");
+    // $scope.credentials._id = $.jStorage.get("loginId");
+    $scope.credentials.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
     $scope.wrongPass = false;
     $scope.passUpdated = false;
-    $scope.loggedInUser = $.jStorage.get("loggedInUser");
-    console.log("$scope.credentials._id", $scope.credentials._id);
+    $scope.loggedInUser = $.jStorage.get("loginDetail").data.CustomerName;
+    // console.log("$scope.credentials._id", $scope.credentials._id);
 
     $scope.formSubmit = function(credentials) {
-        if (credentials.newPassword === credentials.confirmPassword) {
-            credentials.password = credentials.newPassword;
-            NavigationService.forgotPasswordSubmit(credentials, function(data) {
-                console.log("credentials", credentials);
-                if (data.data.message === "Password Updated") {
-                    $scope.passUpdated = true;
-                    $scope.formComplete = true;
-                    $timeout(function() {
-                        $scope.formComplete = false;
-                        $scope.wrongPass = false;
-                        $scope.passUpdated = false;
-                        $scope.credentials = {};
-                    }, 2000);
-                }
-            });
-        } else {
-            $scope.wrongPass = true;
-        }
+        console.log("credentials", credentials);
+        NavigationService.CustomerResetPassword(credentials, function(data) {
+            console.log("credentials", credentials);
+            if (data.value === true) {
+                $scope.passUpdated = true;
+                $timeout(function() {
+                    $scope.credentials = {};
+                    $scope.passUpdated = false;
+                }, 2000);
+            } else if (data.value === false) {
+                $scope.wrongPass = true;
+            }
+
+
+        });
     }
 
 })
@@ -2382,7 +2385,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
 
 })
 
-.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$uibModal) {
+.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
     $scope.menutitle = NavigationService.makeactive("Promotion Inner");
@@ -2398,7 +2401,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     $scope.clear = function() {
         $scope.dt = null;
     };
-  $scope.inlineOptions = {
+    $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
         showWeeks: true
@@ -2438,14 +2441,14 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         $scope.dt = new Date(year, month, day);
     };
     $scope.pdfmodal = function(pdf) {
-      $scope.pdfdata = pdf;
-      if ($scope.pdfdata) {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/menu.html",
-            scope: $scope,
-        })
-      }
+        $scope.pdfdata = pdf;
+        if ($scope.pdfdata) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/menu.html",
+                scope: $scope,
+            })
+        }
     };
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
@@ -2524,16 +2527,16 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$uibModal) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.getPopularBlog(function(data){
-      console.log("data",data);
-      $scope.popularblogs=data.data;
+    NavigationService.getPopularBlog(function(data) {
+        console.log("data", data);
+        $scope.popularblogs = data.data;
     });
     //
 
@@ -2552,7 +2555,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
             console.log(data.data.totalpages);
             console.log("getStars", data.data);
             if (data.data.data.length === 0) {
-              $scope.noviewmore = false;
+                $scope.noviewmore = false;
                 $scope.noviewmore1 = true;
                 $scope.notAvailable = true;
             } else {
@@ -2573,7 +2576,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
                     $scope.noviewmore = false;
                 }
             }
-console.log("blogs",$scope.blogs);
+            console.log("blogs", $scope.blogs);
         })
     };
     $scope.fetchData();
@@ -2588,7 +2591,7 @@ console.log("blogs",$scope.blogs);
 
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         NavigationService.getBlog($scope.objectfilter, function(data) {
-          console.log("$scope.objectfilter",$scope.objectfilter);
+            console.log("$scope.objectfilter", $scope.objectfilter);
             console.log(data.data.totalpages);
 
             if (data.data.data.length === 0) {
@@ -2612,7 +2615,7 @@ console.log("blogs",$scope.blogs);
                 }
             }
             // TemplateService.removeLoader();
-            console.log("blogs",$scope.blogs);
+            console.log("blogs", $scope.blogs);
         })
     };
 
@@ -2702,10 +2705,10 @@ console.log("blogs",$scope.blogs);
         'img/karting/salman.png',
         'img/karting/shikar.png'
     ];
-    NavigationService.getDetailBlog($stateParams.id,function(data){
+    NavigationService.getDetailBlog($stateParams.id, function(data) {
 
-    $scope.blogInside=data.data;
-      console.log("  $scope.blogInside",  $scope.blogInside);
+        $scope.blogInside = data.data;
+        console.log("  $scope.blogInside", $scope.blogInside);
     })
 
 })
@@ -2764,7 +2767,9 @@ console.log("blogs",$scope.blogs);
         $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
         $scope.template = TemplateService;
         $scope.city = true;
-
+        if ($.jStorage.get("city") === 'Mumbai') {
+            $scope.showlogo = true;
+        }
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });
@@ -2798,10 +2803,10 @@ console.log("blogs",$scope.blogs);
             $scope.city = !$scope.city;
         };
         $scope.getCityName = function(cityname) {
-            console.log("cityname",cityname);
+            console.log("cityname", cityname);
             $.jStorage.set("cityid", cityname._id);
             $.jStorage.set("city", cityname.name);
-            $.jStorage.set("logos",cityname.logo);
+            $.jStorage.set("logos", cityname.logo);
 
             $state.reload();
         }
@@ -2810,7 +2815,7 @@ console.log("blogs",$scope.blogs);
             $scope.cityData = {
                 _id: $.jStorage.get("cityid"),
                 name: $.jStorage.get("city"),
-                smaaashLogo:$.jStorage.get("logos")
+                smaaashLogo: $.jStorage.get("logos")
             };
         };
         $scope.template.reFetchCity();
@@ -2841,7 +2846,7 @@ console.log("blogs",$scope.blogs);
 
         $scope.formCompleteSignup = false;
         $scope.signupData = {};
-        $scope.signupData.city=$.jStorage.get("cityid");
+        $scope.signupData.city = $.jStorage.get("cityid");
         $scope.pass = true;
         $scope.emailExist = false;
         $scope.validCity = false;
@@ -2954,21 +2959,31 @@ console.log("blogs",$scope.blogs);
         };
 
 
-        $scope.otp=function(){
-        $uibModal.open({
-        animation:true,
-        templateUrl:"views/modal/otp.html",
-        scope:$scope,
-         windowClass: "no-white-bg"
-        })
-        };
-
-        $scope.resets = function() {
-            $scope.asd = $uibModal.open({
+        $scope.otp = function() {
+            $uibModal.open({
                 animation: true,
-                templateUrl: "views/modal/forgot.html",
+                templateUrl: "views/modal/otp.html",
                 scope: $scope,
+                windowClass: "no-white-bg"
             })
+        };
+$scope.incorrect=false;
+        $scope.resets = function() {
+          $scope.credentials.CustomerEmail=$.jStorage.get("loginDetail").data.CustomerEmail ;
+          $scope.credentials.CustomerMobileNo=$.jStorage.get("loginDetail").data.CustomerMobileNo;
+          NavigationService.CustomerForgetPassword($scope.credentials,function(data){
+            if (data.value === true) {
+              $scope.asd = $uibModal.open({
+                  animation: true,
+                  templateUrl: "views/modal/resetpassword.html",
+                  scope: $scope,
+              })
+            }else if (data.value === false) {
+// $scope.incorrect=true;
+            }
+          })
+
+
         };
         $scope.closeModal = function() {
             $scope.asd.close();
