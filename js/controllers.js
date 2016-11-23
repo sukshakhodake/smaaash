@@ -90,7 +90,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         $scope.mySlides = data.data;
-        console.log("$scope.mySlides", $scope.mySlides);
+        // console.log("$scope.mySlides", $scope.mySlides);
         var i = 1;
         _.each($scope.mySlides, function(n) {
             if (n.image) {
@@ -141,13 +141,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
-            console.log("$scope.content", $scope.content);
+            // console.log("$scope.content", $scope.content);
             $scope.attraction = $scope.content.Attraction;
-            console.log("$scope.attraction", $scope.attraction);
+            // console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
-            console.log("deals", $scope.deals);
+            // console.log("deals", $scope.deals);
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
@@ -2523,6 +2523,11 @@ console.log("$scope.snapshotData",$scope.snapshotData);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    NavigationService.getPopularBlog(function(data){
+      console.log("data",data);
+      $scope.popularblogs=data.data;
+    });
+    //
 
 
     $scope.objectfilter = {};
@@ -2668,6 +2673,7 @@ console.log("$scope.snapshotData",$scope.snapshotData);
         }
 
     };
+
 
 })
 

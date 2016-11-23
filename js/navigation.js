@@ -92,13 +92,25 @@ var navigationservice = angular.module('navigationservice', [])
         getDetailBlog: function(id, callback) {
             var data = {
                 _id: id,
-                // city: $.jStorage.get("cityid")
+                city: $.jStorage.get("cityid")
             };
             $http({
                 url: adminurl + 'blog/getDetailBlog',
                 method: 'POST',
                 withCredentials: true,
                 data: data
+            }).success(callback);
+        },
+        getPopularBlog: function(callback) {
+            // var data = {
+            //     _id: id,
+            //     city: $.jStorage.get("cityid")
+            // };
+            $http({
+                url: adminurl + 'blog/getPopularBlog',
+                method: 'POST',
+                withCredentials: true,
+                // data: data
             }).success(callback);
         },
         getFoodGallery: function(id, callback) {
