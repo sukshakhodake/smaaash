@@ -1134,9 +1134,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("data", data.data);
             $scope.customizeformData.mobile = data.data.CustomerMobile;
             $scope.customizeformData.email = data.data.CustomerEmail;
+            console.log("data.data", data.data);
 
         });
     }
+    NavigationService.getOne(function(data) {
+        // delete data.data._id;
+        console.log("data", data.data);
+        $scope.customizeformData.mobile = data.data.CustomerMobile;
+        $scope.customizeformData.email = data.data.CustomerEmail;
+        console.log("data.data", data.data);
+
+    });
     if ($.jStorage.get("customizeobj") != null) {
         $scope.customizeformData.email = $.jStorage.get("customizeobj").email;
         $scope.customizeformData.mobile = $.jStorage.get("customizeobj").mobile;
@@ -2273,30 +2282,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
     $scope.credentials = {};
-    // $scope.credentials._id = $.jStorage.get("loginId");
-    $scope.credentials.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
     $scope.wrongPass = false;
     $scope.passUpdated = false;
-    $scope.loggedInUser = $.jStorage.get("loginDetail").data.CustomerName;
-    // console.log("$scope.credentials._id", $scope.credentials._id);
-
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.credentials.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+        $scope.loggedInUser = $.jStorage.get("loginDetail").data.CustomerName;
+    }
     $scope.formSubmit = function(credentials) {
         console.log("credentials", credentials);
         NavigationService.CustomerResetPassword(credentials, function(data) {
             console.log("credentials", credentials);
+            console.log("data", data);
             if (data.value === true) {
                 $scope.passUpdated = true;
                 $timeout(function() {
                     $scope.credentials = {};
                     $scope.passUpdated = false;
+                    $scope.wrongPass = false;
                 }, 2000);
-            } else if (data.value === false) {
+              } else if (data.value === false) {
                 $scope.wrongPass = true;
             }
-
-
-        });
-    }
+          });
+        }
 
 })
 
@@ -2917,10 +2925,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         };
-
+        $scope.hidelogout = false;
         $scope.logout = function() {
+            console.log("im in logout");
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
+                    console.log("im in nav logout");
+                    console.log("data", data);
+                    if (data.value === true) {
+                        $scope.hidelogout = true;
+                    }
+                    console.log("im in nav logout");
                     location.reload();
                     $state.go("home");
                 })
@@ -2967,55 +2982,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: "no-white-bg"
             })
         };
-$scope.incorrect=false;
+        $scope.incorrect = false;
+
         $scope.resets = function() {
-          $scope.credentials.CustomerEmail=$.jStorage.get("loginDetail").data.CustomerEmail ;
-          $scope.credentials.CustomerMobileNo=$.jStorage.get("loginDetail").data.CustomerMobileNo;
-          NavigationService.CustomerForgetPassword($scope.credentials,function(data){
-            if (data.value === true) {
-              $scope.asd = $uibModal.open({
-                  animation: true,
-                  templateUrl: "views/modal/resetpassword.html",
-                  scope: $scope,
-              })
-            }else if (data.value === false) {
-// $scope.incorrect=true;
-            }
-          })
+            $scope.modal1 = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/forgot.html",
+                scope: $scope
+            })
+        }
+
+        $scope.closeModal1 = function() {
+            $scope.modal1.close();
+        }
 
 
-        };
+
         $scope.closeModal = function() {
             $scope.asd.close();
         }
-        $scope.credentials = {};
-        $scope.changePass = false;
+
+        $scope.credentialstoReset = {};
         $scope.invalidEmail = false;
-
         $scope.formSubmit = function(credentials) {
-            NavigationService.forgotPassword(credentials, function(data) {
-                if (data) {
-                    console.log("data", data.data.id);
-                    $.jStorage.set("loginId", data.data.id);
-                    $.jStorage.set("loggedInUser", data.data.email);
-                    if (data.value === true) {
-                        $scope.changePass = true;
-                        $scope.closeModal();
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: "views/modal/resetpassword.html",
-                            scope: $scope,
-                        })
-                    } else if (data.value === false) {
-                        $scope.invalidEmail = true;
-                    }
+            console.log("credentials", credentials);
+            NavigationService.CustomerForgetPassword(credentials, function(data) {
+                console.log("data", data);
+                if (data.value === true) {
+                    $scope.asd = $uibModal.open({
+                        animation: true,
+                        templateUrl: "views/modal/resetpassword.html",
+                        scope: $scope,
+                    });
+                    $scope.closeModal();
+                    $scope.closeModal1();
+                    $scope.credentialstoReset = {};
+                } else if (data.value === false) {
+                    $scope.invalidEmail = true;
+
                 }
-
-
-            });
-            // location.reload();
-
+            })
         }
+
+
 
 
     })

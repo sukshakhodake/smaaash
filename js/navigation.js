@@ -394,7 +394,8 @@ var navigationservice = angular.module('navigationservice', [])
         // },
 
         logout: function(callback) {
-            // $.jStorage.flush();
+          // console.log("im in logout");
+            $.jStorage.flush();
               $.jStorage.set("loginDetail",null);
               $.jStorage.set("loginId",null);
               $.jStorage.set("loggedInUser",null);
@@ -403,6 +404,7 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'register/logout',
                 method: 'POST',
             }).success(callback);
+          
         },
 
         getLeader: function(callback) {
