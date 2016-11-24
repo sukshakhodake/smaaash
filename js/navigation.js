@@ -1,5 +1,5 @@
 var adminurl = "http://104.155.129.33:82/"; //server
-// var adminurl = "http://192.168.0.111:1337/";
+// var adminurl = "http://192.168.0.104:1337/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 // var pdfpath = imgurl + "readFile?file=";
@@ -187,12 +187,23 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        generateOtp: function(dataforOtp, callback) {
+
+            $http({
+                url: adminurl + 'signup/generateOtp',
+                method: 'POST',
+
+                data: dataforOtp
+
+            }).success(callback);
+        },
 
         VerifyCustomerLogin: function(userData, callback) {
 
             $http({
-                url: adminurl + 'signup/VerifyCustomerLogin',
+                url: adminurl + 'signup/VerifyCustomerLoginWeb',
                 method: 'POST',
+
 
                 data: userData
 
@@ -395,7 +406,7 @@ var navigationservice = angular.module('navigationservice', [])
 
         logout: function(callback) {
           // console.log("im in logout");
-            $.jStorage.flush();
+            // $.jStorage.flush();
               $.jStorage.set("loginDetail",null);
               $.jStorage.set("loginId",null);
               $.jStorage.set("loggedInUser",null);
@@ -404,7 +415,7 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'register/logout',
                 method: 'POST',
             }).success(callback);
-          
+
         },
 
         getLeader: function(callback) {

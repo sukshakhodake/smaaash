@@ -2300,11 +2300,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.passUpdated = false;
                     $scope.wrongPass = false;
                 }, 2000);
-              } else if (data.value === false) {
+            } else if (data.value === false) {
                 $scope.wrongPass = true;
             }
-          });
-        }
+        });
+    }
 
 })
 
@@ -2815,6 +2815,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $.jStorage.set("cityid", cityname._id);
             $.jStorage.set("city", cityname.name);
             $.jStorage.set("logos", cityname.logo);
+            $.jStorage.set("branchId", cityname.BranchID);
 
             $state.reload();
         }
@@ -2855,11 +2856,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formCompleteSignup = false;
         $scope.signupData = {};
         $scope.signupData.city = $.jStorage.get("cityid");
+        $scope.signupData.BranchID = $.jStorage.get("branchId");
         $scope.pass = true;
         $scope.emailExist = false;
         $scope.validCity = false;
+        $scope.getOtp = {};
+        $scope.getOtp.CustomerMobileNo = $scope.signupData.CustomerMobile;
+        $scope.getOtp.OTPFor = "1";
+        $scope.wrongOtp = false;
 
-        $scope.signupLogin = function(signupData) {
+
+        $scope.signupGenerateOtp = function(signupData) {
             console.log("signupData ", signupData);
             if (signupData) {
                 if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
@@ -2867,24 +2874,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (signupData.CustomerPassword === signupData.confirmPassword) {
                         console.log('m true');
                         $scope.pass = true;
-                        NavigationService.CustomerRegistration(signupData, function(data) {
-                            console.log("signupData", signupData);
-                            console.log("signupDataforData", data);
-                            if (data.value === true) {
-                                $.jStorage.set("loginDetail", data);
-                                $scope.emailExist = false;
-                                $scope.formCompleteSignup = true;
-                                $timeout(function() {
-                                    $scope.formCompleteSignup = false;
-                                    $scope.signupData = {};
-                                }, 2000);
-                                // location.reload();
+                        console.log("signupDataotp", signupData);
+                        // $scope.otp();
 
-                                // $state.go("account");
+                          $scope.getOtp.CustomerMobileNo=signupData.CustomerMobile;
+                            console.log("$scope.getOtp",$scope.getOtp);
+                        NavigationService.generateOtp($scope.getOtp, function(data) {
+                            console.log("data", data);
+                            if (data.value === true) {
+                                $scope.otp();
                             } else {
-                                $scope.emailExist = true;
+                                console.log("data in false", data);
                             }
-                        })
+                        });
                     } else {
                         console.log('m false');
                         $scope.pass = false;
@@ -2896,6 +2898,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
+        $scope.customerSignup = function(signupData) {
+            console.log("signupData", signupData);
+            NavigationService.CustomerRegistration(signupData, function(data) {
+                console.log("signupData", signupData);
+                console.log("signupDataforData", data);
+                if (data.value === true) {
+                    $.jStorage.set("loginDetail", data);
+                    $scope.emailExist = false;
+                    $scope.formCompleteSignup = true;
+                    $timeout(function() {
+                        $scope.formCompleteSignup = false;
+                        $scope.signupData = {};
+                    }, 2000);
+                    location.reload();
+                }else if (data.value === false && data.data === "Customer Already Exists") {
+                  $scope.custExist=true;
+                    $scope.wrongOtp = false;
+                }else {
+                    $scope.emailExist = true;
+                      $scope.wrongOtp = true;
+
+                }
+            })
+
+        }
 
         $scope.formComplete = false;
         $scope.userData = {};
