@@ -275,12 +275,20 @@ $menu-height: 80px !default;
         z-index: 999;
     }
     .cities {
-        @include position(absolute,
-        46px null null 5px);
-        background-color: #fc5626;
-        transform: skew(15deg);
-        box-shadow: -3px 3px #000, 1px 0 #000;
-        cursor: pointer;
+    padding: 10px 20px;
+    background-color: $brand-green;
+    transform: skew(-15deg);
+    box-shadow: -3px 3px #000, 1px 0 #000;
+    cursor: pointer;
+    }
+    .sides{
+    position: absolute;
+    top: 68px;
+    right: 186px;
+    cursor: pointer;
+    span{
+  text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
+    }
     }
     .menu {
         @include position(absolute,
