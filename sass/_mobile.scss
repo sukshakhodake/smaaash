@@ -757,10 +757,11 @@
     }
     .menu {
       right: 0;
+      z-index: 99;
     }
-    .cities {
-      top: 41px;
-      left: 25px;
+    .sides {
+     top: 68px;
+    right: 45px;
     }
     .logo-smaash {
       display: inline-block;
@@ -969,9 +970,9 @@
     .menu {
       right: 0;
     }
-    .cities {
-      top: 41px;
-      left: 25px;
+     .sides {
+     top: 68px;
+    right: 45px;
     }
     .logo-smaash {
       display: inline-block;
@@ -1249,10 +1250,9 @@
     margin: -8px 0;
   }
   .dropdowns {
-    .cities {
-      top: 41px;
-      left: 25px;
-      padding: 8px;
+     .sides {
+     top: 68px;
+    right: 45px;
     }
   }
   .smaash-menu .nav-name {
