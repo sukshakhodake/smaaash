@@ -103,6 +103,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         templateUrl: "views/template.html",
         controller: 'BlogCtrl'
     })
+       .state('blogs', {
+        url: "/blogs/:search",
+        templateUrl: "views/template.html",
+        controller: 'BlogCtrl'
+    })
 
            .state('blog-inside', {
         url: "/blog-inside/:id",

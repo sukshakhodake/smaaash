@@ -33,7 +33,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
+                    <div class="col-flexing mobile-50" >
+                    <!-- <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null"> -->
                         <div class="account bg-prop">
                             <a class="text-center">
                                 <h3 class=" nav-name nav-naming" ng-click="myAccount();"><span class="block">my</span> account</h3>
@@ -118,7 +119,7 @@
         <div class="container relative">
             <a class="logo-smaash" ui-sref="home">
                 <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
-                || showlogo">
+                || showlogo && !cityData.smaaashLogo ">
                 <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
             </a>
 

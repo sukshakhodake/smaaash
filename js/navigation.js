@@ -177,6 +177,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        updateProfile: function(signupData, callback) {
+
+            $http({
+                url: adminurl + 'signup/updateProfile',
+                method: 'POST',
+
+                data: signupData
+
+            }).success(callback);
+        },
         CustomerRegistration: function(signupData, callback) {
 
             $http({
@@ -503,6 +513,18 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: credentials
+
+            }).success(callback);
+        },
+        signupProfile: function(callback) {
+          var data = {
+              _id: $.jStorage.get("loginDetail").data._id,
+            };
+            $http({
+                url: adminurl + 'signup/profile',
+                method: 'POST',
+
+                data: data
 
             }).success(callback);
         },

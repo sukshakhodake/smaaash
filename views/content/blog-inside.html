@@ -7,9 +7,9 @@
      <div class="forms brand-blue">
     <div class="container">
       <div class="search-green">
-        <input type="text" class="form-control" placeholder="Search" ng-model="filter.search">
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchFilter" >
         <div class="microscope">
-          <img src="img/new/bino.png" class="img-responsive" alt="" ng-click="goTOSearch(filter)">
+          <img src="img/new/bino.png" class="img-responsive" alt="" ui-sref="blogs({search:searchFilter})">
         </div>
       </div>
       <!-- <div class="game-type inline-block">
@@ -223,9 +223,9 @@ Next Blog
                                 </div>
 
                             </div>
-                                               <div class="love">
+                <!-- <div class="love">
                 <button class="uppercase" ><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>like</button>
-              </div>
+              </div> -->
              </div>
                     </div>
                 </div>
