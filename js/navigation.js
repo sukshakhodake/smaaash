@@ -102,16 +102,11 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getPopularBlog: function(callback) {
-            // var data = {
-            //     _id: id,
-            //     city: $.jStorage.get("cityid")
-            // };
-            $http({
+          $http({
                 url: adminurl + 'blog/getPopularBlog',
                 method: 'POST',
-                withCredentials: true,
-                // data: data
-            }).success(callback);
+                withCredentials: true
+          }).success(callback);
         },
         getFoodGallery: function(id, callback) {
             var data = {
@@ -177,16 +172,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        updateProfile: function(signupData, callback) {
 
-            $http({
-                url: adminurl + 'signup/updateProfile',
-                method: 'POST',
-
-                data: signupData
-
-            }).success(callback);
-        },
         CustomerRegistration: function(signupData, callback) {
 
             $http({
@@ -242,16 +228,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        // login: function(userData, callback) {
-        //
-        //     $http({
-        //         url: adminurl + 'signup/login',
-        //         method: 'POST',
-        //
-        //         data: userData
-        //
-        //     }).success(callback);
-        // },
+
         eventInnerForm: function(userData, callback) {
             $http({
                 url: adminurl + 'enquiry/save',
@@ -404,16 +381,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
 
-        // userWishList: function(callback) {
-        //     var data = {user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
-        //     $http({
-        //         url: adminurl + 'wishlist/getWishlistByUser',
-        //         method: 'POST',
-        //         withCredentials: true,
-        //         data:data
-        //     }).success(callback);
-        // },
-
         logout: function(callback) {
           // console.log("im in logout");
             // $.jStorage.flush();
@@ -453,17 +420,6 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        // buyOnline: function(id,callback) {
-        //   console.log("nAV",id);
-        //     var data = {exploresmash:id,user:$.jStorage.get("loginDetail").data._id,city:$.jStorage.get("cityid")};
-        //
-        //     $http({
-        //         url: adminurl + 'wishlist/save',
-        //         method: 'POST',
-        //         withCredentials: true,
-        //         data:data
-        //     }).success(callback);
-        // },
 
 
         editUserData: function(signupData, callback) {
@@ -528,16 +484,19 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        // confirmOrder: function(billingForm, callback) {
-        //
-        //     $http({
-        //         url: adminurl + 'signup/save',
-        //         method: 'POST',
-        //
-        //         data: billingForm
-        //
-        //     }).success(callback);
-        // },
+        updateProfile: function(callback) {
+          // var data = {
+          //     _id: $.jStorage.get("loginDetail").data._id,
+          //   };
+            $http({
+                url: adminurl + 'signup/updateProfile',
+                method: 'POST',
+
+                data: data
+
+            }).success(callback);
+        },
+
         getSponsors: function(callback) {
 
             $http({

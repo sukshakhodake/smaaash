@@ -1691,6 +1691,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope,
         })
     };
+    $scope.userprofile={};
     // NavigationService.signupProfile(function(data){
     //   console.log("data",data);
     //       $scope.userprofile.CustomerName=data.data.CustomerName ;
@@ -1701,7 +1702,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //       $scope.userprofile.gender=data.data.gender ;
     //       $scope.userprofile.profilePic=data.data.profilePic ;
     // })
-
+$scope.submitUserProfile=function(userprofile){
+  console.log("im in");
+  console.log("userprofile",userprofile);
+  // NavigationService.
+}
 
     $scope.getUser = function() {
         NavigationService.getUser(function(data) {
@@ -2552,6 +2557,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+        $scope.myUrl = window.location.href;
     NavigationService.getPopularBlog(function(data) {
         console.log("data", data);
         $scope.popularblogs = data.data;
@@ -2702,6 +2708,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+        $scope.myUrl = window.location.href;
     $scope.myBlogslides = [
         'img/karting/blue.png',
         // 'img/karting/star.png',
@@ -2983,10 +2990,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.myAccount = function() {
-            // if ($.jStorage.get("loginDetail") != null) {
-            //     $state.go("profile");
-            // };
-              $state.go("profile");
+            if ($.jStorage.get("loginDetail") != null) {
+                $state.go("profile");
+            };
+              // $state.go("profile");
         }
 
 
