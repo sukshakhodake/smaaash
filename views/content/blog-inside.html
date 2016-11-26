@@ -134,7 +134,7 @@ Next Blog
                                         <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
                                     </li>
                                 </ul>
-                                <div class="more inline-block">
+                                <div class="more inline-block" ui-sref="blog-inside({id:data._id})">
 
 
                                     <button class="uppercase greeny" ng-click="imagesmodal();">know more</button>
@@ -209,7 +209,7 @@ Next Blog
                         </div>
                         <div class="race-text">
 
-                            <div class="min-h">
+                            <div class="min-h" ui-sref="blog-inside({id:data._id})">
                                 <h3 class="margin0 brand-white">{{data.name}}</h3>
 
                             </div>

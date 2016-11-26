@@ -2551,13 +2551,18 @@ $scope.submitUserProfile=function(userprofile){
     }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
         $scope.myUrl = window.location.href;
+
+        // $scope.goto=function(data._id){
+        //   console.log("im in");
+        // $state.go('blog-inside',{id:data._id});
+        // }
     NavigationService.getPopularBlog(function(data) {
         console.log("data", data);
         $scope.popularblogs = data.data;
