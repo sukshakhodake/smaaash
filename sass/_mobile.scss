@@ -103,7 +103,8 @@
     .profile-details,
     .profile-detail {
       margin-bottom: 15px;
-      height: 250px;
+     height: 250px;
+    overflow: hidden;
     }
   }
   .tab li.active-tab:after {
@@ -1209,6 +1210,7 @@
           letter-spacing: normal;
         }
       }
+   
       .banner-buttons {
         .btn1 {
           margin: 0 4px;
@@ -1224,6 +1226,7 @@
             padding: 3px 6px;
             font-size: 7px;
           }
+   
         }
       }
     }
@@ -1239,6 +1242,25 @@
     .btn {
       padding: 2px 12px;
       border-color: transparent;
+    }
+    .btn2{
+                &:active{
+        background-color: $brand-purple;
+      }
+               &:active{
+                 &:focus{
+background-color: $brand-purple;
+ outline: 0;
+                 }
+        
+      }
+        &:focus{
+        background-color: $brand-purple;
+        outline: 0;
+      }
+        &:hover{
+        background-color: $brand-purple;
+      }
     }
     button {
       span {
@@ -1339,3 +1361,14 @@
     min-height: 400px;
   }
 }
+//avatar
+.avatar{
+  .avatars,.avatarss,.avatars1,.avatarss1,.avatars2,.avatarss2{
+    height: 100px;
+ 
+  }
+}
+
+     .widths{
+      width: 87%;
+    }

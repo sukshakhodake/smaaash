@@ -489,6 +489,9 @@ $brand-white:#fff !default;
     margin: 10px;
     position: relative;
     vertical-align: middle;
+    &:focus{
+      outline: 0;
+    }
   }
   .tick {
     position: absolute;
@@ -2151,7 +2154,7 @@ ul {
     display: none;
   }
   input[type="radio"]+label {
-    color: #fff;
+    color: #777;
     font-size: 14px;
     margin-right: 15px;
   }
@@ -3076,47 +3079,6 @@ button {
   margin-top: 30px;
 }
 
-//avatar
-.avt{
-  display: inline-block;
-    margin-right: -4px;
-    margin-top: -6px;
-}
-.avatars1,.avatars2,.avatars3,.avatars4,.avatars5,.avatars6{
-    background-image: url("../img/avatar/lady.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 250px;
-    height: 200px;
-    background-color: #01a69a;;
-    border: 1px solid #fff;
-    box-sizing: border-box;
-}
-.avatars2{
-    background-image: url("../img/avatar/arrow.png");
-
-}
-.avatars3{
-    background-image: url("../img/avatar/lady.png");
-
-}
-// .avatarss{
-//     background-image: url("../img/avatar/lady.png");
-//     margin-left: -2px;
-// }
-.avatars4{
-    background-image: url("../img/avatar/arrow.png");
-
-}
-.avatars5{
-    background-image: url("../img/avatar/lady.png");
-
-}
-.avatars6{
-    background-image: url("../img/avatar/arrow.png");
-
-}
 //otp
 .bookings-pop{
 .get-call

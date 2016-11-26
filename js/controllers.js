@@ -1680,6 +1680,7 @@ $scope.vidFalse=function(){
             animation: true,
             templateUrl: "views/modal/avatar.html",
             scope: $scope,
+           windowClass:'widths'
         })
     };
     $scope.userprofile={};
