@@ -119,7 +119,7 @@
         <div class="container relative">
             <a class="logo-smaash" ui-sref="home">
                 <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
-                || showlogo && !cityData.smaaashLogo ">
+                && showlogo || !cityData.smaaashLogo ">
                 <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
             </a>
 

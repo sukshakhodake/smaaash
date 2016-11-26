@@ -8,6 +8,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var openL = {};
+        TemplateService.removeLoaderOn(4);
     $scope.openpops = function() {
         openL = ngDialog.open({
             template: 'views/content/popup.html',
@@ -19,7 +20,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    TemplateService.removeLoaderOn(4);
+
 
 
 
@@ -115,6 +116,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCities = data.data;
         TemplateService.removeLoader();
     });
+    $scope.nameOfCity=$.jStorage.get("city");
 
     $scope.getCityName = function(cityname) {
         console.log("cityname", cityname);
@@ -122,6 +124,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $.jStorage.set("cityid", cityname._id);
         $.jStorage.set("city", cityname.name);
         $.jStorage.set("popupShow", true);
+        $.jStorage.set("logos", cityname.logo);
+        $.jStorage.set("branchId", cityname.BranchID);
+
         console.log(openL);
         ngDialog.closeAll("Change");
         $(".ngdialog").remove();
@@ -129,25 +134,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $state.reload();
     };
 
-    $scope.cityData = {
-        _id: $.jStorage.get("cityid"),
-        name: $.jStorage.get("city")
-    };
+
+
 
 
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
-
-        if (data.value) {
+            if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
-            // console.log("$scope.content", $scope.content);
             $scope.attraction = $scope.content.Attraction;
-            // console.log("$scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
-            // console.log("deals", $scope.deals);
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
@@ -165,12 +164,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (data.value) {
             $scope.banner = data.data;
             console.log("  $scope.bannerDFDSFSD", $scope.banner);
-
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
+              }
             }
-
-        }
         TemplateService.removeLoader();
 
     });
@@ -1138,7 +1135,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // console.log("data.data", data.data);
           });
     }
-  
+
     if ($.jStorage.get("customizeobj") != null) {
         $scope.customizeformData.email = $.jStorage.get("customizeobj").email;
         $scope.customizeformData.mobile = $.jStorage.get("customizeobj").mobile;
@@ -2898,7 +2895,11 @@ $scope.submitUserProfile=function(userprofile){
                 }
             }
         }
-
+$scope.GenrateOneTimePass=function(signupData){
+  $scope.modalOtp.close();
+  $scope.signupData.OTP="";
+  $scope.signupGenerateOtp(signupData);
+}
         $scope.customerSignup = function(signupData) {
             console.log("signupData", signupData);
             NavigationService.CustomerRegistration(signupData, function(data) {
@@ -3004,7 +3005,7 @@ $scope.submitUserProfile=function(userprofile){
 
 
         $scope.otp = function() {
-            $uibModal.open({
+          $scope.modalOtp =  $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/otp.html",
                 scope: $scope,
