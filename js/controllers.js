@@ -79,7 +79,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.showVideo = false;
         }
     });
-
+$scope.vidFalse=function(){
+    $scope.showthumbimage = true;
+}
     $scope.scrollToHome = function() {
         // $scope.showVideo = false;
         $scope.showthumbimage = true;
