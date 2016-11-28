@@ -1153,6 +1153,7 @@ $brand-white:#fff !default;
   font-size: 14px;
   font-family: $body-font;
   cursor: pointer;
+  z-index: 999999;
   span {
     color: #fff;
     .fa {
