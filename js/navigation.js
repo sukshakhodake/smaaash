@@ -488,7 +488,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        updateProfile: function(callback) {
+        updateProfile: function(userprofile,callback) {
           // var data = {
           //     _id: $.jStorage.get("loginDetail").data._id,
           //   };
@@ -496,7 +496,7 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'signup/updateProfile',
                 method: 'POST',
 
-                data: data
+                data: userprofile
 
             }).success(callback);
         },

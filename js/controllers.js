@@ -1683,21 +1683,36 @@ $scope.vidFalse=function(){
            windowClass:'widths'
         })
     };
+
     $scope.userprofile={};
-    // NavigationService.signupProfile(function(data){
-    //   console.log("data",data);
-    //       $scope.userprofile.CustomerName=data.data.CustomerName ;
-    //       $scope.userprofile.CustomerEmail=data.data.CustomerEmail ;
-    //       $scope.userprofile.dob=data.data.dob ;
-    //       $scope.userprofile.pincode=data.data.pincode ;
-    //       $scope.userprofile.CustomerMobile=data.data.CustomerMobile ;
-    //       $scope.userprofile.gender=data.data.gender ;
-    //       $scope.userprofile.profilePic=data.data.profilePic ;
-    // })
+    NavigationService.signupProfile(function(data){
+      console.log("data",data);
+      $scope.userprofile=data.data ;
+      console.log("data.data.dob",data.data.dob);
+      $scope.userprofile.dob = new Date(data.data.dob);
+    });
+      $scope.yourAvtar=false;
+    $scope.getAvtar=function(avtar){
+      console.log("avtar",avtar);
+      if (avtar) {
+        $scope.yourAvtar=true;
+          $scope.userprofile.profilePic=avtar;
+      }
+
+    }
+$scope.formComplete=false;
 $scope.submitUserProfile=function(userprofile){
   console.log("im in");
   console.log("userprofile",userprofile);
-  // NavigationService.
+  NavigationService.updateProfile(userprofile,function(data){
+    console.log("data",data);
+    if (data.value === true) {
+      $scope.formComplete=true;
+      $timeout(function () {
+$scope.formComplete=false;
+      }, 2000);
+    }
+  })
 }
 
     $scope.getUser = function() {
