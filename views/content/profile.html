@@ -11,7 +11,8 @@
                <div class="row">
                   <div class="col-md-4 col-sm-4 col-xs-12">
                      <div class="profile-details">
-                      <img ng-src="{{userprofile.profilePic | uploadprofilepicture}}" alt="">
+                      <img ng-src="{{userprofile.profilePic }}" alt="" ng-if="yourAvtar">
+                      <img ng-src="{{userprofile.profilePic | uploadprofilepicture}}" alt="" ng-if="!yourAvtar">
                      </div>
                   </div>
                   <!-- <div>
@@ -325,12 +326,12 @@
                   <div class="reseting">
 <p class="uppercase text-center mt10 pointer" ui-sref="reset">do you want to reset your password?</p>
                   </div>
-                  <form class="point-form" >
+                  <form class="point-form" ng-if="!formComplete" >
                      <label class="item w92">
                         <input type="text" readonly placeholder="Amrit Bamrah" class=" form-control" ng-model="userprofile.CustomerName">
                      </label>
                      <label class="item w30">
-                        <input type="text" placeholder="1-01-94" class=" editing form-control"  value="{{userprofile.dob | date:'dd-MM-yyyy'}}" >
+                        <input type="date" placeholder="1-01-94" class=" editing form-control" ng-model="userprofile.dob">
                      </label>
                      <label class="item w30">
                         <input type="text" placeholder="Female" class="arrows-down editing form-control" ng-model="userprofile.gender">
@@ -351,6 +352,7 @@
                      </button>
 
                   </form>
+                  <h3 ng-if="formComplete" class="text-center">Profile Updated Successfully</h3>
                </div>
                <div class="wishlist" ng-show="tab=='wishlist'">
                   <div class="carts">
