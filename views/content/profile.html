@@ -330,7 +330,7 @@
                         <input type="text" readonly placeholder="Amrit Bamrah" class=" form-control" ng-model="userprofile.CustomerName">
                      </label>
                      <label class="item w30">
-                        <input type="text" placeholder="1-01-94" class=" editing form-control" ng-model="userprofile.dob">
+                        <input type="text" placeholder="1-01-94" class=" editing form-control"  value="{{userprofile.dob | date:'dd-MM-yyyy'}}" >
                      </label>
                      <label class="item w30">
                         <input type="text" placeholder="Female" class="arrows-down editing form-control" ng-model="userprofile.gender">

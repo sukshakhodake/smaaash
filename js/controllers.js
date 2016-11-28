@@ -1684,16 +1684,10 @@ $scope.vidFalse=function(){
         })
     };
     $scope.userprofile={};
-    // NavigationService.signupProfile(function(data){
-    //   console.log("data",data);
-    //       $scope.userprofile.CustomerName=data.data.CustomerName ;
-    //       $scope.userprofile.CustomerEmail=data.data.CustomerEmail ;
-    //       $scope.userprofile.dob=data.data.dob ;
-    //       $scope.userprofile.pincode=data.data.pincode ;
-    //       $scope.userprofile.CustomerMobile=data.data.CustomerMobile ;
-    //       $scope.userprofile.gender=data.data.gender ;
-    //       $scope.userprofile.profilePic=data.data.profilePic ;
-    // })
+    NavigationService.signupProfile(function(data){
+      console.log("data",data);
+      $scope.userprofile=data.data ;
+    })
 $scope.submitUserProfile=function(userprofile){
   console.log("im in");
   console.log("userprofile",userprofile);
