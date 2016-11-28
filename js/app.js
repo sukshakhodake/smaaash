@@ -85,6 +85,14 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ResetCtrl'
     })
 
+   .state('thank', {
+        url: "/thank-you",
+        templateUrl: "views/template.html",
+        controller: 'ThankCtrl'
+    })
+
+
+
   .state('promotion-inner', {
         url: "/promotion-inner/:id",
         templateUrl: "views/template.html",
