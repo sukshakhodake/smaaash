@@ -1691,12 +1691,10 @@ $scope.vidFalse=function(){
       console.log("data.data.dob",data.data.dob);
       $scope.userprofile.dob = new Date(data.data.dob);
     });
-      $scope.yourAvtar=false;
+    
     $scope.getAvtar=function(avtar){
-      console.log("avtar",avtar);
-      if (avtar) {
-        $scope.yourAvtar=true;
-          $scope.userprofile.profilePic=avtar;
+        if (avtar) {
+        $scope.userprofile.profilePic=avtar;
       }
 
     }
