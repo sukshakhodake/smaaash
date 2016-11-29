@@ -197,7 +197,7 @@ var navigationservice = angular.module('navigationservice', [])
         VerifyCustomerLogin: function(userData, callback) {
 
             $http({
-                url: adminurl + 'signup/VerifyCustomerLoginWeb',
+                url: adminurl + 'signup/VerifyCustomerLogin',
                 method: 'POST',
 
 
@@ -482,7 +482,7 @@ var data = {
               _id: $.jStorage.get("loginDetail").data._id,
             };
             }
-          
+
             $http({
                 url: adminurl + 'signup/profile',
                 method: 'POST',

@@ -8,7 +8,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var openL = {};
-        TemplateService.removeLoaderOn(4);
+    TemplateService.removeLoaderOn(4);
     $scope.openpops = function() {
         openL = ngDialog.open({
             template: 'views/content/popup.html',
@@ -19,32 +19,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
-
-
-
-
-
-
-    $scope.currentdate = new Date();
-    // $scope.showVideo = {};
-    // $scope.showVideo = false;
-    $scope.showVid = function() {
-        $scope.showthumbimage = !$scope.showthumbimage;
-
-    };
-    // $scope.showVidFalse = function() {
-    //     $scope.showthumbimage = true;
-    //     $scope.$apply();
-    //     console.log("im in");
-    // };
-    var fired = false;
+$scope.currentdate = new Date();
+$scope.funToStopVid = function() {
+        console.log("in im");
+        $scope.showVideo = false;
+    }
+      var fired = false;
     $scope.onScrollStopVideo = function() {
         window.addEventListener("scroll", function() {
             if (document.body.scrollTop >= 700) {
+                $scope.showVideo = true;
                 $timeout(function() {
-                    $scope.showthumbimage = true;
-
-
+                    $scope.showVideo = true;
                 }, 2000);
                 fired = true;
             }
@@ -74,22 +60,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var height = $(window).height() - 40;
         if (height <= scroller) {
             var vdo = document.getElementsByClassName('stopv');
-
-
-            $scope.showVideo = false;
-        }
+          }
     });
-$scope.vidFalse=function(){
-    $scope.showthumbimage = true;
-}
+    $scope.showVideo = false;
     $scope.scrollToHome = function() {
-        // $scope.showVideo = false;
-        $scope.showthumbimage = true;
+        $scope.showVideo = true;
         $('html, body').animate({
             scrollTop: $("#toHome").offset().top
         }, 500);
-
-    };
+      };
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         $scope.mySlides = data.data;
@@ -118,7 +97,7 @@ $scope.vidFalse=function(){
         $scope.getCities = data.data;
         TemplateService.removeLoader();
     });
-    $scope.nameOfCity=$.jStorage.get("city");
+    $scope.nameOfCity = $.jStorage.get("city");
 
     $scope.getCityName = function(cityname) {
         console.log("cityname", cityname);
@@ -142,7 +121,7 @@ $scope.vidFalse=function(){
 
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
-            if (data.value) {
+        if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
@@ -166,11 +145,11 @@ $scope.vidFalse=function(){
         if (data.value) {
             $scope.banner = data.data;
             console.log("  $scope.bannerDFDSFSD", $scope.banner);
+
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
-              }
-              console.log("  $scope.banner[0].homebanner",  $scope.banner[0].homebanner);
             }
+        }
         TemplateService.removeLoader();
 
     });
@@ -615,7 +594,7 @@ $scope.vidFalse=function(){
             //     }
             // }
             // TemplateService.removeLoader();
-          $scope.stars = data.data.data
+            $scope.stars = data.data.data
         })
     };
 
@@ -1136,7 +1115,7 @@ $scope.vidFalse=function(){
             $scope.customizeformData.mobile = data.data.CustomerMobile;
             $scope.customizeformData.email = data.data.CustomerEmail;
             // console.log("data.data", data.data);
-          });
+        });
     }
 
     if ($.jStorage.get("customizeobj") != null) {
@@ -1681,38 +1660,38 @@ $scope.vidFalse=function(){
             animation: true,
             templateUrl: "views/modal/avatar.html",
             scope: $scope,
-           windowClass:'widths'
+            windowClass: 'widths'
         })
     };
 
-    $scope.userprofile={};
-    NavigationService.signupProfile(function(data){
-      console.log("data",data);
-      $scope.userprofile=data.data ;
-      console.log("data.data.dob",data.data.dob);
-      $scope.userprofile.dob = new Date(data.data.dob);
+    $scope.userprofile = {};
+    NavigationService.signupProfile(function(data) {
+        console.log("data", data);
+        $scope.userprofile = data.data;
+        console.log("data.data.dob", data.data.dob);
+        $scope.userprofile.dob = new Date(data.data.dob);
     });
 
-    $scope.getAvtar=function(avtar){
+    $scope.getAvtar = function(avtar) {
         if (avtar) {
-        $scope.userprofile.profilePic=avtar;
-      }
+            $scope.userprofile.profilePic = avtar;
+        }
 
     }
-$scope.formComplete=false;
-$scope.submitUserProfile=function(userprofile){
-  console.log("im in");
-  console.log("userprofile",userprofile);
-  NavigationService.updateProfile(userprofile,function(data){
-    console.log("data",data);
-    if (data.value === true) {
-      $scope.formComplete=true;
-      $timeout(function () {
-$scope.formComplete=false;
-      }, 2000);
+    $scope.formComplete = false;
+    $scope.submitUserProfile = function(userprofile) {
+        console.log("im in");
+        console.log("userprofile", userprofile);
+        NavigationService.updateProfile(userprofile, function(data) {
+            console.log("data", data);
+            if (data.value === true) {
+                $scope.formComplete = true;
+                $timeout(function() {
+                    $scope.formComplete = false;
+                }, 2000);
+            }
+        })
     }
-  })
-}
 
     $scope.getUser = function() {
         NavigationService.getUser(function(data) {
@@ -1910,7 +1889,7 @@ $scope.formComplete=false;
         console.log("$scope.snapshotData", $scope.snapshotData);
     };
 
-//calender
+    //calender
 
     $scope.today = function() {
         $scope.dt = new Date();
@@ -2376,6 +2355,7 @@ $scope.formComplete=false;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
         $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
         TemplateService.removeLoader();
+        console.log("$scope.detailEventsInner.banner ", $scope.detailEventsInner.banner);
     })
     $scope.pdfmodal = function(pdf) {
         console.log("im in");
@@ -2661,18 +2641,18 @@ $scope.formComplete=false;
     }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$state) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-        $scope.myUrl = window.location.href;
+    $scope.myUrl = window.location.href;
 
-        // $scope.goto=function(data._id){
-        //   console.log("im in");
-        // $state.go('blog-inside',{id:data._id});
-        // }
+    // $scope.goto=function(data._id){
+    //   console.log("im in");
+    // $state.go('blog-inside',{id:data._id});
+    // }
     NavigationService.getPopularBlog(function(data) {
         console.log("data", data);
         $scope.popularblogs = data.data;
@@ -2687,9 +2667,9 @@ $scope.formComplete=false;
     $scope.blogs = [];
     $scope.notAvailable = false;
     if ($stateParams.search) {
-      $scope.objectfilter.search = $stateParams.search;
-    }else {
-       $stateParams.search ={};
+        $scope.objectfilter.search = $stateParams.search;
+    } else {
+        $stateParams.search = {};
     }
     $scope.fetchData = function() {
 
@@ -2740,7 +2720,7 @@ $scope.formComplete=false;
             } else {
                 $scope.message = false;
             }
-            $scope.blogs  =data.data.data;
+            $scope.blogs = data.data.data;
             console.log("blogs", $scope.blogs);
         })
     };
@@ -2823,7 +2803,7 @@ $scope.formComplete=false;
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-        $scope.myUrl = window.location.href;
+    $scope.myUrl = window.location.href;
     $scope.myBlogslides = [
         'img/karting/blue.png',
         // 'img/karting/star.png',
@@ -2996,8 +2976,8 @@ $scope.formComplete=false;
                         console.log("signupDataotp", signupData);
                         // $scope.otp();
 
-                          $scope.getOtp.CustomerMobileNo=signupData.CustomerMobile;
-                            console.log("$scope.getOtp",$scope.getOtp);
+                        $scope.getOtp.CustomerMobileNo = signupData.CustomerMobile;
+                        console.log("$scope.getOtp", $scope.getOtp);
                         NavigationService.generateOtp($scope.getOtp, function(data) {
                             console.log("data", data);
                             if (data.value === true) {
@@ -3016,11 +2996,11 @@ $scope.formComplete=false;
                 }
             }
         }
-$scope.GenrateOneTimePass=function(signupData){
-  $scope.modalOtp.close();
-  $scope.signupData.OTP="";
-  $scope.signupGenerateOtp(signupData);
-}
+        $scope.GenrateOneTimePass = function(signupData) {
+            $scope.modalOtp.close();
+            $scope.signupData.OTP = "";
+            $scope.signupGenerateOtp(signupData);
+        }
         $scope.customerSignup = function(signupData) {
             console.log("signupData", signupData);
             NavigationService.CustomerRegistration(signupData, function(data) {
@@ -3035,12 +3015,12 @@ $scope.GenrateOneTimePass=function(signupData){
                         $scope.signupData = {};
                     }, 2000);
                     location.reload();
-                }else if (data.value === false && data.data === "Customer Already Exists") {
-                  $scope.custExist=true;
+                } else if (data.value === false && data.data === "Customer Already Exists") {
+                    $scope.custExist = true;
                     $scope.wrongOtp = false;
-                }else {
+                } else {
                     $scope.emailExist = true;
-                      $scope.wrongOtp = true;
+                    $scope.wrongOtp = true;
 
                 }
             })
@@ -3049,7 +3029,9 @@ $scope.GenrateOneTimePass=function(signupData){
 
         $scope.formComplete = false;
         $scope.userData = {};
-        $scope.valid = false;
+          $scope.userData.IsOTPValidation="0";
+          $scope.userData.OTP="";
+          $scope.valid = false;
         $scope.userLogin = function(userData) {
             if (userData) {
                 console.log("userData", userData);
@@ -3112,7 +3094,7 @@ $scope.GenrateOneTimePass=function(signupData){
             if ($.jStorage.get("loginDetail") != null) {
                 $state.go("profile");
             };
-              // $state.go("profile");
+            // $state.go("profile");
         }
 
 
@@ -3126,7 +3108,7 @@ $scope.GenrateOneTimePass=function(signupData){
 
 
         $scope.otp = function() {
-          $scope.modalOtp =  $uibModal.open({
+            $scope.modalOtp = $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/otp.html",
                 scope: $scope,
