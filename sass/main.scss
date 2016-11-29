@@ -1620,28 +1620,7 @@ img.fancybox-image {
     }
 }
 
-.points {
-    padding-top: 30px;
-    .point-form {
-        padding: 20px 0;
-        .editing {
-            border-radius: 5px;
-            background: url("../img/profile/pen.png") no-repeat 95% 50%;
-        }
-        .arrows-down {
-            background: url("../img/profile/arrow.png") no-repeat 95% 50%;
-        }
-        .w92 {
-            width: 92%;
-        }
-        .w30 {
-            width: 30%;
-        }
-        .w46 {
-            width: 46%;
-        }
-    }
-}
+
 
 .go {
     display: block;
@@ -1920,6 +1899,7 @@ border-bottom: 2px solid #000;
     display: block;
     margin: 0 auto;
 }
+
 
 @import "ruchira";
 @import "mobile";
