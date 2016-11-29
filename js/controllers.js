@@ -3045,7 +3045,7 @@ $scope.funToStopVid = function() {
                             $scope.formComplete = false;
                             $scope.userData = {};
                         }, 2000);
-                        // location.reload();
+                        location.reload();
                     } else {
                         $scope.valid = true;
                     }
