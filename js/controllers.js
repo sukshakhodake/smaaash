@@ -169,6 +169,7 @@ $scope.vidFalse=function(){
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
               }
+              console.log("  $scope.banner[0].homebanner",  $scope.banner[0].homebanner);
             }
         TemplateService.removeLoader();
 
@@ -1691,7 +1692,7 @@ $scope.vidFalse=function(){
       console.log("data.data.dob",data.data.dob);
       $scope.userprofile.dob = new Date(data.data.dob);
     });
-    
+
     $scope.getAvtar=function(avtar){
         if (avtar) {
         $scope.userprofile.profilePic=avtar;
