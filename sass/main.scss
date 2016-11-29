@@ -1307,7 +1307,6 @@ img.fancybox-image {
     }
 }
 
-
 .backg-deal {
     background-image: url("../img/deals/bg-hdr-deal.png");
     background-repeat: no-repeat;
@@ -1620,29 +1619,6 @@ img.fancybox-image {
     }
 }
 
-.points {
-    padding-top: 30px;
-    .point-form {
-        padding: 20px 0;
-        .editing {
-            border-radius: 5px;
-            background: url("../img/profile/pen.png") no-repeat 95% 50%;
-        }
-        .arrows-down {
-            background: url("../img/profile/arrow.png") no-repeat 95% 50%;
-        }
-        .w92 {
-            width: 92%;
-        }
-        .w30 {
-            width: 30%;
-        }
-        .w46 {
-            width: 46%;
-        }
-    }
-}
-
 .go {
     display: block;
     img {
@@ -1795,7 +1771,6 @@ img.fancybox-image {
  border-bottom: 1px solid #ccc;
     display: inline-block;
     }
-
 }
 
 .cam{
@@ -1920,7 +1895,6 @@ border-bottom: 2px solid #000;
     display: block;
     margin: 0 auto;
 }
-
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
