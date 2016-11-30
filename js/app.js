@@ -603,12 +603,9 @@ function allowPatternDirective() {
         restrict: "A",
         compile: function(tElement, tAttrs) {
             return function(scope, element, attrs) {
-        // I handle key events
-                element.bind("keypress", function(event) {
-                    var keyCode = event.which || event.keyCode; // I safely get the keyCode pressed from the event.
-                    var keyCodeChar = String.fromCharCode(keyCode); // I determine the char from the keyCode.
-
-          // If the keyCode char does not match the allowed Regex Pattern, then don't allow the input into the field.
+              element.bind("keypress", function(event) {
+                    var keyCode = event.which || event.keyCode;
+                    var keyCodeChar = String.fromCharCode(keyCode);
                     if (!keyCodeChar.match(new RegExp(attrs.allowPattern, "i"))) {
             event.preventDefault();
                         return false;
@@ -619,19 +616,23 @@ function allowPatternDirective() {
         }
     };
 }
-firstapp.directive('scrolldown', function($compile, $parse) {
+
+firstapp.directive('scrolldown', function ($compile, $parse) {
+
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             var $element = $(element);
             // var windowHeight = $(window).height();
-            $scope.scrollDown = function() {
+            $scope.scrollDown = function () {
+                $scope.startVideo=false;
                 $('html,body').animate({
                         scrollTop: $(".second").offset().top
                     },
                     'slow');
             }
+            
         }
     };
 });
@@ -643,10 +644,33 @@ firstapp.filter('rmvStartEndSpace', function() {
         }
     };
 });
+// firstapp.filter('youtubethumb', function() {
+//     return function(input, onlyid) {
+//         if (input) {
+//             return "http://img.youtube.com/vi/" + input + "/hqdefault.jpg";
+//         }
+//     };
+// });
 firstapp.filter('youtubethumb', function() {
     return function(input, onlyid) {
         if (input) {
-            return "http://img.youtube.com/vi/" + input + "/hqdefault.jpg";
+            console.log(input);
+            var videoid = input.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+            console.log(videoid);
+            if (videoid != null) {
+                console.log('tgyuhj', videoid);
+                if (onlyid == false) {
+                    return "http://img.youtube.com/vi/" + videoid[1] + "/hqdefault.jpg";
+                } else if (onlyid == true) {
+                    return videoid[1];
+                }
+            } else {
+                return input;
+                console.log('1 else', input);
+            }
+        } else {
+            return input;
+            console.log('2 else', input);
         }
     };
 });

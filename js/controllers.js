@@ -1322,6 +1322,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.removeLoaderOn(1);
 
 
+$scope.startVid=function(){
+
+$scope.startVideo=!$scope.startVideo;
+  console.log($scope.startVideo,"  console.log($scope.startVideo);");
+  }
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailExploreSmaash = data.data;
         console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
@@ -1348,7 +1353,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 })
-
 .controller('ConfirmCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("confirm-order");

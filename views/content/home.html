@@ -3,7 +3,7 @@
         <div class="inner relative pointer auto-height ">
 
 
-   <iframe width="640" ng-if="!showVideo" height="360" src="https://www.youtube.com/embed/fA1FdqRFV4U?autoplay=1" frameborder="0" allowfullscreen
+   <iframe width="640" ng-if="!showVideo" height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
      style="position: absolute;
        left: 0;
        top: 0;
@@ -15,7 +15,7 @@
 
 
    <div class="overlays">
-    
+
       <a class="pull-right" ><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
    </div>
 
