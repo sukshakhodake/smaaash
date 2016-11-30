@@ -19,12 +19,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
-$scope.currentdate = new Date();
-$scope.funToStopVid = function() {
+    $scope.currentdate = new Date();
+    $scope.funToStopVid = function() {
         console.log("in im");
         $scope.showVideo = false;
     }
-      var fired = false;
+    var fired = false;
     $scope.onScrollStopVideo = function() {
         window.addEventListener("scroll", function() {
             if (document.body.scrollTop >= 700) {
@@ -60,7 +60,7 @@ $scope.funToStopVid = function() {
         var height = $(window).height() - 40;
         if (height <= scroller) {
             var vdo = document.getElementsByClassName('stopv');
-          }
+        }
     });
     $scope.showVideo = false;
     $scope.scrollToHome = function() {
@@ -68,7 +68,7 @@ $scope.funToStopVid = function() {
         $('html, body').animate({
             scrollTop: $("#toHome").offset().top
         }, 500);
-      };
+    };
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         $scope.mySlides = data.data;
@@ -1638,6 +1638,24 @@ $scope.funToStopVid = function() {
     $scope.menutitle = NavigationService.makeactive("Recharge");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.rechargeOnline = {};
+    $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+    $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
+
+    $scope.submitRecharge = function(rechargeOnline) {
+        console.log("rechargeOnline", rechargeOnline);
+        NavigationService.rechargeCard(rechargeOnline, function(data) {
+            console.log("data", data);
+        })
+
+    }
+
+
+
+
+
 })
 
 
@@ -1702,6 +1720,92 @@ $scope.funToStopVid = function() {
         });
     }
     $scope.getUser();
+    $scope.CustID = "202";
+    $scope.customerBookingDetails = {
+        "GetCustomerBookingDetails": {
+            "CustomerBooking": [{
+                "Status": 1,
+                "Message": "Get Booking Data",
+                "BranchName": "Mumbai",
+                "PackageName": "Travel Agents - WeekDay",
+                "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
+                "BookingDate": "22-11-2016",
+                "VisitDate": "30-11-2016",
+                "CNRNo": 511,
+                "PayableAmount": 999,
+                "IsCustomerCard": 1
+            }, {
+                "Status": 1,
+                "Message": "Get Booking Data",
+                "BranchName": "Mumbai",
+                "PackageName": "Travel Agents - WeekDay",
+                "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
+                "BookingDate": "22-11-2016",
+                "VisitDate": "01-12-2016",
+                "CNRNo": 510,
+                "PayableAmount": 999,
+                "IsCustomerCard": 1
+            }],
+            "CustomerCardRecharge": [{
+                "Status": 1,
+                "Message": "Get Card Recharge Data",
+                "BranchName": "Mumbai",
+                "CustomerName": "piyush",
+                "RechargeDate": "26-11-2016",
+                "RechargeID": 3,
+                "RechargeAmt": 2000
+            }, {
+                "Status": 1,
+                "Message": "Get Card Recharge Data",
+                "BranchName": "Mumbai",
+                "CustomerName": "piyush",
+                "RechargeDate": "26-11-2016",
+                "RechargeID": 2,
+                "RechargeAmt": 100
+            }, {
+                "Status": 1,
+                "Message": "Get Card Recharge Data",
+                "BranchName": "Mumbai",
+                "CustomerName": "piyush",
+                "RechargeDate": "26-11-2016",
+                "RechargeID": 1,
+                "RechargeAmt": 500
+            }]
+        }
+    }
+
+
+    $scope.bookingDetails = [];
+    $scope.custBooking = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerBooking;
+    $scope.CustCardRecharge = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerCardRecharge;
+    $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+    _.each($scope.bookingDetails, function(value) {
+        if (value.Message === "Get Booking Data") {
+            value.objtype = "Booking";
+        } else if (value.Message === "Get Card Recharge Data") {
+            value.objtype = "Recharge";
+        };
+
+    });
+    $scope.msg = false;
+    $scope.CustID = $.jStorage.get("loginDetail").data.CustomerID;
+    NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
+            if (data.value === true) {
+          $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
+          $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
+          $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+          _.each($scope.bookingDetails, function(value) {
+              if (value.Message === "Get Booking Data") {
+                  value.objtype = "Booking";
+              } else if (value.Message === "Get Card Recharge Data") {
+                  value.objtype = "Recharge";
+              };
+
+          });
+        } else if (data.value === false) {
+            $scope.msg = true;
+        }
+    })
     $scope.tab = "design";
     $scope.classa = 'active';
     $scope.classb = '';
@@ -2923,7 +3027,8 @@ $scope.funToStopVid = function() {
             $scope.cityData = {
                 _id: $.jStorage.get("cityid"),
                 name: $.jStorage.get("city"),
-                smaaashLogo: $.jStorage.get("logos")
+                smaaashLogo: $.jStorage.get("logos"),
+                branchid: $.jStorage.get("branchId")
             };
         };
         $scope.template.reFetchCity();
@@ -3029,9 +3134,9 @@ $scope.funToStopVid = function() {
 
         $scope.formComplete = false;
         $scope.userData = {};
-          $scope.userData.IsOTPValidation="0";
-          $scope.userData.OTP="";
-          $scope.valid = false;
+        $scope.userData.IsOTPValidation = "0";
+        $scope.userData.OTP = "";
+        $scope.valid = false;
         $scope.userLogin = function(userData) {
             if (userData) {
                 console.log("userData", userData);
