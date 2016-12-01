@@ -1095,6 +1095,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.selectmainCourse = false;
 
     $scope.customizeformData = {};
+    $scope.customizeformData.city =   $.jStorage.get("cityid");
+
     // if ($.jStorage.get("loginDetail") != null) {
     //     $scope.customizeformData._id = $.jStorage.get("loginDetail").data._id
     // }
@@ -1197,35 +1199,73 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
-    NavigationService.getSingleExploreSmaaash(id, function(data) {
-        $scope.customizepackage = data.data;
+    $scope.customizeExploreSmaaash=function(){
+      NavigationService.getSingleExploreSmaaash(id, function(data) {
+          $scope.customizepackage = data.data;
 
-        console.log("$scope.customizepackage", $scope.customizepackage);
-        _.each($scope.customizepackage, function(data) {
-            data.gameforarray = [];
-            var index = _.findIndex($scope.customizeformData.games, {
-                _id: data._id
-            });
-            if (index >= 0) {
-                data.selected = true;
-            }
-            _.each(data.gamefor, function(n) {
-                switch (n) {
-                    case '1':
-                        data.gameforarray.push('Male')
-                        break;
-                    case '2':
-                        data.gameforarray.push('Female')
-                        break;
-                    case '3':
-                        data.gameforarray.push('Children')
-                        break;
-                    default:
-                }
-            });
-        });
-        TemplateService.removeLoader();
-    });
+          console.log("$scope.customizepackage", $scope.customizepackage);
+          _.each($scope.customizepackage, function(data) {
+              data.gameforarray = [];
+              var index = _.findIndex($scope.customizeformData.games, {
+                  _id: data._id
+              });
+              if (index >= 0) {
+                  data.selected = true;
+              }
+              _.each(data.gamefor, function(n) {
+                  switch (n) {
+                      case '1':
+                          data.gameforarray.push('Male')
+                          break;
+                      case '2':
+                          data.gameforarray.push('Female')
+                          break;
+                      case '3':
+                          data.gameforarray.push('Children')
+                          break;
+                      default:
+                  }
+              });
+          });
+          TemplateService.removeLoader();
+      });
+    }
+    $scope.customizeExploreSmaaash();
+    $scope.customizeCityFun=function(custCityId){
+      console.log("custCityId",custCityId);
+      NavigationService.getcustomizeCityFun(id, custCityId, function(data) {
+          $scope.customizepackage = data.data;
+
+          console.log("$scope.customizepackage", $scope.customizepackage);
+          _.each($scope.customizepackage, function(data) {
+              data.gameforarray = [];
+              var index = _.findIndex($scope.customizeformData.games, {
+                  _id: data._id
+              });
+              if (index >= 0) {
+                  data.selected = true;
+              }
+              _.each(data.gamefor, function(n) {
+                  switch (n) {
+                      case '1':
+                          data.gameforarray.push('Male')
+                          break;
+                      case '2':
+                          data.gameforarray.push('Female')
+                          break;
+                      case '3':
+                          data.gameforarray.push('Children')
+                          break;
+                      default:
+                  }
+              });
+          });
+          TemplateService.removeLoader();
+      });
+    }
+
+
+
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
