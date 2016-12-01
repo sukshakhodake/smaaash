@@ -125,6 +125,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
+            console.log("$scope.attraction ",$scope.attraction );
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
@@ -607,7 +608,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.allCity = data.data;
         console.log("allCity", $scope.allCity);
         // TemplateService.removeLoader();
-    })
+    });
+    $scope.showMediaGal=false;
+    $scope.selectFun=function(value){
+      console.log("value",value);
+
+    }
 
 })
 
