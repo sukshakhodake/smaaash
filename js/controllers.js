@@ -1366,6 +1366,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, 500);
     };
     TemplateService.removeLoaderOn(1);
+    var fired = false;
+    $scope.onScrollStopVideo = function() {
+        window.addEventListener("scroll", function() {
+            if (document.body.scrollTop >= 700) {
+                // $scope.showVideo = true;
+                $timeout(function() {
+                    $scope.showVideo = true;
+                }, 2000);
+                fired = true;
+            }
+        }, true)
+    }
+    $scope.onScrollStopVideo();
+
 
 
 $scope.startVid=function(){
