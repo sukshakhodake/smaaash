@@ -1510,16 +1510,18 @@ $scope.startVideo=!$scope.startVideo;
 
     $scope.formCompleteAssistance = false;
     $scope.assistanceLogin = function(formData) {
-        console.log("formData", formData);
+        console.log("formData in fun", formData);
         if (formData) {
+            $scope.formCompleteAssistance = true;
             formData.city = $.jStorage.get("cityid");
             NavigationService.assistanceLoginSignup(formData, function(data) {
                 console.log("in nav", formData);
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
-                    $scope.formCompleteAssistance = true;
+                    $scope.formCompleteAssistanceThank = true;
                     $timeout(function() {
                         $scope.formCompleteAssistance = false;
+                          $scope.formCompleteAssistanceThank = false;
                         $scope.formData = {};
                     }, 2000);
 
@@ -1653,7 +1655,7 @@ $scope.startVideo=!$scope.startVideo;
     }
 
     $scope.direct = function() {
-        $uibModal.open({
+      $scope.modalInstance1=  $uibModal.open({
             animation: true,
             templateUrl: "views/modal/host-popup.html",
             scope: $scope,
@@ -1662,35 +1664,32 @@ $scope.startVideo=!$scope.startVideo;
 
     };
 
-    $scope.direction = function() {
 
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/hosts-popup.html",
-            scope: $scope,
 
-            windowClass: "no-white-bg"
-        })
-    };
+
     $scope.formDatapopup = {};
-    $scope.submitform = false;
-
     $scope.submitHostPopup = function(formDatapop) {
+      console.log("imin");
         if (formDatapop) {
+            $scope.modalInstance1.close();
             formDatapop.city = $.jStorage.get("cityid");
             NavigationService.hostGetCall(formDatapop, function(data) {
                 console.log("data", data);
                 if (data.value === true) {
-                    $scope.submitform = true;
-                    $scope.formData = {};
+                  $scope.modalInstance2=  $uibModal.open({
+                        animation: true,
+                        templateUrl: "views/modal/hosts-popup.html",
+                        scope: $scope,
+
+                        windowClass: "no-white-bg"
+                    });
                     $timeout(function() {
-                        $scope.submitform = false;
+                        $scope.modalInstance2.close();
                         $scope.formDatapopup = {};
-                    }, 2000);
-
-
-                }
+                    }, 3000);
+                  }
             })
+
         }
     }
 
@@ -2816,6 +2815,7 @@ $scope.startVideo=!$scope.startVideo;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = window.location.href;
+      TemplateService.removeLoaderOn(3);
 
     // $scope.goto=function(data._id){
     //   console.log("im in");
@@ -2824,6 +2824,7 @@ $scope.startVideo=!$scope.startVideo;
     NavigationService.getPopularBlog(function(data) {
         console.log("data", data);
         $scope.popularblogs = data.data;
+          TemplateService.removeLoader();
     });
 
     $scope.objectfilter = {};
@@ -2868,6 +2869,7 @@ $scope.startVideo=!$scope.startVideo;
                 }
             }
             console.log("blogs", $scope.blogs);
+              TemplateService.removeLoader();
         })
     };
     $scope.fetchData();
@@ -2890,6 +2892,7 @@ $scope.startVideo=!$scope.startVideo;
             }
             $scope.blogs = data.data.data;
             console.log("blogs", $scope.blogs);
+              TemplateService.removeLoader();
         })
     };
 
@@ -2971,6 +2974,7 @@ $scope.startVideo=!$scope.startVideo;
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    TemplateService.removeLoaderOn(1);
     $scope.myUrl = window.location.href;
     $scope.myBlogslides = [
         'img/karting/blue.png',
@@ -2980,11 +2984,19 @@ $scope.startVideo=!$scope.startVideo;
         'img/karting/salman.png',
         'img/karting/shikar.png'
     ];
-    NavigationService.getDetailBlog($stateParams.id, function(data) {
 
+    NavigationService.getDetailBlog($stateParams.id, function(data) {
         $scope.blogInside = data.data;
-        console.log("  $scope.blogInside", $scope.blogInside);
-    })
+        var findIndex = _.findIndex($scope.blogInside.popularBlog, function(val) {
+            return val._id === $stateParams.id;
+        });
+        if (findIndex >= 0) {
+            $scope.blogInside.popularBlog.splice(findIndex, 1);
+        } else {
+            $scope.blogInside.popularBlog = data.data.popularBlog;
+        }
+          TemplateService.removeLoader();
+    });
 
 })
 
