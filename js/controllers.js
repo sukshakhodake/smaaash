@@ -805,6 +805,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
             $scope.singleAttraction = data.data;
+            console.log("$scope.singleAttraction",$scope.singleAttraction);
             $scope.singleAttraction1 = _.chunk(data.data, 3);
 
             if ($scope.singleAttraction1.length === 0) {
@@ -906,6 +907,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
     };
+
+  //   "BranchID": 12,
+	// "BranchPackageID": 70,
+	// "TotalAmount": 999,
+	// "VisitDate": "2016-12-16",
+	// "NoOfAdults": 1,
+	// "NoOfChild": 0,
+	// "NoOfSenior": 0,
+	// "AddonIDs": "",
+	// "AddonQuantities": "",
+	// "CustomerMobileNo": "8082495670",
+	// "CustomerID": 327
+
+    $scope.addToCartParams={};
+    // $scope.addToCartParams={};
+    // $scope.addToCartParams={};
+    // $scope.addToCartParams={};
+
+    // NavigationService.addToCart($scope.addToCartParams,function(data){
+    //
+    // })
+    $scope.buyNow = function(price,BranchPackageID){
+      console.log("im in");
+      console.log("price",price);
+      console.log("BranchPackageID",BranchPackageID);
+    }
 })
 
 .controller('AccountCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1703,8 +1730,11 @@ $scope.startVideo=!$scope.startVideo;
     $scope.navigation = NavigationService.getnav();
 
     $scope.rechargeOnline = {};
-    $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
-    $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+    }
+
     $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
 
     $scope.submitRecharge = function(rechargeOnline) {
@@ -3165,6 +3195,7 @@ $scope.startVideo=!$scope.startVideo;
                                 $scope.otp();
                             } else {
                                 console.log("data in false", data);
+                                $scope.customerEXist =true;
                             }
                         });
                     } else {
@@ -3183,6 +3214,7 @@ $scope.startVideo=!$scope.startVideo;
             $scope.signupGenerateOtp(signupData);
         }
         $scope.customerSignup = function(signupData) {
+
             console.log("signupData", signupData);
             NavigationService.CustomerRegistration(signupData, function(data) {
                 console.log("signupData", signupData);

@@ -632,7 +632,7 @@ firstapp.directive('scrolldown', function ($compile, $parse) {
                     },
                     'slow');
             }
-            
+
         }
     };
 });
@@ -782,4 +782,14 @@ firstapp.filter('englishNumeralTime', function() {
             return moment(new Date(value)).format("h:mm a");
         }
     };
+});
+firstapp.directive('noPaste', function ($filter) {
+  return {
+    scope: {},
+    link: function (scope, element) {
+      element.on('cut copy paste', function (event) {
+        event.preventDefault();
+      });
+    }
+  };
 });

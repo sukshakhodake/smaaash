@@ -345,6 +345,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        addToCart: function(data, callback) {
+
+            $http({
+                url: adminurl + 'signup/addToCart',
+                method: 'POST',
+
+                data: data
+
+            }).success(callback);
+        },
 
         getAllHostPartySlider: function(callback) {
             var data = {
