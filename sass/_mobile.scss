@@ -28,7 +28,7 @@
   float: none !important;
     display: block;
     text-align: center;
-   
+
 }
 
 
@@ -118,7 +118,7 @@
   }
   .w30,
   .w46,
-  .w92 {
+  .w92,.w90 {
     width: 100% !important;
   }
   //
@@ -903,6 +903,9 @@
 }
 
 @media (max-width:480px) {
+  .texting{
+    width: 250px;
+  }
 .host-pop{
   width: auto!important;
 }
@@ -932,7 +935,7 @@
     width: 40px;
     height: 40px;
     left: 45%;
-    top: 110px;
+    top: 510px;
     padding-top: 10px;
     font-size: 12px;
   }
@@ -1161,6 +1164,24 @@
       font-size: 25px;
     }
   }
+  .land-forms{
+  .videos{
+    iframe{
+       height: 100vh;
+    }
+  }
+  .practice{
+    width: 90%;
+  }
+}
+
+.landing-forms{
+  height: 210vh;
+  margin-top: -5px;
+}
+.landing-form{
+  height: 40vh;
+}
 }
 
 @media only screen and (min-device-width: 462px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1217,7 +1238,7 @@
           letter-spacing: normal;
         }
       }
-   
+
       .banner-buttons {
         .btn1 {
           margin: 0 4px;
@@ -1233,7 +1254,7 @@
             padding: 3px 6px;
             font-size: 7px;
           }
-   
+
         }
       }
     }
@@ -1259,7 +1280,7 @@
 background-color: $brand-purple;
  outline: 0;
                  }
-        
+
       }
         &:focus{
         background-color: $brand-purple;
@@ -1365,14 +1386,14 @@ background-color: $brand-purple;
     }
   }
   .landing-kartbanner {
-    min-height: 400px;
+    min-height: 665px;
   }
 
   //avatar
 .avatar{
   .avatars,.avatarss,.avatars1,.avatarss1,.avatars2,.avatarss2{
     height: 100px;
- 
+
   }
 }
 

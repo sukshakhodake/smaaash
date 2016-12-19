@@ -60,7 +60,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         templateUrl: "views/template.html",
         controller: 'CorporateCtrl'
     })
-
+    .state('landing-form', {
+      url: "/landing-form",
+      templateUrl: "views/template.html",
+      controller: 'LandingCtrl'
+  })
     .state('event', {
         url: "/event/:id",
         templateUrl: "views/template.html",
