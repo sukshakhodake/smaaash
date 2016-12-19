@@ -125,7 +125,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
-            console.log("$scope.attraction ",$scope.attraction );
+            console.log("$scope.attraction ", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
@@ -609,9 +609,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("allCity", $scope.allCity);
         // TemplateService.removeLoader();
     });
-    $scope.showMediaGal=false;
-    $scope.selectFun=function(value){
-      console.log("value",value);
+    $scope.showMediaGal = false;
+    $scope.selectFun = function(value) {
+        console.log("value", value);
 
     }
 
@@ -778,7 +778,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -805,7 +805,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
             $scope.singleAttraction = data.data;
-            console.log("$scope.singleAttraction",$scope.singleAttraction);
+            console.log("$scope.singleAttraction", $scope.singleAttraction);
             $scope.singleAttraction1 = _.chunk(data.data, 3);
 
             if ($scope.singleAttraction1.length === 0) {
@@ -908,31 +908,112 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-  //   "BranchID": 12,
-	// "BranchPackageID": 70,
-	// "TotalAmount": 999,
-	// "VisitDate": "2016-12-16",
-	// "NoOfAdults": 1,
-	// "NoOfChild": 0,
-	// "NoOfSenior": 0,
-	// "AddonIDs": "",
-	// "AddonQuantities": "",
-	// "CustomerMobileNo": "8082495670",
-	// "CustomerID": 327
+    //   "BranchID": 12,
+    // "BranchPackageID": 70,
+    // "TotalAmount": 999,
+    // "VisitDate": "2016-12-16",
+    // "NoOfAdults": 1,
+    // "NoOfChild": 0,
+    // "NoOfSenior": 0,
+    // "AddonIDs": "",
+    // "AddonQuantities": "",
+    // "CustomerMobileNo": "8082495670",
+    // "CustomerID": 327
 
-    $scope.addToCartParams={};
-    // $scope.addToCartParams={};
-    // $scope.addToCartParams={};
-    // $scope.addToCartParams={};
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+    $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
-    // NavigationService.addToCart($scope.addToCartParams,function(data){
-    //
-    // })
-    $scope.buyNow = function(price,BranchPackageID){
-      console.log("im in");
-      console.log("price",price);
-      console.log("BranchPackageID",BranchPackageID);
-    }
+
+
+
+
+
+    $scope.buyNow = function(BranchPackageID, price) {
+            console.log("im in");
+            console.log("price", price);
+            console.log("BranchPackageID", BranchPackageID);
+            $scope.addToCartParams.BranchPackageID = BranchPackageID;
+            $scope.addToCartParams.TotalAmount = price;
+            console.log("$scope.addToCartParams", $scope.addToCartParams);
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+
+                if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                    console.log("inif", data);
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocart.html',
+                        scope: $scope
+                    });
+                } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                    console.log("in else", data);
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/alreadyCart.html',
+                        scope: $scope
+                    });
+                }
+
+
+            })
+
+
+        }
+        // $scope.addToCart = function() {
+        //     if ($.jStorage.get("loginDetail") == null) {
+        //         console.log("am in if");
+        //         $uibModal.open({
+        //             animation: true,
+        //             templateUrl: 'views/modal/wishlistsigup.html',
+        //             scope: $scope
+        //         });
+        //     } else if ($.jStorage.get("loginDetail") != null) {
+        //         var findIndex = _.findIndex($scope.userwishlist, function(key) {
+        //             console.log(id, '////////');
+        //             return key.exploresmash._id === id;
+        //         });
+        //         console.log("findIndex", findIndex);
+        //         if (findIndex !== -1) {
+        //             console.log("findIndex", findIndex);
+        //             constraints = _.find($scope.userwishlist, function(key) {
+        //                 return key.exploresmash._id === id;
+        //             });
+        //             console.log(constraints);
+        //             NavigationService.removeFromWishList(constraints._id, function(data) {
+        //                 console.log(data, 'removed data');
+        //                 if (data.value) {
+        //                     showWishList();
+        //                     $uibModal.open({
+        //                         animation: true,
+        //                         templateUrl: 'views/modal/removeWishlist.html',
+        //                         scope: $scope
+        //                     });
+        //                 };
+        //
+        //             });
+        //         } else {
+        //             NavigationService.addToWishList(id, function(data) {
+        //                 console.log("wishlist", data);
+        //                 if (data.value) {
+        //                     $uibModal.open({
+        //                         animation: true,
+        //                         templateUrl: 'views/modal/wishlist.html',
+        //                         scope: $scope
+        //                     });
+        //                 }
+        //                 showWishList();
+        //             });
+        //         }
+        //     }
+        // }
 })
 
 .controller('AccountCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1128,7 +1209,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.selectmainCourse = false;
 
     $scope.customizeformData = {};
-    $scope.customizeformData.city =   $.jStorage.get("cityid");
+    $scope.customizeformData.city = $.jStorage.get("cityid");
 
     // if ($.jStorage.get("loginDetail") != null) {
     //     $scope.customizeformData._id = $.jStorage.get("loginDetail").data._id
@@ -1232,69 +1313,69 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
-    $scope.customizeExploreSmaaash=function(){
-      NavigationService.getSingleExploreSmaaash(id, function(data) {
-          $scope.customizepackage = data.data;
+    $scope.customizeExploreSmaaash = function() {
+        NavigationService.getSingleExploreSmaaash(id, function(data) {
+            $scope.customizepackage = data.data;
 
-          console.log("$scope.customizepackage", $scope.customizepackage);
-          _.each($scope.customizepackage, function(data) {
-              data.gameforarray = [];
-              var index = _.findIndex($scope.customizeformData.games, {
-                  _id: data._id
-              });
-              if (index >= 0) {
-                  data.selected = true;
-              }
-              _.each(data.gamefor, function(n) {
-                  switch (n) {
-                      case '1':
-                          data.gameforarray.push('Male')
-                          break;
-                      case '2':
-                          data.gameforarray.push('Female')
-                          break;
-                      case '3':
-                          data.gameforarray.push('Children')
-                          break;
-                      default:
-                  }
-              });
-          });
-          TemplateService.removeLoader();
-      });
+            console.log("$scope.customizepackage", $scope.customizepackage);
+            _.each($scope.customizepackage, function(data) {
+                data.gameforarray = [];
+                var index = _.findIndex($scope.customizeformData.games, {
+                    _id: data._id
+                });
+                if (index >= 0) {
+                    data.selected = true;
+                }
+                _.each(data.gamefor, function(n) {
+                    switch (n) {
+                        case '1':
+                            data.gameforarray.push('Male')
+                            break;
+                        case '2':
+                            data.gameforarray.push('Female')
+                            break;
+                        case '3':
+                            data.gameforarray.push('Children')
+                            break;
+                        default:
+                    }
+                });
+            });
+            TemplateService.removeLoader();
+        });
     }
     $scope.customizeExploreSmaaash();
-    $scope.customizeCityFun=function(custCityId){
-      console.log("custCityId",custCityId);
-      NavigationService.getcustomizeCityFun(id, custCityId, function(data) {
-          $scope.customizepackage = data.data;
+    $scope.customizeCityFun = function(custCityId) {
+        console.log("custCityId", custCityId);
+        NavigationService.getcustomizeCityFun(id, custCityId, function(data) {
+            $scope.customizepackage = data.data;
 
-          console.log("$scope.customizepackage", $scope.customizepackage);
-          _.each($scope.customizepackage, function(data) {
-              data.gameforarray = [];
-              var index = _.findIndex($scope.customizeformData.games, {
-                  _id: data._id
-              });
-              if (index >= 0) {
-                  data.selected = true;
-              }
-              _.each(data.gamefor, function(n) {
-                  switch (n) {
-                      case '1':
-                          data.gameforarray.push('Male')
-                          break;
-                      case '2':
-                          data.gameforarray.push('Female')
-                          break;
-                      case '3':
-                          data.gameforarray.push('Children')
-                          break;
-                      default:
-                  }
-              });
-          });
-          TemplateService.removeLoader();
-      });
+            console.log("$scope.customizepackage", $scope.customizepackage);
+            _.each($scope.customizepackage, function(data) {
+                data.gameforarray = [];
+                var index = _.findIndex($scope.customizeformData.games, {
+                    _id: data._id
+                });
+                if (index >= 0) {
+                    data.selected = true;
+                }
+                _.each(data.gamefor, function(n) {
+                    switch (n) {
+                        case '1':
+                            data.gameforarray.push('Male')
+                            break;
+                        case '2':
+                            data.gameforarray.push('Female')
+                            break;
+                        case '3':
+                            data.gameforarray.push('Children')
+                            break;
+                        default:
+                    }
+                });
+            });
+            TemplateService.removeLoader();
+        });
     }
 
 
@@ -1369,123 +1450,123 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $uibModal) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("snow-rush");
-    $scope.menutitle = NavigationService.makeactive("Snow Rush");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("snow-rush");
+        $scope.menutitle = NavigationService.makeactive("Snow Rush");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    $scope.$on('$viewContentLoaded', function() {
-        $(window).scroll(function() {
-            var scroller = $(document).scrollTop();
-            var height = $(window).height() - 40;
-            if (height <= scroller) {
-                $('body').addClass('show-header');
-            } else {
-                $('body').removeClass('show-header');
-            }
+        $scope.$on('$viewContentLoaded', function() {
+            $(window).scroll(function() {
+                var scroller = $(document).scrollTop();
+                var height = $(window).height() - 40;
+                if (height <= scroller) {
+                    $('body').addClass('show-header');
+                } else {
+                    $('body').removeClass('show-header');
+                }
+            });
         });
-    });
 
-    $scope.scrollToSnow = function() {
-        $('html, body').animate({
-            scrollTop: $("#toSnow").offset().top
-        }, 500);
-    };
-    TemplateService.removeLoaderOn(1);
-    var fired = false;
-    $scope.onScrollStopVideo = function() {
-        window.addEventListener("scroll", function() {
-            if (document.body.scrollTop >= 700) {
-                // $scope.showVideo = true;
-                $timeout(function() {
-                    $scope.showVideo = true;
-                }, 2000);
-                fired = true;
-            }
-        }, true)
-    }
-    $scope.onScrollStopVideo();
-
+        $scope.scrollToSnow = function() {
+            $('html, body').animate({
+                scrollTop: $("#toSnow").offset().top
+            }, 500);
+        };
+        TemplateService.removeLoaderOn(1);
+        var fired = false;
+        $scope.onScrollStopVideo = function() {
+            window.addEventListener("scroll", function() {
+                if (document.body.scrollTop >= 700) {
+                    // $scope.showVideo = true;
+                    $timeout(function() {
+                        $scope.showVideo = true;
+                    }, 2000);
+                    fired = true;
+                }
+            }, true)
+        }
+        $scope.onScrollStopVideo();
 
 
-$scope.startVid=function(){
 
-$scope.startVideo=!$scope.startVideo;
-  console.log($scope.startVideo,"  console.log($scope.startVideo);");
-  }
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.detailExploreSmaash = data.data;
-        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
-        $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
-        console.log($scope.detailExploreSmaash.multipleattraction);
-        var attractions = [];
-        _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
-            _.each(multi.attraction, function(attr) {
-                attr.icon = multi.icon;
-                // attr.myid=attr._id;
-                attractions.push(attr);
+        $scope.startVid = function() {
+
+            $scope.startVideo = !$scope.startVideo;
+            console.log($scope.startVideo, "  console.log($scope.startVideo);");
+        }
+        NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+            $scope.detailExploreSmaash = data.data;
+            console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+            $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+            console.log($scope.detailExploreSmaash.multipleattraction);
+            var attractions = [];
+            _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
+                _.each(multi.attraction, function(attr) {
+                    attr.icon = multi.icon;
+                    // attr.myid=attr._id;
+                    attractions.push(attr);
+                })
             })
+            console.log(attractions);
+            $scope.content = _.groupBy(attractions, 'type');
+            $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
+            $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
+            $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
+
+            TemplateService.removeLoader();
         })
-        console.log(attractions);
-        $scope.content = _.groupBy(attractions, 'type');
-        $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
-        $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
-        $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
 
-        TemplateService.removeLoader();
+
+
+
     })
+    .controller('ConfirmCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("confirm-order");
+        $scope.menutitle = NavigationService.makeactive("Confirm Order");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.billingForm = {};
+        $scope.formComplete = false;
+
+        $scope.formSubmit = function(formData) {
+            if (formData) {
+                if (Object.keys($scope.billingForm).length != 0) {
+                    // NavigationService.confirmOrder($scope.billingForm, function(data) {
+                    //     console.log("$scope.billingForm", data);
+                    // })
+                    $scope.formComplete = true;
+                    $scope.open();
+                    $timeout(function() {
+                        $scope.formComplete = false;
+                        $scope.billingForm = {};
+                    }, 2000);
 
 
-
-
-})
-.controller('ConfirmCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("confirm-order");
-    $scope.menutitle = NavigationService.makeactive("Confirm Order");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.billingForm = {};
-    $scope.formComplete = false;
-
-    $scope.formSubmit = function(formData) {
-        if (formData) {
-            if (Object.keys($scope.billingForm).length != 0) {
-                // NavigationService.confirmOrder($scope.billingForm, function(data) {
-                //     console.log("$scope.billingForm", data);
-                // })
-                $scope.formComplete = true;
-                $scope.open();
-                $timeout(function() {
-                    $scope.formComplete = false;
-                    $scope.billingForm = {};
-                }, 2000);
+                }
 
 
             }
-
 
         }
 
-    }
-
-    $scope.animationsEnabled = true;
-    $scope.open = function(size) {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'views/modal/form-success.html',
-            controller: 'ConfirmCtrl',
-            size: size,
-            resolve: {
-                items: function() {
-                    return $scope.items;
+        $scope.animationsEnabled = true;
+        $scope.open = function(size) {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/form-success.html',
+                controller: 'ConfirmCtrl',
+                size: size,
+                resolve: {
+                    items: function() {
+                        return $scope.items;
+                    }
                 }
-            }
-        });
+            });
 
-    };
-})
+        };
+    })
 
 .controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
@@ -1548,7 +1629,7 @@ $scope.startVideo=!$scope.startVideo;
                     $scope.formCompleteAssistanceThank = true;
                     $timeout(function() {
                         $scope.formCompleteAssistance = false;
-                          $scope.formCompleteAssistanceThank = false;
+                        $scope.formCompleteAssistanceThank = false;
                         $scope.formData = {};
                     }, 2000);
 
@@ -1682,7 +1763,7 @@ $scope.startVideo=!$scope.startVideo;
     }
 
     $scope.direct = function() {
-      $scope.modalInstance1=  $uibModal.open({
+        $scope.modalInstance1 = $uibModal.open({
             animation: true,
             templateUrl: "views/modal/host-popup.html",
             scope: $scope,
@@ -1696,14 +1777,14 @@ $scope.startVideo=!$scope.startVideo;
 
     $scope.formDatapopup = {};
     $scope.submitHostPopup = function(formDatapop) {
-      console.log("imin");
+        console.log("imin");
         if (formDatapop) {
             $scope.modalInstance1.close();
             formDatapop.city = $.jStorage.get("cityid");
             NavigationService.hostGetCall(formDatapop, function(data) {
                 console.log("data", data);
                 if (data.value === true) {
-                  $scope.modalInstance2=  $uibModal.open({
+                    $scope.modalInstance2 = $uibModal.open({
                         animation: true,
                         templateUrl: "views/modal/hosts-popup.html",
                         scope: $scope,
@@ -1714,7 +1795,7 @@ $scope.startVideo=!$scope.startVideo;
                         $scope.modalInstance2.close();
                         $scope.formDatapopup = {};
                     }, 3000);
-                  }
+                }
             })
 
         }
@@ -1730,9 +1811,9 @@ $scope.startVideo=!$scope.startVideo;
     $scope.navigation = NavigationService.getnav();
 
     $scope.rechargeOnline = {};
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
-      $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+        $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
     }
 
     $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
@@ -1787,7 +1868,6 @@ $scope.startVideo=!$scope.startVideo;
         if (avtar) {
             $scope.userprofile.profilePic = avtar;
         }
-
     }
     $scope.formComplete = false;
     $scope.submitUserProfile = function(userprofile) {
@@ -1804,15 +1884,8 @@ $scope.startVideo=!$scope.startVideo;
         })
     }
 
-    $scope.getUser = function() {
-        NavigationService.getUser(function(data) {
-            if (data.value == true) {
-                $scope.userData = data.data[0];
-                console.log("$scope.userData", $scope.userData);
-            }
-        });
-    }
-    $scope.getUser();
+
+
     $scope.CustID = "202";
     $scope.customerBookingDetails = {
         "GetCustomerBookingDetails": {
@@ -1883,18 +1956,18 @@ $scope.startVideo=!$scope.startVideo;
     $scope.msg = false;
     $scope.CustID = $.jStorage.get("loginDetail").data.CustomerID;
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
-            if (data.value === true) {
-          $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
-          $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
-          $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
-          _.each($scope.bookingDetails, function(value) {
-              if (value.Message === "Get Booking Data") {
-                  value.objtype = "Booking";
-              } else if (value.Message === "Get Card Recharge Data") {
-                  value.objtype = "Recharge";
-              };
+        if (data.value === true) {
+            $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
+            $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
+            $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+            _.each($scope.bookingDetails, function(value) {
+                if (value.Message === "Get Booking Data") {
+                    value.objtype = "Booking";
+                } else if (value.Message === "Get Card Recharge Data") {
+                    value.objtype = "Recharge";
+                };
 
-          });
+            });
         } else if (data.value === false) {
             $scope.msg = true;
         }
@@ -2845,7 +2918,7 @@ $scope.startVideo=!$scope.startVideo;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = window.location.href;
-      TemplateService.removeLoaderOn(3);
+    TemplateService.removeLoaderOn(3);
 
     // $scope.goto=function(data._id){
     //   console.log("im in");
@@ -2854,7 +2927,7 @@ $scope.startVideo=!$scope.startVideo;
     NavigationService.getPopularBlog(function(data) {
         console.log("data", data);
         $scope.popularblogs = data.data;
-          TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
 
     $scope.objectfilter = {};
@@ -2899,7 +2972,7 @@ $scope.startVideo=!$scope.startVideo;
                 }
             }
             console.log("blogs", $scope.blogs);
-              TemplateService.removeLoader();
+            TemplateService.removeLoader();
         })
     };
     $scope.fetchData();
@@ -2922,7 +2995,7 @@ $scope.startVideo=!$scope.startVideo;
             }
             $scope.blogs = data.data.data;
             console.log("blogs", $scope.blogs);
-              TemplateService.removeLoader();
+            TemplateService.removeLoader();
         })
     };
 
@@ -3025,7 +3098,7 @@ $scope.startVideo=!$scope.startVideo;
         } else {
             $scope.blogInside.popularBlog = data.data.popularBlog;
         }
-          TemplateService.removeLoader();
+        TemplateService.removeLoader();
     });
 
 })
@@ -3195,7 +3268,7 @@ $scope.startVideo=!$scope.startVideo;
                                 $scope.otp();
                             } else {
                                 console.log("data in false", data);
-                                $scope.customerEXist =true;
+                                $scope.customerEXist = true;
                             }
                         });
                     } else {

@@ -152,14 +152,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
 
-        getUser: function(callback) {
-            $http({
-                url: adminurl + 'user/getall',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
-        },
-
 
 
         signup: function(signupData, callback) {
@@ -345,13 +337,13 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        addToCart: function(data, callback) {
+        addToCart: function(params, callback) {
 
             $http({
                 url: adminurl + 'signup/addToCart',
                 method: 'POST',
-
-                data: data
+                withCredentials: true,
+                data: params
 
             }).success(callback);
         },
