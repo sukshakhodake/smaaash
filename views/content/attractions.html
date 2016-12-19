@@ -61,7 +61,7 @@
                 <p class="" ng-bind-html="d.description | htmlToPlaintext | shorten :140"></p>
               </div>
               <div class="button-set">
-                <button class="uppercase blue">buy now</button>
+                <button class="uppercase blue" ng-click="buyNow(d.BranchPackageID,d.price)">buy now</button>
               </div>
               <div class="love">
                 <button class="uppercase" ng-click="addedToWishList(d._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>would love to try</button>

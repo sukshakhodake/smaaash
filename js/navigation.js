@@ -3,7 +3,7 @@ var adminurl = "http://104.155.129.33:82/"; //server
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 // var pdfpath = imgurl + "readFile?file=";
-var pdfpath ="http://104.155.129.33:82/upload/readFile?file";
+var pdfpath = "http://104.155.129.33:82/upload/readFile?file";
 // var uploadurl = adminURL + "imageUpload";
 
 var uploadurl = imgurl;
@@ -102,11 +102,11 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getPopularBlog: function(callback) {
-          $http({
+            $http({
                 url: adminurl + 'blog/getPopularBlog',
                 method: 'POST',
                 withCredentials: true
-          }).success(callback);
+            }).success(callback);
         },
         getFoodGallery: function(id, callback) {
             var data = {
@@ -152,14 +152,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
 
-        getUser: function(callback) {
-            $http({
-                url: adminurl + 'user/getall',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
-        },
-
 
 
         signup: function(signupData, callback) {
@@ -169,6 +161,28 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: signupData
+
+            }).success(callback);
+        },
+        rechargeCard: function(rechargeOnline, callback) {
+
+            $http({
+                url: adminurl + 'signup/RechargeCard',
+                method: 'POST',
+
+                data: rechargeOnline
+
+            }).success(callback);
+        },
+        GetCustomerBookingDetails: function(custId, callback) {
+            var data = {
+                CustID: custId
+            };
+            $http({
+                url: adminurl + 'signup/GetCustomerBookingDetails',
+                method: 'POST',
+
+                data: data
 
             }).success(callback);
         },
@@ -197,7 +211,7 @@ var navigationservice = angular.module('navigationservice', [])
         VerifyCustomerLogin: function(userData, callback) {
 
             $http({
-                url: adminurl + 'signup/VerifyCustomerLoginWeb',
+                url: adminurl + 'signup/VerifyCustomerLogin',
                 method: 'POST',
 
 
@@ -217,12 +231,12 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         getOne: function(callback) {
-          if ( $.jStorage.get("loginDetail") != null) {
-            var data = {
-                _id: $.jStorage.get("loginDetail").data._id,
+            if ($.jStorage.get("loginDetail") != null) {
+                var data = {
+                    _id: $.jStorage.get("loginDetail").data._id,
 
-            };
-          }
+                };
+            }
 
             $http({
                 url: adminurl + 'signup/getOne',
@@ -276,11 +290,24 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-      searchExploreSmaaash: function(filter, callback) {
-        if(filter){
-          filter.city=$.jStorage.get("cityid");
-        }
-                $http({
+        getcustomizeCityFun: function(id,custCityId, callback) {
+            var data = {
+                _id: id,
+                city:custCityId
+            };
+            $http({
+                url: adminurl + 'exploresmash/getSingleExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+
+            }).success(callback);
+        },
+        searchExploreSmaaash: function(filter, callback) {
+            if (filter) {
+                filter.city = $.jStorage.get("cityid");
+            }
+            $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
                 method: 'POST',
                 withCredentials: true,
@@ -307,6 +334,16 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: formdata
+
+            }).success(callback);
+        },
+        addToCart: function(params, callback) {
+
+            $http({
+                url: adminurl + 'signup/addToCart',
+                method: 'POST',
+                withCredentials: true,
+                data: params
 
             }).success(callback);
         },
@@ -364,11 +401,11 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        removeFromWishList: function(id,callback) {
-          console.log("inNav",id);
+        removeFromWishList: function(id, callback) {
+            console.log("inNav", id);
             var data = {
                 user: $.jStorage.get("loginDetail").data._id,
-                _id:id
+                _id: id
             };
             $http({
                 url: adminurl + 'signup/deleteWishList',
@@ -386,12 +423,12 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         logout: function(callback) {
-          // console.log("im in logout");
+            // console.log("im in logout");
             // $.jStorage.flush();
-              $.jStorage.set("loginDetail",null);
-              $.jStorage.set("loginId",null);
-              $.jStorage.set("loggedInUser",null);
-              $.jStorage.set("customizeobj",null);
+            $.jStorage.set("loginDetail", null);
+            $.jStorage.set("loginId", null);
+            $.jStorage.set("loggedInUser", null);
+            $.jStorage.set("customizeobj", null);
             return $http({
                 url: adminurl + 'register/logout',
                 method: 'POST',
@@ -406,11 +443,11 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        getBlog: function(blogObj,callback) {
+        getBlog: function(blogObj, callback) {
             $http({
                 url: adminurl + 'blog/findLimited',
                 method: 'POST',
-                data:blogObj,
+                data: blogObj,
                 withCredentials: true
             }).success(callback);
         },
@@ -477,12 +514,12 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         signupProfile: function(callback) {
-            if($.jStorage.get("loginDetail") !=null){
-var data = {
-              _id: $.jStorage.get("loginDetail").data._id,
-            };
+            if ($.jStorage.get("loginDetail") != null) {
+                var data = {
+                    _id: $.jStorage.get("loginDetail").data._id,
+                };
             }
-          
+
             $http({
                 url: adminurl + 'signup/profile',
                 method: 'POST',
@@ -491,10 +528,10 @@ var data = {
 
             }).success(callback);
         },
-        updateProfile: function(userprofile,callback) {
-          // var data = {
-          //     _id: $.jStorage.get("loginDetail").data._id,
-          //   };
+        updateProfile: function(userprofile, callback) {
+            // var data = {
+            //     _id: $.jStorage.get("loginDetail").data._id,
+            //   };
             $http({
                 url: adminurl + 'signup/updateProfile',
                 method: 'POST',

@@ -1,9 +1,44 @@
+<!--<div class="inner relative pointer">
 
+
+   <iframe width="640" height="360" src="https://www.youtube.com/embed/fA1FdqRFV4U?autoplay=1" frameborder="0" allowfullscreen
+     style="position: absolute;
+       left: 0;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       width: 100%;
+       height: 100%;">
+     </iframe>
+   <div class="overlays">
+
+      <a class="pull-right" ><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+   </div>
+   <img ng-src="{{banner[0].thumbnail|uploadpath}}" class="img-responsive margin-auto width100" ng-if="showthumbimage && (banner[0].thumbnail || banner[0].thumbnail != '' )&&banner[0].videourl" ng-click="showVid()">
+   <img ng-src="{{banner[0].videourl|youtubethumb}}"  class="img-responsive width100" ng-if="!showthumbimage">
+
+
+
+
+</div>-->
  <div class="landing-kartbanner" ng-click="funToStopVid();"  ng-style="{'background':'url('+  banner[0].homebanner+')no-repeat'}" scrolldown>
         <div class="inner relative pointer auto-height ">
 
+   <!--<iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!showthumbimage" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
+     frameborder="0" allowfullscreen="" style="
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+" class="">
 
-   <iframe width="640" ng-if="!showVideo" height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
+   </iframe>-->
+
+
+   <iframe width="640" ng-if="!showVideo" height="360" src="https://www.youtube.com/embed/fA1FdqRFV4U?autoplay=1" frameborder="0" allowfullscreen
      style="position: absolute;
        left: 0;
        top: 0;
@@ -15,16 +50,19 @@
 
 
    <div class="overlays">
-
+     <!--ng-click="vidFalse();"-->
       <a class="pull-right" ><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
    </div>
-
+   <!--<img ng-src="{{banner[0].thumbnail|uploadpath}}" class="img-responsive margin-auto width100" ng-if="showthumbimage && (banner[0].thumbnail || banner[0].thumbnail != '' )&&banner[0].videourl" ng-click="showVid()">
+   <img ng-src="{{banner[0].videourl|youtubethumb}}"  class="img-responsive width100" ng-if="!showthumbimage">-->
 
 
 
 
 </div>
-
+        <!--<div class="pink-butn" ng-click="scrollDown();">
+            <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+        </div>-->
     </div>
 
 <div class="container">
@@ -221,21 +259,35 @@
       <div class="col-md-6">
          <div class="updates">
             <div class="slant-box pad0">
-               <p class=" capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
+               <p class=" capitalize brand-white border-bot" ui-sref="host-party({id:hostParty[0].type._id})">view all</p>
                <h2 class="brand-white ">attractions</h2>
-               <div class="mover extra">
-                  <flex-slider ng-if="attraction" class="carousel relative" item-margin="0" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
-                     <li >
-                        <a >
-                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="snow-rush({id:s._id})">
+               <div class="mover extra" ng-if="hostParty">
+                  <flex-slider class="carousel relative" item-margin="0" flex-slide="s in hostParty track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
+                     <li ng-if="s.hostAPartyType ==='57d6a09dbd5eb9846074b419'">
+                        <a ui-sref="parties({id:s._id})">
+                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      </li>
+                     <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
+                        <a ui-sref="parties({id:s._id})">
+                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                        </a>
 
-
-
+                     </li>
+                     <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
+                        <a ui-sref="parties({id:s._id})">
+                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                        </a>
+                        <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                     </li>
+                     <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
+                        <a ui-sref="parties({id:s._id})">
+                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                        </a>
+                     </li>
                   </flex-slider>
-                  <div ng-if="!attraction">No Data Found</div>
+                  <div ng-if="!hostParty">No Data Found</div>
                </div>
 
             </div>

@@ -8,7 +8,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var openL = {};
-        TemplateService.removeLoaderOn(4);
+    TemplateService.removeLoaderOn(4);
     $scope.openpops = function() {
         openL = ngDialog.open({
             template: 'views/content/popup.html',
@@ -19,32 +19,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
-
-
-
-
-
-
     $scope.currentdate = new Date();
-    // $scope.showVideo = {};
-    // $scope.showVideo = false;
-    $scope.showVid = function() {
-        $scope.showthumbimage = !$scope.showthumbimage;
-
-    };
-    // $scope.showVidFalse = function() {
-    //     $scope.showthumbimage = true;
-    //     $scope.$apply();
-    //     console.log("im in");
-    // };
+    $scope.funToStopVid = function() {
+        console.log("in im");
+        $scope.showVideo = false;
+    }
     var fired = false;
     $scope.onScrollStopVideo = function() {
         window.addEventListener("scroll", function() {
             if (document.body.scrollTop >= 700) {
+                $scope.showVideo = true;
                 $timeout(function() {
-                    $scope.showthumbimage = true;
-
-
+                    $scope.showVideo = true;
                 }, 2000);
                 fired = true;
             }
@@ -74,21 +60,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var height = $(window).height() - 40;
         if (height <= scroller) {
             var vdo = document.getElementsByClassName('stopv');
-
-
-            $scope.showVideo = false;
         }
     });
-$scope.vidFalse=function(){
-    $scope.showthumbimage = true;
-}
+    $scope.showVideo = false;
     $scope.scrollToHome = function() {
-        // $scope.showVideo = false;
-        $scope.showthumbimage = true;
+        $scope.showVideo = true;
         $('html, body').animate({
             scrollTop: $("#toHome").offset().top
         }, 500);
-
     };
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
@@ -118,7 +97,7 @@ $scope.vidFalse=function(){
         $scope.getCities = data.data;
         TemplateService.removeLoader();
     });
-    $scope.nameOfCity=$.jStorage.get("city");
+    $scope.nameOfCity = $.jStorage.get("city");
 
     $scope.getCityName = function(cityname) {
         console.log("cityname", cityname);
@@ -142,10 +121,11 @@ $scope.vidFalse=function(){
 
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
-            if (data.value) {
+        if (data.value) {
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
+            console.log("$scope.attraction ", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
@@ -166,11 +146,11 @@ $scope.vidFalse=function(){
         if (data.value) {
             $scope.banner = data.data;
             console.log("  $scope.bannerDFDSFSD", $scope.banner);
+
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
-              }
-              console.log("  $scope.banner[0].homebanner",  $scope.banner[0].homebanner);
             }
+        }
         TemplateService.removeLoader();
 
     });
@@ -715,7 +695,7 @@ $scope.vidFalse=function(){
             //     }
             // }
             // TemplateService.removeLoader();
-          $scope.stars = data.data.data
+            $scope.stars = data.data.data
         })
     };
 
@@ -728,7 +708,12 @@ $scope.vidFalse=function(){
         $scope.allCity = data.data;
         console.log("allCity", $scope.allCity);
         // TemplateService.removeLoader();
-    })
+    });
+    $scope.showMediaGal = false;
+    $scope.selectFun = function(value) {
+        console.log("value", value);
+
+    }
 
 })
 
@@ -893,7 +878,7 @@ $scope.vidFalse=function(){
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -920,6 +905,7 @@ $scope.vidFalse=function(){
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
             $scope.singleAttraction = data.data;
+            console.log("$scope.singleAttraction", $scope.singleAttraction);
             $scope.singleAttraction1 = _.chunk(data.data, 3);
 
             if ($scope.singleAttraction1.length === 0) {
@@ -1021,6 +1007,113 @@ $scope.vidFalse=function(){
             }
         }
     };
+
+    //   "BranchID": 12,
+    // "BranchPackageID": 70,
+    // "TotalAmount": 999,
+    // "VisitDate": "2016-12-16",
+    // "NoOfAdults": 1,
+    // "NoOfChild": 0,
+    // "NoOfSenior": 0,
+    // "AddonIDs": "",
+    // "AddonQuantities": "",
+    // "CustomerMobileNo": "8082495670",
+    // "CustomerID": 327
+
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+    $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+
+
+
+
+    $scope.buyNow = function(BranchPackageID, price) {
+            console.log("im in");
+            console.log("price", price);
+            console.log("BranchPackageID", BranchPackageID);
+            $scope.addToCartParams.BranchPackageID = BranchPackageID;
+            $scope.addToCartParams.TotalAmount = price;
+            console.log("$scope.addToCartParams", $scope.addToCartParams);
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+
+                if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                    console.log("inif", data);
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocart.html',
+                        scope: $scope
+                    });
+                } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                    console.log("in else", data);
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/alreadyCart.html',
+                        scope: $scope
+                    });
+                }
+
+
+            })
+
+
+        }
+        // $scope.addToCart = function() {
+        //     if ($.jStorage.get("loginDetail") == null) {
+        //         console.log("am in if");
+        //         $uibModal.open({
+        //             animation: true,
+        //             templateUrl: 'views/modal/wishlistsigup.html',
+        //             scope: $scope
+        //         });
+        //     } else if ($.jStorage.get("loginDetail") != null) {
+        //         var findIndex = _.findIndex($scope.userwishlist, function(key) {
+        //             console.log(id, '////////');
+        //             return key.exploresmash._id === id;
+        //         });
+        //         console.log("findIndex", findIndex);
+        //         if (findIndex !== -1) {
+        //             console.log("findIndex", findIndex);
+        //             constraints = _.find($scope.userwishlist, function(key) {
+        //                 return key.exploresmash._id === id;
+        //             });
+        //             console.log(constraints);
+        //             NavigationService.removeFromWishList(constraints._id, function(data) {
+        //                 console.log(data, 'removed data');
+        //                 if (data.value) {
+        //                     showWishList();
+        //                     $uibModal.open({
+        //                         animation: true,
+        //                         templateUrl: 'views/modal/removeWishlist.html',
+        //                         scope: $scope
+        //                     });
+        //                 };
+        //
+        //             });
+        //         } else {
+        //             NavigationService.addToWishList(id, function(data) {
+        //                 console.log("wishlist", data);
+        //                 if (data.value) {
+        //                     $uibModal.open({
+        //                         animation: true,
+        //                         templateUrl: 'views/modal/wishlist.html',
+        //                         scope: $scope
+        //                     });
+        //                 }
+        //                 showWishList();
+        //             });
+        //         }
+        //     }
+        // }
 })
 
 .controller('AccountCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1216,6 +1309,8 @@ $scope.vidFalse=function(){
     $scope.selectmainCourse = false;
 
     $scope.customizeformData = {};
+    $scope.customizeformData.city = $.jStorage.get("cityid");
+
     // if ($.jStorage.get("loginDetail") != null) {
     //     $scope.customizeformData._id = $.jStorage.get("loginDetail").data._id
     // }
@@ -1236,7 +1331,7 @@ $scope.vidFalse=function(){
             $scope.customizeformData.mobile = data.data.CustomerMobile;
             $scope.customizeformData.email = data.data.CustomerEmail;
             // console.log("data.data", data.data);
-          });
+        });
     }
 
     if ($.jStorage.get("customizeobj") != null) {
@@ -1318,35 +1413,73 @@ $scope.vidFalse=function(){
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
-    NavigationService.getSingleExploreSmaaash(id, function(data) {
-        $scope.customizepackage = data.data;
+    $scope.customizeExploreSmaaash = function() {
+        NavigationService.getSingleExploreSmaaash(id, function(data) {
+            $scope.customizepackage = data.data;
 
-        console.log("$scope.customizepackage", $scope.customizepackage);
-        _.each($scope.customizepackage, function(data) {
-            data.gameforarray = [];
-            var index = _.findIndex($scope.customizeformData.games, {
-                _id: data._id
-            });
-            if (index >= 0) {
-                data.selected = true;
-            }
-            _.each(data.gamefor, function(n) {
-                switch (n) {
-                    case '1':
-                        data.gameforarray.push('Male')
-                        break;
-                    case '2':
-                        data.gameforarray.push('Female')
-                        break;
-                    case '3':
-                        data.gameforarray.push('Children')
-                        break;
-                    default:
+            console.log("$scope.customizepackage", $scope.customizepackage);
+            _.each($scope.customizepackage, function(data) {
+                data.gameforarray = [];
+                var index = _.findIndex($scope.customizeformData.games, {
+                    _id: data._id
+                });
+                if (index >= 0) {
+                    data.selected = true;
                 }
+                _.each(data.gamefor, function(n) {
+                    switch (n) {
+                        case '1':
+                            data.gameforarray.push('Male')
+                            break;
+                        case '2':
+                            data.gameforarray.push('Female')
+                            break;
+                        case '3':
+                            data.gameforarray.push('Children')
+                            break;
+                        default:
+                    }
+                });
             });
+            TemplateService.removeLoader();
         });
-        TemplateService.removeLoader();
-    });
+    }
+    $scope.customizeExploreSmaaash();
+    $scope.customizeCityFun = function(custCityId) {
+        console.log("custCityId", custCityId);
+        NavigationService.getcustomizeCityFun(id, custCityId, function(data) {
+            $scope.customizepackage = data.data;
+
+            console.log("$scope.customizepackage", $scope.customizepackage);
+            _.each($scope.customizepackage, function(data) {
+                data.gameforarray = [];
+                var index = _.findIndex($scope.customizeformData.games, {
+                    _id: data._id
+                });
+                if (index >= 0) {
+                    data.selected = true;
+                }
+                _.each(data.gamefor, function(n) {
+                    switch (n) {
+                        case '1':
+                            data.gameforarray.push('Male')
+                            break;
+                        case '2':
+                            data.gameforarray.push('Female')
+                            break;
+                        case '3':
+                            data.gameforarray.push('Children')
+                            break;
+                        default:
+                    }
+                });
+            });
+            TemplateService.removeLoader();
+        });
+    }
+
+
+
 })
 
 .controller('BirthdayCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
@@ -1417,105 +1550,123 @@ $scope.vidFalse=function(){
 })
 
 .controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $uibModal) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("snow-rush");
-    $scope.menutitle = NavigationService.makeactive("Snow Rush");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("snow-rush");
+        $scope.menutitle = NavigationService.makeactive("Snow Rush");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    $scope.$on('$viewContentLoaded', function() {
-        $(window).scroll(function() {
-            var scroller = $(document).scrollTop();
-            var height = $(window).height() - 40;
-            if (height <= scroller) {
-                $('body').addClass('show-header');
-            } else {
-                $('body').removeClass('show-header');
-            }
+        $scope.$on('$viewContentLoaded', function() {
+            $(window).scroll(function() {
+                var scroller = $(document).scrollTop();
+                var height = $(window).height() - 40;
+                if (height <= scroller) {
+                    $('body').addClass('show-header');
+                } else {
+                    $('body').removeClass('show-header');
+                }
+            });
         });
-    });
 
-    $scope.scrollToSnow = function() {
-        $('html, body').animate({
-            scrollTop: $("#toSnow").offset().top
-        }, 500);
-    };
-    TemplateService.removeLoaderOn(1);
+        $scope.scrollToSnow = function() {
+            $('html, body').animate({
+                scrollTop: $("#toSnow").offset().top
+            }, 500);
+        };
+        TemplateService.removeLoaderOn(1);
+        var fired = false;
+        $scope.onScrollStopVideo = function() {
+            window.addEventListener("scroll", function() {
+                if (document.body.scrollTop >= 700) {
+                    // $scope.showVideo = true;
+                    $timeout(function() {
+                        $scope.showVideo = true;
+                    }, 2000);
+                    fired = true;
+                }
+            }, true)
+        }
+        $scope.onScrollStopVideo();
 
 
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.detailExploreSmaash = data.data;
-        console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
-        $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
-        console.log($scope.detailExploreSmaash.multipleattraction);
-        var attractions = [];
-        _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
-            _.each(multi.attraction, function(attr) {
-                attr.icon = multi.icon;
-                // attr.myid=attr._id;
-                attractions.push(attr);
+
+        $scope.startVid = function() {
+
+            $scope.startVideo = !$scope.startVideo;
+            console.log($scope.startVideo, "  console.log($scope.startVideo);");
+        }
+        NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+            $scope.detailExploreSmaash = data.data;
+            console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+            $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+            console.log($scope.detailExploreSmaash.multipleattraction);
+            var attractions = [];
+            _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
+                _.each(multi.attraction, function(attr) {
+                    attr.icon = multi.icon;
+                    // attr.myid=attr._id;
+                    attractions.push(attr);
+                })
             })
+            console.log(attractions);
+            $scope.content = _.groupBy(attractions, 'type');
+            $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
+            $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
+            $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
+
+            TemplateService.removeLoader();
         })
-        console.log(attractions);
-        $scope.content = _.groupBy(attractions, 'type');
-        $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
-        $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
-        $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
 
-        TemplateService.removeLoader();
+
+
+
     })
+    .controller('ConfirmCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("confirm-order");
+        $scope.menutitle = NavigationService.makeactive("Confirm Order");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.billingForm = {};
+        $scope.formComplete = false;
+
+        $scope.formSubmit = function(formData) {
+            if (formData) {
+                if (Object.keys($scope.billingForm).length != 0) {
+                    // NavigationService.confirmOrder($scope.billingForm, function(data) {
+                    //     console.log("$scope.billingForm", data);
+                    // })
+                    $scope.formComplete = true;
+                    $scope.open();
+                    $timeout(function() {
+                        $scope.formComplete = false;
+                        $scope.billingForm = {};
+                    }, 2000);
 
 
-
-
-})
-
-.controller('ConfirmCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("confirm-order");
-    $scope.menutitle = NavigationService.makeactive("Confirm Order");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.billingForm = {};
-    $scope.formComplete = false;
-
-    $scope.formSubmit = function(formData) {
-        if (formData) {
-            if (Object.keys($scope.billingForm).length != 0) {
-                // NavigationService.confirmOrder($scope.billingForm, function(data) {
-                //     console.log("$scope.billingForm", data);
-                // })
-                $scope.formComplete = true;
-                $scope.open();
-                $timeout(function() {
-                    $scope.formComplete = false;
-                    $scope.billingForm = {};
-                }, 2000);
+                }
 
 
             }
-
 
         }
 
-    }
-
-    $scope.animationsEnabled = true;
-    $scope.open = function(size) {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'views/modal/form-success.html',
-            controller: 'ConfirmCtrl',
-            size: size,
-            resolve: {
-                items: function() {
-                    return $scope.items;
+        $scope.animationsEnabled = true;
+        $scope.open = function(size) {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/form-success.html',
+                controller: 'ConfirmCtrl',
+                size: size,
+                resolve: {
+                    items: function() {
+                        return $scope.items;
+                    }
                 }
-            }
-        });
+            });
 
-    };
-})
+        };
+    })
 
 .controller('ExploreSmaashCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
@@ -1567,16 +1718,18 @@ $scope.vidFalse=function(){
 
     $scope.formCompleteAssistance = false;
     $scope.assistanceLogin = function(formData) {
-        console.log("formData", formData);
+        console.log("formData in fun", formData);
         if (formData) {
+            $scope.formCompleteAssistance = true;
             formData.city = $.jStorage.get("cityid");
             NavigationService.assistanceLoginSignup(formData, function(data) {
                 console.log("in nav", formData);
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
-                    $scope.formCompleteAssistance = true;
+                    $scope.formCompleteAssistanceThank = true;
                     $timeout(function() {
                         $scope.formCompleteAssistance = false;
+                        $scope.formCompleteAssistanceThank = false;
                         $scope.formData = {};
                     }, 2000);
 
@@ -1710,7 +1863,7 @@ $scope.vidFalse=function(){
     }
 
     $scope.direct = function() {
-        $uibModal.open({
+        $scope.modalInstance1 = $uibModal.open({
             animation: true,
             templateUrl: "views/modal/host-popup.html",
             scope: $scope,
@@ -1719,35 +1872,32 @@ $scope.vidFalse=function(){
 
     };
 
-    $scope.direction = function() {
 
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/hosts-popup.html",
-            scope: $scope,
 
-            windowClass: "no-white-bg"
-        })
-    };
+
     $scope.formDatapopup = {};
-    $scope.submitform = false;
-
     $scope.submitHostPopup = function(formDatapop) {
+        console.log("imin");
         if (formDatapop) {
+            $scope.modalInstance1.close();
             formDatapop.city = $.jStorage.get("cityid");
             NavigationService.hostGetCall(formDatapop, function(data) {
                 console.log("data", data);
                 if (data.value === true) {
-                    $scope.submitform = true;
-                    $scope.formData = {};
+                    $scope.modalInstance2 = $uibModal.open({
+                        animation: true,
+                        templateUrl: "views/modal/hosts-popup.html",
+                        scope: $scope,
+
+                        windowClass: "no-white-bg"
+                    });
                     $timeout(function() {
-                        $scope.submitform = false;
+                        $scope.modalInstance2.close();
                         $scope.formDatapopup = {};
-                    }, 2000);
-
-
+                    }, 3000);
                 }
             })
+
         }
     }
 
@@ -1759,6 +1909,27 @@ $scope.vidFalse=function(){
     $scope.menutitle = NavigationService.makeactive("Recharge");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.rechargeOnline = {};
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+        $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+    }
+
+    $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
+
+    $scope.submitRecharge = function(rechargeOnline) {
+        console.log("rechargeOnline", rechargeOnline);
+        NavigationService.rechargeCard(rechargeOnline, function(data) {
+            console.log("data", data);
+        })
+
+    }
+
+
+
+
+
 })
 
 
@@ -1781,48 +1952,126 @@ $scope.vidFalse=function(){
             animation: true,
             templateUrl: "views/modal/avatar.html",
             scope: $scope,
-           windowClass:'widths'
+            windowClass: 'widths'
         })
     };
 
-    $scope.userprofile={};
-    NavigationService.signupProfile(function(data){
-      console.log("data",data);
-      $scope.userprofile=data.data ;
-      console.log("data.data.dob",data.data.dob);
-      $scope.userprofile.dob = new Date(data.data.dob);
+    $scope.userprofile = {};
+    NavigationService.signupProfile(function(data) {
+        console.log("data", data);
+        $scope.userprofile = data.data;
+        console.log("data.data.dob", data.data.dob);
+        $scope.userprofile.dob = new Date(data.data.dob);
     });
 
-    $scope.getAvtar=function(avtar){
+    $scope.getAvtar = function(avtar) {
         if (avtar) {
-        $scope.userprofile.profilePic=avtar;
-      }
-
+            $scope.userprofile.profilePic = avtar;
+        }
     }
-$scope.formComplete=false;
-$scope.submitUserProfile=function(userprofile){
-  console.log("im in");
-  console.log("userprofile",userprofile);
-  NavigationService.updateProfile(userprofile,function(data){
-    console.log("data",data);
-    if (data.value === true) {
-      $scope.formComplete=true;
-      $timeout(function () {
-$scope.formComplete=false;
-      }, 2000);
-    }
-  })
-}
-
-    $scope.getUser = function() {
-        NavigationService.getUser(function(data) {
-            if (data.value == true) {
-                $scope.userData = data.data[0];
-                console.log("$scope.userData", $scope.userData);
+    $scope.formComplete = false;
+    $scope.submitUserProfile = function(userprofile) {
+        console.log("im in");
+        console.log("userprofile", userprofile);
+        NavigationService.updateProfile(userprofile, function(data) {
+            console.log("data", data);
+            if (data.value === true) {
+                $scope.formComplete = true;
+                $timeout(function() {
+                    $scope.formComplete = false;
+                }, 2000);
             }
-        });
+        })
     }
-    $scope.getUser();
+
+
+
+    $scope.CustID = "202";
+    $scope.customerBookingDetails = {
+        "GetCustomerBookingDetails": {
+            "CustomerBooking": [{
+                "Status": 1,
+                "Message": "Get Booking Data",
+                "BranchName": "Mumbai",
+                "PackageName": "Travel Agents - WeekDay",
+                "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
+                "BookingDate": "22-11-2016",
+                "VisitDate": "30-11-2016",
+                "CNRNo": 511,
+                "PayableAmount": 999,
+                "IsCustomerCard": 1
+            }, {
+                "Status": 1,
+                "Message": "Get Booking Data",
+                "BranchName": "Mumbai",
+                "PackageName": "Travel Agents - WeekDay",
+                "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
+                "BookingDate": "22-11-2016",
+                "VisitDate": "01-12-2016",
+                "CNRNo": 510,
+                "PayableAmount": 999,
+                "IsCustomerCard": 1
+            }],
+            "CustomerCardRecharge": [{
+                "Status": 1,
+                "Message": "Get Card Recharge Data",
+                "BranchName": "Mumbai",
+                "CustomerName": "piyush",
+                "RechargeDate": "26-11-2016",
+                "RechargeID": 3,
+                "RechargeAmt": 2000
+            }, {
+                "Status": 1,
+                "Message": "Get Card Recharge Data",
+                "BranchName": "Mumbai",
+                "CustomerName": "piyush",
+                "RechargeDate": "26-11-2016",
+                "RechargeID": 2,
+                "RechargeAmt": 100
+            }, {
+                "Status": 1,
+                "Message": "Get Card Recharge Data",
+                "BranchName": "Mumbai",
+                "CustomerName": "piyush",
+                "RechargeDate": "26-11-2016",
+                "RechargeID": 1,
+                "RechargeAmt": 500
+            }]
+        }
+    }
+
+
+    $scope.bookingDetails = [];
+    $scope.custBooking = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerBooking;
+    $scope.CustCardRecharge = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerCardRecharge;
+    $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+    _.each($scope.bookingDetails, function(value) {
+        if (value.Message === "Get Booking Data") {
+            value.objtype = "Booking";
+        } else if (value.Message === "Get Card Recharge Data") {
+            value.objtype = "Recharge";
+        };
+
+    });
+    $scope.msg = false;
+    $scope.CustID = $.jStorage.get("loginDetail").data.CustomerID;
+    NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
+        if (data.value === true) {
+            $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
+            $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
+            $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+            _.each($scope.bookingDetails, function(value) {
+                if (value.Message === "Get Booking Data") {
+                    value.objtype = "Booking";
+                } else if (value.Message === "Get Card Recharge Data") {
+                    value.objtype = "Recharge";
+                };
+
+            });
+        } else if (data.value === false) {
+            $scope.msg = true;
+        }
+    })
     $scope.tab = "design";
     $scope.classa = 'active';
     $scope.classb = '';
@@ -2010,7 +2259,7 @@ $scope.formComplete=false;
         console.log("$scope.snapshotData", $scope.snapshotData);
     };
 
-//calender
+    //calender
 
     $scope.today = function() {
         $scope.dt = new Date();
@@ -2476,6 +2725,7 @@ $scope.formComplete=false;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
         $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
         TemplateService.removeLoader();
+        console.log("$scope.detailEventsInner.banner ", $scope.detailEventsInner.banner);
     })
     $scope.pdfmodal = function(pdf) {
         console.log("im in");
@@ -2761,21 +3011,23 @@ $scope.formComplete=false;
     }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$state) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-        $scope.myUrl = window.location.href;
+    $scope.myUrl = window.location.href;
+    TemplateService.removeLoaderOn(3);
 
-        // $scope.goto=function(data._id){
-        //   console.log("im in");
-        // $state.go('blog-inside',{id:data._id});
-        // }
+    // $scope.goto=function(data._id){
+    //   console.log("im in");
+    // $state.go('blog-inside',{id:data._id});
+    // }
     NavigationService.getPopularBlog(function(data) {
         console.log("data", data);
         $scope.popularblogs = data.data;
+        TemplateService.removeLoader();
     });
 
     $scope.objectfilter = {};
@@ -2787,9 +3039,9 @@ $scope.formComplete=false;
     $scope.blogs = [];
     $scope.notAvailable = false;
     if ($stateParams.search) {
-      $scope.objectfilter.search = $stateParams.search;
-    }else {
-       $stateParams.search ={};
+        $scope.objectfilter.search = $stateParams.search;
+    } else {
+        $stateParams.search = {};
     }
     $scope.fetchData = function() {
 
@@ -2820,6 +3072,7 @@ $scope.formComplete=false;
                 }
             }
             console.log("blogs", $scope.blogs);
+            TemplateService.removeLoader();
         })
     };
     $scope.fetchData();
@@ -2840,8 +3093,9 @@ $scope.formComplete=false;
             } else {
                 $scope.message = false;
             }
-            $scope.blogs  =data.data.data;
+            $scope.blogs = data.data.data;
             console.log("blogs", $scope.blogs);
+            TemplateService.removeLoader();
         })
     };
 
@@ -2923,7 +3177,8 @@ $scope.formComplete=false;
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-        $scope.myUrl = window.location.href;
+    TemplateService.removeLoaderOn(1);
+    $scope.myUrl = window.location.href;
     $scope.myBlogslides = [
         'img/karting/blue.png',
         // 'img/karting/star.png',
@@ -2932,11 +3187,19 @@ $scope.formComplete=false;
         'img/karting/salman.png',
         'img/karting/shikar.png'
     ];
-    NavigationService.getDetailBlog($stateParams.id, function(data) {
 
+    NavigationService.getDetailBlog($stateParams.id, function(data) {
         $scope.blogInside = data.data;
-        console.log("  $scope.blogInside", $scope.blogInside);
-    })
+        var findIndex = _.findIndex($scope.blogInside.popularBlog, function(val) {
+            return val._id === $stateParams.id;
+        });
+        if (findIndex >= 0) {
+            $scope.blogInside.popularBlog.splice(findIndex, 1);
+        } else {
+            $scope.blogInside.popularBlog = data.data.popularBlog;
+        }
+        TemplateService.removeLoader();
+    });
 
 })
 
@@ -3043,7 +3306,8 @@ $scope.formComplete=false;
             $scope.cityData = {
                 _id: $.jStorage.get("cityid"),
                 name: $.jStorage.get("city"),
-                smaaashLogo: $.jStorage.get("logos")
+                smaaashLogo: $.jStorage.get("logos"),
+                branchid: $.jStorage.get("branchId")
             };
         };
         $scope.template.reFetchCity();
@@ -3096,14 +3360,15 @@ $scope.formComplete=false;
                         console.log("signupDataotp", signupData);
                         // $scope.otp();
 
-                          $scope.getOtp.CustomerMobileNo=signupData.CustomerMobile;
-                            console.log("$scope.getOtp",$scope.getOtp);
+                        $scope.getOtp.CustomerMobileNo = signupData.CustomerMobile;
+                        console.log("$scope.getOtp", $scope.getOtp);
                         NavigationService.generateOtp($scope.getOtp, function(data) {
                             console.log("data", data);
                             if (data.value === true) {
                                 $scope.otp();
                             } else {
                                 console.log("data in false", data);
+                                $scope.customerEXist = true;
                             }
                         });
                     } else {
@@ -3116,12 +3381,13 @@ $scope.formComplete=false;
                 }
             }
         }
-$scope.GenrateOneTimePass=function(signupData){
-  $scope.modalOtp.close();
-  $scope.signupData.OTP="";
-  $scope.signupGenerateOtp(signupData);
-}
+        $scope.GenrateOneTimePass = function(signupData) {
+            $scope.modalOtp.close();
+            $scope.signupData.OTP = "";
+            $scope.signupGenerateOtp(signupData);
+        }
         $scope.customerSignup = function(signupData) {
+
             console.log("signupData", signupData);
             NavigationService.CustomerRegistration(signupData, function(data) {
                 console.log("signupData", signupData);
@@ -3135,12 +3401,12 @@ $scope.GenrateOneTimePass=function(signupData){
                         $scope.signupData = {};
                     }, 2000);
                     location.reload();
-                }else if (data.value === false && data.data === "Customer Already Exists") {
-                  $scope.custExist=true;
+                } else if (data.value === false && data.data === "Customer Already Exists") {
+                    $scope.custExist = true;
                     $scope.wrongOtp = false;
-                }else {
+                } else {
                     $scope.emailExist = true;
-                      $scope.wrongOtp = true;
+                    $scope.wrongOtp = true;
 
                 }
             })
@@ -3149,6 +3415,8 @@ $scope.GenrateOneTimePass=function(signupData){
 
         $scope.formComplete = false;
         $scope.userData = {};
+        $scope.userData.IsOTPValidation = "0";
+        $scope.userData.OTP = "";
         $scope.valid = false;
         $scope.userLogin = function(userData) {
             if (userData) {
@@ -3163,7 +3431,7 @@ $scope.GenrateOneTimePass=function(signupData){
                             $scope.formComplete = false;
                             $scope.userData = {};
                         }, 2000);
-                        // location.reload();
+                        location.reload();
                     } else {
                         $scope.valid = true;
                     }
@@ -3212,7 +3480,7 @@ $scope.GenrateOneTimePass=function(signupData){
             if ($.jStorage.get("loginDetail") != null) {
                 $state.go("profile");
             };
-              // $state.go("profile");
+            // $state.go("profile");
         }
 
 
@@ -3226,7 +3494,7 @@ $scope.GenrateOneTimePass=function(signupData){
 
 
         $scope.otp = function() {
-          $scope.modalOtp =  $uibModal.open({
+            $scope.modalOtp = $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/otp.html",
                 scope: $scope,

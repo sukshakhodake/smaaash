@@ -1,5 +1,6 @@
 // JavaScript Document
 $.jStorage.set("city", "Mumbai");
+$.jStorage.set("branchId", "12");
 $.jStorage.set("cityid", "577f4d106b78e0bc03724800");
 // if (!$.jStorage.get("city")) {
 //     $.holdReady(false);
@@ -45,7 +46,7 @@ var firstapp = angular.module('firstapp', [
 
 ]);
 
-firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
@@ -83,13 +84,13 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'DrinkCtrl'
     })
 
-   .state('reset', {
+    .state('reset', {
         url: "/reset",
         templateUrl: "views/template.html",
         controller: 'ResetCtrl'
     })
 
-   .state('thank', {
+    .state('thank', {
         url: "/thank-you",
         templateUrl: "views/template.html",
         controller: 'ThankCtrl'
@@ -97,31 +98,31 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
 
 
-  .state('promotion-inner', {
+    .state('promotion-inner', {
         url: "/promotion-inner/:id",
         templateUrl: "views/template.html",
         controller: 'PromotionInnerCtrl'
     })
 
 
-   .state('promotion', {
+    .state('promotion', {
         url: "/promotion/:id",
         templateUrl: "views/template.html",
         controller: 'PromotionCtrl'
     })
 
-       .state('blog', {
-        url: "/blog",
-        templateUrl: "views/template.html",
-        controller: 'BlogCtrl'
-    })
-       .state('blogs', {
-        url: "/blogs/:search",
-        templateUrl: "views/template.html",
-        controller: 'BlogCtrl'
-    })
+    .state('blog', {
+            url: "/blog",
+            templateUrl: "views/template.html",
+            controller: 'BlogCtrl'
+        })
+        .state('blogs', {
+            url: "/blogs/:search",
+            templateUrl: "views/template.html",
+            controller: 'BlogCtrl'
+        })
 
-           .state('blog-inside', {
+    .state('blog-inside', {
         url: "/blog-inside/:id",
         templateUrl: "views/template.html",
         controller: 'BlogInsideCtrl'
@@ -257,7 +258,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         controller: 'ProfileCtrl'
     })
 
-        .state('recharge', {
+    .state('recharge', {
         url: "/recharge",
         templateUrl: "views/template.html",
         controller: 'RechargeCtrl'
@@ -297,11 +298,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 //     };
 // });
 
-firstapp.directive('fancyboxBox', function ($document) {
+firstapp.directive('fancyboxBox', function($document) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function (scope, element, attr) {
+        link: function(scope, element, attr) {
             var $element = $(element);
             var target;
             if (attr.rel) {
@@ -323,12 +324,12 @@ firstapp.directive('fancyboxBox', function ($document) {
     };
 })
 
-firstapp.directive('fancyboxThumb', function ($document) {
+firstapp.directive('fancyboxThumb', function($document) {
 
         return {
             restrict: 'EA',
             replace: false,
-            link: function (scope, element, attr) {
+            link: function(scope, element, attr) {
                 var $element = $(element);
                 var target;
                 if (attr.rel) {
@@ -382,14 +383,14 @@ firstapp.directive('fancyboxThumb', function ($document) {
 // });
 // });
 
-firstapp.directive('autoHeight', function ($compile, $parse) {
+firstapp.directive('autoHeight', function($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function ($scope, element, attrs) {
+        link: function($scope, element, attrs) {
             var $element = $(element);
             var windowHeight = $(window).height();
-            var addHeight = function () {
+            var addHeight = function() {
                 $element.css("min-height", windowHeight);
             };
             addHeight();
@@ -397,11 +398,11 @@ firstapp.directive('autoHeight', function ($compile, $parse) {
     };
 });
 
-firstapp.directive('noDrag', function ($compile, $parse) {
+firstapp.directive('noDrag', function($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function ($scope, element, attrs) {
+        link: function($scope, element, attrs) {
             var $element = $(element);
             $element.context.draggable = false;
         }
@@ -516,8 +517,8 @@ firstapp.directive('img', function($compile, $parse) {
         }
     };
 });
-firstapp.filter('uploadpath', function () {
-    return function (input, width, height, style) {
+firstapp.filter('uploadpath', function() {
+    return function(input, width, height, style) {
         var other = "";
         if (width && width != "") {
             other += "&width=" + width;
@@ -539,9 +540,9 @@ firstapp.filter('uploadpath', function () {
     };
 });
 
-firstapp.filter('uploadprofilepicture', function () {
-    return function (input, width, height, style) {
-        console.log("input",input);
+firstapp.filter('uploadprofilepicture', function() {
+    return function(input, width, height, style) {
+        console.log("input", input);
         var other = "";
         if (width && width != "") {
             other += "&width=" + width;
@@ -560,22 +561,22 @@ firstapp.filter('uploadprofilepicture', function () {
 
                 return input;
             }
-        }else{
+        } else {
             return 'img/profile/female.png';
         }
     };
 });
 
-firstapp.config(function ($translateProvider) {
+firstapp.config(function($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
 });
-firstapp.directive('onlyDigits', function () {
+firstapp.directive('onlyDigits', function() {
     return {
         require: 'ngModel',
         restrict: 'A',
-        link: function (scope, element, attr, ctrl) {
+        link: function(scope, element, attr, ctrl) {
             var digits;
 
             function inputValue(val) {
@@ -599,7 +600,30 @@ firstapp.directive('onlyDigits', function () {
         }
     };
 });
+
+firstapp.directive('allowPattern', [allowPatternDirective]);
+
+function allowPatternDirective() {
+    return {
+        restrict: "A",
+        compile: function(tElement, tAttrs) {
+            return function(scope, element, attrs) {
+              element.bind("keypress", function(event) {
+                    var keyCode = event.which || event.keyCode;
+                    var keyCodeChar = String.fromCharCode(keyCode);
+                    if (!keyCodeChar.match(new RegExp(attrs.allowPattern, "i"))) {
+            event.preventDefault();
+                        return false;
+                    }
+
+                });
+            };
+        }
+    };
+}
+
 firstapp.directive('scrolldown', function ($compile, $parse) {
+
     return {
         restrict: 'EA',
         replace: false,
@@ -607,26 +631,51 @@ firstapp.directive('scrolldown', function ($compile, $parse) {
             var $element = $(element);
             // var windowHeight = $(window).height();
             $scope.scrollDown = function () {
+                $scope.startVideo=false;
                 $('html,body').animate({
                         scrollTop: $(".second").offset().top
                     },
                     'slow');
             }
+
         }
     };
 });
-firstapp.filter('rmvStartEndSpace', function () {
-    return function (input) {
+firstapp.filter('rmvStartEndSpace', function() {
+    return function(input) {
         if (input) {
             console.log(input);
             return input.toString().trim();
         }
     };
 });
-firstapp.filter('youtubethumb', function () {
-    return function (input, onlyid) {
+// firstapp.filter('youtubethumb', function() {
+//     return function(input, onlyid) {
+//         if (input) {
+//             return "http://img.youtube.com/vi/" + input + "/hqdefault.jpg";
+//         }
+//     };
+// });
+firstapp.filter('youtubethumb', function() {
+    return function(input, onlyid) {
         if (input) {
-            return "http://img.youtube.com/vi/" + input + "/hqdefault.jpg";
+            console.log(input);
+            var videoid = input.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+            console.log(videoid);
+            if (videoid != null) {
+                console.log('tgyuhj', videoid);
+                if (onlyid == false) {
+                    return "http://img.youtube.com/vi/" + videoid[1] + "/hqdefault.jpg";
+                } else if (onlyid == true) {
+                    return videoid[1];
+                }
+            } else {
+                return input;
+                console.log('1 else', input);
+            }
+        } else {
+            return input;
+            console.log('2 else', input);
         }
     };
 });
@@ -654,15 +703,15 @@ firstapp.filter('youtubethumb', function () {
 //     };
 // });
 firstapp.filter('rawHtml', ['$sce',
-    function ($sce) {
-        return function (val) {
+    function($sce) {
+        return function(val) {
             console.log(val);
             return $sce.trustAsHtml(val);
         };
     }
 ]);
-firstapp.filter('trusted', ['$sce', function ($sce) {
-    return function (url) {
+firstapp.filter('trusted', ['$sce', function($sce) {
+    return function(url) {
         return $sce.trustAsResourceUrl(url);
     };
 }]);
@@ -685,8 +734,8 @@ firstapp.filter('trusted', ['$sce', function ($sce) {
 //     };
 // });
 
-firstapp.filter('shorten', function () {
-    return function (value, limit) {
+firstapp.filter('shorten', function() {
+    return function(value, limit) {
         if (value)
             if (value.length < limit) {
                 return value;
@@ -697,16 +746,16 @@ firstapp.filter('shorten', function () {
 
     }
 });
-firstapp.filter('htmlToPlaintext', function () {
-    return function (text) {
+firstapp.filter('htmlToPlaintext', function() {
+    return function(text) {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';
     };
 });
 
-firstapp.directive('aplhaOnly', function () {
+firstapp.directive('aplhaOnly', function() {
     return {
         require: 'ngModel',
-        link: function (scope, element, attr, ngModelCtrl) {
+        link: function(scope, element, attr, ngModelCtrl) {
             function fromUser(text) {
                 var transformedInput = text.replace(/[^a-zA-Z]/g, '');
                 if (transformedInput !== text) {
@@ -719,23 +768,33 @@ firstapp.directive('aplhaOnly', function () {
         }
     };
 });
-firstapp.filter('urlEncode', [function () {
+firstapp.filter('urlEncode', [function() {
     return window.encodeURIComponent;
 }]);
 
-firstapp.filter('englishNumeralDate', function () {
-    return function (value) {
+firstapp.filter('englishNumeralDate', function() {
+    return function(value) {
         if (value) {
             console.log(angular.isDate(value));
             return moment(new Date(value)).format("Do MMMM YYYY");
         }
     };
 });
-firstapp.filter('englishNumeralTime', function () {
-    return function (value) {
+firstapp.filter('englishNumeralTime', function() {
+    return function(value) {
         if (value) {
             console.log(angular.isDate(value));
             return moment(new Date(value)).format("h:mm a");
         }
     };
+});
+firstapp.directive('noPaste', function ($filter) {
+  return {
+    scope: {},
+    link: function (scope, element) {
+      element.on('cut copy paste', function (event) {
+        event.preventDefault();
+      });
+    }
+  };
 });
