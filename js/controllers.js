@@ -369,6 +369,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         return '';
     }
+
+    $scope.landingForm={};
+    $scope.formSubmit =function(landingForm){
+      console.log("im in");
+      console.log("landingForm",landingForm);
+      NavigationService.submitLandingForm(landingForm,function(data){
+        console.log("data",data);
+      })
+    }
+
 })
 
 
@@ -2983,6 +2993,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+
     $scope.goTo = function(name, id) {
         if (name, id) {
             $scope.name = name.replace(/\s/g, '').toLowerCase();
@@ -3586,6 +3597,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $(window).scrollTop(0);
         });
         TemplateService.removeLoaderOn(1);
+
         $scope.getCity = function() {
             NavigationService.getCity(function(data) {
                 if (data.value) {

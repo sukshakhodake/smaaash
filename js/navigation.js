@@ -1,5 +1,7 @@
 var adminurl = "http://104.155.129.33:82/"; //server
 // var adminurl = "http://192.168.0.104:1337/";
+var RegisterVRadminurl="http://192.168.1.114:80/api";
+
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 // var pdfpath = imgurl + "readFile?file=";
@@ -253,6 +255,15 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: userData
+
+            }).success(callback);
+        },
+      submitLandingForm :function(formData, callback) {
+            $http({
+                url: RegisterVRadminurl + '/RegisterVR/save',
+                method: 'POST',
+
+                data: formData
 
             }).success(callback);
         },
