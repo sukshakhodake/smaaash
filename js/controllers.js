@@ -526,7 +526,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
@@ -607,6 +607,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     };
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    }
+
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+        $scope.buyNow = function(BranchPackageID, price) {
+                console.log("im in");
+                console.log("price", price);
+                console.log("BranchPackageID", BranchPackageID);
+                $scope.addToCartParams.BranchPackageID = BranchPackageID;
+                $scope.addToCartParams.TotalAmount = price;
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+                if ($.jStorage.get("loginDetail") == null) {
+                  $uibModal.open({
+                             animation: true,
+                             templateUrl: 'views/modal/wishlistsigup.html',
+                             scope: $scope
+                         });
+                }else {
+                  NavigationService.addToCart($scope.addToCartParams, function(data) {
+                      console.log("$scope.addToCartParams", $scope.addToCartParams);
+                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                          console.log("inif", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/addtocart.html',
+                              scope: $scope
+                          });
+                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                          console.log("in else", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/alreadyCart.html',
+                              scope: $scope
+                          });
+                      }else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocartfail.html',
+                            scope: $scope
+                        });
+                      }
+
+
+                  })
+                }
+
+
+
+            }
 })
 
 .controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -878,7 +938,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -1007,7 +1067,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
     };
+    $scope.goTo = function(name, id) {
+        if (name, id) {
+            $scope.name = name.replace(/\s/g, '').toLowerCase();
+            $state.go('snow-rush', {
+                name: $scope.name,
+                id: id
+            });
+        }
 
+    }
     //   "BranchID": 12,
     // "BranchPackageID": 70,
     // "TotalAmount": 999,
@@ -1023,13 +1092,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-    $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    }
+
     $scope.addToCartParams.NoOfChild = '0';
     $scope.addToCartParams.NoOfSenior = '0';
     $scope.addToCartParams.AddonIDs = " ";
     $scope.addToCartParams.AddonQuantities = "";
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
 
 
 
@@ -1043,77 +1116,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.addToCartParams.BranchPackageID = BranchPackageID;
             $scope.addToCartParams.TotalAmount = price;
             console.log("$scope.addToCartParams", $scope.addToCartParams);
-            NavigationService.addToCart($scope.addToCartParams, function(data) {
-                console.log("$scope.addToCartParams", $scope.addToCartParams);
-
-                if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                    console.log("inif", data);
+            if ($.jStorage.get("loginDetail") == null) {
+              $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/wishlistsigup.html',
+                         scope: $scope
+                     });
+            }else {
+              NavigationService.addToCart($scope.addToCartParams, function(data) {
+                  console.log("$scope.addToCartParams", $scope.addToCartParams);
+                  if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                      console.log("inif", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/addtocart.html',
+                          scope: $scope
+                      });
+                  } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                      console.log("in else", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/alreadyCart.html',
+                          scope: $scope
+                      });
+                  }else {
                     $uibModal.open({
                         animation: true,
-                        templateUrl: 'views/modal/addtocart.html',
+                        templateUrl: 'views/modal/addtocartfail.html',
                         scope: $scope
                     });
-                } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                    console.log("in else", data);
-                    $uibModal.open({
-                        animation: true,
-                        templateUrl: 'views/modal/alreadyCart.html',
-                        scope: $scope
-                    });
-                }
+                  }
 
 
-            })
+              })
+            }
+
 
 
         }
-        // $scope.addToCart = function() {
-        //     if ($.jStorage.get("loginDetail") == null) {
-        //         console.log("am in if");
-        //         $uibModal.open({
-        //             animation: true,
-        //             templateUrl: 'views/modal/wishlistsigup.html',
-        //             scope: $scope
-        //         });
-        //     } else if ($.jStorage.get("loginDetail") != null) {
-        //         var findIndex = _.findIndex($scope.userwishlist, function(key) {
-        //             console.log(id, '////////');
-        //             return key.exploresmash._id === id;
-        //         });
-        //         console.log("findIndex", findIndex);
-        //         if (findIndex !== -1) {
-        //             console.log("findIndex", findIndex);
-        //             constraints = _.find($scope.userwishlist, function(key) {
-        //                 return key.exploresmash._id === id;
-        //             });
-        //             console.log(constraints);
-        //             NavigationService.removeFromWishList(constraints._id, function(data) {
-        //                 console.log(data, 'removed data');
-        //                 if (data.value) {
-        //                     showWishList();
-        //                     $uibModal.open({
-        //                         animation: true,
-        //                         templateUrl: 'views/modal/removeWishlist.html',
-        //                         scope: $scope
-        //                     });
-        //                 };
-        //
-        //             });
-        //         } else {
-        //             NavigationService.addToWishList(id, function(data) {
-        //                 console.log("wishlist", data);
-        //                 if (data.value) {
-        //                     $uibModal.open({
-        //                         animation: true,
-        //                         templateUrl: 'views/modal/wishlist.html',
-        //                         scope: $scope
-        //                     });
-        //                 }
-        //                 showWishList();
-        //             });
-        //         }
-        //     }
-        // }
+
 })
 
 .controller('AccountCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1552,7 +1593,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("snow-rush");
-        $scope.menutitle = NavigationService.makeactive("Snow Rush");
+        $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) 
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -2592,6 +2633,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
         TemplateService.removeLoader();
     });
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    }
+
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+        $scope.buyNow = function(BranchPackageID, price) {
+                console.log("im in");
+                console.log("price", price);
+                console.log("BranchPackageID", BranchPackageID);
+                $scope.addToCartParams.BranchPackageID = BranchPackageID;
+                $scope.addToCartParams.TotalAmount = price;
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+                if ($.jStorage.get("loginDetail") == null) {
+                  $uibModal.open({
+                             animation: true,
+                             templateUrl: 'views/modal/wishlistsigup.html',
+                             scope: $scope
+                         });
+                }else {
+                  NavigationService.addToCart($scope.addToCartParams, function(data) {
+                      console.log("$scope.addToCartParams", $scope.addToCartParams);
+                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                          console.log("inif", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/addtocart.html',
+                              scope: $scope
+                          });
+                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                          console.log("in else", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/alreadyCart.html',
+                              scope: $scope
+                          });
+                      }else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocartfail.html',
+                            scope: $scope
+                        });
+                      }
+
+
+                  })
+                }
+
+
+
+            }
 
 })
 
@@ -2738,6 +2839,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
     };
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    }
+
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+        $scope.buyNow = function(BranchPackageID, price) {
+                console.log("im in");
+                console.log("price", price);
+                console.log("BranchPackageID", BranchPackageID);
+                $scope.addToCartParams.BranchPackageID = BranchPackageID;
+                $scope.addToCartParams.TotalAmount = price;
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+                if ($.jStorage.get("loginDetail") == null) {
+                  $uibModal.open({
+                             animation: true,
+                             templateUrl: 'views/modal/wishlistsigup.html',
+                             scope: $scope
+                         });
+                }else {
+                  NavigationService.addToCart($scope.addToCartParams, function(data) {
+                      console.log("$scope.addToCartParams", $scope.addToCartParams);
+                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                          console.log("inif", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/addtocart.html',
+                              scope: $scope
+                          });
+                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                          console.log("in else", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/alreadyCart.html',
+                              scope: $scope
+                          });
+                      }else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocartfail.html',
+                            scope: $scope
+                        });
+                      }
+
+
+                  })
+                }
+
+
+
+            }
 })
 
 
@@ -2866,6 +3027,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     };
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    }
+
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+        $scope.buyNow = function(BranchPackageID, price) {
+                console.log("im in");
+                console.log("price", price);
+                console.log("BranchPackageID", BranchPackageID);
+                $scope.addToCartParams.BranchPackageID = BranchPackageID;
+                $scope.addToCartParams.TotalAmount = price;
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+                if ($.jStorage.get("loginDetail") == null) {
+                  $uibModal.open({
+                             animation: true,
+                             templateUrl: 'views/modal/wishlistsigup.html',
+                             scope: $scope
+                         });
+                }else {
+                  NavigationService.addToCart($scope.addToCartParams, function(data) {
+                      console.log("$scope.addToCartParams", $scope.addToCartParams);
+                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                          console.log("inif", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/addtocart.html',
+                              scope: $scope
+                          });
+                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                          console.log("in else", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/alreadyCart.html',
+                              scope: $scope
+                          });
+                      }else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocartfail.html',
+                            scope: $scope
+                        });
+                      }
+
+
+                  })
+                }
+
+
+
+            }
 
 })
 
@@ -3009,6 +3230,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
     }
+    $scope.addToCartParams = {};
+    $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+    $scope.addToCartParams.NoOfAdults = '1';
+    if ($.jStorage.get("loginDetail")!=null) {
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+    }
+
+    $scope.addToCartParams.NoOfChild = '0';
+    $scope.addToCartParams.NoOfSenior = '0';
+    $scope.addToCartParams.AddonIDs = " ";
+    $scope.addToCartParams.AddonQuantities = "";
+    $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+        $scope.buyNow = function(BranchPackageID, price) {
+                console.log("im in");
+                console.log("price", price);
+                console.log("BranchPackageID", BranchPackageID);
+                $scope.addToCartParams.BranchPackageID = BranchPackageID;
+                $scope.addToCartParams.TotalAmount = price;
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+                if ($.jStorage.get("loginDetail") == null) {
+                  $uibModal.open({
+                             animation: true,
+                             templateUrl: 'views/modal/wishlistsigup.html',
+                             scope: $scope
+                         });
+                }else {
+                  NavigationService.addToCart($scope.addToCartParams, function(data) {
+                      console.log("$scope.addToCartParams", $scope.addToCartParams);
+                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                          console.log("inif", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/addtocart.html',
+                              scope: $scope
+                          });
+                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                          console.log("in else", data);
+                          $uibModal.open({
+                              animation: true,
+                              templateUrl: 'views/modal/alreadyCart.html',
+                              scope: $scope
+                          });
+                      }else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocartfail.html',
+                            scope: $scope
+                        });
+                      }
+
+
+                  })
+                }
+
+
+
+            }
 })
 
 .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state) {

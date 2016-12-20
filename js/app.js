@@ -211,7 +211,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'SportsCtrl'
         })
         .state('snow-rush', {
-            url: "/snow-rush/:id",
+            url: "/:name/:id",
             templateUrl: "views/template.html",
             controller: 'SnowCtrl'
         })

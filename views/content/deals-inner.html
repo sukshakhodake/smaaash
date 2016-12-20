@@ -20,7 +20,7 @@
     width: 100%;
     height: 100vh;">
   </iframe>
-  
+
    <div class="overlays" ng-if="!showthumbimage" >
       <a class="pull-right" ><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
    </div>
@@ -51,7 +51,7 @@
                     <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul>
                 <div class="more inline-block">
-                    <button class="uppercase green">Buy Now</button>
+                    <button class="uppercase green"  ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price)">Buy Now</button>
                 </div>
             </div>
         </div>
