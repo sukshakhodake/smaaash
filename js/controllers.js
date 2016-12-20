@@ -415,6 +415,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
+.controller('SkiesCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("sky-form");
+    $scope.menutitle = NavigationService.makeactive("Sky karting Form");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    TemplateService.removeLoaderOn(1);
+
+})
+
 .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("contact");
