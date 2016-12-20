@@ -66,6 +66,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       templateUrl: "views/template.html",
       controller: 'LandingCtrl'
   })
+      .state('sky-form', {
+      url: "/sky-form",
+      templateUrl: "views/template.html",
+      controller: 'SkiesCtrl'
+  })
+
     .state('event', {
         url: "/event/:id",
         templateUrl: "views/template.html",
