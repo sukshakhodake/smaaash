@@ -99,7 +99,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
     .state('promotion-inner', {
-        url: "/promotion-inner/:id",
+        url: "/:name/:id",
         templateUrl: "views/template.html",
         controller: 'PromotionInnerCtrl'
     })
@@ -135,7 +135,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('event-inner', {
-        url: "/event-inner/:id",
+        url: "/:name/:id",
         templateUrl: "views/template.html",
         controller: 'EventInnerCtrl'
     })

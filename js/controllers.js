@@ -443,7 +443,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -455,6 +455,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.events = _.chunk(data.data, 3);
         TemplateService.removeLoader();
     });
+    $scope.goTo = function(name, id) {
+        if (name, id) {
+            $scope.name = name.replace(/\s/g, '').toLowerCase();
+            $state.go('event-inner', {
+                name: $scope.name,
+                id: id
+            });
+        }
+
+    }
     $scope.isInWishlist = function(id) {
         var indexF = _.findIndex($scope.userwishlist, function(key) {
             return key.exploresmash._id == id;
@@ -2709,7 +2719,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
-    $scope.menutitle = NavigationService.makeactive("Events Inner");
+    $scope.menutitle =$stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = window.location.href;
@@ -2955,13 +2965,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter,  $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotions");
     $scope.menutitle = NavigationService.makeactive("Promotion");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+    $scope.goTo = function(name, id) {
+        if (name, id) {
+            $scope.name = name.replace(/\s/g, '').toLowerCase();
+            $state.go('promotion-inner', {
+                name: $scope.name,
+                id: id
+            });
+        }
+
+    }
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         console.log("data", data);
         $scope.promotion = _.chunk(data.data, 3);
@@ -3103,7 +3123,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
-    $scope.menutitle = NavigationService.makeactive("Promotion Inner");
+    $scope.menutitle =  $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
