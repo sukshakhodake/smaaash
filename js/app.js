@@ -105,7 +105,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
     .state('promotion-inner', {
-        url: "/promotion-inner/:id",
+        url: "/:name/:id",
         templateUrl: "views/template.html",
         controller: 'PromotionInnerCtrl'
     })
@@ -135,13 +135,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('deals-inner', {
-        url: "/deals-inner/:id",
+        url: "/:name/:id",
         templateUrl: "views/template.html",
         controller: 'DealsInnerCtrl'
     })
 
     .state('event-inner', {
-        url: "/event-inner/:id",
+        url: "/:name/:id",
         templateUrl: "views/template.html",
         controller: 'EventInnerCtrl'
     })
@@ -217,7 +217,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'SportsCtrl'
         })
         .state('snow-rush', {
-            url: "/snow-rush/:id",
+            url: "/:name/:id",
             templateUrl: "views/template.html",
             controller: 'SnowCtrl'
         })
