@@ -2474,12 +2474,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.drinkParty1 = data.data;
         console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
-        $scope.readMore = function(id) {
+        $scope.readMore = function(id, indexid) {
 
             console.log(id);
+            _.each($scope.moreDesc,function(value,property){
+          console.log("property",property);
+            if(id !=property){
+                $scope.moreDesc[property]=false;
+            }
+        });
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
-            console.log("  $scope.moreDesc[id]", $scope.moreDesc[id]);
             $scope.myDesc = _.find($scope.drinkParty1, function(n) {
                 return n._id == id;
 
@@ -2579,11 +2584,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.readMore = function(id, indexid) {
 
             console.log(id);
+            _.each($scope.moreDesc,function(value,property){
+          console.log("property",property);
+            if(id !=property){
+                $scope.moreDesc[property]=false;
+            }
+        });
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
             $scope.myDesc = _.find($scope.SingleDealsPackages, function(n) {
                 return n._id == id;
-                // console.log($scope.myDesc);
+
             }).description;
         };
         TemplateService.removeLoader();
