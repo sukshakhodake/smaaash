@@ -129,7 +129,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('deals-inner', {
-        url: "/deals-inner/:id",
+        url: "/:name/:id",
         templateUrl: "views/template.html",
         controller: 'DealsInnerCtrl'
     })

@@ -526,13 +526,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout,$state, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+    $scope.goTo = function(name, id) {
+        if (name, id) {
+            $scope.name = name.replace(/\s/g, '').toLowerCase();
+            $state.go('deals-inner', {
+                name: $scope.name,
+                id: id
+            });
+        }
+
+    }
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
         TemplateService.removeLoader();
@@ -1593,7 +1603,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("snow-rush");
-        $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) 
+        $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1)
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -2619,10 +2629,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
-    $scope.menutitle = NavigationService.makeactive("Deals Inner");
+    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
