@@ -1034,7 +1034,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-
+    $scope.moreDesc={};
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
@@ -1078,6 +1078,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
     $scope.goTOSearch($scope.filter);
+    $scope.readMore = function(id, indexid) {
+
+        console.log(id);
+        _.each($scope.moreDesc,function(value,property){
+      console.log("property",property);
+        if(id !=property){
+            $scope.moreDesc[property]=false;
+        }
+    });
+        $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        console.log($scope.moreDesc);
+        $scope.myDesc = _.find($scope.singleAttraction, function(n) {
+            return n._id == id;
+
+        }).description;
+    };
 
     if ($.jStorage.get("loginDetail") != null) {
         function showWishList() {
