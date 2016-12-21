@@ -104,11 +104,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
 
-    .state('promotion-inner', {
-        url: "/:name/:id",
-        templateUrl: "views/template.html",
-        controller: 'PromotionInnerCtrl'
-    })
 
 
     .state('promotion', {
@@ -134,18 +129,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'BlogInsideCtrl'
     })
 
-    .state('deals-inner', {
-        url: "/:name/:id",
-        templateUrl: "views/template.html",
-        controller: 'DealsInnerCtrl'
-    })
-    
 
-    .state('event-inner', {
-        url: "/:name/:id",
-        templateUrl: "views/template.html",
-        controller: 'EventInnerCtrl'
-    })
 
 
     .state('stars', {
@@ -202,7 +186,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'LeaderCtrl'
         })
-        .state('host-party', {
+        .state('hostparty', {
             url: "/host-party/:id",
             templateUrl: "views/template.html",
             controller: 'HostCtrl'
@@ -217,11 +201,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'SportsCtrl'
         })
-        .state('snow-rush', {
-            url: "/:name/:id",
-            templateUrl: "views/template.html",
-            controller: 'SnowCtrl'
-        })
+
 
     .state('sponsor', {
         url: "/sponsor",
@@ -277,7 +257,31 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         url: "/confirm-order",
         templateUrl: "views/template.html",
         controller: 'ConfirmCtrl'
+    })
+    .state('snow-rush', {
+        url: "/:name/:id",
+        templateUrl: "views/template.html",
+        controller: 'SnowCtrl'
+    })
+    .state('event-inner', {
+        url: "/:name/:id",
+        templateUrl: "views/template.html",
+        controller: 'EventInnerCtrl'
+    })
+    .state('deals-inner', {
+        url: "/:name/:id",
+        templateUrl: "views/template.html",
+        controller: 'DealsInnerCtrl'
+    })
+
+
+
+    .state('promotion-inner', {
+        url: "/:name/:id",
+        templateUrl: "views/template.html",
+        controller: 'PromotionInnerCtrl'
     });
+
 
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
