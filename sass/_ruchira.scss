@@ -3134,11 +3134,11 @@ padding: 20px;
 }
   .landing-form{
   background-image: url("../img/landing/banner1.jpg");
-  height: 100vh;
+  min-height: 100vh;
 }
-.landing-forms{
+.landing-forms,.kart-image{
    background-image: url("../img/landing/banner2.jpg");
-   height: 110vh;
+   min-height: 110vh;
    .form{
      background-color: #fff;
      border:2px solid #ccc;
@@ -3186,4 +3186,13 @@ width: 70%;
   }
 
 
+}
+.kart-image{
+     background-image: url("../img/kart.jpg") !important;  
+     min-height: 450px;
+     .more{
+       position: absolute;
+    bottom: -20px;
+    left: 40%;
+     }
 }
