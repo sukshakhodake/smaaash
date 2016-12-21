@@ -967,7 +967,7 @@ background-image: none;
  }
 
 //*footer ends*//
-.landing-kartbanner {
+.landing-kartbanner,.smaash-dropss,.kart-image {
     position: relative;
     background-image: url("../img/new/banner.png");
     background-repeat: no-repeat;
@@ -986,6 +986,8 @@ background-image: none;
         margin: 0 auto;
     }
 }
+
+
 
 img.fancybox-image {
     opacity: 1;
@@ -1133,7 +1135,7 @@ img.fancybox-image {
     }
 }
 
-.deals-event {
+.deals-event ,.kart-image{
     .landing-kartbanner {
         background-image: url("../img/new/banner.png");
         background-size: cover;
@@ -1356,7 +1358,7 @@ img.fancybox-image {
 }
 
 .error {
-    color: #ff0000;
+    color: #ff0000 !important;
 }
 
 .fa-times-circle-o:before {
@@ -1894,6 +1896,35 @@ border-bottom: 2px solid #000;
     border: transparent;
     display: block;
     margin: 0 auto;
+}
+
+//sky-form
+
+.sky-form{
+    .brand-purple{
+        background-color: #2a3892;
+    }
+    .brand-blue{
+        background-color: #18267a;
+    }
+    tr{
+        td{
+              background-color:rgba(24, 38, 122, 0.5);
+        }
+    }
+    .practice{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    .form{
+    border: 2px solid #ccc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    }
+    }
 }
 @import "ruchira";
 @import "mobile";

@@ -1,9 +1,9 @@
 <div class="sky-form">
-      <div class="smaash-drops ">
- <img src="img/new/banner.png" class="img-responsive" alt="">
+      <div class="smaash-dropss ">
   </div>
+  <div class="table-box brand-purple">
   <div class="container">
-      <div class="table-box">
+      <div class="table-boxes ">
           <h4 class="text-center uppercase">select your time slot</h4>
           <div class="selected clearfix">
               <span class="pull-left">change time</span>
@@ -13,9 +13,9 @@
 <p class="pull-right">booked</p>
             
           </div>
-    <div class="table-responsive">
+    <div class="table-responsive ">
             <table class="table ">
-                <thead>
+                <thead class="brand-blue">
                     <tr>
                         <th class="text-center uppercase ">TIME</th>
                         <th class="text-center  uppercase ">10</th>
@@ -41,6 +41,76 @@
             </table>
         </div>
       </div>
-         
+      </div>
   </div>
+  <div class="kart-image">
+  <div class="container">
+  <div class="practice">
+            <form class="form text-center" ng-submit="formSubmit(landingForm);" ng-if="!formComplete">
+               <h3 class="title error">Fill Your details</h3>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group relative">
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <select class="form-control"  ng-model="landingForm.city" required>
+                           <option ng-selected="true" value="">City</option>
+                           <option value="Mumbai">Mumbai</option>
+                           <option value="Ludhiana">Ludhiana</option>
+                           <option value="Gurgoan">Gurgoan</option>
+                           <option value="Bengaluru">Bengaluru</option>
+                           <option value="Hyderabad">Hyderabad</option>
+                           <option value="Noida">Noida</option>
+
+                        </select>
+
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+
+                     <div class="form-group relative">
+                        <input type="text" class=" form-control" placeholder="Name" name="name" required ng-model="landingForm.name">
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Name </div>
+                     </div>
+
+
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="form-group relative ">
+                        <input type="tel" class="form-control" placeholder="Mobile .No" name="mobile" ng-model="landingForm.mobile" required only-digits maxlength="10" minlength="10">
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.mobile.$error.required && user.mobile.$touched">Please enter your mobile no. </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="form-group relative">
+                        <input type="email" class=" form-control" placeholder="Email ID" name="email" ng-model="landingForm.email" required>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email ID </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="form-group relative">
+                        <input type="text" placeholder="DOB" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" date-disabled="disabledDates(date,mode)" close-text="Close" alt-input-formats="altInputFormats" ng-model="landingForm.eventDate"
+                        />
+                        <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                        <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your DOB </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+            <h3 ng-if="formComplete">Thank You.</h3>
+          <div class="more">
+             <button class="uppercase green">Buy Now</button>
+          </div>
+         </div> 
+  </div>
+  </div>
+
+         
+  
+
 </div>
