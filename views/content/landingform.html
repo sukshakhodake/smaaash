@@ -59,17 +59,20 @@
                         <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your DOB </div>
                      </div>
                   </div>
+
                </div>
+
                <button type="submit"  class="btn6 btn-default block">
                   <!-- <a> -->
                      <img src="img/new/submit.png" class="img-responsive" alt="">
                   <!-- </a> -->
                </button>
+                 <h3 ng-if="alreadyExist">Email Already Exist.</h3>
                <div class="condition ">
                   <p>* One game per person & One game per mobile number</p>
                </div>
             </form>
-            <h3 ng-if="formComplete">Thank You.</h3>
+            <h3 ng-if="formComplete" class="text-center">Thank You.</h3>
 
 
 

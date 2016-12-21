@@ -139,6 +139,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         templateUrl: "views/template.html",
         controller: 'DealsInnerCtrl'
     })
+    
 
     .state('event-inner', {
         url: "/:name/:id",
