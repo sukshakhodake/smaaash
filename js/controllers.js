@@ -1254,6 +1254,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.showCartParams ={};
+    $scope.showCartParams.CustomerMobileNo =$.jStorage.get("loginDetail").data.CustomerMobile;
+    $scope.showCartParams.CustomerID =$.jStorage.get("loginDetail").data.CustomerID;
+    console.log("$scope.showCartParams",$scope.showCartParams);
+//     NavigationService.showCartPackage($scope.showCartParams,function(data){
+// //       console.log("$scope.showCartParams",$scope.showCartParams);
+// // console.log("data",data);
+//     })
 })
 
 
@@ -1876,11 +1884,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
 
-    $scope.readMore = function(id) {
+    // $scope.readMore = function(id) {
+    //     console.log(id);
+    //     $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+    //     $scope.myDesc = _.find($scope.SingleHostParty1, function(n) {
+    //         return n._id == id;
+    //     }).description;
+    // };
+    $scope.readMore = function(id, indexid) {
+
         console.log(id);
+        _.each($scope.moreDesc,function(value,property){
+      console.log("property",property);
+        if(id !=property){
+            $scope.moreDesc[property]=false;
+        }
+    });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.SingleHostParty1, function(n) {
             return n._id == id;
+
         }).description;
     };
     NavigationService.getAllHostPartySlider(function(data) {
@@ -3671,7 +3695,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCity();
-      
+
 
 
         $scope.currentdate = new Date();
