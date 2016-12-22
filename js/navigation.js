@@ -1,6 +1,6 @@
 var adminurl = "http://104.155.129.33:82/"; //server
 // var adminurl = "http://192.168.0.104:1337/";
-var RegisterVRadminurl="http://192.168.0.114:80/api";
+var RegisterVRadminurl = "http://smaash.wohlig.co.in/api/";
 
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
@@ -23,6 +23,8 @@ var navigationservice = angular.module('navigationservice', [])
             anchor: "home"
         }]
     }];
+
+
 
     return {
         getnav: function() {
@@ -235,7 +237,7 @@ var navigationservice = angular.module('navigationservice', [])
         getOne: function(callback) {
             if ($.jStorage.get("loginDetail") != null) {
                 var data = {
-                    _id: $.jStorage.get("loginDetail").data._id,
+                    _id: $.jStorage.get("loginDetail")._id,
 
                 };
             }
@@ -258,9 +260,9 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-      submitLandingForm :function(formData, callback) {
+        submitLandingForm: function(formData, callback) {
             $http({
-                url: RegisterVRadminurl + '/RegisterVR/saveVRegisteration',
+                url: RegisterVRadminurl + 'RegisterVR/saveVRegisteration',
                 method: 'POST',
 
                 data: formData
@@ -301,10 +303,10 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        getcustomizeCityFun: function(id,custCityId, callback) {
+        getcustomizeCityFun: function(id, custCityId, callback) {
             var data = {
                 _id: id,
-                city:custCityId
+                city: custCityId
             };
             $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
@@ -387,7 +389,7 @@ var navigationservice = angular.module('navigationservice', [])
         addToWishList: function(id, callback) {
             console.log("nAV", id);
             var data = {
-                user: $.jStorage.get("loginDetail").data._id,
+                user: $.jStorage.get("loginDetail")._id,
                 wishList: {
                     exploresmash: id,
                     city: $.jStorage.get("cityid")
@@ -403,7 +405,7 @@ var navigationservice = angular.module('navigationservice', [])
         showWishList: function(callback) {
             // console.log("nAV", id);
             var data = {
-                user: $.jStorage.get("loginDetail").data._id,
+                user: $.jStorage.get("loginDetail")._id,
             };
             $http({
                 url: adminurl + 'signup/showWishList',
@@ -415,7 +417,7 @@ var navigationservice = angular.module('navigationservice', [])
         showCartPackage: function(callback) {
             // console.log("nAV", id);
             var data = {
-                user: $.jStorage.get("loginDetail").data._id,
+                user: $.jStorage.get("loginDetail")._id,
             };
             $http({
                 url: adminurl + 'signup/SelectCartPackage',
@@ -427,7 +429,7 @@ var navigationservice = angular.module('navigationservice', [])
         removeFromWishList: function(id, callback) {
             console.log("inNav", id);
             var data = {
-                user: $.jStorage.get("loginDetail").data._id,
+                user: $.jStorage.get("loginDetail")._id,
                 _id: id
             };
             $http({
@@ -446,11 +448,7 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         logout: function(callback) {
-            // console.log("im in logout");
-            // $.jStorage.flush();
             $.jStorage.set("loginDetail", null);
-            $.jStorage.set("loginId", null);
-            $.jStorage.set("loggedInUser", null);
             $.jStorage.set("customizeobj", null);
             return $http({
                 url: adminurl + 'register/logout',
@@ -484,7 +482,17 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        setUser: function(data) {
+            $.jStorage.set("loginDetail", data);
+        },
+        setCity: function(cityname) {
+            $.jStorage.set("cityid", cityname._id);
+            $.jStorage.set("city", cityname.name);
+            $.jStorage.set("logos", cityname.logo);
+            $.jStorage.set("branchId", cityname.BranchID);
 
+        },
+      
 
         editUserData: function(signupData, callback) {
 
@@ -539,7 +547,7 @@ var navigationservice = angular.module('navigationservice', [])
         signupProfile: function(callback) {
             if ($.jStorage.get("loginDetail") != null) {
                 var data = {
-                    _id: $.jStorage.get("loginDetail").data._id,
+                    _id: $.jStorage.get("loginDetail")._id,
                 };
             }
 
@@ -563,6 +571,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+
 
         getSponsors: function(callback) {
 
