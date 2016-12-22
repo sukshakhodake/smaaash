@@ -1907,10 +1907,41 @@ border-bottom: 2px solid #000;
     .brand-blue{
         background-color: #18267a;
     }
+ 
+    .table {
+        th{
+            padding: 15px 0;
+            border:none;
+        }
+tbody{
+tr {
+    border-bottom: 2px solid rgba(255, 255, 255,  0.15);
+        td{
+            width: 15%;
+  padding: 20px 0;
+  border-top:none;
+    }
+    }
+tr:last-child{
+     border-bottom: none; 
+}
+}
+
+    }  
+
+
     tr{
         td{
               background-color:rgba(24, 38, 122, 0.5);
               color: #fff;
+            
+    border-right: 2px solid rgba(255, 255, 255,  0.15);
+    p{
+        margin: 0;
+    }
+        }
+        td:last-child{
+border-right: none;
         }
     }
     .practice{
