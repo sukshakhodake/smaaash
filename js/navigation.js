@@ -148,15 +148,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
 
-        getTypes: function(callback) {
-            $http({
-                url: adminurl + 'Type/getAll',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
-        },
-
-
 
         signup: function(signupData, callback) {
 
@@ -492,7 +483,7 @@ var navigationservice = angular.module('navigationservice', [])
             $.jStorage.set("branchId", cityname.BranchID);
 
         },
-      
+
 
         editUserData: function(signupData, callback) {
 
