@@ -61,11 +61,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         templateUrl: "views/template.html",
         controller: 'CorporateCtrl'
     })
-    .state('landingform', {
-      url: "/landingform",
-      templateUrl: "views/template.html",
-      controller: 'LandingCtrl'
-  })
+  //   .state('landingform', {
+  //     url: "/landingform",
+  //     templateUrl: "views/template.html",
+  //     controller: 'LandingCtrl'
+  // })
       .state('sky-form', {
       url: "/sky-form",
       templateUrl: "views/template.html",

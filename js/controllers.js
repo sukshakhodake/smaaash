@@ -21,16 +21,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     }
-    // $scope.goTo = function(name, id) {
-    //     if (name, id) {
-    //         $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-    //         $state.go('event-inner', {
-    //             name: $scope.name,
-    //             id: id
-    //         });
-    //     }
-    //
-    // }
+
     $scope.openpops = function() {
         openL = ngDialog.open({
             template: 'views/content/popup.html',
@@ -122,20 +113,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.nameOfCity = $.jStorage.get("city");
 
     $scope.getCityName = function(cityname) {
-        console.log("cityname", cityname);
-        console.log(cityname.name);
-        $.jStorage.set("cityid", cityname._id);
-        $.jStorage.set("city", cityname.name);
-        $.jStorage.set("popupShow", true);
-        $.jStorage.set("logos", cityname.logo);
-        $.jStorage.set("branchId", cityname.BranchID);
-
-        console.log(openL);
+      NavigationService.setCity(cityname);
+          $.jStorage.set("popupShow", true);
+          console.log(openL);
         ngDialog.closeAll("Change");
         $(".ngdialog").remove();
         $scope.template.reFetchCity();
         $state.reload();
-    };
+      };
 
 
 
@@ -147,13 +132,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
-            console.log("$scope.attraction ", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
             $scope.deals = $scope.content["Deals and Packages"];
-            console.log("  $scope.deals ",  $scope.deals );
             $scope.events = $scope.content["Events"];
-            console.log("  $scope.events",  $scope.events);
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
@@ -297,129 +279,129 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('LandingCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("landingform");
-    $scope.menutitle = NavigationService.makeactive("Landing Form");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-        $scope.today = function() {
-        $scope.dt = new Date();
-    };
-    $scope.today();
-
-    $scope.clear = function() {
-        $scope.dt = null;
-    };
-
-    $scope.inlineOptions = {
-        customClass: getDayClass,
-        minDate: new Date(),
-        showWeeks: true
-    };
-
-    $scope.dateOptions = {
-        dateDisabled: disabled,
-        formatYear: 'yy',
-        maxDate: new Date(2020, 5, 22),
-        minDate: new Date(),
-        startingDay: 1
-    };
-
-    // Disable weekend selection
-    function disabled(data) {
-        var date = data.date,
-            mode = data.mode;
-        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-    }
-
-    $scope.toggleMin = function() {
-        $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-        $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
-    };
-
-    $scope.toggleMin();
-
-    $scope.open1 = function() {
-        $scope.popup1.opened = true;
-    };
-
-    $scope.open2 = function() {
-        $scope.popup2.opened = true;
-    };
-
-    $scope.setDate = function(year, month, day) {
-        $scope.dt = new Date(year, month, day);
-    };
-
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
-    $scope.altInputFormats = ['M!/d!/yyyy'];
-
-    $scope.popup1 = {
-        opened: false
-    };
-
-    $scope.popup2 = {
-        opened: false
-    };
-
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 1);
-    $scope.events = [{
-        date: tomorrow,
-        status: 'full'
-    }, {
-        date: afterTomorrow,
-        status: 'partially'
-    }];
-
-    function getDayClass(data) {
-        var date = data.date,
-            mode = data.mode;
-        if (mode === 'day') {
-            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
-
-            for (var i = 0; i < $scope.events.length; i++) {
-                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
-
-                if (dayToCheck === currentDay) {
-                    return $scope.events[i].status;
-                }
-            }
-        }
-
-        return '';
-    }
-
-    $scope.landingForm={};
-    $scope.formComplete=false;
-      $scope.alreadyExist=false;
-    $scope.formSubmit =function(landingForm){
-      console.log("im in");
-      console.log("landingForm",landingForm);
-      NavigationService.submitLandingForm(landingForm,function(data){
-        console.log("data",data);
-        if (data.value === true) {
-          $scope.formComplete =true;
-          $timeout(function() {
-              $scope.formComplete = false;
-                $scope.alreadyExist=false;
-              $scope.landingForm = {};
-          }, 2000);
-
-          console.log("data",data);
-        }else if (data.value === false) {
-          console.log("data",data);
-          $scope.alreadyExist= true;
-            $scope.formComplete=false;
-        }
-      })
-    }
-
-})
+// .controller('LandingCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+//     //Used to name the .html file
+//     $scope.template = TemplateService.changecontent("landingform");
+//     $scope.menutitle = NavigationService.makeactive("Landing Form");
+//     TemplateService.title = $scope.menutitle;
+//     $scope.navigation = NavigationService.getnav();
+//         $scope.today = function() {
+//         $scope.dt = new Date();
+//     };
+//     $scope.today();
+//
+//     $scope.clear = function() {
+//         $scope.dt = null;
+//     };
+//
+//     $scope.inlineOptions = {
+//         customClass: getDayClass,
+//         minDate: new Date(),
+//         showWeeks: true
+//     };
+//
+//     $scope.dateOptions = {
+//         dateDisabled: disabled,
+//         formatYear: 'yy',
+//         maxDate: new Date(2020, 5, 22),
+//         minDate: new Date(),
+//         startingDay: 1
+//     };
+//
+//     // Disable weekend selection
+//     function disabled(data) {
+//         var date = data.date,
+//             mode = data.mode;
+//         return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+//     }
+//
+//     $scope.toggleMin = function() {
+//         $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
+//         $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
+//     };
+//
+//     $scope.toggleMin();
+//
+//     $scope.open1 = function() {
+//         $scope.popup1.opened = true;
+//     };
+//
+//     $scope.open2 = function() {
+//         $scope.popup2.opened = true;
+//     };
+//
+//     $scope.setDate = function(year, month, day) {
+//         $scope.dt = new Date(year, month, day);
+//     };
+//
+//     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+//     $scope.format = $scope.formats[0];
+//     $scope.altInputFormats = ['M!/d!/yyyy'];
+//
+//     $scope.popup1 = {
+//         opened: false
+//     };
+//
+//     $scope.popup2 = {
+//         opened: false
+//     };
+//
+//     var tomorrow = new Date();
+//     tomorrow.setDate(tomorrow.getDate() + 1);
+//     var afterTomorrow = new Date();
+//     afterTomorrow.setDate(tomorrow.getDate() + 1);
+//     $scope.events = [{
+//         date: tomorrow,
+//         status: 'full'
+//     }, {
+//         date: afterTomorrow,
+//         status: 'partially'
+//     }];
+//
+//     function getDayClass(data) {
+//         var date = data.date,
+//             mode = data.mode;
+//         if (mode === 'day') {
+//             var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+//
+//             for (var i = 0; i < $scope.events.length; i++) {
+//                 var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+//
+//                 if (dayToCheck === currentDay) {
+//                     return $scope.events[i].status;
+//                 }
+//             }
+//         }
+//
+//         return '';
+//     }
+//
+//     $scope.landingForm={};
+//     $scope.formComplete=false;
+//       $scope.alreadyExist=false;
+//     $scope.formSubmit =function(landingForm){
+//       console.log("im in");
+//       console.log("landingForm",landingForm);
+//       NavigationService.submitLandingForm(landingForm,function(data){
+//         console.log("data",data);
+//         if (data.value === true) {
+//           $scope.formComplete =true;
+//           $timeout(function() {
+//               $scope.formComplete = false;
+//                 $scope.alreadyExist=false;
+//               $scope.landingForm = {};
+//           }, 2000);
+//
+//           console.log("data",data);
+//         }else if (data.value === false) {
+//           console.log("data",data);
+//           $scope.alreadyExist= true;
+//             $scope.formComplete=false;
+//         }
+//       })
+//     }
+//
+// })
 
 
 .controller('CorporateCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
@@ -581,15 +563,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.sponsor1 = _.chunk(data.data.sponsor, 3);
         $scope.esteem = data.data.esteem;
         $scope.contact = data.data.contact;
+
         TemplateService.removeLoader();
     });
     $scope.readMore = function(id) {
-        console.log("id", id);
+      _.each($scope.moreDesc,function(value,property){
+          if(id !=property){
+            $scope.moreDesc[property]=false;
+          }
+    });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.sponsor, function(n) {
             return n._id == id;
+
         }).content;
+
     };
+
 
 
 })
@@ -783,8 +774,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
     if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -989,18 +980,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.showMore = false;
 
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleExploreSmaaash = data.data;
         $scope.SingleExploreSmaaash1 = _.chunk(data.data, 3);
         // console.log("$scope.SingleExploreSmaaash", $scope.SingleExploreSmaaash);
         TemplateService.removeLoader();
     });
+
     $scope.readMore = function(id, indexid) {
+
+        console.log(id);
+        _.each($scope.moreDesc,function(value,property){
+      // console.log("property",property);
+      console.log("value",value);
+        if(id !=property){
+            $scope.moreDesc[property]=false;
+        }
+    });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
         console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.SingleExploreSmaaash, function(n) {
             return n._id == id;
+
         }).description;
     };
     $scope.isInWishlist = function(id) {
@@ -1094,18 +1096,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getLeader(function(data) {
         $scope.leadership = data.data;
         console.log("leadership", $scope.leadership);
-        $scope.readMore = function(id, indexid) {
 
-            console.log(id);
-            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-            console.log($scope.moreDesc);
-            $scope.myDesc = _.find($scope.leadership, function(n) {
-                return n._id == id;
-
-            }).description;
-        };
         TemplateService.removeLoader();
     })
+
+      $scope.readMore = function(id, indexid) {
+
+          console.log(id);
+          _.each($scope.moreDesc,function(value,property){
+        // console.log("property",property);
+        console.log("value",value);
+          if(id !=property){
+              $scope.moreDesc[property]=false;
+          }
+      });
+          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+          console.log($scope.moreDesc);
+          $scope.myDesc = _.find($scope.leadership, function(n) {
+              return n._id == id;
+
+          }).description;
+      };
 
 
 })
@@ -1125,7 +1136,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.menu = "menu-out";
         }
     };
-
+    $scope.moreDesc={};
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
@@ -1169,6 +1180,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
     $scope.goTOSearch($scope.filter);
+    $scope.readMore = function(id, indexid) {
+
+        console.log(id);
+        _.each($scope.moreDesc,function(value,property){
+      console.log("property",property);
+        if(id !=property){
+            $scope.moreDesc[property]=false;
+        }
+    });
+        $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        console.log($scope.moreDesc);
+        $scope.myDesc = _.find($scope.singleAttraction, function(n) {
+            return n._id == id;
+
+        }).description;
+    };
 
     if ($.jStorage.get("loginDetail") != null) {
         function showWishList() {
@@ -1266,8 +1293,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
     if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -1346,8 +1373,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.showCartParams ={};
-    $scope.showCartParams.CustomerMobileNo =$.jStorage.get("loginDetail").data.CustomerMobile;
-    $scope.showCartParams.CustomerID =$.jStorage.get("loginDetail").data.CustomerID;
+    $scope.showCartParams.CustomerMobileNo =$.jStorage.get("loginDetail").CustomerMobile;
+    $scope.showCartParams.CustomerID =$.jStorage.get("loginDetail").CustomerID;
     console.log("$scope.showCartParams",$scope.showCartParams);
 //     NavigationService.showCartPackage($scope.showCartParams,function(data){
 // //       console.log("$scope.showCartParams",$scope.showCartParams);
@@ -1872,7 +1899,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         }
-
+        NavigationService.signupProfile(function(data) {
+          $scope.userprofile = data.data;
+            console.log("  $scope.userprofile",   $scope.userprofile);
+          });
         $scope.animationsEnabled = true;
         $scope.open = function(size) {
             var modalInstance = $uibModal.open({
@@ -1907,12 +1937,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$location) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
 
 
 
@@ -1975,13 +2005,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
 
-    // $scope.readMore = function(id) {
-    //     console.log(id);
-    //     $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-    //     $scope.myDesc = _.find($scope.SingleHostParty1, function(n) {
-    //         return n._id == id;
-    //     }).description;
-    // };
+
     $scope.readMore = function(id, indexid) {
 
         console.log(id);
@@ -2141,7 +2165,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("online");
     $scope.menutitle = NavigationService.makeactive("Recharge");
@@ -2150,17 +2174,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.rechargeOnline = {};
     if ($.jStorage.get("loginDetail") != null) {
-        $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+        $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").CustomerID;
         $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
     }
 
     $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
 
+      $scope.incorrect = false;
     $scope.submitRecharge = function(rechargeOnline) {
-        console.log("rechargeOnline", rechargeOnline);
-        NavigationService.rechargeCard(rechargeOnline, function(data) {
-            console.log("data", data);
-        })
+
+        if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if (rechargeOnline && $.jStorage.get("loginDetail") != null) {
+
+            NavigationService.rechargeCard(rechargeOnline, function(data) {
+                console.log("data", data);
+                if (data.value === true) {
+                    $scope.newWindow = data.data.RechargeCard[0].Link;
+                    $window.location.href = $scope.newWindow;
+                } else if (data.value === false) {
+                    $scope.incorrect = true;
+                }
+            })
+
+        }
 
     }
 
@@ -2196,9 +2237,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.userprofile = {};
     NavigationService.signupProfile(function(data) {
-        console.log("data", data);
-        $scope.userprofile = data.data;
-        console.log("data.data.dob", data.data.dob);
+      $scope.userprofile = data.data;
+        NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
     });
 
@@ -2214,6 +2254,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.updateProfile(userprofile, function(data) {
             console.log("data", data);
             if (data.value === true) {
+                NavigationService.setUser(data.data);
                 $scope.formComplete = true;
                 $timeout(function() {
                     $scope.formComplete = false;
@@ -2292,7 +2333,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     });
     $scope.msg = false;
-    $scope.CustID = $.jStorage.get("loginDetail").data.CustomerID;
+    $scope.CustID = $.jStorage.get("loginDetail").CustomerID;
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
         if (data.value === true) {
             $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
@@ -2629,13 +2670,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     $scope.menu = "menu-out";
     TemplateService.removeLoaderOn(1);
     $scope.pdfpath = "http://104.155.129.33:82/upload/readFile?file";
@@ -2651,24 +2692,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.drinkParty1 = data.data;
         console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
-        $scope.readMore = function(id, indexid) {
-
-            console.log(id);
-            _.each($scope.moreDesc,function(value,property){
-          console.log("property",property);
-            if(id !=property){
-                $scope.moreDesc[property]=false;
-            }
-        });
-            $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-            console.log($scope.moreDesc);
-            $scope.myDesc = _.find($scope.drinkParty1, function(n) {
-                return n._id == id;
-
-            }).description;
-        };
         TemplateService.removeLoader();
+      });
+    $scope.readMore = function(id, indexid) {
+      _.each($scope.moreDesc,function(value,property){
+        if(id !=property){
+            $scope.moreDesc[property]=false;
+          }
     });
+        $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        console.log($scope.moreDesc);
+        $scope.myDesc = _.find($scope.drinkParty1, function(n) {
+            return n._id == id;
+
+        }).description;
+    };
     $scope.imagesmodal = function() {
         $uibModal.open({
             animation: true,
@@ -2827,14 +2865,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$state) {
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$state,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
@@ -2845,8 +2883,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
     if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -2904,13 +2942,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
+.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
     $scope.menutitle =$stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     $scope.today = function() {
         $scope.dt = new Date();
     };
@@ -3051,8 +3089,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
     if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -3121,8 +3159,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.wrongPass = false;
     $scope.passUpdated = false;
     if ($.jStorage.get("loginDetail") != null) {
-        $scope.credentials.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
-        $scope.loggedInUser = $.jStorage.get("loginDetail").data.CustomerName;
+        $scope.credentials.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+        $scope.loggedInUser = $.jStorage.get("loginDetail").CustomerName;
     }
     $scope.formSubmit = function(credentials) {
         console.log("credentials", credentials);
@@ -3251,8 +3289,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
     if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -3310,7 +3348,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
+.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
     $scope.menutitle =  $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
@@ -3416,7 +3454,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailPromotionsInner = data.data;
         console.log("$scope.detailPromotionsInner", $scope.detailPromotionsInner);
@@ -3457,8 +3495,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
     if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").data.CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").data.CustomerID;
+      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -3515,13 +3553,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     TemplateService.removeLoaderOn(3);
 
     // $scope.goto=function(data._id){
@@ -3675,14 +3713,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('BlogInsideCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('BlogInsideCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog-inside");
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-    $scope.myUrl = window.location.href;
+    $scope.myUrl = $location.absUrl();
     $scope.myBlogslides = [
         'img/karting/blue.png',
         // 'img/karting/star.png',
@@ -3791,6 +3829,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.currentdate = new Date();
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
+        console.log("userLoginDetails",  $scope.userLoginDetails);
 
         $scope.city = false;
         $scope.flag = {};
@@ -3799,13 +3838,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.city = !$scope.city;
         };
         $scope.getCityName = function(cityname) {
-            console.log("cityname", cityname);
-            $.jStorage.set("cityid", cityname._id);
-            $.jStorage.set("city", cityname.name);
-            $.jStorage.set("logos", cityname.logo);
-            $.jStorage.set("branchId", cityname.BranchID);
-
-            $state.reload();
+          NavigationService.setCity(cityname);
+          $state.reload();
         }
 
         $scope.template.reFetchCity = function() {
@@ -3890,6 +3924,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.GenrateOneTimePass = function(signupData) {
             $scope.modalOtp.close();
             $scope.signupData.OTP = "";
+              $scope.wrongOtp = false;
             $scope.signupGenerateOtp(signupData);
         }
         $scope.customerSignup = function(signupData) {
@@ -3899,7 +3934,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("signupData", signupData);
                 console.log("signupDataforData", data);
                 if (data.value === true) {
-                    $.jStorage.set("loginDetail", data);
+                    // $.jStorage.set("loginDetail", data);
+                    NavigationService.setUser(data.data);
                     $scope.emailExist = false;
                     $scope.formCompleteSignup = true;
                     $timeout(function() {
@@ -3930,7 +3966,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.VerifyCustomerLogin(userData, function(data) {
                     console.log("data", data);
                     if (data.value == true) {
-                        $.jStorage.set("loginDetail", data);
+                        // $.jStorage.set("loginDetail", data);
+                        NavigationService.setUser(data.data);
                         $scope.valid = false;
                         $scope.formComplete = true;
                         $timeout(function() {
@@ -4088,16 +4125,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         };
-        TemplateService.removeLoaderOn(1);
-        NavigationService.getTypes(function(data) {
-            $scope.types = data.data;
-            _.each($scope.types, function(n) {
-                if (n.name == 'Whats new') {
-                    console.log('here');
-                }
-            })
-            TemplateService.removeLoader();
-        });
+      
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
