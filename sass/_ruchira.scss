@@ -2179,6 +2179,46 @@ ul {
     @include transition(background-color 0.4s linear);
   }
 }
+.selected{
+  display: inline-block;
+  margin: 10px 20px;
+  span+span{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+    // input[type="checkbox"] {
+    //     display: none;
+    // }
+    // input[type="checkbox"]+label {
+    //     color: #fff;
+    //     text-transform: uppercase;
+    //     font-size: 13px;
+    //     padding-left: 10px;
+    // }
+    // input[type="checkbox"]+label span {
+    //     display: inline-block;
+    //     width: 13px;
+    //     height: 13px;
+    //     margin: -1px 4px 0 4px;
+    //     vertical-align: middle;
+    //     cursor: pointer;
+    //     border: 1px solid #000;
+    // }
+    // input[type="checkbox"]+label span {
+    //     background-color: transparent;
+    // }
+    // input[type="checkbox"]:checked+label span {
+    //     background-color: #000;
+    // }
+    // input[type="checkbox"]+label span,
+    // input[type="checkbox"]:checked+label span {
+    //     @include transition(background-color 0.4s linear);
+    // }
+
+}
 
 .practice,
 .host-pop {

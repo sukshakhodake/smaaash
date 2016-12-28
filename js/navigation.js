@@ -252,15 +252,6 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        submitLandingForm: function(formData, callback) {
-            $http({
-                url: RegisterVRadminurl + 'RegisterVR/saveVRegisteration',
-                method: 'POST',
-
-                data: formData
-
-            }).success(callback);
-        },
         subscribe: function(subscribeData, callback) {
 
             $http({
