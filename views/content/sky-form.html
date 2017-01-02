@@ -1,6 +1,8 @@
 <div class="sky-form">
       <div class="smaash-dropss">
-          <div class="container">
+     
+  </div>
+       <div class="container">
                  <div class="calender ">
                      <div class="brand-greenblu clearfix">
     <span class="pull-left brand-white ">Change Time</span>
@@ -8,17 +10,42 @@
                      </div>
             <div class="row">
                 <div class="col-md-6">
-<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem blanditiis odio qui in sit reprehenderit perferendis fugit dicta repellendus quidem harum, optio, distinctio sequi, quia nobis! Quis, hic. Vitae, nobis.</P>
+  <div class="Datepicker">
+    <!--<pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+
+    <h4>Inline</h4>-->
+    <div style="display:inline-block; min-height:290px;">
+      <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+    </div>
+
+    <!--<hr />
+    <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button>
+    <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>-->
+</div>
                 </div>
                 <div class="col-md-6">
-<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit tenetur accusamus soluta, ad vel libero deserunt delectus voluptate, similique, ut atque ducimus consectetur. Repudiandae magni eius eligendi, dignissimos molestiae facilis.</P>
+<!--<form>
+<input type="range" name="foo" min="0" max="100">
+<output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+</form>-->
+
+<form>
+<input type="range" name="foo" min="0" max="100" style="width: 300px;">
+<output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+</form>
+
+<!--<form>
+<input type="range" name="foo" min="0" max="100">
+<output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+</form> -->
                 </div>
             </div>
                
         
         </div> 
           </div>
-  </div>
   <div class="table-box brand-purple">
   <div class="container">
       <div class="table-boxes ">
