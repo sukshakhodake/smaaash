@@ -1,6 +1,6 @@
 
  <div class="landing-kartbanner" ng-click="funToStopVid();"  ng-style="{'background':'url('+  banner[0].homebanner+')no-repeat'}" scrolldown>
-        <div class="inner relative pointer auto-height ">
+        <div class="inner relative pointer auto-height">
 
 
    <iframe width="640" ng-if="!showVideo" height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
@@ -38,9 +38,9 @@
    <div class="slidings">
       <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
          <li>
-            <a href="">
+            <!-- <a href=""> -->
                <img ng-src="{{s.image|uploadpath}}">
-            </a>
+            <!-- </a> -->
 
          </li>
       </flex-slider>
@@ -87,7 +87,7 @@
 <div class="container">
  <div class="land-kartbanner middle">
         <div class="inner relative pointer auto-height ">
-   <iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+'?&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
+   <iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
      style="position: absolute;
        left: 0;
        top: 0;
