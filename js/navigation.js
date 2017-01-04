@@ -1,5 +1,5 @@
-// var adminurl = "http://104.155.129.33:82/"; //server
-var adminurl = "http://104.154.79.188:82/"; //New US server
+var adminurl = "http://104.155.129.33:82/"; 
+// var adminurl = "http://104.154.79.188:82/"; //New US server
 // var adminurl = "http://192.168.0.104:1337/";
 var RegisterVRadminurl = "http://smaash.wohlig.co.in/api/";
 
