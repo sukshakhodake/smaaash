@@ -274,7 +274,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'DealsInnerCtrl'
     })
 
-
+    .state('media', {
+        url: "/media",
+        templateUrl: "views/template.html",
+        controller: 'MediaCtrl'
+    })
 
     .state('promotion-inner', {
         url: "/:name/:id",

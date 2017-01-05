@@ -592,6 +592,15 @@ $("input[type='range']").change(function() {
 
 })
 
+.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("media");
+    $scope.menutitle = NavigationService.makeactive("Media");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    TemplateService.removeLoaderOn(2);
+})
+
 .controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");

@@ -2857,6 +2857,9 @@ button {
         .views {
           button {
             border-color: $brand-darkblue;
+            a{
+               color: $brand-darkblue;
+            }
           }
         }
         .bluey {
@@ -2881,6 +2884,9 @@ button {
         .views {
           button {
             border-color: $brand-orangy;
+            a{
+                color: $brand-orangy;
+            }
           }
         }
         .bluey {
@@ -2905,6 +2911,9 @@ button {
         .views {
           button {
             border-color: $brand-pink;
+            a{
+                 color:  $brand-pink;
+            }
           }
         }
         .bluey {
@@ -2929,6 +2938,9 @@ button {
         .views {
           button {
             border-color: $brand-green;
+            a{
+               color: $brand-green;
+            }
           }
         }
         .bluey {
@@ -2953,6 +2965,9 @@ button {
         .views {
           button {
             border-color: $brand-blue;
+            a{
+               color: $brand-blue;
+            }
           }
         }
         .bluey {
@@ -2977,6 +2992,9 @@ button {
         .views {
           button {
             border-color: $brand-purple;
+             a{
+               color: $brand-purple;
+            }
           }
         }
         .bluey {
@@ -3091,7 +3109,7 @@ button {
 
 .race {
   transition: all 600ms ease;
-  margin-right: 10px;
+ margin-right: 25px;
 }
 
 //glypicon
@@ -3250,4 +3268,28 @@ width: 70%;
       display: inline-block;
     }
      }
+}
+
+.pad0{
+  padding: 0px !important;
+}
+.viewings{
+position: absolute;
+    z-index: 99;
+    top: 10px;
+    right: 10px;
+}
+.titls{
+    position: absolute;
+    z-index: 99;
+    top: 10px;
+    left: 10px;
+}
+
+.fbeve{
+  height: 271px;
+    display: block;
+    img{
+      height: 100%;
+    }
 }
