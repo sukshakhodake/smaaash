@@ -1,13 +1,4 @@
 
-
-
-
-
-
-
-
-
-
     <div class="landing-kartbanner" scrolldown ng-style="{'background':'url('+detailExploreSmaash.banner+')no-repeat'}">
         <div class="inner relative pointer auto-height ">
 
@@ -45,7 +36,36 @@
 
     </div>
     <div class="container ">
-        <div class="second">
+         <div class="deals-details text-center">
+               <h2 class="title">games description</h2>
+            <div ng-bind-html="detailExploreSmaash.description"></div>
+
+            <!--<div class="button-set">
+                <ul class="social-icons list-inline inline-block">
+                    <p class="inline-block">Share</p>
+                    <li><a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="more inline-block">
+                    <button class="uppercase green"  ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price)">Buy Now</button>
+                </div>
+            </div>-->
+        </div>
+         <div class="deals-details text-center">
+            <h2 class="title">timings and pricing</h2>
+                        <div ng-bind-html="detailExploreSmaash.timingAndPricing">
+        </div>
+          <div ng-if="detailExploreSmaash.timingAndPricing.length == 0">
+                            No Timing Available
+                        </div>
+        </div>
+          <div class="deals-details text-center">
+            <h2 class="title">Technology</h2>
+                        <p ng-bind-html="detailExploreSmaash.technology"></p>
+                        <p ng-if="detailExploreSmaash.technology===''">No data Found</p>
+        </div>
+        <!--<div class="second">
         <div class="karting1 ">
             <div class="slant-row">
                 <div class="slant-col">
@@ -66,9 +86,9 @@
                 </div>
             </div>
         </div>
-        </div>
+        </div>-->
 
-        <div class="kartings">
+        <!--<div class="kartings">
             <div class="slant-row">
                 <div class="slant-col">
                     <div class="slant-box full-height">
@@ -93,8 +113,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="karting1">
+        </div>-->
+        <!--<div class="karting1">
             <div class="slant-row">
                 <div class="slant-col">
                     <div class="slant-box full-height slid">
@@ -103,7 +123,7 @@
                             prev-text="" next-text="">
                             <li>
                                 <a ui-sref="event-inner({id:s._id})">
-                                    <!-- <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY"> -->
+                                 
                                     <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
                                 </a>
                             </li>
@@ -116,7 +136,7 @@
                         <flex-slider class="carousel" flex-slide="s in promotions track by $index" item-width="200" animation="slide" animationLoop="true"
                             prev-text="" next-text="">
                             <li>
-                                <!-- <a fancybox-box  data-fancybox-type="iframe" href="https://www.youtube.com/embed/KJuYa94JgbY"> -->
+                               
                                 <a>
 
                                     <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
@@ -126,7 +146,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="gallery">
             <div class="slidings">
                 <h2 class="title slide-text">gallery</h2>
