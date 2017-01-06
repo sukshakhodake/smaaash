@@ -134,6 +134,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.attraction = $scope.content.Attraction;
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
+            console.log("  $scope.hostParty",  $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
