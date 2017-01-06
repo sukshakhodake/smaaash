@@ -2037,6 +2037,50 @@ position: absolute;
     }
 }
 
+.footing{
+    background-color: #fff;
+    padding: 10px 0 0;
+    margin: 10px 0;
+    h4{
+        color: #000;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+  .about{
+
+      .full-height {
+    height: 250px;
+    overflow: hidden;
+    border: 2px solid #000;
+    padding: 10px 20px !important;
+}
+.half-height {
+     height: 250px;
+    overflow: hidden;
+    border: 2px solid #000;
+    padding: 10px 20px !important;
+}
+
+.abouts,.owner,.chief,.fidelis,.times,.star{
+    background-image: url("../img/karting/black.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.owner{ background-image: url("../img/karting/about.png"); }
+
+.chief{ background-image: url("../img/karting/smile.png"); }
+
+.fidelis{ background-image: url("../img/karting/fidelis.png"); }
+
+.times{ background-image: url("../img/karting/times.png"); }
+
+.star{ background-image: url("../img/karting/star.png"); }
+
+  }
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
