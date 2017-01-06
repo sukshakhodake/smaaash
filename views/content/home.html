@@ -88,11 +88,7 @@
  <div class="land-kartbanner middle">
         <div class="inner relative pointer auto-height ">
    <iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
-     style="position: absolute;
-       left: 0;
-       top: 0;
-       right: 0;
-       bottom: 0;
+     style="
        width: 100%;
        height: 100vh;">
      </iframe>
@@ -220,7 +216,7 @@
          </div>
       </div>
       <div class="col-md-6">
-         <div class="updates">
+         <div class="updates fixed-height">
             <div class="slant-box pad0">
                <p class=" capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
                <h2 class="brand-white ">attractions</h2>
@@ -245,47 +241,25 @@
       </div>
    </div>
    <div class="slant-row reverse mt15">
-      <div class="slant-col ">
+      <div class="slant-col updating">
          <div class="slant-in">
         <div class="slant-box pad0 relative">
-                <p class=" capitalize brand-white viewings  border-bot" ui-sref="drink-party({id:foodBeverages[0].type._id})">view all</p>
-               <h2 class="brand-white titls ">FOOD AND BEVERAGES</h2>
+                <p class=" capitalize brand-white border-bot" ui-sref="drink-party({id:foodBeverages[0].type._id})">view all</p>
+               <h2 class="brand-white">FOOD AND BEVERAGES</h2>
                <div class="mover extra">
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in foodBeverages track by $index" slideshow="false" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
                         <a ui-sref="drink-party({id:s.type._id})" class="fbeve">
-                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
+                           <img ng-src="{{s.image|uploadpath}}">
                         </a>
 
                      </li>
 
                   </flex-slider>
-                  <div ng-if="!hostParty">Loading...</div>
                </div>
 
             </div>
-            <!--<div class="slant-box half-height">
-               <div class="heading clearfix">
-                  <h2 class="title slide-text pull-left brand-white margno">FOOD AND BEVERAGES</h2>
-                  <p class="pull-right  capitalize brand-white" ui-sref="drink-party({id:foodBeverages[0].type._id})">view all</p>
-               </div>
-               <div class="colored-slider">
-                  <flex-slider class="carousel" flex-slide="s in foodBeverages track by $index" item-width="240" animation="slide" animationLoop="true" prev-text="" next-text="">
-                     <li>
-                        <div class="img-bg">
-                           <a ui-sref="drink-party({id:s.type._id})">
-                              <figure>
-                                 <img ng-src="{{s.image|uploadpath}}">
-                              </figure>
-
-                           </a>
-                        </div>
-
-
-                     </li>
-                  </flex-slider>
-               </div>
-            </div>-->
+         
          </div>
          <div class="slant-in brand-greenblu">
             <div class="slant-box half-height">
@@ -346,3 +320,25 @@
       </div>
    </div>
 </div>
+   <!--<div class="slant-box half-height">
+               <div class="heading clearfix">
+                  <h2 class="title slide-text pull-left brand-white margno">FOOD AND BEVERAGES</h2>
+                  <p class="pull-right  capitalize brand-white" ui-sref="drink-party({id:foodBeverages[0].type._id})">view all</p>
+               </div>
+               <div class="colored-slider">
+                  <flex-slider class="carousel" flex-slide="s in foodBeverages track by $index" item-width="240" animation="slide" animationLoop="true" prev-text="" next-text="">
+                     <li>
+                        <div class="img-bg">
+                           <a ui-sref="drink-party({id:s.type._id})">
+                              <figure>
+                                 <img ng-src="{{s.image|uploadpath}}">
+                              </figure>
+
+                           </a>
+                        </div>
+
+
+                     </li>
+                  </flex-slider>
+               </div>
+            </div>-->
