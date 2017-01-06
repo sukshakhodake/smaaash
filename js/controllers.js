@@ -137,6 +137,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.deals = $scope.content["Deals and Packages"];
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
+            console.log("$scope.foodBeverages",$scope.foodBeverages);
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
 
@@ -512,26 +513,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 //range
 
 var el, newPoint, newPlace, offset;
- 
+
 // Select all range inputs, watch for change
 $("input[type='range']").change(function() {
 
  // Cache this for efficiency
  el = $(this);
- 
+
  // Measure width of range input
  width = el.width();
- 
+
  // Figure out placement percentage between left and right of input
  newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
-  
+
   offset = -1;
 
  // Prevent bubble from going beyond left or right (unsupported browsers)
  if (newPoint < 0) { newPlace = 0; }
  else if (newPoint > 1) { newPlace = width; }
  else { newPlace = width * newPoint + offset; offset -= newPoint; }
- 
+
  // Move bubble
  el
    .next("output")
@@ -4141,7 +4142,7 @@ $("input[type='range']").change(function() {
                 }
             }
         };
-      
+
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";

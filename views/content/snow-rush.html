@@ -52,7 +52,7 @@
                 </div>
             </div>-->
         </div>
-         <div class="deals-details text-center">
+         <div class="deals-details text-center" ng-if="detailExploreSmaash.timingAndPricing">
             <h2 class="title">timings and pricing</h2>
                         <div ng-bind-html="detailExploreSmaash.timingAndPricing">
         </div>
@@ -60,7 +60,7 @@
                             No Timing Available
                         </div>
         </div>
-          <div class="deals-details text-center">
+          <div class="deals-details text-center" ng-if="detailExploreSmaash.technology">
             <h2 class="title">Technology</h2>
                         <p ng-bind-html="detailExploreSmaash.technology"></p>
                         <p ng-if="detailExploreSmaash.technology===''">No data Found</p>
@@ -123,7 +123,7 @@
                             prev-text="" next-text="">
                             <li>
                                 <a ui-sref="event-inner({id:s._id})">
-                                 
+
                                     <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
                                 </a>
                             </li>
@@ -136,7 +136,7 @@
                         <flex-slider class="carousel" flex-slide="s in promotions track by $index" item-width="200" animation="slide" animationLoop="true"
                             prev-text="" next-text="">
                             <li>
-                               
+
                                 <a>
 
                                     <img ng-src="{{s.icon|uploadpath}}" ng-if="s.icon">
@@ -147,7 +147,8 @@
                 </div>
             </div>
         </div>-->
-        <div class="gallery">
+      
+        <div class="gallery" ng-if="detailExploreSmaash.gallery.length>0">
             <div class="slidings">
                 <h2 class="title slide-text">gallery</h2>
                 <flex-slider class="carousel" flex-slide="s in detailExploreSmaash.gallery track by $index" item-width="250" animation="slide"
