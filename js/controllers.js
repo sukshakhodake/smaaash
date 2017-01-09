@@ -4147,6 +4147,7 @@ $("input[type='range']").change(function() {
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
+         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
     })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
