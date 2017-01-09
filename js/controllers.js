@@ -58,7 +58,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $(window).scroll(function() {
             var scroller = $(document).scrollTop();
-            var height = $(window).height() - 40;
+            var height = 500;
             if (height <= scroller) {
                 $('body').addClass('show-header');
 
@@ -68,13 +68,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     });
-    $(window).scroll(function() {
-        var scroller = $(document).scrollTop();
-        var height = $(window).height() - 40;
-        if (height <= scroller) {
-            var vdo = document.getElementsByClassName('stopv');
-        }
-    });
+    // $(window).scroll(function() {
+    //     var scroller = $(document).scrollTop();
+    //     var height = $(window).height() - 40;
+    //     if (height <= scroller) {
+    //         var vdo = document.getElementsByClassName('stopv');
+    //     }
+    // });
     $scope.showVideo = false;
     $scope.scrollToHome = function() {
         $scope.showVideo = true;
