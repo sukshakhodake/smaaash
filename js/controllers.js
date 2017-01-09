@@ -995,6 +995,7 @@ $("input[type='range']").change(function() {
         }
     };
 
+      $scope.date = new Date();
 
     $scope.showMore = false;
 

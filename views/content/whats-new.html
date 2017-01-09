@@ -41,6 +41,9 @@
                      <div class="love">
                         <button class="uppercase" ng-click="addedToWishList(d._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}"></i>would love to try</button>
                      </div>
+                     <div class="posted pull-right">
+                         <p>- posted on   {{date | date:'yyyy-MM-dd'}}</p>
+                     </div>
                   </div>
                </div>
             </div>
