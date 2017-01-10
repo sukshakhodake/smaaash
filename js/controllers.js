@@ -56,17 +56,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (!$.jStorage.get("popupShow")) {
             $scope.openpops();
         }
-        $(window).scroll(function() {
-            var scroller = $(document).scrollTop();
-            var height = 500;
-            if (height <= scroller) {
-                $('body').addClass('show-header');
+        // $(window).scroll(function() {
+        //     var scroller = $(document).scrollTop();
+        //     var height = 500;
+        //     if (height <= scroller) {
+        //         $('body').addClass('show-header');
 
-            } else {
-                $('body').removeClass('show-header');
+        //     } else {
+        //         $('body').removeClass('show-header');
 
-            }
-        });
+        //     }
+        // });
     });
     // $(window).scroll(function() {
     //     var scroller = $(document).scrollTop();
