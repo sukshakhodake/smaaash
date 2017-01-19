@@ -2184,7 +2184,7 @@ $("input[type='range']").change(function() {
 
 })
 
-.controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+.controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$window ) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("online");
     $scope.menutitle = NavigationService.makeactive("Recharge");
