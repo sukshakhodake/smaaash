@@ -811,6 +811,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("price", price);
         console.log("BranchPackageID", BranchPackageID);
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        // $scope.addToCartParams.BranchPackageID = "4";
+        // $scope.addToCartParams.TotalAmount = "122";
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
@@ -823,7 +825,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === '1') {
+
+                  if (data.data.AddToCart[0].Status  === 1) {
                     console.log("inif", data);
                        $uibModal.open({
                            animation: true,
@@ -831,7 +834,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                            scope: $scope
                        });
 
-                  }else if (data.data.AddToCart[0].Status === '0') {
+                  }else if (data.data.AddToCart[0].Status === 0) {
                     console.log("in else", data);
                       $uibModal.open({
                           animation: true,
@@ -1371,7 +1374,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === '1') {
+                  if (data.data.AddToCart[0].Status === 1) {
                     console.log("inif", data);
                        $uibModal.open({
                            animation: true,
@@ -1379,7 +1382,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                            scope: $scope
                        });
 
-                  }else if (data.data.AddToCart[0].Status === '0') {
+                  }else if (data.data.AddToCart[0].Status === 0) {
                     console.log("in else", data);
                       $uibModal.open({
                           animation: true,
@@ -1436,20 +1439,65 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal ) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.removeCartParams={};
     $scope.showCartParams = {};
+    $scope.cartDetails =[];
+    $scope.noofQuantity ="";
+
     $scope.showCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     console.log("$scope.showCartParams", $scope.showCartParams);
-    //     NavigationService.showCartPackage($scope.showCartParams,function(data){
-    // //       console.log("$scope.showCartParams",$scope.showCartParams);
-    // // console.log("data",data);
-    //     })
+    $scope.showCartFunction =function(){
+      NavigationService.showCartPackage($scope.showCartParams,function(data){
+        console.log("$scope.showCartParams",$scope.showCartParams);
+          console.log("data",data.data.CustomerCartItem);
+          if (data.value) {
+
+            $scope.cartDetails = data.data.CustomerCartItem ;
+            console.log("$scope.cartDetails",$scope.cartDetails);
+            $scope.calculateSubTotal = function(noofQuantity,price,index){
+              $scope.cartDetails[index].subTotalAmount = noofQuantity * price ;
+              $scope.cartDetails[index].NoOfAdult =noofQuantity;
+              console.log("$scope.cartDetails",$scope.cartDetails)
+            };
+
+          }else {
+            $scope.cartDetails =[];
+            $scope.cartEmpty = " Your Cart Is Empty" ;
+            console.log("im in false");
+          }
+        })
+      }
+$scope.showCartFunction();
+
+
+        $scope.removePackage = function (CartItemID){
+            $scope.removeCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+            $scope.removeCartParams.CustomerID=  $.jStorage.get("loginDetail").CustomerID;;
+            $scope.removeCartParams.CartItemID= CartItemID;
+          NavigationService.removeCartPackage($scope.removeCartParams,function(data){
+            console.log("data",data);
+            if (data.value) {
+              if (data.data.RemoveFromCart[0].Status === 1) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/removeCart.html',
+                    scope: $scope
+                });
+                $scope.showCartFunction();
+                }
+              }
+            })
+          }
+
+
+
 })
 
 
@@ -2305,6 +2353,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
 
+
+    $scope.detailsForBal = {};
+    $scope.detailsForBal.CardNo = "C68C765B";
+    $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+    NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
+        if (data.value) {
+
+            $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+        } else {}
+    })
+
+
     $scope.userprofile = {};
     NavigationService.signupProfile(function(data) {
         $scope.userprofile = data.data;
@@ -2982,7 +3042,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === '1') {
+                  if (data.data.AddToCart[0].Status === 1) {
                     console.log("inif", data);
                        $uibModal.open({
                            animation: true,
@@ -2990,7 +3050,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                            scope: $scope
                        });
 
-                  }else if (data.data.AddToCart[0].Status === '0') {
+                  }else if (data.data.AddToCart[0].Status === 0) {
                     console.log("in else", data);
                       $uibModal.open({
                           animation: true,
@@ -3213,7 +3273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === '1') {
+                  if (data.data.AddToCart[0].Status === 1) {
                     console.log("inif", data);
                        $uibModal.open({
                            animation: true,
@@ -3221,7 +3281,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                            scope: $scope
                        });
 
-                  }else if (data.data.AddToCart[0].Status === '0') {
+                  }else if (data.data.AddToCart[0].Status === 0) {
                     console.log("in else", data);
                       $uibModal.open({
                           animation: true,
@@ -3438,7 +3498,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === '1') {
+                  if (data.data.AddToCart[0].Status === 1) {
                     console.log("inif", data);
                        $uibModal.open({
                            animation: true,
@@ -3446,7 +3506,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                            scope: $scope
                        });
 
-                  }else if (data.data.AddToCart[0].Status === '0') {
+                  }else if (data.data.AddToCart[0].Status === 0) {
                     console.log("in else", data);
                       $uibModal.open({
                           animation: true,
@@ -3669,7 +3729,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === '1') {
+                  if (data.data.AddToCart[0].Status === 1) {
                     console.log("inif", data);
                        $uibModal.open({
                            animation: true,
@@ -3677,7 +3737,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                            scope: $scope
                        });
 
-                  }else if (data.data.AddToCart[0].Status === '0') {
+                  }else if (data.data.AddToCart[0].Status === 0) {
                     console.log("in else", data);
                       $uibModal.open({
                           animation: true,
