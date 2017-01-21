@@ -932,8 +932,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("BranchPackageID", BranchPackageID);
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
         // $scope.addToCartParams.BranchPackageID = "4";
-        $scope.addToCartParams.TotalAmount = "122";
-        // $scope.addToCartParams.TotalAmount = price;
+        // $scope.addToCartParams.TotalAmount = "122";
+        $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $uibModal.open({
