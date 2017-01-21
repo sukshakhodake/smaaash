@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload','infinite-scroll'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -2825,9 +2825,9 @@ $scope.showCartFunction();
         $scope.drinkParty = _.chunk(data.data, 3);
         TemplateService.removeLoader();
     });
-    $scope.readMore = function(id, indexid) {
+    $scope.readMore = function(id) {
         _.each($scope.moreDesc, function(value, property) {
-            if (id != property) {
+          if (id != property) {
                 $scope.moreDesc[property] = false;
             }
         });
