@@ -332,6 +332,15 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
 
         },
+        getGallery: function(mediaObj,callback) {
+            $http({
+                url: adminurl + 'mediagallery/findLimited',
+                method: 'POST',
+                data:mediaObj,
+                withCredentials: true
+
+            }).success(callback);
+        },
         assistanceLoginSignup: function(formdata, callback) {
 
             $http({
