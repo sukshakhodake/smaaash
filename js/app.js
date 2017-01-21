@@ -757,7 +757,7 @@ firstapp.filter('shorten', function() {
             if (value.length < limit) {
                 return value;
             } else {
-                return value.slice(0, limit - 2) + "..";
+                return value.slice(0, limit) + "...";
 
             }
 
@@ -766,6 +766,11 @@ firstapp.filter('shorten', function() {
 firstapp.filter('htmlToPlaintext', function() {
     return function(text) {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+});
+firstapp.filter('htmlDecode', function() {
+    return function(value) {
+        return $("<div/>").html(value).text();
     };
 });
 
