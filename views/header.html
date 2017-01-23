@@ -25,6 +25,7 @@
                      </a>
                   </div>
                </div> -->
+
                <div class="col-flexing mobile-50 ">
                   <div class="buy bg-prop" ui-sref="buy">
                      <a class="text-center">
@@ -32,6 +33,7 @@
                      </a>
                   </div>
                </div>
+
                <div class="col-flexing mobile-50 ">
                   <div class="cart bg-prop">
                      <a class="text-center">
@@ -39,6 +41,7 @@
                      </a>
                   </div>
                </div>
+
                <!-- <div class="col-flexing mobile-50" > -->
                <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                   <div class="account bg-prop">
@@ -184,7 +187,8 @@
 
         </div>
     </div>
-    <div class="side-buttons" ng-class="{'slide-down': menu == true}" ng-hide="showConnect">
+
+    <!-- <div class="side-buttons" ng-class="{'slide-down': menu == true}" ng-hide="showConnect">
         <div class="connect-button" id="axis" ng-click="getMenus();">
 
             <div class="orange-rays"></div>
@@ -222,8 +226,7 @@
                             <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
                             <button type="button" class="buton relative "><span><i class="fa fa-google-plus" aria-hidden="true"></i></span>login with Google</button>
                        <a href="" class="forgot" ng-click="resets();getMenus();">Forgot password?</a>
-                       <!-- <div ng-if="incorrect">Please ente v </div> -->
-                       <!-- <a href="" class="forgot" ng-click="resets();getMenus();closeModal();">Forgot password?</a> -->
+
                         </div>
                     </div>
                     <div class="divider"></div>
@@ -261,7 +264,7 @@
                                     <input type="password"  no-Paste class="form-control" placeholder="Password" name="password" required ng-model="signupData.CustomerPassword"
                                         minlength="8" maxlength="14">
 
-                                    <!-- <div class="error-msg" ng-show="signUp.password.$error.required && signUp.password.$touched">Please Enter Your Password</div> -->
+
                                 </div>
                                   <p class="error" ng-show="signUp.password.$invalid  && (signUp.password.$dirty || signUp.password.$touched)">Please enter Minimum 8 Characters & Maximum 14 Characters.</p>
                                 <div class="form-group">
@@ -286,7 +289,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+
     <!--<div class="side" ng-class="{'slides-down': menu == true}" ng-hide="showAunty">
         <div class="live-chat" id="axe">
             <div class="orange-rays"></div>

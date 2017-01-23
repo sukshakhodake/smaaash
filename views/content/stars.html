@@ -4,7 +4,7 @@
       <h2 class="nav-name center">gallery</h2>
     </div>
   </div>
-  <div class="forms brand-blue">
+  <!-- <div class="forms brand-blue">
     <div class="container">
       <div class="search-green">
         <input type="text" class="form-control" placeholder="Search" ng-model="objectfilter.search" ng-change="fetchSearchedData()">
@@ -16,21 +16,15 @@
       <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
         <select class="form-control" ng-model="objectfilter.city" ng-change="fetchSearchedData()">
-               <!-- <option ng-selected="true" >Select </option> -->
+
                <option ng-repeat="data in allCity" value="{{data._id}}">{{data.name}}</option>
               </select>
       </div>
-      <!-- <div class="game-type inline-block">
-        <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select class="form-control" ng-model ="values" ng-change=selectFun(values)>
-               <option ng-selected="true" value="gallery" >Gallery </option>
-               <option  value="media">Media</option>
-              </select>
-      </div> -->
+
 
     </div>
 
-  </div>
+  </div> -->
   <div class="new">
     <div class="container">
       <h3 class="uppercase">stars at smaaash</h3>
@@ -65,7 +59,7 @@
   </div>
   <div class="new">
     <div class="container">
-       <h3 class="uppercase">sports images</h3> 
+       <h3 class="uppercase">sports images</h3>
       <div class="row">
         <div class="col-md-4 col-sm-4" ng-repeat="d in mediagallery">
           <div class="karting-championship">

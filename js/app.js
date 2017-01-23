@@ -5,14 +5,13 @@
 
 
 // if (!$.jStorage.get("city")) {
-  // $.holdReady(false);
-  // $.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155",function(data){
-  //   console.log("ip data",data);
-  // });
-
+//   $.holdReady(false);
+//   $.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155",function(data){
+//     console.log("ip data",data);
+//   });
 // }
-// console.log("ip",ip);
-
+console.log("ip",ip);
+//
 // if (!$.jStorage.get("city")) {
 //     $.holdReady(false);
 //
@@ -144,7 +143,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
     .state('stars', {
-        url: "/stars",
+        url: "/gallery",
         templateUrl: "views/template.html",
         controller: 'StarsCtrl'
     })
