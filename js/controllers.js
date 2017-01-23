@@ -1130,6 +1130,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
+    $scope.mediagallerys=[{
+    image:'img/new/13.png'
+}]
+
 })
 
 .controller('WeddingCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams) {
