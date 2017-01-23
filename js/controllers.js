@@ -620,124 +620,131 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(2);
 
-    $scope.moreDesc={};
-    $scope.mediaObject = {};
-    $scope.mediaObject.pagenumber = 0;
-    $scope.mediaObject.pagesize = 6;
-    $scope.mediaObject.city = $.jStorage.get("cityid");
-    $scope.noviewmore = true;
-    $scope.mediagallery = [];
-    $scope.mediagalleryDesc = [];
-    $scope.notAvailable = false;
-    $scope.busy = false;
+    // $scope.moreDesc={};
+    // $scope.mediaObject = {};
+    // $scope.mediaObject.pagenumber = 0;
+    // $scope.mediaObject.pagesize = 6;
+    // $scope.mediaObject.city = $.jStorage.get("cityid");
+    // $scope.noviewmore = true;
+    // $scope.mediagallery = [];
+    // $scope.mediagalleryDesc = [];
+    // $scope.notAvailable = false;
+    // $scope.busy = false;
 
-    $scope.fetchData = function() {
-    if ($scope.busy) return;
-      $scope.busy = true;
-        $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
-        NavigationService.getStars($scope.mediaObject, function(data) {
+    // $scope.fetchData = function() {
+    // if ($scope.busy) return;
+    //   $scope.busy = true;
+    //     $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
+    //     NavigationService.getStars($scope.mediaObject, function(data) {
 
-            console.log("mediaObject", data.data);
-            console.log(data.data.totalpages);
-            // console.log("getStars", data.data);
-            if (data.data.data.length === 0) {
-                $scope.notAvailable = true;
-            } else {
-                $scope.notAvailable = false;
-            }
-            if (data.value) {
-                console.log($scope.mediaObject.pagenumber);
-                if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
-                    if (data.data.data) {
-                    _.each(data.data.data,function(val){
-                          $scope.mediagalleryDesc.push(val);
-                      });
-                      console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
-                      data.data.data = _.chunk(data.data.data, 3);
-                        _.each(data.data.data, function(n) {
-                            // console.log(n);
-                            $scope.mediagallery.push(n);
-                                  $scope.busy = false;
+    //         console.log("mediaObject", data.data);
+    //         console.log(data.data.totalpages);
+    //         // console.log("getStars", data.data);
+    //         if (data.data.data.length === 0) {
+    //             $scope.notAvailable = true;
+    //         } else {
+    //             $scope.notAvailable = false;
+    //         }
+    //         if (data.value) {
+    //             console.log($scope.mediaObject.pagenumber);
+    //             if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
+    //                 if (data.data.data) {
+    //                 _.each(data.data.data,function(val){
+    //                       $scope.mediagalleryDesc.push(val);
+    //                   });
+    //                   console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
+    //                   data.data.data = _.chunk(data.data.data, 3);
+    //                     _.each(data.data.data, function(n) {
+    //                         // console.log(n);
+    //                         $scope.mediagallery.push(n);
+    //                               $scope.busy = false;
 
-                        });
-                    }
+    //                     });
+    //                 }
 
-                    if (data.data.totalpages === $scope.mediaObject.pagenumber) {
-                        $scope.noviewmore = false;
-                    }
-                } else {
-                    console.log("in else last array");
-                    $scope.noviewmore = false;
-                }
-                TemplateService.removeLoader();
-            }
+    //                 if (data.data.totalpages === $scope.mediaObject.pagenumber) {
+    //                     $scope.noviewmore = false;
+    //                 }
+    //             } else {
+    //                 console.log("in else last array");
+    //                 $scope.noviewmore = false;
+    //             }
+    //             TemplateService.removeLoader();
+    //         }
 
-        })
-    };
+    //     })
+    // };
 
-    $scope.fetchData();
-    $scope.fetchSearchedData = function() {
-      $scope.busy = false;
-        $scope.mediaObject.pagenumber = 0;
-          $scope.mediagallery=[];
-           $scope.mediagalleryDesc = [];
-           $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
-      NavigationService.getStars($scope.mediaObject, function(data) {
+    // $scope.fetchData();
+    // $scope.fetchSearchedData = function() {
+    //   $scope.busy = false;
+    //     $scope.mediaObject.pagenumber = 0;
+    //       $scope.mediagallery=[];
+    //        $scope.mediagalleryDesc = [];
+    //        $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
+    //   NavigationService.getStars($scope.mediaObject, function(data) {
 
-          console.log("mediaObject", data.data);
-          console.log(data.data.totalpages);
-          console.log("getStars", data.data);
-          if (data.data.data.length === 0) {
-              $scope.notAvailable = true;
-          } else {
-              $scope.notAvailable = false;
-          }
-          if (data.value) {
-              console.log($scope.mediaObject.pagenumber);
-              if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
-                  if (data.data.data) {
-                    $scope.mediagallery=[];
-                        $scope.mediagalleryDesc = [];
-                  _.each(data.data.data,function(val){
-                        $scope.mediagalleryDesc.push(val);
-                    });
-                    console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
-                    data.data.data = _.chunk(data.data.data, 3);
-                      _.each(data.data.data, function(n) {
-                          // console.log(n);
-                          $scope.mediagallery.push(n);
-                                $scope.busy = false;
+    //       console.log("mediaObject", data.data);
+    //       console.log(data.data.totalpages);
+    //       console.log("getStars", data.data);
+    //       if (data.data.data.length === 0) {
+    //           $scope.notAvailable = true;
+    //       } else {
+    //           $scope.notAvailable = false;
+    //       }
+    //       if (data.value) {
+    //           console.log($scope.mediaObject.pagenumber);
+    //           if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
+    //               if (data.data.data) {
+    //                 $scope.mediagallery=[];
+    //                     $scope.mediagalleryDesc = [];
+    //               _.each(data.data.data,function(val){
+    //                     $scope.mediagalleryDesc.push(val);
+    //                 });
+    //                 console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
+    //                 data.data.data = _.chunk(data.data.data, 3);
+    //                   _.each(data.data.data, function(n) {
+    //                       // console.log(n);
+    //                       $scope.mediagallery.push(n);
+    //                             $scope.busy = false;
 
-                      });
-                  }
+    //                   });
+    //               }
 
-                  if (data.data.totalpages === $scope.mediaObject.pagenumber) {
-                      $scope.noviewmore = false;
-                  }
-              } else {
-                  console.log("in else last array");
-                  $scope.noviewmore = false;
-              }
-              TemplateService.removeLoader();
-          }
+    //               if (data.data.totalpages === $scope.mediaObject.pagenumber) {
+    //                   $scope.noviewmore = false;
+    //               }
+    //           } else {
+    //               console.log("in else last array");
+    //               $scope.noviewmore = false;
+    //           }
+    //           TemplateService.removeLoader();
+    //       }
 
-      })
+    //   })
 
-    }
+    // }
 
-    $scope.readMore = function(id) {
-        console.log("id", id);
-        _.each($scope.moreDesc, function(value, property) {
-            console.log("property", property);
-            if (id != property) {
-                $scope.moreDesc[property] = false;
-            }
-        });
-        $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-        $scope.myDesc = _.find($scope.mediagalleryDesc, function(n) {
-            return n._id == id;
-        }).text;
-    };
+    // $scope.readMore = function(id) {
+    //     console.log("id", id);
+    //     _.each($scope.moreDesc, function(value, property) {
+    //         console.log("property", property);
+    //         if (id != property) {
+    //             $scope.moreDesc[property] = false;
+    //         }
+    //     });
+    //     $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+    //     $scope.myDesc = _.find($scope.mediagalleryDesc, function(n) {
+    //         return n._id == id;
+    //     }).text;
+    // };
+
+
+     NavigationService.getMediaGallery(function(data) {
+        $scope.mediagallery = data.data;
+        console.log("$scope.mediagallery", $scope.mediagallery);
+        TemplateService.removeLoader();
+    });
 
 })
 
