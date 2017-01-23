@@ -1600,7 +1600,7 @@ ul {
         height: auto;
         width: 40px;
         position: absolute;
-        top: 72%;
+        top: 70%;
         right: 0%;
         transform: translate(-50%, -50%);
       }
@@ -1609,11 +1609,13 @@ ul {
         width: 76px;
       }
       .race-text {
-        background-color: #000;
         padding: 15px 10px 0;
+        border: 1px solid #ccc;
         h3 {
           font-family: $body-font;
           font-size: 20px;
+          color: #000;
+          text-align: center;
         }
       }
     }
