@@ -51,6 +51,7 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+    
         getSlider: function(callback) {
             var data = {
                 city: $.jStorage.get("cityid")

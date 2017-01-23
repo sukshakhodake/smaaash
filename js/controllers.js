@@ -9,6 +9,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var openL = {};
     TemplateService.removeLoaderOn(4);
+// 
+//     function requestJSONP(url) {
+//       console.log('ddddddddddddd');
+//     var script = document.createElement('script');
+//
+//     script.type = 'text/javascript';
+//     script.src = url;
+//
+//     document.body.appendChild(script);
+//       console.log("script",script);
+//
+// }
+//
+// requestJSONP('http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155?format=jsonp');
 
 
     $scope.goTo = function(name, id, statetogo) {
@@ -32,6 +46,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
+
+
     $scope.currentdate = new Date();
     $scope.funToStopVid = function() {
         console.log("in im");
