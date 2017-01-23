@@ -54,10 +54,16 @@
     </div>
   </div>
 
-  <!--<div class="loading">
-    <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="noviewmore && stars.length>0">Load More...</p>
+  <div class="loading" infinite-scroll='fetchData();' infinite-scroll-disabled='busy' ng-if="!notAvailable">
+    <p class=" load-more text-center margin0 pointer" ng-if="mediagallery.length>0">Loading...</p>
 
-  </div>-->
+  </div>
+
+  <!-- <div class="loading">
+    <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="!notAvailable">Load More...</p>
+
+  </div> -->
+
   <div class="new">
     <div class="container">
        <h3 class="uppercase">sports images</h3>
@@ -79,7 +85,7 @@
 
             </div>-->
           </div>
-        </div> 
+        </div>
 
       </div>
 

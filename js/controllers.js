@@ -636,7 +636,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //   $scope.busy = true;
     //     $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
     //     NavigationService.getStars($scope.mediaObject, function(data) {
-
+    //
     //         console.log("mediaObject", data.data);
     //         console.log(data.data.totalpages);
     //         // console.log("getStars", data.data);
@@ -658,10 +658,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //                         // console.log(n);
     //                         $scope.mediagallery.push(n);
     //                               $scope.busy = false;
-
+    //
     //                     });
     //                 }
-
+    //
     //                 if (data.data.totalpages === $scope.mediaObject.pagenumber) {
     //                     $scope.noviewmore = false;
     //                 }
@@ -671,7 +671,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //             }
     //             TemplateService.removeLoader();
     //         }
-
+    //
     //     })
     // };
 
@@ -1046,7 +1046,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.noviewmore = true;
     $scope.stars = [];
     $scope.notAvailable = false;
+        $scope.busy = false;
     $scope.fetchData = function() {
+      if ($scope.busy) return;
+        $scope.busy = true;
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         // NavigationService.getGallery($scope.objectfilter, function(data) {
         NavigationService.getStars($scope.objectfilter, function(data) {
@@ -1062,7 +1065,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (data.data.totalpages >= $scope.objectfilter.pagenumber) {
                     _.each(data.data.data, function(n) {
                         // console.log(n);
-                        $scope.stars.push(n)
+                        $scope.stars.push(n);
+                           $scope.busy = false;
                     });
                     if (data.data.totalpages === $scope.objectfilter.pagenumber) {
                         $scope.noviewmore = false;
