@@ -10,7 +10,7 @@
 //     console.log("ip data",data);
 //   });
 // }
-console.log("ip",ip);
+// console.log("ip",ip);
 //
 // if (!$.jStorage.get("city")) {
 //     $.holdReady(false);

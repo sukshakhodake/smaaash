@@ -741,7 +741,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
      NavigationService.getMediaGallery(function(data) {
-        $scope.mediagallery = data.data;
+        $scope.mediagallery = _.chunk(data.data,3);
+
         console.log("$scope.mediagallery", $scope.mediagallery);
         TemplateService.removeLoader();
     });
