@@ -168,11 +168,11 @@
 
                                 <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="">
                                     <img src="img/nav/ludhiana.png" alt="">
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                         <p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT
                             CITY IS {{cityData.name}}</p>
@@ -211,8 +211,9 @@
                                     <input type="password" class="form-control" placeholder="password" name="password" required ng-model="userData.Password">
                                     <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
                                 </div>
+                                  <div class="error text-center" ng-if="valid">Something went wrong</div>
                                 <button type="submit" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
-                                <div class="error" ng-if="valid">Please Enter Valid Mobile No. & Password</div>
+
 
                             </form>
                             <div ng-if="formComplete">

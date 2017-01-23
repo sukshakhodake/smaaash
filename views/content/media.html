@@ -1,22 +1,20 @@
 <div class="stars deals2 media">
-
-<div class="backg">
-    <div class="container">
-      <h2 class="nav-name center">media</h2>
-
-    </div>
-
-  </div>
-<div class="forms brand-blue" >
-    <div class="container">
-      <div class="search-green">
-        <input type="text" class="form-control" placeholder="Search" ng-model="mediaObject.search" ng-change="fetchSearchedData()">
-        <div class="microscope ">
-          <img src="img/new/bino.png" class="img-responsive" alt="" >
-        </div>
+   <div class="backg">
+      <div class="container">
+         <h2 class="nav-name center">media</h2>
       </div>
+   </div>
+   <div class="forms brand-blue">
+      <div class="container">
+         <div class="search-green">
+            <input type="text" class="form-control" placeholder="Search" ng-model="mediaObject.search" >
+            <!-- <input type="text" class="form-control" placeholder="Search" ng-model="mediaObject.search" ng-change="fetchSearchedData()"> -->
+            <div class="microscope ">
+               <img src="img/new/bino.png" class="img-responsive" alt="">
+            </div>
+         </div>
 
-      <!-- <div class="game-type inline-block">
+         <!-- <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
         <select class="form-control" ng-model="mediaObject.city" ng-change="fetchSearchedData()">
 
@@ -25,20 +23,38 @@
       </div> -->
 
 
-    </div>
+      </div>
 
-  </div>
-  <div class="new" >
-    <div class="container">
+   </div>
+   <div class="new">
+      <div class="container">
 
-      <h3 class="uppercase" ng-if="mediagallery.length>0">media</h3>
-            <!-- <p>For media inquiries, please contact Sara Wickoren at <a class="mail" href="mailto:sara@smaaashusa.com">sara@smaaashusa.com</a></p>
+         <!-- <h3 class="uppercase" ng-if="mediagallery.length>0">media</h3> -->
+         <!-- <p>For media inquiries, please contact Sara Wickoren at <a class="mail" href="mailto:sara@smaaashusa.com">sara@smaaashusa.com</a></p>
             <p>"There's so much to share: press coverage and videos coming soon!"</p> -->
-      <h4 ng-if="mediagallery.length === 0" class="text-center">Loading ...</h4>
-      <!--<div class="row" ng-repeat="datas in mediagallery" >-->
-      <!-- <div class="row" ng-repeat="datas in mediagallery | orderBy :'-order'" > -->
-          <div class="row">
-              <div class="col-md-4">
+         <h4 ng-if="mediagallery.length === 0" class="text-center">Loading ...</h4>
+         <div class="row">
+         <!-- <div class="row" ng-repeat="datas in mediagallery">
+            <div class="col-md-4" ng-repeat="data in datas">
+               <div class="karting-championship">
+                  <div class="brand-blue relative pointer">
+                     <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="">
+
+                  </div>
+                  <div class="new-detail min-heights">
+                     <div class="views inline-block">
+                        <button class="uppercase bluey">
+                           <a href="http://smaaashusa.com/document.html" target="_blank">View</a></button>
+                     </div>
+
+                     <h3 class="margin0 bluey">{{data.title}} </h3>
+                     <p ng-bind-html="data.text"></p>
+
+                  </div>
+               </div>
+            </div> -->
+
+            <div class="col-md-4">
     <div class="karting-championship">
  <div class="brand-blue relative pointer">
               <img src="img/corporate/moa.png" class="img-responsive" alt="">
@@ -92,9 +108,9 @@
             </div>
 </div>
 </div>
-          </div>
+         </div>
 
-<!--<div class="col-md-4" ng-repeat ="data in datas | orderBy :'-order'">
+         <!--<div class="col-md-4" ng-repeat ="data in datas | orderBy :'-order'">
     <div class="karting-championship">
  <div class="brand-blue relative pointer">
               <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="">
@@ -118,7 +134,7 @@
             </div>
 </div>
 </div>-->
-<!-- <div class="col-md-4">
+         <!-- <div class="col-md-4">
     <div class="karting-championship">
  <div class="brand-blue relative pointer">
               <img src="img/corporate/puck.png" class="img-responsive" alt="">
@@ -154,11 +170,11 @@
             </div>
 </div>
 </div> -->
-        <!--
+         <!--
           ng-repeat="data in mediagallery"
           <div ng-if="notAvailable" class="text-center">Nothing Available</div> -->
 
-        <!--<div class="col-md-4 col-sm-4 hidden" ng-repeat="d in data">
+         <!--<div class="col-md-4 col-sm-4 hidden" ng-repeat="d in data">
           <div class="karting-championship">
             <div class="brand-blue relative pointer">
               <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
@@ -177,8 +193,8 @@
           </div>
         </div>-->
 
-      <!--</div>-->
-      <!-- <div class="row">
+         <!--</div>-->
+         <!-- <div class="row">
 
 <div class="col-md-4">
     <div class="karting-championship">
@@ -218,12 +234,16 @@
 </div>
       </div> -->
 
-    </div>
-  </div>
+      </div>
+   </div>
 
-  <div class="loading" >
-    <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="noviewmore && mediagallery.length>0">Load More...</p>
+   <div class="loading" infinite-scroll='fetchData();' infinite-scroll-disabled='busy' ng-if="!notAvailable">
+     <p class=" load-more text-center margin0 pointer" ng-if="mediagallery.length>0">Loading...</p>
 
-  </div>
+   </div>
+   <!-- <div class="loading">
+      <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" >Load More...</p>
 
-  </div>
+   </div> -->
+
+</div>

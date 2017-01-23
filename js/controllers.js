@@ -1,5 +1,5 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload','infinite-scroll'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -11,10 +11,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.removeLoaderOn(4);
 
 
-    $scope.goTo = function(name, id,statetogo) {
+    $scope.goTo = function(name, id, statetogo) {
         if (name, id) {
             $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-            $state.go( statetogo, {
+            $state.go(statetogo, {
                 name: $scope.name,
                 id: id
             });
@@ -113,14 +113,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.nameOfCity = $.jStorage.get("city");
 
     $scope.getCityName = function(cityname) {
-      NavigationService.setCity(cityname);
-          $.jStorage.set("popupShow", true);
-          console.log(openL);
+        NavigationService.setCity(cityname);
+        $.jStorage.set("popupShow", true);
+        console.log(openL);
         ngDialog.closeAll("Change");
         $(".ngdialog").remove();
         $scope.template.reFetchCity();
         $state.reload();
-      };
+    };
 
 
 
@@ -134,11 +134,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.attraction = $scope.content.Attraction;
             $scope.whatsnew = $scope.content["What's new"];
             $scope.hostParty = $scope.content["Host a party"];
-            console.log("  $scope.hostParty",  $scope.hostParty);
+            console.log("  $scope.hostParty", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
-            console.log("$scope.foodBeverages",$scope.foodBeverages);
+            console.log("$scope.foodBeverages", $scope.foodBeverages);
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
 
@@ -447,104 +447,106 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     //calender
-  $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
+    $scope.today = function() {
+        $scope.dt = new Date();
+    };
+    $scope.today();
 
-  $scope.clear = function() {
-    $scope.dt = null;
-  };
+    $scope.clear = function() {
+        $scope.dt = null;
+    };
 
-  $scope.options = {
-    customClass: getDayClass,
-    minDate: new Date(),
-    showWeeks: true
-  };
+    $scope.options = {
+        customClass: getDayClass,
+        minDate: new Date(),
+        showWeeks: true
+    };
 
-  // Disable weekend selection
-  function disabled(data) {
-    var date = data.date,
-      mode = data.mode;
-    return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-  }
-
-  $scope.toggleMin = function() {
-    $scope.options.minDate = $scope.options.minDate ? null : new Date();
-  };
-
-  $scope.toggleMin();
-
-  $scope.setDate = function(year, month, day) {
-    $scope.dt = new Date(year, month, day);
-  };
-
-  var tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  var afterTomorrow = new Date(tomorrow);
-  afterTomorrow.setDate(tomorrow.getDate() + 1);
-  $scope.events = [
-    {
-      date: tomorrow,
-      status: 'full'
-    },
-    {
-      date: afterTomorrow,
-      status: 'partially'
+    // Disable weekend selection
+    function disabled(data) {
+        var date = data.date,
+            mode = data.mode;
+        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
     }
-  ];
 
-  function getDayClass(data) {
-    var date = data.date,
-      mode = data.mode;
-    if (mode === 'day') {
-      var dayToCheck = new Date(date).setHours(0,0,0,0);
+    $scope.toggleMin = function() {
+        $scope.options.minDate = $scope.options.minDate ? null : new Date();
+    };
 
-      for (var i = 0; i < $scope.events.length; i++) {
-        var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+    $scope.toggleMin();
 
-        if (dayToCheck === currentDay) {
-          return $scope.events[i].status;
+    $scope.setDate = function(year, month, day) {
+        $scope.dt = new Date(year, month, day);
+    };
+
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date(tomorrow);
+    afterTomorrow.setDate(tomorrow.getDate() + 1);
+    $scope.events = [{
+        date: tomorrow,
+        status: 'full'
+    }, {
+        date: afterTomorrow,
+        status: 'partially'
+    }];
+
+    function getDayClass(data) {
+        var date = data.date,
+            mode = data.mode;
+        if (mode === 'day') {
+            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+
+            for (var i = 0; i < $scope.events.length; i++) {
+                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+
+                if (dayToCheck === currentDay) {
+                    return $scope.events[i].status;
+                }
+            }
         }
-      }
+
+        return '';
     }
+    //range
 
-    return '';
-  }
-//range
+    var el, newPoint, newPlace, offset;
 
-var el, newPoint, newPlace, offset;
+    // Select all range inputs, watch for change
+    $("input[type='range']").change(function() {
 
-// Select all range inputs, watch for change
-$("input[type='range']").change(function() {
+            // Cache this for efficiency
+            el = $(this);
 
- // Cache this for efficiency
- el = $(this);
+            // Measure width of range input
+            width = el.width();
 
- // Measure width of range input
- width = el.width();
+            // Figure out placement percentage between left and right of input
+            newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
 
- // Figure out placement percentage between left and right of input
- newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
+            offset = -1;
 
-  offset = -1;
+            // Prevent bubble from going beyond left or right (unsupported browsers)
+            if (newPoint < 0) {
+                newPlace = 0;
+            } else if (newPoint > 1) {
+                newPlace = width;
+            } else {
+                newPlace = width * newPoint + offset;
+                offset -= newPoint;
+            }
 
- // Prevent bubble from going beyond left or right (unsupported browsers)
- if (newPoint < 0) { newPlace = 0; }
- else if (newPoint > 1) { newPlace = width; }
- else { newPlace = width * newPoint + offset; offset -= newPoint; }
-
- // Move bubble
- el
-   .next("output")
-   .css({
-     left: newPlace,
-     marginLeft: offset + "%"
-   })
-     .text(el.val());
- })
- // Fake a change to position bubble at page load
- .trigger('change');
+            // Move bubble
+            el
+                .next("output")
+                .css({
+                    left: newPlace,
+                    marginLeft: offset + "%"
+                })
+                .text(el.val());
+        })
+        // Fake a change to position bubble at page load
+        .trigger('change');
 })
 
 .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -576,11 +578,11 @@ $("input[type='range']").change(function() {
         TemplateService.removeLoader();
     });
     $scope.readMore = function(id) {
-      _.each($scope.moreDesc,function(value,property){
-          if(id !=property){
-            $scope.moreDesc[property]=false;
-          }
-    });
+        _.each($scope.moreDesc, function(value, property) {
+            if (id != property) {
+                $scope.moreDesc[property] = false;
+            }
+        });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
         console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.sponsor, function(n) {
@@ -594,16 +596,136 @@ $("input[type='range']").change(function() {
 
 })
 
-.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$filter) {
+.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("media");
     $scope.menutitle = NavigationService.makeactive("Media");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(2);
+
+    // $scope.moreDesc={};
+    // $scope.mediaObject = {};
+    // $scope.mediaObject.pagenumber = 0;
+    // $scope.mediaObject.pagesize = 6;
+    // $scope.mediaObject.city = $.jStorage.get("cityid");
+    // $scope.noviewmore = true;
+    // $scope.mediagallery = [];
+    // $scope.mediagalleryDesc = [];
+    // $scope.notAvailable = false;
+    // $scope.busy = false;
+    //
+    // $scope.fetchData = function() {
+    // if ($scope.busy) return;
+    //   $scope.busy = true;
+    //     $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
+    //     NavigationService.getStars($scope.mediaObject, function(data) {
+    //
+    //         console.log("mediaObject", data.data);
+    //         console.log(data.data.totalpages);
+    //         // console.log("getStars", data.data);
+    //         if (data.data.data.length === 0) {
+    //             $scope.notAvailable = true;
+    //         } else {
+    //             $scope.notAvailable = false;
+    //         }
+    //         if (data.value) {
+    //             console.log($scope.mediaObject.pagenumber);
+    //             if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
+    //                 if (data.data.data) {
+    //                 _.each(data.data.data,function(val){
+    //                       $scope.mediagalleryDesc.push(val);
+    //                   });
+    //                   console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
+    //                   data.data.data = _.chunk(data.data.data, 3);
+    //                     _.each(data.data.data, function(n) {
+    //                         // console.log(n);
+    //                         $scope.mediagallery.push(n);
+    //                               $scope.busy = false;
+    //
+    //                     });
+    //                 }
+    //
+    //                 if (data.data.totalpages === $scope.mediaObject.pagenumber) {
+    //                     $scope.noviewmore = false;
+    //                 }
+    //             } else {
+    //                 console.log("in else last array");
+    //                 $scope.noviewmore = false;
+    //             }
+    //             TemplateService.removeLoader();
+    //         }
+    //
+    //     })
+    // };
+    //
+    // $scope.fetchData();
+    // $scope.fetchSearchedData = function() {
+    //   $scope.busy = false;
+    //     $scope.mediaObject.pagenumber = 0;
+    //       $scope.mediagallery=[];
+    //        $scope.mediagalleryDesc = [];
+    //        $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
+    //   NavigationService.getStars($scope.mediaObject, function(data) {
+    //
+    //       console.log("mediaObject", data.data);
+    //       console.log(data.data.totalpages);
+    //       console.log("getStars", data.data);
+    //       if (data.data.data.length === 0) {
+    //           $scope.notAvailable = true;
+    //       } else {
+    //           $scope.notAvailable = false;
+    //       }
+    //       if (data.value) {
+    //           console.log($scope.mediaObject.pagenumber);
+    //           if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
+    //               if (data.data.data) {
+    //                 $scope.mediagallery=[];
+    //                     $scope.mediagalleryDesc = [];
+    //               _.each(data.data.data,function(val){
+    //                     $scope.mediagalleryDesc.push(val);
+    //                 });
+    //                 console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
+    //                 data.data.data = _.chunk(data.data.data, 3);
+    //                   _.each(data.data.data, function(n) {
+    //                       // console.log(n);
+    //                       $scope.mediagallery.push(n);
+    //                             $scope.busy = false;
+    //
+    //                   });
+    //               }
+    //
+    //               if (data.data.totalpages === $scope.mediaObject.pagenumber) {
+    //                   $scope.noviewmore = false;
+    //               }
+    //           } else {
+    //               console.log("in else last array");
+    //               $scope.noviewmore = false;
+    //           }
+    //           TemplateService.removeLoader();
+    //       }
+    //
+    //   })
+    //
+    // }
+    //
+    // $scope.readMore = function(id) {
+    //     console.log("id", id);
+    //     _.each($scope.moreDesc, function(value, property) {
+    //         console.log("property", property);
+    //         if (id != property) {
+    //             $scope.moreDesc[property] = false;
+    //         }
+    //     });
+    //     $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+    //     $scope.myDesc = _.find($scope.mediagalleryDesc, function(n) {
+    //         return n._id == id;
+    //     }).text;
+    // };
+
 })
 
-.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams,$state) {
+.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -697,7 +819,7 @@ $("input[type='range']").change(function() {
     };
 })
 
-.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout,$state, $stateParams, $filter) {
+.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $state, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
@@ -716,6 +838,7 @@ $("input[type='range']").change(function() {
     }
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
+        console.log("SingleDealsPackages",$scope.SingleDealsPackages );
         TemplateService.removeLoader();
     });
 
@@ -791,9 +914,9 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -803,51 +926,77 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-        $scope.buyNow = function(BranchPackageID, price) {
-                console.log("im in");
-                console.log("price", price);
-                console.log("BranchPackageID", BranchPackageID);
-                $scope.addToCartParams.BranchPackageID = BranchPackageID;
-                $scope.addToCartParams.TotalAmount = price;
+    $scope.buyNow = function(BranchPackageID, price) {
+        console.log("im in");
+        console.log("price", price);
+        console.log("BranchPackageID", BranchPackageID);
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        // $scope.addToCartParams.BranchPackageID = "4";
+        // $scope.addToCartParams.TotalAmount = "122";
+        $scope.addToCartParams.TotalAmount = price;
+        console.log("$scope.addToCartParams", $scope.addToCartParams);
+        if ($.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else {
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
-                if ($.jStorage.get("loginDetail") == null) {
-                  $uibModal.open({
-                             animation: true,
-                             templateUrl: 'views/modal/wishlistsigup.html',
-                             scope: $scope
-                         });
+                if (data.value) {
+
+                  if (data.data.AddToCart[0].Status  === 1) {
+                    console.log("inif", data);
+                       $uibModal.open({
+                           animation: true,
+                           templateUrl: 'views/modal/addtocart.html',
+                           scope: $scope
+                       });
+
+                  }else if (data.data.AddToCart[0].Status === 0) {
+                    console.log("in else", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/alreadyCart.html',
+                          scope: $scope
+                      });
+
+                  }
                 }else {
-                  NavigationService.addToCart($scope.addToCartParams, function(data) {
-                      console.log("$scope.addToCartParams", $scope.addToCartParams);
-                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                          console.log("inif", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/addtocart.html',
-                              scope: $scope
-                          });
-                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                          console.log("in else", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/alreadyCart.html',
-                              scope: $scope
-                          });
-                      }else {
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: 'views/modal/addtocartfail.html',
-                            scope: $scope
-                        });
-                      }
-
-
-                  })
+                  $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/addtocartfail.html',
+                         scope: $scope
+                     });
                 }
+                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                //     console.log("inif", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocart.html',
+                //         scope: $scope
+                //     });
+                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                //     console.log("in else", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/alreadyCart.html',
+                //         scope: $scope
+                //     });
+                // } else {
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocartfail.html',
+                //         scope: $scope
+                //     });
+                // }
+            })
+        }
+    }
 
 
 
-            }
 })
 
 .controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -875,6 +1024,7 @@ $("input[type='range']").change(function() {
     $scope.notAvailable = false;
     $scope.fetchData = function() {
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
+        // NavigationService.getGallery($scope.objectfilter, function(data) {
         NavigationService.getStars($scope.objectfilter, function(data) {
             console.log(data.data.totalpages);
             console.log("getStars", data.data);
@@ -995,7 +1145,7 @@ $("input[type='range']").change(function() {
         }
     };
 
-      $scope.date = new Date();
+    $scope.date = new Date();
 
     $scope.showMore = false;
 
@@ -1010,13 +1160,13 @@ $("input[type='range']").change(function() {
     $scope.readMore = function(id, indexid) {
 
         console.log(id);
-        _.each($scope.moreDesc,function(value,property){
-      // console.log("property",property);
-      console.log("value",value);
-        if(id !=property){
-            $scope.moreDesc[property]=false;
-        }
-    });
+        _.each($scope.moreDesc, function(value, property) {
+            // console.log("property",property);
+            console.log("value", value);
+            if (id != property) {
+                $scope.moreDesc[property] = false;
+            }
+        });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
         console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.SingleExploreSmaaash, function(n) {
@@ -1119,28 +1269,28 @@ $("input[type='range']").change(function() {
         TemplateService.removeLoader();
     })
 
-      $scope.readMore = function(id, indexid) {
+    $scope.readMore = function(id, indexid) {
 
-          console.log(id);
-          _.each($scope.moreDesc,function(value,property){
-        // console.log("property",property);
-        console.log("value",value);
-          if(id !=property){
-              $scope.moreDesc[property]=false;
-          }
-      });
-          $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
-          console.log($scope.moreDesc);
-          $scope.myDesc = _.find($scope.leadership, function(n) {
-              return n._id == id;
+        console.log(id);
+        _.each($scope.moreDesc, function(value, property) {
+            // console.log("property",property);
+            console.log("value", value);
+            if (id != property) {
+                $scope.moreDesc[property] = false;
+            }
+        });
+        $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
+        console.log($scope.moreDesc);
+        $scope.myDesc = _.find($scope.leadership, function(n) {
+            return n._id == id;
 
-          }).description;
-      };
+        }).description;
+    };
 
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter,$state) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -1155,7 +1305,7 @@ $("input[type='range']").change(function() {
             $scope.menu = "menu-out";
         }
     };
-    $scope.moreDesc={};
+    $scope.moreDesc = {};
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
@@ -1202,12 +1352,12 @@ $("input[type='range']").change(function() {
     $scope.readMore = function(id, indexid) {
 
         console.log(id);
-        _.each($scope.moreDesc,function(value,property){
-      console.log("property",property);
-        if(id !=property){
-            $scope.moreDesc[property]=false;
-        }
-    });
+        _.each($scope.moreDesc, function(value, property) {
+            console.log("property", property);
+            if (id != property) {
+                $scope.moreDesc[property] = false;
+            }
+        });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
         console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.singleAttraction, function(n) {
@@ -1287,33 +1437,33 @@ $("input[type='range']").change(function() {
     };
 
     $scope.goTo = function(name, id) {
-        if (name, id) {
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-            $state.go('snow-rush', {
-                name: $scope.name,
-                id: id
-            });
-        }
+            if (name, id) {
+                $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
+                $state.go('snow-rush', {
+                    name: $scope.name,
+                    id: id
+                });
+            }
 
-    }
-    //   "BranchID": 12,
-    // "BranchPackageID": 70,
-    // "TotalAmount": 999,
-    // "VisitDate": "2016-12-16",
-    // "NoOfAdults": 1,
-    // "NoOfChild": 0,
-    // "NoOfSenior": 0,
-    // "AddonIDs": "",
-    // "AddonQuantities": "",
-    // "CustomerMobileNo": "8082495670",
-    // "CustomerID": 327
+        }
+        //   "BranchID": 12,
+        // "BranchPackageID": 70,
+        // "TotalAmount": 999,
+        // "VisitDate": "2016-12-16",
+        // "NoOfAdults": 1,
+        // "NoOfChild": 0,
+        // "NoOfSenior": 0,
+        // "AddonIDs": "",
+        // "AddonQuantities": "",
+        // "CustomerMobileNo": "8082495670",
+        // "CustomerID": 327
 
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -1329,50 +1479,75 @@ $("input[type='range']").change(function() {
 
 
     $scope.buyNow = function(BranchPackageID, price) {
-            console.log("im in");
-            console.log("price", price);
-            console.log("BranchPackageID", BranchPackageID);
-            $scope.addToCartParams.BranchPackageID = BranchPackageID;
-            $scope.addToCartParams.TotalAmount = price;
-            console.log("$scope.addToCartParams", $scope.addToCartParams);
-            if ($.jStorage.get("loginDetail") == null) {
-              $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/wishlistsigup.html',
-                         scope: $scope
-                     });
-            }else {
-              NavigationService.addToCart($scope.addToCartParams, function(data) {
-                  console.log("$scope.addToCartParams", $scope.addToCartParams);
-                  if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                      console.log("inif", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/addtocart.html',
-                          scope: $scope
-                      });
-                  } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                      console.log("in else", data);
+        console.log("im in");
+        console.log("price", price);
+        console.log("BranchPackageID", BranchPackageID);
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.TotalAmount = price;
+        console.log("$scope.addToCartParams", $scope.addToCartParams);
+        if ($.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else {
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
+                console.log("$scope.addToCartParams", $scope.addToCartParams);
+                if (data.value) {
+                  if (data.data.AddToCart[0].Status === 1) {
+                    console.log("inif", data);
+                       $uibModal.open({
+                           animation: true,
+                           templateUrl: 'views/modal/addtocart.html',
+                           scope: $scope
+                       });
+
+                  }else if (data.data.AddToCart[0].Status === 0) {
+                    console.log("in else", data);
                       $uibModal.open({
                           animation: true,
                           templateUrl: 'views/modal/alreadyCart.html',
                           scope: $scope
                       });
-                  }else {
-                    $uibModal.open({
-                        animation: true,
-                        templateUrl: 'views/modal/addtocartfail.html',
-                        scope: $scope
-                    });
+
                   }
+                }else {
+                  $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/addtocartfail.html',
+                         scope: $scope
+                     });
+                }
+                // if (data.value && data.data.AddToCart[0].Status === '1') {
+                //     console.log("inif", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocart.html',
+                //         scope: $scope
+                //     });
+                // } else if (data.value && data.data.AddToCart[0].Status === '0') {
+                //     console.log("in else", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/alreadyCart.html',
+                //         scope: $scope
+                //     });
+                // } else {
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocartfail.html',
+                //         scope: $scope
+                //     });
+                // }
 
 
-              })
-            }
-
-
-
+            })
         }
+
+
+
+    }
 
 })
 
@@ -1385,20 +1560,65 @@ $("input[type='range']").change(function() {
 })
 
 
-.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal ) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.showCartParams ={};
-    $scope.showCartParams.CustomerMobileNo =$.jStorage.get("loginDetail").CustomerMobile;
-    $scope.showCartParams.CustomerID =$.jStorage.get("loginDetail").CustomerID;
-    console.log("$scope.showCartParams",$scope.showCartParams);
-//     NavigationService.showCartPackage($scope.showCartParams,function(data){
-// //       console.log("$scope.showCartParams",$scope.showCartParams);
-// // console.log("data",data);
-//     })
+    $scope.removeCartParams={};
+    $scope.showCartParams = {};
+    $scope.cartDetails =[];
+    $scope.noofQuantity ="";
+
+    $scope.showCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+    $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    console.log("$scope.showCartParams", $scope.showCartParams);
+    $scope.showCartFunction =function(){
+      NavigationService.showCartPackage($scope.showCartParams,function(data){
+        console.log("$scope.showCartParams",$scope.showCartParams);
+          console.log("data",data.data.CustomerCartItem);
+          if (data.value) {
+
+            $scope.cartDetails = data.data.CustomerCartItem ;
+            console.log("$scope.cartDetails",$scope.cartDetails);
+            $scope.calculateSubTotal = function(noofQuantity,price,index){
+              $scope.cartDetails[index].subTotalAmount = noofQuantity * price ;
+              $scope.cartDetails[index].NoOfAdult =noofQuantity;
+              console.log("$scope.cartDetails",$scope.cartDetails)
+            };
+
+          }else {
+            $scope.cartDetails =[];
+            $scope.cartEmpty = " Your Cart Is Empty" ;
+            console.log("im in false");
+          }
+        })
+      }
+$scope.showCartFunction();
+
+
+        $scope.removePackage = function (CartItemID){
+            $scope.removeCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+            $scope.removeCartParams.CustomerID=  $.jStorage.get("loginDetail").CustomerID;;
+            $scope.removeCartParams.CartItemID= CartItemID;
+          NavigationService.removeCartPackage($scope.removeCartParams,function(data){
+            console.log("data",data);
+            if (data.value) {
+              if (data.data.RemoveFromCart[0].Status === 1) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/removeCart.html',
+                    scope: $scope
+                });
+                $scope.showCartFunction();
+                }
+              }
+            })
+          }
+
+
+
 })
 
 
@@ -1919,9 +2139,9 @@ $("input[type='range']").change(function() {
 
         }
         NavigationService.signupProfile(function(data) {
-          $scope.userprofile = data.data;
-            console.log("  $scope.userprofile",   $scope.userprofile);
-          });
+            $scope.userprofile = data.data;
+            console.log("  $scope.userprofile", $scope.userprofile);
+        });
         $scope.animationsEnabled = true;
         $scope.open = function(size) {
             var modalInstance = $uibModal.open({
@@ -1956,7 +2176,7 @@ $("input[type='range']").change(function() {
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$location) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
@@ -2028,12 +2248,12 @@ $("input[type='range']").change(function() {
     $scope.readMore = function(id, indexid) {
 
         console.log(id);
-        _.each($scope.moreDesc,function(value,property){
-      console.log("property",property);
-        if(id !=property){
-            $scope.moreDesc[property]=false;
-        }
-    });
+        _.each($scope.moreDesc, function(value, property) {
+            console.log("property", property);
+            if (id != property) {
+                $scope.moreDesc[property] = false;
+            }
+        });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
         console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.SingleHostParty1, function(n) {
@@ -2184,7 +2404,7 @@ $("input[type='range']").change(function() {
 
 })
 
-.controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$window ) {
+.controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $window) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("online");
     $scope.menutitle = NavigationService.makeactive("Recharge");
@@ -2199,7 +2419,7 @@ $("input[type='range']").change(function() {
 
     $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
 
-      $scope.incorrect = false;
+    $scope.incorrect = false;
     $scope.submitRecharge = function(rechargeOnline) {
 
         if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
@@ -2254,9 +2474,21 @@ $("input[type='range']").change(function() {
         })
     };
 
+
+    $scope.detailsForBal = {};
+    $scope.detailsForBal.CardNo = "C68C765B";
+    $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+    NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
+        if (data.value) {
+
+            $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+        } else {}
+    })
+
+
     $scope.userprofile = {};
     NavigationService.signupProfile(function(data) {
-      $scope.userprofile = data.data;
+        $scope.userprofile = data.data;
         NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
     });
@@ -2354,6 +2586,7 @@ $("input[type='range']").change(function() {
     $scope.msg = false;
     $scope.CustID = $.jStorage.get("loginDetail").CustomerID;
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
+      console.log("data",data);
         if (data.value === true) {
             $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
             $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
@@ -2689,7 +2922,7 @@ $("input[type='range']").change(function() {
     });
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$location) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
@@ -2712,13 +2945,13 @@ $("input[type='range']").change(function() {
         console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
         TemplateService.removeLoader();
-      });
-    $scope.readMore = function(id, indexid) {
-      _.each($scope.moreDesc,function(value,property){
-        if(id !=property){
-            $scope.moreDesc[property]=false;
-          }
     });
+    $scope.readMore = function(id) {
+        _.each($scope.moreDesc, function(value, property) {
+          if (id != property) {
+                $scope.moreDesc[property] = false;
+            }
+        });
         $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
         console.log($scope.moreDesc);
         $scope.myDesc = _.find($scope.drinkParty1, function(n) {
@@ -2818,12 +3051,12 @@ $("input[type='range']").change(function() {
         $scope.readMore = function(id, indexid) {
 
             console.log(id);
-            _.each($scope.moreDesc,function(value,property){
-          console.log("property",property);
-            if(id !=property){
-                $scope.moreDesc[property]=false;
-            }
-        });
+            _.each($scope.moreDesc, function(value, property) {
+                console.log("property", property);
+                if (id != property) {
+                    $scope.moreDesc[property] = false;
+                }
+            });
             $scope.moreDesc[id] = ($scope.moreDesc[id] == true) ? false : true;
             console.log($scope.moreDesc);
             $scope.myDesc = _.find($scope.SingleDealsPackages, function(n) {
@@ -2884,10 +3117,10 @@ $("input[type='range']").change(function() {
 
 })
 
-.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$state,$location) {
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
+    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
@@ -2901,9 +3134,9 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -2913,58 +3146,83 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-        $scope.buyNow = function(BranchPackageID, price) {
-                console.log("im in");
-                console.log("price", price);
-                console.log("BranchPackageID", BranchPackageID);
-                $scope.addToCartParams.BranchPackageID = BranchPackageID;
-                $scope.addToCartParams.TotalAmount = price;
+    $scope.buyNow = function(BranchPackageID, price) {
+        console.log("im in");
+        console.log("price", price);
+        console.log("BranchPackageID", BranchPackageID);
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.TotalAmount = price;
+        console.log("$scope.addToCartParams", $scope.addToCartParams);
+        if ($.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else {
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
-                if ($.jStorage.get("loginDetail") == null) {
-                  $uibModal.open({
-                             animation: true,
-                             templateUrl: 'views/modal/wishlistsigup.html',
-                             scope: $scope
-                         });
+                if (data.value) {
+                  if (data.data.AddToCart[0].Status === 1) {
+                    console.log("inif", data);
+                       $uibModal.open({
+                           animation: true,
+                           templateUrl: 'views/modal/addtocart.html',
+                           scope: $scope
+                       });
+
+                  }else if (data.data.AddToCart[0].Status === 0) {
+                    console.log("in else", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/alreadyCart.html',
+                          scope: $scope
+                      });
+
+                  }
                 }else {
-                  NavigationService.addToCart($scope.addToCartParams, function(data) {
-                      console.log("$scope.addToCartParams", $scope.addToCartParams);
-                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                          console.log("inif", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/addtocart.html',
-                              scope: $scope
-                          });
-                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                          console.log("in else", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/alreadyCart.html',
-                              scope: $scope
-                          });
-                      }else {
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: 'views/modal/addtocartfail.html',
-                            scope: $scope
-                        });
-                      }
-
-
-                  })
+                  $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/addtocartfail.html',
+                         scope: $scope
+                     });
                 }
+                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                //     console.log("inif", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocart.html',
+                //         scope: $scope
+                //     });
+                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                //     console.log("in else", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/alreadyCart.html',
+                //         scope: $scope
+                //     });
+                // } else {
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocartfail.html',
+                //         scope: $scope
+                //     });
+                // }
+
+
+            })
+        }
 
 
 
-            }
+    }
 
 })
 
-.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$location) {
+.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
-    $scope.menutitle =$stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
+    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = $location.absUrl();
@@ -3107,9 +3365,9 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -3119,51 +3377,76 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-        $scope.buyNow = function(BranchPackageID, price) {
-                console.log("im in");
-                console.log("price", price);
-                console.log("BranchPackageID", BranchPackageID);
-                $scope.addToCartParams.BranchPackageID = BranchPackageID;
-                $scope.addToCartParams.TotalAmount = price;
+    $scope.buyNow = function(BranchPackageID, price) {
+        console.log("im in");
+        console.log("price", price);
+        console.log("BranchPackageID", BranchPackageID);
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.TotalAmount = price;
+        console.log("$scope.addToCartParams", $scope.addToCartParams);
+        if ($.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else {
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
-                if ($.jStorage.get("loginDetail") == null) {
-                  $uibModal.open({
-                             animation: true,
-                             templateUrl: 'views/modal/wishlistsigup.html',
-                             scope: $scope
-                         });
+                if (data.value) {
+                  if (data.data.AddToCart[0].Status === 1) {
+                    console.log("inif", data);
+                       $uibModal.open({
+                           animation: true,
+                           templateUrl: 'views/modal/addtocart.html',
+                           scope: $scope
+                       });
+
+                  }else if (data.data.AddToCart[0].Status === 0) {
+                    console.log("in else", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/alreadyCart.html',
+                          scope: $scope
+                      });
+
+                  }
                 }else {
-                  NavigationService.addToCart($scope.addToCartParams, function(data) {
-                      console.log("$scope.addToCartParams", $scope.addToCartParams);
-                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                          console.log("inif", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/addtocart.html',
-                              scope: $scope
-                          });
-                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                          console.log("in else", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/alreadyCart.html',
-                              scope: $scope
-                          });
-                      }else {
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: 'views/modal/addtocartfail.html',
-                            scope: $scope
-                        });
-                      }
-
-
-                  })
+                  $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/addtocartfail.html',
+                         scope: $scope
+                     });
                 }
+                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                //     console.log("inif", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocart.html',
+                //         scope: $scope
+                //     });
+                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                //     console.log("in else", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/alreadyCart.html',
+                //         scope: $scope
+                //     });
+                // } else {
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocartfail.html',
+                //         scope: $scope
+                //     });
+                // }
+
+
+            })
+        }
 
 
 
-            }
+    }
 })
 
 
@@ -3210,7 +3493,7 @@ $("input[type='range']").change(function() {
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter,  $state) {
+.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotions");
     $scope.menutitle = NavigationService.makeactive("Promotion");
@@ -3307,9 +3590,9 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -3319,58 +3602,83 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-        $scope.buyNow = function(BranchPackageID, price) {
-                console.log("im in");
-                console.log("price", price);
-                console.log("BranchPackageID", BranchPackageID);
-                $scope.addToCartParams.BranchPackageID = BranchPackageID;
-                $scope.addToCartParams.TotalAmount = price;
+    $scope.buyNow = function(BranchPackageID, price) {
+        console.log("im in");
+        console.log("price", price);
+        console.log("BranchPackageID", BranchPackageID);
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.TotalAmount = price;
+        console.log("$scope.addToCartParams", $scope.addToCartParams);
+        if ($.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else {
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
-                if ($.jStorage.get("loginDetail") == null) {
-                  $uibModal.open({
-                             animation: true,
-                             templateUrl: 'views/modal/wishlistsigup.html',
-                             scope: $scope
-                         });
+                if (data.value) {
+                  if (data.data.AddToCart[0].Status === 1) {
+                    console.log("inif", data);
+                       $uibModal.open({
+                           animation: true,
+                           templateUrl: 'views/modal/addtocart.html',
+                           scope: $scope
+                       });
+
+                  }else if (data.data.AddToCart[0].Status === 0) {
+                    console.log("in else", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/alreadyCart.html',
+                          scope: $scope
+                      });
+
+                  }
                 }else {
-                  NavigationService.addToCart($scope.addToCartParams, function(data) {
-                      console.log("$scope.addToCartParams", $scope.addToCartParams);
-                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                          console.log("inif", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/addtocart.html',
-                              scope: $scope
-                          });
-                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                          console.log("in else", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/alreadyCart.html',
-                              scope: $scope
-                          });
-                      }else {
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: 'views/modal/addtocartfail.html',
-                            scope: $scope
-                        });
-                      }
-
-
-                  })
+                  $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/addtocartfail.html',
+                         scope: $scope
+                     });
                 }
+                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                //     console.log("inif", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocart.html',
+                //         scope: $scope
+                //     });
+                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                //     console.log("in else", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/alreadyCart.html',
+                //         scope: $scope
+                //     });
+                // } else {
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocartfail.html',
+                //         scope: $scope
+                //     });
+                // }
+
+
+            })
+        }
 
 
 
-            }
+    }
 
 })
 
-.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal,$location) {
+.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
-    $scope.menutitle =  $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1) ;
+    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
@@ -3477,8 +3785,8 @@ $("input[type='range']").change(function() {
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailPromotionsInner = data.data;
         console.log("$scope.detailPromotionsInner", $scope.detailPromotionsInner);
-        if (  $scope.detailPromotionsInner.banner) {
-          $scope.detailPromotionsInner.banner = $filter('uploadpath')($scope.detailPromotionsInner.banner);
+        if ($scope.detailPromotionsInner.banner) {
+            $scope.detailPromotionsInner.banner = $filter('uploadpath')($scope.detailPromotionsInner.banner);
         }
 
         TemplateService.removeLoader();
@@ -3513,9 +3821,9 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
-    if ($.jStorage.get("loginDetail")!=null) {
-      $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-      $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
     $scope.addToCartParams.NoOfChild = '0';
@@ -3525,54 +3833,79 @@ $("input[type='range']").change(function() {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-        $scope.buyNow = function(BranchPackageID, price) {
-                console.log("im in");
-                console.log("price", price);
-                console.log("BranchPackageID", BranchPackageID);
-                $scope.addToCartParams.BranchPackageID = BranchPackageID;
-                $scope.addToCartParams.TotalAmount = price;
+    $scope.buyNow = function(BranchPackageID, price) {
+        console.log("im in");
+        console.log("price", price);
+        console.log("BranchPackageID", BranchPackageID);
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.TotalAmount = price;
+        console.log("$scope.addToCartParams", $scope.addToCartParams);
+        if ($.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else {
+            NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
-                if ($.jStorage.get("loginDetail") == null) {
-                  $uibModal.open({
-                             animation: true,
-                             templateUrl: 'views/modal/wishlistsigup.html',
-                             scope: $scope
-                         });
+                if (data.value) {
+                  if (data.data.AddToCart[0].Status === 1) {
+                    console.log("inif", data);
+                       $uibModal.open({
+                           animation: true,
+                           templateUrl: 'views/modal/addtocart.html',
+                           scope: $scope
+                       });
+
+                  }else if (data.data.AddToCart[0].Status === 0) {
+                    console.log("in else", data);
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/alreadyCart.html',
+                          scope: $scope
+                      });
+
+                  }
                 }else {
-                  NavigationService.addToCart($scope.addToCartParams, function(data) {
-                      console.log("$scope.addToCartParams", $scope.addToCartParams);
-                      if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                          console.log("inif", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/addtocart.html',
-                              scope: $scope
-                          });
-                      } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                          console.log("in else", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/alreadyCart.html',
-                              scope: $scope
-                          });
-                      }else {
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: 'views/modal/addtocartfail.html',
-                            scope: $scope
-                        });
-                      }
-
-
-                  })
+                  $uibModal.open({
+                         animation: true,
+                         templateUrl: 'views/modal/addtocartfail.html',
+                         scope: $scope
+                     });
                 }
+                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
+                //     console.log("inif", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocart.html',
+                //         scope: $scope
+                //     });
+                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
+                //     console.log("in else", data);
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/alreadyCart.html',
+                //         scope: $scope
+                //     });
+                // } else {
+                //     $uibModal.open({
+                //         animation: true,
+                //         templateUrl: 'views/modal/addtocartfail.html',
+                //         scope: $scope
+                //     });
+                // }
+
+
+            })
+        }
 
 
 
-            }
+    }
 })
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state,$location) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $state, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
@@ -3732,7 +4065,7 @@ $("input[type='range']").change(function() {
 
 })
 
-.controller('BlogInsideCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$location) {
+.controller('BlogInsideCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog-inside");
     $scope.menutitle = NavigationService.makeactive("Blog Inside");
@@ -3848,7 +4181,7 @@ $("input[type='range']").change(function() {
 
         $scope.currentdate = new Date();
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
-        console.log("userLoginDetails",  $scope.userLoginDetails);
+        console.log("userLoginDetails", $scope.userLoginDetails);
 
         $scope.city = false;
         $scope.flag = {};
@@ -3857,8 +4190,8 @@ $("input[type='range']").change(function() {
             $scope.city = !$scope.city;
         };
         $scope.getCityName = function(cityname) {
-          NavigationService.setCity(cityname);
-          $state.reload();
+            NavigationService.setCity(cityname);
+            $state.reload();
         }
 
         $scope.template.reFetchCity = function() {
@@ -3943,7 +4276,7 @@ $("input[type='range']").change(function() {
         $scope.GenrateOneTimePass = function(signupData) {
             $scope.modalOtp.close();
             $scope.signupData.OTP = "";
-              $scope.wrongOtp = false;
+            $scope.wrongOtp = false;
             $scope.signupGenerateOtp(signupData);
         }
         $scope.customerSignup = function(signupData) {
@@ -4148,7 +4481,7 @@ $("input[type='range']").change(function() {
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
-         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
+        $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
     })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {

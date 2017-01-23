@@ -6,7 +6,9 @@
   </div>
   <div class="container">
     <div class="table-responsive">
-      <table class="table ">
+
+        <h3 class="text-center">{{cartEmpty}}</h3>
+      <table class="table " ng-if="cartDetails.length > 0">
         <thead>
           <tr>
             <th class="text-center uppercase ">items</th>
@@ -15,7 +17,21 @@
             <th class="text-center uppercase ">subtotal</th>
           </tr>
         </thead>
-        <tr>
+
+        <tr ng-repeat="data in cartDetails">
+          <td class="text-center border-left"><img src="img/confirm/Sachingreen.png" class="img-responsive" alt="">
+            <p class="mt10 uppercase">student special offer</p>
+          </td>
+          <td class="text-center"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.TotalAmount}}</td>
+          <td class="text-center">
+            <input type="number" class="quantity" ng-model="data.NoOfAdult"  ng-change="calculateSubTotal(data.NoOfAdult,data.TotalAmount,$index)"></div>
+          </td>
+          <td class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.subTotalAmount}}
+            <div class="remove" ><button class="uppercase" ng-click="removePackage(data.CartItemID)">remove</button></div>
+          </td>
+
+        </tr>
+        <!-- <tr>
           <td class="text-center border-left"><img src="img/confirm/Sachingreen.png" class="img-responsive" alt="">
             <p class="mt10 uppercase">student special offer</p>
           </td>
@@ -27,20 +43,7 @@
             <div class="remove"><button class="uppercase">remove</button></div>
           </td>
 
-        </tr>
-        <tr>
-          <td class="text-center border-left"><img src="img/confirm/Sachingreen.png" class="img-responsive" alt="">
-            <p class="mt10 uppercase">student special offer</p>
-          </td>
-          <td class="text-center"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>699</td>
-          <td class="text-center">
-            <div class="quantity">1</div>
-          </td>
-          <td class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>699
-            <div class="remove"><button class="uppercase">remove</button></div>
-          </td>
-
-        </tr>
+        </tr> -->
       </table>
     </div>
   </div>

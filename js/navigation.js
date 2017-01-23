@@ -1,4 +1,4 @@
-var adminurl = "http://104.155.129.33:82/"; 
+var adminurl = "http://104.155.129.33:82/";
 // var adminurl = "http://104.154.79.188:82/"; //New US server
 // var adminurl = "http://192.168.0.104:1337/";
 var RegisterVRadminurl = "http://smaash.wohlig.co.in/api/";
@@ -182,6 +182,15 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        getCustomerBalance: function(detailsForBal, callback) {
+            $http({
+                url: adminurl + 'signup/GetCustomerBalance',
+                method: 'POST',
+
+                data: detailsForBal
+
+            }).success(callback);
+        },
 
         CustomerRegistration: function(signupData, callback) {
 
@@ -323,6 +332,15 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
 
         },
+        getGallery: function(mediaObj,callback) {
+            $http({
+                url: adminurl + 'mediagallery/findLimited',
+                method: 'POST',
+                data:mediaObj,
+                withCredentials: true
+
+            }).success(callback);
+        },
         assistanceLoginSignup: function(formdata, callback) {
 
             $http({
@@ -397,16 +415,20 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        showCartPackage: function(callback) {
-            // console.log("nAV", id);
-            var data = {
-                user: $.jStorage.get("loginDetail")._id,
-            };
+        showCartPackage: function(showCartParams,callback) {
             $http({
                 url: adminurl + 'signup/SelectCartPackage',
                 method: 'POST',
                 withCredentials: true,
-                data: data
+                data: showCartParams
+            }).success(callback);
+        },
+        removeCartPackage: function(removePackageParams,callback) {
+            $http({
+                url: adminurl + 'signup/RemoveCartPackage',
+                method: 'POST',
+                withCredentials: true,
+                data: removePackageParams
             }).success(callback);
         },
         removeFromWishList: function(id, callback) {

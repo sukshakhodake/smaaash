@@ -112,7 +112,7 @@
             <div class="slant-box full-height">
               <div class="special pointer">
                   <img src="img/food/hostparty.png" class="img-responsive" alt="">
-              
+
               </div>
             </div>
           </div>
@@ -138,8 +138,8 @@
                 <h3 class="margin0 bluey " ng-bind-html="data.hometext | shorten :25"></h3>
               </div>
               <div class="min-h">
-                <p ng-hide="moreDesc[data._id]">{{data.description | htmlToPlaintext | shorten:130}}</p>
-                <p ng-show="moreDesc[data._id]">{{myDesc | htmlToPlaintext}}</p>
+                <p ng-hide="moreDesc[data._id]" ng-bind-html="data.description | htmlDecode | shorten:130"></p>
+                <p ng-show="moreDesc[data._id]" ng-bind-html="myDesc | htmlDecode"></p>
                 <p ng-if="!data.description"> No data found</p>
                 <span class="capitalize bluey" ng-if="data.description.length > 130 && !moreDesc[data._id]" ng-click="readMore(data._id)">read more</span>
                 <span class="capitalize bluey" ng-if="data.description.length > 130 && moreDesc[data._id]" ng-click="readMore(data._id,$index)">read less</span>

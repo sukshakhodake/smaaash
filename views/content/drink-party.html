@@ -24,8 +24,8 @@
                                 <button class="uppercase larger green" ng-click="pdfmodal(data.pdf);" ng-if="data.pdf">Menu</button>
                             </div>
                             <div class="min-h">
-                                <p ng-hide="moreDesc[data._id]">{{data.description | htmlToPlaintext | shorten:130}}</p>
-                                <p ng-show="moreDesc[data._id]">{{myDesc| htmlToPlaintext}}</p>
+                                <p ng-hide="moreDesc[data._id]" ng-bind-html="data.description | htmlDecode | shorten:130"></p>
+                                <p ng-show="moreDesc[data._id]" ng-bind-html="myDesc| htmlDecode"></p>
 
                                 <div ng-if="!data.description">No description</div>
 

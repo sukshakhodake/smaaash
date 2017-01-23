@@ -84,7 +84,7 @@
       </div>
    </div>
 </div>
-<div class="container">
+<div class="container" ng-if="banner[0].videourl">
  <div class="land-kartbanner middle">
         <div class="inner relative pointer auto-height ">
    <iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
@@ -114,7 +114,7 @@
                      </li>
 
                   </flex-slider>
-                  <!-- 
+                  <!--
                     ng-click="goTo(s.hometext,s._id,'deals-inner')"
                     <div ng-if="!hostParty">No Data Found</div> -->
                </div>
