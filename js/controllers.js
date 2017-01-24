@@ -4559,6 +4559,15 @@ $scope.showCartFunction();
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
+        $scope.id = '57bc4b10eb9c91f1025a3b54';
+
+        NavigationService.getSingleExploreSmaaash($scope.id, function(data) {
+            $scope.SingleHostParty1 = data.data;
+            // console.log(".SingleHostParty1",.SingleHostParty1);
+
+        });
+
+
     })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
