@@ -1,6 +1,6 @@
-var adminurl = "http://104.155.129.33:82/";
-// var adminurl = "http://104.154.79.188:82/"; //New US server
-// var adminurl = "http://192.168.0.104:1337/";
+// var adminurl = "http://104.155.129.33:82/"; ////////old usa server
+// var adminurl = "http://104.154.79.188:82/"; ////////new usa server
+var adminurl = "http://192.168.0.7:1337/"; ///local server
 var RegisterVRadminurl = "http://smaash.wohlig.co.in/api/";
 
 var imgurl = adminurl + "upload/";
@@ -51,7 +51,7 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-    
+
         getSlider: function(callback) {
             var data = {
                 city: $.jStorage.get("cityid")
@@ -492,10 +492,13 @@ var navigationservice = angular.module('navigationservice', [])
             $.jStorage.set("loginDetail", data);
         },
         setCity: function(cityname) {
+          console.log("cityname",cityname);
             $.jStorage.set("cityid", cityname._id);
             $.jStorage.set("city", cityname.name);
             $.jStorage.set("logos", cityname.logo);
             $.jStorage.set("branchId", cityname.BranchID);
+            $.jStorage.set("weekdays",cityname.weekdays);
+            $.jStorage.set("weekend",cityname.weekend);
 
         },
 

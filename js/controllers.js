@@ -46,7 +46,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
-    
+
 $scope.loyalty=function(){
     $uibModal.open({
             animation: true,
@@ -4573,6 +4573,11 @@ $scope.showCartFunction();
             // console.log(".SingleHostParty1",.SingleHostParty1);
 
         });
+        if ($.jStorage.get("weekdays")!=null) {
+            $scope.weekdays = $.jStorage.get("weekdays");
+            $scope.weekend  = $.jStorage.get("weekend");
+          }
+
 
 
     })

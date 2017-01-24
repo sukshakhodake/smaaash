@@ -18,8 +18,8 @@
                      </div>
 
                      <div class="min-h">
-                        <p ng-hide="moreDesc[d._id]">{{d.description | htmlToPlaintext|shorten:130}}</p>
-                        <p ng-show="moreDesc[d._id]">{{myDesc|htmlToPlaintext}}</p>
+                        <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode |shorten:130"></p>
+                        <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc|htmlToPlaintext |htmlDecode"></p>
                         <div ng-if="!d.description">No description</div>
                      </div>
 
