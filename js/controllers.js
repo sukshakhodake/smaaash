@@ -46,7 +46,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
-
+    
+$scope.loyalty=function(){
+    $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/loyalty.html",
+            scope: $scope
+        });
+};
 
     $scope.currentdate = new Date();
     $scope.funToStopVid = function() {
