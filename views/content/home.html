@@ -38,9 +38,9 @@
    <div class="slidings">
       <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
          <li>
-            <!-- <a href=""> -->
+            <a href="{{s.url}}" target="_blank">
                <img ng-src="{{s.image|uploadpath}}">
-            <!-- </a> -->
+            </a>
 
          </li>
       </flex-slider>
