@@ -913,9 +913,13 @@
 }
 
 @media (max-width:480px) {
+  .marginmobile0{
+    margin: 0;
+  }
   .texting{
     width: 250px;
   }
+
 .host-pop{
   width: auto!important;
 }
@@ -1097,7 +1101,7 @@
   .smaash-menu {
     .nav-name {
       margin: 0;
-      padding: 40px 25px;
+      padding: 27px;
       font-size: 30px;
     }
   }
@@ -1232,6 +1236,8 @@
   }
 }
 
+
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
   .corporate,
   .birthday,
@@ -1310,7 +1316,7 @@ background-color: $brand-purple;
     }
   }
   .top {
-    margin: -8px 0;
+    margin: 0;
   }
   .dropdowns {
      .sides {
@@ -1335,6 +1341,7 @@ background-color: $brand-purple;
   .full-height {
     height: 300px;
   }
+
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
