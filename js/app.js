@@ -2,14 +2,14 @@
 // $.jStorage.set("city", "Mumbai");
 // $.jStorage.set("branchId", "12");
 // $.jStorage.set("cityid", "577f4d106b78e0bc03724800");
+if (!$.jStorage.get("city")) {
+  $.get("http://ipinfo.io", function(response) {
+      console.log(response.city, response.country,response);
+  }, "jsonp");
+}
 
 
-// if (!$.jStorage.get("city")) {
-//   $.holdReady(false);
-//   $.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155",function(data){
-//     console.log("ip data",data);
-//   });
-// }
+
 // console.log("ip",ip);
 //
 // if (!$.jStorage.get("city")) {
