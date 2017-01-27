@@ -2,6 +2,12 @@
   margin-bottom: 5px;
 }
 
+@media (max-width: 1366px) {
+  .container {
+    max-width: 1366px;
+  }
+}
+
 @media (max-width: $screen-xs-max) {
 
   .loyalty-points{
