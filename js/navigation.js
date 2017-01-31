@@ -1,6 +1,7 @@
-// var adminurl = "http://104.155.129.33:82/"; ////////old usa server
-var adminurl = "http://104.154.79.188:82/"; ////////new usa server
-// var adminurl = "http://192.168.0.7:1337/"; ///local server
+
+
+// var adminurl = "http://104.154.79.188:82/"; ////////new usa server
+var adminurl = "http://192.168.0.100:1337/"; ///local server
 var RegisterVRadminurl = "http://smaash.wohlig.co.in/api/";
 
 var imgurl = adminurl + "upload/";
@@ -158,6 +159,16 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
 
                 data: signupData
+
+            }).success(callback);
+        },
+        editCartPackage: function(editCart, callback) {
+
+            $http({
+                url: adminurl + 'signup/EditCartPackage',
+                method: 'POST',
+
+                data: editCart
 
             }).success(callback);
         },

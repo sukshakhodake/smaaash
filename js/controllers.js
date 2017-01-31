@@ -1,5 +1,6 @@
 var globalfunction = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload','infinite-scroll'])
+globalfunction.index;
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
     //Used to name the .html file
@@ -9,20 +10,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var openL = {};
     TemplateService.removeLoaderOn(4);
-//
-//     function requestJSONP(url) {
-//       console.log('ddddddddddddd');
-//     var script = document.createElement('script');
-//
-//     script.type = 'text/javascript';
-//     script.src = url;
-//
-//     document.body.appendChild(script);
-//       console.log("script",script);
-//
-// }
-//
-// requestJSONP('http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155?format=jsonp');
+    //
+    //     function requestJSONP(url) {
+    //       console.log('ddddddddddddd');
+    //     var script = document.createElement('script');
+    //
+    //     script.type = 'text/javascript';
+    //     script.src = url;
+    //
+    //     document.body.appendChild(script);
+    //       console.log("script",script);
+    //
+    // }
+    //
+    // requestJSONP('http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155?format=jsonp');
 
 
     $scope.goTo = function(name, id, statetogo) {
@@ -47,13 +48,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-$scope.loyalty=function(){
-    $uibModal.open({
+    $scope.loyalty = function() {
+        $uibModal.open({
             animation: true,
             templateUrl: "views/modal/loyalty.html",
             scope: $scope
         });
-};
+    };
 
     $scope.currentdate = new Date();
     $scope.funToStopVid = function() {
@@ -671,7 +672,7 @@ $scope.loyalty=function(){
 
 
 
-    $scope.moreDesc={};
+    $scope.moreDesc = {};
     $scope.mediaObject = {};
     $scope.mediaObject.pagenumber = 0;
     $scope.mediaObject.pagesize = 6;
@@ -683,11 +684,11 @@ $scope.loyalty=function(){
     $scope.busy = false;
 
     $scope.fetchData = function() {
-    if ($scope.busy) return;
-      $scope.busy = true;
+        if ($scope.busy) return;
+        $scope.busy = true;
         $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
         NavigationService.getGallery($scope.mediaObject, function(data) {
-        // NavigationService.getStars($scope.mediaObject, function(data) {
+            // NavigationService.getStars($scope.mediaObject, function(data) {
 
             console.log("mediaObject", data.data);
             console.log(data.data.totalpages);
@@ -701,15 +702,15 @@ $scope.loyalty=function(){
                 console.log($scope.mediaObject.pagenumber);
                 if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
                     if (data.data.data) {
-                    _.each(data.data.data,function(val){
-                          $scope.mediagalleryDesc.push(val);
-                      });
-                      console.log("  $scope.mediagalleryDesc",  $scope.mediagalleryDesc);
-                      data.data.data = _.chunk(data.data.data, 3);
+                        _.each(data.data.data, function(val) {
+                            $scope.mediagalleryDesc.push(val);
+                        });
+                        console.log("  $scope.mediagalleryDesc", $scope.mediagalleryDesc);
+                        data.data.data = _.chunk(data.data.data, 3);
                         _.each(data.data.data, function(n) {
                             // console.log(n);
                             $scope.mediagallery.push(n);
-                                  $scope.busy = false;
+                            $scope.busy = false;
 
                         });
                     }
@@ -895,7 +896,7 @@ $scope.loyalty=function(){
     };
 })
 
-.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $state, $stateParams, $filter) {
+.controller('DealspCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $state, $stateParams, $filter, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("dealsp");
     $scope.menutitle = NavigationService.makeactive("Deals and Packages");
@@ -914,7 +915,7 @@ $scope.loyalty=function(){
     }
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
-        console.log("SingleDealsPackages",$scope.SingleDealsPackages );
+        console.log("SingleDealsPackages", $scope.SingleDealsPackages);
         TemplateService.removeLoader();
     });
 
@@ -990,6 +991,7 @@ $scope.loyalty=function(){
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
+    // $scope.addToCartParams.NoOfAdults = '';
     if ($.jStorage.get("loginDetail") != null) {
         $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
         $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
@@ -1002,14 +1004,18 @@ $scope.loyalty=function(){
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNow = function(BranchPackageID, price) {
+    $scope.buyNow = function(BranchPackageID, price, homeText, image) {
+
+
+        $rootScope.homeText = homeText;
+        $rootScope.image = image;
         console.log("im in");
         console.log("price", price);
         console.log("BranchPackageID", BranchPackageID);
-        $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        // $scope.addToCartParams.BranchPackageID = "4";
-        // $scope.addToCartParams.TotalAmount = "122";
-        $scope.addToCartParams.TotalAmount = price;
+        // $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.BranchPackageID = "14";
+        $scope.addToCartParams.TotalAmount = "122";
+        // $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $uibModal.open({
@@ -1022,29 +1028,39 @@ $scope.loyalty=function(){
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
 
-                  if (data.data.AddToCart[0].Status  === 1) {
-                    console.log("inif", data);
-                       $uibModal.open({
-                           animation: true,
-                           templateUrl: 'views/modal/addtocart.html',
-                           scope: $scope
-                       });
+                    if (data.data.AddToCart[0].Status === 1) {
+                      if(globalfunction.index && globalfunction.index !=0){
+                        globalfunction.index = 0;
+                      }else{
+                        globalfunction.index = globalfunction.index++;
+                      }
+                        console.log("inif", data);
+                        $scope.successCartModal = $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocart.html',
+                            scope: $scope
+                        });
+                        $timeout(function() {
+                            $scope.successCartModal.close();
+                            $state.go('cart');
+                        }, 1000);
 
-                  }else if (data.data.AddToCart[0].Status === 0) {
-                    console.log("in else", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/alreadyCart.html',
-                          scope: $scope
-                      });
 
-                  }
-                }else {
-                  $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/addtocartfail.html',
-                         scope: $scope
-                     });
+                    } else if (data.data.AddToCart[0].Status === 0) {
+                        console.log("in else", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/alreadyCart.html',
+                            scope: $scope
+                        });
+
+                    }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocartfail.html',
+                        scope: $scope
+                    });
                 }
                 // if (data.value === true && data.data.AddToCart[0].Status === '1') {
                 //     console.log("inif", data);
@@ -1098,9 +1114,9 @@ $scope.loyalty=function(){
     $scope.noviewmore = true;
     $scope.stars = [];
     $scope.notAvailable = false;
-        $scope.busy = false;
+    $scope.busy = false;
     $scope.fetchData = function() {
-      if ($scope.busy) return;
+        if ($scope.busy) return;
         $scope.busy = true;
         $scope.objectfilter.pagenumber = $scope.objectfilter.pagenumber + 1;
         // NavigationService.getGallery($scope.objectfilter, function(data) {
@@ -1118,7 +1134,7 @@ $scope.loyalty=function(){
                     _.each(data.data.data, function(n) {
                         // console.log(n);
                         $scope.stars.push(n);
-                           $scope.busy = false;
+                        $scope.busy = false;
                     });
                     if (data.data.totalpages === $scope.objectfilter.pagenumber) {
                         $scope.noviewmore = false;
@@ -1186,9 +1202,9 @@ $scope.loyalty=function(){
 
     }
 
-    $scope.mediagallerys=[{
-    image:'img/new/13.png'
-}]
+    $scope.mediagallerys = [{
+        image: 'img/new/13.png'
+    }]
 
 })
 
@@ -1579,29 +1595,29 @@ $scope.loyalty=function(){
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === 1) {
-                    console.log("inif", data);
-                       $uibModal.open({
-                           animation: true,
-                           templateUrl: 'views/modal/addtocart.html',
-                           scope: $scope
-                       });
+                    if (data.data.AddToCart[0].Status === 1) {
+                        console.log("inif", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocart.html',
+                            scope: $scope
+                        });
 
-                  }else if (data.data.AddToCart[0].Status === 0) {
-                    console.log("in else", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/alreadyCart.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0) {
+                        console.log("in else", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/alreadyCart.html',
+                            scope: $scope
+                        });
 
-                  }
-                }else {
-                  $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/addtocartfail.html',
-                         scope: $scope
-                     });
+                    }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocartfail.html',
+                        scope: $scope
+                    });
                 }
                 // if (data.value && data.data.AddToCart[0].Status === '1') {
                 //     console.log("inif", data);
@@ -1644,64 +1660,86 @@ $scope.loyalty=function(){
 })
 
 
-.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal ) {
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.removeCartParams={};
+    $scope.editcartDetails = {};
+    $scope.removeCartParams = {};
     $scope.showCartParams = {};
-    $scope.cartDetails =[];
-    $scope.noofQuantity ="";
+    $scope.cartDetails = [];
+    $scope.noofQuantity = "";
 
     $scope.showCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     console.log("$scope.showCartParams", $scope.showCartParams);
-    $scope.showCartFunction =function(){
-      NavigationService.showCartPackage($scope.showCartParams,function(data){
-        console.log("$scope.showCartParams",$scope.showCartParams);
-          console.log("data",data.data.CustomerCartItem);
-          if (data.value) {
-
-            $scope.cartDetails = data.data.CustomerCartItem ;
-            console.log("$scope.cartDetails",$scope.cartDetails);
-            $scope.calculateSubTotal = function(noofQuantity,price,index){
-              $scope.cartDetails[index].subTotalAmount = noofQuantity * price ;
-              $scope.cartDetails[index].NoOfAdult =noofQuantity;
-              console.log("$scope.cartDetails",$scope.cartDetails)
-            };
-
-          }else {
-            $scope.cartDetails =[];
-            $scope.cartEmpty = " Your Cart Is Empty" ;
-            console.log("im in false");
-          }
-        })
-      }
-$scope.showCartFunction();
-
-
-        $scope.removePackage = function (CartItemID){
-            $scope.removeCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
-            $scope.removeCartParams.CustomerID=  $.jStorage.get("loginDetail").CustomerID;;
-            $scope.removeCartParams.CartItemID= CartItemID;
-          NavigationService.removeCartPackage($scope.removeCartParams,function(data){
-            console.log("data",data);
+    $scope.showCartFunction = function() {
+        NavigationService.showCartPackage($scope.showCartParams, function(data) {
+            console.log("$scope.showCartParams", $scope.showCartParams);
+            console.log("data", data.data.CustomerCartItem);
             if (data.value) {
-              if (data.data.RemoveFromCart[0].Status === 1) {
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/removeCart.html',
-                    scope: $scope
-                });
-                $scope.showCartFunction();
+console.log('aasrdtygert',data.data,'globalfunction.index',globalfunction.index);
+if(globalfunction.index >=0){
+  data.data.CustomerCartItem[globalfunction.index].homeText = $rootScope.homeText;
+  data.data.CustomerCartItem[globalfunction.index].image = $rootScope.image;
+}
+
+                $scope.cartDetails = data.data.CustomerCartItem;
+                // $scope.cartDetails.homeText = $rootScope.homeText;
+                // $scope.cartDetails.image = $rootScope.image;
+                $scope.subTotalAmount = {};
+                console.log("$scope.cartDetails", $scope.cartDetails);
+                $scope.calculateSubTotal = function(noofQuantity, price, index) {
+                    $scope.subTotalAmount[index] = noofQuantity * price;
+                    $scope.NoOfAdult = noofQuantity;
+
+                    console.log("$scope.cartDetails", $scope.cartDetails)
+                };
+                $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild) {
+                    $scope.editcartDetails.NoOfAdults = noOfAdults;
+                    $scope.editcartDetails.NoOfChild = noofChild;
+                    $scope.editcartDetails.NoOfSenior = noOfsenior;
+                    $scope.editcartDetails.CartItemID = cartItem;
+                    $scope.editcartDetails.CustomerID = custid;
+                    $scope.editcartDetails.APIKey = 'afa35e6d32a54d64962a78ccf28c140017636054922421850805185';
+                    NavigationService.editCartPackage($scope.editcartDetails, function(data) {
+                        console.log("$scope.editcartDetails", $scope.editcartDetails);
+                        console.log("data", data);
+                    });
+
                 }
-              }
-            })
-          }
+
+            } else {
+                $scope.cartDetails = [];
+                $scope.cartEmpty = " Your Cart Is Empty";
+                console.log("im in false");
+            }
+        })
+    }
+    $scope.showCartFunction();
 
 
+    $scope.removePackage = function(CartItemID) {
+        $scope.removeCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+        $scope.removeCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;;
+        $scope.removeCartParams.CartItemID = CartItemID;
+        NavigationService.removeCartPackage($scope.removeCartParams, function(data) {
+            console.log("data", data);
+            if (data.value) {
+                if (data.data.RemoveFromCart[0].Status === 1) {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/removeCart.html',
+                        scope: $scope
+                    });
+                    $scope.showCartFunction();
+                }
+            }
+        })
+    }
+    $scope.editcartDetails.NoOfAdults
 
 })
 
@@ -2670,7 +2708,7 @@ $scope.showCartFunction();
     $scope.msg = false;
     $scope.CustID = $.jStorage.get("loginDetail").CustomerID;
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
-      console.log("data",data);
+        console.log("data", data);
         if (data.value === true) {
             $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
             $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
@@ -3032,7 +3070,7 @@ $scope.showCartFunction();
     });
     $scope.readMore = function(id) {
         _.each($scope.moreDesc, function(value, property) {
-          if (id != property) {
+            if (id != property) {
                 $scope.moreDesc[property] = false;
             }
         });
@@ -3247,29 +3285,29 @@ $scope.showCartFunction();
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === 1) {
-                    console.log("inif", data);
-                       $uibModal.open({
-                           animation: true,
-                           templateUrl: 'views/modal/addtocart.html',
-                           scope: $scope
-                       });
+                    if (data.data.AddToCart[0].Status === 1) {
+                        console.log("inif", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocart.html',
+                            scope: $scope
+                        });
 
-                  }else if (data.data.AddToCart[0].Status === 0) {
-                    console.log("in else", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/alreadyCart.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0) {
+                        console.log("in else", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/alreadyCart.html',
+                            scope: $scope
+                        });
 
-                  }
-                }else {
-                  $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/addtocartfail.html',
-                         scope: $scope
-                     });
+                    }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocartfail.html',
+                        scope: $scope
+                    });
                 }
                 // if (data.value === true && data.data.AddToCart[0].Status === '1') {
                 //     console.log("inif", data);
@@ -3478,29 +3516,29 @@ $scope.showCartFunction();
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === 1) {
-                    console.log("inif", data);
-                       $uibModal.open({
-                           animation: true,
-                           templateUrl: 'views/modal/addtocart.html',
-                           scope: $scope
-                       });
+                    if (data.data.AddToCart[0].Status === 1) {
+                        console.log("inif", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocart.html',
+                            scope: $scope
+                        });
 
-                  }else if (data.data.AddToCart[0].Status === 0) {
-                    console.log("in else", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/alreadyCart.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0) {
+                        console.log("in else", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/alreadyCart.html',
+                            scope: $scope
+                        });
 
-                  }
-                }else {
-                  $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/addtocartfail.html',
-                         scope: $scope
-                     });
+                    }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocartfail.html',
+                        scope: $scope
+                    });
                 }
                 // if (data.value === true && data.data.AddToCart[0].Status === '1') {
                 //     console.log("inif", data);
@@ -3703,29 +3741,29 @@ $scope.showCartFunction();
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === 1) {
-                    console.log("inif", data);
-                       $uibModal.open({
-                           animation: true,
-                           templateUrl: 'views/modal/addtocart.html',
-                           scope: $scope
-                       });
+                    if (data.data.AddToCart[0].Status === 1) {
+                        console.log("inif", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocart.html',
+                            scope: $scope
+                        });
 
-                  }else if (data.data.AddToCart[0].Status === 0) {
-                    console.log("in else", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/alreadyCart.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0) {
+                        console.log("in else", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/alreadyCart.html',
+                            scope: $scope
+                        });
 
-                  }
-                }else {
-                  $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/addtocartfail.html',
-                         scope: $scope
-                     });
+                    }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocartfail.html',
+                        scope: $scope
+                    });
                 }
                 // if (data.value === true && data.data.AddToCart[0].Status === '1') {
                 //     console.log("inif", data);
@@ -3934,29 +3972,29 @@ $scope.showCartFunction();
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
-                  if (data.data.AddToCart[0].Status === 1) {
-                    console.log("inif", data);
-                       $uibModal.open({
-                           animation: true,
-                           templateUrl: 'views/modal/addtocart.html',
-                           scope: $scope
-                       });
+                    if (data.data.AddToCart[0].Status === 1) {
+                        console.log("inif", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocart.html',
+                            scope: $scope
+                        });
 
-                  }else if (data.data.AddToCart[0].Status === 0) {
-                    console.log("in else", data);
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/alreadyCart.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0) {
+                        console.log("in else", data);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/alreadyCart.html',
+                            scope: $scope
+                        });
 
-                  }
-                }else {
-                  $uibModal.open({
-                         animation: true,
-                         templateUrl: 'views/modal/addtocartfail.html',
-                         scope: $scope
-                     });
+                    }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/addtocartfail.html',
+                        scope: $scope
+                    });
                 }
                 // if (data.value === true && data.data.AddToCart[0].Status === '1') {
                 //     console.log("inif", data);
@@ -4573,10 +4611,10 @@ $scope.showCartFunction();
             // console.log(".SingleHostParty1",.SingleHostParty1);
 
         });
-        if ($.jStorage.get("weekdays")!=null) {
+        if ($.jStorage.get("weekdays") != null) {
             $scope.weekdays = $.jStorage.get("weekdays");
-            $scope.weekend  = $.jStorage.get("weekend");
-          }
+            $scope.weekend = $.jStorage.get("weekend");
+        }
 
 
 
