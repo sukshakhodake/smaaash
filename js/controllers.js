@@ -2,7 +2,7 @@ var globalfunction = {};
 globalfunction.index;
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog,$http) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -24,7 +24,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // }
     //
     // requestJSONP('http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155?format=jsonp');
-
+    // $http.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155")
+    //     .then(function(response) {
+    //         $scope.myWelcome = response.data;
+    //         console.log("response",response);
+    //     });
 
     $scope.goTo = function(name, id, statetogo) {
         if (name, id) {
@@ -4292,9 +4296,13 @@ if(globalfunction.index >=0){
                         var mumbai = _.find($scope.getCity, function(key) {
                             if (key.name.toLowerCase() == "mumbai") {
                                 return key;
+
                             }
+
                         });
+
                         $scope.getCityName(mumbai);
+                    
                     }
                 }
                 TemplateService.removeLoader();
@@ -4315,7 +4323,7 @@ if(globalfunction.index >=0){
             $scope.city = !$scope.city;
         };
         $scope.getCityName = function(cityname) {
-            NavigationService.setCity(cityname);
+          NavigationService.setCity(cityname);
             $state.reload();
         }
 

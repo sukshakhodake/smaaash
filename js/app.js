@@ -2,19 +2,21 @@
 // $.jStorage.set("city", "Mumbai");
 // $.jStorage.set("branchId", "12");
 // $.jStorage.set("cityid", "577f4d106b78e0bc03724800");
-console.log(ip,"ip");
+
+console.log(ip,"ipppppppppppp");
 // if (!$.jStorage.get("city")) {
-  $.get("http://ipinfo.io", function(response) {
-      // console.log(response.city, response.country,response);
-      console.log("response",response);
-  }, "jsonp");
+// $.get("http://ipinfo.io", function(response) {
+//   console.log("response",response);
+//     console.log(response.city, response.country);
+// }, "jsonp");
 // }
 
-$.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155", function(response) {
-    // console.log(response.city, response.country,response);
-    console.log("response",response);
-    console.log("im in response");
-}, "jsonp");
+
+// $.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155", function(response) {
+//
+//     console.log("response",response);
+//     console.log("im in response");
+// }, "jsonp");
 
 
 
