@@ -47,6 +47,9 @@ $brand-white:#fff !default;
 .marg {
   margin-left: 15px !important;
 }
+.mgtop{
+  margin-top: 5px;
+}
 
 .corporate {
   position: relative;
@@ -3247,7 +3250,7 @@ width: 70%;
 
 }
 .kart-image{
-     background-image: url("../img/kart.jpg") !important;  
+     background-image: url("../img/kart.jpg") !important;
      min-height: 450px;
      .more{
        position: absolute;
