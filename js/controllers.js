@@ -1012,10 +1012,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("im in");
         console.log("price", price);
         console.log("BranchPackageID", BranchPackageID);
-        // $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        $scope.addToCartParams.BranchPackageID = "14";
-        $scope.addToCartParams.TotalAmount = "122";
-        // $scope.addToCartParams.TotalAmount = price;
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        // $scope.addToCartParams.BranchPackageID = "14";
+        // $scope.addToCartParams.TotalAmount = "122";
+        $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $uibModal.open({
@@ -2601,9 +2601,12 @@ if(globalfunction.index >=0){
     $scope.detailsForBal.CardNo = "C68C765B";
     $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
+        console.log("redemablePoints data",data);
         if (data.value) {
 
+
             $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+            console.log("redemablePoints",  $scope.redemablePoints );
         } else {}
     })
 
