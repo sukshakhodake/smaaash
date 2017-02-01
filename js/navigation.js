@@ -1,7 +1,7 @@
 
 
-// var adminurl = "http://104.154.79.188:82/"; ////////new usa server
-var adminurl = "http://192.168.0.100:1337/"; ///local server
+var adminurl = "http://104.154.79.188:82/"; ////////new usa server
+// var adminurl = "http://192.168.0.100:1337/"; ///local server
 var RegisterVRadminurl = "http://smaash.wohlig.co.in/api/";
 
 var imgurl = adminurl + "upload/";
