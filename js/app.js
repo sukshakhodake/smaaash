@@ -3,7 +3,7 @@
 // $.jStorage.set("branchId", "12");
 // $.jStorage.set("cityid", "577f4d106b78e0bc03724800");
 
-console.log(ip,"ipppppppppppp");
+// console.log(ip,"ipppppppppppp");
 // if (!$.jStorage.get("city")) {
 // $.get("http://ipinfo.io", function(response) {
 //   console.log("response",response);
