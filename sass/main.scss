@@ -2135,6 +2135,83 @@ position: absolute;
 } 
 }
 
+.calender{
+    .uib-datepicker{
+        table{
+            .well-sm{
+                background-color: #ccc;
+            }
+            thead{
+                button{
+                      &:focus{
+        background-color: transparent;
+    border: none; 
+    outline: 0;
+  
+    }
+    &:active{
+          box-shadow: none;
+    }
+                }
+ .btn-default{
+background-color: transparent;
+    border: none; 
+      &:hover{
+        background-color: transparent;
+    border: none; 
+    }
+        }
+            }
+        }
+       
+}
+}
+//slider
+
+// .custom-slider.rzslider .rz-bar {
+//   background: #ffe4d1;
+//   height: 2px;
+// }
+// .custom-slider.rzslider .rz-selection {
+//   background: orange;
+// }
+
+// .custom-slider.rzslider .rz-pointer {
+//   width: 8px;
+//   height: 16px;
+//   top: auto; 
+//   bottom: 0;
+//   background-color: #333;
+//   border-top-left-radius: 3px;
+//   border-top-right-radius: 3px;
+// }
+
+// .custom-slider.rzslider .rz-pointer:after {
+//   display: none;
+// }
+
+// .custom-slider.rzslider .rz-bubble {
+//   bottom: 14px;
+// }
+
+// .custom-slider.rzslider .rz-limit {
+//   font-weight: bold;
+//   color: orange;
+// }
+
+// .custom-slider.rzslider .rz-tick {
+//   width: 1px;
+//   height: 10px;
+//   margin-left: 4px;
+//   border-radius: 0;
+//   background: #ffe4d1;
+//   top: -1px;
+// }
+
+// .custom-slider.rzslider .rz-tick.rz-selected {
+//   background: orange;
+// }
+//slider
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

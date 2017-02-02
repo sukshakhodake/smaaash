@@ -4,9 +4,9 @@
   </div>
        <div class="container">
                  <div class="calender ">
-                     <div class="brand-greenblu clearfix">
-    <span class="pull-left brand-white ">Change Time</span>
-    <span class="pull-right brand-white">Change Time</span>
+                     <div class="brand-greenblu clearfix paddings">
+    <span class="pull-left brand-white ">Select Date</span>
+    <span class="pull-right brand-white">You have selected Wednesday December 14,2016</span>
                      </div>
             <div class="row">
                 <div class="col-md-6">
@@ -30,11 +30,13 @@
 <input type="range" name="foo" min="0" max="100">
 <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
 </form>-->
-
-<form>
-<input type="range" name="foo" min="0" max="100" style="width: 300px;">
-<output for="foo" onforminput="value = foo.valueAsNumber;"></output>
-</form>
+<div>
+    <rzslider rz-slider-model="priceSlider"></rzslider>
+</div>
+<!--<rzslider class="custom-slider"
+          rz-slider-model="slider.minValue"
+          rz-slider-high="slider.maxValue"
+          rz-slider-options="slider.options"></rzslider>-->
 
 <!--<form>
 <input type="range" name="foo" min="0" max="100">

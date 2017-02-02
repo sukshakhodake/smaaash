@@ -1,6 +1,6 @@
 var globalfunction = {};
 globalfunction.index;
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll','rzModule'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog,$http) {
     //Used to name the .html file
@@ -474,6 +474,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+
+//slider
+
+// $scope.slider = {
+//   minValue: 10,
+//   maxValue: 90,
+//   options: {
+//     floor: 0,
+//     ceil: 100,
+//     step: 10,
+//     showTicks: true
+//   }
+// };
+
+$scope.slider = {
+    value: 10
+}
+
+
     //calender
     $scope.today = function() {
         $scope.dt = new Date();
