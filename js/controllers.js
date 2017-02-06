@@ -1722,14 +1722,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 // $scope.cartDetails.homeText = $rootScope.homeText;
                 // $scope.cartDetails.image = $rootScope.image;
-                $scope.subTotalAmount = {};
+              
                 console.log("$scope.cartDetails", $scope.cartDetails);
-                // $scope.calculateSubTotal = function(noofQuantity, price, index) {
-                //     $scope.subTotalAmount[index] = noofQuantity * price;
-                //     $scope.NoOfAdult = noofQuantity;
-                //
-                //     console.log("$scope.cartDetails", $scope.cartDetails)
-                // };
+
                 $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
                     console.log("$index", index);
                     $scope.editcartDetails.NoOfAdults = noOfAdults;

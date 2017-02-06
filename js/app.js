@@ -5,9 +5,9 @@
 
 //
 // if (!$.jStorage.get("city")) {
-$.get("http://ipinfo.io", function(response) {
-    console.log("response", response);
-}, "jsonp");
+// $.get("http://ipinfo.io", function(response) {
+//     console.log("response", response);
+// }, "jsonp");
 // }
 
 
