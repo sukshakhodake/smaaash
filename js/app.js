@@ -3,25 +3,17 @@
 // $.jStorage.set("branchId", "12");
 // $.jStorage.set("cityid", "577f4d106b78e0bc03724800");
 
-// console.log(ip,"ipppppppppppp");
+//
 // if (!$.jStorage.get("city")) {
-// $.get("http://ipinfo.io", function(response) {
-//   console.log("response",response);
-//     console.log(response.city, response.country);
-// }, "jsonp");
+$.get("http://ipinfo.io", function(response) {
+    console.log("response", response);
+}, "jsonp");
 // }
 
 
-// $.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155", function(response) {
-//
-//     console.log("response",response);
-//     console.log("im in response");
-// }, "jsonp");
 
 
 
-// console.log("ip",ip);
-//
 // if (!$.jStorage.get("city")) {
 //     $.holdReady(false);
 //
@@ -77,20 +69,20 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('corporate-parties', {
-        url: "/corporate-parties",
-        templateUrl: "views/template.html",
-        controller: 'CorporateCtrl'
-    })
-  //   .state('landingform', {
-  //     url: "/landingform",
-  //     templateUrl: "views/template.html",
-  //     controller: 'LandingCtrl'
-  // })
-      .state('sky-form', {
-      url: "/sky-form",
-      templateUrl: "views/template.html",
-      controller: 'SkiesCtrl'
-  })
+            url: "/corporate-parties",
+            templateUrl: "views/template.html",
+            controller: 'CorporateCtrl'
+        })
+        //   .state('landingform', {
+        //     url: "/landingform",
+        //     templateUrl: "views/template.html",
+        //     controller: 'LandingCtrl'
+        // })
+        .state('sky-form', {
+            url: "/sky-form",
+            templateUrl: "views/template.html",
+            controller: 'SkiesCtrl'
+        })
 
     .state('event', {
         url: "/event/:id",
@@ -117,20 +109,15 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('thank', {
-        url: "/thank-you",
-        templateUrl: "views/template.html",
-        controller: 'ThankCtrl'
-    })
-
-
-
-
-
-    .state('promotion', {
-        url: "/promotion/:id",
-        templateUrl: "views/template.html",
-        controller: 'PromotionCtrl'
-    })
+            url: "/thank-you",
+            templateUrl: "views/template.html",
+            controller: 'ThankCtrl'
+        })
+        .state('promotion', {
+            url: "/promotion/:id",
+            templateUrl: "views/template.html",
+            controller: 'PromotionCtrl'
+        })
 
     .state('blog', {
             url: "/blog",
@@ -274,25 +261,25 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
     .state('confirm-order', {
-        url: "/confirm-order",
-        templateUrl: "views/template.html",
-        controller: 'ConfirmCtrl'
-    })
-    .state('snow-rush', {
-        url: "/:name/:id",
-        templateUrl: "views/template.html",
-        controller: 'SnowCtrl'
-    })
-    .state('event-inner', {
-        url: "/:name/:id",
-        templateUrl: "views/template.html",
-        controller: 'EventInnerCtrl'
-    })
-    .state('deals-inner', {
-        url: "/:name/:id",
-        templateUrl: "views/template.html",
-        controller: 'DealsInnerCtrl'
-    })
+            url: "/confirm-order",
+            templateUrl: "views/template.html",
+            controller: 'ConfirmCtrl'
+        })
+        .state('snow-rush', {
+            url: "/:name/:id",
+            templateUrl: "views/template.html",
+            controller: 'SnowCtrl'
+        })
+        .state('event-inner', {
+            url: "/:name/:id",
+            templateUrl: "views/template.html",
+            controller: 'EventInnerCtrl'
+        })
+        .state('deals-inner', {
+            url: "/:name/:id",
+            templateUrl: "views/template.html",
+            controller: 'DealsInnerCtrl'
+        })
 
     .state('media', {
         url: "/media",
@@ -643,11 +630,11 @@ function allowPatternDirective() {
         restrict: "A",
         compile: function(tElement, tAttrs) {
             return function(scope, element, attrs) {
-              element.bind("keypress", function(event) {
+                element.bind("keypress", function(event) {
                     var keyCode = event.which || event.keyCode;
                     var keyCodeChar = String.fromCharCode(keyCode);
                     if (!keyCodeChar.match(new RegExp(attrs.allowPattern, "i"))) {
-            event.preventDefault();
+                        event.preventDefault();
                         return false;
                     }
 
@@ -657,16 +644,16 @@ function allowPatternDirective() {
     };
 }
 
-firstapp.directive('scrolldown', function ($compile, $parse) {
+firstapp.directive('scrolldown', function($compile, $parse) {
 
     return {
         restrict: 'EA',
         replace: false,
-        link: function ($scope, element, attrs) {
+        link: function($scope, element, attrs) {
             var $element = $(element);
             // var windowHeight = $(window).height();
-            $scope.scrollDown = function () {
-                $scope.startVideo=false;
+            $scope.scrollDown = function() {
+                $scope.startVideo = false;
                 $('html,body').animate({
                         scrollTop: $(".second").offset().top
                     },
@@ -828,13 +815,13 @@ firstapp.filter('englishNumeralTime', function() {
         }
     };
 });
-firstapp.directive('noPaste', function ($filter) {
-  return {
-    scope: {},
-    link: function (scope, element) {
-      element.on('cut copy paste', function (event) {
-        event.preventDefault();
-      });
-    }
-  };
+firstapp.directive('noPaste', function($filter) {
+    return {
+        scope: {},
+        link: function(scope, element) {
+            element.on('cut copy paste', function(event) {
+                event.preventDefault();
+            });
+        }
+    };
 });

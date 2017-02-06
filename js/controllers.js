@@ -1,8 +1,8 @@
 var globalfunction = {};
 globalfunction.index;
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll','rzModule'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll', 'rzModule'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog,$http) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -29,6 +29,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //         $scope.myWelcome = response.data;
     //         console.log("response",response);
     //     });
+
 
     $scope.goTo = function(name, id, statetogo) {
         if (name, id) {
@@ -475,22 +476,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
 
-//slider
+    //slider
 
-// $scope.slider = {
-//   minValue: 10,
-//   maxValue: 90,
-//   options: {
-//     floor: 0,
-//     ceil: 100,
-//     step: 10,
-//     showTicks: true
-//   }
-// };
+    // $scope.slider = {
+    //   minValue: 10,
+    //   maxValue: 90,
+    //   options: {
+    //     floor: 0,
+    //     ceil: 100,
+    //     step: 10,
+    //     showTicks: true
+    //   }
+    // };
 
-$scope.slider = {
-    value: 10
-}
+    $scope.slider = {
+        value: 10
+    }
 
 
     //calender
@@ -1036,7 +1037,7 @@ $scope.slider = {
         console.log("price", price);
         console.log("BranchPackageID", BranchPackageID);
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        // $scope.addToCartParams.BranchPackageID = "14";
+        // $scope.addToCartParams.BranchPackageID = "33";
         // $scope.addToCartParams.TotalAmount = "122";
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -1052,11 +1053,11 @@ $scope.slider = {
                 if (data.value) {
 
                     if (data.data.AddToCart[0].Status === 1) {
-                      if(globalfunction.index && globalfunction.index !=0){
-                        globalfunction.index = 0;
-                      }else{
-                        globalfunction.index = globalfunction.index++;
-                      }
+                        if (globalfunction.index && globalfunction.index != 0) {
+                            globalfunction.index = 0;
+                        } else {
+                            globalfunction.index = globalfunction.index++;
+                        }
                         console.log("inif", data);
                         $scope.successCartModal = $uibModal.open({
                             animation: true,
@@ -1683,7 +1684,7 @@ $scope.slider = {
 })
 
 
-.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal,$rootScope) {
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
@@ -1700,33 +1701,47 @@ $scope.slider = {
     console.log("$scope.showCartParams", $scope.showCartParams);
     $scope.showCartFunction = function() {
         NavigationService.showCartPackage($scope.showCartParams, function(data) {
+            console.log("data", data);
             console.log("$scope.showCartParams", $scope.showCartParams);
             console.log("data", data.data.CustomerCartItem);
             if (data.value) {
-console.log('aasrdtygert',data.data,'globalfunction.index',globalfunction.index);
-if(globalfunction.index >=0){
-  data.data.CustomerCartItem[globalfunction.index].homeText = $rootScope.homeText;
-  data.data.CustomerCartItem[globalfunction.index].image = $rootScope.image;
-}
+                if (data.data.CustomerCartItem.length > 0) {
+                    $scope.cartDetails = data.data.CustomerCartItem;
+                    _.each($scope.cartDetails, function(val) {
+                        val.subTotal = val.TotalAmount * val.NoOfAdult;
+                    })
+                } else {
+                    $scope.cartEmpty = " Your Cart Is Empty";
+                }
+                console.log('aasrdtygert', data.data, 'globalfunction.index', globalfunction.index);
+                if (globalfunction.index >= 0) {
+                    data.data.CustomerCartItem[globalfunction.index].homeText = $rootScope.homeText;
+                    data.data.CustomerCartItem[globalfunction.index].image = $rootScope.image;
+                }
 
-                $scope.cartDetails = data.data.CustomerCartItem;
+
                 // $scope.cartDetails.homeText = $rootScope.homeText;
                 // $scope.cartDetails.image = $rootScope.image;
                 $scope.subTotalAmount = {};
                 console.log("$scope.cartDetails", $scope.cartDetails);
-                $scope.calculateSubTotal = function(noofQuantity, price, index) {
-                    $scope.subTotalAmount[index] = noofQuantity * price;
-                    $scope.NoOfAdult = noofQuantity;
-
-                    console.log("$scope.cartDetails", $scope.cartDetails)
-                };
-                $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild) {
+                // $scope.calculateSubTotal = function(noofQuantity, price, index) {
+                //     $scope.subTotalAmount[index] = noofQuantity * price;
+                //     $scope.NoOfAdult = noofQuantity;
+                //
+                //     console.log("$scope.cartDetails", $scope.cartDetails)
+                // };
+                $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
+                    console.log("$index", index);
                     $scope.editcartDetails.NoOfAdults = noOfAdults;
                     $scope.editcartDetails.NoOfChild = noofChild;
                     $scope.editcartDetails.NoOfSenior = noOfsenior;
                     $scope.editcartDetails.CartItemID = cartItem;
                     $scope.editcartDetails.CustomerID = custid;
                     $scope.editcartDetails.APIKey = 'afa35e6d32a54d64962a78ccf28c140017636054922421850805185';
+                    console.log("$scope.editcartDetails", $scope.editcartDetails);
+
+                    $scope.cartDetails[index].subTotal = $scope.editcartDetails.NoOfAdults * $scope.cartDetails[index].TotalAmount;
+
                     NavigationService.editCartPackage($scope.editcartDetails, function(data) {
                         console.log("$scope.editcartDetails", $scope.editcartDetails);
                         console.log("data", data);
@@ -2624,12 +2639,12 @@ if(globalfunction.index >=0){
     $scope.detailsForBal.CardNo = "C68C765B";
     $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
-        console.log("redemablePoints data",data);
+        console.log("redemablePoints data", data);
         if (data.value) {
 
 
             $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
-            console.log("redemablePoints",  $scope.redemablePoints );
+            console.log("redemablePoints", $scope.redemablePoints);
         } else {}
     })
 
@@ -4321,7 +4336,7 @@ if(globalfunction.index >=0){
                         });
 
                         $scope.getCityName(mumbai);
-                    
+
                     }
                 }
                 TemplateService.removeLoader();
@@ -4342,7 +4357,7 @@ if(globalfunction.index >=0){
             $scope.city = !$scope.city;
         };
         $scope.getCityName = function(cityname) {
-          NavigationService.setCity(cityname);
+            NavigationService.setCity(cityname);
             $state.reload();
         }
 
