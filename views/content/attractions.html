@@ -60,9 +60,11 @@
                 </p>
                 <!-- <p class="" ng-bind-html="d.description | htmlDecode | shorten :140"></p> -->
 
+                <!-- <div class="dark"> -->
+                  <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode | shorten:130 "></p>
+                  <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc| htmlDecode"></p>
+                <!-- </div> -->
 
-                <p class="" ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode | shorten:130 "></p>
-                <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc| htmlDecode"></p>
                 <div ng-if="!d.description">No description</div>
                 <span class="capitalize greeny" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id,$index)">read more</span>
                 <span class="capitalize greeny" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id,$index)">read less</span>
@@ -71,9 +73,9 @@
               <div class="button-set">
                 <button class="uppercase blue" ng-click="buyNow(d.BranchPackageID,d.price)">buy now</button>
               </div>
-              <div class="love">
+              <!-- <div class="love">
                 <button class="uppercase" ng-click="addedToWishList(d._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>would love to try</button>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

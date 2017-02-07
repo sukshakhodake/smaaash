@@ -1910,7 +1910,7 @@ border-bottom: 2px solid #000;
     .brand-blue{
         background-color: #18267a;
     }
- 
+
     .table {
         th{
             padding: 15px 0;
@@ -1926,18 +1926,18 @@ tr {
     }
     }
 tr:last-child{
-     border-bottom: none; 
+     border-bottom: none;
 }
 }
 
-    }  
+    }
 
 
     tr{
         td{
               background-color:rgba(24, 38, 122, 0.5);
               color: #fff;
-            
+
     border-right: 2px solid rgba(255, 255, 255,  0.15);
     p{
         margin: 0;
@@ -1975,21 +1975,21 @@ border-right: none;
     border-radius: 32px;
     color: black;
   }
-    output { 
+    output {
   position: absolute;
   background-image: linear-gradient(#444444, #999999);
-  width: 40px; 
-  height: 30px; 
-  text-align: center; 
-  color: white; 
-  border-radius: 10px; 
-  display: inline-block; 
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
   font: bold 15px/30px Georgia;
   bottom: 175%;
   left: 0;
   margin-left: -1%;
 }
-output:after { 
+output:after {
   content: "";
   position: absolute;
   width: 0;
@@ -2002,8 +2002,8 @@ output:after {
   margin-left: -5px;
   margin-top: -1px;
 }
-form { 
-  position: relative; 
+form {
+  position: relative;
   margin: 50px;
 }
 }
@@ -2124,15 +2124,21 @@ position: absolute;
 .green{
     background-color: #fff;
     color: #000;
-}  
+}
 .more{
-   
+
     button{
        padding: 8px;
        margin: 0 2px;
-       
+
     }
-} 
+}
+}
+
+.dark{
+  p{
+    font-weight: 600;
+  }
 }
 
 .calender{
@@ -2145,9 +2151,9 @@ position: absolute;
                 button{
                       &:focus{
         background-color: transparent;
-    border: none; 
+    border: none;
     outline: 0;
-  
+
     }
     &:active{
           box-shadow: none;
@@ -2155,15 +2161,15 @@ position: absolute;
                 }
  .btn-default{
 background-color: transparent;
-    border: none; 
+    border: none;
       &:hover{
         background-color: transparent;
-    border: none; 
+    border: none;
     }
         }
             }
         }
-       
+
 }
 }
 //slider
@@ -2179,7 +2185,7 @@ background-color: transparent;
 // .custom-slider.rzslider .rz-pointer {
 //   width: 8px;
 //   height: 16px;
-//   top: auto; 
+//   top: auto;
 //   bottom: 0;
 //   background-color: #333;
 //   border-top-left-radius: 3px;
