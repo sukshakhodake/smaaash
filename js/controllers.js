@@ -1036,10 +1036,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("im in");
         console.log("price", price);
         console.log("BranchPackageID", BranchPackageID);
-        $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        // $scope.addToCartParams.BranchPackageID = "33";
-        // $scope.addToCartParams.TotalAmount = "122";
-        $scope.addToCartParams.TotalAmount = price;
+        // $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        $scope.addToCartParams.BranchPackageID = "37";
+        $scope.addToCartParams.TotalAmount = "222";
+        // $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $uibModal.open({
@@ -1722,7 +1722,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 // $scope.cartDetails.homeText = $rootScope.homeText;
                 // $scope.cartDetails.image = $rootScope.image;
-              
+
                 console.log("$scope.cartDetails", $scope.cartDetails);
 
                 $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
