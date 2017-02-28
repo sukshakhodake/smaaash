@@ -4402,6 +4402,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getOtp.OTPFor = "1";
         $scope.wrongOtp = false;
 
+    $scope.isDisabled = false;
+
+    // $scope.disableButton = function() {
+    //     $scope.isDisabled = true;
+    // }
+
 
         $scope.signupGenerateOtp = function(signupData) {
             console.log("signupData ", signupData);
@@ -4416,6 +4422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                         $scope.getOtp.CustomerMobileNo = signupData.CustomerMobile;
                         console.log("$scope.getOtp", $scope.getOtp);
+                          $scope.isDisabled = true;
                         NavigationService.generateOtp($scope.getOtp, function(data) {
                             console.log("data", data);
                             if (data.value === true) {

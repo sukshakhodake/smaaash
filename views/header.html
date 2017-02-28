@@ -65,14 +65,14 @@
                      </a>
                   </div>
                </div> -->
-               <!-- <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
+               <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
 
                   <div class="log bg-prop">
                      <a class="text-center">
                         <h3 class="nav-name"><span class="block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p>.. </span></h3>
                      </a>
                   </div>
-               </div> -->
+               </div>
                <div class="col-flexing mobiles-50 marginmobile0">
                   <div class="log bg-prop" ui-sref="contact">
                      <a class="text-center">
@@ -80,20 +80,20 @@
                      </a>
                   </div>
                </div>
-               <!-- <div class="col-flexing mobiles-50" ng-show="userLoginDetails === null">
+               <div class="col-flexing mobiles-50" ng-show="userLoginDetails === null">
                   <div class="log bg-prop">
                      <a class="text-center">
                         <h3 class="nav-name" ng-click="getMenus();"><span class="block">Login</span></h3>
                      </a>
                   </div>
-               </div> -->
-               <!-- <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
+               </div>
+               <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                   <div class="log bg-prop">
                      <a class="text-center">
                         <h3 class="nav-name" ng-click="logout();"><span class="block">Log</span>out</h3>
                      </a>
                   </div>
-               </div> -->
+               </div>
             </div>
 
             <div class="rows mobile-inlineblock top mgtop">
@@ -295,9 +295,9 @@
 
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter Your Card.No" name="card" ng-model="signupData.cardno" required>
+                                    <input type="text" class="form-control" placeholder="Enter Your Card.No" name="card" ng-model="signupData.cardno">
                                 </div>
-                                <button type="submit"  class="btn4  btn-default brand-blue"><span class="uppercase brand-white">sign up</span></button>
+                                <button type="submit"  class="btn4  btn-default brand-blue" ng-disabled="isDisabled"><span class="uppercase brand-white">sign up</span></button>
 
 
                             </form>

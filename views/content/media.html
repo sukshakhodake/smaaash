@@ -29,33 +29,33 @@
    <div class="new">
       <div class="container">
 
-          <!--<h3 class="uppercase" ng-if="mediagallery.length>0">media</h3>
+         <!--<h3 class="uppercase" ng-if="mediagallery.length>0">media</h3>
           <p>For media inquiries, please contact Sara Wickoren at <a class="mail" href="mailto:sara@smaaashusa.com">sara@smaaashusa.com</a></p>
             <p>"There's so much to share: press coverage and videos coming soon!"</p>
          <h4 ng-if="mediagallery.length === 0" class="text-center">Loading ...</h4>-->
          <!-- <div class="row"> -->
          <div class="row" ng-repeat="datas in mediagallery">
 
-           <div class="col-md-4 col-sm-4" ng-repeat="d in datas">
-             <div class="karting-championship">
-               <div class="brand-blue relative pointer" >
-                 <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
-                 <a href="" class="pink-button" ng-if="d.url"><img src="img/home/button.png" class="img-responsive" alt=""></a>
-               </div>
+            <div class="col-md-4 col-sm-4" ng-repeat="d in datas">
+               <div class="karting-championship">
+                  <div class="brand-blue relative pointer">
+                     <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+                     <a href="" class="pink-button" ng-if="d.url"><img src="img/home/button.png" class="img-responsive" alt=""></a>
+                  </div>
+                  <div class="new-detail">
+                     <div class="views inline-block">
 
-
-               <div class="new-detail">
-                 <div class="views inline-block">
-
-                   <button class="uppercase bluey"> <a href="{{d.link}}" target="_blank">view
+                        <button class="uppercase bluey"> <a href="{{d.link}}" target="_blank">view
                    </a></button>
 
-                 </div>
+                     </div>
+                     <h3 class="margin0 bluey" ng-bind-html="d.title | shorten :45"></h3>
+                     <p style="min-height: 78px;" ng-bind-html="d.text | htmlToPlaintext"></p>
 
 
+                  </div>
                </div>
-             </div>
-           </div>
+            </div>
 
 
 
@@ -79,7 +79,7 @@
                </div>
             </div> -->
 
-             <!-- <div class="col-md-4">
+            <!-- <div class="col-md-4">
     <div class="karting-championship">
  <div class="brand-blue relative pointer">
               <img src="img/corporate/moa.png" class="img-responsive" alt="">
@@ -263,7 +263,7 @@
    </div>
 
    <div class="loading" infinite-scroll='fetchData();' infinite-scroll-disabled='busy' ng-if="!notAvailable">
-     <p class=" load-more text-center margin0 pointer" ng-if="mediagallery.length>0">Loading...</p>
+      <p class=" load-more text-center margin0 pointer" ng-if="mediagallery.length>0">Loading...</p>
 
    </div>
 
