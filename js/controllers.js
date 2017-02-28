@@ -4401,16 +4401,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getOtp.CustomerMobileNo = $scope.signupData.CustomerMobile;
         $scope.getOtp.OTPFor = "1";
         $scope.wrongOtp = false;
+        $scope.isDisabled = false;
+        $scope.isDisabled2 = false;
 
-    $scope.isDisabled = false;
 
-    // $scope.disableButton = function() {
-    //     $scope.isDisabled = true;
-    // }
+
 
 
         $scope.signupGenerateOtp = function(signupData) {
             console.log("signupData ", signupData);
+            $scope.customerEXist = false;
             if (signupData) {
                 if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
                     $scope.validCity = false;
@@ -4422,7 +4422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                         $scope.getOtp.CustomerMobileNo = signupData.CustomerMobile;
                         console.log("$scope.getOtp", $scope.getOtp);
-                          $scope.isDisabled = true;
+                        $scope.isDisabled = true;
                         NavigationService.generateOtp($scope.getOtp, function(data) {
                             console.log("data", data);
                             if (data.value === true) {
@@ -4430,6 +4430,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             } else {
                                 console.log("data in false", data);
                                 $scope.customerEXist = true;
+                                $scope.isDisabled = false;
                             }
                         });
                     } else {
@@ -4449,31 +4450,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.signupGenerateOtp(signupData);
         }
         $scope.customerSignup = function(signupData) {
+          console.log("signupData",signupData );
+            if (signupData) {
+                $scope.isDisabled2 = true;
+                NavigationService.CustomerRegistration(signupData, function(data) {
+                    console.log("signupData", signupData);
+                    console.log("signupDataforData", data);
+                    if (data.value === true) {
+                        $scope.modalOtp.close();
+                        // $.jStorage.set("loginDetail", data);
+                        NavigationService.setUser(data.data);
+                        $scope.emailExist = false;
+                        $scope.formCompleteSignup = true;
+                        $timeout(function() {
+                            $scope.formCompleteSignup = false;
+                            $scope.signupData = {};
+                        }, 2000);
+                        location.reload();
+                    } else if (data.value === false && data.data === "Customer Already Exists") {
+                        $scope.custExist = true;
+                        $scope.wrongOtp = false;
+                        $scope.isDisabled2 = false;
 
-            console.log("signupData", signupData);
-            NavigationService.CustomerRegistration(signupData, function(data) {
-                console.log("signupData", signupData);
-                console.log("signupDataforData", data);
-                if (data.value === true) {
-                    // $.jStorage.set("loginDetail", data);
-                    NavigationService.setUser(data.data);
-                    $scope.emailExist = false;
-                    $scope.formCompleteSignup = true;
-                    $timeout(function() {
-                        $scope.formCompleteSignup = false;
-                        $scope.signupData = {};
-                    }, 2000);
-                    location.reload();
-                } else if (data.value === false && data.data === "Customer Already Exists") {
-                    $scope.custExist = true;
-                    $scope.wrongOtp = false;
-                } else {
-                    $scope.emailExist = true;
-                    $scope.wrongOtp = true;
+                    } else {
+                      $scope.isDisabled2 = false;
+                      $scope.emailExist = true;
+                      $scope.wrongOtp = true;
 
-                }
-            })
-
+                    }
+                })
+            }
         }
 
         $scope.formComplete = false;
