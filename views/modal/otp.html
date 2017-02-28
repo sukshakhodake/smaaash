@@ -12,7 +12,7 @@
                      <div ng-if="wrongOtp" class="text-center"> Invalid OTP or OTP got Expired</div>
                      <div ng-if="custExist" class="text-center"> Customer Already Exists</div>
 
-     <button type="submit" class=" btn-default block" ><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+     <button type="submit" class=" btn-default block" ng-disabled="isDisabled2" ><img src="img/new/submit.png" class="img-responsive" alt=""></button>
        <button type="button" class=" btn-default block brand-white" ng-click="GenrateOneTimePass(signupData);">Resend OTP</button>
   </form>
 
