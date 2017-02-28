@@ -6,8 +6,35 @@
     </div>
     <div class="container">
         <div class="new">
-            <div class="row" ng-repeat="data2 in drinkParty">
-                <div class="col-md-4 col-sm-4" ng-repeat="data in data2">
+            <div class="row">
+                <div class="col-md-4" ng-repeat="data in drinkParties">
+                     <div class="karting-championship relative">
+                           <div class="img-bg">
+                            <img ng-src="{{data.img}}" class="img-responsive" alt="food">
+                        </div>
+                        <div class="new-detail">
+                                       <div class="min-h">
+                                <h3 class="margin0 uppercase">{{data.title}}</h3>
+                            </div>
+                            <div class="button-sets">
+                                <button class="uppercase large green" ng-click="bookings();">Book Now</button>
+                                <button class="uppercase larger green" ng-click="pdfmodal(data.pdf);">Menu</button>
+                            </div>
+                            <!-- ng-if="data.pdf"-->
+                            <div class="min-h">
+                                <p>{{data.info}}</p>
+                                <!--ng-hide="moreDesc[data._id]" ng-bind-html="data.description | htmlDecode | shorten:130"-->
+                                <!--ng-show="moreDesc[data._id]" ng-bind-html="myDesc| htmlDecode"-->
+
+                                <!--<div ng-if="!data.description">No description</div>
+
+                                <span class="capitalize greeny" ng-if="data.description.length > 130 && !moreDesc[data._id]" ng-click="readMore(data._id)">read more</span>
+                                <span class="capitalize greeny" ng-if="data.description.length > 130 && moreDesc[data._id]" ng-click="readMore(data._id)">read less</span>
+                            </div>-->
+                        </div>
+                         </div>
+                </div>
+                <!--<div class="col-md-4 col-sm-4" ng-repeat="data in data2">
                     <div class="karting-championship relative">
                         <div class="img-bg">
                             <img ng-src="{{data.homeimage|uploadpath}}" class="img-responsive" alt="">
@@ -73,15 +100,11 @@
 
                                 </div>
                             </div>
-                            <!--<div class="love"  ng-if="data.sublink">
-                                <a href={{data.sublink}} target="_blank">
-                                    <button class="uppercase">know more</button>
-                                </a>
-                            </div>-->
+                          
                         </div>
                     </div>
 
-                </div>
+                </div>-->
 
             </div>
         </div>

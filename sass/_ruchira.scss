@@ -3072,7 +3072,7 @@ button {
 
 .drink {
   .new-detail {
-    min-height: 470px;
+    min-height: 320px;
   }
 }
 
@@ -3310,4 +3310,21 @@ width: 70%;
   width: 40%;
   display: inline-block;
   margin-left: 15px;
+}
+
+
+//newly added
+
+.careers{
+  .button-sets{
+    button{
+    background-color: #29a8df !important;
+    padding: 10px 0 !important;
+    color: #fff;
+    width: 20%;
+    border-radius: 10px;
+    border: none;
+    }
+  }
+  
 }
