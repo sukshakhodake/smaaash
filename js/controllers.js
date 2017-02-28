@@ -453,6 +453,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     };
 })
+.controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("career");
+    $scope.menutitle = NavigationService.makeactive("Career");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    })
 
 .controller('BenefitCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
@@ -3184,6 +3191,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showimg = true;
 
     };
+
+    $scope.drinkParties=[{
+img:'img/food/restro.jpg',
+title:'food',
+info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
+    },
+    {
+     img:'img/food/restro.jpg',
+title:'drink',
+info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'   
+
+    },
+     {
+     img:'img/food/restro.jpg',
+title:'party',
+info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'   
+
+    }];
 })
 
 .controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
