@@ -90,6 +90,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'EventCtrl'
     })
 
+       .state('career', {
+            url: "/career",
+            templateUrl: "views/template.html",
+            controller: 'CareerCtrl'
+        })
+
     .state('dealsp', {
         url: "/dealsp/:id",
         templateUrl: "views/template.html",
