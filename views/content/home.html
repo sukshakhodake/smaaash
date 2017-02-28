@@ -87,6 +87,7 @@
 <div class="container" ng-if="banner[0].videourl">
  <div class="land-kartbanner middle">
         <div class="inner relative pointer auto-height ">
+
    <iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
      style="
        width: 100%;
@@ -107,8 +108,11 @@
                <div class="mover extra">
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in deals track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
+                       <a  ui-sref="dealsp({id:deals[0].type._id})">
+                         <!--ui-sref="parties({id:s._id})"-->
+                             <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="dealsp({id:deals[0].type._id})">
+                       </a>
 
-                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="dealsp({id:deals[0].type._id})">
 
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      </li>
@@ -195,7 +199,7 @@
             </flex-slider>
          </div>
       </div>
-   </div> 
+   </div>
    <div class="row">
       <div class="col-md-6">
          <div class="updated mt15">
@@ -206,8 +210,10 @@
                <div class="mover extra" >
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in events track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li >
+                       <a ui-sref="event({id:events[0].type._id})">
+                             <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="event({id:events[0].type._id})">
+                       </a>
 
-                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="event({id:events[0].type._id})">
 
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      </li>

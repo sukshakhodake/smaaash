@@ -4,10 +4,31 @@
 
          <div class="row">
             <div class="rows mobile-inlineblock  ">
-               <div class="col-flexing mobile-50 ">
+               <!-- <div class="col-flexing mobile-50 ">
                   <div class="promotions bg-prop">
                      <a ui-sref="promotion({id:promotionId})" class="text-center">
                         <h3 class="nav-name"><span class="block">promotions</span></h3>
+                     </a>
+                  </div>
+               </div> -->
+               <div class="col-flexing mobile-50 ">
+                  <div class="promotions bg-prop">
+                     <a ui-sref="about" class="text-center">
+                        <h3 class="nav-name"><span class="block">about us</span></h3>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-flexing mobile-50">
+                   <div class="host bg-prop"  ui-sref="hostparty({id:hostpartyId})">
+                       <a  class="text-center">
+                           <h3 class="nav-name"><span class="block">host a </span>party</h3>
+                       </a>
+                   </div>
+               </div>
+               <div class="col-flexing mobile-50  ">
+                  <div class="exploring bg-prop ">
+                     <a ui-sref="attractions({id:attraId})" class="text-center">
+                        <h3 class="nav-name ">games</h3>
                      </a>
                   </div>
                </div>
@@ -26,38 +47,32 @@
                   </div>
                </div> -->
 
-               <div class="col-flexing mobile-50 ">
+               <!-- <div class="col-flexing mobile-50 ">
                   <div class="buy bg-prop" ui-sref="recharge">
                      <a class="text-center">
                         <h3 class="nav-name "><span class="block">recharge online</span></h3>
                      </a>
                   </div>
-               </div>
+               </div> -->
 
-               <div class="col-flexing mobile-50 ">
-                  <div class="cart bg-prop">
-                     <a class="text-center">
-                        <h3 class="nav-name" ng-click="myCart();"><span class="block">my cart</span></h3>
-                     </a>
-                  </div>
-               </div>
+
 
                <!-- <div class="col-flexing mobile-50" > -->
-               <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
+               <!-- <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                   <div class="account bg-prop">
                      <a class="text-center">
                         <h3 class=" nav-name nav-naming" ng-click="myAccount();"><span class="block">my</span> account</h3>
                      </a>
                   </div>
-               </div>
-               <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
+               </div> -->
+               <!-- <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
 
                   <div class="log bg-prop">
                      <a class="text-center">
                         <h3 class="nav-name"><span class="block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p>.. </span></h3>
                      </a>
                   </div>
-               </div>
+               </div> -->
                <div class="col-flexing mobiles-50 marginmobile0">
                   <div class="log bg-prop" ui-sref="contact">
                      <a class="text-center">
@@ -72,23 +87,17 @@
                      </a>
                   </div>
                </div> -->
-               <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
+               <!-- <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                   <div class="log bg-prop">
                      <a class="text-center">
                         <h3 class="nav-name" ng-click="logout();"><span class="block">Log</span>out</h3>
                      </a>
                   </div>
-               </div>
+               </div> -->
             </div>
 
             <div class="rows mobile-inlineblock top mgtop">
-               <div class="col-flexing mobile-50  ">
-                  <div class="exploring bg-prop ">
-                     <a ui-sref="attractions({id:attraId})" class="text-center">
-                        <h3 class="nav-name ">games</h3>
-                     </a>
-                  </div>
-               </div>
+
                <div class="col-flexing mobile-50 ">
                   <div class="food bg-prop ">
                      <a ui-sref="drink-party({id:foodBeveragesId})" class="text-center">
@@ -117,13 +126,19 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="col-flexing mobile-50">
-                        <div class="host bg-prop"  ui-sref="hostparty({id:hostpartyId})">
-                            <a  class="text-center">
-                                <h3 class="nav-name"><span class="block">host a </span>party</h3>
-                            </a>
-                        </div>
+                    <div class="col-flexing mobile-50 ">
+                       <div class="cart bg-prop">
+                          <a class="text-center" ui-sref="event({id:eventId})">
+                             <h3 class="nav-name" ><span class="block">careers</span></h3>
+                          </a>
+                       </div>
+                    </div>
+                    <div class="col-flexing mobile-50 ">
+                       <div class="host bg-prop">
+                          <a class="text-center">
+                             <h3 class="nav-name" ng-click="myCart();"><span class="block">my cart</span></h3>
+                          </a>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -214,7 +229,7 @@
                                     <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="password" name="password" required ng-model="userData.Password">
+                                    <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="userData.Password">
                                     <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
                                 </div>
                                   <div class="error text-center" ng-if="valid">Something went wrong</div>

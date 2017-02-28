@@ -1827,6 +1827,10 @@ ul {
   background-position: left center;
   .form {
     margin-bottom: 0;
+
+    ::-webkit-input-placeholder {
+  color: #000;
+}
   }
   h3 {
     text-align: center;
@@ -1935,6 +1939,9 @@ ul {
 .login-signup {
   .or {
     z-index: none;
+  }
+  .form-control{
+    color: #000;
   }
 }
 
