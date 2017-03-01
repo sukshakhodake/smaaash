@@ -459,6 +459,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Career");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+$scope.career=function(){
+    $uibModal.open({
+        animation:'true',
+        templateUrl: "views/modal/careers.html",
+        scope: $scope
+    });
+}
+
+
     })
 
 .controller('BenefitCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
