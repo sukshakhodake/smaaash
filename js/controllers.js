@@ -3097,7 +3097,7 @@ $scope.career=function(){
     });
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location,$filter,$sce) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
@@ -3106,7 +3106,7 @@ $scope.career=function(){
     $scope.myUrl = $location.absUrl();
     $scope.menu = "menu-out";
     TemplateService.removeLoaderOn(1);
-    $scope.pdfpath = "http://104.155.129.33:82/upload/readFile?file";
+    // $scope.pdfpath = "http://104.155.129.33:82/upload/readFile?file";
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
             $scope.menu = "menu-in";
@@ -3143,13 +3143,30 @@ $scope.career=function(){
 
     };
 
+    // $scope.pdfmodal = function(pdf) {
+    //     $scope.pdfdata = pdf;
+    //     if ($scope.pdfdata) {
+    //         $uibModal.open({
+    //             animation: true,
+    //             templateUrl: "views/modal/menu.html",
+    //             scope: $scope,
+    //         })
+    //     }
+    // };
     $scope.pdfmodal = function(pdf) {
+      console.log("im in");
         $scope.pdfdata = pdf;
+        $scope.pdfURL = $filter('uploadpath')($scope.pdfdata);
+        $scope.finalURL = 'http://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
+        $scope.trustedURL = $sce.trustAsResourceUrl($scope.finalURL);
+        console.log("  $scope.finalURL",  $scope.finalURL);
+
         if ($scope.pdfdata) {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/menu.html",
                 scope: $scope,
+                //  windowClass: "modal-lg"
             })
         }
     };
@@ -3210,13 +3227,13 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
     {
      img:'img/food/restro.jpg',
 title:'drink',
-info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'   
+info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
 
     },
      {
      img:'img/food/restro.jpg',
 title:'party',
-info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'   
+info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
 
     }];
 })
