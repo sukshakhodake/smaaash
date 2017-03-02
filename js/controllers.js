@@ -954,6 +954,7 @@ $scope.career=function(){
         }
 
     }
+
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
         console.log("SingleDealsPackages", $scope.SingleDealsPackages);
@@ -1059,11 +1060,12 @@ $scope.career=function(){
         // $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
+            // $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/wishlistsigup.html',
+            //     scope: $scope
+            // });
+            $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -1431,7 +1433,7 @@ $scope.career=function(){
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $state) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $state, $rootScope ) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -1627,11 +1629,12 @@ $scope.career=function(){
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
+            // $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/wishlistsigup.html',
+            //     scope: $scope
+            // });
+                $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3364,11 +3367,12 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
+            // $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/wishlistsigup.html',
+            //     scope: $scope
+            // });
+             $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3429,7 +3433,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
 
 })
 
-.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location) {
+.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -3595,11 +3599,12 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
+            // $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/wishlistsigup.html',
+            //     scope: $scope
+            // });
+            $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3703,7 +3708,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {
+.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state,  $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotions");
     $scope.menutitle = NavigationService.makeactive("Promotion");
@@ -3820,11 +3825,12 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
+            // $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/wishlistsigup.html',
+            //     scope: $scope
+            // });
+                $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3885,7 +3891,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
 
 })
 
-.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location) {
+.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location,  $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -4051,11 +4057,12 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
+            // $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/wishlistsigup.html',
+            //     scope: $scope
+            // });
+              $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -4351,7 +4358,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal,$rootScope) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -4423,16 +4430,30 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.toggleMenu = function() {
             $scope.menu = !$scope.menu;
         };
+    // $scope.showAunty = false;
+    //   $scope.menus = "menu-out";
+    //     $scope.template.getMenus = function() {
+    //       if ($scope.menus == "menu-out") {
+    //           $scope.menus = "menu-in";
+    //           $scope.showAunty = true;
+    //       } else {
+    //           $scope.menus = "menu-out";
+    //           $scope.showAunty = false;
+    //       }
+    //     };
+    //     $scope.template.getMenus();
 
-        $scope.menus = "menu-out";
-        $scope.showAunty = false;
-        $scope.getMenus = function() {
-            if ($scope.menus == "menu-out") {
-                $scope.menus = "menu-in";
-                $scope.showAunty = true;
+        // $scope.menus = "menu-out";
+        $rootScope.menus = "menu-out";
+        // $scope.showAunty = false;
+          $rootScope.showAunty = false
+          $rootScope.getMenus = function() {
+            if ($rootScope.menus == "menu-out") {
+                $rootScope.menus = "menu-in";
+                $rootScope.showAunty = true;
             } else {
-                $scope.menus = "menu-out";
-                $scope.showAunty = false;
+                $rootScope.menus = "menu-out";
+                $rootScope.showAunty = false;
             }
         };
         $scope.showConnect = false;
