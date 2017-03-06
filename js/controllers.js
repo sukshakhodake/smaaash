@@ -1715,6 +1715,8 @@ $scope.career=function(){
     $scope.showCartParams = {};
     $scope.cartDetails = [];
     $scope.noofQuantity = "";
+      $scope.cartEmpty = false;
+      console.log("  $scope.cartDetails",  $scope.cartDetails);
 
     $scope.showCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
@@ -1722,28 +1724,19 @@ $scope.career=function(){
     $scope.showCartFunction = function() {
         NavigationService.showCartPackage($scope.showCartParams, function(data) {
             console.log("data", data);
-            console.log("$scope.showCartParams", $scope.showCartParams);
-            console.log("data", data.data.CustomerCartItem);
+            // console.log("$scope.showCartParams", $scope.showCartParams);
+            // console.log("data", data.data.CustomerCartItem);
             if (data.value) {
+              // $scope.cartEmpty = true;
                 if (data.data.CustomerCartItem.length > 0) {
-                    $scope.cartDetails = data.data.CustomerCartItem;
+                    $scope.cartDetails = _.cloneDeep(data.data.CustomerCartItem);
                     _.each($scope.cartDetails, function(val) {
                         val.subTotal = val.TotalAmount * val.NoOfAdult;
-                    })
-                } else {
-                    $scope.cartEmpty = " Your Cart Is Empty";
-                }
-                console.log('aasrdtygert', data.data, 'globalfunction.index', globalfunction.index);
-                if (globalfunction.index >= 0) {
-                    data.data.CustomerCartItem[globalfunction.index].homeText = $rootScope.homeText;
-                    data.data.CustomerCartItem[globalfunction.index].image = $rootScope.image;
-                }
+                    });
+                  }
 
 
-                // $scope.cartDetails.homeText = $rootScope.homeText;
-                // $scope.cartDetails.image = $rootScope.image;
 
-                console.log("$scope.cartDetails", $scope.cartDetails);
 
                 $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
                     console.log("$index", index);
@@ -1767,10 +1760,11 @@ $scope.career=function(){
 
                 }
 
-            } else {
-                $scope.cartDetails = [];
-                $scope.cartEmpty = " Your Cart Is Empty";
+            } else if (!data.value) {
                 console.log("im in false");
+                    $scope.cartDetails = [];
+              $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
+              console.log("  $scope.CartIsEmpty",  $scope.CartIsEmpty);
             }
         })
     }
@@ -1795,7 +1789,7 @@ $scope.career=function(){
             }
         })
     }
-    $scope.editcartDetails.NoOfAdults
+    // $scope.editcartDetails.NoOfAdults
 
 })
 
@@ -4615,11 +4609,12 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.myCart = function() {
             if ($.jStorage.get("loginDetail") === null) {
                 console.log("am in if");
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/wishlistsigup.html',
-                    scope: $scope
-                });
+                     $rootScope.getMenus();
+                // $uibModal.open({
+                //     animation: true,
+                //     templateUrl: 'views/modal/wishlistsigup.html',
+                //     scope: $scope
+                // });
             } else if ($.jStorage.get("loginDetail") != null) {
                 console.log("im in else");
                 $state.go("cart");

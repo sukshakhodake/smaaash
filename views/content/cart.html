@@ -1,52 +1,50 @@
 <div class="carts">
-  <div class="bg">
-    <div class="container">
-      <h2 class="nav-name center ">My Cart</h2>
-    </div>
-  </div>
-  <div class="container">
-    <div class="table-responsive">
+   <div class="bg">
+      <div class="container">
+         <h2 class="nav-name center ">My Cart</h2>
+      </div>
+   </div>
+   <div class="container">
+      <h3 class="text-center">{{CartIsEmpty}}</h3>
+       <!-- <h3 class="text-center">Your Cart Is Empty</h3> -->
+      <div class="table-responsive" ng-if="cartDetails.length>0">
 
-        <h3 class="text-center"  ng-if="cartDetails.length === 0">Your Cart Is Empty</h3>
-      <table class="table " ng-if="cartDetails.length>0">
-        <thead>
-          <tr>
-            <th class="text-center uppercase ">items</th>
-            <th class="text-center  uppercase ">price</th>
-            <th class="text-center uppercase ">quantity</th>
-            <th class="text-center uppercase ">subtotal</th>
-          </tr>
-        </thead>
 
-        <tr ng-repeat="data in cartDetails">
-          <td class="text-center border-left"><img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
-          <!-- <td class="text-center border-left"><img src="img/confirm/Sachingreen.png" class="img-responsive" alt=""> -->
-            <p class="mt10 uppercase">{{data.homeText}}</p>
-            <!-- <p class="mt10 uppercase">student special offer</p> -->
-          </td>
-          <td class="text-center"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.TotalAmount}}</td>
-          <td class="text-center">
-            <input type="number" class="quantity" ng-model="data.NoOfAdult"  ng-change="editMyCart(data.CartItemID,data.CustId,data.NoOfAdult,data.NoOfSenior,data.NoOfChild,$index)"></div>
-          </td>
-          <td class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.subTotal}}
-            <div class="remove" ><button class="uppercase" ng-click="removePackage(data.CartItemID)">remove</button></div>
-          </td>
 
-        </tr>
-        <!-- <tr>
-          <td class="text-center border-left"><img src="img/confirm/Sachingreen.png" class="img-responsive" alt="">
-            <p class="mt10 uppercase">student special offer</p>
-          </td>
-          <td class="text-center"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>699</td>
-          <td class="text-center">
-            <div class="quantity">1</div>
-          </td>
-          <td class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>699
-            <div class="remove"><button class="uppercase">remove</button></div>
-          </td>
+         <table class="table ">
+            <thead>
+               <tr>
+                  <th class="text-center uppercase ">items</th>
+                  <th class="text-center  uppercase ">price</th>
+                  <th class="text-center uppercase ">quantity</th>
+                  <th class="text-center uppercase ">subtotal</th>
+               </tr>
+            </thead>
+            <tr ng-repeat="data in cartDetails">
+               <td class="text-center border-left">
+                  <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="">
 
-        </tr> -->
+                  <!-- <td class="text-center border-left"><img src="img/confirm/Sachingreen.png" class="img-responsive" alt=""> -->
+                  <p class="mt10 uppercase">{{data.homeText}}</p>
+                  <!-- <p class="mt10 uppercase">student special offer</p> -->
+               </td>
+
+               <td class="text-center"><span class="rupees">
+              <i class="fa fa-inr" aria-hidden="true"></i>
+            </span>{{data.TotalAmount}}</td>
+               <td class="text-center">
+                  <input type="number" class="quantity" ng-model="data.NoOfAdult" ng-change="editMyCart(data.CartItemID,data.CustId,data.NoOfAdult,data.NoOfSenior,data.NoOfChild,$index)">
+      <!-- </div> -->
+      </td>
+      <td class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.subTotal}}
+         <div class="remove">
+            <button class="uppercase" ng-click="removePackage(data.CartItemID)">remove</button>
+         </div>
+      </td>
+
+      </tr>
+
       </table>
-    </div>
-  </div>
+   </div>
+</div>
 </div>
