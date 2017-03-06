@@ -1054,10 +1054,10 @@ $scope.career=function(){
         console.log("im in");
         console.log("price", price);
         console.log("BranchPackageID", BranchPackageID);
-        // $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        $scope.addToCartParams.BranchPackageID = "37";
-        $scope.addToCartParams.TotalAmount = "222";
-        // $scope.addToCartParams.TotalAmount = price;
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+        // $scope.addToCartParams.BranchPackageID = "41";
+        // $scope.addToCartParams.TotalAmount = "222";
+        $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             // $uibModal.open({
@@ -1756,11 +1756,14 @@ $scope.career=function(){
                     console.log("$scope.editcartDetails", $scope.editcartDetails);
 
                     $scope.cartDetails[index].subTotal = $scope.editcartDetails.NoOfAdults * $scope.cartDetails[index].TotalAmount;
+                    if ($scope.editcartDetails.NoOfAdults) {
+                      NavigationService.editCartPackage($scope.editcartDetails, function(data) {
+                          console.log("$scope.editcartDetails", $scope.editcartDetails);
+                          console.log("data", data);
+                      });
 
-                    NavigationService.editCartPackage($scope.editcartDetails, function(data) {
-                        console.log("$scope.editcartDetails", $scope.editcartDetails);
-                        console.log("data", data);
-                    });
+                    }
+
 
                 }
 
@@ -4473,6 +4476,9 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.getOtp = {};
         $scope.getOtp.CustomerMobileNo = $scope.signupData.CustomerMobile;
         $scope.getOtp.OTPFor = "1";
+        $scope.getOtp.OTPSendFrom = "1";
+        // $scope.getOtp.APIKey = "afa35e6d32a54d64962a78ccf28c140017636054922421850805185";
+        $scope.getOtp.OTPValidMinute =5;
         $scope.wrongOtp = false;
         $scope.isDisabled = false;
         $scope.isDisabled2 = false;
@@ -4497,6 +4503,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
                         console.log("$scope.getOtp", $scope.getOtp);
                         $scope.isDisabled = true;
                         NavigationService.generateOtp($scope.getOtp, function(data) {
+                          console.log("$scope.getOtp",$scope.getOtp);
                             console.log("data", data);
                             if (data.value === true) {
                                 $scope.otp();
