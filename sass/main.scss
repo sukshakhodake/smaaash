@@ -2176,6 +2176,21 @@ background-color: transparent;
 
 }
 }
+.btn-checkout{
+    padding-bottom: 20px;
+    .butn_check{
+background-color: #32b544;
+    width: 20%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+}
+
+
 //slider
 
 // .custom-slider.rzslider .rz-bar {
