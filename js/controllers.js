@@ -1744,6 +1744,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             NavigationService.CheckOutCart($scope.checkoutParams, function(data) {
                                 console.log($scope.checkoutParams, "$scope.checkoutParams");
                                 console.log("in CheckOutCart", data);
+                                if (data.value) {
+                                  // data.data.CheckOutCartPackage[0].Link;
+                                  window.location =   data.data.CheckOutCartPackage[0].Link;
+                                }
                             });
                         }
                         // =============End oF CheckOutPackage===========
@@ -1771,13 +1775,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         NavigationService.editCartPackage($scope.editcartDetails, function(data) {
                             console.log("$scope.editcartDetails", $scope.editcartDetails);
                             console.log("data", data);
+                            if (data.value) {
+
+                            }
                         });
                     }
                 }
 
             } else if (!data.value) {
                 console.log("im in false");
+                  $scope.cartDetails = [];
                 $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
+
                 console.log("  $scope.CartIsEmpty", $scope.CartIsEmpty);
             }
         })
@@ -1793,13 +1802,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.removeCartPackage($scope.removeCartParams, function(data) {
             console.log("data", data);
             if (data.value) {
+                  $scope.showCartFunction();
                 if (data.data.RemoveFromCart[0].Status === 1) {
                     $uibModal.open({
                         animation: true,
                         templateUrl: 'views/modal/removeCart.html',
                         scope: $scope
                     });
-                    $scope.showCartFunction();
+
                 }
             }
         })
