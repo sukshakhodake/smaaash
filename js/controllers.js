@@ -1775,8 +1775,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         NavigationService.editCartPackage($scope.editcartDetails, function(data) {
                             console.log("$scope.editcartDetails", $scope.editcartDetails);
                             console.log("data", data);
-                            if (data.value) {
-
+                            if (data.value && data.data.EditCartPackage[0].Status===1) {
+                              $uibModal.open({
+                                  animation: true,
+                                  templateUrl: 'views/modal/cartupdated.html',
+                                  scope: $scope
+                              });
                             }
                         });
                     }
