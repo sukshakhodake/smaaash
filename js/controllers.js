@@ -436,37 +436,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 .controller('CorporateCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("corporate-parties");
-    $scope.menutitle = NavigationService.makeactive("Corporate Parties");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.corporate = data.data;
-    });
-    $scope.corporateParty = function() {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/enquiry.html",
-            scope: $scope
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("corporate-parties");
+        $scope.menutitle = NavigationService.makeactive("Corporate Parties");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+            $scope.corporate = data.data;
+        });
+        $scope.corporateParty = function() {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/enquiry.html",
+                scope: $scope
 
-        })
-    };
-})
-.controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("career");
-    $scope.menutitle = NavigationService.makeactive("Career");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+            })
+        };
+    })
+    .controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("career");
+        $scope.menutitle = NavigationService.makeactive("Career");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-$scope.career=function(){
-    $uibModal.open({
-        animation:'true',
-        templateUrl: "views/modal/careers.html",
-        scope: $scope
-    });
-}
+        $scope.career = function() {
+            $uibModal.open({
+                animation: 'true',
+                templateUrl: "views/modal/careers.html",
+                scope: $scope
+            });
+        }
 
 
     })
@@ -1039,10 +1039,10 @@ $scope.career=function(){
         $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
-    $scope.addToCartParams.NoOfChild = '0';
-    $scope.addToCartParams.NoOfSenior = '0';
-    $scope.addToCartParams.AddonIDs = " ";
-    $scope.addToCartParams.AddonQuantities = "";
+    // $scope.addToCartParams.NoOfChild = '0';
+    // $scope.addToCartParams.NoOfSenior = '0';
+    // $scope.addToCartParams.AddonIDs = " ";
+    // $scope.addToCartParams.AddonQuantities = "";
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
@@ -1060,11 +1060,6 @@ $scope.career=function(){
         $scope.addToCartParams.TotalAmount = price;
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            // $uibModal.open({
-            //     animation: true,
-            //     templateUrl: 'views/modal/wishlistsigup.html',
-            //     scope: $scope
-            // });
             $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
@@ -1072,11 +1067,6 @@ $scope.career=function(){
                 if (data.value) {
 
                     if (data.data.AddToCart[0].Status === 1) {
-                        if (globalfunction.index && globalfunction.index != 0) {
-                            globalfunction.index = 0;
-                        } else {
-                            globalfunction.index = globalfunction.index++;
-                        }
                         console.log("inif", data);
                         $scope.successCartModal = $uibModal.open({
                             animation: true,
@@ -1433,7 +1423,7 @@ $scope.career=function(){
 
 })
 
-.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $state, $rootScope ) {
+.controller('AttractionCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $state, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("attractions");
     $scope.menutitle = NavigationService.makeactive("Attractions");
@@ -1634,7 +1624,7 @@ $scope.career=function(){
             //     templateUrl: 'views/modal/wishlistsigup.html',
             //     scope: $scope
             // });
-                $rootScope.getMenus();
+            $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -1715,8 +1705,8 @@ $scope.career=function(){
     $scope.showCartParams = {};
     $scope.cartDetails = [];
     $scope.noofQuantity = "";
-      $scope.cartEmpty = false;
-      console.log("  $scope.cartDetails",  $scope.cartDetails);
+
+
 
     $scope.showCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
@@ -1727,50 +1717,52 @@ $scope.career=function(){
             // console.log("$scope.showCartParams", $scope.showCartParams);
             // console.log("data", data.data.CustomerCartItem);
             if (data.value) {
-              // $scope.cartEmpty = true;
-                if (data.data.CustomerCartItem.length > 0) {
-                    $scope.cartDetails = _.cloneDeep(data.data.CustomerCartItem);
+            $scope.cartDetails = data.data;
+            console.log("  $scope.cartDetails",  $scope.cartDetails);
+
+                if ($scope.cartDetails.length > 0) {
+                    // $scope.cartDetails = _.cloneDeep(data.data.CustomerCartItem);
                     _.each($scope.cartDetails, function(val) {
                         val.subTotal = val.TotalAmount * val.NoOfAdult;
                     });
-                  }
+                }
 
 
 
-
+// ===========EditCartFuntion==============
                 $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
                     console.log("$index", index);
                     $scope.editcartDetails.NoOfAdults = noOfAdults;
-                    $scope.editcartDetails.NoOfChild = noofChild;
-                    $scope.editcartDetails.NoOfSenior = noOfsenior;
+                    // $scope.editcartDetails.NoOfChild = noofChild;
+                    // $scope.editcartDetails.NoOfSenior = noOfsenior;
+                    // $scope.editcartDetails.APIKey = 'afa35e6d32a54d64962a78ccf28c140017636054922421850805185';
                     $scope.editcartDetails.CartItemID = cartItem;
                     $scope.editcartDetails.CustomerID = custid;
-                    $scope.editcartDetails.APIKey = 'afa35e6d32a54d64962a78ccf28c140017636054922421850805185';
+                    $scope.editcartDetails.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+
                     console.log("$scope.editcartDetails", $scope.editcartDetails);
 
                     $scope.cartDetails[index].subTotal = $scope.editcartDetails.NoOfAdults * $scope.cartDetails[index].TotalAmount;
+
                     if ($scope.editcartDetails.NoOfAdults) {
-                      NavigationService.editCartPackage($scope.editcartDetails, function(data) {
-                          console.log("$scope.editcartDetails", $scope.editcartDetails);
-                          console.log("data", data);
-                      });
-
+                        NavigationService.editCartPackage($scope.editcartDetails, function(data) {
+                            console.log("$scope.editcartDetails", $scope.editcartDetails);
+                            console.log("data", data);
+                        });
                     }
-
-
                 }
 
             } else if (!data.value) {
                 console.log("im in false");
-                    $scope.cartDetails = [];
               $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
-              console.log("  $scope.CartIsEmpty",  $scope.CartIsEmpty);
+                console.log("  $scope.CartIsEmpty", $scope.CartIsEmpty);
             }
         })
     }
     $scope.showCartFunction();
 
 
+// ============RemoveCartFunction=============
     $scope.removePackage = function(CartItemID) {
         $scope.removeCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
         $scope.removeCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;;
@@ -1784,12 +1776,12 @@ $scope.career=function(){
                         templateUrl: 'views/modal/removeCart.html',
                         scope: $scope
                     });
-                    $scope.showCartFunction();
+                $scope.showCartFunction();
                 }
             }
         })
     }
-    // $scope.editcartDetails.NoOfAdults
+
 
 })
 
@@ -3097,7 +3089,7 @@ $scope.career=function(){
     });
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location,$filter,$sce) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $filter, $sce) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
@@ -3154,12 +3146,12 @@ $scope.career=function(){
     //     }
     // };
     $scope.pdfmodal = function(pdf) {
-      console.log("im in");
+        console.log("im in");
         $scope.pdfdata = pdf;
         $scope.pdfURL = $filter('uploadpath')($scope.pdfdata);
         $scope.finalURL = 'http://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
         $scope.trustedURL = $sce.trustAsResourceUrl($scope.finalURL);
-        console.log("  $scope.finalURL",  $scope.finalURL);
+        console.log("  $scope.finalURL", $scope.finalURL);
 
         if ($scope.pdfdata) {
             $uibModal.open({
@@ -3219,21 +3211,19 @@ $scope.career=function(){
 
     };
 
-    $scope.drinkParties=[{
-img:'img/food/restro.jpg',
-title:'food',
-info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
-    },
-    {
-     img:'img/food/restro.jpg',
-title:'drink',
-info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
+    $scope.drinkParties = [{
+        img: 'img/food/restro.jpg',
+        title: 'food',
+        info: 'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
+    }, {
+        img: 'img/food/restro.jpg',
+        title: 'drink',
+        info: 'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
 
-    },
-     {
-     img:'img/food/restro.jpg',
-title:'party',
-info:'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
+    }, {
+        img: 'img/food/restro.jpg',
+        title: 'party',
+        info: 'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
 
     }];
 })
@@ -3369,7 +3359,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
             //     templateUrl: 'views/modal/wishlistsigup.html',
             //     scope: $scope
             // });
-             $rootScope.getMenus();
+            $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3430,7 +3420,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
 
 })
 
-.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location,$rootScope) {
+.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -3705,7 +3695,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state,  $rootScope) {
+.controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotions");
     $scope.menutitle = NavigationService.makeactive("Promotion");
@@ -3827,7 +3817,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
             //     templateUrl: 'views/modal/wishlistsigup.html',
             //     scope: $scope
             // });
-                $rootScope.getMenus();
+            $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3888,7 +3878,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
 
 })
 
-.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location,  $rootScope) {
+.controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -4059,7 +4049,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
             //     templateUrl: 'views/modal/wishlistsigup.html',
             //     scope: $scope
             // });
-              $rootScope.getMenus();
+            $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -4355,7 +4345,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal,$rootScope) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal, $rootScope) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -4427,24 +4417,24 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.toggleMenu = function() {
             $scope.menu = !$scope.menu;
         };
-    // $scope.showAunty = false;
-    //   $scope.menus = "menu-out";
-    //     $scope.template.getMenus = function() {
-    //       if ($scope.menus == "menu-out") {
-    //           $scope.menus = "menu-in";
-    //           $scope.showAunty = true;
-    //       } else {
-    //           $scope.menus = "menu-out";
-    //           $scope.showAunty = false;
-    //       }
-    //     };
-    //     $scope.template.getMenus();
+        // $scope.showAunty = false;
+        //   $scope.menus = "menu-out";
+        //     $scope.template.getMenus = function() {
+        //       if ($scope.menus == "menu-out") {
+        //           $scope.menus = "menu-in";
+        //           $scope.showAunty = true;
+        //       } else {
+        //           $scope.menus = "menu-out";
+        //           $scope.showAunty = false;
+        //       }
+        //     };
+        //     $scope.template.getMenus();
 
         // $scope.menus = "menu-out";
         $rootScope.menus = "menu-out";
         // $scope.showAunty = false;
-          $rootScope.showAunty = false
-          $rootScope.getMenus = function() {
+        $rootScope.showAunty = false
+        $rootScope.getMenus = function() {
             if ($rootScope.menus == "menu-out") {
                 $rootScope.menus = "menu-in";
                 $rootScope.showAunty = true;
@@ -4468,11 +4458,11 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.emailExist = false;
         $scope.validCity = false;
         $scope.getOtp = {};
-        $scope.getOtp.CustomerMobileNo = $scope.signupData.CustomerMobile;
+        // $scope.getOtp.CustomerMobileNo =$scope.signupData.CustomerMobile;
         $scope.getOtp.OTPFor = "1";
         $scope.getOtp.OTPSendFrom = "1";
-        // $scope.getOtp.APIKey = "afa35e6d32a54d64962a78ccf28c140017636054922421850805185";
-        $scope.getOtp.OTPValidMinute =5;
+        $scope.getOtp.APIKey = "afa35e6d32a54d64962a78ccf28c140017636054922421850805185";
+        $scope.getOtp.OTPValidMinute = 5;
         $scope.wrongOtp = false;
         $scope.isDisabled = false;
         $scope.isDisabled2 = false;
@@ -4490,14 +4480,14 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
                     if (signupData.CustomerPassword === signupData.confirmPassword) {
                         console.log('m true');
                         $scope.pass = true;
-                        console.log("signupDataotp", signupData);
+                        // console.log("signupDataotp", signupData);
                         // $scope.otp();
 
                         $scope.getOtp.CustomerMobileNo = signupData.CustomerMobile;
                         console.log("$scope.getOtp", $scope.getOtp);
                         $scope.isDisabled = true;
                         NavigationService.generateOtp($scope.getOtp, function(data) {
-                          console.log("$scope.getOtp",$scope.getOtp);
+                            console.log("$scope.getOtp", $scope.getOtp);
                             console.log("data", data);
                             if (data.value === true) {
                                 $scope.otp();
@@ -4524,7 +4514,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
             $scope.signupGenerateOtp(signupData);
         }
         $scope.customerSignup = function(signupData) {
-          console.log("signupData",signupData );
+            console.log("signupData", signupData);
             if (signupData) {
                 $scope.isDisabled2 = true;
                 NavigationService.CustomerRegistration(signupData, function(data) {
@@ -4547,9 +4537,9 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
                         $scope.isDisabled2 = false;
 
                     } else {
-                      $scope.isDisabled2 = false;
-                      $scope.emailExist = true;
-                      $scope.wrongOtp = true;
+                        $scope.isDisabled2 = false;
+                        $scope.emailExist = true;
+                        $scope.wrongOtp = true;
 
                     }
                 })
@@ -4609,12 +4599,7 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
         $scope.myCart = function() {
             if ($.jStorage.get("loginDetail") === null) {
                 console.log("am in if");
-                     $rootScope.getMenus();
-                // $uibModal.open({
-                //     animation: true,
-                //     templateUrl: 'views/modal/wishlistsigup.html',
-                //     scope: $scope
-                // });
+                $rootScope.getMenus();
             } else if ($.jStorage.get("loginDetail") != null) {
                 console.log("im in else");
                 $state.go("cart");
@@ -4625,7 +4610,6 @@ info:'SMAAASH has created a unique dining area with a locally sourced and sustai
             if ($.jStorage.get("loginDetail") != null) {
                 $state.go("profile");
             };
-            // $state.go("profile");
         }
 
 
