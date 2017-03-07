@@ -434,6 +434,14 @@ var navigationservice = angular.module('navigationservice', [])
                 data: showCartParams
             }).success(callback);
         },
+        CheckOutCart: function(checkOutParams,callback) {
+            $http({
+                url: adminurl + 'signup/CheckOut',
+                method: 'POST',
+                withCredentials: true,
+                data: checkOutParams
+            }).success(callback);
+        },
         removeCartPackage: function(removePackageParams,callback) {
             $http({
                 url: adminurl + 'signup/RemoveCartPackage',

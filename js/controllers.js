@@ -1705,6 +1705,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showCartParams = {};
     $scope.cartDetails = [];
     $scope.noofQuantity = "";
+    $scope.checkoutParams = {};
+    $scope.checkoutParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+    $scope.checkoutParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;;
+
+    $scope.checkoutParams.CartItemIDs = "";
+    $scope.checkoutParams.CouponCode = ""
+    $scope.checkoutParams.Remarks = ""
+
+
+
 
 
 
@@ -1717,19 +1727,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // console.log("$scope.showCartParams", $scope.showCartParams);
             // console.log("data", data.data.CustomerCartItem);
             if (data.value) {
-            $scope.cartDetails = data.data;
-            console.log("  $scope.cartDetails",  $scope.cartDetails);
+                $scope.cartDetails = data.data;
+                console.log("  $scope.cartDetails", $scope.cartDetails);
 
                 if ($scope.cartDetails.length > 0) {
-                    // $scope.cartDetails = _.cloneDeep(data.data.CustomerCartItem);
                     _.each($scope.cartDetails, function(val) {
                         val.subTotal = val.TotalAmount * val.NoOfAdult;
                     });
+                    // =============CheckOutPackage===========
+                    var result = $scope.cartDetails.map(function(a) {
+                        return a.CartItemID;
+                    });
+                    $scope.checkoutParams.CartItemIDs = result.join();
+                    console.log($scope.checkoutParams, "$scope.checkoutParams");
+                    $scope.checkOutFunction = function() {
+                            NavigationService.CheckOutCart($scope.checkoutParams, function(data) {
+                                console.log($scope.checkoutParams, "$scope.checkoutParams");
+                                console.log("in CheckOutCart", data);
+                            });
+                        }
+                        // =============End oF CheckOutPackage===========
+
                 }
 
 
 
-// ===========EditCartFuntion==============
+                // ===========EditCartFuntion==============
                 $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
                     console.log("$index", index);
                     $scope.editcartDetails.NoOfAdults = noOfAdults;
@@ -1754,7 +1777,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             } else if (!data.value) {
                 console.log("im in false");
-              $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
+                $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
                 console.log("  $scope.CartIsEmpty", $scope.CartIsEmpty);
             }
         })
@@ -1762,7 +1785,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showCartFunction();
 
 
-// ============RemoveCartFunction=============
+    // ============RemoveCartFunction=============
     $scope.removePackage = function(CartItemID) {
         $scope.removeCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
         $scope.removeCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;;
@@ -1776,11 +1799,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         templateUrl: 'views/modal/removeCart.html',
                         scope: $scope
                     });
-                $scope.showCartFunction();
+                    $scope.showCartFunction();
                 }
             }
         })
     }
+
 
 
 })
