@@ -1705,6 +1705,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showCartParams = {};
     $scope.cartDetails = [];
     $scope.noofQuantity = "";
+    $scope.checkoutParams ={};
+    $scope.checkoutParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+    $scope.checkoutParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;;
+
+    $scope.checkoutParams.CartItemIDs =
+    $scope.checkoutParams.CouponCode =""
+    $scope.checkoutParams.Remarks =""
+
+
+
 
 
 
@@ -1725,10 +1735,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     _.each($scope.cartDetails, function(val) {
                         val.subTotal = val.TotalAmount * val.NoOfAdult;
                     });
+
+                    var result = $scope.cartDetails.map(function(a) {return a.CartItemID;});
+                    console.log("result",result);
+                    $scope.checkoutParams.CartItemIDs =result.join();
                 }
 
 
-
+console.log("$scope.checkoutParams",$scope.checkoutParams);
 // ===========EditCartFuntion==============
                 $scope.editMyCart = function(cartItem, custid, noOfAdults, noOfsenior, noofChild, index) {
                     console.log("$index", index);
