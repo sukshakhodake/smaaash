@@ -533,7 +533,7 @@
     width: 100%;
   }
   .menu-opened .smaash-menu {
-    height: 500px;
+    height: 400px;
     overflow-y: scroll;
    padding: 0 20px 0 0;
   }
@@ -591,6 +591,52 @@
   .pad0 {
     padding: 0 !important;
   }
+//mobile header new
+.header-mobile{
+  background: url("../img/navbg/image9.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  ul{
+    padding: 0;
+  }
+  li{
+    list-style-type: none;
+  }
+  h3{
+    padding: 20px;
+  }
+
+  .logo-smaash{
+    position: static;
+    display: block;
+    text-align: center;
+    height: auto;
+    width: 100px;
+    margin: 0 auto;
+    padding-top: 20px;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+.menu-opened .smaash-menu{
+  padding: 0;
+  .nav-name{
+    padding: 27px 0px 15px;
+  }
+}
+
+.slidings{
+  margin-top: 43px;
+}
+
+.dropdowns .menu img{
+  height: 65px;
+    width: auto;
+}
+
+
 }
 
 @media (max-width: $screen-sm-max) {

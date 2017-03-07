@@ -482,6 +482,10 @@ background-image: none;
     display: block;
 }
 
+.display-block{
+    display: block;
+}
+
 .logo-smaash {
     @include position( absolute,
     10px null null 20px);
