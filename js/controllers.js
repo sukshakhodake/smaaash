@@ -1746,9 +1746,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             NavigationService.CheckOutCart($scope.checkoutParams, function(data) {
                                 console.log($scope.checkoutParams, "$scope.checkoutParams");
                                 console.log("in CheckOutCart", data);
-                                if (data.value && data.data.ErrorStatus[0].Status == 1) {
-                                  // data.data.CheckOutCartPackage[0].Link;
-                                  window.location =  data.data.CheckOutCartPackage[0].Link;
+                                if (data.value && data.data.CheckOutCartPackage[0].Status == 1) {
+                                window.location =  data.data.CheckOutCartPackage[0].Link;
                                 }else if (data.data.ErrorStatus[0].Status == 0) {
                                   console.log("im in",data);
                                   console.log(data.data.ErrorStatus[0].Status == 0);
