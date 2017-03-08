@@ -5,9 +5,9 @@
       </div>
    </div>
    <div class="container">
-      <!-- <h3 class="text-center">{{CartIsEmpty}}</h3> -->
-      <h3 class="text-center" ng-if="!cartDetails">Loading..</h3>
-       <h3 class="text-center" ng-if="cartDetails.length === 0">Your Cart Is Empty</h3>
+      <h3 class="text-center" ng-if="isCartEmty">Your Cart Is Empty</h3>
+      <h3 class="text-center" ng-if="!isLoading">Loading..</h3>
+
       <div class="table-responsive" ng-if="cartDetails.length>0">
 
 

@@ -1712,6 +1712,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.checkoutParams.CartItemIDs = "";
     $scope.checkoutParams.CouponCode = ""
     $scope.checkoutParams.Remarks = ""
+    $scope.isLoading=false;
 
 
 
@@ -1731,6 +1732,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("  $scope.cartDetails", $scope.cartDetails);
 
                 if ($scope.cartDetails.length > 0) {
+                  $scope.isLoading=true;
                     _.each($scope.cartDetails, function(val) {
                         val.subTotal = val.TotalAmount * val.NoOfAdult;
                     });
@@ -1744,9 +1746,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             NavigationService.CheckOutCart($scope.checkoutParams, function(data) {
                                 console.log($scope.checkoutParams, "$scope.checkoutParams");
                                 console.log("in CheckOutCart", data);
-                                if (data.value) {
+                                if (data.value && data.data.ErrorStatus[0].Status == 1) {
                                   // data.data.CheckOutCartPackage[0].Link;
-                                  window.location =   data.data.CheckOutCartPackage[0].Link;
+                                  window.location =  data.data.CheckOutCartPackage[0].Link;
+                                }else if (data.data.ErrorStatus[0].Status == 0) {
+                                  console.log("im in",data);
+                                  console.log(data.data.ErrorStatus[0].Status == 0);
+                                  console.log("im in");
+                                  $uibModal.open({
+                                      animation: true,
+                                      templateUrl: 'views/modal/cartFail.html',
+                                      scope: $scope
+                                  });
+
                                 }
                             });
                         }
@@ -1788,6 +1800,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             } else if (!data.value) {
                 console.log("im in false");
+                  $scope.isCartEmty=true;
+                    $scope.isLoading=true;
                   $scope.cartDetails = [];
                 $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
 
