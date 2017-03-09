@@ -162,6 +162,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
             $scope.whatsnew = $scope.content["What's new"];
+            console.log($scope.whatsnew,"$scope.whatsnew");
             $scope.hostParty = $scope.content["Host a party"];
             console.log("  $scope.hostParty", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
@@ -1047,14 +1048,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.buyNow = function(BranchPackageID, price, homeText, image) {
-
-
-        $rootScope.homeText = homeText;
-        $rootScope.image = image;
-        console.log("im in");
-        console.log("price", price);
-        console.log("BranchPackageID", BranchPackageID);
-        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+      $scope.addToCartParams.BranchPackageID = BranchPackageID;
         // $scope.addToCartParams.BranchPackageID = "41";
         // $scope.addToCartParams.TotalAmount = "222";
         $scope.addToCartParams.TotalAmount = price;

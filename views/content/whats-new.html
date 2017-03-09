@@ -18,13 +18,15 @@
                      </div>
 
                      <div class="min-h">
-                        <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode |shorten:130"></p>
-                        <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc|htmlToPlaintext |htmlDecode"></p>
-                        <div ng-if="!d.description">No description</div>
+                        <p ng-bind-html="d.description | htmlDecode"></p>
+                        <!-- <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode |shorten:130"></p> -->
+                        <!-- <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc|htmlToPlaintext |htmlDecode"></p>
+                        <div ng-if="!d.description">No description</div> -->
                      </div>
 
-                     <span class="capitalize greeny" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id)">read more</span>
-                     <span class="capitalize greeny" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id)">read less</span>
+                     <!-- <span class="capitalize greeny" ng-if="d.description.length > 130 && !moreDesc[d._id]" ng-click="readMore(d._id)">read more</span>
+                     <span class="capitalize greeny" ng-if="d.description.length > 130 && moreDesc[d._id]" ng-click="readMore(d._id)">read less</span> -->
+
                      <div class="button-set">
                         <ul class="social-icons list-inline inline-block">
                            <p class="inline-block">Share</p>
