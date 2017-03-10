@@ -166,6 +166,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.hostParty = $scope.content["Host a party"];
             console.log("  $scope.hostParty", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
+            console.log("  $scope.deals",  $scope.deals);
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             console.log("$scope.foodBeverages", $scope.foodBeverages);
