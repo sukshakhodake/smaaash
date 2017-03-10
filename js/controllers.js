@@ -1167,10 +1167,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.buyNow = function(BranchPackageID, price) {
-      $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        // $scope.addToCartParams.BranchPackageID = "41";
-        // $scope.addToCartParams.TotalAmount = "222";
-        $scope.addToCartParams.TotalAmount = price;
+    
+        $scope.addToCartParams.BranchPackageID = BranchPackageID;
+          // $scope.addToCartParams.BranchPackageID = "41";
+          // $scope.addToCartParams.TotalAmount = "222";
+          $scope.addToCartParams.TotalAmount = price;
+
+
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
@@ -1192,7 +1195,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
