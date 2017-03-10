@@ -4722,7 +4722,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('footerctrl', function($scope, TemplateService, NavigationService) {
+    .controller('footerctrl', function($scope, TemplateService, NavigationService, $uibModal) {
         $scope.template = TemplateService;
         $scope.footer = function(val) {
             if (val == $scope.showFooter) {
@@ -4756,7 +4756,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.showFooter = 0;
                 }
             }
+
         };
+
+          $scope.loyalty = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/loyalty.html",
+            scope: $scope
+        });
+    };
 
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
