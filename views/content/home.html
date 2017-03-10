@@ -206,16 +206,17 @@
             <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="280" animation="slide" animationLoop="true" prev-text="" next-text="">
                <li>
 
-                  <div class="race relative margno" ui-sref="buy">
+                  <div class="race relative margno">
+                  <!-- <div class="race relative margno" ui-sref="buy"> -->
                      <div class="img-bg">
-                        <a href="#">
+                        <a >
                            <figure>
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                            </figure>
 
                         </a>
                      </div>
-                     <a href="" class="buy-button"><img src="img/buy.png" class="img-responsive" alt=""></a>
+                     <a ng-if="s.BranchPackageID && s.price" class="buy-button" ng-click="buyNowDealsp(s.BranchPackageID,s.price)"><img src="img/buy.png" class="img-responsive" alt=""></a>
                      <div class="race-text whites">
                         <div class="min-hiss">
                            <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"> </h3>
