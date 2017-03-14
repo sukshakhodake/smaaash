@@ -274,24 +274,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         });
     };
+
     $scope.dealspCartParams = {};
     $scope.dealspCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.dealspCartParams.NoOfAdults = '1';
+    // $scope.dealspCartParams.NoOfAdults = '';
     if ($.jStorage.get("loginDetail") != null) {
         $scope.dealspCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
         $scope.dealspCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
-
+    // $scope.dealspCartParams.NoOfChild = '0';
+    // $scope.dealspCartParams.NoOfSenior = '0';
+    // $scope.dealspCartParams.AddonIDs = " ";
+    // $scope.dealspCartParams.AddonQuantities = "";
     $scope.dealspCartParams.BranchID = $.jStorage.get("branchId");
 
 
+    $scope.buyNowDealsp = function(BranchPackageID, price) {
 
-    $scope.buyNowDealsp = function(BranchPackageID, price, homeText, image) {
-      $scope.dealspCartParams.BranchPackageID = BranchPackageID;
-        // $scope.addToCartParams.BranchPackageID = "41";
-        // $scope.addToCartParams.TotalAmount = "222";
-        $scope.dealspCartParams.TotalAmount = price;
+        $scope.dealspCartParams.BranchPackageID = BranchPackageID;
+          // $scope.dealspCartParams.BranchPackageID = "41";
+          // $scope.dealspCartParams.TotalAmount = "222";
+          $scope.dealspCartParams.TotalAmount = price;
+
+
         console.log("$scope.dealspCartParams", $scope.dealspCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
@@ -313,13 +320,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/alreadyCart.html',
                             scope: $scope
                         });
+
+                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/cartFail.html',
+                          scope: $scope
+                      });
 
                     }
                 } else {
@@ -995,6 +1009,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     };
+  
     $scope.eventsCartParams = {};
     $scope.eventsCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.eventsCartParams.NoOfAdults = '1';
@@ -1004,15 +1019,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.eventsCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
-
+    // $scope.eventsCartParams.NoOfChild = '0';
+    // $scope.eventsCartParams.NoOfSenior = '0';
+    // $scope.eventsCartParams.AddonIDs = " ";
+    // $scope.eventsCartParams.AddonQuantities = "";
     $scope.eventsCartParams.BranchID = $.jStorage.get("branchId");
 
 
     $scope.buyNow = function(BranchPackageID, price) {
-      $scope.eventsCartParams.BranchPackageID = BranchPackageID;
-        // $scope.eventsCartParams.BranchPackageID = "41";
-        // $scope.eventsCartParams.TotalAmount = "222";
-        $scope.eventsCartParams.TotalAmount = price;
+
+        $scope.eventsCartParams.BranchPackageID = BranchPackageID;
+          // $scope.eventsCartParams.BranchPackageID = "41";
+          // $scope.eventsCartParams.TotalAmount = "222";
+          $scope.eventsCartParams.TotalAmount = price;
+
+
         console.log("$scope.eventsCartParams", $scope.eventsCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
@@ -1034,13 +1055,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/alreadyCart.html',
                             scope: $scope
                         });
+
+                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/cartFail.html',
+                          scope: $scope
+                      });
 
                     }
                 } else {
@@ -1054,6 +1082,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
     }
+
 
 })
 
@@ -1167,7 +1196,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.buyNow = function(BranchPackageID, price) {
-    
+
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
           // $scope.addToCartParams.BranchPackageID = "41";
           // $scope.addToCartParams.TotalAmount = "222";
@@ -1202,6 +1231,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             templateUrl: 'views/modal/alreadyCart.html',
                             scope: $scope
                         });
+
+                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/cartFail.html',
+                          scope: $scope
+                      });
 
                     }
                 } else {
@@ -1697,6 +1733,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     $scope.gamesParams = {};
+    $scope.gamesParams = {};
+    $scope.gamesParams = {};
     $scope.gamesParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.gamesParams.NoOfAdults = '1';
     // $scope.gamesParams.NoOfAdults = '';
@@ -1713,10 +1751,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.buyNowGames = function(BranchPackageID, price) {
-      $scope.gamesParams.BranchPackageID = BranchPackageID;
-        // $scope.gamesParams.BranchPackageID = "41";
-        // $scope.gamesParams.TotalAmount = "222";
-        $scope.gamesParams.TotalAmount = price;
+
+        $scope.gamesParams.BranchPackageID = BranchPackageID;
+          // $scope.gamesParams.BranchPackageID = "41";
+          // $scope.gamesParams.TotalAmount = "222";
+          $scope.gamesParams.TotalAmount = price;
+
+
         console.log("$scope.gamesParams", $scope.gamesParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
@@ -1738,13 +1779,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/alreadyCart.html',
                             scope: $scope
                         });
+
+                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/cartFail.html',
+                          scope: $scope
+                      });
 
                     }
                 } else {
@@ -3920,51 +3968,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
+    // $scope.addToCartParams.NoOfAdults = '';
     if ($.jStorage.get("loginDetail") != null) {
         $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
         $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
-    $scope.addToCartParams.NoOfChild = '0';
-    $scope.addToCartParams.NoOfSenior = '0';
-    $scope.addToCartParams.AddonIDs = " ";
-    $scope.addToCartParams.AddonQuantities = "";
+    // $scope.addToCartParams.NoOfChild = '0';
+    // $scope.addToCartParams.NoOfSenior = '0';
+    // $scope.addToCartParams.AddonIDs = " ";
+    // $scope.addToCartParams.AddonQuantities = "";
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
     $scope.buyNow = function(BranchPackageID, price) {
-        console.log("im in");
-        console.log("price", price);
-        console.log("BranchPackageID", BranchPackageID);
+
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        $scope.addToCartParams.TotalAmount = price;
+          // $scope.addToCartParams.BranchPackageID = "29";
+          // $scope.addToCartParams.TotalAmount = "222";
+          $scope.addToCartParams.TotalAmount = price;
+
+
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            // $uibModal.open({
-            //     animation: true,
-            //     templateUrl: 'views/modal/wishlistsigup.html',
-            //     scope: $scope
-            // });
             $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
+
                     if (data.data.AddToCart[0].Status === 1) {
                         console.log("inif", data);
-                        $uibModal.open({
+                        $scope.successCartModal = $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/addtocart.html',
                             scope: $scope
                         });
+                        $timeout(function() {
+                            $scope.successCartModal.close();
+                            $state.go('cart');
+                        }, 1000);
 
-                    } else if (data.data.AddToCart[0].Status === 0) {
+
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/alreadyCart.html',
                             scope: $scope
                         });
+
+                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/cartFail.html',
+                          scope: $scope
+                      });
 
                     }
                 } else {
@@ -3974,34 +4033,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         scope: $scope
                     });
                 }
-                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                //     console.log("inif", data);
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/addtocart.html',
-                //         scope: $scope
-                //     });
-                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                //     console.log("in else", data);
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/alreadyCart.html',
-                //         scope: $scope
-                //     });
-                // } else {
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/addtocartfail.html',
-                //         scope: $scope
-                //     });
-                // }
-
 
             })
         }
-
-
-
     }
 
 })
@@ -4854,6 +4888,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
         $scope.id = '57bc4b10eb9c91f1025a3b54';
+          $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
 
         NavigationService.getSingleExploreSmaaash($scope.id, function(data) {
             $scope.SingleHostParty1 = data.data;
