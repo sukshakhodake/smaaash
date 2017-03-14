@@ -1009,7 +1009,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     };
-  
+
     $scope.eventsCartParams = {};
     $scope.eventsCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.eventsCartParams.NoOfAdults = '1';
@@ -2551,16 +2551,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.assistanceLogin = function(formData) {
         console.log("formData in fun", formData);
         if (formData) {
-            $scope.formCompleteAssistance = true;
+            // $scope.formCompleteAssistance = true;
             formData.city = $.jStorage.get("cityid");
             NavigationService.assistanceLoginSignup(formData, function(data) {
                 console.log("in nav", formData);
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
-                    $scope.formCompleteAssistanceThank = true;
+                  $scope.formCompleteAssistance = true;
                     $timeout(function() {
                         $scope.formCompleteAssistance = false;
-                        $scope.formCompleteAssistanceThank = false;
+                        // $scope.formCompleteAssistanceThank = false;
                         $scope.formData = {};
                     }, 2000);
 
@@ -2571,7 +2571,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     }
-
+$scope.myfun = function(){
+  console.log("im in");
+}
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleHostParty1 = data.data;
         $scope.SingleHostParty = _.chunk(data.data, 3);

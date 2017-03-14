@@ -40,7 +40,7 @@
         <div class="col-md-4  col-sm-4  hidden-xs"></div>
         <div class="col-md-4  col-sm-4 col-xs-12">
           <div class="practice">
-            <form class="form" name="user"  ng-if="!formCompleteAssistance">
+            <form class="form" name="user" ng-if="!formCompleteAssistance">
               <h3 class="text-center">Need assistance?</h3>
               <div class="form-group relative">
                 <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="formData.name" required>
@@ -96,10 +96,12 @@
                    close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" />
                 <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
               </div>
-              <button type="submit" class=" btn6 btn-default block" ng-disabled="user.$invalid"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+              <button type="button" ng-click="assistanceLogin(formData);" class=" btn6 btn-default block" ng-disabled="user.$invalid">
+                <img src="img/new/submit.png" class="img-responsive" alt="">
+              </button>
               <!-- <button type="submit" class=" btn6 btn-default block" ng-disabled="user.$invalid"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
             </form>
-            <div class="submit-thank" ng-if="formCompleteAssistanceThank">
+            <div class="submit-thank" ng-if="formCompleteAssistance" >
               <h3 class="text-center">Thank You</h3>
             </div>
           </div>
