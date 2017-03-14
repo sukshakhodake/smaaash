@@ -115,7 +115,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('thank', {
-            url: "/thank-you",
+            url: "/thankyou",
             templateUrl: "views/template.html",
             controller: 'ThankCtrl'
         })
@@ -292,6 +292,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         templateUrl: "views/template.html",
         controller: 'MediaCtrl'
     })
+    .state('sorry', {
+          
+            url: "/sorry",
+            templateUrl: "views/template.html",
+            controller: 'SorryCtrl'
+        })
 
     .state('promotion-inner', {
         url: "/:name/:id",

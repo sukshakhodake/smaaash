@@ -2791,6 +2791,15 @@ $scope.myfun = function(){
 
 
 })
+.controller('SorryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("sorry");
+    $scope.menutitle = NavigationService.makeactive("Sorry");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
+
 
 
 .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -3867,7 +3876,7 @@ $scope.myfun = function(){
 
 .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
     //Used to name the .html file
-    $scope.template = TemplateService.changecontent("thank");
+    $scope.template = TemplateService.changecontent("thankyou");
     $scope.menutitle = NavigationService.makeactive("Thank");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -4625,7 +4634,7 @@ $scope.myfun = function(){
         // $scope.getOtp.CustomerMobileNo =$scope.signupData.CustomerMobile;
         $scope.getOtp.OTPFor = "1";
         $scope.getOtp.OTPSendFrom = "1";
-        $scope.getOtp.APIKey = "afa35e6d32a54d64962a78ccf28c140017636054922421850805185";
+        // $scope.getOtp.APIKey = "afa35e6d32a54d64962a78ccf28c140017636054922421850805185";
         $scope.getOtp.OTPValidMinute = 5;
         $scope.wrongOtp = false;
         $scope.isDisabled = false;
