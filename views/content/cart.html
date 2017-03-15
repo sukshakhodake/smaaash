@@ -34,23 +34,31 @@
               <i class="fa fa-inr" aria-hidden="true"></i>
             </span>{{data.TotalAmount}}</td>
                <td class="text-center">
-                  <input type="number" class="quantity" ng-model="data.NoOfAdult" ng-change="editMyCart(data.CartItemID,data.CustId,data.NoOfAdult,data.NoOfSenior,data.NoOfChild,$index)">
-      <!-- </div> -->
+                  <input type="number" class="quantity" min="1" ng-model="data.NoOfAdult" ng-pattern="onlyNumbers" ng-change="editMyCart(data.CartItemID,data.CustId,data.NoOfAdult,data.NoOfSenior,data.NoOfChild,$index)">
+
+
       </td>
-      <td class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.subTotal}}
+      <td ng-if="data.subTotal" class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span>{{data.subTotal}}
+
          <div class="remove">
             <button class="uppercase" ng-click="removePackage(data.CartItemID)">remove</button>
          </div>
+      </td>
+      <td ng-if="!data.subTotal" class="text-center border-right"><span class="rupees"><i class="fa fa-inr" aria-hidden="true"></i></span> -
       </td>
 
       </tr>
 
       </table>
-      <div class="btn-checkout text-center  text-uppercase" ng-click="checkOutFunction();">
-<button class="butn_check">
+      <div class="btn-checkout text-center  text-uppercase" ng-click="checkOutFunction();" ng-if="!isDisabledCheckOut">
+<button class="butn_check" type="button" ng-disabled="unDefined">
 checkout
 </button>
     </div>
+    <div class="btn-checkout text-center" ng-if="isDisabledCheckOut">
+    <h3  class="text-center" >Please wait..</h3>
+    </div>
+
    </div>
 </div>
 </div>

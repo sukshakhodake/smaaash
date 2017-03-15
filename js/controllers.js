@@ -1825,6 +1825,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.onlyNumbers= "^[1-9][0-9]*$" ;
+    $scope.isDisabledCheckOut=false;
     $scope.editcartDetails = {};
     $scope.removeCartParams = {};
     $scope.showCartParams = {};
@@ -1868,6 +1870,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.checkoutParams.CartItemIDs = result.join();
                     console.log($scope.checkoutParams, "$scope.checkoutParams");
                     $scope.checkOutFunction = function() {
+                      console.log("im in checkout function");
+                      $scope.isDisabledCheckOut=true;
                             NavigationService.CheckOutCart($scope.checkoutParams, function(data) {
                                 console.log($scope.checkoutParams, "$scope.checkoutParams");
                                 console.log("in CheckOutCart", data);
@@ -1904,6 +1908,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.editcartDetails.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
 
                     console.log("$scope.editcartDetails", $scope.editcartDetails);
+                    if ($scope.editcartDetails.NoOfAdults === undefined || $scope.editcartDetails.NoOfAdults == null) {
+                      console.log("im undefined");
+                      $scope.unDefined = true
+                    }else {
+                      $scope.unDefined =false;
+                    }
 
                     $scope.cartDetails[index].subTotal = $scope.editcartDetails.NoOfAdults * $scope.cartDetails[index].TotalAmount;
 
