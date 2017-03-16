@@ -3850,7 +3850,7 @@ $scope.myfun = function(){
 })
 
 
-.controller('ResetCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('ResetCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,  $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("reset");
     $scope.menutitle = NavigationService.makeactive("Reset");
@@ -3860,24 +3860,38 @@ $scope.myfun = function(){
     $scope.credentials = {};
     $scope.wrongPass = false;
     $scope.passUpdated = false;
+    $scope.isResetDisabled = false;
     if ($.jStorage.get("loginDetail") != null) {
         $scope.credentials.CustomerID = $.jStorage.get("loginDetail").CustomerID;
         $scope.loggedInUser = $.jStorage.get("loginDetail").CustomerName;
     }
     $scope.formSubmit = function(credentials) {
         console.log("credentials", credentials);
+          $scope.wrongPass = false;
+        if (credentials) {
+
+            $scope.isResetDisabled = true;
+        }
         NavigationService.CustomerResetPassword(credentials, function(data) {
             console.log("credentials", credentials);
             console.log("data", data);
             if (data.value === true) {
                 $scope.passUpdated = true;
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/passwordUpdated.html',
+                    scope: $scope
+                });
+
                 $timeout(function() {
                     $scope.credentials = {};
                     $scope.passUpdated = false;
                     $scope.wrongPass = false;
+                      $scope.isResetDisabled = false;
                 }, 2000);
             } else if (data.value === false) {
                 $scope.wrongPass = true;
+                  $scope.isResetDisabled =false;
             }
         });
     }

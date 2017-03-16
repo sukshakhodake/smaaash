@@ -12,11 +12,12 @@
 
       </div>
    <h3 ng-if="wrongPass" class="text-center error"  >Please Enter Valid Details.</h3>
-      <button type="submit" name="button"><img src="img/new/go.png" alt=""></button>
+   <h3 ng-if="isResetDisabled"  class="text-center" >Please wait...</h3>
+      <button type="submit" name="button" ng-if="!isResetDisabled"><img src="img/new/go.png" alt=""></button>
    </form>
             </div>
 
 
 </div>
 
-<div ng-if ="passUpdated" class="text-center">Your password has been changed Successfully !</div>
+<!-- <div ng-if ="passUpdated" class="text-center">Your password has been changed Successfully !</div> -->
