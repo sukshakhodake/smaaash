@@ -327,8 +327,9 @@
                            <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="userData.Password">
                            <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
                         </div>
-                        <div class="error text-center" ng-if="valid">Something went wrong</div>
-                        <button type="submit" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
+                        <div class="error text-center" ng-if="valid">Something went wrong or incorrect details</div>
+                        <div class="text-center" ng-if="isUserLoggedIn">Please Wait..</div>
+                        <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
 
 
                      </form>
@@ -384,14 +385,18 @@
                         <p class="error" ng-show="signUp.password.$invalid  && (signUp.password.$dirty || signUp.password.$touched)">Please enter Minimum 8 Characters & Maximum 14 Characters.</p>
                         <div class="error" ng-if="!pass">password doesn't match or It should be Minimum 8 Characters & Maximum 14 Characters.</div>
 
-                        <div class="error" ng-if="customerEXist">Customer Already Exist.</div>
+                        <div class="error" ng-if="customerEXist">Customer already exist or incorrect details.</div>
+
 
 
                         <div class="form-group">
                            <input type="text" class="form-control" placeholder="Enter Your Card.No" name="card" ng-model="signupData.cardno">
                         </div>
-                        <button type="submit" class="btn4  btn-default brand-blue" ng-disabled="isDisabled"><span class="uppercase brand-white">sign up</span></button>
+                        <h3 ng-if="isDisabled">Please Wait...</h3>
+                        <button type="submit" class="btn4  btn-default brand-blue" ng-if="!isDisabled"><span class="uppercase brand-white">sign up</span></button>
 
+                        <!-- <button type="submit" class="btn4  btn-default brand-blue" ng-disabled="isDisabled"><span class="uppercase brand-white">sign up</span></button>
+ -->
 
                      </form>
                      <div class="submit-thank" ng-if="formCompleteSignup">

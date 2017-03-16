@@ -4658,6 +4658,7 @@ $scope.myfun = function(){
         $scope.signupGenerateOtp = function(signupData) {
             console.log("signupData ", signupData);
             $scope.customerEXist = false;
+
             if (signupData) {
                 if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
                     $scope.validCity = false;
@@ -4675,10 +4676,13 @@ $scope.myfun = function(){
                             console.log("data", data);
                             if (data.value === true) {
                                 $scope.otp();
-                            } else {
+                            } else if (!data.value && data.data.GenerateOTPTable[0].Message === "Invalid Data")  {
                                 console.log("data in false", data);
+
                                 $scope.customerEXist = true;
                                 $scope.isDisabled = false;
+                            }else {
+                                $scope.customerEXist = true;
                             }
                         });
                     } else {
@@ -4735,9 +4739,13 @@ $scope.myfun = function(){
         $scope.userData.IsOTPValidation = "0";
         $scope.userData.OTP = "";
         $scope.valid = false;
+        $scope.isUserLoggedIn =false;
         $scope.userLogin = function(userData) {
+          console.log("im in user login");
             if (userData) {
                 console.log("userData", userData);
+                $scope.isUserLoggedIn =true;
+                  $scope.valid = false;
                 NavigationService.VerifyCustomerLogin(userData, function(data) {
                     console.log("data", data);
                     if (data.value == true) {
@@ -4752,6 +4760,7 @@ $scope.myfun = function(){
                         location.reload();
                     } else {
                         $scope.valid = true;
+                        $scope.isUserLoggedIn =false;
                     }
 
 
@@ -4836,7 +4845,12 @@ $scope.myfun = function(){
 
         $scope.credentialstoReset = {};
         $scope.invalidEmail = false;
+          $scope.isDisabledForgot =false;
         $scope.formSubmit = function(credentials) {
+          if (credentials) {
+            $scope.isDisabledForgot = true ;
+              $scope.invalidEmail = false;
+          }
             console.log("credentials", credentials);
             NavigationService.CustomerForgetPassword(credentials, function(data) {
                 console.log("data", data);
@@ -4851,6 +4865,7 @@ $scope.myfun = function(){
                     $scope.credentialstoReset = {};
                 } else if (data.value === false) {
                     $scope.invalidEmail = true;
+                      $scope.isDisabledForgot =false;
 
                 }
             })
