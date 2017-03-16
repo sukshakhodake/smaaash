@@ -2836,6 +2836,7 @@ $scope.myfun = function(){
     };
 
 
+
     $scope.detailsForBal = {};
     $scope.detailsForBal.CardNo = "C68C765B";
     $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
