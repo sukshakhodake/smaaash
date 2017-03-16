@@ -2772,6 +2772,7 @@ $scope.myfun = function(){
     $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
 
     $scope.incorrect = false;
+    $scope.isRecharge =false;
     $scope.submitRecharge = function(rechargeOnline) {
 
         if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
@@ -2781,6 +2782,7 @@ $scope.myfun = function(){
                 scope: $scope
             });
         } else if (rechargeOnline && $.jStorage.get("loginDetail") != null) {
+            $scope.isRecharge =true;
 
             NavigationService.rechargeCard(rechargeOnline, function(data) {
                 console.log("data", data);
@@ -2789,6 +2791,7 @@ $scope.myfun = function(){
                     $window.location.href = $scope.newWindow;
                 } else if (data.value === false) {
                     $scope.incorrect = true;
+                      $scope.isRecharge =false;
                 }
             })
 
