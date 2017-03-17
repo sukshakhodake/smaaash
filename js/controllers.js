@@ -2812,6 +2812,20 @@ $scope.myfun = function(){
     $scope.navigation = NavigationService.getnav();
 
 })
+.controller('sorrieCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("sorrie");
+    $scope.menutitle = NavigationService.makeactive("Sorry");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.orderNo = $stateParams.orderno;
+    $scope.amount = $stateParams.amount;
+    $scope.cnrNo = $stateParams.cnrno;
+    $scope.paymentFor = $stateParams.paymentfor;
+    console.log("$stateParams", $stateParams);
+    console.log("im in");
+
+})
 
 
 
@@ -3908,6 +3922,17 @@ $scope.myfun = function(){
     $scope.menutitle = NavigationService.makeactive("Thank");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+})
+.controller('ThankssCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("thanksss");
+    $scope.menutitle = NavigationService.makeactive("Thank");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.orderNo = $stateParams.orderno;
+    $scope.amount = $stateParams.amount;
+    $scope.cnrNo = $stateParams.cnrno;
+    $scope.paymentFor = $stateParams.paymentfor;
 })
 
 .controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $rootScope) {

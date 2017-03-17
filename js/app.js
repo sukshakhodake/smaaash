@@ -90,11 +90,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'EventCtrl'
     })
 
-       .state('career', {
-            url: "/career",
-            templateUrl: "views/template.html",
-            controller: 'CareerCtrl'
-        })
+    .state('career', {
+        url: "/career",
+        templateUrl: "views/template.html",
+        controller: 'CareerCtrl'
+    })
 
     .state('dealsp', {
         url: "/dealsp/:id",
@@ -118,6 +118,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             url: "/thankyou",
             templateUrl: "views/template.html",
             controller: 'ThankCtrl'
+        })
+        .state('thankss', {
+            // url: "/thankyou",
+            url: "/thankyou/:orderno/:cnrno/:amount",
+            templateUrl: "views/template.html",
+            controller: 'ThankssCtrl'
         })
         .state('promotion', {
             url: "/promotion/:id",
@@ -288,15 +294,21 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('media', {
-        url: "/media",
-        templateUrl: "views/template.html",
-        controller: 'MediaCtrl'
-    })
-    .state('sorry', {
+            url: "/media",
+            templateUrl: "views/template.html",
+            controller: 'MediaCtrl'
+        })
+        .state('sorry', {
 
             url: "/sorry",
             templateUrl: "views/template.html",
             controller: 'SorryCtrl'
+        })
+        .state('sorrie', {
+            // url: "/sorry",
+            url: "/sorry/:orderno/:cnrno/:amount",
+            templateUrl: "views/template.html",
+            controller: 'sorrieCtrl'
         })
 
     .state('promotion-inner', {
@@ -634,10 +646,10 @@ firstapp.directive('onlyDigits', function() {
         }
     };
 });
-firstapp.directive('numbersOnly', function () {
+firstapp.directive('numbersOnly', function() {
     return {
         require: 'ngModel',
-        link: function (scope, element, attr, ngModelCtrl) {
+        link: function(scope, element, attr, ngModelCtrl) {
             function fromUser(text) {
                 if (text) {
                     var transformedInput = text.replace(/^[1-9][0-9]*$/, '');
