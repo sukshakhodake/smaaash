@@ -9,6 +9,12 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  .fixed-height li a {
+  height: auto;
+  img{
+     height: auto;
+  }
+}
 
   .loyalty-points{
    .more{
@@ -365,6 +371,7 @@
   .connect-button,
   .live-chat {
     padding: 0;
+    display: none;
     img {
       width: 25%;
       margin: 0 auto;
