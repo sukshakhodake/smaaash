@@ -119,7 +119,10 @@
         <div class="inner relative pointer auto-height ">
 <a class="video" fancybox-box data-fancybox-type="iframe" href="http://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1">
 <!-- <img src="img/landing/banner1.jpg" class="img-responsive" alt="banner"></a> -->
+
 <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner"></a>
+<!-- <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail && !banner[0].homebanner"></a> -->
+<!-- <img ng-src="{{banner[0].homebanner | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].homebanner || banner[0].thumbnail"></a> -->
 
    <!--<iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
      style="
