@@ -2725,142 +2725,6 @@ button {
   }
 }
 
-.attractions,
-.custom,.deals2,.events1 {
-  .row:nth-of-type(odd)
-  // .row:nth-of-type(1), .row:nth-of-type(3),.row:nth-of-type(5)
-  {
-    .col-md-4:nth-of-type(1){
-      .brand-blue {
-        background-color: $brand-darkblue;
-      }
-       .new-detail {
-        border-color: $brand-darkblue;
-        .views {
-          button {
-            border-color: $brand-darkblue;
-          }
-        }
-        .bluey {
-          color: $brand-darkblue;
-        }
-        .button-set {
-          button {
-            background-color: $brand-darkblue;
-          }
-        }
-      }
-    }
-    .col-md-4:nth-of-type(2){
-      .brand-blue {
-          background-color: $brand-orangy;
-      }
-           .new-detail {
-        border-color: $brand-orangy;
-        .views {
-          button {
-            border-color: $brand-orangy;
-          }
-        }
-        .bluey {
-          color: $brand-orangy;
-        }
-        .button-set {
-          button {
-            background-color: $brand-orangy;
-          }
-        }
-      }
-    }
-    .col-md-4:nth-of-type(3){
-      .brand-blue {
-        background-color: $brand-pink;
-      }
-           .new-detail {
-        border-color: $brand-pink;
-        .views {
-          button {
-            border-color: $brand-pink;
-          }
-        }
-        .bluey {
-          color:  $brand-pink;
-        }
-        .button-set {
-          button {
-            background-color:  $brand-pink;
-          }
-        }
-      }
-    }
-  }
-  .row:nth-of-type(even){
-    // .row:nth-of-type(2),.row:nth-of-type(4),.row:nth-of-type(6){
-    .col-md-4:nth-of-type(1){
-     .brand-blue {
-        background-color: $brand-green;
-      }
-        .new-detail {
-        border-color: $brand-green;
-        .views {
-          button {
-            border-color: $brand-green;
-          }
-        }
-        .bluey {
-          color: $brand-green;
-        }
-        .button-set {
-          button {
-            background-color: $brand-green;
-          }
-        }
-      }
-    }
-    .col-md-4:nth-of-type(2){
-    .brand-blue {
-        background-color: $brand-blue;
-      }
-      .new-detail {
-        border-color: $brand-blue;
-        .views {
-          button {
-            border-color: $brand-blue;
-          }
-        }
-        .bluey {
-          color: $brand-blue;
-        }
-        .button-set{
-          button {
-            background-color: $brand-blue;
-          }
-        }
-      }
-    }
-    .col-md-4:nth-of-type(3){
-    .brand-blue {
-        background-color: $brand-purple;
-      }
-          .new-detail {
-        border-color: $brand-purple;
-        .views {
-          button {
-            border-color: $brand-purple;
-          }
-        }
-        .bluey {
-          color: $brand-purple;
-        }
-        .button-set {
-          button {
-            background-color: $brand-purple;
-          }
-        }
-      }
-    }
-  }
-}
 .custom, .stars{
  .col-md-3:nth-child(6n+1),
   .col-md-4:nth-child(6n+1) {
@@ -2911,6 +2775,9 @@ button {
         .button-set {
           button {
             background-color: $brand-orangy;
+            a{
+              background-color: $brand-orangy;
+            }
           }
         }
       }
@@ -3010,6 +2877,156 @@ button {
             border-color: $brand-purple;
              a{
                color: $brand-purple;
+            }
+          }
+        }
+        .bluey {
+          color: $brand-purple;
+        }
+        .button-set {
+          button {
+            background-color: $brand-purple;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.attractions,
+.custom,.deals2,.events1 {
+  .row:nth-of-type(odd)
+  // .row:nth-of-type(1), .row:nth-of-type(3),.row:nth-of-type(5)
+  {
+    .col-md-4:nth-of-type(1){
+      .brand-blue {
+        background-color: $brand-darkblue;
+      }
+       .new-detail {
+        border-color: $brand-darkblue;
+        .views {
+          button {
+            border-color: $brand-darkblue;
+          }
+        }
+        .bluey {
+          color: $brand-darkblue;
+        }
+        .button-set {
+          button {
+            background-color: $brand-darkblue;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(2){
+      .brand-blue {
+          background-color: $brand-orangy;
+      }
+           .new-detail {
+        border-color: $brand-orangy;
+        .views {
+          button {
+            border-color: $brand-orangy;
+          }
+        }
+        .bluey {
+          color: $brand-orangy;
+        }
+        .button-set {
+          button {
+            background-color: $brand-orangy;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(3){
+      .brand-blue {
+        background-color: $brand-pink;
+      }
+           .new-detail {
+        border-color: $brand-pink;
+        .views {
+          button {
+            border-color: $brand-pink;
+          }
+        }
+        .bluey {
+          color:  $brand-pink;
+        }
+        .button-set {
+          button {
+            background-color:  $brand-pink;
+          }
+        }
+      }
+    }
+  }
+  .row:nth-of-type(even){
+    // .row:nth-of-type(2),.row:nth-of-type(4),.row:nth-of-type(6){
+    .col-md-4:nth-of-type(1){
+     .brand-blue {
+        background-color: $brand-green;
+      }
+        .new-detail {
+        border-color: $brand-green;
+        .views {
+          button {
+            border-color: $brand-green;
+            a{
+               border-color: $brand-green;
+            }
+          }
+        }
+        .bluey {
+          color: $brand-green;
+        }
+        .button-set {
+          button {
+            background-color: $brand-green;
+            a{
+               background-color: $brand-green;
+            }
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(2){
+    .brand-blue {
+        background-color: $brand-blue;
+      }
+      .new-detail {
+        border-color: $brand-blue;
+        .views {
+          button {
+            border-color: $brand-blue;
+            a{
+                border-color: $brand-blue;
+            }
+          }
+        }
+        .bluey {
+          color: $brand-blue;
+        }
+        .button-set{
+          button {
+            background-color: $brand-blue;
+          }
+        }
+      }
+    }
+    .col-md-4:nth-of-type(3){
+    .brand-blue {
+        background-color: $brand-purple;
+      }
+          .new-detail {
+        border-color: $brand-purple;
+        .views {
+          button {
+            border-color: $brand-purple;
+            a{
+               border-color: $brand-purple;
             }
           }
         }
@@ -3391,4 +3408,28 @@ opacity: 1;
 
   select:focus .cityselect {
   display: none;
+}
+
+.kitty{
+  .figure{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+  .figure:nth-of-type(1){
+ background-image: url("../img/kitty.jpg");
+  }
+    .figure:nth-of-type(2){
+ background-image: url("../img/bday.jpg");
+  }
+    .figure:nth-of-type(3){
+ background-image: url("../img/prewedding.jpg");
+  }
+    .figure:nth-of-type(4){
+ background-image: url("../img/corporate.jpg");
+  }
+     .figure:nth-of-type(5){
+ background-image: url("../img/teambuilding.jpg");
+  }
 }

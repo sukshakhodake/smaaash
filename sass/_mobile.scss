@@ -1026,7 +1026,7 @@
   .prewedding,
   .kitty {
     .banner-info {
-      top: 25px;
+      top: 70px;
       right: 40px;
       .banner-text {
         h2 {
@@ -1056,6 +1056,22 @@
       }
     }
   }
+
+  .prewedding .banner-info, .birthday .banner-info, .kitty .banner-info { width: 40%; }
+
+.kitty{
+  .figure{
+    min-height: 65vh;
+  }
+}
+.tabs-about li a {
+    font-size: 11px;
+}
+
+.btn-checkout .butn_check,.careers .button-sets button {
+    width: 50%;
+    }
+
   .dropdowns {
     .woman-menu {
       display: none;
