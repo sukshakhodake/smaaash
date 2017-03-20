@@ -1093,6 +1093,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+
     $scope.goTo = function(name, id) {
         if (name, id) {
             $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
@@ -2897,78 +2898,79 @@ $scope.myfun = function(){
     }
 
 
-
-    $scope.CustID = "202";
-    $scope.customerBookingDetails = {
-        "GetCustomerBookingDetails": {
-            "CustomerBooking": [{
-                "Status": 1,
-                "Message": "Get Booking Data",
-                "BranchName": "Mumbai",
-                "PackageName": "Travel Agents - WeekDay",
-                "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
-                "BookingDate": "22-11-2016",
-                "VisitDate": "30-11-2016",
-                "CNRNo": 511,
-                "PayableAmount": 999,
-                "IsCustomerCard": 1
-            }, {
-                "Status": 1,
-                "Message": "Get Booking Data",
-                "BranchName": "Mumbai",
-                "PackageName": "Travel Agents - WeekDay",
-                "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
-                "BookingDate": "22-11-2016",
-                "VisitDate": "01-12-2016",
-                "CNRNo": 510,
-                "PayableAmount": 999,
-                "IsCustomerCard": 1
-            }],
-            "CustomerCardRecharge": [{
-                "Status": 1,
-                "Message": "Get Card Recharge Data",
-                "BranchName": "Mumbai",
-                "CustomerName": "piyush",
-                "RechargeDate": "26-11-2016",
-                "RechargeID": 3,
-                "RechargeAmt": 2000
-            }, {
-                "Status": 1,
-                "Message": "Get Card Recharge Data",
-                "BranchName": "Mumbai",
-                "CustomerName": "piyush",
-                "RechargeDate": "26-11-2016",
-                "RechargeID": 2,
-                "RechargeAmt": 100
-            }, {
-                "Status": 1,
-                "Message": "Get Card Recharge Data",
-                "BranchName": "Mumbai",
-                "CustomerName": "piyush",
-                "RechargeDate": "26-11-2016",
-                "RechargeID": 1,
-                "RechargeAmt": 500
-            }]
-        }
-    }
-
-
-    $scope.bookingDetails = [];
-    $scope.custBooking = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerBooking;
-    $scope.CustCardRecharge = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerCardRecharge;
-    $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
-    _.each($scope.bookingDetails, function(value) {
-        if (value.Message === "Get Booking Data") {
-            value.objtype = "Booking";
-        } else if (value.Message === "Get Card Recharge Data") {
-            value.objtype = "Recharge";
-        };
-
-    });
+    //
+    // $scope.CustID = "202";
+    // $scope.customerBookingDetails = {
+    //     "GetCustomerBookingDetails": {
+    //         "CustomerBooking": [{
+    //             "Status": 1,
+    //             "Message": "Get Booking Data",
+    //             "BranchName": "Mumbai",
+    //             "PackageName": "Travel Agents - WeekDay",
+    //             "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
+    //             "BookingDate": "22-11-2016",
+    //             "VisitDate": "30-11-2016",
+    //             "CNRNo": 511,
+    //             "PayableAmount": 999,
+    //             "IsCustomerCard": 1
+    //         }, {
+    //             "Status": 1,
+    //             "Message": "Get Booking Data",
+    //             "BranchName": "Mumbai",
+    //             "PackageName": "Travel Agents - WeekDay",
+    //             "PackagePhoto": "http://192.168.0.41/Smaaash/Upload/ImageNotFound.jpg",
+    //             "BookingDate": "22-11-2016",
+    //             "VisitDate": "01-12-2016",
+    //             "CNRNo": 510,
+    //             "PayableAmount": 999,
+    //             "IsCustomerCard": 1
+    //         }],
+    //         "CustomerCardRecharge": [{
+    //             "Status": 1,
+    //             "Message": "Get Card Recharge Data",
+    //             "BranchName": "Mumbai",
+    //             "CustomerName": "piyush",
+    //             "RechargeDate": "26-11-2016",
+    //             "RechargeID": 3,
+    //             "RechargeAmt": 2000
+    //         }, {
+    //             "Status": 1,
+    //             "Message": "Get Card Recharge Data",
+    //             "BranchName": "Mumbai",
+    //             "CustomerName": "piyush",
+    //             "RechargeDate": "26-11-2016",
+    //             "RechargeID": 2,
+    //             "RechargeAmt": 100
+    //         }, {
+    //             "Status": 1,
+    //             "Message": "Get Card Recharge Data",
+    //             "BranchName": "Mumbai",
+    //             "CustomerName": "piyush",
+    //             "RechargeDate": "26-11-2016",
+    //             "RechargeID": 1,
+    //             "RechargeAmt": 500
+    //         }]
+    //     }
+    // }
+    //
+    //
+    // $scope.bookingDetails = [];
+    // $scope.custBooking = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerBooking;
+    // $scope.CustCardRecharge = $scope.customerBookingDetails.GetCustomerBookingDetails.CustomerCardRecharge;
+    // $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+    // _.each($scope.bookingDetails, function(value) {
+    //     if (value.Message === "Get Booking Data") {
+    //         value.objtype = "Booking";
+    //     } else if (value.Message === "Get Card Recharge Data") {
+    //         value.objtype = "Recharge";
+    //     };
+    //
+    // });
+    //
     $scope.msg = false;
     $scope.CustID = $.jStorage.get("loginDetail").CustomerID;
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
-        console.log("data", data);
+        console.log("data*********", data);
         if (data.value === true) {
             $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
             $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
@@ -3532,7 +3534,7 @@ $scope.myfun = function(){
 
 })
 
-.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location) {
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location,  $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -3549,51 +3551,62 @@ $scope.myfun = function(){
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
+    // $scope.addToCartParams.NoOfAdults = '';
     if ($.jStorage.get("loginDetail") != null) {
         $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
         $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     }
 
-    $scope.addToCartParams.NoOfChild = '0';
-    $scope.addToCartParams.NoOfSenior = '0';
-    $scope.addToCartParams.AddonIDs = " ";
-    $scope.addToCartParams.AddonQuantities = "";
+    // $scope.addToCartParams.NoOfChild = '0';
+    // $scope.addToCartParams.NoOfSenior = '0';
+    // $scope.addToCartParams.AddonIDs = " ";
+    // $scope.addToCartParams.AddonQuantities = "";
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
     $scope.buyNow = function(BranchPackageID, price) {
-        console.log("im in");
-        console.log("price", price);
-        console.log("BranchPackageID", BranchPackageID);
+
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
-        $scope.addToCartParams.TotalAmount = price;
+          // $scope.addToCartParams.BranchPackageID = "41";
+          // $scope.addToCartParams.TotalAmount = "222";
+          $scope.addToCartParams.TotalAmount = price;
+
+
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
-            // $uibModal.open({
-            //     animation: true,
-            //     templateUrl: 'views/modal/wishlistsigup.html',
-            //     scope: $scope
-            // });
             $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
                 if (data.value) {
+
                     if (data.data.AddToCart[0].Status === 1) {
                         console.log("inif", data);
-                        $uibModal.open({
+                        $scope.successCartModal = $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/addtocart.html',
                             scope: $scope
                         });
+                        $timeout(function() {
+                            $scope.successCartModal.close();
+                            $state.go('cart');
+                        }, 1000);
 
-                    } else if (data.data.AddToCart[0].Status === 0) {
+
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/alreadyCart.html',
                             scope: $scope
                         });
+
+                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                      $uibModal.open({
+                          animation: true,
+                          templateUrl: 'views/modal/cartFail.html',
+                          scope: $scope
+                      });
 
                     }
                 } else {
@@ -3624,14 +3637,10 @@ $scope.myfun = function(){
                 //         scope: $scope
                 //     });
                 // }
-
-
             })
         }
-
-
-
     }
+
 
 })
 
@@ -4580,6 +4589,7 @@ $scope.myfun = function(){
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
         $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
         $scope.template = TemplateService;
+        $("#target").val($("#target option:first").val());
         $scope.city = true;
         if ($.jStorage.get("city") === 'Mumbai') {
             $scope.showlogo = true;

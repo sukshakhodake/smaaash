@@ -288,9 +288,14 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'EventInnerCtrl'
         })
         .state('deals-inner', {
-            url: "/:name/:id",
+            // url: "/:id",
+            // url: "/:name/:id",
             templateUrl: "views/template.html",
-            controller: 'DealsInnerCtrl'
+            controller: 'DealsInnerCtrl',
+            params:{
+              name :"name",
+              id:"id"
+            }
         })
 
     .state('media', {
