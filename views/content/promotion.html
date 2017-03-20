@@ -26,8 +26,8 @@
                                 </li>
                                 <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                             </ul>
-                            <div class="more inline-block">
-                                <button class="uppercase green" ng-click="buyNow(detailPromotionsInner.BranchPackageID,detailPromotionsInner.price)">Buy Now</button>
+                            <div class="more inline-block" ng-if="detailPromotionsInner.showBuyNow">
+                                <button class="uppercase green" ng-click="buyNowPromotionInner(detailPromotionsInner.BranchPackageID,detailPromotionsInner.price)">Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -86,8 +86,8 @@
                         </div>
                         <div class="prize-name text-center " ng-if="detailPromotionsInner.schedule === ''" >Nothing to show.</div>
 
-                        <div class="button-sets">
-                            <button class="uppercase green">Buy Now</button>
+                        <div class="button-sets" >
+                            <button class="uppercase green" ng-if="detailPromotionsInner.showBuyNow" ng-click="buyNowPromotionInner(detailPromotionsInner.BranchPackageID,detailPromotionsInner.price)">Buy Now</button>
                             <button class="uppercase blue" ng-click="pdfmodal(detailPromotionsInner.pdf);">download</button>
                         </div> 
                     </div>

@@ -175,13 +175,16 @@
                <div class="reward-table carts" ng-show="tab=='design'">
                   <!-- <div class="reward-table carts" ng-show="tab=='trim'"> -->
                   <!-- <div class="table-responsive"> -->
-                  <div class="table-responsive" ng-if="!msg">
+                  <h3 ng-if="!isBooking" class="text-center">Loading...</h3>
+                  <div class="table-responsive" ng-if="isBooking">
                      <table class="table">
                         <thead>
                            <tr>
-                              <th class="text-center uppercase border-left">transcation id</th>
+                              <th class="text-center uppercase border-left">id</th>
+                              <!-- <th class="text-center uppercase border-left">transcation id</th> -->
                               <th class="text-center  uppercase ">type</th>
-                              <th class="text-center uppercase ">points earned</th>
+                              <!-- <th class="text-center uppercase ">points earned</th> -->
+                              <th class="text-center uppercase ">date</th>
                               <th class="text-center uppercase border-right">value in rs</th>
                            </tr>
                         </thead>
@@ -190,7 +193,8 @@
                            <td class="text-center border-left" ng-if="data.objtype === 'Recharge' ">{{data.RechargeID}}</td>
                            <td class="text-center" ng-if="data.objtype === 'Booking' ">{{data.objtype}}</td>
                            <td class="text-center" ng-if="data.objtype === 'Recharge' ">{{data.objtype}}</td>
-                           <td class="text-center"> -</td>
+                           <!-- <td class="text-center"> -</td> -->
+                           <td class="text-center">{{data.BookingDate}}</td>
                            <td class="text-center border-right" ng-if="data.objtype === 'Recharge' ">{{data.RechargeAmt}}</td>
                            <td class="text-center border-right" ng-if="data.objtype === 'Booking' ">{{data.PayableAmount}}</td>
 

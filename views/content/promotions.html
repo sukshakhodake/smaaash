@@ -11,14 +11,14 @@
 
           <div class="karting-championship">
             <div class="brand-blue relative  pointer">
-              <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="" >
+              <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="" ng-click="goTo(data.hometext,data._id)">
               <!-- <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a> -->
             </div>
             <div class="new-detail">
-              <div class="views inline-block">
-                <button class="uppercase bluey"  ng-click="goTo(data.hometext,data._id)">view</button>
-              </div>
+              <!-- <div class="views inline-block">
+                <button class="uppercase bluey" >view</button>
+              </div> -->
               <div class="min-last">
                 <h3 class="margin0 bluey pointer" ng-bind-html="data.hometext | shorten :25"  ></h3>
                  <p class="" ng-bind-html="data.description | htmlToPlaintext | shorten :130"></p>
@@ -29,7 +29,7 @@
                   </span>
                 </p>-->
               </div>
-              <div class="button-set">
+              <div class="button-set" ng-if="data.showBuyNow">
                 <button class="uppercase blue"  ng-click="buyNow(data.BranchPackageID,data.price)">buy now</button>
               </div>
               <!-- <div class="love">

@@ -278,9 +278,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'ConfirmCtrl'
         })
         .state('snow-rush', {
-            url: "/:name/:id",
+            // url: "/:name/:id",
             templateUrl: "views/template.html",
-            controller: 'SnowCtrl'
+            controller: 'SnowCtrl',
+            params:{
+              name :"name",
+              id:"id"
+            }
         })
         .state('event-inner', {
             url: "/:name/:id",
