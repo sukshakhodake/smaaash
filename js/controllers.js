@@ -4131,7 +4131,7 @@ $scope.myfun = function(){
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNow = function(BranchPackageID, price) {
+    $scope.buyNowPromotion = function(BranchPackageID, price) {
 
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
           // $scope.addToCartParams.BranchPackageID = "29";
