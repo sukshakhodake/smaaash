@@ -50,7 +50,14 @@ img:"img/home/mbanner.png"
 },,{
 img:"img/home/mbanner.png"
 }
-]
+];
+var x = 1 ;
+_.each($scope.mys,function(key){
+  if (key) {
+    key.order =x ;
+    x++ ;
+  }
+})
 
     $scope.openpops = function() {
         openL = ngDialog.open({
@@ -124,7 +131,7 @@ img:"img/home/mbanner.png"
     $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     NavigationService.getSlider(function(data) {
         $scope.mySlides = data.data;
-        // console.log("$scope.mySlides", $scope.mySlides);
+        console.log("$scope.mySlides", $scope.mySlides);
         var i = 1;
         _.each($scope.mySlides, function(n) {
             if (n.image) {
@@ -238,12 +245,12 @@ img:"img/home/mbanner.png"
     $scope.signupData = {};
     $scope.pass = true;
     $scope.emailExist = false;
-    $scope.validCity = false;
+    // $scope.validCity = false;
     $scope.signupLogin = function(signupData) {
 
         if ($scope.signupData) {
-            if ($scope.signupData.city == $.jStorage.get("cityid")) {
-                $scope.validCity = false;
+            // if ($scope.signupData.city == $.jStorage.get("cityid")) {
+                // $scope.validCity = false;
                 if ($scope.signupData.password == $scope.signupData.confirmPassword) {
 
                     $scope.pass = true;
@@ -264,9 +271,9 @@ img:"img/home/mbanner.png"
                 } else {
                     $scope.pass = false;
                 }
-            } else {
-                $scope.validCity = true;
-            }
+            // } else {
+            //     $scope.validCity = true;
+            // }
         }
     }
 
@@ -2928,7 +2935,7 @@ $scope.myfun = function(){
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state,$window) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -2942,6 +2949,42 @@ $scope.myfun = function(){
             windowClass: 'widths'
         })
     };
+    $scope.rechargeOnline = {};
+    if ($.jStorage.get("loginDetail") != null) {
+        $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+        $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+    }
+
+    $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
+
+    $scope.incorrect = false;
+    $scope.isRecharge =false;
+    $scope.submitRecharge = function(rechargeOnline) {
+
+        if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/wishlistsigup.html',
+                scope: $scope
+            });
+        } else if (rechargeOnline && $.jStorage.get("loginDetail") != null) {
+            $scope.isRecharge =true;
+
+            NavigationService.rechargeCard(rechargeOnline, function(data) {
+                console.log("data", data);
+                if (data.value === true) {
+                    $scope.newWindow = data.data.RechargeCard[0].Link;
+                    $window.location.href = $scope.newWindow;
+                } else if (data.value === false) {
+                    $scope.incorrect = true;
+                      $scope.isRecharge =false;
+                }
+            })
+
+        }
+
+    }
+
 
 
 
@@ -3084,7 +3127,7 @@ $scope.myfun = function(){
             $scope.isBooking =true;
         }
     })
-  
+
      $scope.tab = "design";
     $scope.classb = 'active-tab';
     $scope.classa = '';
@@ -4837,8 +4880,8 @@ $scope.myfun = function(){
             $scope.customerEXist = false;
 
             if (signupData) {
-                if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
-                    $scope.validCity = false;
+                // if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
+                //     $scope.validCity = false;
                     if (signupData.CustomerPassword === signupData.confirmPassword) {
                         console.log('m true');
                         $scope.pass = true;
@@ -4866,10 +4909,10 @@ $scope.myfun = function(){
                         console.log('m false');
                         $scope.pass = false;
                     }
-                } else {
-                    console.log("im in else");
-                    $scope.validCity = true;
-                }
+                // } else {
+                //     console.log("im in else");
+                //     $scope.validCity = true;
+                // }
             }
         }
         $scope.GenrateOneTimePass = function(signupData) {

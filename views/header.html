@@ -18,7 +18,7 @@
                      </a>
                   </div>
                </div>-->
-              
+
                <div class="col-flexing mobile-50  ">
                   <div class="exploring bg-prop ">
                      <a ui-sref="attractions({id:attraId})" class="text-center">
@@ -371,7 +371,7 @@
 
                         </div>
                         <div class="form-group ">
-                             <span class="cityselect" ng-show="!signupData.CustomerAddress">pleas select city</span>
+                             <span class="cityselect" ng-show="!signupData.CustomerAddress">Please select city</span>
                            <select name="categorydata" id="target" class="form-control" ng-model="signupData.CustomerAddress" required>
                              <!-- <option selected="selected" class="holder">Please select</option> -->
                               <!-- <option ng-selected="true" value="">Please select city</option> -->
@@ -379,7 +379,7 @@
                               <option value="{{d._id}}" ng-repeat="d in getCity">{{d.name}}</option>
 
                            </select>
-                           <div class="error" ng-if="validCity">Please select valid city.</div>
+                           <!-- <div class="error" ng-if="validCity">Please select valid city.</div> -->
                         </div>
                         <div class="form-group signup-width">
                            <input type="password" no-Paste class="form-control" placeholder="Password" name="password" required ng-model="signupData.CustomerPassword" minlength="8" maxlength="14">
