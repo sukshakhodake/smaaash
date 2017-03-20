@@ -42,6 +42,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
+
+     $scope.mys=[{
+img:"img/home/mbanner.png"
+},{
+img:"img/home/mbanner.png"
+},,{
+img:"img/home/mbanner.png"
+}
+]
+
     $scope.openpops = function() {
         openL = ngDialog.open({
             template: 'views/content/popup.html',
@@ -3074,9 +3084,10 @@ $scope.myfun = function(){
             $scope.isBooking =true;
         }
     })
-    $scope.tab = "design";
-    $scope.classa = 'active';
-    $scope.classb = '';
+  
+     $scope.tab = "design";
+    $scope.classb = 'active-tab';
+    $scope.classa = '';
     $scope.classc = '';
     $scope.classd = '';
     $scope.classe = '';
@@ -3115,8 +3126,38 @@ $scope.myfun = function(){
             $scope.classe = '';
 
         }
+         if (a == 5) {
+            $scope.classe = 'active-tab';
+            $scope.classb = '';
+            $scope.classa = '';
+            $scope.classc = '';
+            $scope.classd = '';
 
+        }
     };
+
+//log out//
+     $scope.hidelogout = false;
+     $scope.logout = function() {
+            console.log("im in logout");
+            if ($.jStorage.get("loginDetail") != null) {
+                NavigationService.logout(function(data) {
+                    console.log("im in nav logout");
+                    console.log("data", data);
+                    if (data.value === true) {
+                        $scope.hidelogout = true;
+                    }
+                    console.log("im in nav logout");
+                    location.reload();
+                    $state.go("home");
+                })
+            } else {
+
+            }
+
+        };
+//log out//
+
     $scope.attraction = '';
     $scope.whatsnew = '';
 

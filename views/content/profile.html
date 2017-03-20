@@ -64,6 +64,17 @@
                         <p class="text-uppercase">edit profile</p>
 
                      </li>
+                     <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('reacharge',4)">
+
+                        <p class="text-uppercase">recharge</p>
+
+                     </li> 
+                     <li class="tab-item   relative  col-flex {{classe}}" ng-click="tabchange('logout',5)">
+
+                        <p class="text-uppercase">log out</p>
+
+                     </li> 
+
                      <!-- <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
 
                         <p class="text-uppercase">wishlist</p>
@@ -389,9 +400,42 @@
                               </a>
                            </button>
 
-                        </form>
+                      </form>
                         <h3 ng-if="formComplete" class="text-center">Profile Updated Successfully</h3>
                      </div>
+                  </div>
+
+               </div>
+               <div class="reward-table carts" ng-show="tab=='reacharge'"> 
+                 <!--<h2>recharge online</h2>-->
+                  <div class="heads">
+          <h3 class="text-center text-uppercase text-in-shadow font-america mb5 "> let us know your details</h3>
+          <!--<p class=" text-center color-white font-galano">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+            <form  class="form" ng-submit="submitRecharge(rechargeOnline)">
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="Name on card" ng-model="rechargeOnline.CustomerName" required>
+      </div>
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="Card Number" allow-pattern="(\d|[a-z])" ng-model="rechargeOnline.CustomerCardNo"  required>
+      </div>
+       <div class="form-group ruppee">
+           <i class="fa fa-inr" aria-hidden="true"></i>
+         <input type="text" class="form-control" ng-model="rechargeOnline.RechargeAmount" placeholder="Amount" only-Digits required>
+      </div>
+        <div  class="text-center" ng-if="incorrect">Something went wrong.</div>
+        <h3 class="text-center" ng-if="isRecharge">Wait...</h3>
+        <div class="onbutton text-center">
+ <button  type="submit" ng-if="!isRecharge" name="button"><img src="img/new/go.png" alt=""></button>
+        </div>
+     
+   </form>
+        </div>
+               </div>
+                      <div class="reward-table carts" ng-show="tab=='logout'">
+                        <div class="text-center pointer">
+  <p class="pointer" ng-click="logout();"> Log Out </p>
+                  <p> Thank you for your participation </p>
+
                   </div>
 
                </div>
