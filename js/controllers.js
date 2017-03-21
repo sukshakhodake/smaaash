@@ -2437,6 +2437,7 @@ _.each($scope.mys,function(key){
             $scope.detailExploreSmaash = data.data;
             console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
             $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+            $scope.detailExploreSmaash.image = $filter('uploadpath')($scope.detailExploreSmaash.image);
             $scope.detailExploreSmaash.mobileBanner = $filter('uploadpath')($scope.detailExploreSmaash.mobileBanner);
             console.log($scope.detailExploreSmaash.multipleattraction);
             var attractions = [];
@@ -3702,6 +3703,7 @@ $scope.myfun = function(){
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
         $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
+        $scope.detailDealsInner.image = $filter('uploadpath')($scope.detailDealsInner.image);
         $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
 
         TemplateService.removeLoader();
