@@ -2458,6 +2458,7 @@ _.each($scope.mys,function(key){
             $scope.detailExploreSmaash = data.data;
             console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
             $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+            $scope.detailExploreSmaash.mobileBanner = $filter('uploadpath')($scope.detailExploreSmaash.mobileBanner);
             console.log($scope.detailExploreSmaash.multipleattraction);
             var attractions = [];
             _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
@@ -3717,6 +3718,8 @@ $scope.myfun = function(){
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+        $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
+
         TemplateService.removeLoader();
     });
     $scope.addToCartParams = {};
@@ -4880,8 +4883,8 @@ $scope.myfun = function(){
             $scope.customerEXist = false;
 
             if (signupData) {
-                // if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
-                //     $scope.validCity = false;
+                if (signupData.CustomerAddress) {
+                    $scope.validCity = false;
                     if (signupData.CustomerPassword === signupData.confirmPassword) {
                         console.log('m true');
                         $scope.pass = true;
@@ -4909,10 +4912,10 @@ $scope.myfun = function(){
                         console.log('m false');
                         $scope.pass = false;
                     }
-                // } else {
-                //     console.log("im in else");
-                //     $scope.validCity = true;
-                // }
+                } else {
+                    console.log("im in else");
+                    $scope.validCity = true;
+                }
             }
         }
         $scope.GenrateOneTimePass = function(signupData) {
