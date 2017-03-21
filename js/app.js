@@ -298,7 +298,8 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'DealsInnerCtrl',
             params:{
               name :"name",
-              id:"id"
+              id:"id",
+              image:"image"
             }
         })
 

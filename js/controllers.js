@@ -181,7 +181,7 @@ _.each($scope.mys,function(key){
             $scope.whatsnew = $scope.content["What's new"];
             console.log($scope.whatsnew,"$scope.whatsnew");
             $scope.hostParty = $scope.content["Host a party"];
-            console.log("  $scope.hostParty", $scope.hostParty);
+            console.log(" *******", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
             console.log("  $scope.deals",  $scope.deals);
             $scope.events = $scope.content["Events"];
@@ -934,7 +934,7 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state,$filter) {
+.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state,$filter, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -3443,7 +3443,7 @@ $scope.myfun = function(){
 
 })
 
-.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("events-challenges");
     $scope.menutitle = NavigationService.makeactive("Events and Challengest");
@@ -3714,10 +3714,15 @@ $scope.myfun = function(){
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.myUrl = $location.absUrl();
+    if ($stateParams.image) {
+  $scope.homeimage = $filter('uploadpath')($stateParams.image);
+
+    }
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+        $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
         $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
 
         TemplateService.removeLoader();
