@@ -678,6 +678,12 @@ width: 100px;
     }
   }
 }
+.landing-kartbanner{
+  margin-top: 0;
+min-height: 225px;
+background-size: contain !important;
+}
+
 
 
 
@@ -1534,7 +1540,8 @@ background-color: $brand-purple;
     }
   }
   .landing-kartbanner {
-    min-height: 665px;
+   min-height: 225px;
+    background-size: contain !important;
   }
 
   //avatar

@@ -46,7 +46,9 @@
    <!--<img ng-src="{{banner[0].thumbnail|uploadpath}}" class="img-responsive margin-auto width100" ng-if="showthumbimage && (banner[0].thumbnail || banner[0].thumbnail != '' )&&banner[0].videourl" ng-click="showVid()">
    <img ng-src="{{banner[0].videourl|youtubethumb}}"  class="img-responsive width100" ng-if="!showthumbimage">-->
 
-
+ <div class="pink-butn" ng-click="scrollDown();">
+            <span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+        </div>
 
 
 </div>
@@ -54,9 +56,7 @@
 
 
 <!--//mobile-->
-        <div class="pink-butn" ng-click="scrollDown();">
-            <span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-        </div>
+       
     </div>
     <div class="snowy" >
     <div class="snow-bg ">
@@ -66,7 +66,7 @@
         </div>
 
     </div>
-    <div class="container ">
+    <div class="container second">
          <div class="deals-details text-center">
                <h2 class="title">games</h2>
             <div ng-bind-html="detailExploreSmaash.description"></div>

@@ -19,9 +19,9 @@
     height: 100%;
 " class="">
  </iframe> -->
-   <div class="overlays" ng-if="!showthumbimage">
+   <!--<div class="overlays" ng-if="!showthumbimage">
       <a class="pull-right"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
-   </div>
+   </div>-->
    <img ng-src="{{banner[0].thumbnail|uploadpath}}" class="img-responsive margin-auto width100" ng-if="showthumbimage && (banner[0].thumbnail || banner[0].thumbnail != '' )&&banner[0].videourl" ng-click="showVid()">
    <img ng-src="{{banner[0].videourl|youtubethumb}}" class="img-responsive width100" ng-if="!showthumbimage">
 </div>
