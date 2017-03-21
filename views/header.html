@@ -179,7 +179,7 @@
             <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
          </a>
     </div>
-      <div class="sides">
+      <div class="sides" ng-show="openMenu">
             <div class="" id="axe">
                <!--<div class="orange-rays"></div>-->
                <div class="cities" ng-click="toggleCity()">
@@ -192,7 +192,7 @@
          </div>
     
     <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default" is-open="status[n.name]" >
+        <div uib-accordion-group class="panel-default" is-open="status[n.name]" ng-click="opens();">
             <uib-accordion-heading>
                 <a class="menu-nav-mobile"></a>
                
@@ -200,7 +200,7 @@
                 <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
                 
             </uib-accordion-heading>
-             <ul>
+             <ul >
                  <!--<h3 class=" text-center nav-names names">menu</h3>-->
            
 

@@ -4760,7 +4760,10 @@ if ($scope.detailPromotionsInner.image) {
         }
         $scope.getCity();
 
-
+ $scope.openMenu=true;
+ $scope.opens = function(){
+$scope.openMenu=!$scope.openMenu;
+ }
 
         $scope.currentdate = new Date();
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
