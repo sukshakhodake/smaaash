@@ -3433,7 +3433,22 @@ opacity: 1;
  background-image: url("../img/teambuilding.jpg");
   }
 }
-.smaash-menu{
+.header-mobile{
+  .panel-body{
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ul{
+  padding: 0;
+  height: 300px;
+  overflow-y: scroll;
+
+}
+ .names{
+      font-size: 18px !important;
+  }
    li:nth-last-child(1){
       .nav-names{
  border-bottom: none;
@@ -3469,7 +3484,7 @@ opacity: 1;
     padding: 10px;
     border-bottom: 1px solid #ccc;
     color: #000;
-    font-size: 14px;
+    font-size: 16px;
     font-family: "American Purpose";
     text-shadow: none;
   }

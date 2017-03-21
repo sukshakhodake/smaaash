@@ -1,0 +1,32 @@
+<header class="other-header" ng-controller="headerctrl">
+    <nav class="navbar navbar-fixed-top">
+        <div class="container ">
+            <div class="clearfix">
+                <div class="logos pull-left">
+                    <a ui-sref="home">
+                        <img src="frontend/img/logo.png" class="img-responsive z-img" alt="logo">
+                    </a>
+                </div>
+                <div class="absoluted pull-right">
+                    <div class="mt35 ">
+                        <a href="" ng-click="getMenu();">
+                            <img src="frontend/img/option.png" class="img-responsive " alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="side-menu ">
+                <a ui-sref="home">
+                    <span class="pull-left close-icon ">
+                       <img src="frontend/img/home/r3.png" class="img-responsive" alt="cross">
+                </span>
+                </a>
+                <span class="pull-right close-icon close-spacing" ng-click="closeMenu();">
+                       <img src="frontend/img/home/r4.png" class="img-responsive" alt="cross">
+                </span>
+                <div class="clearfix"></div>
+                <div class="template menu text-center" ng-include="template.menu"></div>
+            </div>
+        </div>
+    </nav>
+</header>

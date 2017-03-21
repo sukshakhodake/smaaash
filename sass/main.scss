@@ -2261,6 +2261,28 @@ background-color: #32b544;
 //   background: orange;
 // }
 //slider
+
+
+
+// @mixin border-radius($radius) {
+//   -webkit-border-radius: $radius;
+//      -moz-border-radius: $radius;
+//       -ms-border-radius: $radius;
+//           border-radius: $radius;
+// }
+
+// .boxing { @include border-radius(30px); }
+
+// @mixin display($display){
+//     -webkit-display:$display;
+//     -moz-display:$display;
+//     -ms-display:$display;
+//     display:$display;
+// }
+// .displaying{ @include display(block);}
+
+// .displayings{ @include display(inline-block);}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

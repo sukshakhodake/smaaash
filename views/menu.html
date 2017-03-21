@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav">
+<!--<ul class="nav navbar-nav">
   <li ng-repeat="menu in navigation" class="{{menu.classis}}">
     <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor">{{menu.name}}</a>
     <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}}</a>
@@ -9,4 +9,73 @@
       </li>
     </ul>
   </li>
-</ul>
+</ul>-->
+ <!--<div class="header-mobile">
+
+            <ul>
+                 <h3 class=" text-center nav-names names">menu</h3>
+           
+
+               <li>
+                  <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
+                     <h3 class="nav-names">host a party</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="attractions({id:attraId})">
+                     <h3 class="nav-names ">games</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="media">
+                     <h3 class="nav-names">media</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center">
+                     <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                  </a>
+               </li>
+
+
+               <li>
+                  <a class="text-center" ng-show="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="getMenus();">Login</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="logout();">Log out</h3>
+                  </a>
+               </li>
+
+               <li>
+                  <a class="text-center" ui-sref="dealsp({id:dealsId})">
+                     <h3 class="nav-names">deals &amp;  packages</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="event({id:eventId})">
+                     <h3 class="nav-names ">upcoming events </h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="stars">
+                     <h3 class="nav-names ">gallery</h3>
+                  </a>
+               </li>
+
+
+
+            </ul>
+         </div>-->

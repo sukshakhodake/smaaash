@@ -1,23 +1,10 @@
-<div ng-controller="headerctrl" ng-class="{'menu-opened': menu == true}">
-   <nav class="nav-menu sticky-butn">
+<div ng-controller="headerctrl" >
+   <nav class="nav-menu sticky-butn hidden-xs" ng-class="{'menu-opened': menu == true}">
       <div class="smaash-menu">
 
-         <div class="row hidden-xs">
+         <div class="row ">
             <div class="rows mobile-inlineblock  ">
-               <!-- <div class="col-flexing mobile-50 ">
-                  <div class="promotions bg-prop">
-                     <a ui-sref="promotion({id:promotionId})" class="text-center">
-                        <h3 class="nav-name"><span class="block">promotions</span></h3>
-                     </a>
-                  </div>
-               </div> -->
-               <!--<div class="col-flexing mobile-50 ">
-                  <div class="promotions bg-prop">
-                     <a ui-sref="about" class="text-center">
-                        <h3 class="nav-name"><span class="block">about us</span></h3>
-                     </a>
-                  </div>
-               </div>-->
+               
 
                <div class="col-flexing mobile-50  ">
                   <div class="exploring bg-prop ">
@@ -33,21 +20,7 @@
                      </a>
                   </div>
                </div>
-               <!-- <div class="col-flexing mobile-50 " ng-show="userLoginDetails==null">
-                  <div class="registration bg-prop">
-                     <a class="text-center">
-                        <h3 class="nav-name" ng-click="getMenus();"><span class="block">registration</span></h3>
-                     </a>
-                  </div>
-               </div> -->
-
-               <!-- <div class="col-flexing mobile-50 ">
-                  <div class="buy bg-prop" ui-sref="recharge">
-                     <a class="text-center">
-                        <h3 class="nav-name "><span class="block">recharge online</span></h3>
-                     </a>
-                  </div>
-               </div> -->
+            
    <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
 
                   <div class="log bg-prop">
@@ -58,7 +31,6 @@
                </div>
 
 
-               <!-- <div class="col-flexing mobile-50" > -->
                <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                   <div class="account bg-prop">
                      <a class="text-center">
@@ -93,13 +65,7 @@
 
             <div class="rows mobile-inlineblock top mgtop">
 
-               <!--<div class="col-flexing mobile-50 ">
-                  <div class="food bg-prop ">
-                     <a ui-sref="drink-party({id:foodBeveragesId})" class="text-center">
-                        <h3 class="nav-name "><span class="block">food &amp; </span>beverages</h3>
-                     </a>
-                  </div>
-               </div>-->
+             
                 <div class="col-flexing mobile-50">
                   <div class="host bg-prop" ui-sref="hostparty({id:hostpartyId})">
                      <a class="text-center">
@@ -128,39 +94,16 @@
                      </a>
                   </div>
                </div>
-               <!--<div class="col-flexing mobile-50 mobiles-50">
-                  <div class="cart bg-prop">
-                     <a class="text-center" ui-sref="career">
-                        <h3 class="nav-name"><span class="block">careers</span></h3>
-                     </a>
-                  </div>
-               </div>-->
-               <!-- <div class="col-flexing mobile-50 ">
-                  <div class="host bg-prop">
-                     <a class="text-center">
-                        <h3 class="nav-name" ng-click="myCart();"><span class="block">my cart</span></h3>
-                     </a>
-                  </div>
-               </div> -->
-               <!--<div class="col-flexing mobiles-50 ">
-                  <div class="log bg-prop" ui-sref="contact">
-                     <a class="text-center">
-                        <h3 class="nav-name">contact us</h3>
-                     </a>
-                  </div>
-               </div>-->
+              
             </div>
          </div>
+    
 
-         <div class="header-mobile visible-xs hidden-md hidden-sm">
+         <!--<div class="header-mobile visible-xs hidden-md hidden-sm">
 
             <ul>
                  <h3 class=" text-center nav-names names">menu</h3>
-               <!--<li>
-                  <a class="text-center" >
-                     <h3 class="nav-name names">menu</h3>
-                  </a>
-               </li>-->
+           
 
                <li>
                   <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
@@ -224,10 +167,108 @@
 
 
             </ul>
-         </div>
+         </div>-->
       </div>
 
    </nav>
+        <nav class="menu-mobile header-mobile visible-xs" ng-controller="headerctrl" ng-class="{'ac': toggleMenu == true}">
+    <div class="logo">
+         <a class="logo-smaash" ui-sref="home">
+            <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
+                && showlogo || !cityData.smaaashLogo ">
+            <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
+         </a>
+    </div>
+      <div class="sides">
+            <div class="" id="axe">
+               <!--<div class="orange-rays"></div>-->
+               <div class="cities" ng-click="toggleCity()">
+                  <span class="title brand-white">{{cityData.name || 'Choose City'}}
+                   <i class="fa fa-chevron-down"></i>
+               </span>
+               </div>
+
+            </div>
+         </div>
+    
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" is-open="status[n.name]" >
+            <uib-accordion-heading>
+                <a class="menu-nav-mobile"></a>
+               
+                     <div class="menu" ng-class="{'ac': toggleMenu == true}"><img src="img/home/menus.png" alt="Menu" no-drag></div>
+                <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
+                
+            </uib-accordion-heading>
+             <ul>
+                 <!--<h3 class=" text-center nav-names names">menu</h3>-->
+           
+
+               <li>
+                  <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
+                     <h3 class="nav-names">host a party</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="attractions({id:attraId})">
+                     <h3 class="nav-names ">games</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="media">
+                     <h3 class="nav-names">media</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center">
+                     <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                  </a>
+               </li>
+
+
+               <li>
+                  <a class="text-center" ng-show="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="getMenus();">Login</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="logout();">Log out</h3>
+                  </a>
+               </li>
+
+               <li>
+                  <a class="text-center" ui-sref="dealsp({id:dealsId})">
+                     <h3 class="nav-names">deals &amp;  packages</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="event({id:eventId})">
+                     <h3 class="nav-names ">upcoming events </h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="stars">
+                     <h3 class="nav-names ">gallery</h3>
+                  </a>
+               </li>
+
+
+
+            </ul>
+        </div>
+    </uib-accordion>
+</nav>
 
    <div class="dropdowns">
 

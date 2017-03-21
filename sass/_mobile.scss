@@ -9,6 +9,62 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  .dropdowns{
+    display: none;
+  }
+  .panel-heading{
+    background-image: url("../img/home/menu-bg.png");
+    position: relative;
+    min-height: 50px;
+  }
+  .panel-group .panel{
+    border-radius:0;
+  }
+  .logo{
+    position: absolute;
+    z-index: 99999;
+    left: 15px;
+    top: 0;
+  }
+  .ac{
+     .sides{
+    position: absolute;
+    top: 310px;
+    right: 10px;
+     }
+  }
+
+  .menu-mobile{
+    position: relative;
+    .menu{
+width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top:0;
+    z-index: 99999;
+    img{
+      width: 100%;
+    }
+    }
+     .cities {
+    padding: 10px 20px;
+    background-color: $brand-green;
+    transform: skew(-15deg);
+    box-shadow: -3px 3px #000, 1px 0 #000;
+    cursor: pointer;
+    }
+    .sides{
+    position: absolute;
+    top: 210px;
+    right: 10px;
+    cursor: pointer;
+    span{
+  text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
+    }
+    }
+
+  }
   .fixed-height li a {
   height: auto;
   img{
@@ -623,16 +679,7 @@
   }
 }
 
-.menu-opened .smaash-menu{
-    background-image: url("../img/bg.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  padding: 0;
-  .names{
-      font-size: 18px !important;
-  }
-}
+
 
 .slidings{
   margin-top: 43px;
