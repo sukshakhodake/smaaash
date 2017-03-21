@@ -3912,6 +3912,7 @@ $scope.myfun = function(){
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
         $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
+        $scope.detailEventsInner.image = $filter('uploadpath')($scope.detailEventsInner.image);
         TemplateService.removeLoader();
         console.log("$scope.detailEventsInner.banner ", $scope.detailEventsInner.banner);
     })
@@ -4354,8 +4355,11 @@ $scope.myfun = function(){
         console.log("$scope.detailPromotionsInner", $scope.detailPromotionsInner);
         if ($scope.detailPromotionsInner.banner) {
             $scope.detailPromotionsInner.banner = $filter('uploadpath')($scope.detailPromotionsInner.banner);
-        }
 
+        }
+if ($scope.detailPromotionsInner.image) {
+    $scope.detailPromotionsInner.image = $filter('uploadpath')($scope.detailPromotionsInner.image);
+}
         TemplateService.removeLoader();
     });
     $scope.formData = {};
