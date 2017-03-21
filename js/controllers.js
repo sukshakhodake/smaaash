@@ -2675,7 +2675,6 @@ $scope.myfun = function(){
     });
 
 
-
     $scope.readMore = function(id, indexid) {
 
         console.log(id);

@@ -23,8 +23,8 @@
                 <h3 class="margin0 bluey pointer" ng-bind-html="data.hometext | shorten :20" ></h3>
                  <p class=""  ng-bind-html="data.description | htmlToPlaintext | shorten :130"></p>
               </div>
-              <div class="button-set" ng-if="data.showBuyNow">
-                <button class="uppercase blue" ng-click="buyNowEvent(d.BranchPackageID,d.price)">buy now</button>
+              <div class="button-set" ng-if="data.showBuyNow && data.BranchPackageID">
+                <button class="uppercase blue" ng-click="buyNowEvent(data.BranchPackageID,data.price)">buy now</button>
               </div>
               <!-- <div class="love">
                 <button class="uppercase" ng-click="addedToWishList(data._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(data._id),'fa-heart':isInWishlist(data._id)}" style="color:red;"></i>would love to try</button>
