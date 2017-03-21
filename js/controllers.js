@@ -181,7 +181,7 @@ _.each($scope.mys,function(key){
             $scope.whatsnew = $scope.content["What's new"];
             console.log($scope.whatsnew,"$scope.whatsnew");
             $scope.hostParty = $scope.content["Host a party"];
-            console.log("  $scope.hostParty", $scope.hostParty);
+            console.log(" *******", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
             console.log("  $scope.deals",  $scope.deals);
             $scope.events = $scope.content["Events"];
@@ -934,7 +934,7 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state,$filter) {
+.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state,$filter, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -2458,6 +2458,7 @@ _.each($scope.mys,function(key){
             $scope.detailExploreSmaash = data.data;
             console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
             $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+            $scope.detailExploreSmaash.mobileBanner = $filter('uploadpath')($scope.detailExploreSmaash.mobileBanner);
             console.log($scope.detailExploreSmaash.multipleattraction);
             var attractions = [];
             _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
@@ -3442,7 +3443,7 @@ $scope.myfun = function(){
 
 })
 
-.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("events-challenges");
     $scope.menutitle = NavigationService.makeactive("Events and Challengest");
@@ -3713,10 +3714,17 @@ $scope.myfun = function(){
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.myUrl = $location.absUrl();
+    if ($stateParams.image) {
+  $scope.homeimage = $filter('uploadpath')($stateParams.image);
+
+    }
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+        $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
+        $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
+
         TemplateService.removeLoader();
     });
     $scope.addToCartParams = {};
@@ -4880,8 +4888,8 @@ $scope.myfun = function(){
             $scope.customerEXist = false;
 
             if (signupData) {
-                // if (signupData.CustomerAddress === $.jStorage.get("cityid")) {
-                //     $scope.validCity = false;
+                if (signupData.CustomerAddress) {
+                    $scope.validCity = false;
                     if (signupData.CustomerPassword === signupData.confirmPassword) {
                         console.log('m true');
                         $scope.pass = true;
@@ -4909,10 +4917,10 @@ $scope.myfun = function(){
                         console.log('m false');
                         $scope.pass = false;
                     }
-                // } else {
-                //     console.log("im in else");
-                //     $scope.validCity = true;
-                // }
+                } else {
+                    console.log("im in else");
+                    $scope.validCity = true;
+                }
             }
         }
         $scope.GenrateOneTimePass = function(signupData) {
