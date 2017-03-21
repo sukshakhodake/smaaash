@@ -155,90 +155,73 @@
          <div class="header-mobile visible-xs hidden-md hidden-sm">
 
             <ul>
-               <li>
-                  <a class="logo-smaash" ui-sref="home">
-                     <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
-                && showlogo || !cityData.smaaashLogo ">
-                     <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
+                 <h3 class=" text-center nav-names names">menu</h3>
+               <!--<li>
+                  <a class="text-center" >
+                     <h3 class="nav-name names">menu</h3>
                   </a>
-               </li>
-               <li>
-                  <a class="text-center" ui-sref="about">
-                     <h3 class="nav-name">about us</h3>
-                  </a>
-               </li>
+               </li>-->
+              
                <li>
                   <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
-                     <h3 class="nav-name">host a party</h3>
+                     <h3 class="nav-names">host a party</h3>
                   </a>
                </li>
                <li>
                   <a class="text-center" ui-sref="attractions({id:attraId})">
-                     <h3 class="nav-name ">games</h3>
+                     <h3 class="nav-names ">games</h3>
                   </a>
                </li>
                <li>
                   <a class="text-center" ui-sref="media">
-                     <h3 class="nav-name">media</h3>
+                     <h3 class="nav-names">media</h3>
                   </a>
                </li>
                 <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
-                     <h3 class="nav-name"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                     <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
                   </a>
                </li>
                <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
-                     <h3 class=" nav-name nav-naming" ng-click="myAccount();">my account</h3>
+                     <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
                   </a>
                </li>
                 <li>
                   <a class="text-center">
-                     <h3 class="nav-name" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                     <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
                   </a>
                </li>
 
 
                <li>
                   <a class="text-center" ng-show="userLoginDetails === null">
-                     <h3 class="nav-name" ng-click="getMenus();">Login</h3>
+                     <h3 class="nav-names" ng-click="getMenus();">Login</h3>
                   </a>
                </li>
                <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
-                     <h3 class="nav-name" ng-click="logout();">Log out</h3>
+                     <h3 class="nav-names" ng-click="logout();">Log out</h3>
                   </a>
                </li>
-               <li>
-                  <a class="text-center" ui-sref="drink-party({id:foodBeveragesId})">
-                     <h3 class="nav-name ">food &amp; beverages</h3>
-                  </a>
-               </li>
+              
                <li>
                   <a class="text-center" ui-sref="dealsp({id:dealsId})">
-                     <h3 class="nav-name">deals &amp;  packages</h3>
+                     <h3 class="nav-names">deals &amp;  packages</h3>
                   </a>
                </li>
                <li>
                   <a class="text-center" ui-sref="event({id:eventId})">
-                     <h3 class="nav-name ">events &amp; challenges</h3>
+                     <h3 class="nav-names ">upcoming events </h3>
                   </a>
                </li>
                <li>
                   <a class="text-center" ui-sref="stars">
-                     <h3 class="nav-name ">gallery</h3>
+                     <h3 class="nav-names ">gallery</h3>
                   </a>
                </li>
-               <li>
-                  <a class="text-center" ui-sref="career">
-                     <h3 class="nav-name">careers</h3>
-                  </a>
-               </li>
-                <li>
-                  <a class="text-center" ui-sref="contact">
-                     <h3 class="nav-name">contact us</h3>
-                  </a>
-               </li>s
+             
+    
 
             </ul>
          </div>

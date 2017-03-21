@@ -321,9 +321,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('promotion-inner', {
-        url: "/:name/:id",
+        // url: "/:name/:id",
         templateUrl: "views/template.html",
-        controller: 'PromotionInnerCtrl'
+        controller: 'PromotionInnerCtrl',
+        params:{
+            name:"name",
+            id:"id"
+        }
     });
 
 
