@@ -1267,28 +1267,7 @@ _.each($scope.mys,function(key){
                         scope: $scope
                     });
                 }
-                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                //     console.log("inif", data);
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/addtocart.html',
-                //         scope: $scope
-                //     });
-                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                //     console.log("in else", data);
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/alreadyCart.html',
-                //         scope: $scope
-                //     });
-                // } else {
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/addtocartfail.html',
-                //         scope: $scope
-                //     });
-                // }
-            })
+              })
         }
     }
 
@@ -3795,28 +3774,7 @@ $scope.myfun = function(){
                         scope: $scope
                     });
                 }
-                // if (data.value === true && data.data.AddToCart[0].Status === '1') {
-                //     console.log("inif", data);
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/addtocart.html',
-                //         scope: $scope
-                //     });
-                // } else if (data.value === true && data.data.AddToCart[0].Status === '0') {
-                //     console.log("in else", data);
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/alreadyCart.html',
-                //         scope: $scope
-                //     });
-                // } else {
-                //     $uibModal.open({
-                //         animation: true,
-                //         templateUrl: 'views/modal/addtocartfail.html',
-                //         scope: $scope
-                //     });
-                // }
-            })
+              })
         }
     }
 
