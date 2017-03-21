@@ -2099,16 +2099,15 @@ position: absolute;
   background: rgba(255, 255, 255, 0.92);
   z-index: 1000;
   text-align: center;
-}
+  }
 
-.loaderHeader img {
+  .loaderHeader img {
   z-index: 100000;
-  width: 100px;
-  top: 50%;
+
+  top: 25%;
   position: absolute;
   @include transform(translateX(-50%));
-}
-
+  }
 .posted{
     margin-top: 10px;
 }
@@ -2208,7 +2207,7 @@ background-color: #32b544;
     bottom: 12px;
     left: 6px;
     }
-        
+
 }
 .red-bg{
     .flex-control-nav{
