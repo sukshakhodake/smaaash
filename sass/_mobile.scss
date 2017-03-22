@@ -31,6 +31,9 @@
    display: none;
      }
   }
+  .updated .slant-box h2, .updates .slant-box h2{
+    left:10px!important;
+  }
 
   .menu-mobile{
     position: relative;
@@ -653,10 +656,16 @@ width: 100px;
     padding: 0 !important;
   }
 //mobile header new
+.play-button{
+    height: 20px;
+    width: 20px;
+}
+
 .header-mobile{
   
   ul{
     padding: 0;
+    height: auto;
   }
   li{
     list-style-type: none;
@@ -685,9 +694,9 @@ background-size: contain !important;
 
 
 
-.slidings{
-  margin-top: 43px;
-}
+// .slidings{
+//   margin-top: 43px;
+// }
 
 .dropdowns .menu img{
   height: 65px;
