@@ -136,16 +136,25 @@
   <!--ng-if="banner[0].videourl"-->
  <div class="land-kartbanner middle">
         <div class="inner relative pointer auto-height">
-<a class="video" fancybox-box data-fancybox-type="iframe" href="http://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1">
+<a class=" pink-button video" fancybox-box data-fancybox-type="iframe" href="http://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1">
 <!-- <img src="img/landing/banner1.jpg" class="img-responsive" alt="banner"></a> -->
+
+<img src="img/home/button.png" class="img-responsive play-button" alt="play-video" >
+
+
 
 <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail || banner[0].homebanner && banner[0].videourl">
 <!-- <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail && !banner[0].homebanner"> -->
 
 <img ng-src="{{banner[0].homebanner}}" class="img-responsive" alt="banner" ng-if="!banner[0].thumbnail && banner[0].videourl">
 
+
+
 </a>
 
+ <!--<a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                class="pink-button"></a>
+            </div>-->
    <!--<iframe width="640"  height="360" ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}" frameborder="0" allowfullscreen
      style="
        width: 100%;
@@ -308,7 +317,7 @@
       </div>
       <div class="col-md-6">
          <div class="updates mt15 fixed-height">
-            <div class="slant-box pad0">
+            <div class="slant-box pad0 relative">
                <p class=" capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
                <h2 class="brand-white ">games</h2>
                <div class="mover extra">

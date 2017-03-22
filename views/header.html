@@ -171,7 +171,7 @@
       </div>
 
    </nav>
-        <nav class="menu-mobile header-mobile visible-xs" ng-controller="headerctrl" ng-class="{'ac': toggleMenu == true}">
+        <nav class="menu-mobile header-mobile visible-xs"  ng-class="{'ac': toggleMenu == true}">
     <div class="logo">
          <a class="logo-smaash" ui-sref="home">
             <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
@@ -186,6 +186,30 @@
                   <span class="title brand-white">{{cityData.name || 'Choose City'}}
                    <i class="fa fa-chevron-down"></i>
                </span>
+               </div>
+
+            </div>
+         </div>
+            <div class="backdroped" ng-if="city" ng-click="toggleCity()">
+            <div class="smaaash-cities">
+               <h2 class="title center brand-white">select your city</h2>
+               <a class="cross" href="">
+                  <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+               </a>
+               <div class="city-types">
+                  <ul class="list">
+                     <li ng-repeat="city in getCity">
+
+                        <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
+                     </li>
+                     <!-- <li>
+                                <a href="">
+                                    <img src="img/nav/ludhiana.png" alt="">
+                                </a>
+                            </li> -->
+                  </ul>
+                  <p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT CITY IS {{cityData.name}}</p>
+
                </div>
 
             </div>
