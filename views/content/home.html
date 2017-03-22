@@ -56,16 +56,16 @@
 <div class="smaash-drops red-bg hidden-md hidden-sm visible-xs" id="toHome">
   <div class="container">
    <div class="slidings relative">
-      <flex-slider flex-slide="s in mys track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
-         <li>
-            <a  target="_blank">
-               <img src="{{s.img}}">
-            </a>
+      <flex-slider flex-slide="s in mySlides track by $index" manual-controls=".custom-pagination li" animation="slide" animationLoop="true" direction-nav="false">
+        <li>
+           <a href="{{s.url}}" target="_blank">
+             <img ng-src="{{s.mobileImage|uploadpath}}">
+           </a>
 
-         </li>
+        </li>
       </flex-slider>
       <ul class="custom-pagination">
-         <li ng-repeat="s in mys track by $index" ng-if="s.img">{{s.order}}</li>
+         <li ng-repeat="s in mySlides track by $index" ng-if="s.mobileImage">{{s.mobileorder}}</li>
       </ul>
 
    </div>
