@@ -36,7 +36,7 @@
             <div class="owner">
               <div class="slant-box full-height owners">
                 <figure>
-                 
+
                 </figure>
               </div>
               </div>
@@ -128,14 +128,26 @@ Sachin Tendulkar has been an integral part of the SMAAASH family since its incep
   </div>
   </div>
 </div>-->
-    <div class="about"> 
+    <div class="about">
 <div class="container">
   <ul class="tabs-about  list-inline">
-    <li><a  ui-sref="about" class="uppercase">about us</a></li>
+    <!-- <li><a  ui-sref="about" class="uppercase">about us</a></li>
     <li><a ui-sref="leader"  class="uppercase">leadership</a></li>
     <li><a ui-sref="benefit" class="uppercase">benefit</a></li>
     <li><a ui-sref="sponsor" class="uppercase">sponsorship and alliance</a></li>
-    <li><a ui-sref="career" class="uppercase">careers</a></li>
+    <li><a ui-sref="career" class="uppercase">careers</a></li> -->
+
+
+
+            <li><a ui-sref="about({aboutCity:citySpecific})" class="uppercase">about us</a></li>
+              <li><a ui-sref="leader({leaderCity:citySpecific})"  class="uppercase">leadership</a></li>
+              <li><a ui-sref="benefit({benefitCity:citySpecific})" class="uppercase">benefit</a></li>
+              <li><a ui-sref="sponsor({sponsorCity:citySpecific})" class="uppercase">sponsorship and alliance</a></li>
+                  <li><a ui-sref="career({careerCity:citySpecific})" class="uppercase">careers</a></li>
+
+
+
+
   </ul>
    <div class="karting-championship">
   <div class="row">
@@ -225,4 +237,3 @@ Sachin Tendulkar has been an integral part of the SMAAASH family since its incep
 </div>
 
     </div>
- 

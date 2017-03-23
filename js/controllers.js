@@ -556,7 +556,7 @@ _.each($scope.mys,function(key){
             })
         };
     })
-    .controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+    .controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$state) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("career");
         $scope.menutitle = NavigationService.makeactive("Career");
@@ -570,11 +570,14 @@ _.each($scope.mys,function(key){
                 scope: $scope
             });
         }
-
+        if($stateParams.careerCity){
+          $stateParams.careerCity = $.jStorage.get("city");
+          $state.go("career",{careerCity:$stateParams.careerCity});
+        }
 
     })
 
-.controller('BenefitCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('BenefitCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("benefit");
     $scope.menutitle = NavigationService.makeactive("Benefit");
@@ -585,6 +588,11 @@ _.each($scope.mys,function(key){
         $scope.benefits = data.data;
         TemplateService.removeLoader();
     });
+    if($stateParams.benefitCity){
+      $stateParams.benefitCity = $.jStorage.get("city");
+      $state.go("benefit",{benefitCity:$stateParams.benefitCity});
+    }
+
 
 })
 
@@ -717,16 +725,21 @@ _.each($scope.mys,function(key){
         .trigger('change');
 })
 
-.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("contact");
     $scope.menutitle = NavigationService.makeactive("Contact");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if($stateParams.contactCity){
+      $stateParams.contactCity = $.jStorage.get("city");
+      $state.go("contact",{contactCity:$stateParams.contactCity});
+    }
+
 
 })
 
-.controller('SponsorCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('SponsorCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("sponsor");
     $scope.menutitle = NavigationService.makeactive("Sponsor");
@@ -734,6 +747,11 @@ _.each($scope.mys,function(key){
     $scope.navigation = NavigationService.getnav();
 
     TemplateService.removeLoaderOn(1);
+    if($stateParams.sponsorCity){
+      $stateParams.sponsorCity = $.jStorage.get("city");
+      $state.go("sponsor",{sponsorCity:$stateParams.sponsorCity});
+    }
+
 
     $scope.moreDesc = {};
     NavigationService.getSponsors(function(data) {
@@ -771,11 +789,11 @@ _.each($scope.mys,function(key){
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(2);
-    if($stateParams.mediaCity){
-      console.log("im in");
-      console.log("$stateParams.mediaCity",$stateParams.mediaCity);
-      $stateParams.mediaCity = $.jStorage.get("mediaCity");
-      $state.go('media',{mediaCity:$stateParams.mediaCity});
+
+
+    if($stateParams.mediasCity){
+      $stateParams.mediasCity = $.jStorage.get("city");
+      $state.go("media",{mediasCity:$stateParams.mediasCity});
     }
 
 
@@ -985,7 +1003,8 @@ $state.go('event',{
             $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
             $state.go('event-inner', {
                 name: $scope.name,
-                id: id
+                id: id,
+                eventsInnercity:$rootScope.citySpecific
             });
         }
 
@@ -1149,21 +1168,28 @@ $state.go('event',{
       $stateParams.dealspcity = $.jStorage.get("city");
     $state.go('dealsp',{
       dealspcity :$stateParams.dealspcity,
-      id:$stateParams.id
+      id:$stateParams.id,
+          name:$stateParams.name,
     });
     }
 
 
+
     $scope.goTo = function(name, id) {
+      console.log("im in");
         if (name, id) {
+          console.log("im in");
             $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
             $state.go('deals-inner', {
                 name: $scope.name,
-                id: id
+                id: id,
+                dealsinnercity:$rootScope.citySpecific
+
             });
         }
 
     }
+
 
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
@@ -1577,7 +1603,7 @@ $state.go('event',{
 })
 
 
-.controller('LeaderCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('LeaderCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("leader");
     $scope.menutitle = NavigationService.makeactive("Leadership");
@@ -1592,6 +1618,11 @@ $state.go('event',{
             $scope.menu = "menu-out";
         }
     };
+    if($stateParams.leaderCity){
+      $stateParams.leaderCity = $.jStorage.get("city");
+      $state.go("leader",{city:$stateParams.leaderCity});
+    }
+
     $scope.moreDesc = {};
     NavigationService.getLeader(function(data) {
         $scope.leadership = data.data;
@@ -1780,7 +1811,8 @@ $state.go('event',{
                 $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
                 $state.go('snow-rush', {
                     name: $scope.name,
-                    id: id
+                    id: id,
+                    snowrushCity:$rootScope.citySpecific
                 });
             }
 
@@ -2970,12 +3002,17 @@ $scope.myfun = function(){
 
 
 
-.controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("about");
     $scope.menutitle = NavigationService.makeactive("About");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if($stateParams.aboutCity){
+      $stateParams.aboutCity = $.jStorage.get("city");
+      $state.go("about",{city:$stateParams.aboutCity});
+    }
+
 })
 
 .controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state,$window) {
@@ -3752,7 +3789,7 @@ $scope.myfun = function(){
 
 })
 
-.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location,  $uibModal) {
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location,  $uibModal,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -3760,6 +3797,13 @@ $scope.myfun = function(){
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.myUrl = $location.absUrl();
+
+    if($stateParams.dealsinnercity){
+      console.log("im in city");
+      $stateParams.dealsinnercity = $.jStorage.get("city");
+      $state.go("deals-inner",{dealsinnercity:$stateParams.dealsinnercity,id:$stateParams.id});
+    }
+
     if ($stateParams.image) {
   $scope.homeimage = $filter('uploadpath')($stateParams.image);
 
@@ -3849,7 +3893,7 @@ $scope.myfun = function(){
 
 })
 
-.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
+.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
     $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
@@ -3864,7 +3908,12 @@ $scope.myfun = function(){
     $scope.clear = function() {
         $scope.dt = null;
     };
-
+    if($stateParams.eventsInnercity){
+      $stateParams.eventsInnercity = $.jStorage.get("city");
+      $state.go("event-inner",{eventsInnercity:$stateParams.eventsInnercity,
+      name:$stateParams.name,
+    id:$stateParams.id});
+    }
     $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
@@ -4164,7 +4213,12 @@ $scope.myfun = function(){
             });
         }
 
+    };
+    if($stateParams.promotionCity){
+      $stateParams.promotionCity = $.jStorage.get("city");
+      $state.go("promotion",{promotionCity:$stateParams.promotionCity});
     }
+
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         console.log("data", data);
         $scope.promotion = _.chunk(data.data, 3);

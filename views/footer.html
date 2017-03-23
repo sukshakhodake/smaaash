@@ -43,7 +43,7 @@
               <li><a ui-sref="attractions({id:attrctionId,gamesCity:citySpecific})">Games</a></li>
               <li><a ui-sref="drink-party({id:drinkandPartyId})">Food &amp; Beverages</a></li>
               <li><a ui-sref="dealsp({id:dealsandpackagesId,dealspcity:citySpecific})">Deals &amp; Packages</a></li>
-              <li><a ui-sref="promotion({id:promotionId})">Promotions</a></li>
+              <li><a ui-sref="promotion({id:promotionId,promotionCity:citySpecific})">Promotions</a></li>
               <!--<li><a ui-sref="landingform">landing</a></li>-->
             </ul>
           </div>
@@ -108,25 +108,25 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="about" >About Us</h4>
+              <h4 class="bold title pointer" ui-sref="about({aboutCity:citySpecific})" >About Us</h4>
             </div>
 
               <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="career">careers</h4>
+              <h4 class="bold title pointer" ui-sref="career({careerCity:citySpecific})">careers</h4>
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="media({mediaCity:citySpecific})" >media</h4>
+              <h4 class="bold title pointer" ui-sref="media({mediasCity:citySpecific})" >media</h4>
             </div>
 
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="stars" >stars at smaaash</h4>
+              <h4 class="bold title pointer" ui-sref="stars({city:citySpecific})" >stars at smaaash</h4>
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="sponsor" >sponsorship and alliance</h4>
+              <h4 class="bold title pointer" ui-sref="sponsor({sponsorCity:citySpecific})" >sponsorship and alliance</h4>
             </div>
           </div>
         </div>
@@ -163,13 +163,13 @@
               <h4 class="bold title pointer"  ng-click="footer(12)">Contact us</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 12">
-              <li><a ui-sref="contact">Bengaluru</a></li>
-              <li><a ui-sref="contact">Hyderabad</a></li>
-              <li><a ui-sref="contact">Gurgaon</a></li>
-                <li><a ui-sref="contact">Gurgaon2</a></li>
-              <li><a ui-sref="contact">Mumbai</a></li>
-              <li><a ui-sref="contact">Noida</a></li>
-              <li><a ui-sref="contact">Ludhiana</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Bengaluru</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Hyderabad</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon</a></li>
+                <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon2</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Mumbai</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Noida</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Ludhiana</a></li>
             </ul>
           </div>
         </div>
