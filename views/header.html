@@ -8,14 +8,14 @@
 
                <div class="col-flexing mobile-50  ">
                   <div class="exploring bg-prop ">
-                     <a ui-sref="attractions({id:attraId})" class="text-center">
+                     <a ui-sref="attractions({id:attraId,gamesCity:citySpecific})" class="text-center">
                         <h3 class="nav-name ">games</h3>
                      </a>
                   </div>
                </div>
                <div class="col-flexing mobile-50 ">
                   <div class="registration bg-prop">
-                     <a ui-sref="media" class="text-center">
+                     <a class="text-center" ui-sref="media({mediaCity:citySpecific})">
                         <h3 class="nav-name"><span class="block">media</span></h3>
                      </a>
                   </div>
@@ -67,7 +67,7 @@
 
 
                 <div class="col-flexing mobile-50">
-                  <div class="host bg-prop" ui-sref="hostparty({id:hostpartyId})">
+                  <div class="host bg-prop" ui-sref="hostparty({id:hostpartyId,hostCity:citySpecific})">
                      <a class="text-center">
                         <h3 class="nav-name"><span class="block">host a </span>party</h3>
                      </a>
@@ -75,14 +75,14 @@
                </div>
                <div class="col-flexing mobile-50 ">
                   <div class="deals bg-prop">
-                     <a ui-sref="dealsp({id:dealsId})" class="text-center">
+                     <a ui-sref="dealsp({id:dealsId,dealspcity:citySpecific})" class="text-center">
                         <h3 class="nav-name"><span class="block">deals &amp; </span> packages</h3>
                      </a>
                   </div>
                </div>
                <div class="col-flexing mobile-50 ">
                   <div class="events bg-prop">
-                     <a ui-sref="event({id:eventId})" class="text-center">
+                     <a ui-sref="event({id:eventId,eventcity:citySpecific})" class="text-center">
                         <h3 class="nav-name "><span class="block">upcoming events </span> </h3>
                      </a>
                   </div>
@@ -229,17 +229,17 @@
 
 
                <li>
-                  <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
+                  <a class="text-center" ui-sref="hostparty({id:hostpartyId,hostCity:citySpecific})">
                      <h3 class="nav-names">host a party</h3>
                   </a>
                </li>
                <li>
-                  <a class="text-center" ui-sref="attractions({id:attraId})">
+                  <a class="text-center" ui-sref="attractions({id:attraId,city:citySpecific})">
                      <h3 class="nav-names ">games</h3>
                   </a>
                </li>
                <li>
-                  <a class="text-center" ui-sref="media">
+                  <a class="text-center" ui-sref="media({mediaCity:citySpecific})">
                      <h3 class="nav-names">media</h3>
                   </a>
                </li>
@@ -272,12 +272,12 @@
                </li>
 
                <li>
-                  <a class="text-center" ui-sref="dealsp({id:dealsId})">
+                  <a class="text-center" ui-sref="dealsp({id:dealsId,dealspcity:citySpecific})">
                      <h3 class="nav-names">deals &amp;  packages</h3>
                   </a>
                </li>
                <li>
-                  <a class="text-center" ui-sref="event({id:eventId})">
+                  <a class="text-center" ui-sref="event({id:eventId,eventcity:citySpecific})">
                      <h3 class="nav-names ">upcoming events </h3>
                   </a>
                </li>

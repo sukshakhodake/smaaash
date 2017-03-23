@@ -40,9 +40,9 @@
               <h4 class="bold title pointer" ng-click="footer(1)">EXPLORE SMAAASH </h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 1">
-              <li><a ui-sref="attractions({id:attrctionId})">Games</a></li>
+              <li><a ui-sref="attractions({id:attrctionId,gamesCity:citySpecific})">Games</a></li>
               <li><a ui-sref="drink-party({id:drinkandPartyId})">Food &amp; Beverages</a></li>
-              <li><a ui-sref="dealsp({id:dealsandpackagesId})">Deals &amp; Packages</a></li>
+              <li><a ui-sref="dealsp({id:dealsandpackagesId,dealspcity:citySpecific})">Deals &amp; Packages</a></li>
               <li><a ui-sref="promotion({id:promotionId})">Promotions</a></li>
               <!--<li><a ui-sref="landingform">landing</a></li>-->
             </ul>
@@ -117,7 +117,7 @@
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="media" >media</h4>
+              <h4 class="bold title pointer" ui-sref="media({mediaCity:citySpecific})" >media</h4>
             </div>
 
              <div class="clearfix">
@@ -139,11 +139,11 @@
 
               <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="stars" >gallery</h4>
+              <h4 class="bold title pointer" ui-sref="stars({city:citySpecific})" >gallery</h4>
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="event({id:eventId})" >events and challenges</h4>
+              <h4 class="bold title pointer" ui-sref="event({eventcity:citySpecific,id:eventId})" >events and challenges</h4>
             </div>
 
              <div class="clearfix">

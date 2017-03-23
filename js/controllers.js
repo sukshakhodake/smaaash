@@ -764,13 +764,20 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,  $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("media");
     $scope.menutitle = NavigationService.makeactive("Media");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(2);
+    if($stateParams.mediaCity){
+      console.log("im in");
+      console.log("$stateParams.mediaCity",$stateParams.mediaCity);
+      $stateParams.mediaCity = $.jStorage.get("mediaCity");
+      $state.go('media',{mediaCity:$stateParams.mediaCity});
+    }
+
 
     // $scope.objectfilter = {};
     // $scope.objectfilter.pagenumber = 0;
@@ -959,6 +966,20 @@ _.each($scope.mys,function(key){
         TemplateService.removeLoader();
     });
 
+    if($stateParams.city){
+      $stateParams.city = $.jStorage.get("city");
+      $state.go("stars",{city:$stateParams.city});
+    }
+
+console.log("$stateParams",$stateParams.eventcity);
+if ($stateParams.eventcity) {
+  $stateParams.eventcity = $.jStorage.get("city");
+$state.go('event',{
+  eventcity :$stateParams.eventcity,
+  id:$stateParams.id
+});
+}
+
     $scope.goTo = function(name, id) {
         if (name, id) {
             $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
@@ -1124,6 +1145,14 @@ _.each($scope.mys,function(key){
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+    if ($stateParams.dealspcity) {
+      $stateParams.dealspcity = $.jStorage.get("city");
+    $state.go('dealsp',{
+      dealspcity :$stateParams.dealspcity,
+      id:$stateParams.id
+    });
+    }
+
 
     $scope.goTo = function(name, id) {
         if (name, id) {
@@ -1607,6 +1636,13 @@ _.each($scope.mys,function(key){
             $scope.menu = "menu-out";
         }
     };
+    if ($stateParams.gamesCity) {
+      $stateParams.gamesCity=$.jStorage.get("city");
+      $state.go('attractions',{
+        gamesCity:$stateParams.gamesCity,
+        id:$stateParams.id
+      })
+    }
     $scope.moreDesc = {};
     $scope.male = '';
     $scope.female = '';
@@ -2623,12 +2659,21 @@ _.each($scope.mys,function(key){
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location,$state) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = $location.absUrl();
+
+    if ($stateParams.hostCity) {
+      $stateParams.hostCity = $.jStorage.get("city");
+    $state.go('hostparty',{
+      hostCity :$stateParams.hostCity,
+      id:$stateParams.id
+    });
+    }
+
 
 
 
@@ -3473,6 +3518,10 @@ $scope.myfun = function(){
         };
         TemplateService.removeLoader();
     });
+    if($stateParams.city){
+      $stateParams.city = $.jStorage.get("city");
+      $state.go("stars",{city:$stateParams.city});
+    }
 })
 
 .controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $filter, $sce) {
@@ -3928,8 +3977,14 @@ $scope.myfun = function(){
     NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
-        $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
-        $scope.detailEventsInner.image = $filter('uploadpath')($scope.detailEventsInner.image);
+        if ($scope.detailEventsInner.banner) {
+          $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
+        };
+        if ($scope.detailEventsInner.image) {
+            $scope.detailEventsInner.image = $filter('uploadpath')($scope.detailEventsInner.image);
+        }
+
+
         TemplateService.removeLoader();
         console.log("$scope.detailEventsInner.banner ", $scope.detailEventsInner.banner);
     })
@@ -5088,7 +5143,7 @@ $scope.openMenu=!$scope.openMenu;
 
 
     })
-    .controller('footerctrl', function($scope, TemplateService, NavigationService, $uibModal) {
+    .controller('footerctrl', function($scope, TemplateService, NavigationService, $uibModal,$rootScope,$stateParams, $state) {
         $scope.template = TemplateService;
         $scope.footer = function(val) {
             if (val == $scope.showFooter) {
@@ -5132,6 +5187,10 @@ $scope.openMenu=!$scope.openMenu;
             scope: $scope
         });
     };
+    if($stateParams.city){
+      $stateParams.city = $.jStorage.get("city");
+      $state.go("stars",{city:$stateParams.city});
+    }
 
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";

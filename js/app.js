@@ -85,9 +85,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('event', {
-        url: "/event/:id",
+        url: "/:eventcity/events/:id",
         templateUrl: "views/template.html",
         controller: 'EventCtrl'
+        // params:{
+        //   id:"id"
+        // }
     })
 
     .state('career', {
@@ -97,7 +100,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('dealsp', {
-        url: "/dealsp/:id",
+        url: "/:dealspcity/dealsp/:id",
         templateUrl: "views/template.html",
         controller: 'DealspCtrl'
     })
@@ -151,11 +154,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
 
-    .state('stars', {
-        url: "/:city/gallery",
-        templateUrl: "views/template.html",
-        controller: 'StarsCtrl'
-    })
 
     .state('wedding-parties', {
         url: "/wedding-parties",
@@ -189,7 +187,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('attractions', {
-        url: "/attractions/:id",
+        url: "/:gamesCity/attractions/:id",
         templateUrl: "views/template.html",
         controller: 'AttractionCtrl'
     })
@@ -206,7 +204,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'LeaderCtrl'
         })
         .state('hostparty', {
-            url: "/host-party/:id",
+            url: "/:hostCity/host-party/:id",
             templateUrl: "views/template.html",
             controller: 'HostCtrl'
         })
@@ -302,12 +300,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
               image:"image"
             }
         })
+        // .state('stars', {
+        //     url: "/gallery/:city",
+        //     templateUrl: "views/template.html",
+        //     controller: 'StarsCtrl'
+        // });
 
-    .state('media', {
-            url: "/media",
-            templateUrl: "views/template.html",
-            controller: 'MediaCtrl'
-        })
         .state('sorry', {
 
             url: "/sorry",
@@ -329,7 +327,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             name:"name",
             id:"id"
         }
-    });
+    })
+    .state('stars', {
+        url: "/:city/gallery",
+        templateUrl: "views/template.html",
+        controller: 'StarsCtrl'
+    })
+    .state('media', {
+            url: "/media/:mediaCity",
+            templateUrl: "views/template.html",
+            controller: 'MediaCtrl'
+        });
+
 
 
     $urlRouterProvider.otherwise("/");
