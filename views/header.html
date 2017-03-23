@@ -4,7 +4,7 @@
 
          <div class="row ">
             <div class="rows mobile-inlineblock  ">
-               
+
 
                <div class="col-flexing mobile-50  ">
                   <div class="exploring bg-prop ">
@@ -20,7 +20,7 @@
                      </a>
                   </div>
                </div>
-            
+
    <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
 
                   <div class="log bg-prop">
@@ -65,7 +65,7 @@
 
             <div class="rows mobile-inlineblock top mgtop">
 
-             
+
                 <div class="col-flexing mobile-50">
                   <div class="host bg-prop" ui-sref="hostparty({id:hostpartyId})">
                      <a class="text-center">
@@ -89,21 +89,21 @@
                </div>
                <div class="col-flexing mobile-50">
                   <div class="starts bg-prop">
-                     <a ui-sref="stars" class="text-center">
+                     <a ui-sref="stars({city:citySpecific})" class="text-center">
                         <h3 class="nav-name ">gallery</h3>
                      </a>
                   </div>
                </div>
-              
+
             </div>
          </div>
-    
+
 
          <!--<div class="header-mobile visible-xs hidden-md hidden-sm">
 
             <ul>
                  <h3 class=" text-center nav-names names">menu</h3>
-           
+
 
                <li>
                   <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
@@ -214,19 +214,19 @@
 
             </div>
          </div>
-    
+
     <uib-accordion close-others="oneAtATime">
         <div uib-accordion-group class="panel-default" is-open="status[n.name]" ng-click="opens();">
             <uib-accordion-heading>
                 <a class="menu-nav-mobile"></a>
-               
+
                      <div class="menu" ng-class="{'ac': toggleMenu == true}"><img src="img/home/menus.png" alt="Menu" no-drag></div>
                 <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
-                
+
             </uib-accordion-heading>
              <ul >
                  <!--<h3 class=" text-center nav-names names">menu</h3>-->
-           
+
 
                <li>
                   <a class="text-center" ui-sref="hostparty({id:hostpartyId})">
@@ -282,7 +282,7 @@
                   </a>
                </li>
                <li>
-                  <a class="text-center" ui-sref="stars">
+                  <a class="text-center" ui-sref="stars({city:citySpecific})">
                      <h3 class="nav-names ">gallery</h3>
                   </a>
                </li>

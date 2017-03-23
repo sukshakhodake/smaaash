@@ -152,7 +152,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
     .state('stars', {
-        url: "/gallery",
+        url: "/:city/gallery",
         templateUrl: "views/template.html",
         controller: 'StarsCtrl'
     })

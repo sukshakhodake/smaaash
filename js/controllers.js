@@ -2,7 +2,7 @@ var globalfunction = {};
 globalfunction.index;
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll', 'rzModule'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http,$rootScope ) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -10,6 +10,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var openL = {};
     TemplateService.removeLoaderOn(4);
+    console.log("citySpecific",$rootScope.citySpecific);
     //
     //     function requestJSONP(url) {
     //       console.log('ddddddddddddd');
@@ -1286,7 +1287,7 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("stars");
     $scope.menutitle = NavigationService.makeactive("Gallery");
@@ -1301,6 +1302,12 @@ _.each($scope.mys,function(key){
             $scope.menu = "menu-out";
         }
     };
+    if($stateParams.city){
+      $stateParams.city = $.jStorage.get("city");
+      $state.go("stars",{city:$stateParams.city});
+    }
+
+    console.log('$stateParams.city',$stateParams.city);
     TemplateService.removeLoaderOn(2);
     $scope.objectfilter = {};
     $scope.objectfilter.pagenumber = 0;
@@ -4738,6 +4745,7 @@ if ($scope.detailPromotionsInner.image) {
         $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
         $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
+        $rootScope.citySpecific=$.jStorage.get("city") ;
         $scope.template = TemplateService;
         $("#target").val($("#target option:first").val());
         $scope.city = true;
