@@ -110,8 +110,8 @@
                            <figure>
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Games'" ui-sref="attractions({id:attraId,gamesCity:citySpecific})">
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Parties'" ui-sref="hostparty({id:hostpartyId,hostCity:citySpecific})">
-                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Food & Beverages'">
-                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Deals & Packages'">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Food & Beverages'" ui-sref="drink-party({id:drinkandPartyId,drinkCity:citySpecific})">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Deals & Packages'" ui-sref="dealsp({id:dealsandpackagesId,dealspcity:citySpecific})">
                            </figure>
 
                         </a>

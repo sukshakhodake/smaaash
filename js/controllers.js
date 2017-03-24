@@ -12,6 +12,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.removeLoaderOn(4);
       $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
+          $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
+              $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
     console.log("citySpecific",$rootScope.citySpecific);
     //
     //     function requestJSONP(url) {

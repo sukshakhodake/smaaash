@@ -349,8 +349,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
 
-    $urlRouterProvider.otherwise("/");
-    $locationProvider.html5Mode(isproduction);
+
+            $urlRouterProvider.otherwise("/");
+            $locationProvider.html5Mode(isproduction);
+
 });
 
 
