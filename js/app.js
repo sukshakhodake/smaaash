@@ -134,13 +134,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('parties', {
-        url: "/parties/:id",
+        url: "/:partyCity/parties/:id",
         templateUrl: "views/template.html",
         controller: 'KittyCtrl'
     })
 
     .state('cart', {
-            url: "/cart",
+            url: "/:cartCity/cart",
             templateUrl: "views/template.html",
             controller: 'CartsCtrl'
         })
@@ -183,7 +183,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('profile', {
-            url: "/profile",
+            url: "/:profileCity/profile",
             templateUrl: "views/template.html",
             controller: 'ProfileCtrl'
         })
@@ -329,16 +329,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
         })
         .state('snow-rush', {
-            url: "/:snowrushCity/:name",
+            url: "/:snowrushCity/:name/:id",
             templateUrl: "views/template.html",
-            controller: 'SnowCtrl',
-            params: {
-                name: "name",
-                id: "id"
-            }
+            controller: 'SnowCtrl'
+            // params: {
+            //     name: "name",
+            //     id: "id"
+            // }
         })
         .state('event-inner', {
-            url: "/:eventsInnercity/:name/:id",
+            url: "/:eventsInnercity/event-inner/:name/:id",
             templateUrl: "views/template.html",
             controller: 'EventInnerCtrl',
             // params:{

@@ -345,7 +345,9 @@ _.each($scope.mys,function(key){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                                cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -1119,7 +1121,9 @@ $state.go('event',{
                           });
                           $timeout(function() {
                               $scope.successCartModal.close();
-                              $state.go('cart');
+                              $state.go('cart',{
+                                  cartCity:$rootScope.citySpecific
+                              });
                           }, 1000);
 
 
@@ -1307,7 +1311,9 @@ $state.go('event',{
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                              cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -1620,7 +1626,7 @@ $state.go('event',{
     };
     if($stateParams.leaderCity){
       $stateParams.leaderCity = $.jStorage.get("city");
-      $state.go("leader",{city:$stateParams.leaderCity});
+      $state.go("leader",{leaderCity:$stateParams.leaderCity});
     }
 
     $scope.moreDesc = {};
@@ -1861,7 +1867,9 @@ $state.go('event',{
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                                cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -1905,12 +1913,17 @@ $state.go('event',{
 })
 
 
-.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $rootScope) {
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $rootScope,$stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if($stateParams.cartCity){
+      $stateParams.cartCity = $.jStorage.get("city");
+      $state.go("cart",{cartCity:$stateParams.cartCity});
+    }
+
     $scope.onlyNumbers= "^[1-9][0-9]*$" ;
     $scope.isDisabledCheckOut=false;
     $scope.editcartDetails = {};
@@ -2068,7 +2081,7 @@ $state.go('event',{
 
 })
 
-.controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("parties");
     $scope.menutitle = NavigationService.makeactive("Parties");
@@ -2081,6 +2094,10 @@ $state.go('event',{
         TemplateService.removeLoader();
 
     });
+    if($stateParams.partyCity){
+      $stateParams.partyCity = $.jStorage.get("city");
+      $state.go("parties",{partyCity:$stateParams.partyCity});
+    }
     $scope.kittyParty = function() {
         $scope.modalInstance = $uibModal.open({
             animation: true,
@@ -2479,7 +2496,10 @@ $state.go('event',{
         $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1)
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+        if($stateParams.snowrushCity){
+          $stateParams.snowrushCity = $.jStorage.get("city");
+          $state.go("snow-rush",{snowrushCity:$stateParams.snowrushCity});
+        }
         $scope.$on('$viewContentLoaded', function() {
             $(window).scroll(function() {
                 var scroller = $(document).scrollTop();
@@ -2587,7 +2607,9 @@ $state.go('event',{
                             });
                             $timeout(function() {
                                 $scope.successCartModal.close();
-                                $state.go('cart');
+                                $state.go('cart',{
+                                  cartCity:$rootScope.citySpecific
+                                });
                             }, 1000);
 
 
@@ -3010,12 +3032,12 @@ $scope.myfun = function(){
     $scope.navigation = NavigationService.getnav();
     if($stateParams.aboutCity){
       $stateParams.aboutCity = $.jStorage.get("city");
-      $state.go("about",{city:$stateParams.aboutCity});
+      $state.go("about",{aboutCity:$stateParams.aboutCity});
     }
 
 })
 
-.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state,$window) {
+.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state,$window,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -3029,6 +3051,12 @@ $scope.myfun = function(){
             windowClass: 'widths'
         })
     };
+    if($stateParams.profileCity){
+      $stateParams.profileCity = $.jStorage.get("city");
+      $state.go("profile",{profileCity:$stateParams.profileCity});
+    }
+    $scope.custBooking =[];
+    $scope.CustCardRecharge=[];
     $scope.rechargeOnline = {};
     if ($.jStorage.get("loginDetail") != null) {
         $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").CustomerID;
@@ -3863,7 +3891,9 @@ $scope.myfun = function(){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                                cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -4096,7 +4126,9 @@ $scope.myfun = function(){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                                cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -4339,7 +4371,9 @@ $scope.myfun = function(){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                                cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -4560,7 +4594,9 @@ if ($scope.detailPromotionsInner.image) {
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart',{
+                                cartCity:$rootScope.citySpecific
+                            });
                         }, 1000);
 
 
@@ -5121,13 +5157,17 @@ $scope.openMenu=!$scope.openMenu;
                 $rootScope.getMenus();
             } else if ($.jStorage.get("loginDetail") != null) {
                 console.log("im in else");
-                $state.go("cart");
+                $state.go("cart",{
+                  cartCity:$rootScope.citySpecific
+                });
             }
         };
 
         $scope.myAccount = function() {
             if ($.jStorage.get("loginDetail") != null) {
-                $state.go("profile");
+                $state.go("profile",{
+                  profileCity:$rootScope.citySpecific
+                });
             };
         }
 
