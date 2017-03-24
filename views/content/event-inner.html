@@ -115,6 +115,9 @@
                   <h2>PRIZES</h2>
                   <div class="prize-name " ng-bind-html="detailEventsInner.prize">
                   </div>
+                  <div class="prize-name " ng-if="!detailEventsInner.prize">
+                    No Prizes Available
+                  </div>
                </div>
             </div>
             <div class="slant-column pull-right">
@@ -122,9 +125,12 @@
                   <h2>SCHEDULE</h2>
                   <div class="prize-name " ng-bind-html="detailEventsInner.schedule">
                   </div>
+                  <div class="prize-name " ng-if="!detailEventsInner.schedule">
+                    No Schedule Available
+                  </div>
                   <div class="button-sets">
                      <button class="uppercase green" ng-if="detailEventsInner.showBuyNow" ng-click="buyNowEventInner(detailEventsInner.BranchPackageID,detailEventsInner.price);">Buy Now</button>
-                     <button class="uppercase blue" ng-click="pdfmodal(detailEventsInner.pdf);">download</button>
+                     <button ng-if="detailEventsInner.pdf" class="uppercase blue" ng-click="pdfmodal(detailEventsInner.pdf);">download</button>
                   </div> 
                </div>
             </div>
