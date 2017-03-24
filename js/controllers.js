@@ -3561,7 +3561,7 @@ $scope.myfun = function(){
     }
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $filter, $sce) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $filter, $sce,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
@@ -3578,6 +3578,10 @@ $scope.myfun = function(){
             $scope.menu = "menu-out";
         }
     };
+    if($stateParams.drinkCity){
+      $stateParams.drinkCity = $.jStorage.get("city");
+      $state.go("drink-party",{drinkCity:$stateParams.drinkCity});
+    }
     $scope.moreDesc = {};
     NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
         $scope.drinkParty1 = data.data;

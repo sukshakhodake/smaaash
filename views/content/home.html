@@ -170,12 +170,12 @@
       <div class="col-md-6">
          <div class="updated">
             <div class="slant-box pad0 relative">
-               <p class=" capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id})">view all</p>
+               <p class=" capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type._id,dealspcity:citySpecific})">view all</p>
                <h2 class="brand-white ">Deals and Packages</h2>
                <div class="mover extra">
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in deals track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
-                       <a  ui-sref="dealsp({id:deals[0].type._id})">
+                       <a  ui-sref="dealsp({id:deals[0].type._id, dealspcity:citySpecific})">
                          <!--ui-sref="parties({id:s._id})"-->
                              <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="dealsp({id:deals[0].type._id})">
                        </a>
@@ -196,31 +196,31 @@
       <div class="col-md-6">
          <div class="updates ">
             <div class="slant-box pad0">
-               <p class=" capitalize brand-white border-bot" ui-sref="hostparty({id:hostParty[0].type._id})">view all</p>
+               <p class=" capitalize brand-white border-bot" ui-sref="hostparty({id:hostParty[0].type._id,hostCity:citySpecific})">view all</p>
                <h2 class="brand-white ">Host A Party</h2>
                <div class="mover extra" ng-if="hostParty">
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in hostParty track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li ng-if="s.hostAPartyType ==='57d6a09dbd5eb9846074b419'">
-                        <a ui-sref="hostparty({id:hostParty[0].type._id})">
+                        <a ui-sref="hostparty({id:hostParty[0].type._id,hostCity:citySpecific})">
                           <!--ui-sref="parties({id:s._id})"-->
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      </li>
                      <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
-                        <a ui-sref="hostparty({id:hostParty[0].type._id})">
+                        <a ui-sref="hostparty({id:hostParty[0].type._id,hostCity:citySpecific})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
 
                      </li>
                      <li ng-if="s.hostAPartyType ==='57e142483da62fae1dfc55f2'">
-                        <a ui-sref="hostparty({id:hostParty[0].type._id})">
+                        <a ui-sref="hostparty({id:hostParty[0].type._id,hostCity:citySpecific})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      </li>
                      <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
-                        <a ui-sref="hostparty({id:hostParty[0].type._id})">
+                        <a ui-sref="hostparty({id:hostParty[0].type._id,hostCity:citySpecific})">
                            <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                         </a>
                      </li>
@@ -296,13 +296,13 @@
          <div class="updated mt15">
 
             <div class="slant-box pad0 relative">
-               <p class=" capitalize brand-white border-bot" ui-sref="event({id:events[0].type._id})">view all</p>
+               <p class=" capitalize brand-white border-bot" ui-sref="event({id:events[0].type._id,eventcity:citySpecific})">view all</p>
                <h2 class="brand-white ">events</h2>
                <div class="mover extra" >
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in events track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li >
-                       <a ui-sref="event({id:events[0].type._id})">
-                             <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="event({id:events[0].type._id})">
+                       <a ui-sref="event({id:events[0].type._id,eventcity:citySpecific})">
+                             <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                        </a>
 
 
@@ -318,13 +318,13 @@
       <div class="col-md-6">
          <div class="updates mt15 fixed-height">
             <div class="slant-box pad0 relative">
-               <p class=" capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id})">view all</p>
+               <p class=" capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type._id,gamesCity:citySpecific})">view all</p>
                <h2 class="brand-white ">games</h2>
                <div class="mover extra">
                   <flex-slider ng-if="attraction" class="carousel relative" item-margin="0" flex-slide="s in attraction track by $index" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li >
                         <a >
-                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}"  ui-sref="attractions({id:attraction[0].type._id})">
+                           <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}"  ui-sref="attractions({id:attraction[0].type._id,gamesCity:citySpecific})">
                         </a>
                         <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
                      </li>
@@ -387,12 +387,12 @@
       <div class="slant-col updating">
          <div class="slant-in">
         <div class="slant-box pad0 relative">
-                <p class=" capitalize brand-white border-bot" ui-sref="drink-party({id:foodBeverages[0].type._id})">view all</p>
+                <p class=" capitalize brand-white border-bot" ui-sref="drink-party({id:foodBeverages[0].type._id,drinkCity:citySpecific})">view all</p>
                <h2 class="brand-white">FOOD AND BEVERAGES</h2>
                <div class="mover extra">
                   <flex-slider class="carousel relative" item-margin="0" flex-slide="s in foodBeverages track by $index" slideshow="false" animation="slide" animationLoop="true" prev-text="" next-text="">
                      <li>
-                        <a ui-sref="drink-party({id:s.type._id})" class="fbeve">
+                        <a ui-sref="drink-party({id:s.type._id,drinkCity:citySpecific})" class="fbeve">
                            <img ng-src="{{s.image|uploadpath}}" ng-if="s.image">
                         </a>
 
