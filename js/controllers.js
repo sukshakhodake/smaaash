@@ -10,6 +10,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var openL = {};
     TemplateService.removeLoaderOn(4);
+      $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
+        $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
     console.log("citySpecific",$rootScope.citySpecific);
     //
     //     function requestJSONP(url) {

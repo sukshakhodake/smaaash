@@ -106,9 +106,12 @@
                <li>
                   <div class="race relative margno">
                      <div class="img-bg">
-                        <a href="{{s.sublink}}">
+                        <a>
                            <figure>
-                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Games'" ui-sref="attractions({id:attraId,gamesCity:citySpecific})">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Parties'" ui-sref="hostparty({id:hostpartyId,hostCity:citySpecific})">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Food & Beverages'">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Deals & Packages'">
                            </figure>
 
                         </a>
