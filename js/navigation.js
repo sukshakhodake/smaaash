@@ -128,11 +128,12 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getPartyInside: function(id, callback) {
             var data = {
-                _id: id,
+                // _id: id,
+                myslug: id,
                 city: $.jStorage.get("cityid")
             };
             $http({
-                url: adminurl + 'exploresmash/getOne',
+                url: adminurl + 'exploresmash/getByUrl',
                 method: 'POST',
                 withCredentials: true,
                 data: data
@@ -435,6 +436,21 @@ var navigationservice = angular.module('navigationservice', [])
 
             $http({
                 url: adminurl + 'exploresmash/getDetailExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+
+            }).success(callback);
+        },
+        getDetailExploreSmaaashByUrl: function(id, callback) {
+            var data = {
+                myslug: id,
+                // _id: id,
+                city: $.jStorage.get("cityid")
+            };
+
+            $http({
+                url: adminurl + 'exploresmash/getDetailExploreSmaaashByUrl',
                 method: 'POST',
                 withCredentials: true,
                 data: data

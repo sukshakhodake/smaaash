@@ -1818,12 +1818,12 @@ $state.go('event',{
         }
     };
 
-    $scope.goTo = function(name, id) {
+    $scope.goTo = function(id) {
 
-            if (name, id) {
-                $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
+            if (id) {
+                // $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
                 $state.go('snow-rush', {
-                    name: $scope.name,
+                    // name: $scope.name,
                     id: id,
                     snowrushCity:$rootScope.citySpecific
                 });
@@ -2500,7 +2500,7 @@ $state.go('event',{
 .controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("snow-rush");
-        $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1)
+        $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1)
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         if($stateParams.snowrushCity){
@@ -2546,7 +2546,7 @@ $state.go('event',{
             $scope.startVideo = !$scope.startVideo;
             console.log($scope.startVideo, "  console.log($scope.startVideo);");
         }
-        NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+        NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, function(data) {
             $scope.detailExploreSmaash = data.data;
             console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
             $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
