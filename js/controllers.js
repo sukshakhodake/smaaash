@@ -1006,17 +1006,17 @@ $state.go('event',{
 });
 }
 
-    $scope.goTo = function(name, id) {
-        if (name, id) {
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-            $state.go('event-inner', {
-                name: $scope.name,
-                id: id,
-                eventsInnercity:$rootScope.citySpecific
-            });
-        }
-
-    }
+    // $scope.goTo = function(id) {
+    //     if (id) {
+    //
+    //         $state.go('event-inner', {
+    //
+    //             id: id,
+    //             eventsInnercity:$rootScope.citySpecific
+    //         });
+    //     }
+    //
+    // }
     $scope.isInWishlist = function(id) {
         var indexF = _.findIndex($scope.userwishlist, function(key) {
             return key.exploresmash._id == id;
@@ -1185,14 +1185,13 @@ $state.go('event',{
 
 
 
-    $scope.goTo = function(name, id) {
+    $scope.goTo = function(id) {
       console.log("im in");
-        if (name, id) {
+        if (id) {
           console.log("im in");
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
+            // $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
             $state.go('deals-inner', {
-                name: $scope.name,
-                id: id,
+                  id: id,
                 dealsinnercity:$rootScope.citySpecific
 
             });
@@ -2136,7 +2135,7 @@ $state.go('event',{
     }
 })
 
-.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("customizepackage");
     $scope.menutitle = NavigationService.makeactive("Customize Package");
@@ -2158,7 +2157,12 @@ $state.go('event',{
     $scope.clear = function() {
         $scope.dt = null;
     };
-
+if ($stateParams.customizeCity) {
+  $stateParams.customizeCity = $.jStorage.get("city");
+  $state.go('customizepackage',{
+    customizeCity :  $stateParams.customizeCity
+  })
+}
     $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
@@ -3831,7 +3835,7 @@ $scope.myfun = function(){
 .controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location,  $uibModal,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
+    $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
@@ -3847,7 +3851,7 @@ $scope.myfun = function(){
   $scope.homeimage = $filter('uploadpath')($stateParams.image);
 
     }
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.detailDealsInner = data.data;
         console.log("$scope.detailDealsInner", $scope.detailDealsInner);
         $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
@@ -3937,7 +3941,7 @@ $scope.myfun = function(){
 .controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
+    $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = $location.absUrl();
@@ -4064,7 +4068,7 @@ $scope.myfun = function(){
             })
         }
     }
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.detailEventsInner = data.data;
         console.log("$scope.detailEventsInner", $scope.detailEventsInner);
         if ($scope.detailEventsInner.banner) {
@@ -4247,16 +4251,7 @@ $scope.myfun = function(){
     TemplateService.removeLoaderOn(1);
 
 
-    $scope.goTo = function(name, id) {
-        if (name, id) {
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-            $state.go('promotion-inner', {
-                name: $scope.name,
-                id: id
-            });
-        }
 
-    };
     if($stateParams.promotionCity){
       $stateParams.promotionCity = $.jStorage.get("city");
       $state.go("promotion",{promotionCity:$stateParams.promotionCity});
@@ -4417,7 +4412,7 @@ $scope.myfun = function(){
 .controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
+    $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
@@ -4521,7 +4516,7 @@ $scope.myfun = function(){
 
 
     $scope.myUrl = $location.absUrl();
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.detailPromotionsInner = data.data;
         console.log("$scope.detailPromotionsInner", $scope.detailPromotionsInner);
         if ($scope.detailPromotionsInner.banner) {
