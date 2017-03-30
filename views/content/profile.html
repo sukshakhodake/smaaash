@@ -68,12 +68,12 @@
 
                         <p class="text-uppercase">recharge</p>
 
-                     </li> 
+                     </li>
                      <li class="tab-item   relative  col-flex {{classe}}" ng-click="tabchange('logout',5)">
 
                         <p class="text-uppercase">log out</p>
 
-                     </li> 
+                     </li>
 
                      <!-- <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
 
@@ -187,7 +187,8 @@
                   <!-- <div class="reward-table carts" ng-show="tab=='trim'"> -->
                   <!-- <div class="table-responsive"> -->
                   <h3 ng-if="!isBooking" class="text-center">Loading...</h3>
-                  <div class="table-responsive" ng-if="isBooking">
+
+                  <div class="table-responsive" ng-if="isBooking && !msg">
                      <table class="table">
                         <thead>
                            <tr>
@@ -292,6 +293,7 @@
                      </table>
                   </div>
                   <h3 class="text-center" ng-if="msg">No orders found.</h3>
+
 
                </div>
                <div class="points" ng-show="tab=='team'">
@@ -406,7 +408,7 @@
                   </div>
 
                </div>
-               <div class="reward-table carts" ng-show="tab=='reacharge'"> 
+               <div class="reward-table carts" ng-show="tab=='reacharge'">
                  <!--<h2>recharge online</h2>-->
                   <div class="heads">
           <h3 class="text-center text-uppercase text-in-shadow font-america mb5 "> let us know your details</h3>
@@ -427,7 +429,7 @@
         <div class="onbutton text-center">
  <button  type="submit" ng-if="!isRecharge" name="button"><img src="img/new/go.png" alt=""></button>
         </div>
-     
+
    </form>
         </div>
                </div>

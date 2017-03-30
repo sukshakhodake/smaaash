@@ -3225,7 +3225,12 @@ $scope.myfun = function(){
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
       console.log("data.data",data.data);
         console.log("CustomerBooking*********", data.data.CustomerBooking);
-        if (data.value === true) {
+
+        if (data.value) {
+          if (data.data.ErrorStatus) {
+          $scope.msg=true;
+            $scope.isBooking = true ;
+        }else {
           $scope.isBooking = true ;
             $scope.custBooking = data.data.CustomerBooking;
             // $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
@@ -3241,6 +3246,9 @@ $scope.myfun = function(){
                 };
 
             });
+        }
+
+
         } else if (data.value === false) {
             $scope.msg = true;
             $scope.isBooking =true;
@@ -5141,12 +5149,14 @@ $scope.openMenu=!$scope.openMenu;
                 NavigationService.logout(function(data) {
                     console.log("im in nav logout");
                     console.log("data", data);
+                      $state.go("home");
                     if (data.value === true) {
                         $scope.hidelogout = true;
+
                     }
                     console.log("im in nav logout");
                     location.reload();
-                    $state.go("home");
+
                 })
             } else {
 
