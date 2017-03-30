@@ -295,11 +295,41 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getSingleExploreSmaaash: function(id, callback) {
             var data = {
+                // myslug: id,
                 _id: id,
                 city: $.jStorage.get("cityid")
             };
             $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaash',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+
+            }).success(callback);
+        },
+        getSingleExploreSmaaashHost: function(id, callback) {
+            var data = {
+                myslug: id,
+                // _id: id,
+                city: $.jStorage.get("cityid")
+            };
+            $http({
+                url: adminurl + 'exploresmash/getSingleExploreSmaaashByUrl',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+
+            }).success(callback);
+        },
+        getSingleExploreSmaaashByUrl: function(id, callback) {
+          console.log(id,"id");
+            var data = {
+                // _id: id,
+                myslug: id,
+                city: $.jStorage.get("cityid")
+            };
+            $http({
+                url: adminurl + 'exploresmash/getSingleExploreSmaaashByUrl',
                 method: 'POST',
                 withCredentials: true,
                 data: data
@@ -319,18 +349,31 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
+        // searchExploreSmaaash: function(filter, callback) {
+        //     if (filter) {
+        //         filter.city = $.jStorage.get("cityid");
+        //     }
+        //     $http({
+        //         url: adminurl + 'exploresmash/getSingleExploreSmaaash',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data: filter
+        //
+        //     }).success(callback);
+        // },
         searchExploreSmaaash: function(filter, callback) {
-            if (filter) {
-                filter.city = $.jStorage.get("cityid");
-            }
-            $http({
-                url: adminurl + 'exploresmash/getSingleExploreSmaaash',
-                method: 'POST',
-                withCredentials: true,
-                data: filter
+          if(filter){
+            filter.city=$.jStorage.get("cityid");
+          }
+                  $http({
+                  url: adminurl + 'exploresmash/getSingleExploreSmaaashByUrl',
+                  method: 'POST',
+                  withCredentials: true,
+                  data: filter
 
-            }).success(callback);
-        },
+              }).success(callback);
+          },
+
 
         getStars: function(request, callback) {
 

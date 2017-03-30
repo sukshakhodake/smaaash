@@ -40,10 +40,10 @@
               <h4 class="bold title pointer" ng-click="footer(1)">EXPLORE SMAAASH </h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 1">
-              <li><a ui-sref="attractions({id:attrctionId,gamesCity:citySpecific})">Games</a></li>
-              <li><a ui-sref="drink-party({id:drinkandPartyId,drinkCity:citySpecific})">Food &amp; Beverages</a></li>
-              <li><a ui-sref="dealsp({id:dealsandpackagesId,dealspcity:citySpecific})">Deals &amp; Packages</a></li>
-              <li><a ui-sref="promotion({id:promotionId,promotionCity:citySpecific})">Promotions</a></li>
+              <li><a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">Games</a></li>
+              <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">Food &amp; Beverages</a></li>
+              <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">Deals &amp; Packages</a></li>
+              <li><a ui-sref="promotion({id:'promotions',promotionCity:citySpecific})">Promotions</a></li>
               <!--<li><a ui-sref="landingform">landing</a></li>-->
             </ul>
           </div>
@@ -143,7 +143,7 @@
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="event({eventcity:citySpecific,id:eventId})" >events and challenges</h4>
+              <h4 class="bold title pointer" ui-sref="event({eventcity:citySpecific,id:'events'})" >events and challenges</h4>
             </div>
 
              <div class="clearfix">

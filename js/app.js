@@ -207,12 +207,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'ConfirmCtrl'
         })
         .state('event', {
-            url: "/:eventcity/events/:id",
+            url: "/:eventcity/events",
             templateUrl: "views/template.html",
-            controller: 'EventCtrl'
-                // params:{
-                //   id:"id"
-                // }
+            controller: 'EventCtrl',
+                params:{
+                  id:"events"
+                }
         })
 
     .state('career', {
@@ -222,33 +222,45 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('dealsp', {
-        url: "/:dealspcity/dealsp/:id",
+        url: "/:dealspcity/deals-and-packages",
         templateUrl: "views/template.html",
-        controller: 'DealspCtrl'
+        controller: 'DealspCtrl',
+        params:{
+          id:'deals-and-packages'
+        }
     })
 
     .state('drink-party', {
-        url: "/:drinkCity/drink-party/:id",
+        url: "/:drinkCity/food-and-beverages",
         templateUrl: "views/template.html",
-        controller: 'DrinkCtrl'
+        controller: 'DrinkCtrl',
+        params:{
+          id:'food-and-beverages'
+        }
     })
 
 
 
 
     .state('promotion', {
-        url: "/:promotionCity/promotion/:id",
+        url: "/:promotionCity/promotion",
         templateUrl: "views/template.html",
-        controller: 'PromotionCtrl'
+        controller: 'PromotionCtrl',
+        params:{
+          id:'promotion'
+        }
     })
 
 
 
 
     .state('attractions', {
-        url: "/:gamesCity/attractions/:id",
+        url: "/:gamesCity/attraction",
         templateUrl: "views/template.html",
-        controller: 'AttractionCtrl'
+        controller: 'AttractionCtrl',
+        params:{
+          id:"attraction"
+        }
     })
 
 
@@ -258,9 +270,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'LeaderCtrl'
         })
         .state('hostparty', {
-            url: "/:hostCity/host-party/:id",
+            url: "/:hostCity/host-a-party",
             templateUrl: "views/template.html",
-            controller: 'HostCtrl'
+            controller: 'HostCtrl',
+            params:{
+              id:"host-a-party"
+            }
         })
 
     .state('media', {

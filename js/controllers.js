@@ -194,6 +194,7 @@ _.each($scope.mys,function(key){
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             $scope.attraction = $scope.content.Attraction;
+            console.log("  $scope.attraction",  $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             console.log($scope.whatsnew,"$scope.whatsnew");
             $scope.hostParty = $scope.content["Host a party"];
@@ -205,6 +206,7 @@ _.each($scope.mys,function(key){
             console.log("$scope.foodBeverages", $scope.foodBeverages);
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
+            console.log(  $scope.promotion,"  $scope.promotion");
 
             TemplateService.removeLoader();
         } else {}
@@ -985,7 +987,7 @@ _.each($scope.mys,function(key){
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.moreDesc = {};
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.events = _.chunk(data.data, 3);
         TemplateService.removeLoader();
     });
@@ -1199,7 +1201,7 @@ $state.go('event',{
     }
 
 
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.SingleDealsPackages = _.chunk(data.data, 3);
         console.log("SingleDealsPackages", $scope.SingleDealsPackages);
         TemplateService.removeLoader();
@@ -1689,7 +1691,8 @@ $state.go('event',{
     $scope.female = '';
     $scope.children = '';
     $scope.filter = {};
-    $scope.filter._id = $stateParams.id;
+    // $scope.filter._id = $stateParams.id;
+      $scope.filter.myslug = $stateParams.id;
     $scope.msg = false;
     $scope.singleAttraction1 = [];
     $scope.singleAttraction = [];
@@ -2784,7 +2787,7 @@ $state.go('event',{
 $scope.myfun = function(){
   console.log("im in");
 }
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.SingleHostParty1 = data.data;
         $scope.SingleHostParty = _.chunk(data.data, 3);
         $scope.content = _.groupBy($scope.SingleHostParty, 'hostAPartyType');
@@ -3615,7 +3618,7 @@ $scope.myfun = function(){
       $state.go("drink-party",{drinkCity:$stateParams.drinkCity});
     }
     $scope.moreDesc = {};
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.drinkParty1 = data.data;
         console.log("data", data.data);
         $scope.drinkParty = _.chunk(data.data, 3);
@@ -4259,7 +4262,7 @@ $scope.myfun = function(){
       $state.go("promotion",{promotionCity:$stateParams.promotionCity});
     }
 
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, function(data) {
         console.log("data", data);
         $scope.promotion = _.chunk(data.data, 3);
         TemplateService.removeLoader();
@@ -5298,10 +5301,10 @@ $scope.openMenu=!$scope.openMenu;
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
-        $scope.id = '57bc4b10eb9c91f1025a3b54';
+        // $scope.id = '57bc4b10eb9c91f1025a3b54';
           $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
 
-        NavigationService.getSingleExploreSmaaash($scope.id, function(data) {
+        NavigationService.getSingleExploreSmaaashByUrl('host-a-party', function(data) {
             $scope.SingleHostParty1 = data.data;
             // console.log(".SingleHostParty1",.SingleHostParty1);
 
