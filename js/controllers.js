@@ -2103,7 +2103,10 @@ $state.go('event',{
     if($stateParams.partyCity){
       $stateParams.partyCity = $.jStorage.get("city");
       $state.go("parties",{partyCity:$stateParams.partyCity});
-    }
+    };
+    NavigationService.getCity(function(data) {
+        $scope.getCities = data.data;
+      });
     $scope.kittyParty = function() {
         $scope.modalInstance = $uibModal.open({
             animation: true,

@@ -37,7 +37,7 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(1)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 1 }"></i></span>
-              <h4 class="bold title pointer" ng-click="footer(1)">EXPLORE SMAAASH </h4>
+              <h4 class="bold title pointer" ng-click="footer(1)" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">EXPLORE SMAAASH </h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 1">
               <li><a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">Games</a></li>
@@ -52,7 +52,7 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(2)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 2 }"></i></span>
-              <h4 class="bold title pointer" ng-click="footer(2)">HOST A PARTY</h4>
+              <h4 class="bold title pointer" ng-click="footer(2)" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">HOST A PARTY</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 2">
               <li ng-repeat="data in SingleHostParty1"><a ui-sref="parties({id:data.myslug,partyCity:citySpecific})" >{{data.hometext}}</a></li>
@@ -163,13 +163,13 @@
               <h4 class="bold title pointer"  ng-click="footer(12)">Contact us</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 12">
-              <li><a ui-sref="contact({contactCity:citySpecific})">Bengaluru</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Mumbai </a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon </a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Hyderabad</a></li>
-              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon</a></li>
-                <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon2</a></li>
-              <li><a ui-sref="contact({contactCity:citySpecific})">Mumbai</a></li>
+                <li><a ui-sref="contact({contactCity:citySpecific})">Bengaluru </a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Noida</a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Ludhiana</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon2</a></li>
             </ul>
           </div>
         </div>
