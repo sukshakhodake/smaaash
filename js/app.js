@@ -286,7 +286,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     .state('contact', {
         url: "/:contactCity/contact",
         templateUrl: "views/template.html",
-        controller: 'ContactCtrl'
+        controller: 'ContactCtrl',
+        // params:{
+        //   "footerCityId":footerCityId
+        // }
     })
 
     .state('benefit', {
