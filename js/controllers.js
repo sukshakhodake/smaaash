@@ -5337,7 +5337,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             })
         }
+        $scope.loginModal = function() {
+            $uibModal.open({
+                animation: 'true',
+                templateUrl: "views/modal/mobile-login.html",
+                // controller: 'headerCtrl',
+                windowClass: 'login-modal',
+                scope: $scope
+            });
+        }
 
+        $scope.signinModal = function() {
+            $uibModal.open({
+                animation: 'true',
+                templateUrl: "views/modal/mobile-signin.html",
+                // controller: 'headerCtrl',
+                windowClass: 'signin-modal',
+                scope: $scope
+            });
+        }
 
 
 
