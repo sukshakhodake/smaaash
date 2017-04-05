@@ -267,7 +267,7 @@ $menu-height: 80px !default;
     position: relative;
     background-image: url("../img/home/menu-bg.png");
     background-size: 100% 100%;
-    z-index: 3;
+    z-index: 92;
     background-position: left;
     background-repeat: no-repeat;
     &.affix {
@@ -276,6 +276,78 @@ $menu-height: 80px !default;
         width: 100%;
         z-index: 999;
     }
+    .panel-group {
+        .panel {
+    box-shadow: 0 0 0;
+    border: 0px solid transparent;
+}
+ .panel-heading {
+    background-color: #fbfbfb;
+ }
+    }
+      .panel-body{
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.panel-group {
+    width: 300px;
+    float: right;
+    margin-top: 65px;
+}
+ul{
+  padding: 0;
+//   height: 300px;
+//   overflow-y: scroll;
+ .names{
+      font-size: 18px !important;
+  }
+   li:nth-last-child(1){
+      .nav-names{
+ border-bottom: none;
+      }
+    
+  }
+ 
+  li:nth-of-type(4n+1){
+       .nav-names{
+    color: $brand-red;
+     
+  }
+  }
+    li:nth-of-type(4n+2){
+       .nav-names{
+    color: $brand-blue;
+   
+  }
+  }
+    li:nth-of-type(4n+3){
+       .nav-names{
+    color: $brand-green;
+     
+  }
+  }
+    li:nth-of-type(4n+4){
+       .nav-names{
+    color: $brand-pink;
+    
+  }
+  }
+  a{
+    display: block;
+  }
+    .nav-names{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    font-size: 16px;
+    font-family: "American Purpose";
+    text-shadow: none;
+    margin: 0;
+  }
+}
+    
     .cities {
     padding: 10px 20px;
     background-color: $brand-green;
@@ -313,6 +385,23 @@ $menu-height: 80px !default;
     }
 }
 
+  .menu-mobile{
+    position: relative;
+    .menu{
+width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top:0;
+    z-index: 99999;
+    img{
+      width: 100%;
+    }
+    }
+  }
+.side-menu-mobile{
+    min-height: 300px;
+}
 .smaash-drops {
     margin-bottom: 0;
     position: relative;

@@ -57,15 +57,15 @@ width: 100px;
     }
     .sides{
     position: absolute;
-    top: 210px;
+    top: 100px;
     right: 10px;
     cursor: pointer;
     span{
   text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
     }
     }
-
   }
+
   .fixed-height li a {
   height: auto;
   img{
@@ -424,6 +424,7 @@ width: 100px;
   }
   .side-buttons {
     top: 19%;
+    display: none;
   }
   .connect-button,
   .live-chat {
@@ -466,6 +467,8 @@ width: 100px;
     }
   }
   .login-signup {
+    padding: 30px;
+    min-height: 400px;
     background-position: center;
     .form-group {
       margin-bottom: 5px;
@@ -473,6 +476,12 @@ width: 100px;
     .form-control {
       height: 35px;
     }
+    .login-mobile {
+    margin: 40px 0;
+    }
+    .cityselect {
+    top: 8px;
+}
   }
   .slant-col {
     @include transform(skew(0deg));

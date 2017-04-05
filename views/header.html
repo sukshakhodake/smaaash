@@ -224,7 +224,7 @@
                 <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
 
             </uib-accordion-heading>
-             <ul >
+             <ul class="list-unstyled">
                  <!--<h3 class=" text-center nav-names names">menu</h3>-->
 
 
@@ -258,11 +258,14 @@
                      <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
                   </a>
                </li>
-
-
-               <li>
+                <li>
                   <a class="text-center" ng-show="userLoginDetails === null">
-                     <h3 class="nav-names" ng-click="getMenus();">Login</h3>
+                     <h3 class="nav-names" ng-click="signinModal();">Sign Up</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center" ng-show="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="loginModal();">Login</h3>
                   </a>
                </li>
                <li>
@@ -305,12 +308,12 @@
 
 
 
-         <div class="women-menu" ng-click="toggleMenu()" ng-class="{'overlay':menu==true}">
+         <!--<div class="women-menu" ng-click="toggleMenu()" ng-class="{'overlay':menu==true}">
             <div class="menu"><img src="img/home/menu.png" alt="Menu" no-drag></div>
             <figure class="woman-menu">
                <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
             </figure>
-         </div>
+         </div>-->
          <div class="sides">
             <div class="" id="axe">
                <!--<div class="orange-rays"></div>-->
@@ -348,6 +351,81 @@
          </div>
 
       </div>
+          <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" is-open="status[n.name]" ng-click="opens();">
+            <uib-accordion-heading>
+                <a class="menu-nav-mobile"></a>
+
+                     <div class="menu" ng-class="{'ac': toggleMenu == true}"><img src="img/home/menus.png" alt="Menu" no-drag></div>
+                <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
+
+            </uib-accordion-heading>
+             <ul class="list-unstyled">
+                 <!--<h3 class=" text-center nav-names names">menu</h3>-->
+
+
+               <li>
+                  <a class="text-center" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
+                     <h3 class="nav-names">host a party</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
+                     <h3 class="nav-names ">games</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="media({mediasCity:citySpecific})">
+                     <h3 class="nav-names">media</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                  </a>
+               </li>
+                <li>
+                  <a class="text-center">
+                     <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                  </a>
+               </li>
+             <li>
+                  <a class="text-center" ng-show="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="getMenus();">Login | Sign Up</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ng-hide="userLoginDetails === null">
+                     <h3 class="nav-names" ng-click="logout();">Log out</h3>
+                  </a>
+               </li>
+
+               <li>
+                  <a class="text-center" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
+                     <h3 class="nav-names">deals &amp;  packages</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="event({id:'events',eventcity:citySpecific})">
+                     <h3 class="nav-names ">upcoming events </h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="stars({city:citySpecific})">
+                     <h3 class="nav-names ">gallery</h3>
+                  </a>
+               </li>
+
+
+
+            </ul>
+        </div>
+    </uib-accordion>
    </div>
 
    <!-- =============signup and login============ -->
@@ -451,10 +529,6 @@
                         </div>
                         <h3 ng-if="isDisabled">Please Wait...</h3>
                         <button type="submit" class="btn4  btn-default brand-blue" ng-if="!isDisabled"><span class="uppercase brand-white">sign up</span></button>
-
-                        <!-- <button type="submit" class="btn4  btn-default brand-blue" ng-disabled="isDisabled"><span class="uppercase brand-white">sign up</span></button>
- -->
-
                      </form>
                      <div class="submit-thank" ng-if="formCompleteSignup">
                         <h3 class="text-center">Thank You</h3>

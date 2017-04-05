@@ -1,0 +1,32 @@
+      <div class="side-menu-mobile">
+         <div class="login-signup relative">
+                  <div class="login">
+                     <h3 class="uppercase">login</h3>
+                     <form class="form" name="login" ng-submit="userLogin(userData)" ng-if="!formComplete">
+                           <div class="login-mobile">
+                        <div class="form-group">
+                           <input type="text" class="form-control" placeholder="Mobile number" minlength="10" maxlength="10" name="email" ng-model="userData.UserName" required only-Digits>
+
+                           <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
+                        </div>
+                        <div class="form-group">
+                           <input type="password" class="form-control" placeholder="Password" name="password" required ng-model="userData.Password">
+                           <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
+                        </div>
+                        <div class="error text-center" ng-if="valid">Something went wrong or incorrect details</div>
+                        <div class="text-center" ng-if="isUserLoggedIn">Please Wait..</div>
+                           </div>
+
+                        <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default brand-green"><span class="uppercase">login</span></button>
+
+
+                     </form>
+                     <div ng-if="formComplete">
+                        <h3 class="text-center">We are redirecting...</h3>
+                     </div>
+                     <!-- <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
+                            <button type="button" class="buton relative "><span><i class="fa fa-google-plus" aria-hidden="true"></i></span>login with Google</button> -->
+                     <a    ng-if="!isUserLoggedIn"  class="forgot" ng-click="resets();getMenus();">Forgot password?</a>
+                  </div>
+               </div>
+      </div>
