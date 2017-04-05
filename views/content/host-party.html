@@ -152,23 +152,24 @@
 
 
 
-              <div class="button-set">
-                <ul class="social-icons list-inline inline-block">
+              <div class="button-set text-center remodelled">
+                <!-- <ul class="social-icons list-inline inline-block">
                   <p class="inline-block">Share</p>
                   <li><a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
                   <li><a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                   <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                </ul>
-                <div class="more inline-block ">
+                </ul> -->
+                <div class="more inline-block remodel">
                   <button class="uppercase " ng-click="direct();"><i class="fa fa-phone" aria-hidden="true"></i>connect</button>
                 </div>
+                <div class="love inline-block" >
+                  <a ui-sref="parties({id:data.myslug,partyCity:citySpecific})">
+                    <button class="uppercase blue">Get Started</button>
+                    <!-- <button class="uppercase blue">Know More</button> -->
+                  </a>
+                </div>
               </div>
-              <div class="love " >
-                <a ui-sref="parties({id:data.myslug,partyCity:citySpecific})">
-                  <button class="uppercase blue">Get Started</button>
-                  <!-- <button class="uppercase blue">Know More</button> -->
-                </a>
-              </div>
+
 
             </div>
           </div>

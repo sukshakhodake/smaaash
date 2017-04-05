@@ -160,16 +160,17 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(12)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 12 }"></i></span>
-              <h4 class="bold title pointer"  ng-click="footer(12)">Contact us</h4>
+              <h4 class="bold title pointer"  ng-click="footer(12);gotoCity(data._id)" ui-sref="contact({contactCity:citySpecific})">Contact us</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 12">
-              <li><a ui-sref="contact({contactCity:citySpecific})">Mumbai </a></li>
+              <!-- <li><a ui-sref="contact({contactCity:citySpecific})">Mumbai </a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon </a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Hyderabad</a></li>
                 <li><a ui-sref="contact({contactCity:citySpecific})">Bengaluru </a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Noida</a></li>
               <li><a ui-sref="contact({contactCity:citySpecific})">Ludhiana</a></li>
-              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon2</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon2</a></li> -->
+              <li ng-repeat="data in getCities" ng-click="gotoCity(data._id)"><a ui-sref="contact({contactCity:citySpecific})" >{{data.name}}</a></li> -->
             </ul>
           </div>
         </div>

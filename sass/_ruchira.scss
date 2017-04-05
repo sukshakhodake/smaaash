@@ -868,7 +868,7 @@ $brand-white:#fff !default;
 .wdget {
   height: 400px;
   padding: 0 10px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .landing-banner {
@@ -3454,31 +3454,31 @@ ul{
       .nav-names{
  border-bottom: none;
       }
-    
+
   }
- 
+
   li:nth-of-type(4n+1){
        .nav-names{
     color: $brand-red;
-     
+
   }
   }
     li:nth-of-type(4n+2){
        .nav-names{
     color: $brand-blue;
-   
+
   }
   }
     li:nth-of-type(4n+3){
        .nav-names{
     color: $brand-green;
-     
+
   }
   }
     li:nth-of-type(4n+4){
        .nav-names{
     color: $brand-pink;
-    
+
   }
   }
   a{
