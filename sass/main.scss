@@ -2295,6 +2295,24 @@ background-color: #32b544;
 .space-issue{
       margin: 0 0 -4px;
 }
+
+.remodelled{
+  .love{
+    text-align: inherit;
+    button{
+      margin: 0 6px;
+      width: 156px;
+          padding: 10px 30px !important;
+    }
+  }
+  .remodel{
+    button{
+          background-color: #32b544;
+          margin: 0 6px !important;
+    }
+  }
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

@@ -1766,13 +1766,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 _.each(data.gamefor, function(n) {
                     switch (n) {
                         case '1':
-                            data.gameforarray.push('Male')
+                            data.gameforarray.push('Adult')
+                            // data.gameforarray.push('Male')
                             break;
-                        case '2':
-                            data.gameforarray.push('Female')
-                            break;
+                        // case '2':
+                        //     data.gameforarray.push('Female')
+                        //     break;
                         case '3':
-                            data.gameforarray.push('Children')
+                            data.gameforarray.push('Kids')
+                            // data.gameforarray.push('Children')
                             break;
                         default:
                     }
