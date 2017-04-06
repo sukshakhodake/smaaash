@@ -24,7 +24,7 @@
               </div> -->
               <div class="min-last">
                 <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :20" ></h3>
-                  <p class="" ng-bind-html="d.description | htmlDecode"></p>
+                  <p class="" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
               </div>
               <div class="button-set" ng-if="d.showBuyNow">
                 <button class="uppercase blue"  ng-click="buyNow(d.BranchPackageID,d.price)">buy now</button>
