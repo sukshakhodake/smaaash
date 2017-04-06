@@ -50,7 +50,7 @@
                <div class="col-flexing mobiles-50 marginmobile0" ng-show="userLoginDetails === null">
                   <div class="log bg-prop">
                      <a class="text-center">
-                        <h3 class="nav-name" ng-click="getMenus();"><span class="block">Login</span></h3>
+                        <h3 class="nav-name" ><span class="block">Login</span></h3>
                      </a>
                   </div>
                </div>
@@ -243,7 +243,7 @@
                      <h3 class="nav-names">media</h3>
                   </a>
                </li>
-                <li>
+                <!-- <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
                      <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
                   </a>
@@ -257,8 +257,8 @@
                   <a class="text-center">
                      <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
                   </a>
-               </li>
-                <li>
+               </li> -->
+                <!-- <li>
                   <a class="text-center" ng-show="userLoginDetails === null">
                      <h3 class="nav-names" ng-click="signinModal();">Sign Up</h3>
                   </a>
@@ -267,12 +267,12 @@
                   <a class="text-center" ng-show="userLoginDetails === null">
                      <h3 class="nav-names" ng-click="loginModal();">Login</h3>
                   </a>
-               </li>
-               <li>
+               </li> -->
+               <!-- <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
                      <h3 class="nav-names" ng-click="logout();">Log out</h3>
                   </a>
-               </li>
+               </li> -->
 
                <li>
                   <a class="text-center" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
@@ -289,7 +289,36 @@
                      <h3 class="nav-names ">gallery</h3>
                   </a>
                </li>
-
+               <li  ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                 </a>
+              </li>
+              <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                 </a>
+              </li>
+               <li  ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                 </a>
+              </li>
+              <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names" ng-click="logout();">Log out</h3>
+                 </a>
+              </li>
+              <li ng-show="userLoginDetails == null">
+                <a class="text-center">
+                   <h3 class="nav-names" ><span ng-click="signinModal();">Sign Up </span> &#8739 <span ng-click="loginModal();">Login </span></h3>
+                </a>
+             </li>
+              <!-- <li>
+                <a class="text-center" ng-show="userLoginDetails === null">
+                   <h3 class="nav-names" ng-click="loginModal();">Login</h3>
+                </a>
+             </li> -->
 
 
             </ul>
@@ -379,7 +408,7 @@
                      <h3 class="nav-names">media</h3>
                   </a>
                </li>
-                <li>
+                <!-- <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
                      <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
                   </a>
@@ -393,17 +422,17 @@
                   <a class="text-center">
                      <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
                   </a>
-               </li>
-             <li>
+               </li> -->
+             <!-- <li>
                   <a class="text-center" ng-show="userLoginDetails === null">
                      <h3 class="nav-names" ng-click="getMenus();">Login | Sign Up</h3>
                   </a>
-               </li>
-               <li>
+               </li> -->
+               <!-- <li>
                   <a class="text-center" ng-hide="userLoginDetails === null">
                      <h3 class="nav-names" ng-click="logout();">Log out</h3>
                   </a>
-               </li>
+               </li> -->
 
                <li>
                   <a class="text-center" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
@@ -420,6 +449,31 @@
                      <h3 class="nav-names ">gallery</h3>
                   </a>
                </li>
+               <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                 </a>
+              </li>
+              <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                 </a>
+              </li>
+               <li  ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                 </a>
+              </li>
+              <!-- <li>
+                   <a class="text-center" ng-show="userLoginDetails === null">
+                      <h3 class="nav-names" ng-click="getMenus();">Login &#8739 Sign Up</h3>
+                   </a>
+                </li> -->
+                <li ng-hide="userLoginDetails === null">
+                   <a class="text-center" ng-hide="userLoginDetails === null">
+                      <h3 class="nav-names" ng-click="logout();">Log out</h3>
+                   </a>
+                </li>
 
 
 

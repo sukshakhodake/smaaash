@@ -291,6 +291,26 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         //   "footerCityId":footerCityId
         // }
     })
+    .state('terms', {
+        url: "/terms",
+        templateUrl: "views/template.html",
+        controller: 'termsCtrl',
+        // params:{
+        //   "footerCityId":footerCityId
+        // }
+    })
+    .state('security', {
+        url: "/security",
+        templateUrl: "views/template.html",
+        controller: 'securityCtrl',
+
+    })
+    .state('policy', {
+        url: "/policy",
+        templateUrl: "views/template.html",
+        controller: 'policyCtrl',
+
+    })
 
     .state('benefit', {
         url: "/:benefitCity/benefit",

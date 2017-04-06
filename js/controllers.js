@@ -20,6 +20,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
         $scope.showHomeBanner = false;
     }
+
+
     //
     //     function requestJSONP(url) {
     //       console.log('ddddddddddddd');
@@ -785,6 +787,58 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     $scope.Mum =true;
     //   }
     // }
+
+
+
+})
+
+.controller('termsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("terms");
+    $scope.menutitle = NavigationService.makeactive("Terms Of Use");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // if ($stateParams.contactCity) {
+    //     $stateParams.contactCity = $.jStorage.get("city");
+    //     $state.go("contact", {
+    //         contactCity: $stateParams.contactCity
+    //     });
+    // }
+    //
+
+
+
+})
+.controller('securityCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("security");
+    $scope.menutitle = NavigationService.makeactive("Security");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // if ($stateParams.contactCity) {
+    //     $stateParams.contactCity = $.jStorage.get("city");
+    //     $state.go("contact", {
+    //         contactCity: $stateParams.contactCity
+    //     });
+    // }
+    //
+
+
+
+})
+.controller('policyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("policy");
+    $scope.menutitle = NavigationService.makeactive("Policy");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // if ($stateParams.contactCity) {
+    //     $stateParams.contactCity = $.jStorage.get("city");
+    //     $state.go("contact", {
+    //         contactCity: $stateParams.contactCity
+    //     });
+    // }
+    //
 
 
 
@@ -5493,7 +5547,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $rootScope.Ludhiana = true;
                     $rootScope.GurgaonSec29 = true;
             }
-        }
+        };
+
+        $scope.gotoCity();
         if ($stateParams.city) {
             $stateParams.city = $.jStorage.get("city");
             $state.go("stars", {
