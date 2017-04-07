@@ -3235,9 +3235,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
         console.log("redemablePoints data", data);
         if (data.value) {
-
-
-            $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+          $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
             console.log("redemablePoints", $scope.redemablePoints);
         } else {}
     })
@@ -3245,6 +3243,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.userprofile = {};
     NavigationService.signupProfile(function(data) {
+      console.log("  data.data",  data.data);
         $scope.userprofile = data.data;
         NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
@@ -3256,16 +3255,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
     $scope.formComplete = false;
+    $scope.isUpdate=false;
     $scope.submitUserProfile = function(userprofile) {
         console.log("im in");
         console.log("userprofile", userprofile);
+        $scope.isUpdate=true;
         NavigationService.updateProfile(userprofile, function(data) {
             console.log("data", data);
             if (data.value === true) {
+                  $scope.isUpdate=false;
                 NavigationService.setUser(data.data);
                 $scope.formComplete = true;
                 $timeout(function() {
                     $scope.formComplete = false;
+                      $scope.isUpdate=false;
                 }, 2000);
             }
         })
@@ -3436,12 +3439,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.logout(function(data) {
                 console.log("im in nav logout");
                 console.log("data", data);
+
+                $state.go("home");
                 if (data.value === true) {
                     $scope.hidelogout = true;
+                      location.reload();
                 }
                 console.log("im in nav logout");
-                location.reload();
-                $state.go("home");
+
             })
         } else {
 
@@ -4365,6 +4370,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("thankyou");
+        $scope.menutitle = NavigationService.makeactive("Thank");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+.controller('Thank2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("thank2");
         $scope.menutitle = NavigationService.makeactive("Thank");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();

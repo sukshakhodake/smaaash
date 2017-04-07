@@ -396,11 +396,12 @@
                            <label class="item w46">
                               <input type="text" placeholder="400009" class="editing form-control" ng-model="userprofile.pincode">
                            </label>
-                           <button type="button" class="butts" name="button" ng-click="submitUserProfile(userprofile)">
+                           <button type="button" class="butts" name="button" ng-click="submitUserProfile(userprofile)" ng-if="!isUpdate">
                               <a href="" name="button" class="go full-width">
                                  <img src="img/profile/update.png" alt="" class="img-responsive">
                               </a>
                            </button>
+                           <h3 ng-if="isUpdate" class="text-center">Loading..</h3>
 
                       </form>
                         <h3 ng-if="formComplete" class="text-center">Profile Updated Successfully</h3>
