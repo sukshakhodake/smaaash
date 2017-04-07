@@ -1300,6 +1300,12 @@ $brand-white:#fff !default;
 .meetup {
   border: 1px solid #000;
   padding: 10px;
+  h3,h2{
+    margin-left: 25px;
+  }
+  li{
+    margin: 10px 0;
+  }
 }
 
 .new-details {
@@ -3503,3 +3509,39 @@ ul{
     height: 50px;
     width: 50px;
 }
+
+
+.triplet-buttons{
+  .more{
+    margin: 20px 0;
+  }
+  .tab{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+}
+
+.app-modal-window .modal-dialog {
+  width: 900px;
+}
+
+// .app-modal-window{
+// &:before {
+//     display: inline-block;
+//     vertical-align: middle;
+//     content: " ";
+//     height: 100%;
+//   }
+// }
+
+
+
+
+// .modal-dialog {
+//   display: inline-block;
+//   text-align: left;
+//   vertical-align: middle;
+// }
+

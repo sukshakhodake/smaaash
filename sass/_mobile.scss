@@ -9,6 +9,9 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  .app-modal-window .modal-dialog {
+  width: 350px;
+}
   .dropdowns{
     display: none;
   }
