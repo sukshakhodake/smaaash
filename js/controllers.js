@@ -85,7 +85,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/loyalty.html",
-            scope: $scope
+            scope: $scope,
+             windowClass:'app-modal-window'
         });
     };
 
@@ -5496,7 +5497,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/loyalty.html",
-                scope: $scope
+                scope: $scope,
+                 windowClass:'app-modal-window'
             });
         };
         $scope.gotoCity = function(id) {
