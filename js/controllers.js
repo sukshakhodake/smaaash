@@ -793,56 +793,56 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('termsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("terms");
-    $scope.menutitle = NavigationService.makeactive("Terms Of Use");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    // if ($stateParams.contactCity) {
-    //     $stateParams.contactCity = $.jStorage.get("city");
-    //     $state.go("contact", {
-    //         contactCity: $stateParams.contactCity
-    //     });
-    // }
-    //
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("terms");
+        $scope.menutitle = NavigationService.makeactive("Terms Of Use");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        // if ($stateParams.contactCity) {
+        //     $stateParams.contactCity = $.jStorage.get("city");
+        //     $state.go("contact", {
+        //         contactCity: $stateParams.contactCity
+        //     });
+        // }
+        //
 
 
 
-})
-.controller('securityCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("security");
-    $scope.menutitle = NavigationService.makeactive("Security");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    // if ($stateParams.contactCity) {
-    //     $stateParams.contactCity = $.jStorage.get("city");
-    //     $state.go("contact", {
-    //         contactCity: $stateParams.contactCity
-    //     });
-    // }
-    //
+    })
+    .controller('securityCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("security");
+        $scope.menutitle = NavigationService.makeactive("Security");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        // if ($stateParams.contactCity) {
+        //     $stateParams.contactCity = $.jStorage.get("city");
+        //     $state.go("contact", {
+        //         contactCity: $stateParams.contactCity
+        //     });
+        // }
+        //
 
 
 
-})
-.controller('policyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("policy");
-    $scope.menutitle = NavigationService.makeactive("Policy");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    // if ($stateParams.contactCity) {
-    //     $stateParams.contactCity = $.jStorage.get("city");
-    //     $state.go("contact", {
-    //         contactCity: $stateParams.contactCity
-    //     });
-    // }
-    //
+    })
+    .controller('policyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("policy");
+        $scope.menutitle = NavigationService.makeactive("Policy");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        // if ($stateParams.contactCity) {
+        //     $stateParams.contactCity = $.jStorage.get("city");
+        //     $state.go("contact", {
+        //         contactCity: $stateParams.contactCity
+        //     });
+        // }
+        //
 
 
 
-})
+    })
 
 .controller('SponsorCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
@@ -1821,14 +1821,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     switch (n) {
                         case '1':
                             data.gameforarray.push('Adult')
-                            // data.gameforarray.push('Male')
+                                // data.gameforarray.push('Male')
                             break;
-                        // case '2':
-                        //     data.gameforarray.push('Female')
-                        //     break;
+                            // case '2':
+                            //     data.gameforarray.push('Female')
+                            //     break;
                         case '3':
                             data.gameforarray.push('Kids')
-                            // data.gameforarray.push('Children')
+                                // data.gameforarray.push('Children')
                             break;
                         default:
                     }
@@ -2219,15 +2219,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     NavigationService.getCity(function(data) {
         $scope.getCities = data.data;
+        console.log("$scope.getCities", $scope.getCities);
     });
-    $scope.kittyParty = function() {
+    $scope.kittyParty = function(value) {
+        console.log("value", value);
+        if (value) {
+            switch (value) {
+                case 'Birthday Party':
+                    $scope.partyName = 'Birthday';
+                    break;
+                case 'Corporate Parties':
+                    $scope.partyName = 'Corporate';
+                    break;
+                case 'Pre - wedding  Party':
+                    $scope.partyName = 'Engagement, Wedding or Reception';
+                    break;
+                case 'Kitty Parties':
+                    $scope.partyName = 'Social';
+                    break;
+
+                case 'Team Building Events':
+                console.log("im in team building");
+                    $scope.partyName = 'Corporate';
+                    break;
+                default:
+
+            }
+
+
+        }
+
         $scope.modalInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/modal/enquiry.html",
             scope: $scope
 
         })
-    };
+      };
     $scope.enquiryData = {};
     $scope.formSubmit = function(enquiryData) {
         if (enquiryData) {
@@ -3235,7 +3263,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
         console.log("redemablePoints data", data);
         if (data.value) {
-          $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+            $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
             console.log("redemablePoints", $scope.redemablePoints);
         } else {}
     })
@@ -3243,7 +3271,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.userprofile = {};
     NavigationService.signupProfile(function(data) {
-      console.log("  data.data",  data.data);
+        console.log("  data.data", data.data);
         $scope.userprofile = data.data;
         NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
@@ -3255,20 +3283,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
     $scope.formComplete = false;
-    $scope.isUpdate=false;
+    $scope.isUpdate = false;
     $scope.submitUserProfile = function(userprofile) {
         console.log("im in");
         console.log("userprofile", userprofile);
-        $scope.isUpdate=true;
+        $scope.isUpdate = true;
         NavigationService.updateProfile(userprofile, function(data) {
             console.log("data", data);
             if (data.value === true) {
-                  $scope.isUpdate=false;
+                $scope.isUpdate = false;
                 NavigationService.setUser(data.data);
                 $scope.formComplete = true;
                 $timeout(function() {
                     $scope.formComplete = false;
-                      $scope.isUpdate=false;
+                    $scope.isUpdate = false;
                 }, 2000);
             }
         })
@@ -3436,6 +3464,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.logout = function() {
         console.log("im in logout");
         if ($.jStorage.get("loginDetail") != null) {
+          $state.go("home");
             NavigationService.logout(function(data) {
                 console.log("im in nav logout");
                 console.log("data", data);
@@ -3443,7 +3472,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $state.go("home");
                 if (data.value === true) {
                     $scope.hidelogout = true;
-                      location.reload();
+                    location.reload();
                 }
                 console.log("im in nav logout");
 
@@ -4374,7 +4403,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-.controller('Thank2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    .controller('Thank2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("thank2");
         $scope.menutitle = NavigationService.makeactive("Thank");
