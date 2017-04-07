@@ -2226,7 +2226,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (value) {
             switch (value) {
                 case 'Birthday Party':
-                    $scope.partyName = 'Birthday';
+                    $scope.partyName = 'Birthday or Anniversary';
                     break;
                 case 'Corporate Parties':
                     $scope.partyName = 'Corporate';
