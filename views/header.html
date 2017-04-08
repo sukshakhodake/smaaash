@@ -226,7 +226,21 @@
             </uib-accordion-heading>
              <ul class="list-unstyled">
                  <!--<h3 class=" text-center nav-names names">menu</h3>-->
-
+  <li  ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                 </a>
+              </li>
+              <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                 </a>
+              </li>
+               <li  ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                 </a>
+              </li>
 
                <li>
                   <a class="text-center" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
@@ -289,21 +303,7 @@
                      <h3 class="nav-names ">gallery</h3>
                   </a>
                </li>
-               <li  ng-hide="userLoginDetails == null">
-                 <a class="text-center">
-                    <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
-                 </a>
-              </li>
-              <li ng-hide="userLoginDetails == null">
-                 <a class="text-center">
-                    <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
-                 </a>
-              </li>
-               <li  ng-hide="userLoginDetails == null">
-                 <a class="text-center">
-                    <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
-                 </a>
-              </li>
+             
               <li ng-hide="userLoginDetails == null">
                  <a class="text-center">
                     <h3 class="nav-names" ng-click="logout();">Log out</h3>
@@ -391,7 +391,21 @@
             </uib-accordion-heading>
              <ul class="list-unstyled">
                  <!--<h3 class=" text-center nav-names names">menu</h3>-->
-
+ <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                 </a>
+              </li>
+              <li ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
+                 </a>
+              </li>
+               <li  ng-hide="userLoginDetails == null">
+                 <a class="text-center">
+                    <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                 </a>
+              </li>
 
                <li>
                   <a class="text-center" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
@@ -449,21 +463,7 @@
                      <h3 class="nav-names ">gallery</h3>
                   </a>
                </li>
-               <li ng-hide="userLoginDetails == null">
-                 <a class="text-center">
-                    <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
-                 </a>
-              </li>
-              <li ng-hide="userLoginDetails == null">
-                 <a class="text-center">
-                    <h3 class=" nav-names nav-naming" ng-click="myAccount();">my account</h3>
-                 </a>
-              </li>
-               <li  ng-hide="userLoginDetails == null">
-                 <a class="text-center">
-                    <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
-                 </a>
-              </li>
+              
               <!-- <li>
                    <a class="text-center" ng-show="userLoginDetails === null">
                       <h3 class="nav-names" ng-click="getMenus();">Login &#8739 Sign Up</h3>
@@ -489,7 +489,7 @@
 
          <div class="orange-rays"></div>
          <img src="img/connect.png" class="img-responsive rotate360cw" alt="">
-         <p class="uppercase brand-white text-center">sign up</p>
+         <p class="uppercase brand-white text-center">sign up <span class="title-text">&#47;</span> login</p>
       </div>
 
       <div class="side-menu {{menus}}">
@@ -512,7 +512,7 @@
                            <div class="error-msg" ng-show="login.password.$error.required && login.password.$touched">Please Enter Your Password </div>
                         </div>
                         <div class="error text-center" ng-if="valid">Something went wrong or incorrect details</div>
-                        <div class="text-center" ng-if="isUserLoggedIn">Please Wait..</div>
+                        <div class="text-center brand-white" ng-if="isUserLoggedIn">Please Wait..</div>
                         <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
 
 
