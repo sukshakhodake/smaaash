@@ -86,7 +86,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             animation: true,
             templateUrl: "views/modal/loyalty.html",
             scope: $scope,
-             windowClass:'app-modal-window'
+            windowClass: 'app-modal-window'
         });
     };
 
@@ -2240,7 +2240,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     break;
 
                 case 'Team Building Events':
-                console.log("im in team building");
+                    console.log("im in team building");
                     $scope.partyName = 'Corporate';
                     break;
                 default:
@@ -2256,7 +2256,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
 
         })
-      };
+    };
     $scope.enquiryData = {};
     $scope.formSubmit = function(enquiryData) {
         if (enquiryData) {
@@ -2886,7 +2886,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
 
+    $scope.goTOPartyFor = function(partyFor) {
+        if (partyFor) {
+            $scope.partyName = partyFor;
 
+        }
+    }
 
 
     $scope.mySlides10 = [
@@ -3197,7 +3202,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams) {
+.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams,$filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -3259,7 +3264,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.detailsForBal = {};
-    $scope.detailsForBal.CardNo = "C68C765B";
+    // $scope.detailsForBal.CardNo = "C68C765B";
+    $scope.detailsForBal.CardNo = $.jStorage.get("loginDetail").CardNo;
     $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
         console.log("redemablePoints data", data);
@@ -3271,9 +3277,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.userprofile = {};
+
+    console.log("$scope.userprofile", $scope.userprofile);
+
     NavigationService.signupProfile(function(data) {
         console.log("  data.data", data.data);
         $scope.userprofile = data.data;
+        $scope.userprofile.CustomerPhoneNo = $scope.userprofile.CustomerMobile;
+        // $scope.userprofile.BranchID = $.jStorage.get("branchId");
+        $scope.userprofile.CustomerPassword = "";
+        $scope.userprofile.OTP = "";
         NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
     });
@@ -3465,7 +3478,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.logout = function() {
         console.log("im in logout");
         if ($.jStorage.get("loginDetail") != null) {
-          $state.go("home");
+            $state.go("home");
             NavigationService.logout(function(data) {
                 console.log("im in nav logout");
                 console.log("data", data);
@@ -5091,6 +5104,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
         TemplateService.removeLoaderOn(1);
 
+
         $scope.getCity = function() {
             NavigationService.getCity(function(data) {
                 if (data.value) {
@@ -5184,7 +5198,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formCompleteSignup = false;
         $scope.signupData = {};
         $scope.signupData.CustomerPhoneNo = $scope.signupData.CustomerPhoneNo;
+
         $scope.signupData.CardNo = '';
+        $scope.signupData.CustomerPhotoPath = '';
 
         $scope.signupData.city = $.jStorage.get("cityid");
         $scope.signupData.BranchID = $.jStorage.get("branchId");
@@ -5200,6 +5216,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.wrongOtp = false;
         $scope.isDisabled = false;
         $scope.isDisabled2 = false;
+
+        $scope.selectCityFun = function(val) {
+            console.log("val", val);
+            $scope.cityValue = val.toLowerCase();
+            console.log("$scope.cityValue", $scope.cityValue);
+            switch ($scope.cityValue) {
+                case 'mumbai':
+                    $scope.signupData.CustomerAddressId = '577f4d106b78e0bc03724800';
+                    break;
+                case 'gurgaon - cyber hub':
+                    $scope.signupData.CustomerAddressId = '577f4d246b78e0bc03724802';
+                    break;
+                case 'hyderabad':
+                    $scope.signupData.CustomerAddressId = '579b0d74fa72c24405ee0818';
+                    break;
+                case 'bengaluru':
+                    $scope.signupData.CustomerAddressId = '577f4d1c6b78e0bc03724801';
+                    break;
+                case 'noida':
+                    $scope.signupData.CustomerAddressId = '57808c9032b1d30b046dd48c';
+                    break;
+                case 'ludhiana':
+                    $scope.signupData.CustomerAddressId = '58808e0e94082f1ed90f06a0';
+                    break;
+                case 'gurgaon - sector 29':
+                    $scope.signupData.CustomerAddressId = '587366fa7309110c7de34906';
+                    console.log("im in");
+                    break;
+                default:
+
+            }
+        }
 
 
 
@@ -5329,12 +5377,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.hidelogout = false;
         $scope.logout = function() {
+            $state.go("home");
             console.log("im in logout");
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
                     console.log("im in nav logout");
                     console.log("data", data);
-                    $state.go("home");
+
                     if (data.value === true) {
                         $scope.hidelogout = true;
 
@@ -5498,7 +5547,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 animation: true,
                 templateUrl: "views/modal/loyalty.html",
                 scope: $scope,
-                 windowClass:'app-modal-window'
+                windowClass: 'app-modal-window'
             });
         };
         $scope.gotoCity = function(id) {
