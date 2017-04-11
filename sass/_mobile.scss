@@ -728,6 +728,9 @@ background-size: contain !important;
 }
 
 @media (max-width: $screen-sm-max) {
+  .dropdowns {
+    height: 60px;
+    }
   .divider,
   .or {
     display: none;
