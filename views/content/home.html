@@ -171,7 +171,7 @@
 <div class="container">
    <div class="row">
       <div class="col-md-6">
-         <div class="updated">
+         <div class="updated marg-top15">
             <div class="slant-box pad0 relative">
                <p class=" capitalize brand-white border-bot" ui-sref="dealsp({id:deals[0].type.myslug,dealspcity:citySpecific})">view all</p>
                <h2 class="brand-white ">Deals and Packages</h2>
@@ -197,7 +197,7 @@
          </div>
       </div>
       <div class="col-md-6">
-         <div class="updates ">
+         <div class="updates marg-top15">
             <div class="slant-box pad0">
                <p class=" capitalize brand-white border-bot" ui-sref="hostparty({id:hostParty[0].type.myslug,hostCity:citySpecific})">view all</p>
                <h2 class="brand-white ">Host A Party</h2>
@@ -296,7 +296,7 @@
    </div>
    <div class="row">
       <div class="col-md-6">
-         <div class="updated mt15">
+         <div class="updated marg-top15">
 
             <div class="slant-box pad0 relative">
                <p class=" capitalize brand-white border-bot" ui-sref="event({id:events[0].type.myslug,eventcity:citySpecific})">view all</p>
@@ -319,7 +319,7 @@
          </div>
       </div>
       <div class="col-md-6">
-         <div class="updates mt15 fixed-height">
+         <div class="updates  marg-top15 fixed-height">
             <div class="slant-box pad0 relative">
                <p class=" capitalize brand-white border-bot" ui-sref="attractions({id:attraction[0].type.myslug,gamesCity:citySpecific})">view all</p>
                <h2 class="brand-white ">games</h2>
@@ -410,7 +410,8 @@
          <div class="slant-in brand-greenblu">
             <div class="slant-box half-height">
                <h2 class="title slide-text brand-white">be the first to know</h2>
-               <form class="form" name="subscribeForm" ng-if="!subscribeFormComplete" ng-submit="subscribeLogin(subscribeData)">
+               <!--ng-if="!subscribeFormComplete"-->
+               <form class="form" name="subscribeForm"  ng-submit="subscribeLogin(subscribeData)">
                   <div class="form-group inline-block">
                      <input type="email" class="form-control" name="email" placeholder="Email Id" required ng-model="subscribeData.email">
 
@@ -419,7 +420,7 @@
                   <div ng-if="duplicate">Email Already Exist</div>
                </form>
                <div ng-if="subscribeFormComplete">
-                  <p class="text-center">Thank You For Subscribing.</p>
+                  <p class="text-center brand-white">Thank You For Subscribing.</p>
                </div>
             </div>
          </div>

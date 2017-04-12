@@ -9,6 +9,7 @@
 }
 
 @media (max-width: $screen-xs-max) {
+  
 
   .form-content .practice{
     display: none;
@@ -692,7 +693,6 @@ width: 100px;
     list-style-type: none;
   }
 
-
   .logo-smaash{
     position: static;
     display: block;
@@ -712,22 +712,20 @@ min-height: 225px;
 background-size: contain !important;
 }
 
-
-
-
-// .slidings{
-//   margin-top: 43px;
-// }
-
 .dropdowns .menu img{
   height: 65px;
     width: auto;
 }
 
 
+
+
 }
 
 @media (max-width: $screen-sm-max) {
+
+
+
   .dropdowns {
     height: 60px;
     }
@@ -1059,6 +1057,14 @@ background-size: contain !important;
         }
       }
     }
+  }
+
+  //home
+  .fixed-height li a{
+    height: auto !important;
+  }
+  .marg-top15{
+    margin-top: 15px;
   }
 }
 
