@@ -3164,7 +3164,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('SorryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("fail");
+        $scope.template = TemplateService.changecontent("sorry");
         $scope.menutitle = NavigationService.makeactive("Sorry");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -4423,7 +4423,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("success");
+        $scope.template = TemplateService.changecontent("thankyou");
         $scope.menutitle = NavigationService.makeactive("Thank");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();

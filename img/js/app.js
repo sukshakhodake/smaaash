@@ -84,7 +84,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'HomeCtrl'
     })
 
-
     .state('corporate-parties', {
             url: "/corporate-parties",
             templateUrl: "views/template.html",
@@ -94,7 +93,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             // url: "/thankyou",
             url: "/thankyou/:orderno/:cnrno/:amount",
             templateUrl: "views/template.html",
-            controller: 'ThankssCtrl's
+            controller: 'ThankssCtrl'
         })
         //   .state('landingform', {
         //     url: "/landingform",
