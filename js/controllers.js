@@ -3235,7 +3235,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.incorrect = false;
     $scope.isRecharge = false;
     $scope.submitRecharge = function(rechargeOnline) {
-
+  $scope.invalidCardNO ="";
         if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
             $uibModal.open({
                 animation: true,
@@ -3275,6 +3275,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("redemablePoints data", data);
         if (data.value) {
             $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+            $scope.cardBalance = data.data.CustomerBalance[0].CardBalance;
             console.log("redemablePoints", $scope.redemablePoints);
         } else {}
     })

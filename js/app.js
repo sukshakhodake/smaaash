@@ -67,16 +67,21 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'ResetCtrl'
         })
+            // Thank u for for Check Out success
         .state('thank', {
             url: "/thankyou",
             templateUrl: "views/template.html",
             controller: 'ThankCtrl'
         })
+          // End of Thank u for Check Out success
+
+        // Thank u for for enquiry
         .state('thank2', {
             url: "/thanks",
             templateUrl: "views/template.html",
             controller: 'Thank2Ctrl'
         })
+        // Thank u for for enquiry
 
     .state('home', {
         url: "/",
@@ -94,7 +99,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             // url: "/thankyou",
             url: "/thankyou/:orderno/:cnrno/:amount",
             templateUrl: "views/template.html",
-            controller: 'ThankssCtrl's
+            controller: 'ThankssCtrl'
         })
         //   .state('landingform', {
         //     url: "/landingform",
