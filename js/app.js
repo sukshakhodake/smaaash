@@ -104,7 +104,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
         .state('sorrie', {
             // url: "/sorry",
-            url: "/paymentfail/:orderno/:cnrno/:amount/:",
+            url: "/paymentfail/:orderno/:cnrno/:amount/:paymenfor",
             templateUrl: "views/template.html",
             controller: 'sorrieCtrl'
         })
