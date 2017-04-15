@@ -97,9 +97,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
         .state('thankss', {
             // url: "/thankyou",
-            url: "/thankyou/:orderno/:cnrno/:amount",
+            url: "/paymentsuccess/:orderno/:cnrno/:amount/:paymenfor",
             templateUrl: "views/template.html",
             controller: 'ThankssCtrl'
+        })
+
+        .state('sorrie', {
+            // url: "/sorry",
+            url: "/paymentfail/:orderno/:cnrno/:amount/:",
+            templateUrl: "views/template.html",
+            controller: 'sorrieCtrl'
         })
         //   .state('landingform', {
         //     url: "/landingform",
@@ -187,12 +194,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'SorryCtrl'
         })
-        .state('sorrie', {
-            // url: "/sorry",
-            url: "/sorry/:orderno/:cnrno/:amount",
-            templateUrl: "views/template.html",
-            controller: 'sorrieCtrl'
-        })
+
 
 
     .state('confirm-order', {
