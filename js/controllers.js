@@ -1809,11 +1809,11 @@ $scope.showIframeVid=function(){
     $scope.singleAttraction = [];
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
+          $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
             $scope.singleAttraction = data.data;
-            console.log("$scope.singleAttraction", $scope.singleAttraction);
-            $scope.singleAttraction1 = _.chunk(data.data, 3);
-
-            if ($scope.singleAttraction1.length === 0) {
+          $scope.singleAttraction1  = $filter('orderBy')(data.data, '-order');
+            $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
+              if ($scope.singleAttraction1.length === 0) {
                 console.log("imin");
                 $scope.msg = true;
             } else {
