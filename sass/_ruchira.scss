@@ -3520,7 +3520,7 @@ ul{
     border-radius: 10px;
     padding: 10px;
   }
-  
+
 }
 
 .app-modal-window .modal-dialog {
@@ -3534,6 +3534,16 @@ ul{
 }
 }
 
+.deslp-minh{
+  min-height: 288px;
+}
+
+.row-timing-sec{
+  .row {
+    margin-left: 180px;
+    margin-right: -55px;
+}
+}
 
 // .app-modal-window{
 // &:before {
@@ -3552,4 +3562,3 @@ ul{
 //   text-align: left;
 //   vertical-align: middle;
 // }
-

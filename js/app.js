@@ -67,16 +67,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'ResetCtrl'
         })
-            // Thank u for for Check Out success
+        // Thank u for for Check Out success
         .state('thank', {
             url: "/thankyou/:orderNo",
             templateUrl: "views/template.html",
             controller: 'ThankCtrl'
         })
-          // End of Thank u for Check Out success
+        // End of Thank u for Check Out success
 
-        // Thank u for for enquiry
-        .state('thank2', {
+    // Thank u for for enquiry
+    .state('thank2', {
             url: "/thanks",
             templateUrl: "views/template.html",
             controller: 'Thank2Ctrl'
@@ -95,13 +95,15 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'CorporateCtrl'
         })
-        .state('thankss', {
+        // for recharge
+
+    .state('thankss', {
             // url: "/thankyou",
             url: "/paymentsuccess/:orderno/:cnrno/:amount/:paymenfor",
             templateUrl: "views/template.html",
             controller: 'ThankssCtrl'
         })
-
+        // for recharge
         .state('sorrie', {
             // url: "/sorry",
             url: "/paymentfail/:orderno/:cnrno/:amount/:paymenfor",
@@ -125,7 +127,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
 
-        .state('blog', {
+    .state('blog', {
             url: "/blog",
             templateUrl: "views/template.html",
             controller: 'BlogCtrl'
@@ -190,10 +192,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
     .state('sorry', {
 
-            url: "/sorry/:orderNo",
-            templateUrl: "views/template.html",
-            controller: 'SorryCtrl'
-        })
+        url: "/sorry/:orderNo",
+        templateUrl: "views/template.html",
+        controller: 'SorryCtrl'
+    })
 
 
 
@@ -297,33 +299,33 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('contact', {
-        url: "/:contactCity/contact",
-        templateUrl: "views/template.html",
-        controller: 'ContactCtrl',
-        // params:{
-        //   "footerCityId":footerCityId
-        // }
-    })
-    .state('terms', {
-        url: "/terms",
-        templateUrl: "views/template.html",
-        controller: 'termsCtrl',
-        // params:{
-        //   "footerCityId":footerCityId
-        // }
-    })
-    .state('security', {
-        url: "/security",
-        templateUrl: "views/template.html",
-        controller: 'securityCtrl',
+            url: "/:contactCity/contact",
+            templateUrl: "views/template.html",
+            controller: 'ContactCtrl',
+            // params:{
+            //   "footerCityId":footerCityId
+            // }
+        })
+        .state('terms', {
+            url: "/terms",
+            templateUrl: "views/template.html",
+            controller: 'termsCtrl',
+            // params:{
+            //   "footerCityId":footerCityId
+            // }
+        })
+        .state('security', {
+            url: "/security",
+            templateUrl: "views/template.html",
+            controller: 'securityCtrl',
 
-    })
-    .state('policy', {
-        url: "/policy",
-        templateUrl: "views/template.html",
-        controller: 'policyCtrl',
+        })
+        .state('policy', {
+            url: "/policy",
+            templateUrl: "views/template.html",
+            controller: 'policyCtrl',
 
-    })
+        })
 
     .state('benefit', {
         url: "/:benefitCity/benefit",
@@ -376,11 +378,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     })
 
     .state('cart', {
-        url: "/:cartCity/cart",
-        templateUrl: "views/template.html",
-        controller: 'CartsCtrl'
-    })
-    .state('customizepackage', {
+            url: "/:cartCity/cart",
+            templateUrl: "views/template.html",
+            controller: 'CartsCtrl'
+        })
+        .state('customizepackage', {
             url: "/:customizeCity/customizepackage",
             templateUrl: "views/template.html",
             controller: 'CustomizePackageCtrl'

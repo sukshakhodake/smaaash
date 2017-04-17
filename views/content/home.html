@@ -237,7 +237,7 @@
       </div>
    </div>
 
-    <div class="new-sliding">
+   <div class="new-sliding">
       <div class="gallery">
          <div class="slidings">
             <div class="headings clearfix">
@@ -250,14 +250,16 @@
                   <div class="race relative margno">
                   <!-- <div class="race relative margno" ui-sref="buy"> -->
                      <div class="img-bg">
-                        <a >
+                        <a>
                            <figure>
-                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ui-sref="deals-inner({
+                                id:s.myslug,dealsinnercity:citySpecific
+                              })">
                            </figure>
 
                         </a>
                      </div>
-                     <a ng-if="s.BranchPackageID && s.price" class="buy-button" ng-click="buyNowDealsp(s.BranchPackageID,s.price)"><img src="img/buy.png" class="img-responsive" alt=""></a>
+                     <a ng-if="s.BranchPackageID && s.price && s.showBuyNow" class="buy-button" ng-click="buyNowDealsp(s.BranchPackageID,s.price)"><img src="img/buy.png" class="img-responsive" alt=""></a>
                      <div class="race-text whites">
                         <div class="min-hiss">
                            <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"> </h3>

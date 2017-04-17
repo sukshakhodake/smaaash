@@ -291,7 +291,7 @@ $menu-height: 80px !default;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+
 }
 .panel-group {
     width: 300px;
@@ -312,31 +312,31 @@ ul{
       .nav-names{
  border-bottom: none;
       }
-    
+
   }
- 
+
   li:nth-of-type(4n+1){
        .nav-names{
     color: $brand-red;
-     
+
   }
   }
     li:nth-of-type(4n+2){
        .nav-names{
     color: $brand-blue;
-   
+
   }
   }
     li:nth-of-type(4n+3){
        .nav-names{
     color: $brand-green;
-     
+
   }
   }
     li:nth-of-type(4n+4){
        .nav-names{
     color: $brand-pink;
-    
+
   }
   }
   a{
@@ -352,7 +352,7 @@ ul{
     margin: 0;
   }
 }
-    
+
     .cities {
     padding: 10px 20px;
     background-color: $brand-green;
@@ -735,6 +735,7 @@ background-image: none;
     li {
         list-style-type: none;
         line-height: 180%;
+        color: #666;
         a {
             font-family: $head-font;
             color: #666;
