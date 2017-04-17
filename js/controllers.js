@@ -20,11 +20,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
         $scope.showHomeBanner = false;
     }
-    $scope.showIframe=false;
-$scope.showIframeVid=function(){
-  console.log("imnshowIframeVid");
-  $scope.showIframe=!$scope.showIframe;
-}
+    $scope.showIframe = false;
+    $scope.showIframeVid = function() {
+        console.log("imnshowIframeVid");
+        $scope.showIframe = !$scope.showIframe;
+    }
 
     //
     //     function requestJSONP(url) {
@@ -1580,9 +1580,102 @@ $scope.showIframeVid=function(){
 
     }
 
-    $scope.mediagallerys = [{
-        image: 'img/new/13.png'
-    }]
+    $scope.mediagallerys = [
+      // {
+      //       image: 'img/new/13.png'
+      //   },
+         {
+            image: 'img/sports/1 (1).jpg'
+        }, {
+            image: 'img/sports/1 (2).jpg'
+        }, {
+            image: 'img/sports/1 (3).jpg'
+        }, {
+            image: 'img/sports/1 (4).jpg'
+        }, {
+            image: 'img/sports/1 (5).jpg'
+        }, {
+            image: 'img/sports/1 (6).jpg'
+        }, {
+            image: 'img/sports/1 (7).jpg'
+        }, {
+            image: 'img/sports/1 (8).jpg'
+        }, {
+            image: 'img/sports/1 (9).jpg'
+        }, {
+            image: 'img/sports/1 (10).jpg'
+        }, {
+            image: 'img/sports/1 (11).jpg'
+        }, {
+            image: 'img/sports/1 (12).jpg'
+        }, {
+            image: 'img/sports/1 (13).jpg'
+        }, {
+            image: 'img/sports/1.jpg'
+        }, {
+            image: 'img/sports/2 (1).jpg'
+        }, {
+            image: 'img/sports/2 (2).jpg'
+        }, {
+            image: 'img/sports/2 (3).jpg'
+        }, {
+            image: 'img/sports/2 (4).jpg'
+        }, {
+            image: 'img/sports/2 (5).jpg'
+        }, {
+            image: 'img/sports/2 (6).jpg'
+        }, {
+            image: 'img/sports/2 (7).jpg'
+        }, {
+            image: 'img/sports/2 (8).jpg'
+        }, {
+            image: 'img/sports/2 (9).jpg'
+        }, {
+            image: 'img/sports/2 (10).jpg'
+        }, {
+            image: 'img/sports/2 (11).jpg'
+        }, {
+            image: 'img/sports/2 (12).jpg'
+        }, {
+            image: 'img/sports/2.jpg'
+        }, {
+            image: 'img/sports/3 (1).jpg'
+        }, {
+            image: 'img/sports/3 (2).jpg'
+        }, {
+            image: 'img/sports/3 (3).jpg'
+        }, {
+            image: 'img/sports/3 (4).jpg'
+        }, {
+            image: 'img/sports/3 (5).jpg'
+        }, {
+            image: 'img/sports/3 (6).jpg'
+        }, {
+            image: 'img/sports/3 (7).jpg'
+        }, {
+            image: 'img/sports/3.jpg'
+        }, {
+            image: 'img/sports/4 (1).jpg'
+        }, {
+            image: 'img/sports/4 (2).jpg'
+        }, {
+            image: 'img/sports/4 (3).jpg'
+        }, {
+            image: 'img/sports/4 (4).jpg'
+        }, {
+            image: 'img/sports/4 (5).jpg'
+        }, {
+            image: 'img/sports/4.jpg'
+        }, {
+            image: 'img/sports/5 (1).jpg'
+        }, {
+            image: 'img/sports/5 (2).jpg'
+        }, {
+            image: 'img/sports/5.jpg'
+        }
+
+
+    ]
 
 })
 
@@ -1809,11 +1902,11 @@ $scope.showIframeVid=function(){
     $scope.singleAttraction = [];
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
-          $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
+            $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
             $scope.singleAttraction = data.data;
-          $scope.singleAttraction1  = $filter('orderBy')(data.data, '-order');
+            $scope.singleAttraction1 = $filter('orderBy')(data.data, '-order');
             $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
-              if ($scope.singleAttraction1.length === 0) {
+            if ($scope.singleAttraction1.length === 0) {
                 console.log("imin");
                 $scope.msg = true;
             } else {
@@ -3206,7 +3299,7 @@ $scope.showIframeVid=function(){
 
 })
 
-.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams,$filter) {
+.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -3239,7 +3332,7 @@ $scope.showIframeVid=function(){
     $scope.incorrect = false;
     $scope.isRecharge = false;
     $scope.submitRecharge = function(rechargeOnline) {
-  $scope.invalidCardNO ="";
+        $scope.invalidCardNO = "";
         if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
             $uibModal.open({
                 animation: true,
@@ -3258,9 +3351,9 @@ $scope.showIframeVid=function(){
                     $scope.incorrect = true;
                     $scope.isRecharge = false;
                     console.log("im false");
-                    console.log("data",data);
-                    $scope.invalidCardNO =data.data.RechargeCard[0].Message;
-                    console.log("  $scope.invalidCardNO",  $scope.invalidCardNO);
+                    console.log("data", data);
+                    $scope.invalidCardNO = data.data.RechargeCard[0].Message;
+                    console.log("  $scope.invalidCardNO", $scope.invalidCardNO);
                 }
             })
 
@@ -3415,10 +3508,10 @@ $scope.showIframeVid=function(){
                 // $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
                 $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
                 console.log("$scope.bookingDetails", $scope.bookingDetails);
-                if ($scope.bookingDetails[0].Status == '0' && $scope.bookingDetails[0].Message == 'Data Not Available'  ) {
-                  $scope.msg =true;
-                }else {
-                  $scope.msg =false;
+                if ($scope.bookingDetails[0].Status == '0' && $scope.bookingDetails[0].Message == 'Data Not Available') {
+                    $scope.msg = true;
+                } else {
+                    $scope.msg = false;
                 }
                 _.each($scope.bookingDetails, function(value) {
                     if (value.Message === "Get Booking Data") {
@@ -3492,7 +3585,7 @@ $scope.showIframeVid=function(){
     $scope.hidelogout = false;
     $scope.logout = function() {
         console.log("im in logout");
-          $state.go("home");
+        $state.go("home");
         if ($.jStorage.get("loginDetail") != null) {
 
             NavigationService.logout(function(data) {
