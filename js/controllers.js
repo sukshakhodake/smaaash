@@ -20,7 +20,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
         $scope.showHomeBanner = false;
     }
-
+    $scope.showIframe=false;
+$scope.showIframeVid=function(){
+  console.log("imnshowIframeVid");
+  $scope.showIframe=!$scope.showIframe;
+}
 
     //
     //     function requestJSONP(url) {
