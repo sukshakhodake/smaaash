@@ -58,9 +58,9 @@ width: 100px;
     }
      .cities {
     padding: 10px 20px;
-    background-color: $brand-green;
+    background-color: $brand-red;
     transform: skew(-15deg);
-    box-shadow: -3px 3px #000, 1px 0 #000;
+    // box-shadow: -3px 3px #000, 1px 0 #000;
     cursor: pointer;
     }
     .sides{
@@ -68,9 +68,9 @@ width: 100px;
     top: 100px;
     right: 10px;
     cursor: pointer;
-    span{
-  text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
-    }
+  //   span{
+  // text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
+  //   }
     }
   }
 
@@ -723,8 +723,15 @@ background-size: contain !important;
 }
 
 @media (max-width: $screen-sm-max) {
-
-
+.row-timing-sec .row{
+margin: 0;
+}
+.facebook {
+    height: 250px;
+    .wdget{
+      height: auto;
+    }
+}
 
   .dropdowns {
     height: 60px;
@@ -915,12 +922,13 @@ background-size: contain !important;
       display: none;
     }
     .menu {
-      right: 0;
+      right: 20px;
       z-index: 99;
     }
+
     .sides {
-    top: 110px !important;
-    right: 10px !important;
+   top: 55px !important;
+    right: -10px;
     }
     .logo-smaash {
       display: inline-block;
@@ -1069,6 +1077,9 @@ background-size: contain !important;
 }
 
 @media (max-width:480px) {
+  .row-timing-sec .row{
+    margin: 0;
+  }
   .marginmobile0{
     margin: 0;
   }
@@ -1101,8 +1112,11 @@ background-size: contain !important;
   .fb-mobile {
     width: 100%;
     text-align: center;
-    height: 200px;
+    height: 130px;
     margin-bottom: 15px;
+    .wdget{
+      height: auto;
+    }
   }
   .purple-butn {
     width: 40px;
@@ -1373,6 +1387,17 @@ background-size: contain !important;
 .landing-form{
   height: 40vh;
 }
+.menu-mobile {
+.menu{
+    @include size(70px,auto);
+    @include position(absolute,20px 20px null null);
+    z-index: 99999;
+}
+}
+.smash-logoc{
+  width: 80px;
+}
+
 }
 
 @media only screen and (min-device-width: 462px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {

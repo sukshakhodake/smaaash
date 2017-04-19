@@ -470,9 +470,9 @@ $brand-white:#fff !default;
 //*order ends*//
 //*menu starts*//
 .smaaash-cities {
-  width: 70%;
+  width: 65%;
   height: auto;
-  background-image: url(../img/nav/bgblue.png);
+  background-image: url(../img/nav/bgblue.jpg);
   background-size: cover;
   position: absolute;
   left: 50%;
@@ -493,7 +493,7 @@ $brand-white:#fff !default;
   li {
     display: inline-block;
     list-style-type: none;
-    margin: 10px;
+    margin: 10px 20px;
     position: relative;
     vertical-align: middle;
     &:focus{
@@ -531,9 +531,9 @@ $brand-white:#fff !default;
   font-family: $body-font;
   margin: 0;
   text-align: center;
-  color: #edef90;
-  text-shadow: 2px 2px #000;
-  @include text-stroke(2, #000);
+  color: #fff;
+  // text-shadow: 2px 2px #000;
+  // @include text-stroke(2, #000);
 }
 
 .nav-names {
@@ -717,7 +717,7 @@ $brand-white:#fff !default;
     }
   }
   .backg {
-    background-image: url("../img/food/eatdrink.jpg");
+    background-image: url("../img/food/eatdrink.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-top: -8px;
@@ -1985,14 +1985,28 @@ ul {
 .connect-button,
 .live-chat {
   background-color: $brand-red;
-  padding: 10px 20px;
+  padding: 12px;
   cursor: pointer;
   display: inline-block;
   position: relative;
-  border: 2px solid #000;
+  // border: 2px solid #000;
+  &:before {
+    content: "";
+    border-bottom: 85px solid #ea1c22;
+    border-left: 10px solid transparent;
+    border-right: 10px transparent;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: -17px;
+    top: 0;
+}
+img{
+  width: 30px;
+}
   p {
     font-family: $body-font;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    // text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   }
   .orange-rays {
     position: absolute;
@@ -3359,7 +3373,7 @@ width: 70%;
 
 
 .land-kartbanner{
-  border: 1px solid #000;
+  border: 1px solid #ccc;
     padding: 5px;
     // background-color: red;
 }
@@ -3543,6 +3557,16 @@ ul{
     margin-left: 180px;
     margin-right: -55px;
 }
+}
+
+.smash-logoc{
+  display: inline-block;
+  width: 130px;
+  height: auto;
+  margin-right: 10px;
+    img{
+      width: 100%;
+    }
 }
 
 // .app-modal-window{
