@@ -1392,13 +1392,16 @@ margin: 0;
 }
 .menu-mobile {
 .menu{
-    @include size(70px,auto);
+    @include size(60px,auto);
     @include position(absolute,20px 20px null null);
     z-index: 99;
 }
 }
 .smash-logoc{
   width: 80px;
+}
+.first-know .subform {
+    margin: 10px 0px;
 }
 
 }
