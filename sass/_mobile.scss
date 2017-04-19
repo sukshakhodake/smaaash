@@ -723,6 +723,9 @@ background-size: contain !important;
 }
 
 @media (max-width: $screen-sm-max) {
+  .footing h4{
+    text-align: center !important;
+  }
 .row-timing-sec .row{
 margin: 0;
 }
