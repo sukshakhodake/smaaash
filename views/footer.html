@@ -1,6 +1,6 @@
 <div class="footers" ng-controller="footerctrl">
   <div class="container">
-        <div class="footing">
+        <div class="footing row-timing-sec">
   <div class="row">
        <div class="col-md-3">
  <h4 class="bold title">hours of operation:</h4>
@@ -37,10 +37,12 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(1)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 1 }"></i></span>
-              <h4 class="bold title pointer" ng-click="footer(1)" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">EXPLORE SMAAASH </h4>
+              <h4 class="bold title pointer" ng-click="footer(1)">EXPLORE SMAAASH </h4>
+              <!-- <h4 class="bold title pointer" ng-click="footer(1)" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">EXPLORE SMAAASH </h4> -->
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 1">
               <li><a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">Games</a></li>
+
               <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">Food &amp; Beverages</a></li>
               <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">Deals &amp; Packages</a></li>
               <!--<li><a ui-sref="promotion({id:'promotions',promotionCity:citySpecific})">Promotions</a></li>-->
@@ -183,6 +185,7 @@
             <ul class="foot-list foot-data app" ng-show="showFooter == 11">
               <li class="icons"><a href="https://play.google.com/store/apps/details?id=com.sms.timing.smaaash&hl=en" target="_blank"><i class="fa fa-android  fa-2x" title="Android"  target="_blank" aria-hidden="true"></i></a></li>
               <li class="icons"><a href="https://itunes.apple.com/in/app/smaaash/id930013389?mt=8" target="_blank"><i class="fa fa-apple  fa-2x" title="Apple" target="_blank" aria-hidden="true"></i></a></li>
+              <li>Coming Soon.</li>
             </ul>
           </div>
             <!--<div class="foot-list">

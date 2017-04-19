@@ -20,7 +20,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
         $scope.showHomeBanner = false;
     }
-
+    $scope.showIframe = false;
+    $scope.showIframeVid = function() {
+        console.log("imnshowIframeVid");
+        $scope.showIframe = !$scope.showIframe;
+    }
 
     //
     //     function requestJSONP(url) {
@@ -1576,9 +1580,102 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
-    $scope.mediagallerys = [{
-        image: 'img/new/13.png'
-    }]
+    $scope.mediagallerys = [
+      // {
+      //       image: 'img/new/13.png'
+      //   },
+         {
+            image: 'img/sports/1 (1).jpg'
+        }, {
+            image: 'img/sports/1 (2).jpg'
+        }, {
+            image: 'img/sports/1 (3).jpg'
+        }, {
+            image: 'img/sports/1 (4).jpg'
+        }, {
+            image: 'img/sports/1 (5).jpg'
+        }, {
+            image: 'img/sports/1 (6).jpg'
+        }, {
+            image: 'img/sports/1 (7).jpg'
+        }, {
+            image: 'img/sports/1 (8).jpg'
+        }, {
+            image: 'img/sports/1 (9).jpg'
+        }, {
+            image: 'img/sports/1 (10).jpg'
+        }, {
+            image: 'img/sports/1 (11).jpg'
+        }, {
+            image: 'img/sports/1 (12).jpg'
+        }, {
+            image: 'img/sports/1 (13).jpg'
+        }, {
+            image: 'img/sports/1.jpg'
+        }, {
+            image: 'img/sports/2 (1).jpg'
+        }, {
+            image: 'img/sports/2 (2).jpg'
+        }, {
+            image: 'img/sports/2 (3).jpg'
+        }, {
+            image: 'img/sports/2 (4).jpg'
+        }, {
+            image: 'img/sports/2 (5).jpg'
+        }, {
+            image: 'img/sports/2 (6).jpg'
+        }, {
+            image: 'img/sports/2 (7).jpg'
+        }, {
+            image: 'img/sports/2 (8).jpg'
+        }, {
+            image: 'img/sports/2 (9).jpg'
+        }, {
+            image: 'img/sports/2 (10).jpg'
+        }, {
+            image: 'img/sports/2 (11).jpg'
+        }, {
+            image: 'img/sports/2 (12).jpg'
+        }, {
+            image: 'img/sports/2.jpg'
+        }, {
+            image: 'img/sports/3 (1).jpg'
+        }, {
+            image: 'img/sports/3 (2).jpg'
+        }, {
+            image: 'img/sports/3 (3).jpg'
+        }, {
+            image: 'img/sports/3 (4).jpg'
+        }, {
+            image: 'img/sports/3 (5).jpg'
+        }, {
+            image: 'img/sports/3 (6).jpg'
+        }, {
+            image: 'img/sports/3 (7).jpg'
+        }, {
+            image: 'img/sports/3.jpg'
+        }, {
+            image: 'img/sports/4 (1).jpg'
+        }, {
+            image: 'img/sports/4 (2).jpg'
+        }, {
+            image: 'img/sports/4 (3).jpg'
+        }, {
+            image: 'img/sports/4 (4).jpg'
+        }, {
+            image: 'img/sports/4 (5).jpg'
+        }, {
+            image: 'img/sports/4.jpg'
+        }, {
+            image: 'img/sports/5 (1).jpg'
+        }, {
+            image: 'img/sports/5 (2).jpg'
+        }, {
+            image: 'img/sports/5.jpg'
+        }
+
+
+    ]
 
 })
 
@@ -1805,10 +1902,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.singleAttraction = [];
     $scope.goTOSearch = function(filter) {
         NavigationService.searchExploreSmaaash($scope.filter, function(data) {
+            $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
             $scope.singleAttraction = data.data;
-            console.log("$scope.singleAttraction", $scope.singleAttraction);
-            $scope.singleAttraction1 = _.chunk(data.data, 3);
-
+            $scope.singleAttraction1 = $filter('orderBy')(data.data, '-order');
+            $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
             if ($scope.singleAttraction1.length === 0) {
                 console.log("imin");
                 $scope.msg = true;
@@ -3164,7 +3261,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('SorryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("sorry");
+        $scope.template = TemplateService.changecontent("fail");
         $scope.menutitle = NavigationService.makeactive("Sorry");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -3202,7 +3299,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams,$filter) {
+.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -3235,7 +3332,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.incorrect = false;
     $scope.isRecharge = false;
     $scope.submitRecharge = function(rechargeOnline) {
-
+        $scope.invalidCardNO = "";
         if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
             $uibModal.open({
                 animation: true,
@@ -3247,12 +3344,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             NavigationService.rechargeCard(rechargeOnline, function(data) {
                 console.log("data", data);
-                if (data.value === true) {
+                if (data.value == true) {
                     $scope.newWindow = data.data.RechargeCard[0].Link;
                     $window.location.href = $scope.newWindow;
-                } else if (data.value === false) {
+                } else if (data.value == false) {
                     $scope.incorrect = true;
                     $scope.isRecharge = false;
+                    console.log("im false");
+                    console.log("data", data);
+                    $scope.invalidCardNO = data.data.RechargeCard[0].Message;
+                    console.log("  $scope.invalidCardNO", $scope.invalidCardNO);
                 }
             })
 
@@ -3271,6 +3372,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("redemablePoints data", data);
         if (data.value) {
             $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+            $scope.cardBalance = data.data.CustomerBalance[0].CardBalance;
             console.log("redemablePoints", $scope.redemablePoints);
         } else {}
     })
@@ -3283,10 +3385,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.signupProfile(function(data) {
         console.log("  data.data", data.data);
         $scope.userprofile = data.data;
-        $scope.userprofile.CustomerPhoneNo = $scope.userprofile.CustomerMobile;
-        // $scope.userprofile.BranchID = $.jStorage.get("branchId");
-        $scope.userprofile.CustomerPassword = "";
-        $scope.userprofile.OTP = "";
+        $scope.userprofile.CustomerPhoneNo = data.data.CustomerMobile;
+        $scope.userprofile.BranchID = $.jStorage.get("branchId");
+        $scope.userprofile.CustomerPassword = " ";
+        $scope.userprofile.CustomerPhotoPath = " ";
+        $scope.userprofile.OTP = " ";
         NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
     });
@@ -3405,6 +3508,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
                 $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
                 console.log("$scope.bookingDetails", $scope.bookingDetails);
+                if ($scope.bookingDetails[0].Status == '0' && $scope.bookingDetails[0].Message == 'Data Not Available') {
+                    $scope.msg = true;
+                } else {
+                    $scope.msg = false;
+                }
                 _.each($scope.bookingDetails, function(value) {
                     if (value.Message === "Get Booking Data") {
                         value.objtype = "Booking";
@@ -3477,8 +3585,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.hidelogout = false;
     $scope.logout = function() {
         console.log("im in logout");
+        $state.go("home");
         if ($.jStorage.get("loginDetail") != null) {
-            $state.go("home");
+
             NavigationService.logout(function(data) {
                 console.log("im in nav logout");
                 console.log("data", data);
@@ -4412,7 +4521,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("thankyou");
+        $scope.template = TemplateService.changecontent("success");
         $scope.menutitle = NavigationService.makeactive("Thank");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -5198,6 +5307,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formCompleteSignup = false;
         $scope.signupData = {};
         $scope.signupData.CustomerPhoneNo = $scope.signupData.CustomerPhoneNo;
+        $scope.signupData.IsSendDiscountCode = '1';
 
         $scope.signupData.CardNo = '';
         $scope.signupData.CustomerPhotoPath = '';

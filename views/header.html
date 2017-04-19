@@ -228,7 +228,7 @@
                <!--<h3 class=" text-center nav-names names">menu</h3>-->
                <li ng-hide="userLoginDetails == null">
                   <a class="text-center">
-                     <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                     <h3 class="nav-names"><span class="display-block">Hiiiii<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
                   </a>
                </li>
                <li ng-hide="userLoginDetails == null">
@@ -410,6 +410,11 @@
                <li>
                   <a class="text-center" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
                      <h3 class="nav-names">host a party</h3>
+                  </a>
+               </li>
+               <li>
+                  <a class="text-center" ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">
+                     <h3 class="nav-names">Food &amp; Beverages</h3>
                   </a>
                </li>
                <li>

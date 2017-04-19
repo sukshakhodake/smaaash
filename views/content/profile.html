@@ -30,9 +30,12 @@
                            <img src="img/profile/silver.png" class="img-responsive" alt="">
                         </div>
                         <p>{{userprofile.CustomerName}}</p>
-                        <p class="inline-block">{{redemablePoints}}</p>
-                        <!-- <p class="inline-block">33500</p> -->
-                        <p class="inline-block" ng-if="redemablePoints"> points</p>
+                          <p class="inline-block" ng-if="redemablePoints"> points :</p>
+                        <p class="inline-block">{{redemablePoints}}</p></br>
+
+                        <p class="inline-block" ng-if="cardBalance"> Card Balance :</p>
+
+                        <p class="inline-block" > {{cardBalance}}</p>
 
                      </div>
                   </div>
@@ -200,7 +203,7 @@
                               <th class="text-center uppercase border-right">value in rs</th>
                            </tr>
                         </thead>
-                        <tr ng-repeat="data in bookingDetails">
+                        <tr ng-repeat="data in bookingDetails" ng-if="bookingDetails">
                            <td class="text-center border-left" ng-if="data.objtype === 'Booking' ">{{data.CNRNo}}</td>
                            <td class="text-center border-left" ng-if="data.objtype === 'Recharge' ">{{data.RechargeID}}</td>
                            <td class="text-center" ng-if="data.objtype === 'Booking' ">{{data.objtype}}</td>
@@ -420,6 +423,7 @@
       </div>
       <div class="form-group">
          <input type="text" class="form-control" placeholder="Card Number" allow-pattern="(\d|[a-z])" ng-model="rechargeOnline.CustomerCardNo"  required>
+         <div style="color:red;" class="text-center">{{invalidCardNO}}</div>
       </div>
        <div class="form-group ruppee">
            <i class="fa fa-inr" aria-hidden="true"></i>
