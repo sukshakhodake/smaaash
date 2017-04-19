@@ -2169,7 +2169,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // console.log("$scope.showCartParams", $scope.showCartParams);
             // console.log("data", data.data.CustomerCartItem);
             if (data.value) {
-                $scope.cartDetails = data.data;
+              _.each(data.data,function(key){
+                console.log("key",key);
+                if (key.Status == '1') {
+                  console.log("key.status",key.Status);
+                  $scope.cartDetails.push(key);
+                }else {
+                  $scope.showMsg=key.Message;
+                      $scope.isLoading = true;
+                }
+              })
+                // $scope.cartDetails = data.data;
                 console.log("  $scope.cartDetails", $scope.cartDetails);
 
                 if ($scope.cartDetails.length > 0) {
