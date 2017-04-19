@@ -355,9 +355,9 @@ ul{
 
     .cities {
     padding: 10px 20px;
-    background-color: $brand-green;
-    transform: skew(-15deg);
-    box-shadow: -3px 3px #000, 1px 0 #000;
+    background-color: $brand-red;
+    // transform: skew(-15deg);
+    // box-shadow: -3px 3px #000, 1px 0 #000;
     cursor: pointer;
     }
     .sides{
@@ -366,7 +366,7 @@ ul{
     right: 186px;
     cursor: pointer;
     span{
-  text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
+//   text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
     }
     }
     .menu {
@@ -686,14 +686,14 @@ background-image: none;
         font-family: "American Purpose";
         font-size: 30px;
         margin: 0;
-        color: #fff;
+        // color: #fff;
     }
 }
 
 //*footer starts*//
 .footers {
     background-color: #001;
-    background-image: radial-gradient(white -75%, transparent 16%), radial-gradient(white -75%, transparent 16%);
+    // background-image: radial-gradient(white -75%, transparent 16%), radial-gradient(white -75%, transparent 16%);
     background-size: 20px 20px;
     background-position: 0 0, 30px 30px;
 }
@@ -1057,7 +1057,7 @@ background-image: none;
 
  .slant-col {
      position: relative;
-    width: 49%;
+     width: 48.5%;
      float: left;
      &.brand-blue {
          &:before {
@@ -2367,6 +2367,20 @@ background-color: #32b544;
 
 .mobile-close{
     z-index: 999;
+}
+
+.first-know{
+    .subform{
+           margin: 10px 20px;
+    }
+.subscribe{
+    border-radius: 20px;
+    width: 270px;
+}
+.btn{
+    border-radius: 10px;
+}
+
 }
 @import "ruchira";
 @import "mobile";
