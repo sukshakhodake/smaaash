@@ -1,50 +1,4 @@
-// JavaScript Document
-// $.jStorage.set("city", "Mumbai");
-// $.jStorage.set("branchId", "12");
-// $.jStorage.set("cityid", "577f4d106b78e0bc03724800");
 
-//
-// if (!$.jStorage.get("city")) {
-// $.get("http://ipinfo.io", function(response) {
-//     console.log("response", response);
-// }, "jsonp");
-// }
-
-
-
-
-
-// if (!$.jStorage.get("city")) {
-//     $.holdReady(false);
-//
-//     $.get("http://ip-api.com/json", function(data) {
-//         console.log(data);
-//         switch (data.regionName) {
-//             case "Maharashtra":
-//             $.jStorage.set("city","mumbai");
-//             break;
-//             case "Delhi":
-//             $.jStorage.set("city","noida");
-//             break;
-//             case "Haryana":
-//             $.jStorage.set("city","gurgoan");
-//             break;
-//             case "Karnataka":
-//             $.jStorage.set("city","bengaluru");
-//             break;
-//             case "Andra Pradesh":
-//             $.jStorage.set("city","hyderabad");
-//             break;
-//             case "Telangana":
-//             $.jStorage.set("city","hyderabad");
-//             break;
-//             default:
-//             $.jStorage.set("city","mumbai");
-//         }
-//         $.holdReady(false);
-//     });
-//
-// }
 
 var firstapp = angular.module('firstapp', [
     'ui.router',
@@ -260,6 +214,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             }
         })
         .state('attractions', {
+          cache:false,
             url: "/:gamesCity/attraction",
             templateUrl: "views/template.html",
             controller: 'AttractionCtrl',

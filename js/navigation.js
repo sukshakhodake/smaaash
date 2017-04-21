@@ -126,11 +126,12 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        getPartyInside: function(id, callback) {
+        getPartyInside: function(id,cityid, callback) {
             var data = {
                 // _id: id,
                 myslug: id,
-                city: $.jStorage.get("cityid")
+                city:cityid
+                // city: $.jStorage.get("cityid")
             };
             $http({
                 url: adminurl + 'exploresmash/getByUrl',
@@ -322,12 +323,32 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        getSingleExploreSmaaashByUrl: function(id, callback) {
+        getSingleExploreSmaaashByUrl: function(id,cityid, callback) {
+          console.log(id,"id");
+          if (cityid) {
+            var cityId =cityid;
+          }else {
+             cityId = $.jStorage.get("cityid");
+          }
+            var data = {
+                // _id: id,
+                myslug: id,
+                city:cityId
+            };
+            $http({
+                url: adminurl + 'exploresmash/getSingleExploreSmaaashByUrl',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+
+            }).success(callback);
+        },
+        getSingleExploreSmaaashByUrlDeals: function(id,cityid, callback) {
           console.log(id,"id");
             var data = {
                 // _id: id,
                 myslug: id,
-                city: $.jStorage.get("cityid")
+                city: cityid
             };
             $http({
                 url: adminurl + 'exploresmash/getSingleExploreSmaaashByUrl',
@@ -363,9 +384,9 @@ var navigationservice = angular.module('navigationservice', [])
         //     }).success(callback);
         // },
         searchExploreSmaaash: function(filter, callback) {
-          if(filter){
-            filter.city=$.jStorage.get("cityid");
-          }
+          // if(filter){
+          //   filter.city=$.jStorage.get("cityid");
+          // }
                   $http({
                   url: adminurl + 'exploresmash/getSingleExploreSmaaashByUrl',
                   method: 'POST',
@@ -442,11 +463,16 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        getDetailExploreSmaaashByUrl: function(id, callback) {
+        getDetailExploreSmaaashByUrl: function(id,cityid, callback) {
+          if (cityid) {
+            var cityId =cityid;
+          }else {
+                var cityId = $.jStorage.get("cityid");
+          }
             var data = {
                 myslug: id,
                 // _id: id,
-                city: $.jStorage.get("cityid")
+                city: cityId
             };
 
             $http({
@@ -569,14 +595,22 @@ var navigationservice = angular.module('navigationservice', [])
             $.jStorage.set("loginDetail", data);
         },
         setCity: function(cityname) {
-          console.log("cityname",cityname);
+
+            console.log("cityname",cityname);
             $.jStorage.set("cityid", cityname._id);
             $.jStorage.set("city", cityname.name);
             $.jStorage.set("logos", cityname.logo);
             $.jStorage.set("branchId", cityname.BranchID);
+            $.jStorage.set("citySlug", cityname.myslug);
             $.jStorage.set("weekdays",cityname.weekdays);
             $.jStorage.set("weekend",cityname.weekend);
 
+        },
+        // getStoredUser: function() {
+        //     return $.jStorage.get("user");
+        // },
+        getStoredCity:function(){
+            return $.jStorage.get("cityid");
         },
 
 

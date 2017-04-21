@@ -198,7 +198,7 @@
             </a>
             <div class="city-types">
                <ul class="list">
-                  <li ng-repeat="city in getCity">
+                  <li ng-repeat="city in getHomeCity">
 
                      <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                   </li>
@@ -362,7 +362,7 @@
                </a>
                <div class="city-types">
                   <ul class="list">
-                     <li ng-repeat="city in getCity">
+                     <li ng-repeat="city in getHomeCity">
 
                         <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                      </li>
@@ -559,7 +559,7 @@
                            <span class="cityselect" ng-show="!signupData.CustomerAddress">Please select city</span>
                            <select name="categorydata" id="target" class="form-control" ng-model="signupData.CustomerAddress" ng-change="selectCityFun(signupData.CustomerAddress)" required>
 
-                              <option value="{{d.name}}" ng-repeat="d in getCity" >{{d.name}}</option>
+                              <option value="{{d.name}}" ng-repeat="d in getHomeCity" >{{d.name}}</option>
 
                            </select>
                            <div class="error" ng-if="validCity">Please select city.</div>
