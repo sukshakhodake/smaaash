@@ -2230,12 +2230,12 @@ if ($stateParams.gamesCity) {
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    if ($stateParams.cartCity) {
-        $stateParams.cartCity = $.jStorage.get("city");
-        $state.go("cart", {
-            cartCity: $stateParams.cartCity
-        });
-    }
+    // if ($stateParams.cartCity) {
+    //     $stateParams.cartCity = $.jStorage.get("city");
+    //     $state.go("cart", {
+    //         cartCity: $stateParams.cartCity
+    //     });
+    // }
 
     $scope.onlyNumbers = "^[1-9][0-9]*$";
     $scope.isDisabledCheckOut = false;
@@ -3456,12 +3456,12 @@ if ($stateParams.hostCity) {
             windowClass: 'widths'
         })
     };
-    if ($stateParams.profileCity) {
-        $stateParams.profileCity = $.jStorage.get("city");
-        $state.go("profile", {
-            profileCity: $stateParams.profileCity
-        });
-    }
+    // if ($stateParams.profileCity) {
+    //     $stateParams.profileCity = $.jStorage.get("city");
+    //     $state.go("profile", {
+    //         profileCity: $stateParams.profileCity
+    //     });
+    // }
     $scope.custBooking = [];
     $scope.CustCardRecharge = [];
     $scope.rechargeOnline = {};
@@ -5861,12 +5861,18 @@ console.log("wind",$state);
 
               })
                 break;
-              // case 'attractions':
-              // $state.go('attractions',{
-              //   gamesCity:cityname.name,
-              //   id:$stateParams.id
-              // })
-              //   break;
+              case 'profile':
+              $state.go('profile',{
+                profileCity:cityname.name,
+
+              })
+                break;
+              case 'cart':
+              $state.go('cart',{
+                cartCity:cityname.name
+
+              })
+                break;
 
               default:
 
