@@ -1595,9 +1595,11 @@ if ($stateParams.dealspcity) {
             image: 'img/sports/1 (7).jpg'
         }, {
             image: 'img/sports/1 (8).jpg'
-        }, {
-            image: 'img/sports/1 (9).jpg'
-        }, {
+        },
+        //  {
+        //     image: 'img/sports/1 (9).jpg'
+        // },
+        {
             image: 'img/sports/1 (10).jpg'
         }, {
             image: 'img/sports/1 (11).jpg'
@@ -1621,9 +1623,11 @@ if ($stateParams.dealspcity) {
             image: 'img/sports/2 (6).jpg'
         }, {
             image: 'img/sports/2 (7).jpg'
-        }, {
-            image: 'img/sports/2 (8).jpg'
-        }, {
+        },
+        //  {
+        //     image: 'img/sports/2 (8).jpg'
+        // },
+         {
             image: 'img/sports/2 (9).jpg'
         }, {
             image: 'img/sports/2 (10).jpg'
