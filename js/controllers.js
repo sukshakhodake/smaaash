@@ -170,7 +170,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.hostParty = $scope.content["Host a party"];
             console.log(" *******", $scope.hostParty);
             $scope.deals = $scope.content["Deals and Packages"];
-            console.log("  $scope.deals", $scope.deals);
+          $scope.deals=  $filter('orderBy')($scope.deals, '-order');
+          console.log("  $scope.deals",  $scope.deals);
+          
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             console.log("$scope.foodBeverages", $scope.foodBeverages);
@@ -1299,9 +1301,9 @@ if ($stateParams.dealspcity) {
         return obj.name == $stateParams.dealspcity;
     });
     NavigationService.getSingleExploreSmaaashByUrlDeals($stateParams.id,$scope.tempCity._id, function(data) {
-        $scope.SingleDealsPackages = _.chunk(data.data, 3);
-        console.log("SingleDealsPackages", $scope.SingleDealsPackages);
-        TemplateService.removeLoader();
+      data.data=$filter('orderBy')(data.data, '-order');
+      $scope.SingleDealsPackages = _.chunk(data.data, 3);
+      TemplateService.removeLoader();
     });
   })
 

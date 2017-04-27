@@ -254,8 +254,8 @@
                <h2 class="title slide-text pull-left">Buy Now</h2>
                <!-- <p class="pull-right margin33 uppercase border-bot">view all</p> -->
             </div>
-            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="300" animation="slide" animationLoop="true" prev-text="" next-text="">
-               <li>
+            <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="300" animation="slide" animationLoop="true" prev-text="" next-text="" >
+               <li ng-if="s.showBuyNow">
 
                   <div class="race relative margno">
                   <!-- <div class="race relative margno" ui-sref="buy"> -->
@@ -269,7 +269,7 @@
 
                         </a>
                      </div>
-                     <a ng-if="s.BranchPackageID && s.price && s.showBuyNow" class="buy-button" ng-click="buyNowDealsp(s.BranchPackageID,s.price)"><img src="img/buy.png" class="img-responsive" alt=""></a>
+                     <a ng-if="s.showBuyNow" class="buy-button" ng-click="buyNowDealsp(s.BranchPackageID,s.price)"><img src="img/buy.png" class="img-responsive" alt=""></a>
                      <div class="race-text whites">
                         <div class="min-hiss">
                            <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext"> </h3>
@@ -422,7 +422,7 @@
          <!--<div class="slant-in brand-greenblu">
             <div class="slant-box half-height">
                <h2 class="title slide-text brand-white">be the first to know</h2>
-             
+
                <form class="form" name="subscribeForm"  ng-submit="subscribeLogin(subscribeData)">
                   <div class="form-group inline-block">
                      <input type="email" class="form-control" name="email" placeholder="Email Id" required ng-model="subscribeData.email">
@@ -470,7 +470,7 @@
          <div class="col-md-12 col-sm-12 col-xs-12">
            <h2>Instagram</h2>
             <div class=" facebook land-kartbanner inline-block fb-mobile space-issue">
-               
+
                <div class="wdget">
                   <!-- <iframe src="//lightwidget.com/widgets/540f7576f94f54419988e766fce81e6a.html" id="lightwidget_540f7576f9" name="lightwidget_540f7576f9" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe> -->
 
