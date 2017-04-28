@@ -106,7 +106,13 @@
 
                      </div>
                      <div class="form-group">
-                        <input id="00N6F00000EnggN" name="00N6F00000EnggN" class="form-control" size="12" type="date" />
+
+                        <!-- <input id="00N6F00000EnggN" name="00N6F00000EnggN" class="form-control" size="12"  type="date" /> -->
+
+                      
+
+                        <input type="text" required="" id="00N6F00000EnggN" name="00N6F00000EnggN"  placeholder="Date of event" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"  class="form-control" placeholder="Date of event">
+
                         <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions"
                    close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" /> -->
                         <!-- <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a> -->
@@ -295,7 +301,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                <div class="chef pointer" ui-sref="customizepackage">
                   <img src="img/food/hostparties.jpg" class="img-responsive" alt="">
-               
+
                </div>
 
             </div>

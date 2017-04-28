@@ -172,7 +172,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.deals = $scope.content["Deals and Packages"];
           $scope.deals=  $filter('orderBy')($scope.deals, '-order');
           console.log("  $scope.deals",  $scope.deals);
-          
+
             $scope.events = $scope.content["Events"];
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             console.log("$scope.foodBeverages", $scope.foodBeverages);
@@ -1947,16 +1947,58 @@ if ($stateParams.gamesCity) {
 
       NavigationService.searchExploreSmaaash($scope.filter, function(data) {
           $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
-          $scope.singleAttraction = data.data;
-          $scope.singleAttraction1 = $filter('orderBy')(data.data, '-order');
-          $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
-          if ($scope.singleAttraction1.length === 0) {
-              console.log("imin");
-              $scope.msg = true;
-          } else {
-              $scope.msg = false;
-          }
+          $scope.temparr=[];
+          $scope.temparr1=[];
 
+          _.each(data.data,function(key){
+            console.log("key",key);
+            if (key.order) {
+
+              $scope.temparr.push(key);
+              console.log("$scope.temparr",$scope.temparr);
+            }else if (key.order === null) {
+                $scope.temparr1.push(key);
+                console.log("$scope.temparr",$scope.temparr1);
+            }
+
+                      $scope.singleAttraction1 = $filter('orderBy')($scope.temparr, '-order');
+                        $scope.singleAttraction1=$scope.singleAttraction1.concat($scope.temparr1);
+                      $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
+                      if ($scope.singleAttraction1.length === 0) {
+                          console.log("imin");
+                          $scope.msg = true;
+                      } else {
+                          $scope.msg = false;
+                      }
+
+
+          })
+
+
+          // _.each($scope.singleAttraction1, function(data) {
+          //   console.log("data",data);
+          //   _.each(data,function(n){
+          //     console.log("n",n);
+          //     n.gameforarray = [];
+          //     _.each(data.gamefor, function(n) {
+          //         switch (n) {
+          //             case '1':
+          //                 n.gameforarray.push('Adult')
+          //                     // data.gameforarray.push('Male')
+          //                 break;
+          //                 // case '2':
+          //                 //     data.gameforarray.push('Female')
+          //                 //     break;
+          //             case '3':
+          //                 n.gameforarray.push('Kids')
+          //                     // data.gameforarray.push('Children')
+          //                 break;
+          //             default:
+          //         }
+          //     });
+          //   })
+          //
+          // });
           _.each($scope.singleAttraction, function(data) {
               data.gameforarray = [];
               _.each(data.gamefor, function(n) {

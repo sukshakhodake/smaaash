@@ -5,25 +5,22 @@
        <div class="col-md-4">
  <h4 class="bold title text-right">hours of operation:</h4>
       </div>
-      <div class="col-md-3" ng-if="!weekdays">
+  
 
- <h4 class="bold title text-right">WEEKDAYS 12.30 pm TO 12 aM
+      <div class="col-md-3" >
+
+ <h4 class="bold title text-right" ng-if="weekdays">WEEKDAYS {{weekdays}}
+
+ </h4>
+ <h4 class="bold title text-right" ng-if="!weekdays">Not Available
 
  </h4>
       </div>
-      <div class="col-md-3" ng-if="weekdays">
 
- <h4 class="bold title text-right">WEEKDAYS {{weekdays}}
 
- </h4>
-      </div>
-
-      <div class="col-md-3" ng-if="!weekend">
-   <h4 class="bold title text-right">WEEKEND 11 am TO 12 am  MIDNIGHT</h4>
-
-      </div>
-      <div class="col-md-3" ng-if="weekend">
-   <h4 class="bold title text-right">WEEKEND {{weekend}}</h4>
+      <div class="col-md-3">
+   <h4  ng-if="weekend" class="bold title text-right">WEEKEND {{weekend}}</h4>
+   <h4 ng-if="!weekend" class="bold title text-right">Not Available</h4>
 
       </div>
       <div class="col-md-3">
