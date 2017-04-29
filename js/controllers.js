@@ -2565,7 +2565,7 @@ if ($stateParams.gamesCity) {
     }
 })
 
-.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams,$filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("customizepackage");
     $scope.menutitle = NavigationService.makeactive("Customize Package");
@@ -2587,12 +2587,12 @@ if ($stateParams.gamesCity) {
     $scope.clear = function() {
         $scope.dt = null;
     };
-    if ($stateParams.customizeCity) {
-        $stateParams.customizeCity = $.jStorage.get("city");
-        $state.go('customizepackage', {
-            customizeCity: $stateParams.customizeCity
-        })
-    }
+    // if ($stateParams.customizeCity) {
+    //     $stateParams.customizeCity = $.jStorage.get("city");
+    //     $state.go('customizepackage', {
+    //         customizeCity: $stateParams.customizeCity
+    //     })
+    // }
     $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
@@ -2787,44 +2787,77 @@ if ($stateParams.gamesCity) {
         } else {}
 
     }
-    NavigationService.getCity(function(data) {
-        $scope.allCity = data.data;
-        TemplateService.removeLoader();
-    });
-    var id = "57bc4b2aeb9c91f1025a3b55";
+    // NavigationService.getCity(function(data) {
+    //     $scope.allCity = data.data;
+    //     if ($stateParams.customizeCity) {
+    //       $scope.tempCity = _.find($scope.allCity, function(obj) {
+    //           return obj.name == $stateParams.customizeCity;
+    //       });
+    //     }
+    //
+    //     TemplateService.removeLoader();
+    // });
+    var id = "attraction";
+    // var id = "57bc4b2aeb9c91f1025a3b55";
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
     $scope.customizeExploreSmaaash = function() {
-        NavigationService.getSingleExploreSmaaash(id, function(data) {
-            $scope.customizepackage = data.data;
-
-            console.log("$scope.customizepackage", $scope.customizepackage);
-            _.each($scope.customizepackage, function(data) {
-                data.gameforarray = [];
-                var index = _.findIndex($scope.customizeformData.games, {
-                    _id: data._id
-                });
-                if (index >= 0) {
-                    data.selected = true;
-                }
-                _.each(data.gamefor, function(n) {
-                    switch (n) {
-                        case '1':
-                            data.gameforarray.push('Male')
-                            break;
-                        case '2':
-                            data.gameforarray.push('Female')
-                            break;
-                        case '3':
-                            data.gameforarray.push('Children')
-                            break;
-                        default:
-                    }
-                });
+      NavigationService.getCity(function(data) {
+          $scope.allCity = data.data;
+          if ($stateParams.customizeCity) {
+            $scope.tempCity = _.find($scope.allCity, function(obj) {
+                return obj.name == $stateParams.customizeCity;
             });
-            TemplateService.removeLoader();
-        });
+            console.log("$scope.tempCity",$scope.tempCity);
+          }
+          NavigationService.getSingleExploreSmaaashByUrl(id,$scope.tempCity._id, function(data) {
+              $scope.customizepackage = data.data;
+              $scope.temparr=[];
+              $scope.temparr1=[];
+              _.each($scope.customizepackage,function(n){
+                if (n.order == null) {
+                    $scope.temparr.push(n);
+                }else {
+                    $scope.temparr1.push(n);
+                }
+              })
+
+                    $scope.customizepackage=$filter('orderBy')($scope.temparr1, '-order');
+                    $scope.customizepackage=$scope.customizepackage.concat($scope.temparr);
+                    // $scope.customizepackage=_.chunk($scope.customizepackage,4);
+              console.log("$scope.customizepackage", $scope.customizepackage);
+              _.each($scope.customizepackage, function(data) {
+                  data.gameforarray = [];
+                  var index = _.findIndex($scope.customizeformData.games, {
+                      _id: data._id
+                  });
+                  if (index >= 0) {
+                      data.selected = true;
+                  }
+                  _.each(data.gamefor, function(n) {
+                      switch (n) {
+                          case '1':
+                              data.gameforarray.push('Adult')
+                              // data.gameforarray.push('Male')
+                              break;
+                          // case '2':
+                          //     data.gameforarray.push('Female')
+                          //     break;
+                          case '3':
+                              data.gameforarray.push('Kids')
+                              // data.gameforarray.push('Children')
+                              break;
+                          default:
+                      }
+                  });
+              });
+              TemplateService.removeLoader();
+          });
+
+      });
+
+
     }
     $scope.customizeExploreSmaaash();
     $scope.customizeCityFun = function(custCityId) {
@@ -2844,13 +2877,15 @@ if ($stateParams.gamesCity) {
                 _.each(data.gamefor, function(n) {
                     switch (n) {
                         case '1':
-                            data.gameforarray.push('Male')
+                            data.gameforarray.push('Adult')
+                            // data.gameforarray.push('Male')
                             break;
-                        case '2':
-                            data.gameforarray.push('Female')
-                            break;
+                        // case '2':
+                        //     data.gameforarray.push('Female')
+                        //     break;
                         case '3':
-                            data.gameforarray.push('Children')
+                            data.gameforarray.push('Kids')
+                            // data.gameforarray.push('Children')
                             break;
                         default:
                     }
@@ -5759,6 +5794,32 @@ if ($stateParams.hostCity) {
                             }
 
                             break;
+                            case 'customizepackage':
+                            if ($stateParams.customizeCity) {
+
+
+                                    $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.customizeCity) {
+                                                 return key;
+                                               }
+                                             });
+
+
+
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      console.log("$scope.changeCityParams.name",$scope.changeCityParams.name);
+                                      $state.go('customizepackage',{
+                                        customizeCity:$scope.changeCityParams.name
+
+
+                                      });
+                                      console.log("after stateParams");
+                                        $scope.template.reFetchCity();
+
+
+                            }
+
+                              break;
 
                         default:
                             console.log("im in default");
@@ -5946,6 +6007,13 @@ console.log("wind",$state);
 
               })
                 break;
+                case 'customizepackage':
+                $state.go('customizepackage',{
+                  customizeCity:cityname.name
+
+                })
+
+                  break;
 
               default:
 
