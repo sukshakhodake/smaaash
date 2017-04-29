@@ -3,7 +3,13 @@
   <a href="" class="close text-uppercase brand-white" ng-click="$dismiss();"><img src="img/new/close-popup.png" class="img-responsive" alt=""></a>
 <div class="get-call">
   <h3 class="text-center">please call on <br>
-  <a href="tel:+91 22 49 143 143">91 22 49 143 143</a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Bengaluru'">91 080-25066900</a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Mumbai'">91 22 49 143 143</a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Gurgaon - Cyber Hub'">0124-39 40 1888 &frasl; 0124-4240616</a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Hyderabad'">91 40 44739999 </a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Noida'">91 120 2595111  &frasl; 91 9999311141</a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Ludhiana'">0161-49-33-600 &frasl; 7837-438-909</a>
+  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Gurgaon - Sector 29'">0124-3350777 &frasl; 0124-6540199</a>
   <br>
   number for bookings</h3>
 </div>

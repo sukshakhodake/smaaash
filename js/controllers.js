@@ -4179,6 +4179,9 @@ if ($stateParams.hostCity) {
             })
         }
     };
+    if ($stateParams.drinkCity) {
+      $scope.bookingCity=$stateParams.drinkCity
+    }
     $scope.bookings = function() {
         console.log("in in");
         $uibModal.open({
