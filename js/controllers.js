@@ -1301,8 +1301,22 @@ if ($stateParams.dealspcity) {
         return obj.name == $stateParams.dealspcity;
     });
     NavigationService.getSingleExploreSmaaashByUrlDeals($stateParams.id,$scope.tempCity._id, function(data) {
-      data.data=$filter('orderBy')(data.data, '-order');
-      $scope.SingleDealsPackages = _.chunk(data.data, 3);
+      $scope.tempDealsp=[];
+      $scope.tempDealsp1=[];
+      _.each(data.data,function(key){
+        if (key.order == null) {
+          $scope.tempDealsp.push(key);
+        }else{
+  $scope.tempDealsp1.push(key);
+        }
+      })
+
+
+      $scope.SingleDealsPackages =_.cloneDeep($scope.tempDealsp1);
+        $scope.SingleDealsPackages=$filter('orderBy')($scope.SingleDealsPackages, '-order');
+      $scope.SingleDealsPackages=$scope.SingleDealsPackages.concat($scope.tempDealsp);
+
+      $scope.SingleDealsPackages = _.chunk($scope.SingleDealsPackages, 3);
       TemplateService.removeLoader();
     });
   })
@@ -1952,14 +1966,22 @@ if ($stateParams.gamesCity) {
 
           _.each(data.data,function(key){
             console.log("key",key);
-            if (key.order) {
-
-              $scope.temparr.push(key);
-              console.log("$scope.temparr",$scope.temparr);
-            }else if (key.order === null) {
+            if (key.order === null) {
                 $scope.temparr1.push(key);
+
+              console.log("$scope.temparr",$scope.temparr);
+            }else {
+              $scope.temparr.push(key);
                 console.log("$scope.temparr",$scope.temparr1);
             }
+            // if (key.order) {
+            //
+            //   $scope.temparr.push(key);
+            //   console.log("$scope.temparr",$scope.temparr);
+            // }else if (key.order === null) {
+            //     $scope.temparr1.push(key);
+            //     console.log("$scope.temparr",$scope.temparr1);
+            // }
 
                       $scope.singleAttraction1 = $filter('orderBy')($scope.temparr, '-order');
                         $scope.singleAttraction1=$scope.singleAttraction1.concat($scope.temparr1);
