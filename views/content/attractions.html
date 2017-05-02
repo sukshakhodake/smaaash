@@ -42,8 +42,8 @@
         <div class="col-md-4 col-sm-4" ng-repeat="d in data">
 
           <div class="karting-championship">
-            <div class="brand-blue relative  pointer">
-              <img ng-click="goTo(d.myslug)" ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
+            <div class="brand-blue relative  pointer" ng-click="goTo(d.myslug)">
+              <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
               <!-- <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a> -->
             </div>
@@ -52,7 +52,7 @@
                 <button class="uppercase bluey" ng-click="goTo(d.hometext,d._id)">view</button>
               </div> -->
 
-              <div class="min-h">
+              <div class="min-h" ng-click="goTo(d.myslug)">
                 <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :20" ></h3>
                 <p ng-hide="d.gameforarray==''">Game For:
                   <span class="bluey capitalize">
@@ -60,7 +60,7 @@
                   <span ng-if="$index==d.gameforarray.length-2">&</span> </span>
                   </span>
                 </p>
-                <p class="" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
+                <p class="pointer" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
 
 
                   <!-- <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode | shorten:130 "></p>

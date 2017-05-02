@@ -1067,6 +1067,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.moreDesc = {};
+
 if ($stateParams.eventcity) {
   NavigationService.getCity(function(data) {
         $scope.getCities = _.cloneDeep(data.data);
@@ -1076,12 +1077,26 @@ if ($stateParams.eventcity) {
         });
         console.log("$scope.tempCity._id",$scope.tempCity._id);
         NavigationService.getSingleExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
-            $scope.events = _.chunk(data.data, 3);
+          $scope.temparr=[];
+          $scope.temparr1=[];
+          _.each(data.data,function(key){
+            if (key.order === null) {
+                $scope.temparr1.push(key);
+
+              console.log("$scope.temparr",$scope.temparr);
+            }else {
+              $scope.temparr.push(key);
+                console.log("$scope.temparr",$scope.temparr1);
+            }
+
+          })
+            $scope.events = $filter('orderBy')($scope.temparr, '-order');
+            $scope.events = $scope.events.concat($scope.temparr1);
+            $scope.events = _.chunk($scope.events, 3);
             TemplateService.removeLoader();
         });
       })
 }
-
 
 
 
