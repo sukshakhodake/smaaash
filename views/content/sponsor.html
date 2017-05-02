@@ -15,7 +15,7 @@
   </ul>
          <div class="row" ng-repeat="datas in sponsor1">
             <div class="col-md-4 col-sm-4" ng-repeat="data in datas">
-               <div class="karting-championship  marginbot">
+               <div class="karting-championship  marginbot" ng-if="data.status">
                   <div class="brand-blue relative">
                      <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="cmo">
                   </div>
@@ -85,7 +85,7 @@
          <h3>contact details</h3>
          <p>For further information regarding Sponsorship and Alliances, feel free to get in touch with us</p>
          <div class="row">
-            <div class="col-md-3" ng-repeat="data in contact">
+            <div class="col-md-3" ng-repeat="data in contact" ng-if="data.status">
                <h3>{{data.name}}</h3>
 
                <span>{{data.city.name}}</span>

@@ -46,7 +46,7 @@
     </div>
     <div class="container">
         <div class="deals-details">
-            <div ng-bind-html="detailDealsInner.description"></div>
+            <div ng-bind-html="detailDealsInner.description | htmlDecode"></div>
 
             <div class="button-set">
                 <!-- <ul class="social-icons list-inline inline-block">

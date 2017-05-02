@@ -109,7 +109,7 @@
 
                         <!-- <input id="00N6F00000EnggN" name="00N6F00000EnggN" class="form-control" size="12"  type="date" /> -->
 
-                      
+
 
                         <input type="text" required="" id="00N6F00000EnggN" name="00N6F00000EnggN"  placeholder="Date of event" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"  class="form-control" placeholder="Date of event">
 
@@ -250,7 +250,7 @@
       <div class="new">
          <div class="row" ng-repeat="datas in SingleHostParty">
             <div class="col-md-4 col-sm-4" ng-repeat="data in datas">
-               <div class="karting-championship">
+               <div class="karting-championship" ng-if="data.status">
                   <div class="brand-blue relative ">
                      <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="" ui-sref="parties({id:data.myslug,partyCity:citySpecific})">
                   </div>

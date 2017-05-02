@@ -831,8 +831,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("data", data.data);
         $scope.sponsor = data.data.sponsor;
         $scope.sponsor1 = _.chunk(data.data.sponsor, 3);
+
         $scope.esteem = data.data.esteem;
         $scope.contact = data.data.contact;
+        console.log("  $scope.contact",  $scope.contact);
 
         TemplateService.removeLoader();
     });
