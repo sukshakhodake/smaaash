@@ -41,7 +41,7 @@
       <div class="row" ng-repeat="data in singleAttraction1">
         <div class="col-md-4 col-sm-4" ng-repeat="d in data">
 
-          <div class="karting-championship" ng-if="d.status">
+          <div class="karting-championship">
             <div class="brand-blue relative  pointer" ng-click="goTo(d.myslug)">
               <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="">
               <!-- <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"

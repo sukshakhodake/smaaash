@@ -1083,11 +1083,17 @@ if ($stateParams.eventcity) {
           $scope.temparr1=[];
           _.each(data.data,function(key){
             if (key.order === null) {
-                $scope.temparr1.push(key);
+              if (key.status) {
+                  $scope.temparr1.push(key);
+              }
+
 
               console.log("$scope.temparr",$scope.temparr);
             }else {
-              $scope.temparr.push(key);
+              if (key.status) {
+                  $scope.temparr.push(key);
+              }
+
                 console.log("$scope.temparr",$scope.temparr1);
             }
 
@@ -1322,9 +1328,15 @@ if ($stateParams.dealspcity) {
       $scope.tempDealsp1=[];
       _.each(data.data,function(key){
         if (key.order == null) {
-          $scope.tempDealsp.push(key);
+          if (key.status) {
+              $scope.tempDealsp.push(key);
+          }
+
         }else{
-  $scope.tempDealsp1.push(key);
+          if (key.status) {
+            $scope.tempDealsp1.push(key);
+          }
+
         }
       })
 
@@ -1984,12 +1996,18 @@ if ($stateParams.gamesCity) {
           _.each(data.data,function(key){
             console.log("key",key);
             if (key.order === null) {
-                $scope.temparr1.push(key);
+              if (key.status) {
+                    $scope.temparr1.push(key);
+              }
+
 
               console.log("$scope.temparr",$scope.temparr);
             }else {
-              $scope.temparr.push(key);
-                console.log("$scope.temparr",$scope.temparr1);
+              if (key.status) {
+                $scope.temparr.push(key);
+                  console.log("$scope.temparr",$scope.temparr1);
+              }
+
             }
             // if (key.order) {
             //
@@ -3302,8 +3320,17 @@ if ($stateParams.hostCity) {
             return obj.name == $stateParams.hostCity;
         });
         NavigationService.getSingleExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
-            $scope.SingleHostParty1 = data.data;
-            $scope.SingleHostParty = _.chunk(data.data, 3);
+            $scope.SingleHostParty1=[];
+              $scope.SingleHostParty2=[];
+              _.each(data.data,function(value){
+                if (value.status) {
+                  $scope.SingleHostParty2.push(value);
+                  $scope.SingleHostParty1.push(value);
+                }
+              })
+
+
+            $scope.SingleHostParty = _.chunk($scope.SingleHostParty2, 3);
             $scope.content = _.groupBy($scope.SingleHostParty, 'hostAPartyType');
             $scope.birthday = $scope.content['57d6a09dbd5eb9846074b419'];
             $scope.kittyparties = $scope.content['57e1429c3da62fae1dfc560c'];
@@ -6046,7 +6073,15 @@ console.log("wind",$state);
 
         }
 
+        $scope.closeSidemenu = function(){
+          $scope.isOpen = false;
+        };
 
+        $scope.status = {
+  isCustomHeaderOpen: false,
+  isFirstOpen: true,
+  isFirstDisabled: false
+};
 
         $scope.openMenu = true;
         $scope.opens = function() {

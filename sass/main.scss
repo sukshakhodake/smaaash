@@ -276,6 +276,16 @@ $menu-height: 80px !default;
         width: 100%;
         z-index: 999;
     }
+  .closeSidemenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: -1;
+    @include transform(translate(-100%));
+    }
     .panel-group {
         .panel {
     box-shadow: 0 0 0;

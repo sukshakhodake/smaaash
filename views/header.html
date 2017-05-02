@@ -380,9 +380,10 @@
          </div>
 
       </div>
-      <uib-accordion close-others="oneAtATime">
-         <div uib-accordion-group class="panel-default" is-open="status[n.name]" ng-click="opens();">
-            <uib-accordion-heading>
+      <div class="closeSidemenu"  ng-click="status.open = !status.open"></div>
+      <uib-accordion close-others="oneAtATime" ng-click="opens()">
+         <div uib-accordion-group class="panel-default"  is-open="status.open">
+            <uib-accordion-heading >
                <a class="menu-nav-mobile"></a>
 
                <div class="menu" ng-class="{'ac': toggleMenu == true}"><img src="img/changes/menu.png" alt="Menu" no-drag></div>

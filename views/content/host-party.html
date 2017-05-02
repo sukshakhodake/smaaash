@@ -250,7 +250,7 @@
       <div class="new">
          <div class="row" ng-repeat="datas in SingleHostParty">
             <div class="col-md-4 col-sm-4" ng-repeat="data in datas">
-               <div class="karting-championship" ng-if="data.status">
+               <div class="karting-championship">
                   <div class="brand-blue relative ">
                      <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="" ui-sref="parties({id:data.myslug,partyCity:citySpecific})">
                   </div>
@@ -259,6 +259,7 @@
                         <h3 class="margin0 bluey " ng-bind-html="data.hometext | shorten :25"></h3>
                      </div>
                      <div class="min-h">
+                      
                         <p ng-bind-html="data.description | htmlDecode | shorten:200"></p>
                         <!-- <p ng-show="moreDesc[data._id]" ng-bind-html="myDesc | htmlDecode"></p> -->
                         <p ng-if="!data.description"> No data found</p>
