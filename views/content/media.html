@@ -34,6 +34,7 @@
             <p>"There's so much to share: press coverage and videos coming soon!"</p>
          <h4 ng-if="mediagallery.length === 0" class="text-center">Loading ...</h4>-->
          <!-- <div class="row"> -->
+
          <div class="row" ng-repeat="datas in mediagallery">
 
             <div class="col-md-4 col-sm-4" ng-repeat="d in datas">
@@ -58,7 +59,7 @@
                   </div> -->
 
                </div>
-            </div>
+              </div>
          </div>
 
          <!--<div class="col-md-4" ng-repeat ="data in datas | orderBy :'-order'">

@@ -161,19 +161,60 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
         if (data.value) {
+          $scope.hostParty=[];
+          $scope.attraction1=[];
+          $scope.attraction2=[];
+            $scope.attraction=[];
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
-            $scope.attraction = $scope.content.Attraction;
+            _.each($scope.content.Attraction,function(key){
+              if (key.order == null) {
+                if (key.status) {
+                    $scope.attraction1.push(key);
+                }
+
+              }else {
+                if (key.status) {
+                  $scope.attraction2.push(key);
+                }
+              }
+            })
+            $scope.attraction2=$filter('orderBy')($scope.attraction2, '-order');
+            $scope.attraction = $scope.attraction2.concat($scope.attraction1);
+            // $scope.attraction = $scope.content.Attraction;
             console.log("  $scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
             console.log($scope.whatsnew, "$scope.whatsnew");
-            $scope.hostParty = $scope.content["Host a party"];
-            console.log(" *******", $scope.hostParty);
-            $scope.deals = $scope.content["Deals and Packages"];
-          $scope.deals=  $filter('orderBy')($scope.deals, '-order');
-          console.log("  $scope.deals",  $scope.deals);
+            $scope.hostParty1 = $scope.content["Host a party"];
+            console.log("$scope.hostParty1 ",$scope.hostParty1 );
+            _.each($scope.hostParty1,function(key){
+              if (key.status) {
 
-            $scope.events = $scope.content["Events"];
+                $scope.hostParty.push(key);
+              }
+            })
+            console.log(" *******", $scope.hostParty);
+              $scope.deals=[];
+                $scope.events=[];
+            $scope.dealsp = $scope.content["Deals and Packages"];
+          $scope.dealsp=  $filter('orderBy')($scope.dealsp, '-order');
+          _.each(  $scope.dealsp,function(key){
+            if (key.status) {
+              $scope.deals.push(key);
+            }
+              console.log("  $scope.deals",  $scope.deals);
+          })
+
+
+            $scope.eventss = $scope.content["Events"];
+            _.each($scope.eventss,function(key){
+              if (key.status) {
+                  $scope.events.push(key);
+              }
+
+            })
+
+
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             console.log("$scope.foodBeverages", $scope.foodBeverages);
             $scope.buyOnline = $scope.content["Buy Online"];
@@ -951,17 +992,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.notAvailable = false;
                     }
                     if (data.value) {
+                      $scope.nullMedia =[];
+                      $scope.orderMedia =[];
+
                         console.log($scope.mediaObject.pagenumber);
                         if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
                             if (data.data.data) {
                                 _.each(data.data.data, function(val) {
                                     $scope.mediagalleryDesc.push(val);
+                                    if (val.order == null) {
+                                      if (val.status) {
+                                        $scope.nullMedia.push(val);
+                                      }
+                                    }else {
+                                      if (val.status) {
+                                        $scope.orderMedia.push(val);
+                                      }
+                                    }
                                 });
+                              $scope.orderMedia1=$filter('orderBy')($scope.orderMedia, '-order');
+                              $scope.finalMedia =$scope.orderMedia1.concat($scope.nullMedia);
+
                                 console.log("  $scope.mediagalleryDesc", $scope.mediagalleryDesc);
-                                data.data.data = _.chunk(data.data.data, 3);
-                                _.each(data.data.data, function(n) {
+
+                                $scope.finalMedia = _.chunk($scope.finalMedia, 3);
+                                _.each($scope.finalMedia, function(n) {
                                     // console.log(n);
-                                    $scope.mediagallery.push(n);
+
+                                        $scope.mediagallery.push(n);
+
+
                                     $scope.busy = false;
 
                                 });
@@ -5518,6 +5578,10 @@ if ($stateParams.hostCity) {
         $("#target").val($("#target option:first").val());
         $scope.city = true;
 
+        $scope.addClass=function () {
+
+        }
+
 
         if ($.jStorage.get("city") === 'Mumbai') {
             $scope.showlogo = true;
@@ -6073,9 +6137,24 @@ console.log("wind",$state);
 
         }
 
+        $scope.openMenu = true;
+        $scope.opens = function() {
+          console.log("im in",$scope.openMenu);
+            $scope.openMenu = !$scope.openMenu;
+
+        }
+        $scope.getslide = "closeSidemenu";
         $scope.closeSidemenu = function(){
-          $scope.isOpen = false;
+          if ($scope.getslide == "openSidemenu") {
+            $scope.getslide = "closeSidemenu";
+
+          }
+          else {
+
+          $scope.getslide = "openSidemenu";
+        }
         };
+
 
         $scope.status = {
   isCustomHeaderOpen: false,
@@ -6083,10 +6162,7 @@ console.log("wind",$state);
   isFirstDisabled: false
 };
 
-        $scope.openMenu = true;
-        $scope.opens = function() {
-            $scope.openMenu = !$scope.openMenu;
-        }
+
         $scope.currentdate = new Date();
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
         console.log("userLoginDetails", $scope.userLoginDetails);

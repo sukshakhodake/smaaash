@@ -276,16 +276,24 @@ $menu-height: 80px !default;
         width: 100%;
         z-index: 999;
     }
-  .closeSidemenu{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    z-index: -1;
-    @include transform(translate(-100%));
+    .menuSide{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      // background: #000;
+      z-index: -1;
     }
+    .closeSidemenu{
+      @include transform(translate(-100%));
+        @include transition(all ease 300ms);
+      }
+    .openSidemenu{
+      @include transition(all ease 300ms);
+          @include transform(translate(0%));
+    }
+
     .panel-group {
         .panel {
     box-shadow: 0 0 0;
