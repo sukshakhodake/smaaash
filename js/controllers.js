@@ -6137,12 +6137,12 @@ console.log("wind",$state);
 
         }
 
-        $scope.openMenu = true;
-        $scope.opens = function() {
-          console.log("im in",$scope.openMenu);
-            $scope.openMenu = !$scope.openMenu;
-
-        }
+        // $scope.openMenu = true;
+        // $scope.opens = function() {
+        //   console.log("im in",$scope.openMenu);
+        //     $scope.openMenu = !$scope.openMenu;
+        //
+        // }
         $scope.getslide = "closeSidemenu";
         $scope.closeSidemenu = function(){
           if ($scope.getslide == "openSidemenu") {

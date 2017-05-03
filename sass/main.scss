@@ -305,6 +305,9 @@ $menu-height: 80px !default;
  }
     }
       .panel-body{
+        position: relative;
+z-index: 12;
+background-color: #fff;
     background-image: url("../img/bg.png");
     background-size: cover;
     background-position: center;
