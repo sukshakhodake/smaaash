@@ -1561,7 +1561,7 @@ if ($stateParams.dealspcity) {
 
 })
 
-.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("stars");
     $scope.menutitle = NavigationService.makeactive("Gallery");
@@ -1781,40 +1781,49 @@ if ($stateParams.dealspcity) {
 
     ];
 
+    $scope.getEventGal = function(gallery){
+      console.log(gallery);
+      $scope.galleryEvent = gallery;
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/event-smaash.html",
+        scope: $scope
+      });
+    }
 
-    // $scope.eventsAtSmaaash = [
-    //   {
-    //     "event":"timetraialchampionship",
-    //     "image":"img/timetraialchampionship/2.jpg",
-    //     "imgArr":[
-    //        {"img":  'img/viratBenguluru/5K1B4283.jpg'},
-    //         {"img":'img/viratBenguluru/5K1B4288.jpg'},
-    //         {"img":'img/viratBenguluru/5K1B4290.jpg'},
-    //         {"img":'img/viratBenguluru/5K1B4384.jpg'}
-    //       ]
-    //   },
-    //   // {
-    //   //     "event":"viratBenguluru",
-    //   //   "image":"img/viratBenguluru/5K1B4238.jpg",
-    //   //   "imgArr":[
-    //   //   {"img":  'img/viratBenguluru/5K1B4283.jpg'},
-    //   //     {"img":'img/viratBenguluru/5K1B4288.jpg'},
-    //   //     {"img":'img/viratBenguluru/5K1B4290.jpg'},
-    //   //     {"img":'img/viratBenguluru/5K1B4384.jpg'}
-    //   //   ]
-    //   // },
-    //   // {
-    //   //     "event":"viratLudhiana",
-    //   //   "image":"img/viratLudhiana/Virat In Ludhiana Smaaash (1).jpg",
-    //   //   "imgArr":[
-    //   //   {"img":'img/viratLudhiana/image.jpeg'},
-    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (3).jpg'},
-    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (4).jpg'},
-    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (5).jpg'},
-    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (7).jpg'}
-    //   // ]
-    //   // }
-    // ]
+    $scope.eventsAtSmaaash = [
+      {
+        "event":"timetraialchampionship",
+        "image":"img/timetraialchampionship/2.jpg",
+        "title":"Time trial karting championship - Gurgaon Sec -29",
+        "imgArr":['img/timetraialchampionship/1.jpg','img/timetraialchampionship/2.jpg','img/timetraialchampionship/3.jpg','img/timetraialchampionship/10.jpg']
+      },
+      {
+          "event":"viratBenguluru",
+        "image":"img/viratBenguluru/5K1B4238.jpg",
+        "title":"Virat at Bengaluru",
+
+        "imgArr":[
+        'img/viratBenguluru/5K1B4283.jpg',
+      'img/viratBenguluru/5K1B4288.jpg',
+      'img/viratBenguluru/5K1B4290.jpg'
+      // 'img/viratBenguluru/5K1B4384.jpg'
+        ]
+      },
+      {
+          "event":"viratLudhiana",
+        "image":"img/viratLudhiana/Virat In Ludhiana Smaaash (1).jpg",
+        "title":"Virat at Ludhiana",
+
+        "imgArr":[
+        'img/viratLudhiana/image.jpeg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (3).jpg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (4).jpg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (5).jpg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (7).jpg'
+      ]
+      }
+    ]
 
 })
 

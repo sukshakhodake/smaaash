@@ -2409,6 +2409,22 @@ background-color: #32b544;
 .scroll-y{
   overflow-y: scroll !important;
 }
+// gallery smaash event
+.smaash-gallery {
+  .flexslider {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .flex-direction-nav a.flex-prev:before {
+    background: none;
+    content: '\f001';
+  }
+}
+.mins{
+  min-height: 130px !important;
+}
+// gallery smaash event end
 
 @import "ruchira";
 @import "mobile";
