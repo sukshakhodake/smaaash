@@ -26,6 +26,43 @@
 
   </div> -->
 
+
+  <div class="new">
+    <div class="container">
+       <h3 class="uppercase">Events at Smaaash</h3>
+
+      <div class="row">
+         <div class="col-md-4 col-sm-4" ng-repeat="d in eventsAtSmaaash track by $index">
+          <div class="karting-championship">
+            <div class="brand-blue relative pointer" ng-click="getEventGal(d.imgArr)">
+              <img ng-src="{{d.image}}" class="img-responsive" alt="">
+            </div>
+            <!-- <div class="brand-blue relative pointer" fancybox-box href="{{d.imgArr.img}}" rel="fancybox-thumb">
+              <img ng-src="{{d.imgArr.img}}" class="img-responsive" alt="">
+
+            </div> -->
+
+            <div class="new-detail mins">
+              <div class="views inline-block">
+                <button class="uppercase bluey" ng-click="getEventGal(d.imgArr)">view</button>
+
+              </div>
+              <h3 class="margin0 bluey">{{d.title}}</h3>
+              <!-- <p>{{d.text}}</p> -->
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <div class="new">
     <div class="container">
       <h3 class="uppercase">stars at smaaash</h3>
@@ -99,41 +136,7 @@
 
     </div>
   </div>
-  <div class="new">
-    <div class="container">
-       <h3 class="uppercase">Events at Smaaash</h3>
 
-      <div class="row">
-         <div class="col-md-4 col-sm-4" ng-repeat="d in eventsAtSmaaash track by $index">
-          <div class="karting-championship">
-            <div class="brand-blue relative pointer" ng-click="getEventGal(d.imgArr)">
-              <img ng-src="{{d.image}}" class="img-responsive" alt="">
-            </div>
-            <!-- <div class="brand-blue relative pointer" fancybox-box href="{{d.imgArr.img}}" rel="fancybox-thumb">
-              <img ng-src="{{d.imgArr.img}}" class="img-responsive" alt="">
-
-            </div> -->
-
-            <div class="new-detail mins">
-              <div class="views inline-block">
-                <button class="uppercase bluey" ng-click="getEventGal(d.imgArr)">view</button>
-
-              </div>
-              <h3 class="margin0 bluey">{{d.title}}</h3>
-              <!-- <p>{{d.text}}</p> -->
-
-            </div>
-
-
-
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
    <!--<div class="loading">
     <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="noviewmore && stars.length>0">Load More...</p>
 
