@@ -1779,7 +1779,42 @@ if ($stateParams.dealspcity) {
         }
 
 
-    ]
+    ];
+
+
+    // $scope.eventsAtSmaaash = [
+    //   {
+    //     "event":"timetraialchampionship",
+    //     "image":"img/timetraialchampionship/2.jpg",
+    //     "imgArr":[
+    //        {"img":  'img/viratBenguluru/5K1B4283.jpg'},
+    //         {"img":'img/viratBenguluru/5K1B4288.jpg'},
+    //         {"img":'img/viratBenguluru/5K1B4290.jpg'},
+    //         {"img":'img/viratBenguluru/5K1B4384.jpg'}
+    //       ]
+    //   },
+    //   // {
+    //   //     "event":"viratBenguluru",
+    //   //   "image":"img/viratBenguluru/5K1B4238.jpg",
+    //   //   "imgArr":[
+    //   //   {"img":  'img/viratBenguluru/5K1B4283.jpg'},
+    //   //     {"img":'img/viratBenguluru/5K1B4288.jpg'},
+    //   //     {"img":'img/viratBenguluru/5K1B4290.jpg'},
+    //   //     {"img":'img/viratBenguluru/5K1B4384.jpg'}
+    //   //   ]
+    //   // },
+    //   // {
+    //   //     "event":"viratLudhiana",
+    //   //   "image":"img/viratLudhiana/Virat In Ludhiana Smaaash (1).jpg",
+    //   //   "imgArr":[
+    //   //   {"img":'img/viratLudhiana/image.jpeg'},
+    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (3).jpg'},
+    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (4).jpg'},
+    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (5).jpg'},
+    //   //   {"img":'img/viratLudhiana/Virat In Ludhiana Smaaash (7).jpg'}
+    //   // ]
+    //   // }
+    // ]
 
 })
 
