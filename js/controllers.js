@@ -2471,6 +2471,7 @@ if ($stateParams.gamesCity) {
     $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     console.log("$scope.showCartParams", $scope.showCartParams);
     $scope.showCartFunction = function() {
+        $scope.cartDetails = [];
         NavigationService.showCartPackage($scope.showCartParams, function(data) {
             console.log("data", data);
             // console.log("$scope.showCartParams", $scope.showCartParams);
