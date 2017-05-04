@@ -2406,6 +2406,10 @@ background-color: #32b544;
   cursor: pointer;
 }
 
+.scroll-y{
+  overflow-y: scroll !important;
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

@@ -134,12 +134,26 @@ var navigationservice = angular.module('navigationservice', [])
                 // city: $.jStorage.get("cityid")
             };
             $http({
-                url: adminurl + 'exploresmash/getByUrl',
+                url: adminurl + 'exploresmash/getDetailExploreSmaaashByUrl',
                 method: 'POST',
                 withCredentials: true,
                 data: data
             }).success(callback);
         },
+        // getPartyInside: function(id,cityid, callback) {
+        //     var data = {
+        //         // _id: id,
+        //         myslug: id,
+        //         city:cityid
+        //         // city: $.jStorage.get("cityid")
+        //     };
+        //     $http({
+        //         url: adminurl + 'exploresmash/getByUrl',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data: data
+        //     }).success(callback);
+        // },
         getAllExploreSmashByCity: function(id, callback) {
             $http({
                 url: adminurl + 'exploresmash/getAllExploreSmashByCity',

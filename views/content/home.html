@@ -109,6 +109,7 @@
                         <a>
                            <figure>
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Games'" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
+                              <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Sky Karting'" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Parties'" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Food & Beverages'" ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt=""  ng-if="s.hometext == 'Deals & Packages'" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
@@ -494,7 +495,7 @@
      <img src="img/web-banners_1.jpg" alt="">
    </div>
    <div class="usp" ng-if="!showHomeBanner">
-     <img src="img/web-banners_2.jpg" alt="" >
+     <img src="img/web-bannersnew.jpg" alt="" >
    </div>
 </div>
 <!--<div class="container">
