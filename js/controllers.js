@@ -1499,7 +1499,7 @@ if ($stateParams.dealspcity) {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNow = function(BranchPackageID, price) {
+    $scope.buyNow = function(BranchPackageID, price,mobile) {
 
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
         // $scope.addToCartParams.BranchPackageID = "41";
@@ -1510,6 +1510,9 @@ if ($stateParams.dealspcity) {
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+                $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -2362,7 +2365,7 @@ if ($stateParams.gamesCity) {
     $scope.gamesParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowGames = function(BranchPackageID, price) {
+    $scope.buyNowGames = function(BranchPackageID, price,mobile) {
 
         $scope.gamesParams.BranchPackageID = BranchPackageID;
         // $scope.gamesParams.BranchPackageID = "41";
@@ -2373,6 +2376,9 @@ if ($stateParams.gamesCity) {
         console.log("$scope.gamesParams", $scope.gamesParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile) {
+              $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.gamesParams, function(data) {
                 console.log("$scope.gamesParams", $scope.gamesParams);
@@ -5623,6 +5629,12 @@ if ($stateParams.hostCity) {
         $("#target").val($("#target option:first").val());
         $scope.city = true;
 
+
+
+        $rootScope.openSignupModal=function(){
+          console.log("im in");
+        }
+
         $scope.addClass=function () {
 
         }
@@ -6545,7 +6557,8 @@ console.log("wind",$state);
                 }
             })
         }
-        $scope.loginModal = function() {
+        $rootScope.loginModal = function() {
+          $rootScope.modalSignup.close();
             $uibModal.open({
                 animation: 'true',
                 templateUrl: "views/modal/mobile-login.html",
@@ -6555,8 +6568,8 @@ console.log("wind",$state);
             });
         }
 
-        $scope.signinModal = function() {
-            $uibModal.open({
+        $rootScope.signinModal = function() {
+           $rootScope.modalSignup =  $uibModal.open({
                 animation: 'true',
                 templateUrl: "views/modal/mobile-signin.html",
                 // controller: 'headerCtrl',
