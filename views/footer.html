@@ -1,31 +1,31 @@
 <div class="footers" ng-controller="footerctrl">
   <div class="container">
         <div class="footing ">
-  <div class="row">
+  <div class="row text-center">
        <div class="col-md-4">
- <h4 class="bold title text-right">hours of operation:</h4>
+ <h4 class="bold title">hours of operation:</h4>
       </div>
 
 
-      <div class="col-md-3" >
+      <div class="col-md-4">
 
- <h4 class="bold title text-right" ng-if="weekdays">{{weekdays}}
+ <h4 class="bold title" ng-if="weekdays">{{weekdays}}
 
  </h4>
- <h4 class="bold title text-right" ng-if="!weekdays">Not Available
+ <h4 class="bold title" ng-if="!weekdays">Not Available
 
  </h4>
       </div>
 
 
-      <div class="col-md-3">
-   <h4  ng-if="weekend" class="bold title text-right">{{weekend}}</h4>
-   <h4 ng-if="!weekend" class="bold title text-right">Not Available</h4>
+      <div class="col-md-4">
+   <h4  ng-if="weekend" class="bold title">{{weekend}}</h4>
+   <h4 ng-if="!weekend" class="bold title">Not Available</h4>
 
       </div>
-      <div class="col-md-3">
-   <!--<h4 class="bold title">Sunday : 10 am- 10 pm</h4>-->
-      </div>
+      <!-- <div class="col-md-3">
+
+      </div> -->
     </div>
     </div>
     <div class="footers-list">
