@@ -339,7 +339,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.dealspCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowDealsp = function(BranchPackageID, price) {
+    $scope.buyNowDealsp = function(BranchPackageID, price,mobile) {
 
         $scope.dealspCartParams.BranchPackageID = BranchPackageID;
         // $scope.dealspCartParams.BranchPackageID = "41";
@@ -348,8 +348,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         console.log("$scope.dealspCartParams", $scope.dealspCartParams);
-        if ($.jStorage.get("loginDetail") === null) {
-            $rootScope.getMenus();
+        if ($.jStorage.get("loginDetail") == null) {
+
+            if (mobile == 'mobile') {
+              $rootScope.signinModal();
+              console.log("imin");
+            }
+              $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.dealspCartParams, function(data) {
                 console.log("$scope.dealspCartParams", $scope.dealspCartParams);
@@ -1281,11 +1286,15 @@ if ($stateParams.eventcity) {
     $scope.eventsCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowEvent = function(BranchPackageID, price) {
+    $scope.buyNowEvent = function(BranchPackageID, price,mobile) {
         console.log("BranchPackageID", BranchPackageID);
         console.log("$scope.eventsCartParams", $scope.eventsCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+                $rootScope.signinModal();
+            }
+
         } else {
             if (BranchPackageID != undefined && price != undefined) {
                 $scope.eventsCartParams.BranchPackageID = BranchPackageID;
@@ -4582,7 +4591,7 @@ if ($stateParams.hostCity) {
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNow = function(BranchPackageID, price) {
+    $scope.buyNow = function(BranchPackageID, price,mobile) {
 
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
         // $scope.addToCartParams.BranchPackageID = "41";
@@ -4593,6 +4602,9 @@ if ($stateParams.hostCity) {
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+               $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -4828,7 +4840,7 @@ if ($stateParams.hostCity) {
     $scope.eventInnerCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowEventInner = function(BranchPackageID, price) {
+    $scope.buyNowEventInner = function(BranchPackageID, price,mobile) {
 
         $scope.eventInnerCartParams.BranchPackageID = BranchPackageID;
         // $scope.eventInnerCartParams.BranchPackageID = "41";
@@ -4842,6 +4854,9 @@ if ($stateParams.hostCity) {
         console.log("$scope.eventInnerCartParams", $scope.eventInnerCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+              $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.eventInnerCartParams, function(data) {
                 console.log("$scope.eventInnerCartParams", $scope.eventInnerCartParams);
