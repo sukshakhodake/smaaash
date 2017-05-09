@@ -140,6 +140,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getCities = {};
     NavigationService.getCity(function(data) {
         $scope.getCities = data.data;
+        $rootScope.smaaashCities =data.data;
+        console.log("$rootScope.smaaashCities",$rootScope.smaaashCities);
         TemplateService.removeLoader();
     });
     $scope.nameOfCity = $.jStorage.get("city");
@@ -6209,12 +6211,12 @@ console.log("wind",$state);
 
         }
 
-        // $scope.openMenu = true;
-        // $scope.opens = function() {
-        //   console.log("im in",$scope.openMenu);
-        //     $scope.openMenu = !$scope.openMenu;
-        //
-        // }
+        $scope.openMenu = true;
+        $scope.opens = function() {
+          console.log("im in",$scope.openMenu);
+            $scope.openMenu = !$scope.openMenu;
+
+        }
         $scope.getslide = "closeSidemenu";
         $scope.closeSidemenu = function(){
           if ($scope.getslide == "openSidemenu") {
@@ -6584,6 +6586,7 @@ console.log("wind",$state);
         }
 
         $rootScope.signinModal = function() {
+
            $rootScope.modalSignup =  $uibModal.open({
                 animation: 'true',
                 templateUrl: "views/modal/mobile-signin.html",
