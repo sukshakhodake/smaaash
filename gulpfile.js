@@ -1,5 +1,5 @@
 var jsArray = [
-    './bower_components/moment/src/moment.js',
+    './bower_components/moment/min/moment.min.js',
     './bower_components/jquery/dist/jquery.min.js',
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/flexslider/jquery.flexslider-min.js',
