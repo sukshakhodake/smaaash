@@ -470,9 +470,9 @@ $brand-white:#fff !default;
 //*order ends*//
 //*menu starts*//
 .smaaash-cities {
-  width: 70%;
+  width: 65%;
   height: auto;
-  background-image: url(../img/nav/bgblue.png);
+  background-image: url(../img/nav/bgblue.jpg);
   background-size: cover;
   position: absolute;
   left: 50%;
@@ -493,7 +493,7 @@ $brand-white:#fff !default;
   li {
     display: inline-block;
     list-style-type: none;
-    margin: 10px;
+    margin: 10px 20px;
     position: relative;
     vertical-align: middle;
     &:focus{
@@ -531,9 +531,9 @@ $brand-white:#fff !default;
   font-family: $body-font;
   margin: 0;
   text-align: center;
-  color: #edef90;
-  text-shadow: 2px 2px #000;
-  @include text-stroke(2, #000);
+  color: #fff;
+  // text-shadow: 2px 2px #000;
+  // @include text-stroke(2, #000);
 }
 
 .nav-names {
@@ -717,7 +717,7 @@ $brand-white:#fff !default;
     }
   }
   .backg {
-    background-image: url("../img/food/eatdrink.jpg");
+    background-image: url("../img/food/eatdrink.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-top: -8px;
@@ -860,7 +860,7 @@ $brand-white:#fff !default;
 }
 
 .facebook {
-  height: 460px;
+  height: 380px;
   width: 100%;
   overflow: hidden;
 }
@@ -868,7 +868,7 @@ $brand-white:#fff !default;
 .wdget {
   height: 400px;
   padding: 0 10px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .landing-banner {
@@ -1300,6 +1300,12 @@ $brand-white:#fff !default;
 .meetup {
   border: 1px solid #000;
   padding: 10px;
+  h3,h2{
+    margin-left: 25px;
+  }
+  li{
+    margin: 10px 0;
+  }
 }
 
 .new-details {
@@ -1453,7 +1459,7 @@ ul {
 
 .form-content {
   position: absolute;
-  top: -315px;
+  top: -555px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -1551,7 +1557,7 @@ ul {
 }
 .events1{
   .new-detail{
-    min-height: 296px;
+    min-height: 180px;
   }
 }
 .sponsors {
@@ -1848,6 +1854,9 @@ ul {
     margin: 0 auto;
     border-radius: 6px;
     border: 2px solid;
+    &.m-button{
+      display: inline-block;
+    }
     &:hover {
       background-color: $brand-yellow;
     }
@@ -1965,9 +1974,9 @@ ul {
 .side-buttons,
 .side {
   position: fixed;
-  top: 20%;
+  top: 30%;
   right: 0;
-  z-index: 9999;
+  z-index: 9;
 }
 
 .side {
@@ -1978,15 +1987,29 @@ ul {
 
 .connect-button,
 .live-chat {
-  background-color: $brand-orange;
-  padding: 10px 20px;
+  background-color: $brand-red;
+  padding: 12px;
   cursor: pointer;
   display: inline-block;
   position: relative;
-  border: 2px solid #000;
+  // border: 2px solid #000;
+  &:before {
+    content: "";
+    border-bottom: 85px solid #ea1c22;
+    border-left: 10px solid transparent;
+    border-right: 10px transparent;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: -17px;
+    top: 0;
+}
+img{
+  width: 30px;
+}
   p {
     font-family: $body-font;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    // text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   }
   .orange-rays {
     position: absolute;
@@ -1994,7 +2017,7 @@ ul {
     bottom: 0;
     right: 0;
     left: 0;
-    background-image: url("../img/connect-rays.png");
+    // background-image: url("../img/connect-rays.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% 100%;
@@ -2655,6 +2678,9 @@ button {
       width: 100%;
     }
   }
+  h3{
+    font-size: 22px;
+  }
 }
 
 .love {
@@ -3112,7 +3138,7 @@ button {
 
 .attractions {
   .new-detail {
-    min-height: 290px;
+    min-height: 250px;
   }
 }
 
@@ -3175,7 +3201,7 @@ button {
 .bookings-pop{
 .get-call
 {
-padding: 20px 30px;
+padding: 20px 50px;
 }
 }
 
@@ -3321,10 +3347,11 @@ width: 70%;
 }
 
 .babes{
-  background-image: url("../img/new/loyalty-points.jpg");
+  background-image: url("../img/about-smaaash.jpg");
+  // background-image: url("../img/new/loyalty-points.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 442px;
+  height: 271px;
   background-position: center;
 }
 
@@ -3353,8 +3380,9 @@ width: 70%;
 
 
 .land-kartbanner{
-  border: 2px solid;
+  border: 1px solid #ccc;
     padding: 5px;
+    // background-color: red;
 }
 
 //careers
@@ -3453,40 +3481,115 @@ ul{
       .nav-names{
  border-bottom: none;
       }
-    
+
   }
- 
+
   li:nth-of-type(4n+1){
        .nav-names{
     color: $brand-red;
-     
+
   }
   }
     li:nth-of-type(4n+2){
        .nav-names{
     color: $brand-blue;
-   
+
   }
   }
     li:nth-of-type(4n+3){
        .nav-names{
     color: $brand-green;
-     
+
   }
   }
     li:nth-of-type(4n+4){
        .nav-names{
     color: $brand-pink;
-    
+
   }
+  }
+  a{
+    display: block;
   }
     .nav-names{
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #ccc;
     color: #000;
     font-size: 16px;
     font-family: "American Purpose";
     text-shadow: none;
+    margin: 0;
   }
 }
 
+.play-button{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 50px;
+    width: 50px;
+}
+
+
+.triplet-buttons{
+  .more{
+    margin: 20px 0;
+  }
+  .tab{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+}
+
+.app-modal-window .modal-dialog {
+  width: 900px;
+}
+
+.thanks-again{
+.names{
+  font-size: 18px;
+
+}
+}
+
+.deslp-minh{
+  min-height: 288px;
+}
+
+.row-timing-sec{
+  .row {
+    margin-left: 180px;
+    margin-right: -55px;
+}
+}
+
+.smash-logoc{
+  display: inline-block;
+  width: 130px;
+  height: auto;
+  margin-right: 10px;
+    img{
+      width: 100%;
+    }
+}
+
+// .app-modal-window{
+// &:before {
+//     display: inline-block;
+//     vertical-align: middle;
+//     content: " ";
+//     height: 100%;
+//   }
+// }
+
+
+
+
+// .modal-dialog {
+//   display: inline-block;
+//   text-align: left;
+//   vertical-align: middle;
+// }

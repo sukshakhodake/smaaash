@@ -10,24 +10,28 @@
         <div class="col-md-4 col-sm-4" ng-repeat="d in data" >
 
           <div class="karting-championship">
-            <div class="brand-blue relative  pointer">
-              <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" ui-sref="deals-inner({name:d.hometext , id:d._id,image:d.image})">
+            <div class="brand-blue relative  pointer" ng-click="goTo(d.myslug)">
+              <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" >
               <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a>
             </div>
-            <div class="new-detail">
+            <div class="new-detail deslp-minh">
               <!-- <div class="views inline-block">
                 <button class="uppercase bluey" >view</button>
               </div> -->
               <!-- <div class="views inline-block">
                 <button class="uppercase bluey"  ng-click="goTo(d.hometext,d._id)">view</button>
               </div> -->
-              <div class="min-last">
+              <div class="min-last" ng-click="goTo(d.myslug)">
                 <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :20" ></h3>
-                  <p class="" ng-bind-html="d.description | htmlDecode"></p>
+                  <p class="pointer" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
               </div>
-              <div class="button-set" ng-if="d.showBuyNow">
+
+              <div class="button-set hidden-xs" ng-if="d.showBuyNow">
                 <button class="uppercase blue"  ng-click="buyNow(d.BranchPackageID,d.price)">buy now</button>
+              </div>
+              <div class="button-set visible-xs" ng-if="d.showBuyNow">
+                <button class="uppercase blue"  ng-click="buyNow(d.BranchPackageID,d.price,'mobile')">buy now</button>
               </div>
               <!-- <div class="love">
                 <button class="uppercase" ng-click="addedToWishList(d._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>would love to try</button>

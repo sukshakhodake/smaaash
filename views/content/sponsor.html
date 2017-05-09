@@ -7,15 +7,15 @@
    <div class="container">
       <div class="new">
              <ul class="tabs-about  list-inline">
-  <li><a ui-sref="about" class="uppercase">about us</a></li>
-    <li><a ui-sref="leader"  class="uppercase">leadership</a></li>
-    <li><a ui-sref="benefit" class="uppercase">benefit</a></li>
-    <li><a ui-sref="sponsor" class="uppercase">sponsorship and alliance</a></li>
-        <li><a ui-sref="career" class="uppercase">careers</a></li>
+  <li><a ui-sref="about({aboutCity:citySpecific})" class="uppercase">about us</a></li>
+    <li><a ui-sref="leader({leaderCity:citySpecific})"  class="uppercase">leadership</a></li>
+    <li><a ui-sref="benefit({benefitCity:citySpecific})" class="uppercase">benefit</a></li>
+    <li><a ui-sref="sponsor({sponsorCity:citySpecific})" class="uppercase">sponsorship and alliance</a></li>
+        <li><a ui-sref="career({careerCity:citySpecific})" class="uppercase">careers</a></li>
   </ul>
          <div class="row" ng-repeat="datas in sponsor1">
             <div class="col-md-4 col-sm-4" ng-repeat="data in datas">
-               <div class="karting-championship  marginbot">
+               <div class="karting-championship  marginbot" ng-if="data.status">
                   <div class="brand-blue relative">
                      <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="cmo">
                   </div>
@@ -85,9 +85,9 @@
          <h3>contact details</h3>
          <p>For further information regarding Sponsorship and Alliances, feel free to get in touch with us</p>
          <div class="row">
-            <div class="col-md-3" ng-repeat="data in contact">
+            <div class="col-md-3" ng-repeat="data in contact" ng-if="data.status">
                <h3>{{data.name}}</h3>
-            
+
                <span>{{data.city.name}}</span>
                <div class="telephone">
                   <p class="margin0"><i class="fa fa-phone" aria-hidden="true"></i><span>Telephone</span><a href="tel:+91 9971670476">{{data.mobile}} </a></p>

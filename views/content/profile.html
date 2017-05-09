@@ -30,9 +30,12 @@
                            <img src="img/profile/silver.png" class="img-responsive" alt="">
                         </div>
                         <p>{{userprofile.CustomerName}}</p>
-                        <p class="inline-block">{{redemablePoints}}</p>
-                        <!-- <p class="inline-block">33500</p> -->
-                        <p class="inline-block" ng-if="redemablePoints"> points</p>
+                          <p class="inline-block" ng-if="redemablePoints"> points :</p>
+                        <p class="inline-block">{{redemablePoints}}</p></br>
+
+                        <p class="inline-block" ng-if="cardBalance"> Card Balance :</p>
+
+                        <p class="inline-block" > {{cardBalance}}</p>
 
                      </div>
                   </div>
@@ -68,12 +71,12 @@
 
                         <p class="text-uppercase">recharge</p>
 
-                     </li> 
+                     </li>
                      <li class="tab-item   relative  col-flex {{classe}}" ng-click="tabchange('logout',5)">
 
                         <p class="text-uppercase">log out</p>
 
-                     </li> 
+                     </li>
 
                      <!-- <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
 
@@ -187,7 +190,8 @@
                   <!-- <div class="reward-table carts" ng-show="tab=='trim'"> -->
                   <!-- <div class="table-responsive"> -->
                   <h3 ng-if="!isBooking" class="text-center">Loading...</h3>
-                  <div class="table-responsive" ng-if="isBooking">
+
+                  <div class="table-responsive" ng-if="isBooking && !msg">
                      <table class="table">
                         <thead>
                            <tr>
@@ -199,7 +203,7 @@
                               <th class="text-center uppercase border-right">value in rs</th>
                            </tr>
                         </thead>
-                        <tr ng-repeat="data in bookingDetails">
+                        <tr ng-repeat="data in bookingDetails" ng-if="bookingDetails">
                            <td class="text-center border-left" ng-if="data.objtype === 'Booking' ">{{data.CNRNo}}</td>
                            <td class="text-center border-left" ng-if="data.objtype === 'Recharge' ">{{data.RechargeID}}</td>
                            <td class="text-center" ng-if="data.objtype === 'Booking' ">{{data.objtype}}</td>
@@ -293,6 +297,7 @@
                   </div>
                   <h3 class="text-center" ng-if="msg">No orders found.</h3>
 
+
                </div>
                <div class="points" ng-show="tab=='team'">
                   <div class="row">
@@ -359,7 +364,7 @@
                               <input type="text" readonly  class=" form-control text-center" ng-model="userprofile.CustomerName">
                            </label>
                            <label class="item w92">
-                              <input type="text" placeholder="Card Number" class=" form-control text-center">
+                              <input type="text" placeholder="Card Number/Optional" class=" form-control text-center" ng-model="userprofile.CardNo">
                            </label>
                            <div class="game-type form-group inline-block w30">
 
@@ -392,13 +397,14 @@
                               <input type="email" readonly placeholder="amrit_bhamrah@gmail.com" class=" form-control" ng-model="userprofile.CustomerEmail">
                            </label>
                            <label class="item w46">
-                              <input type="text" placeholder="400009" class="editing form-control" ng-model="userprofile.pincode">
+                              <input type="text" placeholder="400009" class="editing form-control" ng-model="userprofile.pincode" Only-Digits>
                            </label>
-                           <button type="button" class="butts" name="button" ng-click="submitUserProfile(userprofile)">
+                           <button type="button" class="butts" name="button" ng-click="submitUserProfile(userprofile)" ng-if="!isUpdate">
                               <a href="" name="button" class="go full-width">
                                  <img src="img/profile/update.png" alt="" class="img-responsive">
                               </a>
                            </button>
+                           <h3 ng-if="isUpdate" class="text-center">Updating..</h3>
 
                       </form>
                         <h3 ng-if="formComplete" class="text-center">Profile Updated Successfully</h3>
@@ -406,7 +412,7 @@
                   </div>
 
                </div>
-               <div class="reward-table carts" ng-show="tab=='reacharge'"> 
+               <div class="reward-table carts" ng-show="tab=='reacharge'">
                  <!--<h2>recharge online</h2>-->
                   <div class="heads">
           <h3 class="text-center text-uppercase text-in-shadow font-america mb5 "> let us know your details</h3>
@@ -417,6 +423,7 @@
       </div>
       <div class="form-group">
          <input type="text" class="form-control" placeholder="Card Number" allow-pattern="(\d|[a-z])" ng-model="rechargeOnline.CustomerCardNo"  required>
+         <div style="color:red;" class="text-center">{{invalidCardNO}}</div>
       </div>
        <div class="form-group ruppee">
            <i class="fa fa-inr" aria-hidden="true"></i>
@@ -427,7 +434,7 @@
         <div class="onbutton text-center">
  <button  type="submit" ng-if="!isRecharge" name="button"><img src="img/new/go.png" alt=""></button>
         </div>
-     
+
    </form>
         </div>
                </div>

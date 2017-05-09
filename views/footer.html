@@ -1,34 +1,31 @@
 <div class="footers" ng-controller="footerctrl">
   <div class="container">
-        <div class="footing">
-  <div class="row">
-       <div class="col-md-3">
+        <div class="footing ">
+  <div class="row text-center">
+       <div class="col-md-4">
  <h4 class="bold title">hours of operation:</h4>
       </div>
-      <div class="col-md-3" ng-if="!weekdays">
 
- <h4 class="bold title">WEEKDAYS 12.30 pm TO 12 aM
+
+      <div class="col-md-4">
+
+ <h4 class="bold title" ng-if="weekdays">{{weekdays}}
+
+ </h4>
+ <h4 class="bold title" ng-if="!weekdays">Not Available
 
  </h4>
       </div>
-      <div class="col-md-3" ng-if="weekdays">
 
- <h4 class="bold title">WEEKDAYS {{weekdays}}
 
- </h4>
-      </div>
-
-      <div class="col-md-3" ng-if="!weekend">
-   <h4 class="bold title">WEEKEND 11 am TO 12 am  MIDNIGHT</h4>
+      <div class="col-md-4">
+   <h4  ng-if="weekend" class="bold title">{{weekend}}</h4>
+   <h4 ng-if="!weekend" class="bold title">Not Available</h4>
 
       </div>
-      <div class="col-md-3" ng-if="weekend">
-   <h4 class="bold title">WEEKEND {{weekend}}</h4>
+      <!-- <div class="col-md-3">
 
-      </div>
-      <div class="col-md-3">
-   <!--<h4 class="bold title">Sunday : 10 am- 10 pm</h4>-->
-      </div>
+      </div> -->
     </div>
     </div>
     <div class="footers-list">
@@ -38,12 +35,14 @@
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(1)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 1 }"></i></span>
               <h4 class="bold title pointer" ng-click="footer(1)">EXPLORE SMAAASH </h4>
+              <!-- <h4 class="bold title pointer" ng-click="footer(1)" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">EXPLORE SMAAASH </h4> -->
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 1">
-              <li><a ui-sref="attractions({id:attrctionId})">Games</a></li>
-              <li><a ui-sref="drink-party({id:drinkandPartyId})">Food &amp; Beverages</a></li>
-              <li><a ui-sref="dealsp({id:dealsandpackagesId})">Deals &amp; Packages</a></li>
-              <li><a ui-sref="promotion({id:promotionId})">Promotions</a></li>
+              <li><a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">Games</a></li>
+
+              <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">Food &amp; Beverages</a></li>
+              <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">Deals &amp; Packages</a></li>
+              <!--<li><a ui-sref="promotion({id:'promotions',promotionCity:citySpecific})">Promotions</a></li>-->
               <!--<li><a ui-sref="landingform">landing</a></li>-->
             </ul>
           </div>
@@ -52,10 +51,10 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(2)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 2 }"></i></span>
-              <h4 class="bold title pointer" ng-click="footer(2)">HOST A PARTY</h4>
+              <h4 class="bold title pointer" ng-click="footer(2)" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">HOST A PARTY</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 2">
-              <li ng-repeat="data in SingleHostParty1"><a ui-sref="parties({id:data._id})" >{{data.hometext}}</a></li>
+              <li ng-repeat="data in SingleHostParty1"><a ui-sref="parties({id:data.myslug,partyCity:citySpecific})" >{{data.hometext}}</a></li>
 
               <!-- <li><a ui-sref="hostparty({id:'57bc4b10eb9c91f1025a3b54'})">Birthday Parties</a></li>
               <li><a ui-sref="hostparty({id:'57bc4b10eb9c91f1025a3b54'})">Corporate Parties</a></li>
@@ -108,68 +107,69 @@
           <div class="foot-menu foot-list">
             <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="about" >About Us</h4>
+              <h4 class="bold title pointer" ui-sref="about({aboutCity:citySpecific})" >About Us</h4>
             </div>
 
               <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="career">careers</h4>
+              <h4 class="bold title pointer" ui-sref="career({careerCity:citySpecific})">careers</h4>
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="media" >media</h4>
+              <h4 class="bold title pointer" ui-sref="media({mediasCity:citySpecific})" >media</h4>
             </div>
 
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="stars" >stars at smaaash</h4>
+              <h4 class="bold title pointer" ui-sref="stars({city:citySpecific})" >stars at smaaash</h4>
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="sponsor" >sponsorship and alliance</h4>
+              <h4 class="bold title pointer" ui-sref="sponsor({sponsorCity:citySpecific})" >sponsorship and alliance</h4>
             </div>
           </div>
         </div>
             <div class="col col-flexing">
           <div class="foot-menu foot-list">
-            <div class="clearfix">
+            <!-- <div class="clearfix">
 
               <h4 class="bold title pointer" ui-sref="buy" >Buy Online</h4>
-            </div>
+            </div> -->
 
               <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="stars" >gallery</h4>
+              <h4 class="bold title pointer" ui-sref="stars({city:citySpecific})" >gallery</h4>
             </div>
              <div class="clearfix">
 
-              <h4 class="bold title pointer" ui-sref="event({id:eventId})" >events and challenges</h4>
+              <h4 class="bold title pointer" ui-sref="event({eventcity:citySpecific,id:'events'})" >events and challenges</h4>
             </div>
 
              <div class="clearfix">
 
               <h4 class="bold title pointer" ng-click="loyalty();">earn points</h4>
             </div>
-               <div class="clearfix">
+               <!-- <div class="clearfix">
 
               <h4 class="bold title pointer" ui-sref="recharge" >buy and recharge</h4>
-            </div>
+            </div> -->
           </div>
         </div>
          <div class="col col-flexing">
           <div class="foot-menu foot-list">
             <div class="clearfix">
               <span class="icon pull-right" ng-click="footer(12)"><i class="fa fa-angle-down " ng-class="{'fa-angle-up': showFooter == 12 }"></i></span>
-              <h4 class="bold title pointer"  ng-click="footer(12)">Contact us</h4>
+              <h4 class="bold title pointer"  ng-click="footer(12);gotoCity(data._id)" ui-sref="contact({contactCity:citySpecific})">Contact us</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 12">
-              <li><a ui-sref="contact">Bengaluru</a></li>
-              <li><a ui-sref="contact">Hyderabad</a></li>
-              <li><a ui-sref="contact">Gurgaon</a></li>
-                <li><a ui-sref="contact">Gurgaon2</a></li>
-              <li><a ui-sref="contact">Mumbai</a></li>
-              <li><a ui-sref="contact">Noida</a></li>
-              <li><a ui-sref="contact">Ludhiana</a></li>
+              <!-- <li><a ui-sref="contact({contactCity:citySpecific})">Mumbai </a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon </a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Hyderabad</a></li>
+                <li><a ui-sref="contact({contactCity:citySpecific})">Bengaluru </a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Noida</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Ludhiana</a></li>
+              <li><a ui-sref="contact({contactCity:citySpecific})">Gurgaon2</a></li> -->
+              <li ng-repeat="data in getCities" ng-click="gotoCity(data._id)"><a ui-sref="contact({contactCity:citySpecific})" >{{data.name}}</a></li>
             </ul>
           </div>
         </div>
@@ -182,6 +182,7 @@
             <ul class="foot-list foot-data app" ng-show="showFooter == 11">
               <li class="icons"><a href="https://play.google.com/store/apps/details?id=com.sms.timing.smaaash&hl=en" target="_blank"><i class="fa fa-android  fa-2x" title="Android"  target="_blank" aria-hidden="true"></i></a></li>
               <li class="icons"><a href="https://itunes.apple.com/in/app/smaaash/id930013389?mt=8" target="_blank"><i class="fa fa-apple  fa-2x" title="Apple" target="_blank" aria-hidden="true"></i></a></li>
+              <li>Coming Soon.</li>
             </ul>
           </div>
             <!--<div class="foot-list">
@@ -193,8 +194,17 @@
           <div class="foot-menu foot-list">
             <h4 class="bold title">follow smaaash</h4>
             <ul class="foot-list">
-              <li class="icons"><a href="https://www.facebook.com/SmaaashLive/" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a></li>
-              <li class="icons"><a href="https://twitter.com/search?q=smaaashlive&src=typd" target="_blank"><i class="fa fa-twitter-square  fa-2x" title="Twitter" target="_blank" aria-hidden="true"></i></a></li>
+              <li class="icons">
+                <a ng-if="citySpecific == 'Mumbai'" href="https://www.facebook.com/SmaaashMumbai/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+                <a ng-if="citySpecific == 'Noida'" href="https://www.facebook.com/SmaaashNoida/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+                <a ng-if="citySpecific == 'Ludhiana'" href="https://www.facebook.com/SmaaashLudhiana/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+                <a ng-if="citySpecific == 'Bengaluru'" href="https://www.facebook.com/SmaaashBengaluru/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+                <a ng-if="citySpecific == 'Hyderabad'" href="https://www.facebook.com/SmaaashHyderabad/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+
+                <a ng-if="citySpecific == 'Gurgaon - Cyber Hub'" href="https://www.facebook.com/SmaaashGurgaon/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+                <a ng-if="citySpecific == 'Gurgaon - Sector 29'" href="https://www.facebook.com/SmaaashSkyKartingGurgaon/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Facebook" target="_blank"aria-hidden="true"></i></a>
+              </li>
+              <li class="icons"><a href="https://twitter.com/SmaaashLive" target="_blank"><i class="fa fa-twitter-square  fa-2x" title="Twitter" target="_blank" aria-hidden="true"></i></a></li>
               <li class="icons"><a href="https://www.instagram.com/smaaash_live/" target="_blank"><i class="fa fa-instagram  fa-2x" title="Instagram" target="_blank" aria-hidden="true"></i></a></li>
               <li class="icons"><a href=" https://www.youtube.com/channel/UCkcXwQxS7sqsNja1t0V-MEQ" target="_blank"><i class="fa fa-youtube-square  fa-2x" title="Youtube" target="_blank" aria-hidden="true"></i></a></li>
             </ul>
@@ -211,12 +221,36 @@
 
         </div>-->
       </div>
+           <div class="first-know">
+
+            <form class="form-inline" ng-if="!subscribeFormComplete" ng-submit="subscribeLogin(subscribeData)">
+               <div class="form-group">
+                  <h4 class="title slide-text title-know brand-white">be the first to know</h4>
+
+
+               </div>
+
+               <div class="form-group inline-block subform">
+                  <input type="email" class="form-control subscribe" name="email" placeholder="Email Id" required ng-model="subscribeData.email">
+               </div>
+
+
+
+
+               <button type="submit" class="btn title brand-green  inline-block "><span class="brand-white">send</span></button>
+               <h4 ng-if="duplicate" class="text-center inline-block brand-white">Email Already Exist.</h4>
+            </form>
+            <div ng-if="subscribeFormComplete">
+               <h3 class="text-center brand-white">Thank You For Subscribing.</h3>
+            </div>
+         </div>
       <div class="foots-list">
         <ul class="justified-li text-center">
-           <li><a href="">Terms of Use</a></li>
-           <li><a href="">Privacy Policy</a></li>
-           <li><a href="">Children's Online Privacy Policy</a></li>
-           <li><a href="">License Agreement</a></li>
+           <li><a ui-sref="terms">Terms of Use</a></li>
+           <li><a ui-sref="policy">Privacy Policy</a></li>
+           <!-- <li><a href="">Children's Online Privacy Policy</a></li> -->
+           <li><a ui-sref="security">Security</a></li>
+           <!-- <li><a href="">License Agreement</a></li> -->
           <li>© {{template.year}} SMAAASH</li>
           <li><a href="http://ting.in/" target="_blank">Designed by <img src="img/deals/ting.png"  alt="ting"></a></li>
         </ul>
@@ -227,3 +261,16 @@
     </div>
   </div>
 </div>
+
+
+<!--<<LinkedIn Tag>>-->
+
+<script type="text/javascript">
+_linkedin_data_partner_id = "45266";
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>

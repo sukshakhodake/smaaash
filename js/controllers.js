@@ -2,7 +2,7 @@ var globalfunction = {};
 globalfunction.index;
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll', 'rzModule'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -10,25 +10,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var openL = {};
     TemplateService.removeLoaderOn(4);
-    //
-    //     function requestJSONP(url) {
-    //       console.log('ddddddddddddd');
-    //     var script = document.createElement('script');
-    //
-    //     script.type = 'text/javascript';
-    //     script.src = url;
-    //
-    //     document.body.appendChild(script);
-    //       console.log("script",script);
-    //
-    // }
-    //
-    // requestJSONP('http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155?format=jsonp');
-    // $http.get("http://api.db-ip.com/addrinfo?api_key=bc2ab711d740d7cfa6fcb0ca8822cb327e38844f&addr=27.106.57.155")
-    //     .then(function(response) {
-    //         $scope.myWelcome = response.data;
-    //         console.log("response",response);
-    //     });
+    $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
+    $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
+    $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
+    $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
+    console.log("citySpecific", $rootScope.citySpecific);
+    if ($.jStorage.get("cityid") == '587366fa7309110c7de34906' || $.jStorage.get("city") == 'Gurgaon - Sector 29') {
+        $scope.showHomeBanner = true;
+    } else {
+        $scope.showHomeBanner = false;
+    }
+    $scope.showIframe = false;
+    $scope.showIframeVid = function() {
+        console.log("imnshowIframeVid");
+        $scope.showIframe = !$scope.showIframe;
+    }
+
 
 
     $scope.goTo = function(name, id, statetogo) {
@@ -43,21 +40,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
 
-     $scope.mys=[{
-img:"img/home/mbanner.png"
-},{
-img:"img/home/mbanner.png"
-},,{
-img:"img/home/mbanner.png"
-}
-];
-var x = 1 ;
-_.each($scope.mys,function(key){
-  if (key) {
-    key.order =x ;
-    x++ ;
-  }
-})
+    $scope.mys = [{
+        img: "img/home/mbanner.png"
+    }, {
+        img: "img/home/mbanner.png"
+    }, , {
+        img: "img/home/mbanner.png"
+    }];
+    var x = 1;
+    _.each($scope.mys, function(key) {
+        if (key) {
+            key.order = x;
+            x++;
+        }
+    })
 
     $scope.openpops = function() {
         openL = ngDialog.open({
@@ -74,7 +70,8 @@ _.each($scope.mys,function(key){
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/loyalty.html",
-            scope: $scope
+            scope: $scope,
+            windowClass: 'app-modal-window'
         });
     };
 
@@ -102,25 +99,9 @@ _.each($scope.mys,function(key){
         if (!$.jStorage.get("popupShow")) {
             $scope.openpops();
         }
-        // $(window).scroll(function() {
-        //     var scroller = $(document).scrollTop();
-        //     var height = 500;
-        //     if (height <= scroller) {
-        //         $('body').addClass('show-header');
 
-        //     } else {
-        //         $('body').removeClass('show-header');
-
-        //     }
-        // });
     });
-    // $(window).scroll(function() {
-    //     var scroller = $(document).scrollTop();
-    //     var height = $(window).height() - 40;
-    //     if (height <= scroller) {
-    //         var vdo = document.getElementsByClassName('stopv');
-    //     }
-    // });
+
     $scope.showVideo = false;
     $scope.scrollToHome = function() {
         $scope.showVideo = true;
@@ -133,13 +114,18 @@ _.each($scope.mys,function(key){
         $scope.mySlides = data.data;
         console.log("$scope.mySlides", $scope.mySlides);
         var i = 1;
+        var x = 1;
         _.each($scope.mySlides, function(n) {
             if (n.image) {
                 n.ordering = i;
                 i++;
-            }
 
-        });
+            };
+            if (n.mobileImage) {
+                n.mobileorder = x;
+                x++;
+            }
+          });
         TemplateService.removeLoader();
     });
 
@@ -154,6 +140,8 @@ _.each($scope.mys,function(key){
     $scope.getCities = {};
     NavigationService.getCity(function(data) {
         $scope.getCities = data.data;
+        $rootScope.smaaashCities =data.data;
+        console.log("$rootScope.smaaashCities",$rootScope.smaaashCities);
         TemplateService.removeLoader();
     });
     $scope.nameOfCity = $.jStorage.get("city");
@@ -175,20 +163,65 @@ _.each($scope.mys,function(key){
     NavigationService.getHomeContent(function(data) {
         $scope.homeContent = data.data;
         if (data.value) {
+          $scope.hostParty=[];
+          $scope.attraction1=[];
+          $scope.attraction2=[];
+            $scope.attraction=[];
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
-            $scope.attraction = $scope.content.Attraction;
+            _.each($scope.content.Attraction,function(key){
+              if (key.order == null) {
+                if (key.status) {
+                    $scope.attraction1.push(key);
+                }
+
+              }else {
+                if (key.status) {
+                  $scope.attraction2.push(key);
+                }
+              }
+            })
+            $scope.attraction2=$filter('orderBy')($scope.attraction2, '-order');
+            $scope.attraction = $scope.attraction2.concat($scope.attraction1);
+            // $scope.attraction = $scope.content.Attraction;
+            console.log("  $scope.attraction", $scope.attraction);
             $scope.whatsnew = $scope.content["What's new"];
-            console.log($scope.whatsnew,"$scope.whatsnew");
-            $scope.hostParty = $scope.content["Host a party"];
+            console.log($scope.whatsnew, "$scope.whatsnew");
+            $scope.hostParty1 = $scope.content["Host a party"];
+            console.log("$scope.hostParty1 ",$scope.hostParty1 );
+            _.each($scope.hostParty1,function(key){
+              if (key.status) {
+
+                $scope.hostParty.push(key);
+              }
+            })
             console.log(" *******", $scope.hostParty);
-            $scope.deals = $scope.content["Deals and Packages"];
-            console.log("  $scope.deals",  $scope.deals);
-            $scope.events = $scope.content["Events"];
+              $scope.deals=[];
+                $scope.events=[];
+            $scope.dealsp = $scope.content["Deals and Packages"];
+          $scope.dealsp=  $filter('orderBy')($scope.dealsp, '-order');
+          _.each(  $scope.dealsp,function(key){
+            if (key.status) {
+              $scope.deals.push(key);
+            }
+              console.log("  $scope.deals",  $scope.deals);
+          })
+
+
+            $scope.eventss = $scope.content["Events"];
+            _.each($scope.eventss,function(key){
+              if (key.status) {
+                  $scope.events.push(key);
+              }
+
+            })
+
+
             $scope.foodBeverages = $scope.content["Food and Beverages"];
             console.log("$scope.foodBeverages", $scope.foodBeverages);
             $scope.buyOnline = $scope.content["Buy Online"];
             $scope.promotion = $scope.content["Promotions"];
+            console.log($scope.promotion, "  $scope.promotion");
 
             TemplateService.removeLoader();
         } else {}
@@ -250,27 +283,27 @@ _.each($scope.mys,function(key){
 
         if ($scope.signupData) {
             // if ($scope.signupData.city == $.jStorage.get("cityid")) {
-                // $scope.validCity = false;
-                if ($scope.signupData.password == $scope.signupData.confirmPassword) {
+            // $scope.validCity = false;
+            if ($scope.signupData.password == $scope.signupData.confirmPassword) {
 
-                    $scope.pass = true;
-                    NavigationService.signup($scope.signupData, function(data) {
-                        if (data.value) {
-                            $scope.emailExist = false;
-                            $scope.formCompleteSignup = true;
-                            $timeout(function() {
-                                $scope.formCompleteSignup = false;
-                                $scope.signupData = {};
-                            }, 2000);
+                $scope.pass = true;
+                NavigationService.signup($scope.signupData, function(data) {
+                    if (data.value) {
+                        $scope.emailExist = false;
+                        $scope.formCompleteSignup = true;
+                        $timeout(function() {
+                            $scope.formCompleteSignup = false;
+                            $scope.signupData = {};
+                        }, 2000);
 
-                        } else {
-                            $scope.emailExist = true;
-                        }
+                    } else {
+                        $scope.emailExist = true;
+                    }
 
-                    })
-                } else {
-                    $scope.pass = false;
-                }
+                })
+            } else {
+                $scope.pass = false;
+            }
             // } else {
             //     $scope.validCity = true;
             // }
@@ -308,17 +341,22 @@ _.each($scope.mys,function(key){
     $scope.dealspCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowDealsp = function(BranchPackageID, price) {
+    $scope.buyNowDealsp = function(BranchPackageID, price,mobile) {
 
         $scope.dealspCartParams.BranchPackageID = BranchPackageID;
-          // $scope.dealspCartParams.BranchPackageID = "41";
-          // $scope.dealspCartParams.TotalAmount = "222";
-          $scope.dealspCartParams.TotalAmount = price;
+        // $scope.dealspCartParams.BranchPackageID = "41";
+        // $scope.dealspCartParams.TotalAmount = "222";
+        $scope.dealspCartParams.TotalAmount = price;
 
 
         console.log("$scope.dealspCartParams", $scope.dealspCartParams);
-        if ($.jStorage.get("loginDetail") === null) {
-            $rootScope.getMenus();
+        if ($.jStorage.get("loginDetail") == null) {
+
+            if (mobile == 'mobile') {
+              $rootScope.signinModal();
+              console.log("imin");
+            }
+              $rootScope.getMenus();
         } else {
             NavigationService.addToCart($scope.dealspCartParams, function(data) {
                 console.log("$scope.dealspCartParams", $scope.dealspCartParams);
@@ -333,11 +371,13 @@ _.each($scope.mys,function(key){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -345,12 +385,12 @@ _.each($scope.mys,function(key){
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -544,7 +584,7 @@ _.each($scope.mys,function(key){
             })
         };
     })
-    .controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+    .controller('CareerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $state) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("career");
         $scope.menutitle = NavigationService.makeactive("Career");
@@ -558,11 +598,16 @@ _.each($scope.mys,function(key){
                 scope: $scope
             });
         }
-
+        // if ($stateParams.careerCity) {
+        //     $stateParams.careerCity = $.jStorage.get("city");
+        //     $state.go("career", {
+        //         careerCity: $stateParams.careerCity
+        //     });
+        // }
 
     })
 
-.controller('BenefitCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('BenefitCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("benefit");
     $scope.menutitle = NavigationService.makeactive("Benefit");
@@ -573,6 +618,13 @@ _.each($scope.mys,function(key){
         $scope.benefits = data.data;
         TemplateService.removeLoader();
     });
+    // if ($stateParams.benefitCity) {
+    //     $stateParams.benefitCity = $.jStorage.get("city");
+    //     $state.go("benefit", {
+    //         benefitCity: $stateParams.benefitCity
+    //     });
+    // }
+
 
 })
 
@@ -705,16 +757,108 @@ _.each($scope.mys,function(key){
         .trigger('change');
 })
 
-.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("contact");
     $scope.menutitle = NavigationService.makeactive("Contact");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if ($stateParams.contactCity) {
+        $stateParams.contactCity = $.jStorage.get("city");
+        $state.go("contact", {
+            contactCity: $stateParams.contactCity
+        });
+    }
+    // if ($.jStorage.get("cityid")!=null) {
+    //   $scope.contactCityId =$.jStorage.get("cityid") ;
+    //   switch ($scope.contactCityId) {
+    //     case '577f4d106b78e0bc03724800':
+    //     $scope.Mum =true;
+    //
+    //       break;
+    //       case '577f4d246b78e0bc03724802':
+    //         $scope.GurgaonHub=true;
+    //         break;
+    //         case '579b0d74fa72c24405ee0818':
+    //           $scope.Hyderabad  =true;
+    //           break;
+    //           case '577f4d1c6b78e0bc03724801':
+    //           $scope.Bengaluru =true;
+    //
+    //             break;
+    //             case '57808c9032b1d30b046dd48c':
+    //             $scope.Noida=true;
+    //
+    //               break;
+    //               case '58808e0e94082f1ed90f06a0':
+    //                 $scope.Ludhiana=true;
+    //                 break;
+    //                 case '587366fa7309110c7de34906':
+    //                   $scope.GurgaonSec29 =true;
+    //                   break;
+    //     default:
+    //     case '577f4d106b78e0bc03724800':
+    //     $scope.Mum =true;
+    //   }
+    // }
+
+
 
 })
 
-.controller('SponsorCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('termsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("terms");
+        $scope.menutitle = NavigationService.makeactive("Terms Of Use");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        // if ($stateParams.contactCity) {
+        //     $stateParams.contactCity = $.jStorage.get("city");
+        //     $state.go("contact", {
+        //         contactCity: $stateParams.contactCity
+        //     });
+        // }
+        //
+
+
+
+    })
+    .controller('securityCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("security");
+        $scope.menutitle = NavigationService.makeactive("Security");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        // if ($stateParams.contactCity) {
+        //     $stateParams.contactCity = $.jStorage.get("city");
+        //     $state.go("contact", {
+        //         contactCity: $stateParams.contactCity
+        //     });
+        // }
+        //
+
+
+
+    })
+    .controller('policyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("policy");
+        $scope.menutitle = NavigationService.makeactive("Policy");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        // if ($stateParams.contactCity) {
+        //     $stateParams.contactCity = $.jStorage.get("city");
+        //     $state.go("contact", {
+        //         contactCity: $stateParams.contactCity
+        //     });
+        // }
+        //
+
+
+
+    })
+
+.controller('SponsorCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("sponsor");
     $scope.menutitle = NavigationService.makeactive("Sponsor");
@@ -722,14 +866,23 @@ _.each($scope.mys,function(key){
     $scope.navigation = NavigationService.getnav();
 
     TemplateService.removeLoaderOn(1);
+    // if ($stateParams.sponsorCity) {
+    //     $stateParams.sponsorCity = $.jStorage.get("city");
+    //     $state.go("sponsor", {
+    //         sponsorCity: $stateParams.sponsorCity
+    //     });
+    // }
+
 
     $scope.moreDesc = {};
     NavigationService.getSponsors(function(data) {
         console.log("data", data.data);
         $scope.sponsor = data.data.sponsor;
         $scope.sponsor1 = _.chunk(data.data.sponsor, 3);
+
         $scope.esteem = data.data.esteem;
         $scope.contact = data.data.contact;
+        console.log("  $scope.contact",  $scope.contact);
 
         TemplateService.removeLoader();
     });
@@ -752,13 +905,22 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+.controller('MediaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("media");
     $scope.menutitle = NavigationService.makeactive("Media");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(2);
+
+
+    // if ($stateParams.mediasCity) {
+    //     $stateParams.mediasCity = $.jStorage.get("city");
+    //     $state.go("media", {
+    //         mediasCity: $stateParams.mediasCity
+    //     });
+    // }
+
 
     // $scope.objectfilter = {};
     // $scope.objectfilter.pagenumber = 0;
@@ -802,65 +964,97 @@ _.each($scope.mys,function(key){
     // };
     // $scope.fetchData();
 
+    if ($stateParams.mediasCity) {
+      NavigationService.getCity(function(data) {
+            $scope.getCities = _.cloneDeep(data.data);
+            console.log("$scope.getCities ", $scope.getCities);
+            $scope.tempCity = _.find($scope.getCities, function(obj) {
+                return obj.name == $stateParams.mediasCity;
+            });
+            $scope.moreDesc = {};
+            $scope.mediaObject = {};
+            $scope.mediaObject.pagenumber = 0;
+            $scope.mediaObject.pagesize = 6;
+            $scope.mediaObject.city = $scope.tempCity._id;
+            // $scope.mediaObject.city = $.jStorage.get("cityid");
+            $scope.noviewmore = true;
+            $scope.mediagallery = [];
+            $scope.mediagalleryDesc = [];
+            $scope.notAvailable = false;
+            $scope.busy = false;
+
+            $scope.fetchData = function() {
+                if ($scope.busy) return;
+                $scope.busy = true;
+                $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
+                NavigationService.getGallery($scope.mediaObject, function(data) {
+                    // NavigationService.getStars($scope.mediaObject, function(data) {
+
+                    console.log("mediaObject", data.data);
+                    console.log(data.data.totalpages);
+                    // console.log("getStars", data.data);
+                    if (data.data.data.length === 0) {
+                        $scope.notAvailable = true;
+                    } else {
+                        $scope.notAvailable = false;
+                    }
+                    if (data.value) {
+                      $scope.nullMedia =[];
+                      $scope.orderMedia =[];
+
+                        console.log($scope.mediaObject.pagenumber);
+                        if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
+                            if (data.data.data) {
+                                _.each(data.data.data, function(val) {
+                                    $scope.mediagalleryDesc.push(val);
+                                    if (val.order == null) {
+                                      if (val.status) {
+                                        $scope.nullMedia.push(val);
+                                      }
+                                    }else {
+                                      if (val.status) {
+                                        $scope.orderMedia.push(val);
+                                      }
+                                    }
+                                });
+                              $scope.orderMedia1=$filter('orderBy')($scope.orderMedia, '-order');
+                              $scope.finalMedia =$scope.orderMedia1.concat($scope.nullMedia);
+
+                                console.log("  $scope.mediagalleryDesc", $scope.mediagalleryDesc);
+
+                                $scope.finalMedia = _.chunk($scope.finalMedia, 3);
+                                _.each($scope.finalMedia, function(n) {
+                                    // console.log(n);
+
+                                        $scope.mediagallery.push(n);
 
 
-    $scope.moreDesc = {};
-    $scope.mediaObject = {};
-    $scope.mediaObject.pagenumber = 0;
-    $scope.mediaObject.pagesize = 6;
-    $scope.mediaObject.city = $.jStorage.get("cityid");
-    $scope.noviewmore = true;
-    $scope.mediagallery = [];
-    $scope.mediagalleryDesc = [];
-    $scope.notAvailable = false;
-    $scope.busy = false;
+                                    $scope.busy = false;
 
-    $scope.fetchData = function() {
-        if ($scope.busy) return;
-        $scope.busy = true;
-        $scope.mediaObject.pagenumber = $scope.mediaObject.pagenumber + 1;
-        NavigationService.getGallery($scope.mediaObject, function(data) {
-            // NavigationService.getStars($scope.mediaObject, function(data) {
+                                });
+                            }
 
-            console.log("mediaObject", data.data);
-            console.log(data.data.totalpages);
-            // console.log("getStars", data.data);
-            if (data.data.data.length === 0) {
-                $scope.notAvailable = true;
-            } else {
-                $scope.notAvailable = false;
-            }
-            if (data.value) {
-                console.log($scope.mediaObject.pagenumber);
-                if (data.data.totalpages >= $scope.mediaObject.pagenumber) {
-                    if (data.data.data) {
-                        _.each(data.data.data, function(val) {
-                            $scope.mediagalleryDesc.push(val);
-                        });
-                        console.log("  $scope.mediagalleryDesc", $scope.mediagalleryDesc);
-                        data.data.data = _.chunk(data.data.data, 3);
-                        _.each(data.data.data, function(n) {
-                            // console.log(n);
-                            $scope.mediagallery.push(n);
-                            $scope.busy = false;
-
-                        });
+                            if (data.data.totalpages === $scope.mediaObject.pagenumber) {
+                                $scope.noviewmore = false;
+                            }
+                        } else {
+                            console.log("in else last array");
+                            $scope.noviewmore = false;
+                        }
+                        TemplateService.removeLoader();
                     }
 
-                    if (data.data.totalpages === $scope.mediaObject.pagenumber) {
-                        $scope.noviewmore = false;
-                    }
-                } else {
-                    console.log("in else last array");
-                    $scope.noviewmore = false;
-                }
-                TemplateService.removeLoader();
-            }
+                })
+            };
 
-        })
-    };
+            $scope.fetchData();
+});
 
-    $scope.fetchData();
+    }
+
+
+
+
     // $scope.fetchSearchedData = function() {
     //   $scope.busy = false;
     //     $scope.mediaObject.pagenumber = 0;
@@ -934,7 +1128,7 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state,$filter, $rootScope) {
+.controller('EventCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event");
     $scope.menutitle = NavigationService.makeactive("Events");
@@ -942,21 +1136,72 @@ _.each($scope.mys,function(key){
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.moreDesc = {};
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.events = _.chunk(data.data, 3);
-        TemplateService.removeLoader();
-    });
 
-    $scope.goTo = function(name, id) {
-        if (name, id) {
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-            $state.go('event-inner', {
-                name: $scope.name,
-                id: id
-            });
-        }
+if ($stateParams.eventcity) {
+  NavigationService.getCity(function(data) {
+        $scope.getCities = _.cloneDeep(data.data);
+        console.log("$scope.getCities ", $scope.getCities);
+        $scope.tempCity = _.find($scope.getCities, function(obj) {
+            return obj.name == $stateParams.eventcity;
+        });
+        console.log("$scope.tempCity._id",$scope.tempCity._id);
+        NavigationService.getSingleExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
+          $scope.temparr=[];
+          $scope.temparr1=[];
+          _.each(data.data,function(key){
+            if (key.order === null) {
+              if (key.status) {
+                  $scope.temparr1.push(key);
+              }
 
-    }
+
+              console.log("$scope.temparr",$scope.temparr);
+            }else {
+              if (key.status) {
+                  $scope.temparr.push(key);
+              }
+
+                console.log("$scope.temparr",$scope.temparr1);
+            }
+
+          })
+            $scope.events = $filter('orderBy')($scope.temparr, '-order');
+            $scope.events = $scope.events.concat($scope.temparr1);
+            $scope.events = _.chunk($scope.events, 3);
+            TemplateService.removeLoader();
+        });
+      })
+}
+
+
+
+    // if ($stateParams.city) {
+    //     $stateParams.city = $.jStorage.get("city");
+    //     $state.go("stars", {
+    //         city: $stateParams.city
+    //     });
+    // }
+
+    // console.log("$stateParams", $stateParams.eventcity);
+    // if ($stateParams.eventcity) {
+    //     $stateParams.eventcity = $.jStorage.get("city");
+    //     $state.go('event', {
+    //         eventcity: $stateParams.eventcity,
+    //         id: $stateParams.id
+    //     });
+    // }
+
+    // $scope.goTo = function(id) {
+    //     if (id) {
+    //
+    //         $state.go('event-inner', {
+    //
+    //             id: id,
+    //             eventsInnercity:$rootScope.citySpecific
+    //         });
+    //     }
+    //
+    // }
     $scope.isInWishlist = function(id) {
         var indexF = _.findIndex($scope.userwishlist, function(key) {
             return key.exploresmash._id == id;
@@ -1043,60 +1288,66 @@ _.each($scope.mys,function(key){
     $scope.eventsCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowEvent = function(BranchPackageID, price) {
-      console.log("BranchPackageID",BranchPackageID);
-      console.log("$scope.eventsCartParams", $scope.eventsCartParams);
+    $scope.buyNowEvent = function(BranchPackageID, price,mobile) {
+        console.log("BranchPackageID", BranchPackageID);
+        console.log("$scope.eventsCartParams", $scope.eventsCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+                $rootScope.signinModal();
+            }
+
         } else {
-          if (BranchPackageID !=undefined && price!=undefined) {
-            $scope.eventsCartParams.BranchPackageID = BranchPackageID;
-              // $scope.eventsCartParams.BranchPackageID = "41";
-              // $scope.eventsCartParams.TotalAmount = "222";
-              $scope.eventsCartParams.TotalAmount = price;
-              NavigationService.addToCart($scope.eventsCartParams, function(data) {
-                  console.log("$scope.eventsCartParams", $scope.eventsCartParams);
-                  if (data.value) {
+            if (BranchPackageID != undefined && price != undefined) {
+                $scope.eventsCartParams.BranchPackageID = BranchPackageID;
+                // $scope.eventsCartParams.BranchPackageID = "41";
+                // $scope.eventsCartParams.TotalAmount = "222";
+                $scope.eventsCartParams.TotalAmount = price;
+                NavigationService.addToCart($scope.eventsCartParams, function(data) {
+                    console.log("$scope.eventsCartParams", $scope.eventsCartParams);
+                    if (data.value) {
 
-                      if (data.data.AddToCart[0].Status === 1) {
-                          console.log("inif", data);
-                          $scope.successCartModal = $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/addtocart.html',
-                              scope: $scope
-                          });
-                          $timeout(function() {
-                              $scope.successCartModal.close();
-                              $state.go('cart');
-                          }, 1000);
+                        if (data.data.AddToCart[0].Status === 1) {
+                            console.log("inif", data);
+                            $scope.successCartModal = $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/addtocart.html',
+                                scope: $scope
+                            });
+                            $timeout(function() {
+                                $scope.successCartModal.close();
+                                $state.go('cart', {
+                                    cartCity: $rootScope.citySpecific
+                                });
+                            }, 1000);
 
 
-                      } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
-                          console.log("in else", data);
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/alreadyCart.html',
-                              scope: $scope
-                          });
+                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
+                            console.log("in else", data);
+                            $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/alreadyCart.html',
+                                scope: $scope
+                            });
 
-                      }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                            $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/cartFail.html',
+                                scope: $scope
+                            });
+
+                        }
+                    } else {
                         $uibModal.open({
                             animation: true,
-                            templateUrl: 'views/modal/cartFail.html',
+                            templateUrl: 'views/modal/addtocartfail.html',
                             scope: $scope
                         });
+                    }
 
-                      }
-                  } else {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/addtocartfail.html',
-                          scope: $scope
-                      });
-                  }
-
-              })
-          }
+                })
+            }
 
 
         }
@@ -1112,23 +1363,67 @@ _.each($scope.mys,function(key){
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
+    // if ($stateParams.dealspcity) {
+    //     $stateParams.dealspcity = $.jStorage.get("city");
+    //     $state.go('dealsp', {
+    //         dealspcity: $stateParams.dealspcity,
+    //         id: $stateParams.id,
+    //         name: $stateParams.name,
+    //     });
+    // }
 
-    $scope.goTo = function(name, id) {
-        if (name, id) {
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
+
+
+    $scope.goTo = function(id) {
+        console.log("im in");
+        if (id) {
+            console.log("im in");
+            // $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
             $state.go('deals-inner', {
-                name: $scope.name,
-                id: id
+                id: id,
+                dealsinnercity: $rootScope.citySpecific
+
             });
         }
 
     }
-
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.SingleDealsPackages = _.chunk(data.data, 3);
-        console.log("SingleDealsPackages", $scope.SingleDealsPackages);
-        TemplateService.removeLoader();
+if ($stateParams.dealspcity) {
+  NavigationService.getCity(function(data){
+    $scope.getCities = _.cloneDeep(data.data);
+    console.log("$scope.getCities ", $scope.getCities);
+    $scope.tempCity = _.find($scope.getCities, function(obj) {
+        return obj.name == $stateParams.dealspcity;
     });
+    NavigationService.getSingleExploreSmaaashByUrlDeals($stateParams.id,$scope.tempCity._id, function(data) {
+      $scope.tempDealsp=[];
+      $scope.tempDealsp1=[];
+      _.each(data.data,function(key){
+        if (key.order == null) {
+          if (key.status) {
+              $scope.tempDealsp.push(key);
+          }
+
+        }else{
+          if (key.status) {
+            $scope.tempDealsp1.push(key);
+          }
+
+        }
+      })
+
+
+      $scope.SingleDealsPackages =_.cloneDeep($scope.tempDealsp1);
+        $scope.SingleDealsPackages=$filter('orderBy')($scope.SingleDealsPackages, '-order');
+      $scope.SingleDealsPackages=$scope.SingleDealsPackages.concat($scope.tempDealsp);
+
+      $scope.SingleDealsPackages = _.chunk($scope.SingleDealsPackages, 3);
+      TemplateService.removeLoader();
+    });
+  })
+
+}
+
+
 
     if ($.jStorage.get("loginDetail") != null) {
         function showWishList() {
@@ -1215,17 +1510,20 @@ _.each($scope.mys,function(key){
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNow = function(BranchPackageID, price) {
+    $scope.buyNow = function(BranchPackageID, price,mobile) {
 
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
-          // $scope.addToCartParams.BranchPackageID = "41";
-          // $scope.addToCartParams.TotalAmount = "222";
-          $scope.addToCartParams.TotalAmount = price;
+        // $scope.addToCartParams.BranchPackageID = "41";
+        // $scope.addToCartParams.TotalAmount = "222";
+        $scope.addToCartParams.TotalAmount = price;
 
 
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+                $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -1240,11 +1538,13 @@ _.each($scope.mys,function(key){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -1252,12 +1552,12 @@ _.each($scope.mys,function(key){
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -1267,7 +1567,7 @@ _.each($scope.mys,function(key){
                         scope: $scope
                     });
                 }
-              })
+            })
         }
     }
 
@@ -1275,7 +1575,7 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('StarsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("stars");
     $scope.menutitle = NavigationService.makeactive("Gallery");
@@ -1290,6 +1590,14 @@ _.each($scope.mys,function(key){
             $scope.menu = "menu-out";
         }
     };
+    // if ($stateParams.city) {
+    //     $stateParams.city = $.jStorage.get("city");
+    //     $state.go("stars", {
+    //         city: $stateParams.city
+    //     });
+    // }
+
+    console.log('$stateParams.city', $stateParams.city);
     TemplateService.removeLoaderOn(2);
     $scope.objectfilter = {};
     $scope.objectfilter.pagenumber = 0;
@@ -1386,9 +1694,150 @@ _.each($scope.mys,function(key){
 
     }
 
-    $scope.mediagallerys = [{
-        image: 'img/new/13.png'
-    }]
+    $scope.mediagallerys = [
+        // {
+        //       image: 'img/new/13.png'
+        //   },
+        {
+            image: 'img/sports/1 (1).jpg'
+        }, {
+            image: 'img/sports/1 (2).jpg'
+        }, {
+            image: 'img/sports/1 (3).jpg'
+        }, {
+            image: 'img/sports/1 (4).jpg'
+        }, {
+            image: 'img/sports/1 (5).jpg'
+        }, {
+            image: 'img/sports/1 (6).jpg'
+        }, {
+            image: 'img/sports/1 (7).jpg'
+        }, {
+            image: 'img/sports/1 (8).jpg'
+        },
+        //  {
+        //     image: 'img/sports/1 (9).jpg'
+        // },
+        {
+            image: 'img/sports/1 (10).jpg'
+        }, {
+            image: 'img/sports/1 (11).jpg'
+        }, {
+            image: 'img/sports/1 (12).jpg'
+        }, {
+            image: 'img/sports/1 (13).jpg'
+        }, {
+            image: 'img/sports/1.jpg'
+        }, {
+            image: 'img/sports/2 (1).jpg'
+        }, {
+            image: 'img/sports/2 (2).jpg'
+        }, {
+            image: 'img/sports/2 (3).jpg'
+        }, {
+            image: 'img/sports/2 (4).jpg'
+        }, {
+            image: 'img/sports/2 (5).jpg'
+        }, {
+            image: 'img/sports/2 (6).jpg'
+        }, {
+            image: 'img/sports/2 (7).jpg'
+        },
+        //  {
+        //     image: 'img/sports/2 (8).jpg'
+        // },
+         {
+            image: 'img/sports/2 (9).jpg'
+        }, {
+            image: 'img/sports/2 (10).jpg'
+        }, {
+            image: 'img/sports/2 (11).jpg'
+        }, {
+            image: 'img/sports/2 (12).jpg'
+        }, {
+            image: 'img/sports/2.jpg'
+        }, {
+            image: 'img/sports/3 (1).jpg'
+        }, {
+            image: 'img/sports/3 (2).jpg'
+        }, {
+            image: 'img/sports/3 (3).jpg'
+        }, {
+            image: 'img/sports/3 (4).jpg'
+        }, {
+            image: 'img/sports/3 (5).jpg'
+        }, {
+            image: 'img/sports/3 (6).jpg'
+        }, {
+            image: 'img/sports/3 (7).jpg'
+        }, {
+            image: 'img/sports/3.jpg'
+        }, {
+            image: 'img/sports/4 (1).jpg'
+        }, {
+            image: 'img/sports/4 (2).jpg'
+        }, {
+            image: 'img/sports/4 (3).jpg'
+        }, {
+            image: 'img/sports/4 (4).jpg'
+        }, {
+            image: 'img/sports/4 (5).jpg'
+        }, {
+            image: 'img/sports/4.jpg'
+        }, {
+            image: 'img/sports/5 (1).jpg'
+        }, {
+            image: 'img/sports/5 (2).jpg'
+        }, {
+            image: 'img/sports/5.jpg'
+        }
+
+
+    ];
+
+    $scope.getEventGal = function(gallery){
+      console.log(gallery);
+      $scope.galleryEvent = gallery;
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/event-smaash.html",
+        scope: $scope
+      });
+    }
+
+    $scope.eventsAtSmaaash = [
+      {
+        "event":"timetraialchampionship",
+        "image":"img/timetraialchampionship/2.jpg",
+        "title":"Time trial karting championship - Gurgaon Sec -29",
+        "imgArr":['img/timetraialchampionship/1.jpg','img/timetraialchampionship/2.jpg','img/timetraialchampionship/3.jpg','img/timetraialchampionship/10.jpg']
+      },
+      {
+          "event":"viratBenguluru",
+        "image":"img/viratBenguluru/5K1B4238.jpg",
+        "title":"Virat at Bengaluru",
+
+        "imgArr":[
+        'img/viratBenguluru/5K1B4283.jpg',
+      'img/viratBenguluru/5K1B4288.jpg',
+      'img/viratBenguluru/5K1B4290.jpg'
+      // 'img/viratBenguluru/5K1B4384.jpg'
+        ]
+      },
+      {
+          "event":"viratLudhiana",
+        "image":"img/viratLudhiana/Virat In Ludhiana Smaaash (1).jpg",
+        "title":"Virat at Ludhiana",
+
+        "imgArr":[
+        'img/viratLudhiana/image.jpeg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (3).jpg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (4).jpg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (5).jpg',
+        'img/viratLudhiana/Virat In Ludhiana Smaaash (7).jpg'
+      ]
+      }
+    ]
 
 })
 
@@ -1530,7 +1979,7 @@ _.each($scope.mys,function(key){
 })
 
 
-.controller('LeaderCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('LeaderCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("leader");
     $scope.menutitle = NavigationService.makeactive("Leadership");
@@ -1545,6 +1994,13 @@ _.each($scope.mys,function(key){
             $scope.menu = "menu-out";
         }
     };
+    // if ($stateParams.leaderCity) {
+    //     $stateParams.leaderCity = $.jStorage.get("city");
+    //     $state.go("leader", {
+    //         leaderCity: $stateParams.leaderCity
+    //     });
+    // }
+
     $scope.moreDesc = {};
     NavigationService.getLeader(function(data) {
         $scope.leadership = data.data;
@@ -1582,6 +2038,7 @@ _.each($scope.mys,function(key){
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.menu = "menu-out";
+    console.log("window.location.href", window.location.href.split('/').slice(-1)[0]);
     $scope.getMenu = function() {
         if ($scope.menu == "menu-out") {
             $scope.menu = "menu-in";
@@ -1589,50 +2046,218 @@ _.each($scope.mys,function(key){
             $scope.menu = "menu-out";
         }
     };
-    $scope.moreDesc = {};
-    $scope.male = '';
-    $scope.female = '';
-    $scope.children = '';
+
+    // console.log("$stateParams.gamesCity", $stateParams.gamesCity);
+
+    // if ($stateParams.gamesCity) {
+    //   console.log("im in game city");
+    //   if ($stateParams.gamesCity!=$.jStorage.get("city")) {
+    //     NavigationService.getCity(function(data) {
+    //         $scope.getCities = _.cloneDeep(data.data);
+    //         console.log("$scope.getCities ", $scope.getCities);
+    //         $scope.changeCityParams = _.find($scope.getCities, function(obj) {
+    //             return obj.name == $stateParams.gamesCity;
+    //         });
+    //         console.log("changeCityParams", $scope.changeCityParams);
+    //
+    //         NavigationService.setCity($scope.changeCityParams);
+    //           $scope.template.reFetchCity();
+    //
+    //             $state.go('attractions', {
+    //                 gamesCity: $.jStorage.get("city"),
+    //                 id: window.location.href.split('/').slice(-1)[0]
+    //             })
+    //
+    //
+    //     });
+    //   }
+    //
+    //
+    // }
+    console.log("$stateParams.id",$stateParams.id);
+
+    // if ($stateParams.gamesCity) {
+    //     $stateParams.gamesCity = $.jStorage.get("city");
+    //     $state.go('attractions', {
+    //         gamesCity: $stateParams.gamesCity,
+    //         id: $stateParams.id
+    //     })
+    // }
+
+if ($stateParams.gamesCity) {
     $scope.filter = {};
-    $scope.filter._id = $stateParams.id;
-    $scope.msg = false;
-    $scope.singleAttraction1 = [];
-    $scope.singleAttraction = [];
-    $scope.goTOSearch = function(filter) {
-        NavigationService.searchExploreSmaaash($scope.filter, function(data) {
-            $scope.singleAttraction = data.data;
-            console.log("$scope.singleAttraction", $scope.singleAttraction);
-            $scope.singleAttraction1 = _.chunk(data.data, 3);
-
-            if ($scope.singleAttraction1.length === 0) {
-                console.log("imin");
-                $scope.msg = true;
-            } else {
-                $scope.msg = false;
-            }
-
-            _.each($scope.singleAttraction, function(data) {
-                data.gameforarray = [];
-                _.each(data.gamefor, function(n) {
-                    switch (n) {
-                        case '1':
-                            data.gameforarray.push('Male')
-                            break;
-                        case '2':
-                            data.gameforarray.push('Female')
-                            break;
-                        case '3':
-                            data.gameforarray.push('Children')
-                            break;
-                        default:
-                    }
-                });
-            });
-            TemplateService.removeLoader();
-
+  NavigationService.getCity(function(data) {
+        $scope.getCities = _.cloneDeep(data.data);
+        console.log("$scope.getCities ", $scope.getCities);
+        $scope.tempCity = _.find($scope.getCities, function(obj) {
+            return obj.name == $stateParams.gamesCity;
         });
-    }
-    $scope.goTOSearch($scope.filter);
+
+
+  $scope.male = '';
+  $scope.female = '';
+  $scope.children = '';
+
+    $scope.filter.city=$scope.tempCity._id;
+  // $scope.filter._id = $stateParams.id;
+  $scope.filter.myslug = $stateParams.id;
+  $scope.msg = false;
+  $scope.singleAttraction1 = [];
+  $scope.singleAttraction = [];
+  $scope.goTOSearch = function(filter) {
+
+      NavigationService.searchExploreSmaaash($scope.filter, function(data) {
+          $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
+          $scope.temparr=[];
+          $scope.temparr1=[];
+
+          _.each(data.data,function(key){
+            console.log("key",key);
+            if (key.order === null) {
+              if (key.status) {
+                    $scope.temparr1.push(key);
+              }
+
+
+              console.log("$scope.temparr",$scope.temparr);
+            }else {
+              if (key.status) {
+                $scope.temparr.push(key);
+                  console.log("$scope.temparr",$scope.temparr1);
+              }
+
+            }
+            // if (key.order) {
+            //
+            //   $scope.temparr.push(key);
+            //   console.log("$scope.temparr",$scope.temparr);
+            // }else if (key.order === null) {
+            //     $scope.temparr1.push(key);
+            //     console.log("$scope.temparr",$scope.temparr1);
+            // }
+
+                      $scope.singleAttraction1 = $filter('orderBy')($scope.temparr, '-order');
+                        $scope.singleAttraction1=$scope.singleAttraction1.concat($scope.temparr1);
+                      $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
+                      if ($scope.singleAttraction1.length === 0) {
+                          console.log("imin");
+                          $scope.msg = true;
+                      } else {
+                          $scope.msg = false;
+                      }
+
+
+          })
+
+
+          // _.each($scope.singleAttraction1, function(data) {
+          //   console.log("data",data);
+          //   _.each(data,function(n){
+          //     console.log("n",n);
+          //     n.gameforarray = [];
+          //     _.each(data.gamefor, function(n) {
+          //         switch (n) {
+          //             case '1':
+          //                 n.gameforarray.push('Adult')
+          //                     // data.gameforarray.push('Male')
+          //                 break;
+          //                 // case '2':
+          //                 //     data.gameforarray.push('Female')
+          //                 //     break;
+          //             case '3':
+          //                 n.gameforarray.push('Kids')
+          //                     // data.gameforarray.push('Children')
+          //                 break;
+          //             default:
+          //         }
+          //     });
+          //   })
+          //
+          // });
+          _.each($scope.singleAttraction, function(data) {
+              data.gameforarray = [];
+              _.each(data.gamefor, function(n) {
+                  switch (n) {
+                      case '1':
+                          data.gameforarray.push('Adult')
+                              // data.gameforarray.push('Male')
+                          break;
+                          // case '2':
+                          //     data.gameforarray.push('Female')
+                          //     break;
+                      case '3':
+                          data.gameforarray.push('Kids')
+                              // data.gameforarray.push('Children')
+                          break;
+                      default:
+                  }
+              });
+          });
+          TemplateService.removeLoader();
+
+      });
+  }
+  $scope.goTOSearch($scope.filter);
+      });
+
+
+}else {
+  $scope.filter.city=$.jStorage.get("cityid");
+}
+
+
+
+
+
+
+    $scope.moreDesc = {};
+    // $scope.male = '';
+    // $scope.female = '';
+    // $scope.children = '';
+    // $scope.filter = {};
+    // // $scope.filter._id = $stateParams.id;
+    // $scope.filter.myslug = $stateParams.id;
+    // $scope.msg = false;
+    // $scope.singleAttraction1 = [];
+    // $scope.singleAttraction = [];
+    // $scope.goTOSearch = function(filter) {
+    //
+    //     NavigationService.searchExploreSmaaash($scope.filter, function(data) {
+    //         $scope.singleAttraction = $filter('orderBy')(data.data, '-order');
+    //         $scope.singleAttraction = data.data;
+    //         $scope.singleAttraction1 = $filter('orderBy')(data.data, '-order');
+    //         $scope.singleAttraction1 = _.chunk($scope.singleAttraction1, 3);
+    //         if ($scope.singleAttraction1.length === 0) {
+    //             console.log("imin");
+    //             $scope.msg = true;
+    //         } else {
+    //             $scope.msg = false;
+    //         }
+    //
+    //         _.each($scope.singleAttraction, function(data) {
+    //             data.gameforarray = [];
+    //             _.each(data.gamefor, function(n) {
+    //                 switch (n) {
+    //                     case '1':
+    //                         data.gameforarray.push('Adult')
+    //                             // data.gameforarray.push('Male')
+    //                         break;
+    //                         // case '2':
+    //                         //     data.gameforarray.push('Female')
+    //                         //     break;
+    //                     case '3':
+    //                         data.gameforarray.push('Kids')
+    //                             // data.gameforarray.push('Children')
+    //                         break;
+    //                     default:
+    //                 }
+    //             });
+    //         });
+    //         TemplateService.removeLoader();
+    //
+    //     });
+    // }
+    // $scope.goTOSearch($scope.filter);
     $scope.readMore = function(id, indexid) {
 
         console.log(id);
@@ -1720,17 +2345,18 @@ _.each($scope.mys,function(key){
         }
     };
 
-    $scope.goTo = function(name, id) {
+    $scope.goTo = function(id) {
 
-            if (name, id) {
-                $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-                $state.go('snow-rush', {
-                    name: $scope.name,
-                    id: id
-                });
-            }
-
+        if (id) {
+            // $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
+            $state.go('snow-rush', {
+                // name: $scope.name,
+                id: id,
+                snowrushCity: $rootScope.citySpecific
+            });
         }
+
+    }
 
     $scope.gamesParams = {};
     $scope.gamesParams = {};
@@ -1750,17 +2376,20 @@ _.each($scope.mys,function(key){
     $scope.gamesParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowGames = function(BranchPackageID, price) {
+    $scope.buyNowGames = function(BranchPackageID, price,mobile) {
 
         $scope.gamesParams.BranchPackageID = BranchPackageID;
-          // $scope.gamesParams.BranchPackageID = "41";
-          // $scope.gamesParams.TotalAmount = "222";
-          $scope.gamesParams.TotalAmount = price;
+        // $scope.gamesParams.BranchPackageID = "41";
+        // $scope.gamesParams.TotalAmount = "222";
+        $scope.gamesParams.TotalAmount = price;
 
 
         console.log("$scope.gamesParams", $scope.gamesParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile) {
+              $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.gamesParams, function(data) {
                 console.log("$scope.gamesParams", $scope.gamesParams);
@@ -1775,11 +2404,13 @@ _.each($scope.mys,function(key){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -1787,12 +2418,12 @@ _.each($scope.mys,function(key){
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -1819,14 +2450,21 @@ _.each($scope.mys,function(key){
 })
 
 
-.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $rootScope) {
+.controller('CartsCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $rootScope, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.onlyNumbers= "^[1-9][0-9]*$" ;
-    $scope.isDisabledCheckOut=false;
+    // if ($stateParams.cartCity) {
+    //     $stateParams.cartCity = $.jStorage.get("city");
+    //     $state.go("cart", {
+    //         cartCity: $stateParams.cartCity
+    //     });
+    // }
+
+    $scope.onlyNumbers = "^[1-9][0-9]*$";
+    $scope.isDisabledCheckOut = false;
     $scope.editcartDetails = {};
     $scope.removeCartParams = {};
     $scope.showCartParams = {};
@@ -1839,7 +2477,7 @@ _.each($scope.mys,function(key){
     $scope.checkoutParams.CartItemIDs = "";
     $scope.checkoutParams.CouponCode = ""
     $scope.checkoutParams.Remarks = ""
-    $scope.isLoading=false;
+    $scope.isLoading = false;
 
 
 
@@ -1850,16 +2488,27 @@ _.each($scope.mys,function(key){
     $scope.showCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
     console.log("$scope.showCartParams", $scope.showCartParams);
     $scope.showCartFunction = function() {
+        $scope.cartDetails = [];
         NavigationService.showCartPackage($scope.showCartParams, function(data) {
             console.log("data", data);
             // console.log("$scope.showCartParams", $scope.showCartParams);
             // console.log("data", data.data.CustomerCartItem);
             if (data.value) {
-                $scope.cartDetails = data.data;
+                _.each(data.data, function(key) {
+                        console.log("key", key);
+                        if (key.Status == '1') {
+                            console.log("key.status", key.Status);
+                            $scope.cartDetails.push(key);
+                        } else {
+                            $scope.showMsg = key.Message;
+                            $scope.isLoading = true;
+                        }
+                    })
+                    // $scope.cartDetails = data.data;
                 console.log("  $scope.cartDetails", $scope.cartDetails);
 
                 if ($scope.cartDetails.length > 0) {
-                  $scope.isLoading=true;
+                    $scope.isLoading = true;
                     _.each($scope.cartDetails, function(val) {
                         val.subTotal = val.TotalAmount * val.NoOfAdult;
                     });
@@ -1870,22 +2519,22 @@ _.each($scope.mys,function(key){
                     $scope.checkoutParams.CartItemIDs = result.join();
                     console.log($scope.checkoutParams, "$scope.checkoutParams");
                     $scope.checkOutFunction = function() {
-                      console.log("im in checkout function");
-                      $scope.isDisabledCheckOut=true;
+                            console.log("im in checkout function");
+                            $scope.isDisabledCheckOut = true;
                             NavigationService.CheckOutCart($scope.checkoutParams, function(data) {
                                 console.log($scope.checkoutParams, "$scope.checkoutParams");
                                 console.log("in CheckOutCart", data);
                                 if (data.value && data.data.CheckOutCartPackage[0].Status == 1) {
-                                window.location =  data.data.CheckOutCartPackage[0].Link;
-                                }else if (data.data.ErrorStatus[0].Status == 0) {
-                                  console.log("im in",data);
-                                  console.log(data.data.ErrorStatus[0].Status == 0);
-                                  console.log("im in");
-                                  $uibModal.open({
-                                      animation: true,
-                                      templateUrl: 'views/modal/cartFail.html',
-                                      scope: $scope
-                                  });
+                                    window.location = data.data.CheckOutCartPackage[0].Link;
+                                } else if (data.data.ErrorStatus[0].Status == 0) {
+                                    console.log("im in", data);
+                                    console.log(data.data.ErrorStatus[0].Status == 0);
+                                    console.log("im in");
+                                    $uibModal.open({
+                                        animation: true,
+                                        templateUrl: 'views/modal/cartFail.html',
+                                        scope: $scope
+                                    });
 
                                 }
                             });
@@ -1909,10 +2558,10 @@ _.each($scope.mys,function(key){
 
                     console.log("$scope.editcartDetails", $scope.editcartDetails);
                     if ($scope.editcartDetails.NoOfAdults === undefined || $scope.editcartDetails.NoOfAdults == null) {
-                      console.log("im undefined");
-                      $scope.unDefined = true
-                    }else {
-                      $scope.unDefined =false;
+                        console.log("im undefined");
+                        $scope.unDefined = true
+                    } else {
+                        $scope.unDefined = false;
                     }
 
                     $scope.cartDetails[index].subTotal = $scope.editcartDetails.NoOfAdults * $scope.cartDetails[index].TotalAmount;
@@ -1921,12 +2570,12 @@ _.each($scope.mys,function(key){
                         NavigationService.editCartPackage($scope.editcartDetails, function(data) {
                             console.log("$scope.editcartDetails", $scope.editcartDetails);
                             console.log("data", data);
-                            if (data.value && data.data.EditCartPackage[0].Status===1) {
-                              $uibModal.open({
-                                  animation: true,
-                                  templateUrl: 'views/modal/cartupdated.html',
-                                  scope: $scope
-                              });
+                            if (data.value && data.data.EditCartPackage[0].Status === 1) {
+                                $uibModal.open({
+                                    animation: true,
+                                    templateUrl: 'views/modal/cartupdated.html',
+                                    scope: $scope
+                                });
                             }
                         });
                     }
@@ -1934,9 +2583,9 @@ _.each($scope.mys,function(key){
 
             } else if (!data.value) {
                 console.log("im in false");
-                  $scope.isCartEmty=true;
-                    $scope.isLoading=true;
-                  $scope.cartDetails = [];
+                $scope.isCartEmty = true;
+                $scope.isLoading = true;
+                $scope.cartDetails = [];
                 $scope.CartIsEmpty = data.data.SelectCartError[0].Message;
 
                 console.log("  $scope.CartIsEmpty", $scope.CartIsEmpty);
@@ -1954,7 +2603,7 @@ _.each($scope.mys,function(key){
         NavigationService.removeCartPackage($scope.removeCartParams, function(data) {
             console.log("data", data);
             if (data.value) {
-                  $scope.showCartFunction();
+                $scope.showCartFunction();
                 if (data.data.RemoveFromCart[0].Status === 1) {
                     $uibModal.open({
                         animation: true,
@@ -1982,20 +2631,67 @@ _.each($scope.mys,function(key){
 
 })
 
-.controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('KittyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("parties");
     $scope.menutitle = NavigationService.makeactive("Parties");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
-    NavigationService.getPartyInside($stateParams.id, function(data) {
-        $scope.party = data.data;
-        console.log("$scope.party", $scope.party);
-        TemplateService.removeLoader();
+    NavigationService.getCity(function(data) {
+        $scope.getCities = data.data;
+        console.log("$scope.getCities", $scope.getCities);
+
+
+        if ($stateParams.partyCity) {
+          $scope.tempCity = _.find($scope.getCities,function(key){
+            return key.name === $stateParams.partyCity ;
+          })
+          NavigationService.getPartyInside($stateParams.id,$scope.tempCity._id , function(data) {
+              $scope.party = data.data;
+              console.log("$scope.party", $scope.party);
+              TemplateService.removeLoader();
+
+          });
+        }
 
     });
-    $scope.kittyParty = function() {
+
+    // if ($stateParams.partyCity) {
+    //     $stateParams.partyCity = $.jStorage.get("city");
+    //     $state.go("parties", {
+    //         partyCity: $stateParams.partyCity
+    //     });
+    // };
+
+    $scope.kittyParty = function(value) {
+        console.log("value", value);
+        if (value) {
+            switch (value) {
+                case 'Birthday Party':
+                    $scope.partyName = 'Birthday or Anniversary';
+                    break;
+                case 'Corporate Parties':
+                    $scope.partyName = 'Corporate';
+                    break;
+                case 'Pre - wedding  Party':
+                    $scope.partyName = 'Engagement, Wedding or Reception';
+                    break;
+                case 'Kitty Parties':
+                    $scope.partyName = 'Social';
+                    break;
+
+                case 'Team Building Events':
+                    console.log("im in team building");
+                    $scope.partyName = 'Corporate';
+                    break;
+                default:
+
+            }
+
+
+        }
+
         $scope.modalInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/modal/enquiry.html",
@@ -2026,7 +2722,7 @@ _.each($scope.mys,function(key){
     }
 })
 
-.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CustomizePackageCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams,$filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("customizepackage");
     $scope.menutitle = NavigationService.makeactive("Customize Package");
@@ -2048,7 +2744,12 @@ _.each($scope.mys,function(key){
     $scope.clear = function() {
         $scope.dt = null;
     };
-
+    // if ($stateParams.customizeCity) {
+    //     $stateParams.customizeCity = $.jStorage.get("city");
+    //     $state.go('customizepackage', {
+    //         customizeCity: $stateParams.customizeCity
+    //     })
+    // }
     $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
@@ -2243,44 +2944,77 @@ _.each($scope.mys,function(key){
         } else {}
 
     }
-    NavigationService.getCity(function(data) {
-        $scope.allCity = data.data;
-        TemplateService.removeLoader();
-    });
-    var id = "57bc4b2aeb9c91f1025a3b55";
+    // NavigationService.getCity(function(data) {
+    //     $scope.allCity = data.data;
+    //     if ($stateParams.customizeCity) {
+    //       $scope.tempCity = _.find($scope.allCity, function(obj) {
+    //           return obj.name == $stateParams.customizeCity;
+    //       });
+    //     }
+    //
+    //     TemplateService.removeLoader();
+    // });
+    var id = "attraction";
+    // var id = "57bc4b2aeb9c91f1025a3b55";
     $scope.male = '';
     $scope.female = '';
     $scope.children = '';
     $scope.customizeExploreSmaaash = function() {
-        NavigationService.getSingleExploreSmaaash(id, function(data) {
-            $scope.customizepackage = data.data;
-
-            console.log("$scope.customizepackage", $scope.customizepackage);
-            _.each($scope.customizepackage, function(data) {
-                data.gameforarray = [];
-                var index = _.findIndex($scope.customizeformData.games, {
-                    _id: data._id
-                });
-                if (index >= 0) {
-                    data.selected = true;
-                }
-                _.each(data.gamefor, function(n) {
-                    switch (n) {
-                        case '1':
-                            data.gameforarray.push('Male')
-                            break;
-                        case '2':
-                            data.gameforarray.push('Female')
-                            break;
-                        case '3':
-                            data.gameforarray.push('Children')
-                            break;
-                        default:
-                    }
-                });
+      NavigationService.getCity(function(data) {
+          $scope.allCity = data.data;
+          if ($stateParams.customizeCity) {
+            $scope.tempCity = _.find($scope.allCity, function(obj) {
+                return obj.name == $stateParams.customizeCity;
             });
-            TemplateService.removeLoader();
-        });
+            console.log("$scope.tempCity",$scope.tempCity);
+          }
+          NavigationService.getSingleExploreSmaaashByUrl(id,$scope.tempCity._id, function(data) {
+              $scope.customizepackage = data.data;
+              $scope.temparr=[];
+              $scope.temparr1=[];
+              _.each($scope.customizepackage,function(n){
+                if (n.order == null) {
+                    $scope.temparr.push(n);
+                }else {
+                    $scope.temparr1.push(n);
+                }
+              })
+
+                    $scope.customizepackage=$filter('orderBy')($scope.temparr1, '-order');
+                    $scope.customizepackage=$scope.customizepackage.concat($scope.temparr);
+                    // $scope.customizepackage=_.chunk($scope.customizepackage,4);
+              console.log("$scope.customizepackage", $scope.customizepackage);
+              _.each($scope.customizepackage, function(data) {
+                  data.gameforarray = [];
+                  var index = _.findIndex($scope.customizeformData.games, {
+                      _id: data._id
+                  });
+                  if (index >= 0) {
+                      data.selected = true;
+                  }
+                  _.each(data.gamefor, function(n) {
+                      switch (n) {
+                          case '1':
+                              data.gameforarray.push('Adult')
+                              // data.gameforarray.push('Male')
+                              break;
+                          // case '2':
+                          //     data.gameforarray.push('Female')
+                          //     break;
+                          case '3':
+                              data.gameforarray.push('Kids')
+                              // data.gameforarray.push('Children')
+                              break;
+                          default:
+                      }
+                  });
+              });
+              TemplateService.removeLoader();
+          });
+
+      });
+
+
     }
     $scope.customizeExploreSmaaash();
     $scope.customizeCityFun = function(custCityId) {
@@ -2300,13 +3034,15 @@ _.each($scope.mys,function(key){
                 _.each(data.gamefor, function(n) {
                     switch (n) {
                         case '1':
-                            data.gameforarray.push('Male')
+                            data.gameforarray.push('Adult')
+                            // data.gameforarray.push('Male')
                             break;
-                        case '2':
-                            data.gameforarray.push('Female')
-                            break;
+                        // case '2':
+                        //     data.gameforarray.push('Female')
+                        //     break;
                         case '3':
-                            data.gameforarray.push('Children')
+                            data.gameforarray.push('Kids')
+                            // data.gameforarray.push('Children')
                             break;
                         default:
                     }
@@ -2390,10 +3126,15 @@ _.each($scope.mys,function(key){
 .controller('SnowCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $filter, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("snow-rush");
-        $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1)
+        $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1)
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+        // if ($stateParams.snowrushCity) {
+        //     $stateParams.snowrushCity = $.jStorage.get("city");
+        //     $state.go("snow-rush", {
+        //         snowrushCity: $stateParams.snowrushCity
+        //     });
+        // }
         $scope.$on('$viewContentLoaded', function() {
             $(window).scroll(function() {
                 var scroller = $(document).scrollTop();
@@ -2433,29 +3174,41 @@ _.each($scope.mys,function(key){
             $scope.startVideo = !$scope.startVideo;
             console.log($scope.startVideo, "  console.log($scope.startVideo);");
         }
-        NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-            $scope.detailExploreSmaash = data.data;
-            console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
-            $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
-            $scope.detailExploreSmaash.image = $filter('uploadpath')($scope.detailExploreSmaash.image);
-            $scope.detailExploreSmaash.mobileBanner = $filter('uploadpath')($scope.detailExploreSmaash.mobileBanner);
-            console.log($scope.detailExploreSmaash.multipleattraction);
-            var attractions = [];
-            _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
-                _.each(multi.attraction, function(attr) {
-                    attr.icon = multi.icon;
-                    // attr.myid=attr._id;
-                    attractions.push(attr);
-                })
-            })
-            console.log(attractions);
-            $scope.content = _.groupBy(attractions, 'type');
-            $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
-            $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
-            $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
 
-            TemplateService.removeLoader();
-        });
+        if ($stateParams.snowrushCity) {
+          NavigationService.getCity(function(data) {
+                $scope.getCities = _.cloneDeep(data.data);
+                console.log("$scope.getCities ", $scope.getCities);
+                $scope.tempCity = _.find($scope.getCities, function(obj) {
+                    return obj.name == $stateParams.snowrushCity;
+                });
+
+                NavigationService.getDetailExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
+                    $scope.detailExploreSmaash = data.data;
+                    console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+                    $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
+                    $scope.detailExploreSmaash.image = $filter('uploadpath')($scope.detailExploreSmaash.image);
+                    $scope.detailExploreSmaash.mobileBanner = $filter('uploadpath')($scope.detailExploreSmaash.mobileBanner);
+                    console.log($scope.detailExploreSmaash.multipleattraction);
+                    var attractions = [];
+                    _.each($scope.detailExploreSmaash.multipleattraction, function(multi) {
+                        _.each(multi.attraction, function(attr) {
+                            attr.icon = multi.icon;
+                            // attr.myid=attr._id;
+                            attractions.push(attr);
+                        })
+                    })
+                    console.log(attractions);
+                    $scope.content = _.groupBy(attractions, 'type');
+                    $scope.event = $scope.content['57bd4e71a86ee9fa6770d4b2'];
+                    $scope.deals = $scope.content['57bc4b5aeb9c91f1025a3b58'];
+                    $scope.promotions = $scope.content['57bc4b36eb9c91f1025a3b56'];
+
+                    TemplateService.removeLoader();
+                });
+
+              });
+        }
 
 
         $scope.gamesParams = {};
@@ -2479,9 +3232,9 @@ _.each($scope.mys,function(key){
         $scope.buyNowGamesInner = function(BranchPackageID, price) {
 
             $scope.gamesParams.BranchPackageID = BranchPackageID;
-              // $scope.gamesParams.BranchPackageID = "41";
-              // $scope.gamesParams.TotalAmount = "222";
-              $scope.gamesParams.TotalAmount = price;
+            // $scope.gamesParams.BranchPackageID = "41";
+            // $scope.gamesParams.TotalAmount = "222";
+            $scope.gamesParams.TotalAmount = price;
 
 
             console.log("$scope.gamesParams", $scope.gamesParams);
@@ -2501,11 +3254,13 @@ _.each($scope.mys,function(key){
                             });
                             $timeout(function() {
                                 $scope.successCartModal.close();
-                                $state.go('cart');
+                                $state.go('cart', {
+                                    cartCity: $rootScope.citySpecific
+                                });
                             }, 1000);
 
 
-                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                             console.log("in else", data);
                             $uibModal.open({
                                 animation: true,
@@ -2513,12 +3268,12 @@ _.each($scope.mys,function(key){
                                 scope: $scope
                             });
 
-                        }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                          $uibModal.open({
-                              animation: true,
-                              templateUrl: 'views/modal/cartFail.html',
-                              scope: $scope
-                          });
+                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                            $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/cartFail.html',
+                                scope: $scope
+                            });
 
                         }
                     } else {
@@ -2605,13 +3360,27 @@ _.each($scope.mys,function(key){
 
 
 
-.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location) {
+.controller('HostCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $state) {
     $scope.template = TemplateService.changecontent("host-party");
     $scope.menutitle = NavigationService.makeactive("Host Party");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = $location.absUrl();
 
+    // if ($stateParams.hostCity) {
+    //     $stateParams.hostCity = $.jStorage.get("city");
+    //     $state.go('hostparty', {
+    //         hostCity: $stateParams.hostCity,
+    //         id: $stateParams.id
+    //     });
+    // }
+
+    $scope.goTOPartyFor = function(partyFor) {
+        if (partyFor) {
+            $scope.partyName = partyFor;
+
+        }
+    }
 
 
     $scope.mySlides10 = [
@@ -2646,7 +3415,7 @@ _.each($scope.mys,function(key){
                 console.log("in nav", formData);
                 console.log("assistanceLogin", data);
                 if (data.value == true) {
-                  $scope.formCompleteAssistance = true;
+                    $scope.formCompleteAssistance = true;
                     $timeout(function() {
                         $scope.formCompleteAssistance = false;
                         // $scope.formCompleteAssistanceThank = false;
@@ -2660,19 +3429,41 @@ _.each($scope.mys,function(key){
         }
 
     }
-$scope.myfun = function(){
-  console.log("im in");
+    $scope.myfun = function() {
+        console.log("im in");
+
+    }
+if ($stateParams.hostCity) {
+
+  NavigationService.getCity(function(data) {
+        $scope.getCities = _.cloneDeep(data.data);
+        console.log("$scope.getCities ", $scope.getCities);
+        $scope.tempCity = _.find($scope.getCities, function(obj) {
+            return obj.name == $stateParams.hostCity;
+        });
+        NavigationService.getSingleExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
+            $scope.SingleHostParty1=[];
+              $scope.SingleHostParty2=[];
+              _.each(data.data,function(value){
+                if (value.status) {
+                  $scope.SingleHostParty2.push(value);
+                  $scope.SingleHostParty1.push(value);
+                }
+              })
+
+
+            $scope.SingleHostParty = _.chunk($scope.SingleHostParty2, 3);
+            $scope.content = _.groupBy($scope.SingleHostParty, 'hostAPartyType');
+            $scope.birthday = $scope.content['57d6a09dbd5eb9846074b419'];
+            $scope.kittyparties = $scope.content['57e1429c3da62fae1dfc560c'];
+            $scope.wedding = $scope.content['57d6a027bd5eb9846074b418'];
+            $scope.corporate = $scope.content['57e142483da62fae1dfc55f2'];
+            TemplateService.removeLoader();
+        });
+
+      });
 }
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.SingleHostParty1 = data.data;
-        $scope.SingleHostParty = _.chunk(data.data, 3);
-        $scope.content = _.groupBy($scope.SingleHostParty, 'hostAPartyType');
-        $scope.birthday = $scope.content['57d6a09dbd5eb9846074b419'];
-        $scope.kittyparties = $scope.content['57e1429c3da62fae1dfc560c'];
-        $scope.wedding = $scope.content['57d6a027bd5eb9846074b418'];
-        $scope.corporate = $scope.content['57e142483da62fae1dfc55f2'];
-        TemplateService.removeLoader();
-    });
+
 
 
     $scope.readMore = function(id, indexid) {
@@ -2835,87 +3626,94 @@ $scope.myfun = function(){
 })
 
 .controller('RechargeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $window) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("online");
-    $scope.menutitle = NavigationService.makeactive("Recharge");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("online");
+        $scope.menutitle = NavigationService.makeactive("Recharge");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    $scope.rechargeOnline = {};
-    if ($.jStorage.get("loginDetail") != null) {
-        $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").CustomerID;
-        $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
-    }
+        $scope.rechargeOnline = {};
+        if ($.jStorage.get("loginDetail") != null) {
+            $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+            $scope.rechargeOnline.BranchID = $.jStorage.get("branchId");
+        }
 
-    $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
+        $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
 
-    $scope.incorrect = false;
-    $scope.isRecharge =false;
-    $scope.submitRecharge = function(rechargeOnline) {
+        $scope.incorrect = false;
+        $scope.isRecharge = false;
+        $scope.submitRecharge = function(rechargeOnline) {
 
-        if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/wishlistsigup.html',
-                scope: $scope
-            });
-        } else if (rechargeOnline && $.jStorage.get("loginDetail") != null) {
-            $scope.isRecharge =true;
+            if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/wishlistsigup.html',
+                    scope: $scope
+                });
+            } else if (rechargeOnline && $.jStorage.get("loginDetail") != null) {
+                $scope.isRecharge = true;
 
-            NavigationService.rechargeCard(rechargeOnline, function(data) {
-                console.log("data", data);
-                if (data.value === true) {
-                    $scope.newWindow = data.data.RechargeCard[0].Link;
-                    $window.location.href = $scope.newWindow;
-                } else if (data.value === false) {
-                    $scope.incorrect = true;
-                      $scope.isRecharge =false;
-                }
-            })
+                NavigationService.rechargeCard(rechargeOnline, function(data) {
+                    console.log("data", data);
+                    if (data.value === true) {
+                        $scope.newWindow = data.data.RechargeCard[0].Link;
+                        $window.location.href = $scope.newWindow;
+                    } else if (data.value === false) {
+                        $scope.incorrect = true;
+                        $scope.isRecharge = false;
+                    }
+                })
+
+            }
 
         }
 
-    }
 
 
 
 
+    })
+    .controller('SorryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("fail");
+        $scope.menutitle = NavigationService.makeactive("Sorry");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
-.controller('SorryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("sorry");
-    $scope.menutitle = NavigationService.makeactive("Sorry");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    })
+    .controller('sorrieCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("sorrie");
+        $scope.menutitle = NavigationService.makeactive("Sorry");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.orderNo = $stateParams.orderno;
+        $scope.amount = $stateParams.amount;
+        $scope.cnrNo = $stateParams.cnrno;
+        $scope.paymentFor = $stateParams.paymentfor;
+        console.log("$stateParams", $stateParams);
+        console.log("im in");
 
-})
-.controller('sorrieCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("sorrie");
-    $scope.menutitle = NavigationService.makeactive("Sorry");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.orderNo = $stateParams.orderno;
-    $scope.amount = $stateParams.amount;
-    $scope.cnrNo = $stateParams.cnrno;
-    $scope.paymentFor = $stateParams.paymentfor;
-    console.log("$stateParams", $stateParams);
-    console.log("im in");
-
-})
-
+    })
 
 
-.controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+
+.controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("about");
     $scope.menutitle = NavigationService.makeactive("About");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // if ($stateParams.aboutCity) {
+    //     $stateParams.aboutCity = $.jStorage.get("city");
+    //     $state.go("about", {
+    //         aboutCity: $stateParams.aboutCity
+    //     });
+    // }
+
 })
 
-.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state,$window) {
+.controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $window, $stateParams, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -2929,6 +3727,14 @@ $scope.myfun = function(){
             windowClass: 'widths'
         })
     };
+    // if ($stateParams.profileCity) {
+    //     $stateParams.profileCity = $.jStorage.get("city");
+    //     $state.go("profile", {
+    //         profileCity: $stateParams.profileCity
+    //     });
+    // }
+    $scope.custBooking = [];
+    $scope.CustCardRecharge = [];
     $scope.rechargeOnline = {};
     if ($.jStorage.get("loginDetail") != null) {
         $scope.rechargeOnline.CustomerID = $.jStorage.get("loginDetail").CustomerID;
@@ -2938,9 +3744,9 @@ $scope.myfun = function(){
     $scope.rechargeOnline.PGReturnURL = "http://104.155.129.33:82/signup/returnUrlFunction";
 
     $scope.incorrect = false;
-    $scope.isRecharge =false;
+    $scope.isRecharge = false;
     $scope.submitRecharge = function(rechargeOnline) {
-
+        $scope.invalidCardNO = "";
         if (rechargeOnline && $.jStorage.get("loginDetail") === null) {
             $uibModal.open({
                 animation: true,
@@ -2948,16 +3754,20 @@ $scope.myfun = function(){
                 scope: $scope
             });
         } else if (rechargeOnline && $.jStorage.get("loginDetail") != null) {
-            $scope.isRecharge =true;
+            $scope.isRecharge = true;
 
             NavigationService.rechargeCard(rechargeOnline, function(data) {
                 console.log("data", data);
-                if (data.value === true) {
+                if (data.value == true) {
                     $scope.newWindow = data.data.RechargeCard[0].Link;
                     $window.location.href = $scope.newWindow;
-                } else if (data.value === false) {
+                } else if (data.value == false) {
                     $scope.incorrect = true;
-                      $scope.isRecharge =false;
+                    $scope.isRecharge = false;
+                    console.log("im false");
+                    console.log("data", data);
+                    $scope.invalidCardNO = data.data.RechargeCard[0].Message;
+                    console.log("  $scope.invalidCardNO", $scope.invalidCardNO);
                 }
             })
 
@@ -2969,22 +3779,31 @@ $scope.myfun = function(){
 
 
     $scope.detailsForBal = {};
-    $scope.detailsForBal.CardNo = "C68C765B";
+    // $scope.detailsForBal.CardNo = "C68C765B";
+    $scope.detailsForBal.CardNo = $.jStorage.get("loginDetail").CardNo;
     $scope.detailsForBal.MobileNo = $.jStorage.get("loginDetail").CustomerMobile;
     NavigationService.getCustomerBalance($scope.detailsForBal, function(data) {
         console.log("redemablePoints data", data);
         if (data.value) {
-
-
             $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
+            $scope.cardBalance = data.data.CustomerBalance[0].CardBalance;
             console.log("redemablePoints", $scope.redemablePoints);
         } else {}
     })
 
 
     $scope.userprofile = {};
+
+    console.log("$scope.userprofile", $scope.userprofile);
+
     NavigationService.signupProfile(function(data) {
+        console.log("  data.data", data.data);
         $scope.userprofile = data.data;
+        $scope.userprofile.CustomerPhoneNo = data.data.CustomerMobile;
+        $scope.userprofile.BranchID = $.jStorage.get("branchId");
+        $scope.userprofile.CustomerPassword = " ";
+        $scope.userprofile.CustomerPhotoPath = " ";
+        $scope.userprofile.OTP = " ";
         NavigationService.setUser(data.data);
         $scope.userprofile.dob = new Date(data.data.dob);
     });
@@ -2995,16 +3814,20 @@ $scope.myfun = function(){
         }
     }
     $scope.formComplete = false;
+    $scope.isUpdate = false;
     $scope.submitUserProfile = function(userprofile) {
         console.log("im in");
         console.log("userprofile", userprofile);
+        $scope.isUpdate = true;
         NavigationService.updateProfile(userprofile, function(data) {
             console.log("data", data);
             if (data.value === true) {
+                $scope.isUpdate = false;
                 NavigationService.setUser(data.data);
                 $scope.formComplete = true;
                 $timeout(function() {
                     $scope.formComplete = false;
+                    $scope.isUpdate = false;
                 }, 2000);
             }
         })
@@ -3081,34 +3904,47 @@ $scope.myfun = function(){
     // });
     //
     $scope.msg = false;
-    $scope.isBooking = false ;
+    $scope.isBooking = false;
     $scope.CustID = $.jStorage.get("loginDetail").CustomerID;
     NavigationService.GetCustomerBookingDetails($scope.CustID, function(data) {
-      console.log("data.data",data.data);
+        console.log("data.data", data.data);
         console.log("CustomerBooking*********", data.data.CustomerBooking);
-        if (data.value === true) {
-          $scope.isBooking = true ;
-            $scope.custBooking = data.data.CustomerBooking;
-            // $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
-            $scope.CustCardRecharge = data.data.CustomerCardRecharge;
-            // $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
-            $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
-            console.log("$scope.bookingDetails",$scope.bookingDetails);
-            _.each($scope.bookingDetails, function(value) {
-                if (value.Message === "Get Booking Data") {
-                    value.objtype = "Booking";
-                } else if (value.Message === "Get Card Recharge Data") {
-                    value.objtype = "Recharge";
-                };
 
-            });
+        if (data.value) {
+            if (data.data.ErrorStatus) {
+                $scope.msg = true;
+                $scope.isBooking = true;
+            } else {
+                $scope.isBooking = true;
+                $scope.custBooking = data.data.CustomerBooking;
+                // $scope.custBooking = data.GetCustomerBookingDetails.CustomerBooking;
+                $scope.CustCardRecharge = data.data.CustomerCardRecharge;
+                // $scope.CustCardRecharge = data.GetCustomerBookingDetails.CustomerCardRecharge;
+                $scope.bookingDetails = $scope.custBooking.concat($scope.CustCardRecharge);
+                console.log("$scope.bookingDetails", $scope.bookingDetails);
+                if ($scope.bookingDetails[0].Status == '0' && $scope.bookingDetails[0].Message == 'Data Not Available') {
+                    $scope.msg = true;
+                } else {
+                    $scope.msg = false;
+                }
+                _.each($scope.bookingDetails, function(value) {
+                    if (value.Message === "Get Booking Data") {
+                        value.objtype = "Booking";
+                    } else if (value.Message === "Get Card Recharge Data") {
+                        value.objtype = "Recharge";
+                    };
+
+                });
+            }
+
+
         } else if (data.value === false) {
             $scope.msg = true;
-            $scope.isBooking =true;
+            $scope.isBooking = true;
         }
     })
 
-     $scope.tab = "design";
+    $scope.tab = "design";
     $scope.classb = 'active-tab';
     $scope.classa = '';
     $scope.classc = '';
@@ -3149,7 +3985,7 @@ $scope.myfun = function(){
             $scope.classe = '';
 
         }
-         if (a == 5) {
+        if (a == 5) {
             $scope.classe = 'active-tab';
             $scope.classb = '';
             $scope.classa = '';
@@ -3159,27 +3995,31 @@ $scope.myfun = function(){
         }
     };
 
-//log out//
-     $scope.hidelogout = false;
-     $scope.logout = function() {
-            console.log("im in logout");
-            if ($.jStorage.get("loginDetail") != null) {
-                NavigationService.logout(function(data) {
-                    console.log("im in nav logout");
-                    console.log("data", data);
-                    if (data.value === true) {
-                        $scope.hidelogout = true;
-                    }
-                    console.log("im in nav logout");
+    //log out//
+    $scope.hidelogout = false;
+    $scope.logout = function() {
+        console.log("im in logout");
+        $state.go("home");
+        if ($.jStorage.get("loginDetail") != null) {
+
+            NavigationService.logout(function(data) {
+                console.log("im in nav logout");
+                console.log("data", data);
+
+                $state.go("home");
+                if (data.value === true) {
+                    $scope.hidelogout = true;
                     location.reload();
-                    $state.go("home");
-                })
-            } else {
+                }
+                console.log("im in nav logout");
 
-            }
+            })
+        } else {
 
-        };
-//log out//
+        }
+
+    };
+    //log out//
 
     $scope.attraction = '';
     $scope.whatsnew = '';
@@ -3422,7 +4262,7 @@ $scope.myfun = function(){
 
 })
 
-.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$rootScope) {
+.controller('EventsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("events-challenges");
     $scope.menutitle = NavigationService.makeactive("Events and Challengest");
@@ -3455,9 +4295,15 @@ $scope.myfun = function(){
         };
         TemplateService.removeLoader();
     });
+    if ($stateParams.city) {
+        $stateParams.city = $.jStorage.get("city");
+        $state.go("stars", {
+            city: $stateParams.city
+        });
+    }
 })
 
-.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $filter, $sce) {
+.controller('DrinkCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $location, $filter, $sce, $state, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("drink-party");
     $scope.menutitle = NavigationService.makeactive("Drink Party");
@@ -3474,13 +4320,48 @@ $scope.myfun = function(){
             $scope.menu = "menu-out";
         }
     };
+    // if ($stateParams.drinkCity) {
+    //   NavigationService.getCity(function(data) {
+    //       $scope.getCities = _.cloneDeep(data.data);
+    //       console.log("$scope.getCities ", $scope.getCities);
+    //       $scope.changeCityParams = _.find($scope.getCities, function(obj) {
+    //
+    //           return obj.name == $stateParams.drinkCity;
+    //       });
+    //       console.log("changeCityParams", $scope.changeCityParams);
+    //       NavigationService.setCity($scope.changeCityParams);
+    //       $scope.template.reFetchCity();
+    //   });
+    //
+    // }
+
+
+    // if ($stateParams.drinkCity) {
+    //     $stateParams.drinkCity = $.jStorage.get("city");
+    //     $state.go("drink-party", {
+    //         drinkCity: $stateParams.drinkCity
+    //     });
+    // }
     $scope.moreDesc = {};
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
-        $scope.drinkParty1 = data.data;
-        console.log("data", data.data);
-        $scope.drinkParty = _.chunk(data.data, 3);
-        TemplateService.removeLoader();
-    });
+
+    if ($stateParams.drinkCity) {
+      NavigationService.getCity(function(data) {
+            $scope.getCities = _.cloneDeep(data.data);
+            console.log("$scope.getCities ", $scope.getCities);
+            $scope.tempCity = _.find($scope.getCities, function(obj) {
+                return obj.name == $stateParams.drinkCity;
+            });
+            NavigationService.getSingleExploreSmaaashByUrl($stateParams.id,  $scope.tempCity._id, function(data) {
+                $scope.drinkParty1 = data.data;
+                console.log("data", data.data);
+                $scope.drinkParty = _.chunk(data.data, 3);
+                TemplateService.removeLoader();
+            });
+
+          });
+    }
+
+
     $scope.readMore = function(id) {
         _.each($scope.moreDesc, function(value, property) {
             if (id != property) {
@@ -3503,16 +4384,7 @@ $scope.myfun = function(){
 
     };
 
-    // $scope.pdfmodal = function(pdf) {
-    //     $scope.pdfdata = pdf;
-    //     if ($scope.pdfdata) {
-    //         $uibModal.open({
-    //             animation: true,
-    //             templateUrl: "views/modal/menu.html",
-    //             scope: $scope,
-    //         })
-    //     }
-    // };
+
     $scope.pdfmodal = function(pdf) {
         console.log("im in");
         $scope.pdfdata = pdf;
@@ -3530,6 +4402,9 @@ $scope.myfun = function(){
             })
         }
     };
+    if ($stateParams.drinkCity) {
+      $scope.bookingCity=$stateParams.drinkCity
+    }
     $scope.bookings = function() {
         console.log("in in");
         $uibModal.open({
@@ -3539,19 +4414,7 @@ $scope.myfun = function(){
             windowClass: "no-white-bg"
         })
     };
-    // $scope.mySlides = [
-    //     'img/beverage.png',
-    //     'img/beverage1.png',
-    //     'img/beverage2.png',
-    // ];
-    // $scope.mySlidess = [
-    //     'img/beverage.png',
-    //     'img/beverage1.png',
-    //     'img/beverage2.png',
-    // ];
-    // NavigationService.getFoodGallery(id,function(data){
-    //
-    // })
+
 
     $scope.getGallery = function(gid) {
         console.log("aaa", gid);
@@ -3576,24 +4439,9 @@ $scope.myfun = function(){
     $scope.showimg = false;
     $scope.showVid = function() {
         $scope.showimg = true;
-
     };
 
-    $scope.drinkParties = [{
-        img: 'img/food/restro.jpg',
-        title: 'food',
-        info: 'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
-    }, {
-        img: 'img/food/restro.jpg',
-        title: 'drink',
-        info: 'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
 
-    }, {
-        img: 'img/food/restro.jpg',
-        title: 'party',
-        info: 'SMAAASH has created a unique dining area with a locally sourced and sustainable menu. Delectable eats will satiate your hunger adrenaline, after all that physical exertion. You could also stomach some scrumptious foods, before you set out for the games.'
-
-    }];
 })
 
 .controller('DealsCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
@@ -3685,28 +4533,50 @@ $scope.myfun = function(){
 
 })
 
-.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location,  $uibModal) {
+.controller('DealsInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $location, $uibModal, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("deals-inner");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
+    $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.myUrl = $location.absUrl();
+
+    // if ($stateParams.dealsinnercity) {
+    //     console.log("im in city");
+    //     $stateParams.dealsinnercity = $.jStorage.get("city");
+    //     $state.go("deals-inner", {
+    //         dealsinnercity: $stateParams.dealsinnercity,
+    //         id: $stateParams.id
+    //     });
+    // }
+
     if ($stateParams.image) {
-  $scope.homeimage = $filter('uploadpath')($stateParams.image);
+        $scope.homeimage = $filter('uploadpath')($stateParams.image);
 
     }
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.detailDealsInner = data.data;
-        console.log("$scope.detailDealsInner", $scope.detailDealsInner);
-        $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
-        $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
-        $scope.detailDealsInner.image = $filter('uploadpath')($scope.detailDealsInner.image);
-        $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
+    if ($stateParams.dealsinnercity) {
+      NavigationService.getCity(function(data) {
+            $scope.getCities = _.cloneDeep(data.data);
+            console.log("$scope.getCities ", $scope.getCities);
+            $scope.tempCity = _.find($scope.getCities, function(obj) {
+                return obj.name == $stateParams.dealsinnercity;
+            });
+            NavigationService.getDetailExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
+                $scope.detailDealsInner = data.data;
+                console.log("$scope.detailDealsInner", $scope.detailDealsInner);
+                $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+                $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
+                $scope.detailDealsInner.image = $filter('uploadpath')($scope.detailDealsInner.image);
+                $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
 
-        TemplateService.removeLoader();
-    });
+                TemplateService.removeLoader();
+            });
+
+          })
+    }
+
+
     $scope.addToCartParams = {};
     $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
     $scope.addToCartParams.NoOfAdults = '1';
@@ -3723,17 +4593,20 @@ $scope.myfun = function(){
     $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNow = function(BranchPackageID, price) {
+    $scope.buyNow = function(BranchPackageID, price,mobile) {
 
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
-          // $scope.addToCartParams.BranchPackageID = "41";
-          // $scope.addToCartParams.TotalAmount = "222";
-          $scope.addToCartParams.TotalAmount = price;
+        // $scope.addToCartParams.BranchPackageID = "41";
+        // $scope.addToCartParams.TotalAmount = "222";
+        $scope.addToCartParams.TotalAmount = price;
 
 
         console.log("$scope.addToCartParams", $scope.addToCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+               $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.addToCartParams, function(data) {
                 console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -3748,11 +4621,13 @@ $scope.myfun = function(){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -3760,12 +4635,12 @@ $scope.myfun = function(){
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -3775,17 +4650,17 @@ $scope.myfun = function(){
                         scope: $scope
                     });
                 }
-              })
+            })
         }
     }
 
 
 })
 
-.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
+.controller('EventInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("event-inner");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
+    $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.myUrl = $location.absUrl();
@@ -3797,7 +4672,14 @@ $scope.myfun = function(){
     $scope.clear = function() {
         $scope.dt = null;
     };
-
+    // if ($stateParams.eventsInnercity) {
+    //     $stateParams.eventsInnercity = $.jStorage.get("city");
+    //     $state.go("event-inner", {
+    //         eventsInnercity: $stateParams.eventsInnercity,
+    //         name: $stateParams.name,
+    //         id: $stateParams.id
+    //     });
+    // }
     $scope.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
@@ -3907,14 +4789,32 @@ $scope.myfun = function(){
             })
         }
     }
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
-        $scope.detailEventsInner = data.data;
-        console.log("$scope.detailEventsInner", $scope.detailEventsInner);
-        $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
-        $scope.detailEventsInner.image = $filter('uploadpath')($scope.detailEventsInner.image);
-        TemplateService.removeLoader();
-        console.log("$scope.detailEventsInner.banner ", $scope.detailEventsInner.banner);
-    })
+
+    if ($stateParams.eventsInnercity) {
+      NavigationService.getCity(function(data) {
+            $scope.getCities = _.cloneDeep(data.data);
+            console.log("$scope.getCities ", $scope.getCities);
+            $scope.tempCity = _.find($scope.getCities, function(obj) {
+                return obj.name == $stateParams.eventsInnercity;
+            });
+            NavigationService.getDetailExploreSmaaashByUrl($stateParams.id,$scope.tempCity._id, function(data) {
+                $scope.detailEventsInner = data.data;
+                console.log("$scope.detailEventsInner", $scope.detailEventsInner);
+                if ($scope.detailEventsInner.banner) {
+                    $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
+                };
+                if ($scope.detailEventsInner.image) {
+                    $scope.detailEventsInner.image = $filter('uploadpath')($scope.detailEventsInner.image);
+                }
+
+
+                TemplateService.removeLoader();
+                console.log("$scope.detailEventsInner.banner ", $scope.detailEventsInner.banner);
+            })
+
+          })
+    }
+
     $scope.pdfmodal = function(pdf) {
         console.log("im in");
         $scope.pdfdata = pdf;
@@ -3942,20 +4842,23 @@ $scope.myfun = function(){
     $scope.eventInnerCartParams.BranchID = $.jStorage.get("branchId");
 
 
-    $scope.buyNowEventInner = function(BranchPackageID, price) {
+    $scope.buyNowEventInner = function(BranchPackageID, price,mobile) {
 
         $scope.eventInnerCartParams.BranchPackageID = BranchPackageID;
-          // $scope.eventInnerCartParams.BranchPackageID = "41";
-          // $scope.eventInnerCartParams.TotalAmount = "222";
-          $scope.eventInnerCartParams.TotalAmount = price;
-          // if (BranchPackageID !=undefined && price!=undefined) {
-          //
-          // }
+        // $scope.eventInnerCartParams.BranchPackageID = "41";
+        // $scope.eventInnerCartParams.TotalAmount = "222";
+        $scope.eventInnerCartParams.TotalAmount = price;
+        // if (BranchPackageID !=undefined && price!=undefined) {
+        //
+        // }
 
 
         console.log("$scope.eventInnerCartParams", $scope.eventInnerCartParams);
         if ($.jStorage.get("loginDetail") === null) {
             $rootScope.getMenus();
+            if (mobile == 'mobile') {
+              $rootScope.signinModal();
+            }
         } else {
             NavigationService.addToCart($scope.eventInnerCartParams, function(data) {
                 console.log("$scope.eventInnerCartParams", $scope.eventInnerCartParams);
@@ -3970,11 +4873,13 @@ $scope.myfun = function(){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -3982,12 +4887,12 @@ $scope.myfun = function(){
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -4005,7 +4910,7 @@ $scope.myfun = function(){
 })
 
 
-.controller('ResetCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,  $uibModal) {
+.controller('ResetCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("reset");
     $scope.menutitle = NavigationService.makeactive("Reset");
@@ -4022,7 +4927,7 @@ $scope.myfun = function(){
     }
     $scope.formSubmit = function(credentials) {
         console.log("credentials", credentials);
-          $scope.wrongPass = false;
+        $scope.wrongPass = false;
         if (credentials) {
 
             $scope.isResetDisabled = true;
@@ -4042,11 +4947,11 @@ $scope.myfun = function(){
                     $scope.credentials = {};
                     $scope.passUpdated = false;
                     $scope.wrongPass = false;
-                      $scope.isResetDisabled = false;
+                    $scope.isResetDisabled = false;
                 }, 2000);
             } else if (data.value === false) {
                 $scope.wrongPass = true;
-                  $scope.isResetDisabled =false;
+                $scope.isResetDisabled = false;
             }
         });
     }
@@ -4055,23 +4960,30 @@ $scope.myfun = function(){
 
 
 .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("thankyou");
-    $scope.menutitle = NavigationService.makeactive("Thank");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-})
-.controller('ThankssCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("thanksss");
-    $scope.menutitle = NavigationService.makeactive("Thank");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.orderNo = $stateParams.orderno;
-    $scope.amount = $stateParams.amount;
-    $scope.cnrNo = $stateParams.cnrno;
-    $scope.paymentFor = $stateParams.paymentfor;
-})
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("success");
+        $scope.menutitle = NavigationService.makeactive("Thank");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('Thank2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("thank2");
+        $scope.menutitle = NavigationService.makeactive("Thank");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('ThankssCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("thanksss");
+        $scope.menutitle = NavigationService.makeactive("Thank");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.orderNo = $stateParams.orderno;
+        $scope.amount = $stateParams.amount;
+        $scope.cnrNo = $stateParams.cnrno;
+        $scope.paymentFor = $stateParams.paymentfor;
+    })
 
 .controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $rootScope) {
     //Used to name the .html file
@@ -4082,17 +4994,15 @@ $scope.myfun = function(){
     TemplateService.removeLoaderOn(1);
 
 
-    $scope.goTo = function(name, id) {
-        if (name, id) {
-            $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
-            $state.go('promotion-inner', {
-                name: $scope.name,
-                id: id
-            });
-        }
 
+    if ($stateParams.promotionCity) {
+        $stateParams.promotionCity = $.jStorage.get("city");
+        $state.go("promotion", {
+            promotionCity: $stateParams.promotionCity
+        });
     }
-    NavigationService.getSingleExploreSmaaash($stateParams.id, function(data) {
+
+    NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, function(data) {
         console.log("data", data);
         $scope.promotion = _.chunk(data.data, 3);
         TemplateService.removeLoader();
@@ -4186,9 +5096,9 @@ $scope.myfun = function(){
     $scope.buyNowPromotion = function(BranchPackageID, price) {
 
         $scope.addToCartParams.BranchPackageID = BranchPackageID;
-          // $scope.addToCartParams.BranchPackageID = "29";
-          // $scope.addToCartParams.TotalAmount = "222";
-          $scope.addToCartParams.TotalAmount = price;
+        // $scope.addToCartParams.BranchPackageID = "29";
+        // $scope.addToCartParams.TotalAmount = "222";
+        $scope.addToCartParams.TotalAmount = price;
 
 
         console.log("$scope.addToCartParams", $scope.addToCartParams);
@@ -4208,11 +5118,13 @@ $scope.myfun = function(){
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -4220,12 +5132,12 @@ $scope.myfun = function(){
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -4245,7 +5157,7 @@ $scope.myfun = function(){
 .controller('PromotionInnerCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("promotion");
-    $scope.menutitle = $stateParams.name.charAt(0).toUpperCase() + $stateParams.name.substring(1);
+    $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
@@ -4349,16 +5261,16 @@ $scope.myfun = function(){
 
 
     $scope.myUrl = $location.absUrl();
-    NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
+    NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, function(data) {
         $scope.detailPromotionsInner = data.data;
         console.log("$scope.detailPromotionsInner", $scope.detailPromotionsInner);
         if ($scope.detailPromotionsInner.banner) {
             $scope.detailPromotionsInner.banner = $filter('uploadpath')($scope.detailPromotionsInner.banner);
 
         }
-if ($scope.detailPromotionsInner.image) {
-    $scope.detailPromotionsInner.image = $filter('uploadpath')($scope.detailPromotionsInner.image);
-}
+        if ($scope.detailPromotionsInner.image) {
+            $scope.detailPromotionsInner.image = $filter('uploadpath')($scope.detailPromotionsInner.image);
+        }
         TemplateService.removeLoader();
     });
     $scope.formData = {};
@@ -4407,9 +5319,9 @@ if ($scope.detailPromotionsInner.image) {
     $scope.buyNowPromotionInner = function(BranchPackageID, price) {
 
         $scope.promotionInnerParams.BranchPackageID = BranchPackageID;
-          // $scope.promotionInnerParams.BranchPackageID = "41";
-          // $scope.promotionInnerParams.TotalAmount = "222";
-          $scope.promotionInnerParams.TotalAmount = price;
+        // $scope.promotionInnerParams.BranchPackageID = "41";
+        // $scope.promotionInnerParams.TotalAmount = "222";
+        $scope.promotionInnerParams.TotalAmount = price;
 
 
         console.log("$scope.promotionInnerParams", $scope.promotionInnerParams);
@@ -4429,11 +5341,13 @@ if ($scope.detailPromotionsInner.image) {
                         });
                         $timeout(function() {
                             $scope.successCartModal.close();
-                            $state.go('cart');
+                            $state.go('cart', {
+                                cartCity: $rootScope.citySpecific
+                            });
                         }, 1000);
 
 
-                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart" ) {
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
                         console.log("in else", data);
                         $uibModal.open({
                             animation: true,
@@ -4441,12 +5355,12 @@ if ($scope.detailPromotionsInner.image) {
                             scope: $scope
                         });
 
-                    }else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                      $uibModal.open({
-                          animation: true,
-                          templateUrl: 'views/modal/cartFail.html',
-                          scope: $scope
-                      });
+                    } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/cartFail.html',
+                            scope: $scope
+                        });
 
                     }
                 } else {
@@ -4719,7 +5633,7 @@ if ($scope.detailPromotionsInner.image) {
 
 
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal, $rootScope) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $timeout, $uibModal, $rootScope, $stateParams, $location) {
         $scope.attraId = "57bc4b2aeb9c91f1025a3b55";
         $scope.dealsId = "57bc4b5aeb9c91f1025a3b58";
         $scope.hostpartyId = "57bc4b10eb9c91f1025a3b54";
@@ -4727,9 +5641,22 @@ if ($scope.detailPromotionsInner.image) {
         $scope.foodBeveragesId = "57bc4b48eb9c91f1025a3b57";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
         $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
+        $rootScope.citySpecific = $.jStorage.get("city");
         $scope.template = TemplateService;
         $("#target").val($("#target option:first").val());
         $scope.city = true;
+
+
+
+        $rootScope.openSignupModal=function(){
+          console.log("im in");
+        }
+
+        $scope.addClass=function () {
+
+        }
+
+
         if ($.jStorage.get("city") === 'Mumbai') {
             $scope.showlogo = true;
         }
@@ -4738,32 +5665,577 @@ if ($scope.detailPromotionsInner.image) {
         });
         TemplateService.removeLoaderOn(1);
 
-        $scope.getCity = function() {
-            NavigationService.getCity(function(data) {
-                if (data.value) {
-                    $scope.getCity = data.data;
-                    if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
-                        var mumbai = _.find($scope.getCity, function(key) {
-                            if (key.name.toLowerCase() == "mumbai") {
-                                return key;
+      //   console.log("window.location.href", window.location.href);
+      // console.log("$state.currentCity", window.location.href.split('/').slice(-2)[0]);
+      //       $scope.varLoc = $scope.tempLocation.split('/').slice(-2)[0];
+      //         $scope.tempLocation = window.location.href;
+      // console.log("$state.current.name",$state.current.name);
+      console.log("$state",$stateParams);
+      console.log("$state",$stateParams);
+
+      $scope.getHomeCity=[];
+
+      // getCityByUrl() {
+      //   return city;
+      // }
+      //
+      // switch(getCityByUrl()) {
+      //   case "";
+      //   break;
+      //
+      // }
+
+
+
+
+
+        NavigationService.getCity(function(data) {
+            if (data.value) {
+                $scope.getHomeCity=_.cloneDeep(data.data);
+                if ($state.current.name) {
+                    switch ($state.current.name) {
+                        case 'attractions':
+                        if ($stateParams.gamesCity) {
+                              $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.gamesCity) {
+                                                 return key;
+                                               }
+                                             });
+                          NavigationService.setCity($scope.changeCityParams);
+                                  $state.go('attractions',{
+                                        gamesCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                  $scope.template.reFetchCity();
+                                }
+
+                            break;
+                        case 'dealsp':
+                        if ($stateParams.dealspcity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.dealspcity) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('dealsp',{
+                                        dealspcity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                      $scope.template.reFetchCity();
+                                    }
+                                break;
+                        case 'event':
+                        if ($stateParams.eventcity) {
+                            $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.eventcity) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('event',{
+                                        eventcity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                $scope.template.reFetchCity();
+                              }
+
+                            break;
+                        case 'hostparty':
+                        if ($stateParams.hostCity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.hostCity) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('hostparty',{
+                                        hostCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                  $scope.template.reFetchCity();
+                                      }
+                                      break;
+                        case 'drink-party':
+                        if ($stateParams.drinkCity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.drinkCity) {
+                                                 return key;
+                                               }
+                                             });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('drink-party',{
+                                        drinkCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                              $scope.template.reFetchCity();
+                            }
+                            break;
+                        case 'snow-rush':
+                        if ($stateParams.snowrushCity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.snowrushCity) {
+                                                 return key;
+                                               }
+                                             });
+                                          NavigationService.setCity($scope.changeCityParams);
+                                      $state.go('snow-rush',{
+                                        snowrushCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                $scope.template.reFetchCity();
+                              }
+                              break;
+                        case 'event-inner':
+                            if ($stateParams.eventsInnercity) {
+                              $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.eventsInnercity) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('event-inner',{
+                                        eventsInnercity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                  $scope.template.reFetchCity();
+                                }
+                                break;
+                        case 'deals-inner':
+                        if ($stateParams.dealsinnercity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.dealsinnercity) {
+                                                 return key;
+                                               }
+                                             });
+                                             NavigationService.setCity($scope.changeCityParams);
+                                      $state.go('deals-inner',{
+                                        dealsinnercity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                          $scope.template.reFetchCity();
+                        }
+                        break;
+                        case 'stars':
+                        if ($stateParams.city) {
+                            $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.city) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      $state.go('stars',{
+                                        city:$scope.changeCityParams.name
+
+                                      });
+                                  $scope.template.reFetchCity();
+                                }
+                                break;
+                        case 'media':
+                        if ($stateParams.mediasCity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.mediasCity) {
+                                                 return key;
+                                               }
+                                             });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('media',{
+                                        mediasCity:$scope.changeCityParams.name,
+                                      });
+                                $scope.template.reFetchCity();
+                              }
+                              break;
+                        case 'parties':
+                      if ($stateParams.partyCity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.partyCity) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                  $state.go('parties',{
+                                        partyCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+                                      });
+                                $scope.template.reFetchCity();
+                              }
+                              break;
+                        case 'about':
+                        if ($stateParams.aboutCity) {
+                          $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.aboutCity) {
+                                                 return key;
+                                               }
+                                             });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('about',{
+                                        aboutCity:$scope.changeCityParams.name
+                                      });
+                                        $scope.template.reFetchCity();
+                            }
+                            break;
+                        case 'leader':
+                      if ($stateParams.leaderCity) {
+                        $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.leaderCity) {
+                                                 return key;
+                                               }
+                                             });
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      console.log("$scope.changeCityParams.name",$scope.changeCityParams.name);
+                                      $state.go('leader',{
+                                        leaderCity:$scope.changeCityParams.name,
+                                      });
+                                      console.log("after stateParams");
+                                        $scope.template.reFetchCity();
+
 
                             }
 
-                        });
+                            break;
+                        case 'benefit':
+                        console.log("$stateParams",$stateParams.id);
 
-                        $scope.getCityName(mumbai);
+                            if ($stateParams.benefitCity) {
 
+
+                                    $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.benefitCity) {
+                                                 return key;
+                                               }
+                                             });
+
+
+
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      console.log("$scope.changeCityParams.name",$scope.changeCityParams.name);
+                                      $state.go('benefit',{
+                                        benefitCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+
+                                      });
+                                      console.log("after stateParams");
+                                        $scope.template.reFetchCity();
+
+
+                            }
+
+                            break;
+                        case 'sponsor':
+
+
+                            if ($stateParams.sponsorCity) {
+
+
+                                    $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.sponsorCity) {
+                                                 return key;
+                                               }
+                                             });
+
+
+
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      console.log("$scope.changeCityParams.name",$scope.changeCityParams.name);
+                                      $state.go('sponsor',{
+                                        sponsorCity:$scope.changeCityParams.name
+
+                                      });
+                                      console.log("after stateParams");
+                                        $scope.template.reFetchCity();
+
+
+                            }
+
+                            break;
+                        case 'career':
+                        console.log("$stateParams",$stateParams.id);
+
+                            if ($stateParams.careerCity) {
+
+
+                                    $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.careerCity) {
+                                                 return key;
+                                               }
+                                             });
+
+
+
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      console.log("$scope.changeCityParams.name",$scope.changeCityParams.name);
+                                      $state.go('career',{
+                                        careerCity:$scope.changeCityParams.name,
+                                        id:$stateParams.id
+
+                                      });
+                                      console.log("after stateParams");
+                                        $scope.template.reFetchCity();
+
+
+                            }
+
+                            break;
+                            case 'customizepackage':
+                            if ($stateParams.customizeCity) {
+
+
+                                    $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
+                                             if (key.name == $stateParams.customizeCity) {
+                                                 return key;
+                                               }
+                                             });
+
+
+
+                                      NavigationService.setCity($scope.changeCityParams);
+                                      console.log("$scope.changeCityParams.name",$scope.changeCityParams.name);
+                                      $state.go('customizepackage',{
+                                        customizeCity:$scope.changeCityParams.name
+
+
+                                      });
+                                      console.log("after stateParams");
+                                        $scope.template.reFetchCity();
+
+
+                            }
+
+                              break;
+
+                        default:
+                            console.log("im in default");
+                            console.log("$scope.getHomeCity",$scope.getHomeCity);
+                            if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+                                  var mumbai = _.find($scope.getHomeCity, function(key) {
+                                            if (key.name.toLowerCase() == "mumbai") {
+                                                return key;
+                                              }
+                                            });
+
+                                        $scope.getCityName(mumbai);
+
+                                    }
+  break;
+                            }
                     }
                 }
-                TemplateService.removeLoader();
-            });
-        }
-        $scope.getCity();
+                // else {
+                //   console.log("im in else");
+                //   console.log("$scope.getHomeCity",$scope.getHomeCity);
+                //   if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+                //               var mumbai = _.find($scope.getHomeCity, function(key) {
+                //                   if (key.name.toLowerCase() == "mumbai") {
+                //                       return key;
+                //                   }
+                //               });
+                //               $scope.getCityName(mumbai);
+                //             }
+                // }
 
- $scope.openMenu=true;
- $scope.opens = function(){
-$scope.openMenu=!$scope.openMenu;
- }
+
+        })
+
+
+
+        // $scope.getCity = function() {
+        //     NavigationService.getCity(function(data) {
+        //         if (data.value) {
+        //             $scope.getCity = data.data;
+        //             if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+        //                 var mumbai = _.find($scope.getCity, function(key) {
+        //                     if (key.name.toLowerCase() == "mumbai") {
+        //                         return key;
+        //
+        //                     }
+        //
+        //                 });
+        //
+        //                 $scope.getCityName(mumbai);
+        //
+        //             }
+        //         }
+        //         TemplateService.removeLoader();
+        //     });
+        // }
+        // $scope.getCity();
+
+
+
+
+
+
+        $scope.template.reFetchCity = function() {
+            $scope.cityData = {
+                _id: $.jStorage.get("cityid"),
+                name: $.jStorage.get("city"),
+                smaaashLogo: $.jStorage.get("logos"),
+                branchid: $.jStorage.get("branchId"),
+                cityslug:$.jStorage.get("citySlug")
+            };
+        };
+        $scope.template.reFetchCity();
+console.log("wind",$state);
+
+        $scope.getCityName = function(cityname) {
+            console.log("cityname", cityname);
+            NavigationService.setCity(cityname);
+
+            switch ($state.current.name) {
+              case 'attractions':
+              $state.go('attractions',{
+                gamesCity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'snow-rush':
+              $state.go('snow-rush',{
+                snowrushCity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'event-inner':
+              $state.go('event-inner',{
+                eventsInnercity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'event':
+              $state.go('event',{
+                eventcity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'hostparty':
+              $state.go('hostparty',{
+                hostCity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'drink-party':
+              $state.go('drink-party',{
+                drinkCity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'deals-inner':
+              $state.go('deals-inner',{
+                dealsinnercity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'dealsp':
+              $state.go('dealsp',{
+                dealspcity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'stars':
+              $state.go('stars',{
+                city:cityname.name
+              })
+                break;
+              case 'media':
+              $state.go('media',{
+                mediasCity:cityname.name
+
+              })
+                break;
+              case 'parties':
+              $state.go('parties',{
+                partyCity:cityname.name,
+                id:$stateParams.id
+              })
+                break;
+              case 'about':
+              $state.go('about',{
+                aboutCity:cityname.name
+
+              })
+                break;
+              case 'leader':
+              $state.go('leader',{
+                leaderCity:cityname.name
+
+              })
+                break;
+              case 'benefit':
+              $state.go('benefit',{
+                benefitCity:cityname.name
+
+              })
+                break;
+              case 'sponsor':
+              $state.go('sponsor',{
+                sponsorCity:cityname.name
+
+              })
+                break;
+              case 'career':
+              $state.go('career',{
+                careerCity:cityname.name
+
+              })
+                break;
+              case 'profile':
+              $state.go('profile',{
+                profileCity:cityname.name,
+
+              })
+                break;
+              case 'cart':
+              $state.go('cart',{
+                cartCity:cityname.name
+
+              })
+                break;
+                case 'customizepackage':
+                $state.go('customizepackage',{
+                  customizeCity:cityname.name
+
+                })
+
+                  break;
+
+              default:
+
+            }
+              $scope.template.reFetchCity();
+            if ($state.current.name == 'home') {
+              console.log("im in");
+                $scope.template.reFetchCity();
+                $state.reload();
+                console.log("im in reload");
+            }
+
+
+        }
+
+        $scope.openMenu = true;
+        $scope.opens = function() {
+          console.log("im in",$scope.openMenu);
+            $scope.openMenu = !$scope.openMenu;
+
+        }
+        $scope.getslide = "closeSidemenu";
+        $scope.closeSidemenu = function(){
+          if ($scope.getslide == "openSidemenu") {
+            $scope.getslide = "closeSidemenu";
+
+          }
+          else {
+
+          $scope.getslide = "openSidemenu";
+        }
+        };
+
+
+        $scope.status = {
+  isCustomHeaderOpen: false,
+  isFirstOpen: true,
+  isFirstDisabled: false
+};
+
 
         $scope.currentdate = new Date();
         $scope.userLoginDetails = $.jStorage.get("loginDetail");
@@ -4775,20 +6247,6 @@ $scope.openMenu=!$scope.openMenu;
         $scope.toggleCity = function() {
             $scope.city = !$scope.city;
         };
-        $scope.getCityName = function(cityname) {
-            NavigationService.setCity(cityname);
-            $state.reload();
-        }
-
-        $scope.template.reFetchCity = function() {
-            $scope.cityData = {
-                _id: $.jStorage.get("cityid"),
-                name: $.jStorage.get("city"),
-                smaaashLogo: $.jStorage.get("logos"),
-                branchid: $.jStorage.get("branchId")
-            };
-        };
-        $scope.template.reFetchCity();
 
 
         $scope.menu = false;
@@ -4830,6 +6288,12 @@ $scope.openMenu=!$scope.openMenu;
 
         $scope.formCompleteSignup = false;
         $scope.signupData = {};
+        $scope.signupData.CustomerPhoneNo = $scope.signupData.CustomerPhoneNo;
+        $scope.signupData.IsSendDiscountCode = '1';
+
+        $scope.signupData.CardNo = '';
+        $scope.signupData.CustomerPhotoPath = '';
+
         $scope.signupData.city = $.jStorage.get("cityid");
         $scope.signupData.BranchID = $.jStorage.get("branchId");
         $scope.pass = true;
@@ -4845,12 +6309,47 @@ $scope.openMenu=!$scope.openMenu;
         $scope.isDisabled = false;
         $scope.isDisabled2 = false;
 
+        $scope.selectCityFun = function(val) {
+            console.log("val", val);
+            $scope.cityValue = val.toLowerCase();
+            console.log("$scope.cityValue", $scope.cityValue);
+            switch ($scope.cityValue) {
+                case 'mumbai':
+                    $scope.signupData.CustomerAddressId = '577f4d106b78e0bc03724800';
+                    break;
+                case 'gurgaon - cyber hub':
+                    $scope.signupData.CustomerAddressId = '577f4d246b78e0bc03724802';
+                    break;
+                case 'hyderabad':
+                    $scope.signupData.CustomerAddressId = '579b0d74fa72c24405ee0818';
+                    break;
+                case 'bengaluru':
+                    $scope.signupData.CustomerAddressId = '577f4d1c6b78e0bc03724801';
+                    break;
+                case 'noida':
+                    $scope.signupData.CustomerAddressId = '57808c9032b1d30b046dd48c';
+                    break;
+                case 'ludhiana':
+                    $scope.signupData.CustomerAddressId = '58808e0e94082f1ed90f06a0';
+                    break;
+                case 'gurgaon - sector 29':
+                    $scope.signupData.CustomerAddressId = '587366fa7309110c7de34906';
+                    console.log("im in");
+                    break;
+                default:
+
+            }
+        }
+
+
 
 
 
 
         $scope.signupGenerateOtp = function(signupData) {
+            signupData.CustomerPhoneNo = signupData.CustomerMobile;
             console.log("signupData ", signupData);
+
             $scope.customerEXist = false;
 
             if (signupData) {
@@ -4863,19 +6362,20 @@ $scope.openMenu=!$scope.openMenu;
                         // $scope.otp();
 
                         $scope.getOtp.CustomerMobileNo = signupData.CustomerMobile;
+                        $scope.getOtp.CustomerPhoneNo = signupData.CustomerMobile;
                         console.log("$scope.getOtp", $scope.getOtp);
                         $scope.isDisabled = true;
                         NavigationService.generateOtp($scope.getOtp, function(data) {
                             console.log("$scope.getOtp", $scope.getOtp);
                             console.log("data", data);
-                            if (data.value === true) {
+                            if (data.value) {
                                 $scope.otp();
-                            } else if (!data.value && data.data.GenerateOTPTable[0].Message === "Invalid Data")  {
+                            } else if (!data.value && data.data.GenerateOTPTable[0].Message === "Invalid Data") {
                                 console.log("data in false", data);
 
                                 $scope.customerEXist = true;
                                 $scope.isDisabled = false;
-                            }else {
+                            } else {
                                 $scope.customerEXist = true;
                             }
                         });
@@ -4898,6 +6398,9 @@ $scope.openMenu=!$scope.openMenu;
         $scope.customerSignup = function(signupData) {
             console.log("signupData", signupData);
             if (signupData) {
+                signupData.CustomerPhoneNo = signupData.CustomerMobile;
+                // signupData.CustomerPhoneNo=signupData.CustomerMobileNo;
+                console.log("signupData", signupData);
                 $scope.isDisabled2 = true;
                 NavigationService.CustomerRegistration(signupData, function(data) {
                     console.log("signupData", signupData);
@@ -4933,13 +6436,13 @@ $scope.openMenu=!$scope.openMenu;
         $scope.userData.IsOTPValidation = "0";
         $scope.userData.OTP = "";
         $scope.valid = false;
-        $scope.isUserLoggedIn =false;
+        $scope.isUserLoggedIn = false;
         $scope.userLogin = function(userData) {
-          console.log("im in user login");
+            console.log("im in user login");
             if (userData) {
                 console.log("userData", userData);
-                $scope.isUserLoggedIn =true;
-                  $scope.valid = false;
+                $scope.isUserLoggedIn = true;
+                $scope.valid = false;
                 NavigationService.VerifyCustomerLogin(userData, function(data) {
                     console.log("data", data);
                     if (data.value == true) {
@@ -4954,7 +6457,7 @@ $scope.openMenu=!$scope.openMenu;
                         location.reload();
                     } else {
                         $scope.valid = true;
-                        $scope.isUserLoggedIn =false;
+                        $scope.isUserLoggedIn = false;
                     }
 
 
@@ -4966,17 +6469,20 @@ $scope.openMenu=!$scope.openMenu;
         };
         $scope.hidelogout = false;
         $scope.logout = function() {
+            $state.go("home");
             console.log("im in logout");
             if ($.jStorage.get("loginDetail") != null) {
                 NavigationService.logout(function(data) {
                     console.log("im in nav logout");
                     console.log("data", data);
+
                     if (data.value === true) {
                         $scope.hidelogout = true;
+
                     }
                     console.log("im in nav logout");
                     location.reload();
-                    $state.go("home");
+
                 })
             } else {
 
@@ -4989,13 +6495,17 @@ $scope.openMenu=!$scope.openMenu;
                 $rootScope.getMenus();
             } else if ($.jStorage.get("loginDetail") != null) {
                 console.log("im in else");
-                $state.go("cart");
+                $state.go("cart", {
+                    cartCity: $rootScope.citySpecific
+                });
             }
         };
 
         $scope.myAccount = function() {
             if ($.jStorage.get("loginDetail") != null) {
-                $state.go("profile");
+                $state.go("profile", {
+                    profileCity: $rootScope.citySpecific
+                });
             };
         }
 
@@ -5039,12 +6549,12 @@ $scope.openMenu=!$scope.openMenu;
 
         $scope.credentialstoReset = {};
         $scope.invalidEmail = false;
-          $scope.isDisabledForgot =false;
+        $scope.isDisabledForgot = false;
         $scope.formSubmit = function(credentials) {
-          if (credentials) {
-            $scope.isDisabledForgot = true ;
-              $scope.invalidEmail = false;
-          }
+            if (credentials) {
+                $scope.isDisabledForgot = true;
+                $scope.invalidEmail = false;
+            }
             console.log("credentials", credentials);
             NavigationService.CustomerForgetPassword(credentials, function(data) {
                 console.log("data", data);
@@ -5059,17 +6569,37 @@ $scope.openMenu=!$scope.openMenu;
                     $scope.credentialstoReset = {};
                 } else if (data.value === false) {
                     $scope.invalidEmail = true;
-                      $scope.isDisabledForgot =false;
+                    $scope.isDisabledForgot = false;
 
                 }
             })
         }
+        $rootScope.loginModal = function() {
+          $rootScope.modalSignup.close();
+            $uibModal.open({
+                animation: 'true',
+                templateUrl: "views/modal/mobile-login.html",
+                // controller: 'headerCtrl',
+                windowClass: 'login-modal',
+                scope: $scope
+            });
+        }
 
+        $rootScope.signinModal = function() {
+
+           $rootScope.modalSignup =  $uibModal.open({
+                animation: 'true',
+                templateUrl: "views/modal/mobile-signin.html",
+                // controller: 'headerCtrl',
+                windowClass: 'signin-modal',
+                scope: $scope
+            });
+        }
 
 
 
     })
-    .controller('footerctrl', function($scope, TemplateService, NavigationService, $uibModal) {
+    .controller('footerctrl', function($scope, TemplateService, NavigationService, $uibModal, $rootScope, $stateParams, $state) {
         $scope.template = TemplateService;
         $scope.footer = function(val) {
             if (val == $scope.showFooter) {
@@ -5106,24 +6636,138 @@ $scope.openMenu=!$scope.openMenu;
 
         };
 
-          $scope.loyalty = function() {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/loyalty.html",
-            scope: $scope
-        });
-    };
+        $scope.loyalty = function() {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/loyalty.html",
+                scope: $scope,
+                windowClass: 'app-modal-window'
+            });
+        };
+        $scope.gotoCity = function(id) {
+            switch (id) {
+                case '577f4d106b78e0bc03724800':
+                    $rootScope.Mum = true;
+                    $rootScope.GurgaonHub = false;
+                    $rootScope.Hyderabad = false;
+                    $rootScope.Bengaluru = false;
+                    $rootScope.Noida = false;
+                    $rootScope.Ludhiana = false;
+                    $rootScope.GurgaonSec29 = false;
 
+                    break;
+                case '577f4d246b78e0bc03724802':
+                    $rootScope.GurgaonHub = true;
+                    $rootScope.Mum = false;
+                    $rootScope.Hyderabad = false;
+                    $rootScope.Bengaluru = false;
+                    $rootScope.Noida = false;
+                    $rootScope.Ludhiana = false;
+                    $rootScope.GurgaonSec29 = false;
+
+                    break;
+                case '579b0d74fa72c24405ee0818':
+                    $rootScope.Hyderabad = true;
+                    $rootScope.GurgaonHub = false;
+                    $rootScope.Mum = false;
+
+                    $rootScope.Bengaluru = false;
+                    $rootScope.Noida = false;
+                    $rootScope.Ludhiana = false;
+                    $rootScope.GurgaonSec29 = false;
+
+                    break;
+                case '577f4d1c6b78e0bc03724801':
+                    $rootScope.Bengaluru = true;
+                    $rootScope.GurgaonHub = false;
+                    $rootScope.Mum = false;
+                    $rootScope.Hyderabad = false;
+
+                    $rootScope.Noida = false;
+                    $rootScope.Ludhiana = false;
+                    $rootScope.GurgaonSec29 = false;
+
+
+                    break;
+                case '57808c9032b1d30b046dd48c':
+                    $rootScope.Noida = true;
+                    $rootScope.GurgaonHub = false;
+                    $rootScope.Mum = false;
+                    $rootScope.Hyderabad = false;
+                    $rootScope.Bengaluru = false;
+
+                    $rootScope.Ludhiana = false;
+                    $rootScope.GurgaonSec29 = false;
+
+
+                    break;
+                case '58808e0e94082f1ed90f06a0':
+                    $rootScope.Ludhiana = true;
+                    $rootScope.GurgaonHub = false;
+                    $rootScope.Mum = false;
+                    $rootScope.Hyderabad = false;
+                    $rootScope.Bengaluru = false;
+                    $rootScope.Noida = false;
+
+                    $rootScope.GurgaonSec29 = false;
+
+                    break;
+                case '587366fa7309110c7de34906':
+                    $rootScope.GurgaonSec29 = true;
+                    $rootScope.GurgaonHub = false;
+                    $rootScope.Mum = false;
+                    $rootScope.Ludhiana = false;
+                    $rootScope.Hyderabad = false;
+                    $rootScope.Bengaluru = false;
+                    $rootScope.Noida = false;
+
+
+
+                    break;
+                default:
+                    $rootScope.Mum = true;
+                    $rootScope.GurgaonHub = true;
+                    $rootScope.Hyderabad = true;
+                    $rootScope.Bengaluru = true;
+                    $rootScope.Noida = true;
+                    $rootScope.Ludhiana = true;
+                    $rootScope.GurgaonSec29 = true;
+            }
+        };
+
+        $scope.gotoCity();
+        if ($stateParams.city) {
+            $stateParams.city = $.jStorage.get("city");
+            $state.go("stars", {
+                city: $stateParams.city
+            });
+        }
+        if ($.jStorage.get("cityid") != null) {
+            $rootScope.footerCity = $.jStorage.get("cityid");
+        }
+
+
+          console.log("window.location.href", $state);
+        NavigationService.getCity(function(data) {
+            $scope.getCities = data.data;
+            TemplateService.removeLoader();
+            // if (true) {
+            //
+            // }
+
+
+        });
         $scope.attrctionId = "57bc4b2aeb9c91f1025a3b55";
         $scope.drinkandPartyId = "57bc4b48eb9c91f1025a3b57";
         $scope.dealsandpackagesId = "57bc4b5aeb9c91f1025a3b58";
         $scope.eventId = "57bd4e71a86ee9fa6770d4b2";
-        $scope.id = '57bc4b10eb9c91f1025a3b54';
-          $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
+        // $scope.id = '57bc4b10eb9c91f1025a3b54';
+        $scope.promotionId = "57bc4b36eb9c91f1025a3b56";
+        $scope.cityID =$.jStorage.get("cityid");
 
-        NavigationService.getSingleExploreSmaaash($scope.id, function(data) {
+        NavigationService.getSingleExploreSmaaashByUrl('host-a-party',$scope.cityID, function(data) {
             $scope.SingleHostParty1 = data.data;
-            // console.log(".SingleHostParty1",.SingleHostParty1);
+            console.log(".SingleHostParty1",  $scope.SingleHostParty1);
 
         });
         if ($.jStorage.get("weekdays") != null) {

@@ -41,22 +41,25 @@
     </div>
     <div class="snow-bg second">
         <div class="container">
-            <h2 class="nav-name center" ng-bind-html="detailDealsInner.hometext"></h2>
+            <h2 class="nav-name center" ng-bind-html="detailDealsInner.hometext |htmlDecode"></h2>
         </div>
     </div>
     <div class="container">
         <div class="deals-details">
-            <div ng-bind-html="detailDealsInner.description"></div>
+            <div ng-bind-html="detailDealsInner.description | htmlDecode"></div>
 
             <div class="button-set">
-                <ul class="social-icons list-inline inline-block">
+                <!-- <ul class="social-icons list-inline inline-block">
                     <p class="inline-block">Share</p>
                     <li><a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
                     <li><a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                     <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                </ul>
-                <div class="more inline-block" ng-if="detailDealsInner.showBuyNow">
+                </ul> -->
+                <div class="more inline-block hidden-xs" ng-if="detailDealsInner.showBuyNow">
                     <button class="uppercase green"  ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price)">Buy Now</button>
+                </div>
+                <div class="more inline-block visible-xs" ng-if="detailDealsInner.showBuyNow">
+                    <button class="uppercase green"  ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Buy Now</button>
                 </div>
             </div>
         </div>
