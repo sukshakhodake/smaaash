@@ -6574,8 +6574,11 @@ console.log("wind",$state);
                 }
             })
         }
-        $rootScope.loginModal = function() {
-          $rootScope.modalSignup.close();
+        $rootScope.loginModal = function(num) {
+          if (num == '1') {
+              $rootScope.modalSignup.close();
+          }
+
             $uibModal.open({
                 animation: 'true',
                 templateUrl: "views/modal/mobile-login.html",
