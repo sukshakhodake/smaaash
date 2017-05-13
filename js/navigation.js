@@ -1,10 +1,10 @@
-var adminurl = "http://test.smaaash.in/";
+var adminurl = "https://test.smaaash.in/";
 
 
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 
-var pdfpath = "http://test.smaaash.in/upload/readFile?file";
+var pdfpath = "https://test.smaaash.in/upload/readFile?file";
 
 var uploadurl = imgurl;
 
