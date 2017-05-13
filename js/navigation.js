@@ -4,7 +4,7 @@ var adminurl = "http://test.smaaash.in/";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 
-var pdfpath = "http://104.155.129.33:82/upload/readFile?file";
+var pdfpath = "http://test.smaaash.in/upload/readFile?file";
 
 var uploadurl = imgurl;
 
