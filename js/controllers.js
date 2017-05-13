@@ -234,7 +234,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getHomeBanner(function(data) {
         if (data.value) {
             $scope.banner = data.data;
-            console.log("  $scope.bannerDFDSFSD", $scope.banner);
+            console.log("  $scope.banner***", $scope.banner);
 
             if ($scope.banner != '') {
                 $scope.banner[0].homebanner = $filter('uploadpath')($scope.banner[0].homebanner);
