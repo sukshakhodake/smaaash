@@ -425,9 +425,23 @@
          <input type="text" class="form-control" placeholder="Card Number" allow-pattern="(\d|[a-z])" ng-model="rechargeOnline.CustomerCardNo"  required>
          <div style="color:red;" class="text-center">{{invalidCardNO}}</div>
       </div>
-       <div class="form-group ruppee">
+       <div class="form-group ruppee relative">
            <i class="fa fa-inr" aria-hidden="true"></i>
-         <input type="text" class="form-control" ng-model="rechargeOnline.RechargeAmount" placeholder="Amount" only-Digits required>
+           <div></div>
+           <span class="rechargeSpan" ng-if="!rechargeOnline.RechargeAmount">Recharge amount</span>
+            <select class="form-control"  ng-model="rechargeOnline.RechargeAmount" >
+              <option value="500">500</option>
+               <option value="1000">1000</option>
+               <option value="1500">1500</option>
+               <option value="2000">2000</option>
+               <option value="2500">2500</option>
+               <option value="3000">3000</option>
+               <option value="3500">3500</option>
+               <option value="4000">4000</option>
+               <option value="4500">4500</option>
+               <option value="5000">5000</option>
+              </select>
+         <!--<input type="text" class="form-control" ng-model="rechargeOnline.RechargeAmount" placeholder="Amount" only-Digits required>-->
       </div>
         <div  class="text-center" ng-if="incorrect">Something went wrong.</div>
         <h3 class="text-center" ng-if="isRecharge">Wait...</h3>

@@ -4389,7 +4389,7 @@ if ($stateParams.hostCity) {
         console.log("im in");
         $scope.pdfdata = pdf;
         $scope.pdfURL = $filter('uploadpath')($scope.pdfdata);
-        $scope.finalURL = 'http://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
+        $scope.finalURL = 'https://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
         $scope.trustedURL = $sce.trustAsResourceUrl($scope.finalURL);
         console.log("  $scope.finalURL", $scope.finalURL);
 
