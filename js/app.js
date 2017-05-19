@@ -1,5 +1,3 @@
-
-
 var firstapp = angular.module('firstapp', [
     'ui.router',
     'phonecatControllers',
@@ -21,6 +19,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'ResetCtrl'
         })
+
         // Thank u for for Check Out success
         .state('thank', {
             url: "/thankyou/:orderNo",
@@ -36,15 +35,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'Thank2Ctrl'
         })
         // Thank u for for enquiry
-
-    .state('home', {
-        url: "/",
-        templateUrl: "views/template-home.html",
-        controller: 'HomeCtrl'
-    })
-
-
-    .state('corporate-parties', {
+        .state('home', {
+            url: "/",
+            templateUrl: "views/template-home.html",
+            controller: 'HomeCtrl'
+        })
+        .state('corporate-parties', {
             url: "/corporate-parties",
             templateUrl: "views/template.html",
             controller: 'CorporateCtrl'
@@ -93,23 +89,15 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('blog-inside', {
-        url: "/blog-inside/:id",
-        templateUrl: "views/template.html",
-        controller: 'BlogInsideCtrl'
-    })
-
-
-
-
-
-
-
-
-    .state('whats-new', {
-        url: "/whats-new/:id",
-        templateUrl: "views/template.html",
-        controller: 'NewCtrl'
-    })
+            url: "/blog-inside/:id",
+            templateUrl: "views/template.html",
+            controller: 'BlogInsideCtrl'
+        })
+        .state('whats-new', {
+            url: "/whats-new/:id",
+            templateUrl: "views/template.html",
+            controller: 'NewCtrl'
+        })
 
     .state('account', {
             url: "/account",
@@ -142,27 +130,22 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'RechargeCtrl'
         })
+        .state('sorry', {
 
-
-    .state('sorry', {
-
-        url: "/sorry/:orderNo",
-        templateUrl: "views/template.html",
-        controller: 'SorryCtrl'
-    })
-
-
-
-    .state('confirm-order', {
-        url: "/confirm-order",
-        templateUrl: "views/template.html",
-        controller: 'ConfirmCtrl'
-    })
+            url: "/sorry/:orderNo",
+            templateUrl: "views/template.html",
+            controller: 'SorryCtrl'
+        })
+        .state('confirm-order', {
+            url: "/confirm-order",
+            templateUrl: "views/template.html",
+            controller: 'ConfirmCtrl'
+        })
 
 
     .state('deals-inner', {
         // url: "/:id",
-        url: "/:dealsinnercity/deals-inner/:id",
+        url: "/:dealsinnercity/deals-and-packages/:id",
         templateUrl: "views/template.html",
         controller: 'DealsInnerCtrl'
 
@@ -214,7 +197,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             }
         })
         .state('attractions', {
-          cache:false,
+            cache: false,
             url: "/:gamesCity/attraction",
             templateUrl: "views/template.html",
             controller: 'AttractionCtrl',
@@ -237,7 +220,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('media', {
-            url: "/:mediasCity/Media",
+            url: "/:mediasCity/media",
             templateUrl: "views/template.html",
             controller: 'MediaCtrl'
         })
@@ -291,24 +274,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
 
     .state('about', {
-        url: "/:aboutCity/about",
-        templateUrl: "views/template.html",
-        controller: 'AboutCtrl'
-    })
-
-
-
-
-
-
-    .state('stars', {
+            url: "/:aboutCity/about",
+            templateUrl: "views/template.html",
+            controller: 'AboutCtrl'
+        })
+        .state('stars', {
             url: "/:city/gallery",
             templateUrl: "views/template.html",
             controller: 'StarsCtrl',
 
         })
         .state('snow-rush', {
-            url: "/:snowrushCity/game/:id",
+            url: "/:snowrushCity/attraction/:id",
             templateUrl: "views/template.html",
             controller: 'SnowCtrl',
             // params: {
@@ -317,7 +294,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             // }
         })
         .state('event-inner', {
-            url: "/:eventsInnercity/event-inner/:id",
+            url: "/:eventsInnercity/events/:id",
             templateUrl: "views/template.html",
             controller: 'EventInnerCtrl',
             // params:{
@@ -327,12 +304,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
 
     .state('parties', {
-        url: "/:partyCity/party/:id",
-        templateUrl: "views/template.html",
-        controller: 'KittyCtrl'
-    })
-
-    .state('cart', {
+            url: "/:partyCity/host-a-party/:id",
+            templateUrl: "views/template.html",
+            controller: 'KittyCtrl'
+        })
+        .state('cart', {
             url: "/:cartCity/cart",
             templateUrl: "views/template.html",
             controller: 'CartsCtrl'
