@@ -225,14 +225,14 @@
       </div>
     </div>
   </div>
-  <div class="new-sliding">
+  <div class="new-sliding" ng-if="buyNowdeals.length>0">
     <div class="gallery">
       <div class="slidings">
         <div class="headings clearfix">
           <h2 class="title slide-text pull-left">Buy Now</h2>
           <!-- <p class="pull-right margin33 uppercase border-bot">view all</p> -->
         </div>
-        <flex-slider class="carousel" flex-slide="s in deals track by $index" item-width="300" animation="slide" animationLoop="true"
+        <flex-slider class="carousel" flex-slide="s in buyNowdeals track by $index" item-width="300" animation="slide" animationLoop="true"
           prev-text="" next-text="">
           <li ng-if="s.showBuyNow">
             <div class="race relative margno">

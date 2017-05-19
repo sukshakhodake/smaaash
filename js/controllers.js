@@ -167,6 +167,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.attraction1=[];
           $scope.attraction2=[];
             $scope.attraction=[];
+            $scope.buyNowdeals =[];
             $scope.homeContent = data.data;
             $scope.content = _.groupBy($scope.homeContent, "type.name");
             _.each($scope.content.Attraction,function(key){
@@ -203,6 +204,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           _.each(  $scope.dealsp,function(key){
             if (key.status) {
               $scope.deals.push(key);
+              if(key.showBuyNow){
+                   $scope.buyNowdeals.push(key);
+              }
             }
               console.log("  $scope.deals",  $scope.deals);
           })
