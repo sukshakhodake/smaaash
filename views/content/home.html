@@ -144,6 +144,8 @@
         <!-- <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail && !banner[0].homebanner"> -->
         <img ng-src="{{banner[0].homebanner}}" class="img-responsive" alt="banner" ng-if="!banner[0].thumbnail && banner[0].videourl && !showIframe"
           ng-click="showIframeVid()" ;>
+          <img ng-src="{{banner[0].homebanner}}" class="img-responsive" alt="banner" ng-if="!banner[0].thumbnail && !banner[0].videourl && !showIframe"
+          >
           
       </a>
       <!--<a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
