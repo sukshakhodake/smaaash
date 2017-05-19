@@ -126,7 +126,7 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" ng-if="banner[0].homebanner || banner[0].thumbnail">
   <!--ng-if="banner[0].videourl"-->
   <div class="land-kartbanner middle">
     <div class="inner relative pointer auto-height">
@@ -134,16 +134,17 @@
       <!-- <iframe  ng-src="{{'https://www.youtube.com/embed/'+ banner[0].videourl + '?autoplay=1'|trusted}}" frameborder="0" allowfullscreen width="100%" class="blog-iframe" ng-if="showIframe"></iframe> -->
       <!-- playing video in Iframe -->
       <!-- playing video in FancyBox -->
-      <a class=" pink-button video" fancybox-box data-fancybox-type="iframe" href="http://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1">
+      <a class="pink-button video" ng-if="banner[0].videourl" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{banner[0].videourl}}?autoplay=1">
         <!-- playing video in FancyBox -->
         <!-- <img src="img/landing/banner1.jpg" class="img-responsive" alt="banner"></a> -->
-        <img src="img/home/button.png" class="img-responsive play-button" alt="play-video" ng-click="showIframeVid()" ; ng-if="banner[0].videourl">
+        <img src="img/home/button.png" ng-if="banner[0].videourl" class="img-responsive play-button" alt="play-video" ng-click="showIframeVid()" ; ng-if="banner[0].videourl">
         <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail && banner[0].videourl"
           ng-click="showIframeVid()" ;>
         <!-- <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail && banner[0].videourl && !showIframe" ng-click="showIframeVid()";> -->
         <!-- <img ng-src="{{banner[0].thumbnail | uploadpath}}" class="img-responsive" alt="banner" ng-if="banner[0].thumbnail && !banner[0].homebanner"> -->
         <img ng-src="{{banner[0].homebanner}}" class="img-responsive" alt="banner" ng-if="!banner[0].thumbnail && banner[0].videourl && !showIframe"
           ng-click="showIframeVid()" ;>
+          
       </a>
       <!--<a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                 class="pink-button"></a>
