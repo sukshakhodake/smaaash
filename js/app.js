@@ -36,7 +36,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
         // Thank u for for enquiry
         .state('home', {
-            url: "/",
+            url: "/:homepageCity",
             templateUrl: "views/template-home.html",
             controller: 'HomeCtrl'
         })
