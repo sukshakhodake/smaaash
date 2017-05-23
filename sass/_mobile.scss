@@ -9,7 +9,7 @@
 }
 
 @media (max-width: $screen-xs-max) {
-  
+
 
   .form-content .practice{
     display: none;
@@ -684,7 +684,7 @@ width: 100px;
 }
 
 .header-mobile{
-  
+
   ul{
     padding: 0;
     height: auto;
@@ -1342,11 +1342,11 @@ margin: 0;
       }
     }
     ul.foot-list.foot-data {
-      height: 110px;
+      height: 175px;
       overflow: hidden;
       @include transition(all 300ms linear);
       &.app {
-        height: 50px;
+        height: 145px;
       }
     }
     .icon {
