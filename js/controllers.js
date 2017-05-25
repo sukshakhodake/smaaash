@@ -3676,10 +3676,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //  $stateParams.CNR_No;
         //     $stateParams.PayAmount;
         // var google_conversion_value = 300.00; value should be dynamic.
-          $scope.PaymentFor=$stateParams.PayAmount;
+          // $scope.PaymentFor=$stateParams.PayAmount;
           console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
             console.log("$stateParams.CNR_No",$stateParams.CNR_No);
               console.log("$stateParams.PayAmount",$stateParams.PayAmount);
+            $scope.checkoutAmount=$stateParams.PayAmount;
                 console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
 
 
