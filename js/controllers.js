@@ -3672,6 +3672,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+
         //  $stateParams.orderNo;
         //  $stateParams.CNR_No;
         //     $stateParams.PayAmount;
@@ -3680,8 +3681,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
             console.log("$stateParams.CNR_No",$stateParams.CNR_No);
               console.log("$stateParams.PayAmount",$stateParams.PayAmount);
-            $scope.checkoutAmount=$stateParams.PayAmount;
+            // $scope.checkoutAmount=$stateParams.PayAmount;
+            TemplateService.checkoutAmount=$stateParams.PayAmount;
                 console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
+
+
 
 
     })
