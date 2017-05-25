@@ -1,6 +1,7 @@
 var adminurl = "https://test.smaaash.in/";
 
 
+
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 

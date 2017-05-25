@@ -22,7 +22,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
         // Thank u for for Check Out success
         .state('thank', {
-            url: "/thankyou/:orderNo",
+            url: "/thankyou/:orderNo/:CNR_No/:PayAmount/:PaymentFor",
             templateUrl: "views/template.html",
             controller: 'ThankCtrl'
         })
@@ -132,7 +132,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         })
         .state('sorry', {
 
-            url: "/sorry/:orderNo",
+            url: "/sorry/:orderNo/:CNR_No/:PayAmount/:PaymentFor",
             templateUrl: "views/template.html",
             controller: 'SorryCtrl'
         })
