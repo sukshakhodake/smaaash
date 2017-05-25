@@ -3672,6 +3672,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        //  $stateParams.orderNo;
+        //  $stateParams.CNR_No;
+        //     $stateParams.PayAmount;
+        // var google_conversion_value = 300.00; value should be dynamic.
+          $scope.PaymentFor=$stateParams.PaymentFor;
+
+
     })
     .controller('sorrieCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
@@ -4533,7 +4540,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     TemplateService.removeLoaderOn(1);
     $scope.myUrl = $location.absUrl();
-
+  $scope.showTermsCondition= false;
+$scope.showTermsConditionfun=function () {
+  $scope.showTermsCondition=!$scope.showTermsCondition;
+}
     // if ($stateParams.dealsinnercity) {
     //     console.log("im in city");
     //     $stateParams.dealsinnercity = $.jStorage.get("city");

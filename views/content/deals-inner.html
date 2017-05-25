@@ -47,6 +47,13 @@
     <div class="container">
         <div class="deals-details">
             <div ng-bind-html="detailDealsInner.description | htmlDecode"></div>
+            <br>
+
+            <div ng-if="showTermsCondition">
+              <h4 class="terms-bold">Terms and Condition</h4>
+<div ng-bind-html="detailDealsInner.termsAndCondition | htmlDecode"></div>
+
+            </div>
 
             <div class="button-set">
                 <!-- <ul class="social-icons list-inline inline-block">
@@ -60,6 +67,13 @@
                 </div>
                 <div class="more inline-block visible-xs" ng-if="detailDealsInner.showBuyNow">
                     <button class="uppercase green"  ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Buy Now</button>
+                </div>
+                <div class="more inline-block visible-xs mt10" ng-if="detailDealsInner.termsAndCondition"  ng-click="showTermsConditionfun();">
+                    <button class="uppercase green">Terms and Condition</button>
+                </div>
+
+                <div class="more inline-block hidden-xs" ng-if="detailDealsInner.termsAndCondition"  ng-click="showTermsConditionfun();">
+                    <button class="uppercase green">Terms and Condition</button>
                 </div>
             </div>
         </div>
