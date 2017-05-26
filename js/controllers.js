@@ -3671,24 +3671,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Sorry");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
-
         //  $stateParams.orderNo;
         //  $stateParams.CNR_No;
         //     $stateParams.PayAmount;
         // var google_conversion_value = 300.00; value should be dynamic.
           // $scope.PaymentFor=$stateParams.PayAmount;
-          console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
-            console.log("$stateParams.CNR_No",$stateParams.CNR_No);
-              console.log("$stateParams.PayAmount",$stateParams.PayAmount);
+          // console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
+          //   console.log("$stateParams.CNR_No",$stateParams.CNR_No);
+          //     console.log("$stateParams.PayAmount",$stateParams.PayAmount);
             // $scope.checkoutAmount=$stateParams.PayAmount;
-            TemplateService.checkoutAmount=$stateParams.PayAmount;
+            $scope.checkoutAmount=$stateParams.PayAmount;
                 console.log("$stateParams.PaymentFor",$stateParams.PaymentFor);
-
-
-
-
-    })
+})
     .controller('sorrieCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("sorrie");
@@ -4976,6 +4970,7 @@ $scope.showTermsConditionfun=function () {
         $scope.menutitle = NavigationService.makeactive("Thank");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+          $scope.checkoutAmount=$stateParams.PayAmount;
     })
     .controller('Thank2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file

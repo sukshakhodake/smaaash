@@ -1,33 +1,35 @@
 <div class="reset-passwords enquiry-forms" >
       <div class="container">
-<h2 class="title center brand-white">Payment declined {{checkoutAmount}}</h2>
-
-<!-- <h3 class="title center brand-white">your payment was not successful</h3> -->
-<!-- <span class="brand-white uppercase text-center">Sorry for the inconvenience!</span> -->
-      </div>
-
-
+<h2 class="title center brand-white">payment declined </h2>
+<p id="test" style="display:none;"> {{checkoutAmount}}</p>
 </div>
 
 
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+window.addEventListener("load", function(){
+    // alert("hii");
+    var google_conversion_id = 862220214;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "PHUnCL7mo3AQtt-RmwM";
+    var x = document.getElementById('test').innerHTML;
+    console.log("test", x);
+    var google_conversion_value = x;
+    var google_conversion_currency = "INR";
+    var google_remarketing_only = false;
+});
 
+/* ]]> */
+</script>
 
-<!-- <script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
 
-var google_conversion_id = 862220214;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "PHUnCL7mo3AQtt-RmwM";
-var google_conversion_value = {{checkoutAmount}};
-var google_conversion_currency = "INR";
-var google_remarketing_only = false;
-
-</script> -->
-<!-- <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"> -->
-<!-- </script> -->
-<!-- <noscript>
+<noscript>
 <div style="display:inline;">
 <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/862220214/?value={{checkoutAmount}}&amp;currency_code=INR&amp;label=PHUnCL7mo3AQtt-RmwM&amp;guid=ON&amp;script=0"/>
 </div>
-</noscript> -->
+</noscript>
