@@ -4989,6 +4989,7 @@ $scope.showTermsConditionfun=function () {
         $scope.amount = $stateParams.amount;
         $scope.cnrNo = $stateParams.cnrno;
         $scope.paymentFor = $stateParams.paymentfor;
+        
     })
 
 .controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $rootScope) {
