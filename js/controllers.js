@@ -571,7 +571,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getDetailExploreSmaaash($stateParams.id, function(data) {
             $scope.corporate = data.data;
         });
-        $scope.corporateParty = function() {
+      $scope.corporateParty = function() {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/enquiry.html",
