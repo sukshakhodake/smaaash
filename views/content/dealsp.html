@@ -23,7 +23,7 @@
                 <button class="uppercase bluey"  ng-click="goTo(d.hometext,d._id)">view</button>
               </div> -->
               <div class="min-last" ng-click="goTo(d.myslug)">
-                <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :20" ></h3>
+                <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | htmlDecode  | shorten :20" ></h3>
                   <p class="pointer" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
               </div>
 
@@ -33,7 +33,7 @@
               <div class="button-set visible-xs" ng-if="d.showBuyNow">
                 <button class="uppercase blue"  ng-click="buyNow(d.BranchPackageID,d.price,'mobile')">buy now</button>
               </div>
-              
+
               <!-- <div class="love">
                 <button class="uppercase" ng-click="addedToWishList(d._id);"><i class="fa" aria-hidden="true" ng-class="{'fa-heart-o':!isInWishlist(d._id),'fa-heart':isInWishlist(d._id)}" style="color:red;"></i>would love to try</button>
               </div> -->

@@ -971,7 +971,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.mediaObject = {};
             $scope.mediaObject.pagenumber = 0;
             $scope.mediaObject.pagesize = 6;
-            $scope.mediaObject.city = $scope.tempCity._id;
+            // $scope.mediaObject.city = $scope.tempCity._id;
             // $scope.mediaObject.city = $.jStorage.get("cityid");
             $scope.noviewmore = true;
             $scope.mediagallery = [];
@@ -2641,6 +2641,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
             NavigationService.getPartyInside($stateParams.id, $scope.tempCity._id, function(data) {
                 $scope.party = data.data;
+                if (_.isEmpty($scope.party) || Object.keys($scope.party).length == 0 ) {
+                  console.log("im true");
+                  $state.go('home');
+                }
                 console.log("$scope.party", $scope.party);
                 TemplateService.removeLoader();
 
@@ -3178,6 +3182,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function(data) {
                     $scope.detailExploreSmaash = data.data;
                     console.log("$scope.detailExploreSmaash", $scope.detailExploreSmaash);
+                    if (_.isEmpty($scope.detailExploreSmaash) || Object.keys($scope.detailExploreSmaash).length == 0 ) {
+                      console.log("im true");
+                      $state.go('home');
+                    }
                     $scope.detailExploreSmaash.banner = $filter('uploadpath')($scope.detailExploreSmaash.banner);
                     $scope.detailExploreSmaash.image = $filter('uploadpath')($scope.detailExploreSmaash.image);
                     $scope.detailExploreSmaash.mobileBanner = $filter('uploadpath')($scope.detailExploreSmaash.mobileBanner);
@@ -4356,6 +4364,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getSingleExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function(data) {
                 $scope.drinkParty1 = data.data;
                 console.log("data", data.data);
+                if (_.isEmpty($scope.drinkParty1)) {
+                  $state.go('home');
+                }
                 $scope.drinkParty = _.chunk(data.data, 3);
                 TemplateService.removeLoader();
             });
@@ -4570,6 +4581,10 @@ $scope.showTermsConditionfun=function () {
             NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function(data) {
                 $scope.detailDealsInner = data.data;
                 console.log("$scope.detailDealsInner", $scope.detailDealsInner);
+                if (_.isEmpty($scope.detailDealsInner) || Object.keys($scope.detailDealsInner).length == 0 ) {
+                  console.log("im true");
+                  $state.go('home');
+                }
                 $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
                 $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
                 $scope.detailDealsInner.image = $filter('uploadpath')($scope.detailDealsInner.image);
@@ -4805,6 +4820,14 @@ $scope.showTermsConditionfun=function () {
             NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function(data) {
                 $scope.detailEventsInner = data.data;
                 console.log("$scope.detailEventsInner", $scope.detailEventsInner);
+                if ($scope.detailEventsInner.description == '' && $scope.detailEventsInner.hometext == 'No Events') {
+                    $state.go('home');
+                }
+                if (_.isEmpty($scope.detailEventsInner) || Object.keys($scope.detailEventsInner).length == 0 ) {
+                  console.log("im true");
+                  $state.go('home');
+                }
+
                 if ($scope.detailEventsInner.banner) {
                     $scope.detailEventsInner.banner = $filter('uploadpath')($scope.detailEventsInner.banner);
                 };
@@ -4989,7 +5012,7 @@ $scope.showTermsConditionfun=function () {
         $scope.amount = $stateParams.amount;
         $scope.cnrNo = $stateParams.cnrno;
         $scope.paymentFor = $stateParams.paymentfor;
-        
+
     })
 
 .controller('PromotionCtrl', function($scope, $uibModal, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state, $rootScope) {
