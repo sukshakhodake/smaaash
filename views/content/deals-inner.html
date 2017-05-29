@@ -41,17 +41,17 @@
     </div>
     <div class="snow-bg second">
         <div class="container">
-            <h2 class="nav-name center" ng-bind-html="detailDealsInner.hometext |htmlDecode"></h2>
+            <h2 class="nav-name center" ng-bind-html="detailDealsInner.hometext"></h2>
         </div>
     </div>
     <div class="container">
         <div class="deals-details">
-            <div ng-bind-html="detailDealsInner.description | htmlDecode"></div>
+            <div ng-bind-html="detailDealsInner.description"></div>
             <br>
 
             <div ng-if="showTermsCondition">
-              <h4 class="terms-bold">Terms and Condition</h4>
-<div ng-bind-html="detailDealsInner.termsAndCondition | htmlDecode"></div>
+              <h4 class="terms-bold">Terms & Conditions</h4>
+<div ng-bind-html="detailDealsInner.termsAndCondition"></div>
 
             </div>
 
