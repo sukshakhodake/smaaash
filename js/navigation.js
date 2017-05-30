@@ -336,7 +336,7 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
             getSingleExploreSmaaashByUrl: function (id, cityid, callback) {
-                console.log(id, "id");
+            
                 if (cityid) {
                     var cityId = cityid;
                 } else {
@@ -608,7 +608,7 @@ var navigationservice = angular.module('navigationservice', [])
             },
             setCity: function (cityname) {
 
-                console.log("cityname", cityname);
+
                 $.jStorage.set("cityid", cityname._id);
                 $.jStorage.set("city", cityname.name);
                 $.jStorage.set("logos", cityname.logo);
