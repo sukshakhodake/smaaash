@@ -7,10 +7,10 @@
     <div class="container">
         <div class="new">
               <div class="row" ng-repeat="data in SingleDealsPackages">
-        <div class="col-md-4 col-sm-4" ng-repeat="d in data" >
+        <div class="col-md-4 col-sm-4" ng-repeat="d in data" ng-click="goTo(d.myslug)">
 
           <div class="karting-championship">
-            <div class="brand-blue relative  pointer" ng-click="goTo(d.myslug)">
+            <div class="brand-blue relative  pointer">
               <img ng-src="{{d.image|uploadpath}}" class="img-responsive" alt="" >
               <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a>
@@ -22,16 +22,22 @@
               <!-- <div class="views inline-block">
                 <button class="uppercase bluey"  ng-click="goTo(d.hometext,d._id)">view</button>
               </div> -->
-              <div class="min-last" ng-click="goTo(d.myslug)">
+              <div class="min-last">
                 <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | htmlDecode  | shorten :20" ></h3>
                   <p class="pointer" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
               </div>
 
-              <div class="button-set hidden-xs" ng-if="d.showBuyNow">
+<!-- buy now buttons for mobile and desktop view -->
+
+              <!-- <div class="button-set hidden-xs" ng-if="d.showBuyNow">
                 <button class="uppercase blue"  ng-click="buyNow(d.BranchPackageID,d.price)">buy now</button>
               </div>
               <div class="button-set visible-xs" ng-if="d.showBuyNow">
                 <button class="uppercase blue"  ng-click="buyNow(d.BranchPackageID,d.price,'mobile')">buy now</button>
+              </div> -->
+<!-- buy now buttons for mobile and desktop view -->
+              <div class="button-set" ng-if="d.showBuyNow">
+                <button class="uppercase blue">buy now</button>
               </div>
 
               <!-- <div class="love">
