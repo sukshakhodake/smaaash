@@ -4973,6 +4973,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.checkoutAmount = $stateParams.PayAmount;
+          $scope.orderNum = $stateParams.orderNo;
     })
     .controller('Thank2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
@@ -5713,7 +5714,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (data.value) {
                     $scope.getHomeCity = _.cloneDeep(data.data);
                     if ($state.current.name) {
-                    
+
                         if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
                             var mumbai = _.find($scope.getHomeCity, function(key) {
                                 if (key.name.toLowerCase() == "mumbai") {

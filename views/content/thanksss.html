@@ -4,6 +4,7 @@
       <p class="text-center brand-white">Your CNR No : {{cnrNo}}</p>
       <h3 class="title center brand-white">Your Payment for Order No.  {{orderNo}} of Rs. {{amount}} has been Successfull.</h3>
     <p id="test" style="display:none;"> {{amount}}</p>
+      <p id="ordernum" style="display:none;"> {{orderNo}}</p>
     </div>
 </div>
 
@@ -20,10 +21,22 @@ window.addEventListener("load", function(){
     var google_conversion_color = "ffffff";
     var google_conversion_label = "PHUnCL7mo3AQtt-RmwM";
     var x = document.getElementById('test').innerHTML;
-    console.log("test", x);
+    var y = document.getElementById('ordernum').innerHTML;
     var google_conversion_value = x;
     var google_conversion_currency = "INR";
     var google_remarketing_only = false;
+
+
+        ga('ecommerce:addTransaction', {
+            'id': y,                     // Transaction ID. Required.
+          'affiliation': 'Smaaash India',   // Affiliation or store name.
+          'revenue': x,               // Grand Total.
+          'shipping': '0',                  // Shipping.
+          'tax': '0'                     // Tax.
+        });
+        console.log("Grand Total", x);
+          console.log("Transaction ID", y);
+
 });
 
 /* ]]> */
