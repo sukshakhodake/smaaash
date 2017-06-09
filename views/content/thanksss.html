@@ -36,17 +36,15 @@ window.addEventListener("load", function(){
         });
         console.log("Grand Total", x);
           console.log("Transaction ID", y);
+          console.log(x+".00");
+          fbq('track', 'Purchase',{value: "1.00", currency: 'EUR'});
 
 });
 
 /* ]]> */
 </script>
 
-<!-- Purchase Code -->
-<script type="text/javascript">
-fbq('track', 'Purchase');
-</script>
-<!-- Purchase Code -->
+
 
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>

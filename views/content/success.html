@@ -14,11 +14,6 @@
 </div>
 
 
-<!-- Purchase Code -->
-<script type="text/javascript">
-fbq('track', 'Purchase');
-</script>
-<!-- Purchase Code -->
 <!-- Google Code for Transaction Conversion Page -->
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -44,11 +39,13 @@ window.addEventListener("load", function(){
       'shipping': '0',                  // Shipping.
       'tax': '0'                     // Tax.
     });
-    console.log("Grand Total", x);
+    console.log(x);
       console.log("Transaction ID", y);
+      console.log(x+".00");
+      fbq('track', 'Purchase',{value: "1.00", currency: 'EUR'});
 });
 
-/* ]]> */
+
 
 </script>
 
