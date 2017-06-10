@@ -25,10 +25,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("imnshowIframeVid");
         $scope.showIframe = !$scope.showIframe;
     }
-
-
-
-    $scope.goTo = function(name, id, statetogo) {
+$scope.goTo = function(name, id, statetogo) {
         if (name, id) {
             $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
             $state.go(statetogo, {
