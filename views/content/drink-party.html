@@ -1,5 +1,5 @@
 <div class="drink">
-    <div class="backg">
+    <div class="backg gap-issue">
         <div class="container">
             <h2 class="nav-name center">eat &#44; drink &#44; party</h2>
         </div>
@@ -8,12 +8,12 @@
         <div class="new">
             <div class="row" ng-repeat="datas in drinkParty">
                 <div class="col-md-4" ng-repeat="data in datas">
-                     <div class="karting-championship relative">
-                           <div class="img-bg">
+                    <div class="karting-championship relative">
+                        <div class="img-bg">
                             <img ng-src="{{data.image | uploadpath}}" class="img-responsive" alt="food">
                         </div>
                         <div class="new-detail">
-                                       <div class="min-h">
+                            <div class="min-h">
                                 <h3 class="margin0 uppercase" ng-bind-html="data.hometext | shorten :20"></h3>
                             </div>
 
@@ -28,15 +28,15 @@
                                 <span class="capitalize greeny" ng-if="data.description.length > 130 && !moreDesc[data._id]" ng-click="readMore(data._id)">read more</span>
                                 <span class="capitalize greeny" ng-if="data.description.length > 130 && moreDesc[data._id]" ng-click="readMore(data._id)">read less</span>
                             </div>-->
-                        </div>
+                            </div>
 
-                        <div class="button-sets">
-                            <button class="uppercase large green" ng-click="bookings();">Book Now</button>
-                            <button class="uppercase larger green" ng-click="pdfmodal(data.pdf);" ng-if="data.pdf">Menu</button>
+                            <div class="button-sets">
+                                <button class="uppercase large green" ng-click="bookings();">Book Now</button>
+                                <button class="uppercase larger green" ng-click="pdfmodal(data.pdf);" ng-if="data.pdf">Menu</button>
+                            </div>
                         </div>
-                         </div>
-                </div>
-                <!--<div class="col-md-4 col-sm-4" ng-repeat="data in data2">
+                    </div>
+                    <!--<div class="col-md-4 col-sm-4" ng-repeat="data in data2">
                     <div class="karting-championship relative">
                         <div class="img-bg">
                             <img ng-src="{{data.homeimage|uploadpath}}" class="img-responsive" alt="">
@@ -108,8 +108,8 @@
 
                 </div>-->
 
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>

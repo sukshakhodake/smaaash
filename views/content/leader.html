@@ -1,40 +1,40 @@
 <div class=" leadership">
-    <div class="backg">
+    <div class="backg gap-issue">
         <div class="container">
             <h2 class="nav-name center">leadership</h2>
         </div>
     </div>
     <div class="container">
         <div class="new">
-             <ul class="tabs-about  list-inline">
-    <!-- <li><a ui-sref="about" class="uppercase">about us</a></li>
+            <ul class="tabs-about  list-inline">
+                <!-- <li><a ui-sref="about" class="uppercase">about us</a></li>
     <li><a ui-sref="leader"  class="uppercase">leadership</a></li>
     <li><a ui-sref="benefit" class="uppercase">benefit</a></li>
     <li><a ui-sref="sponsor" class="uppercase">sponsorship and alliance</a></li>
         <li><a ui-sref="career" class="uppercase">careers</a></li> -->
 
 
-        <li><a ui-sref="about({aboutCity:citySpecific})" class="uppercase">about us</a></li>
-          <li><a ui-sref="leader({leaderCity:citySpecific})"  class="uppercase">leadership</a></li>
-          <li><a ui-sref="benefit({benefitCity:citySpecific})" class="uppercase">Smaaash Labs</a></li>
-          <li><a ui-sref="sponsor({sponsorCity:citySpecific})" class="uppercase">Affiliations & Alliances</a></li>
-              <li><a ui-sref="career({careerCity:citySpecific})" class="uppercase">careers</a></li>
+                <li><a ui-sref="about({aboutCity:citySpecific})" class="uppercase">about us</a></li>
+                <li><a ui-sref="leader({leaderCity:citySpecific})" class="uppercase">leadership</a></li>
+                <li><a ui-sref="benefit({benefitCity:citySpecific})" class="uppercase">Smaaash Labs</a></li>
+                <li><a ui-sref="sponsor({sponsorCity:citySpecific})" class="uppercase">Affiliations & Alliances</a></li>
+                <li><a ui-sref="career({careerCity:citySpecific})" class="uppercase">careers</a></li>
 
 
 
-  </ul>
+            </ul>
             <div class="row">
                 <div class="col-md-4 col-sm-4" ng-repeat="data in leadership">
                     <div class="karting-championship" ng-if="data.status">
                         <div class="relative">
-                        <!-- <div class="brand-green relative"> -->
+                            <!-- <div class="brand-green relative"> -->
                             <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="cmo">
 
                         </div>
                         <div class="new-detail minss">
 
                             <p class="text-uppercase">- {{data.designation}}</p>
-                            <p >{{data.description|htmlDecode}}</p>
+                            <p>{{data.description|htmlDecode}}</p>
                             <!-- <p ng-hide="moreDesc[data._id]">{{data.description|htmlToPlaintext|shorten:130}}</p> -->
                             <!-- <p ng-show="moreDesc[data._id]">{{myDesc|htmlToPlaintext}}</p> -->
                             <p ng-if="!data.description"> No data found</p>

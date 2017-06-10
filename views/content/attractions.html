@@ -1,5 +1,5 @@
 <div class="attractions deals2">
-  <div class="backg-deal">
+  <div class="backg-deal gap-issue">
     <div class="container">
       <h2 class="nav-name center">games</h2>
     </div>
@@ -9,13 +9,13 @@
       <div class="search-green">
         <input type="text" class="form-control" placeholder="Search" ng-model="filter.search" ng-change="goTOSearch(filter)">
         <div class="microscope">
-          <img src="img/new/bino.png" class="img-responsive" alt="" >
+          <img src="img/new/bino.png" class="img-responsive" alt="">
         </div>
       </div>
       <div class="game-type inline-block">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-          <span class="cityselect" ng-show="!filter.gameFor">Suitable For</span>
-        <select class="form-control"  ng-model="filter.gameFor" ng-change="goTOSearch(filter)">
+        <span class="cityselect" ng-show="!filter.gameFor">Suitable For</span>
+        <select class="form-control" ng-model="filter.gameFor" ng-change="goTOSearch(filter)">
                <!-- <option ng-selected="true" value="0">Suitable For</option> -->
                <option value="1">Adult</option>
                <!-- <option value="2">Female</option> -->
@@ -42,7 +42,7 @@
   </div>
   <div class="container">
     <div class="new">
-        <div ng-if="msg" class="text-center">Loading..</div>
+      <div ng-if="msg" class="text-center">Loading..</div>
       <div class="row" ng-repeat="data in singleAttraction1">
         <div class="col-md-4 col-sm-4" ng-repeat="d in data" ng-click="goTo(d.myslug)">
 
@@ -58,7 +58,7 @@
               </div> -->
 
               <div class="min-h">
-                <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :20" ></h3>
+                <h3 class="margin0 bluey pointer" ng-bind-html="d.hometext | shorten :20"></h3>
                 <p ng-hide="d.gameforarray==''">Game For:
                   <span class="bluey capitalize">
                              <span ng-repeat="per in d.gameforarray track by $index">{{per}} <span ng-if="$index<d.gameforarray.length-2">|</span>
@@ -68,7 +68,7 @@
                 <p class="pointer" ng-bind-html="d.description | htmlDecode | shorten:200"></p>
 
 
-                  <!-- <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode | shorten:130 "></p>
+                <!-- <p ng-hide="moreDesc[d._id]" ng-bind-html="d.description | htmlDecode | shorten:130 "></p>
                   <p ng-show="moreDesc[d._id]" ng-bind-html="myDesc| htmlDecode"></p> -->
 
 
@@ -85,7 +85,7 @@
               <div class="button-set visible-xs" ng-if="d.showBuyNow">
                 <button class="uppercase blue" ng-click="buyNowGames(d.BranchPackageID,d.price,'mobile')">buy now</button>
               </div> -->
-<!-- buyNOw buttons for mobile and desktop -->
+              <!-- buyNOw buttons for mobile and desktop -->
               <div class="button-set" ng-if="d.showBuyNow">
                 <button class="uppercase blue">buy now</button>
               </div>

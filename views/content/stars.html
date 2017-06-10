@@ -1,5 +1,5 @@
 <div class=" deals2 stars">
-  <div class="backg">
+  <div class="backg gap-issue">
     <div class="container">
       <h2 class="nav-name center">gallery</h2>
     </div>
@@ -29,10 +29,10 @@
 
   <div class="new">
     <div class="container">
-       <h3 class="uppercase">Events at Smaaash</h3>
+      <h3 class="uppercase">Events at Smaaash</h3>
 
       <div class="row">
-         <div class="col-md-4 col-sm-4" ng-repeat="d in eventsAtSmaaash track by $index">
+        <div class="col-md-4 col-sm-4" ng-repeat="d in eventsAtSmaaash track by $index">
           <div class="karting-championship">
             <div class="brand-blue relative pointer" ng-click="getEventGal(d.imgArr)">
               <img ng-src="{{d.image}}" class="img-responsive" alt="">
@@ -81,7 +81,8 @@
             </div> -->
             <div class="new-detail">
               <div class="views inline-block">
-                <button class="uppercase bluey" fancybox-box href="{{d.popupImage|uploadpath}}"  rel="fancybox-thumb" data-fancybox-group="gallery" title={{d.title}}>view</button>
+                <button class="uppercase bluey" fancybox-box href="{{d.popupImage|uploadpath}}" rel="fancybox-thumb" data-fancybox-group="gallery"
+                  title={{d.title}}>view</button>
                 <!-- <button class="uppercase bluey" fancybox-box href="{{d.image|uploadpath}}">view</button> -->
               </div>
               <h3 class="margin0 bluey">{{d.title}}</h3>
@@ -108,10 +109,10 @@
 
   <div class="new">
     <div class="container">
-       <h3 class="uppercase">Games at Smaaash</h3>
-       <!-- <h3 class="uppercase">sports images</h3> -->
+      <h3 class="uppercase">Games at Smaaash</h3>
+      <!-- <h3 class="uppercase">sports images</h3> -->
       <div class="row">
-         <div class="col-md-4 col-sm-4" ng-repeat="d in mediagallerys">
+        <div class="col-md-4 col-sm-4" ng-repeat="d in mediagallerys">
           <div class="karting-championship">
             <div class="brand-blue relative pointer" fancybox-box href="{{d.image}}" rel="fancybox-thumb" data-fancybox-group="gallery">
               <img ng-src="{{d.image}}" class="img-responsive" alt="">
@@ -137,9 +138,9 @@
     </div>
   </div>
 
-   <!--<div class="loading">
+  <!--<div class="loading">
     <p class=" load-more text-center margin0 pointer" ng-click="fetchData()" ng-if="noviewmore && stars.length>0">Load More...</p>
 
   </div>-->
-  </div>
+</div>
 </div>
