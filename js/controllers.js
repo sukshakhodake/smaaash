@@ -35,9 +35,7 @@ $scope.goTo = function(name, id, statetogo) {
         }
 
     }
-
-
-    $scope.mys = [{
+$scope.mys = [{
         img: "img/home/mbanner.png"
     }, {
         img: "img/home/mbanner.png"
