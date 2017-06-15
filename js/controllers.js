@@ -5,8 +5,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http, $rootScope) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("home");
-        $scope.menutitle = NavigationService.makeactive("Home");
+        $scope.menutitle = NavigationService.makeactive("Smaaash – Look no More For The Perfect Entertainment Arena");
         TemplateService.title = $scope.menutitle;
+        $scope.template = TemplateService.changecontent("home");
+        // $scope.menutitle = NavigationService.makeactive("Home");
+
+        TemplateService.description = "Smaaash gets you hooked to the best in futuristic indoor entertainment, right from virtual reality gaming, bowling,go karting, simulated sport to dining.";
+        TemplateService.keywords = "virtual reality , gaming bowling  go karting, corporate party, corporate parties,  party places prewedding parties";
         $scope.navigation = NavigationService.getnav();
         var openL = {};
         TemplateService.removeLoaderOn(4);

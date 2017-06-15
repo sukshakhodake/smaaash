@@ -1,15 +1,18 @@
 var templateservicemod = angular.module('templateservicemod', []);
-templateservicemod.service('TemplateService', function() {
+templateservicemod.service('TemplateService', function () {
     this.title = "Home";
     this.meta = "Google";
     this.metadesc = "Home";
     this.isLoader = false;
     this.removeLoaderNum = 0;
     this.removeLoaderTemp = 0;
+    this.description = "";
+    this.canonical = "";
+    this.keywords = "";
     var d = new Date();
     this.year = d.getFullYear();
 
-    this.init = function() {
+    this.init = function () {
         this.headermenu = "views/headermenu.html";
         this.header = "views/header.html";
         this.menu = "views/menu.html";
@@ -23,21 +26,21 @@ templateservicemod.service('TemplateService', function() {
         this.removeLoaderNum = 0;
     };
 
-    this.removeLoader = function() {
+    this.removeLoader = function () {
         this.removeLoaderTemp++;
         if (this.removeLoaderTemp >= this.removeLoaderNum) {
             this.isLoader = false;
         }
     };
-    this.getLoader = function() {
+    this.getLoader = function () {
         this.isLoader = true;
     };
-    this.removeLoaderOn = function(num) {
+    this.removeLoaderOn = function (num) {
         this.isLoader = true;
         this.removeLoaderNum = num;
     };
 
-    this.changecontent = function(page) {
+    this.changecontent = function (page) {
         this.init();
         $(".ngdialog").remove();
         var data = this;
