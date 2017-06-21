@@ -4974,6 +4974,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.checkoutAmount = $stateParams.PayAmount;
         $scope.orderNum = $stateParams.orderNo;
+
+
+        // NavigationService.getOrderDetail($stateParams.orderNo, function () {
+        //     ga('require', 'ecommerce');
+        //     //add transaction data to the shopping cart using the ecommerce:addTransaction command:
+        //     ga('ecommerce:addTransaction', {
+        //         'id': '1234', // Transaction ID. Required.
+        //         'affiliation': 'Acme Clothing', // Affiliation or store name.
+        //         'revenue': '11.99', // Grand Total.
+        //         'shipping': '5', // Shipping.
+        //         'tax': '1.29' // Tax.
+        //     });
+
+        //     //to add items to the shopping cart, you use the ecommerce:addItem command:
+        //     ga('ecommerce:addItem', {
+        //         'id': '1234', // Transaction ID. Required.
+        //         'name': 'Fluffy Pink Bunnies', // Product name. Required.
+        //         'sku': 'DD23444', // SKU/code.
+        //         'category': 'Party Toys', // Category or variation.
+        //         'price': '11.99', // Unit price.
+        //         'quantity': '1' // Quantity.
+        //     });
+
+        //     ga('ecommerce:send');
+        // });
+
+
+
     })
     .controller('Thank2Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
         //Used to name the .html file
