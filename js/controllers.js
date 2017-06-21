@@ -5007,25 +5007,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.orderNum = $stateParams.orderNo;
         console.log(" $scope.checkoutAmount", $scope.checkoutAmount);
 
-        $scope.constraints = {};
-        $scope.constraints.orderid = $stateParams.orderNo;
-        NavigationService.getOrderDetail($scope.constraints, function (data) {
-            console.log(data.data.orderno);
-            if (data.value) {
-                ga('require', 'ecommerce');
-                ga('ecommerce:addTransaction', {
-                    'id': data.data.orderno, // Transaction ID. Required.
-                    'affiliation': 'Smaaash India', // Affiliation or store name.
-                    'revenue': data.data.amount, // Grand Total.
-                    'shipping': '', // Shipping.
-                    'tax': '' // Tax.
-                });
-                ga('ecommerce:send');
-            } else {
-                console.log('Something Went Wrong');
-            }
 
+        ga('require', 'ecommerce');
+        ga('ecommerce:addTransaction', {
+            'id': $stateParams.orderNo, // Transaction ID. Required.
+            'affiliation': 'Smaaash India', // Affiliation or store name.
+            'revenue': $stateParams.PayAmount, // Grand Total.
+            'shipping': '', // Shipping.
+            'tax': '' // Tax.
         });
+        ga('ecommerce:send');
+
+        // $scope.constraints = {};
+        // $scope.constraints.orderid = $stateParams.orderNo;
+        // NavigationService.getOrderDetail($scope.constraints, function (data) {
+        //     console.log(data.data.orderno);
+        //     if (data.value) {
+
+        //     } else {
+        //         console.log('Something Went Wrong');
+        //     }
+
+        // });
 
         // //to add items to the shopping cart, you use the ecommerce:addItem command:
         // ga('ecommerce:addItem', {
