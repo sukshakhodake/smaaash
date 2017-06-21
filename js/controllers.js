@@ -2037,8 +2037,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        // console.log("$stateParams.gamesCity", $stateParams.gamesCity);
+        console.log("$stateParams.gamesCity", $stateParams.gamesCity);
 
+        if ($stateParams.gamesCity === "Mumbai") {
+            TemplateService.title = "Virtual Reality Games to Simulated Sport – Game on Mumbai";
+            TemplateService.description = "Smaaash Mumbai boasts of a host of cutting edge games for kids and adults alike. Virtual reality, go karting,  bowling in Mumbai you name it we have it.";
+            TemplateService.keywords = "Virtual reality,  go karting,  bowling in Mumbai , cricket simulator games";
+        }
+        if ($stateParams.gamesCity === "Gurgaon - Cyber Hub") {
+            TemplateService.title = "Unwind With an Exciting Host of VR Games & Indoor Sports";
+            TemplateService.description = "Play cricket with swag, strike them all at Bowling Gurgaon, dangle between skyscrapers, create your own roller coaster, take on futuristic gaming with gusto.";
+            TemplateService.keywords = "Play cricket , Bowling Gurgaon ,VR games, bowling in  Gurgaon";
+        }
+        if ($stateParams.gamesCity === "Ludhiana") {
+            TemplateService.title = "Engage in Virtual Reality Gaming and More| SMAAASH Ludhiana";
+            TemplateService.description = "Experience a gaming dimension like you have never before with virtual reality, while alongside exploring advanced technology";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, games zones";
+        }
+        if ($stateParams.gamesCity === "Hyderabad") {
+            TemplateService.title = "Next on Your List of Top Hyderabad Gaming Zones";
+            TemplateService.description = "Extend your to-do list for Hyderabad. Introducing SMAAASH, a one-stop destination for gaming, food, drinks, and parties";
+            TemplateService.keywords = "top Hyderabad gaming zones, Hyderabad gaming zones, gaming zones,game zone";
+        }
+        if ($stateParams.gamesCity === "Bengaluru") {
+            TemplateService.title = "VR Games, Simulated Sport and a Lot More to Spoil You";
+            TemplateService.description = "Come prepared with oodles of energy, because at Smaaash Bengaluru you need to unleash the gaming beast in you to play virtual reality games and simulated sport.";
+            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+        }
+
+        if ($stateParams.gamesCity === "Gurgaon - Sector 29") {
+            TemplateService.title = "Go Karting Paradise Topped With Great Food";
+            TemplateService.description = "Enjoy Sky Karting in our seriously fast karts, race your opponents, let them smell the rubber from your tires later cool off with some sumptuous food and drinks";
+            TemplateService.keywords = "go kart gurgaon,go kart racing,gokarting,kidskart ,  sky karting";
+        }
         // if ($stateParams.gamesCity) {
         //   console.log("im in game city");
         //   if ($stateParams.gamesCity!=$.jStorage.get("city")) {
