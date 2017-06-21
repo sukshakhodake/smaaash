@@ -1,5 +1,5 @@
 var adminurl = "https://test.smaaash.in/";
-
+var adminurl2 = "http://localhost:1337/";
 
 
 var imgurl = adminurl + "upload/";
@@ -336,7 +336,7 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
             getSingleExploreSmaaashByUrl: function (id, cityid, callback) {
-            
+
                 if (cityid) {
                     var cityId = cityid;
                 } else {
@@ -723,7 +723,14 @@ var navigationservice = angular.module('navigationservice', [])
 
                 }).success(callback);
             },
-
+            getOrderDetail: function (id, callback) {
+                $http({
+                    url: adminurl + 'order/getOrderDetails',
+                    method: 'POST',
+                    withCredentials: true,
+                    data: id
+                }).success(callback);
+            },
 
         };
     });

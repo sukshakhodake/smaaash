@@ -4974,32 +4974,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.checkoutAmount = $stateParams.PayAmount;
         $scope.orderNum = $stateParams.orderNo;
+        console.log(" $scope.checkoutAmount", $scope.checkoutAmount);
 
+        $scope.constraints = {};
+        $scope.constraints.orderid = $stateParams.orderNo;
+        NavigationService.getOrderDetail($scope.constraints, function (data) {
+            console.log(data.data.orderno);
+            if (data.value) {
+                ga('require', 'ecommerce');
+                ga('ecommerce:addTransaction', {
+                    'id': data.data.orderno, // Transaction ID. Required.
+                    'affiliation': 'Smaaash India', // Affiliation or store name.
+                    'revenue': data.data.amount, // Grand Total.
+                    'shipping': '', // Shipping.
+                    'tax': '' // Tax.
+                });
+                ga('ecommerce:send');
+            } else {
+                console.log('Something Went Wrong');
+            }
 
-        // NavigationService.getOrderDetail($stateParams.orderNo, function () {
-        //     ga('require', 'ecommerce');
-        //     //add transaction data to the shopping cart using the ecommerce:addTransaction command:
-        //     ga('ecommerce:addTransaction', {
-        //         'id': '1234', // Transaction ID. Required.
-        //         'affiliation': 'Acme Clothing', // Affiliation or store name.
-        //         'revenue': '11.99', // Grand Total.
-        //         'shipping': '5', // Shipping.
-        //         'tax': '1.29' // Tax.
-        //     });
+        });
 
-        //     //to add items to the shopping cart, you use the ecommerce:addItem command:
-        //     ga('ecommerce:addItem', {
-        //         'id': '1234', // Transaction ID. Required.
-        //         'name': 'Fluffy Pink Bunnies', // Product name. Required.
-        //         'sku': 'DD23444', // SKU/code.
-        //         'category': 'Party Toys', // Category or variation.
-        //         'price': '11.99', // Unit price.
-        //         'quantity': '1' // Quantity.
-        //     });
-
-        //     ga('ecommerce:send');
+        // //to add items to the shopping cart, you use the ecommerce:addItem command:
+        // ga('ecommerce:addItem', {
+        //     'id': '1234', // Transaction ID. Required.
+        //     'name': 'Fluffy Pink Bunnies', // Product name. Required.
+        //     'sku': 'DD23444', // SKU/code.
+        //     'category': 'Party Toys', // Category or variation.
+        //     'price': '11.99', // Unit price.
+        //     'quantity': '1' // Quantity.
         // });
-
 
 
     })
