@@ -89,6 +89,16 @@ body{background-image: url('../img/bg.jpg'); width: 100%; background-repeat: rep
 .ryt_img1{width: 270px; margin-top: 0px; position: absolute; z-index: 9; right: 90px; height: 120px;}
 .marg_block{margin-bottom: 20px;}
 .top_heading{font-family:"oswald_bold"; color: #ff2e28; text-transform: uppercase;}
+.clse_design{opacity: 1; margin-top: -28px; margin-right: -28px;}
+button.close.clse_design {
+    background-color: #000;
+    color: #fff;
+    border-radius: 25px;
+    width: 30px;
+    padding: 5px 4px;
+}
+button.close.clse_design:hover {opacity: 1;}
+
 
 
 @media (max-width: 767px) {
