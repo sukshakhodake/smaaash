@@ -1176,7 +1176,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if ($stateParams.eventcity === "Mumbai") {
             TemplateService.title = "Hot Events Coming up at Smaaash Mumbai";
             TemplateService.description = "Keep tab of upcoming events that could spark excitement in your routine lives. From events for students, kids and adults, we have a lot coming your way.";
-            TemplateService.keywords = "Virtual reality,  go karting,  bowling in Mumbai , cricket simulator games";
+            TemplateService.keywords = "events,upcoming events,events at smaaash";
         }
         if ($stateParams.eventcity === "Gurgaon - Cyber Hub") {
             TemplateService.title = "Most Enthralling Events and Challenges Near You";
@@ -2831,7 +2831,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
         if ($stateParams.partyCity === "Mumbai" && $stateParams.id==="birthday-party") {
             TemplateService.title = "Birthday parties with a Smaaash Twist ";
             TemplateService.description = "Have the most unconventional birthday parties at Smaaash. This birthday celebration place is fuelled with VR games, bowling, go karting, food and drinks. ";
-            TemplateService.keywords = "birthday parties gurgaon,Birthday parties,birthday party,Birthday parties venues, Birthday parties venue";
+            TemplateService.keywords = "birthday parties Mumbai,Birthday parties,birthday party,Birthday parties venues, Birthday parties venue";
         }
         if ($stateParams.partyCity === "Gurgaon - Cyber Hub" && $stateParams.id==="birthday-party") {
             TemplateService.title = "Birthday Parties Fizzing with Fun and Frolic";
@@ -2872,8 +2872,25 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Let your last night as a free man/woman turn into the most smashing pre wedding party that other bachelor(ettes) would envy";
             TemplateService.keywords = "pre wedding party, prewedding party , prewedding parties";
         }
+            
 
         //pre-wedding-party
+
+
+   //corprate
+
+         console.log("$stateParams.partyCity", $stateParams.partyCity);
+
+     
+        if ($stateParams.partyCity === "Gurgaon - Cyber Hub" && $stateParams.id==="corporate-party") {
+            TemplateService.title = "Loosen Your Ties, Corporate Events Uncorked at Smaaash ";
+            TemplateService.description = "A sizzling venue for corporate events, this is a place you go all out on food, drinks, games and thrills, with your office buddies.  ";
+            TemplateService.keywords = "corporate party,corporate parties,corporate event venues,corporate events,venue for corporate events";
+        }
+            
+
+        //corprate
+      
 
           //kitty-parties
 
@@ -2896,7 +2913,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
         if ($stateParams.partyCity === "Hyderabad" && $stateParams.id==="team-building-events") {
             TemplateService.title = "SMAAASH | Team Building Activities at a Non-Boring Venue	";
             TemplateService.description = "Bonding with colleagues over fun activities, delicious food and beverages, in a zestful ambience. One for all, only at SMAAASH	";
-            TemplateService.keywords = "team outing places, team outing gurgaon, team building activities, company offsite	";
+            TemplateService.keywords = "team outing places, team outing hyderabad, team building activities, company offsite	";
         }
 
         //team-building-events
@@ -3479,7 +3496,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Net cricket in malls is passé, the brand new cricket simulator from Smaaash is in vogue wherein you face real bowling actions of all time legends.";
             TemplateService.keywords = "play cricket , net cricket in malls , cricket simulator , play cricket";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="cricket") {
+        if ($stateParams.snowrushCity=== "Gurgaon - Cyber Hub" &&  $stateParams.id==="cricket") {
             TemplateService.title = "Cricket Simulator Where Legends Uproot Stumps";
             TemplateService.description = "Experience deja vu as legends bowl at you deliveries, they once fired at batting legends on world class playgrounds. Play cricket against the best.";
             TemplateService.keywords = "cricket bowling games , cricket simulator games, play cricket, net cricket in malls ,cricket simulator";
@@ -3489,12 +3506,12 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Put your cricket skills to test with the cricket simulator game. A machine bowling versus your batting. Who wins?";
             TemplateService.keywords = "cricket bowling games, cricket simulator games, play cricket, net cricket in malls , cricket simulator, games zones	";
         }
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="cricket") {
+        if ($stateParams.snowrushCity=== "Hyderabad" &&  $stateParams.id==="cricket") {
             TemplateService.title = "SMAAASH |	Escape the Hyderabad Heat and Play Cricket Indoors ";
             TemplateService.description = "Learn and enjoy just as much in indoors cricket bowling games as on the field, along with experiencing virtual reality games	";
             TemplateService.keywords = "play cricket indoors, indoors cricket bowling games , cricket bowling games, cricket simulator games, play cricket,net cricket in malls , cricket simulator, game zone in hyderabad, game zone ";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="cricket") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="cricket") {
             TemplateService.title = "The Most Astonishing Cricket Simulator ";
             TemplateService.description = "Net cricket in malls gets exciting as legends bowl deliveries, they had dealt to legendary batsmen in real matches this time to you.";
             TemplateService.keywords = "cricket bowling games ,cricket simulator games, play cricket, net cricket in malls , cricket simulator";
@@ -3508,18 +3525,18 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "The exclusive bowling alley in South Mumbai has got a lift, wherein twilight ambience and large TV screens makes it the perfect bowling date. ";
             TemplateService.keywords = "bowling in mumbai, bowling in south Mumbai , things to do in Mumbai , game zone in mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="twilight-bowling") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="twilight-bowling") {
             TemplateService.title = "Bowling in Gurgaon Lit up to Perfection";
             TemplateService.description = "Teaming up with your partner or stepping up the ante with friends and family, Twilight Bowling Gurgaon is the perfect place for you to lap up some fun.";
             TemplateService.keywords = "Bowling in Gurgaon, Bowling Gurgaon , game zones in Gurgaon";
         }
       
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="twilight-bowling") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="twilight-bowling") {
             TemplateService.title = "SMAAASH | Bewitched Bowling in Hyderabad ";
             TemplateService.description = "Get enchanted by the twilight ambience at the bowling arena and make your bowling in Hyderabad experience memorable	";
             TemplateService.keywords = "bowling in Hyderabad, bowling , bowling Hyderabad	";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="twilight-bowling") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="twilight-bowling") {
             TemplateService.title = "Bowling in Bengaluru, Time to Get Awestruck ";
             TemplateService.description = "The twilight ambiance will thrill you to the core, as you strike away at Smaaash bowling Bengaluru. You can order food and drinks as well.";
             TemplateService.keywords = "Bowling in Bengaluru,  bowling Bengaluru, games zone in Bengaluru,  game zone in Bengaluru";
@@ -3533,7 +3550,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Creating your own roller coaster would be your dream, which comes true through our cutting-edge VR game. Make your own roller coaster and ride in it.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming , game zone in mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="finger-coaster") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="finger-coaster") {
             TemplateService.title = "Roller Coaster Levitation Through Virtual Reality Gaming ";
             TemplateService.description = "This virtual reality game delivers an onslaught of excitement. The Oculus gear imparts an illusion of motion as you design your roller coaster and ride in it. ";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
@@ -3543,12 +3560,12 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "You can finally put your scribbling abilities to use. Draw any pattern for your virtual reality coaster ride to follow, and get thrilled with Finger Coaster";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, games zones";
         }
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="finger-coaster") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="finger-coaster") {
             TemplateService.title = "SMAAASH | Design Your Roller Coaster Ride as well as Fun";
             TemplateService.description = "Do you have what it takes to challenge yourself to accomplish your own challenge? Confirm it yourself with these VR games";
             TemplateService.keywords = "roller coaster ride, VR games, virtual reality games, virtual reality, virtual reality gaming";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="finger-coaster") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="finger-coaster") {
             TemplateService.title = "The Ultimate Virtual Reality Roller Coaster Game";
             TemplateService.description = "Imagine, what it would be like to design your own roller coaster and ride in it too. Yes, at Smaaash we give you exactly that. Come, try our spellbinding VR game";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
@@ -3563,7 +3580,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Heard about robotic goalkeepers. We have got the fastest automated goalkeeper in the world. Score goals against him and you could consider yourself a legend.";
             TemplateService.keywords = "indoor football , indoor football Mumbai , game zone in mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="super-keeper") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="super-keeper") {
             TemplateService.title = "Hone Your Shooting Skills at Indoor Football Gurgaon";
             TemplateService.description = "Our ferocious automated goalkeeper will thwart your attempts, but you need to penetrate with skill, with your penalty kicks at Smaaash’s indoor football, Gurgaon";
             TemplateService.keywords = "Indoor football Gurgaon , game zones in gurgaon";
@@ -3573,12 +3590,12 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "There certainly is keeping in football, but will technological Super Keeper keep you from shooting a goal or not? Play indoor football and find out yourself";
             TemplateService.keywords = "indoor football, game zone, games zone, games zones";
         }
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="super-keeper") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="super-keeper") {
             TemplateService.title = "SMAAASH | Test Yourself at Indoor Football in Hyderabad";
             TemplateService.description = "If you think you are the best at Football, defeat the supersonic Super Keeper at the SMAAASH indoor football arena	";
             TemplateService.keywords = "indoor football in Hyderabad,indoor football ,indoor football arena,game zones,games zones in Hyderabad";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="super-keeper") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="super-keeper") {
             TemplateService.title = "Give Your Best Shot at this Football Simulator in Bengaluru";
             TemplateService.description = "Our automated goalkeeper will do its best to stop your goals, but if  you can penetrate through, you’ll be considered legend at this football simulator game.";
             TemplateService.keywords = "football simulator in Bengaluru , games zone in Bengaluru,  game zone in Bengaluru";
@@ -3592,18 +3609,18 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "VR games of the next generation await you at Smaaash, wherein the Oculus gear gives you an illusion of extreme height and free fall. Enjoy the innovation.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming , game zone in mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="walk-the-plank") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="walk-the-plank") {
             TemplateService.title = "Battle Dizzying Heights in This Gripping VR Game";
             TemplateService.description = "Dangling between two skyscrapers is frightening for sure, how about completing a task on top of that, yes, that’s what this thrilling VR game is all about.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
       
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="walk-the-plank") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="walk-the-plank") {
             TemplateService.title = "Thrilling Virtual Reality Game at SMAAASH, Hyderabad";
             TemplateService.description = "Among some of the most innovative VR games, walk the plank is a daring virtual reality game challenging your physical and mental balance";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, virtual reality games in Hyderabad	";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="walk-the-plank") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="walk-the-plank") {
             TemplateService.title = "This VR Game Proves to be the Height of Excitement";
             TemplateService.description = "Dizzying heights will thrill you as you take on this virtual reality game. You need to balance yourself on a narrow plank dangling between two tall skyscrapers.";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
@@ -3617,18 +3634,18 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Formula 1 racing experienced through simulation gaming that replicates the experience as it is. Enjoy high speed driving and experience the Gs.";
             TemplateService.keywords = "driving simulation game , game zone in Mumbai, game zones in Mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="x-2-motor-racing-simulator") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="x-2-motor-racing-simulator") {
             TemplateService.title = "Burn Some Rubber in this Car Racing Game";
             TemplateService.description = "No time for fuel breaks, this high intensity racing game is all about the throttle and how you use it with steering skills. All the best for your date with speed.";
             TemplateService.keywords = "game zones in Gurgaon , arcade game in gurgaon";
         }
-       
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="x-2-motor-racing-simulator") {
+    
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="x-2-motor-racing-simulator") {
             TemplateService.title = "SMAAASH | Feel your Heart Race at the Racing Arcade ";
             TemplateService.description = "X2 motor racing simulator at SMAAASH, succeeding in making you feel like you are actually on the tracks";
             TemplateService.keywords = "racing arcade, driving simulation games, game zone, game zone in hyderabad";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="x-2-motor-racing-simulator") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="x-2-motor-racing-simulator") {
             TemplateService.title = "Rush Hour on Wheels Begins, with This Car Racing Simulator";
             TemplateService.description = "Do the burn out, let your wheels spin, enjoy this car racing game that’ll have the wind blowing through your face as you race.";
             TemplateService.keywords = "arcade games, arcade games in Bengaluru , games zone in Bengaluru,  game zone in Bengaluru";
@@ -3643,7 +3660,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Find the most innovative arcade games and let time fly as you get engrossed in innovative gaming scenarios and enjoy with family and friends.";
             TemplateService.keywords = "Arcade games , game zone in Mumbai, game zones in Mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="smart-arcade") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="smart-arcade") {
             TemplateService.title = "Arcade Games that are a Reflection of the Future";
             TemplateService.description = "Hi-tech arcade games will fuel your passion for gaming. Also, the conventional ones also exist to give you that shot of nostalgia.";
             TemplateService.keywords = "game zones in Gurgaon , arcade game in gurgaon";
@@ -3653,12 +3670,12 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Not your regular gaming arcade in Ludhiana. Encounter an out of the world experience at Smart Arcade	";
             TemplateService.keywords = "gaming arcade, arcade game,gaming zone, gaming zones, games zones";
         }
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="smart-arcade") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="smart-arcade") {
             TemplateService.title = "SMAAASH Hyderabad | Top - Grade Gaming Arcade";
             TemplateService.description = "Make a smart choice by playing at the SMAAASH smart arcade and move on to experience the all new virtual reality world";
             TemplateService.keywords = "racing arcade, driving simulation games, game zone, game zone in Hyderabad";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="smart-arcade") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="smart-arcade") {
             TemplateService.title = "Arcade Games That are a Cut Above the Rest";
             TemplateService.description = "Engage in the future of gaming with some hi tech arcade games and conventional classics, that’ll make your day.";
             TemplateService.keywords = "arcade games, arcade games in Bengaluru , games zone in Bengaluru,  game zone in Bengaluru";
@@ -3682,20 +3699,20 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "Enjoy the go kart racing track in Mumbai, where absolutely dart like karts speed away on the multi-level racetrack. There are kids go karts as well.";
             TemplateService.keywords = "Go karting , go kart racing, kids go karts , game zone in Mumbai, game zones in mumbai";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="sky-karting") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="sky-karting") {
             TemplateService.title = "Unwind With an Exciting Host of VR Games & Indoor Sports";
             TemplateService.description = "Play cricket with swag, strike them all at Bowling Gurgaon, dangle between skyscrapers, create your own roller coaster, take on futuristic gaming with gusto.";
             TemplateService.keywords = "Play cricket , Bowling Gurgaon ,VR games, bowling in  Gurgaon";
         }
        
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="sky-karting") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="sky-karting") {
             TemplateService.title = "Next on Your List of Top Hyderabad Gaming Zones";
             TemplateService.description = "Extend your to-do list for Hyderabad. Introducing SMAAASH, a one-stop destination for gaming, food, drinks, and parties";
             TemplateService.keywords = "top Hyderabad gaming zones, Hyderabad gaming zones, gaming zones,game zone";
         }
        
 
-        if ($stateParams.cricket === "Gurgaon - Sector 29" &&  $stateParams.id==="sky-karting") {
+        if ($stateParams.snowrushCity === "Gurgaon - Sector 29" &&  $stateParams.id==="sky-karting") {
             TemplateService.title = "Go karting in Gurgaon Just Got More Zippy";
             TemplateService.description = "Strap in your seatbelts, rev the throttle and let your tires roll, Smaaash Sky Karting has got the upper hand with swifter karts and multi-level track.";
             TemplateService.keywords = "sky karting , go kart gurgaon, go kart racing, gokarting";
@@ -3707,13 +3724,13 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "The trampoline park in Mumbai is where you could feel light and have some light hearted fun. Kids and adults both have a gala time in store at this amusement ride. ";
             TemplateService.keywords = "trampoline park in Mumbai, trampoline park";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="trampoline-park") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="trampoline-park") {
             TemplateService.title = "Unwind With an Exciting Host of VR Games & Indoor Sports";
             TemplateService.description = "Play cricket with swag, strike them all at Bowling Gurgaon, dangle between skyscrapers, create your own roller coaster, take on futuristic gaming with gusto.";
             TemplateService.keywords = "Play cricket , Bowling Gurgaon ,VR games, bowling in  Gurgaon";
         }
        
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="trampoline-park") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="trampoline-park") {
             TemplateService.title = "SMAAASH | Indoor Trampoline Park for Kids and Adults 	";
             TemplateService.description = "Who said trampolines are only for kids? Come visit SMAAASH, trampolines for adults in Hyderabad will spring some childhood memories for you	";
             TemplateService.keywords = "Indoor trampoline park, game zone, kids play area, game zone in Hyderabad, children play area	";
@@ -3727,13 +3744,13 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
             TemplateService.description = "They are fired fast and they are fired at you. Duck, jump, sway, somersault, do whatever it takes to dodge the balls in this fantastic amusement game.";
             TemplateService.keywords = "amusement game, Dodge Ball";
         }
-        if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="dodge-ball") {
+        if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="dodge-ball") {
             TemplateService.title = "Unwind With an Exciting Host of VR Games & Indoor Sports";
             TemplateService.description = "Play cricket with swag, strike them all at Bowling Gurgaon, dangle between skyscrapers, create your own roller coaster, take on futuristic gaming with gusto.";
             TemplateService.keywords = "Play cricket , Bowling Gurgaon ,VR games, bowling in  Gurgaon";
         }
       
-        if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="dodge-ball") {
+        if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="dodge-ball") {
             TemplateService.title = "SMAAASH  | Engaging, Indoor Dodge Ball Game in Hyderabad 	";
             TemplateService.description = "Time to partner up with your reflexes. Can you outdo the multiple ball-firing machines at the indoor dodge ball zone?";
             TemplateService.keywords = "indoor dodge ball game in Hyderabad, indoor dodge ball game, dodge ball game, game zone in hyderabad, indoor dodge ball";
@@ -3743,17 +3760,17 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
 //dodge-ball//
 
 //fly-max//
-    if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="fly-max") {
+    if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="fly-max") {
             TemplateService.title = "Glide, Soar and do More With This VR Game";
             TemplateService.description = "This hang glider simulator virtual reality game gives the skies new meaning, that of exhilaration, excitement and tranquility as you hover with Oculus gear on.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
-         if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="fly-max") {
+         if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="fly-max") {
             TemplateService.title = " This VR Game Makes You Fly High in the Sky";
             TemplateService.description = "Don your Oculus gear, take to the skies, as this hang glider simulator virtual reality game makes your hair stand on end with excitement.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
-               if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="fly-max") {
+               if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="fly-max") {
             TemplateService.title = "   Glide in Virtual Reality at SMAAASH Hyderabad";
             TemplateService.description = "Fly Max at SMAAASH will bring virtual reality to your imagination of being able to fly like a bird	";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, virtual reality games in Hyderabad";
@@ -3763,17 +3780,17 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
 //fly-max//
 
 //nitro-wheelie//
-  if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="nitro-wheelie") {
+  if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="nitro-wheelie") {
             TemplateService.title = "Get Down and Dirty With This Dirt Bike Game";
             TemplateService.description = "This game spins dirt out of the earth, suspending you into motion as you maneuver through the ups and downs on your super bike.";
             TemplateService.keywords = "game zones in Gurgaon , arcade game in gurgaon";
         }
-        if ($stateParams.snowrushCity.id === "Bengaluru" &&  $stateParams.id==="nitro-wheelie") {
+        if ($stateParams.snowrushCity === "Bengaluru" &&  $stateParams.id==="nitro-wheelie") {
             TemplateService.title = " Do the Nasty Wheelie in Style";
             TemplateService.description = "A game where you make your followers taste dust; Nitro-Wheelie gives you the ultimate thrill quotient wherein you ride the bike like a legend.";
             TemplateService.keywords = "arcade games, arcade games in Bengaluru , games zone in Bengaluru,  game zone in Bengaluru";
         }
-          if ($stateParams.snowrushCity.id === "Hyderabad" &&  $stateParams.id==="nitro-wheelie") {
+          if ($stateParams.snowrushCity === "Hyderabad" &&  $stateParams.id==="nitro-wheelie") {
             TemplateService.title = "   SMAAASH | Clean Dirt Bike Gaming in Hyderabad";
             TemplateService.description = "Experience dirt bike stimulation indoors at the unconventional virtual reality gaming arcade in Hyderabad- SMAAASH	";
             TemplateService.keywords = "dirt bike gaming in Hyderabad, dirt bike gaming , game zone in Hyderabad, dirt bike stimulation , driving simulation games	";
@@ -3782,7 +3799,7 @@ console.log("$stateParams.dealspcity", $stateParams.dealspcity);
       
 //nitro-wheelie//
 //war-on-wheels//
- if ($stateParams.snowrushCity.id === "Gurgaon - Cyber Hub" &&  $stateParams.id==="war-on-wheels") {
+ if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" &&  $stateParams.id==="war-on-wheels") {
             TemplateService.title = "Team up to Roast the Enemy in this VR Game";
             TemplateService.description = "This two player virtual reality game is for hardcore gamers, wherein one player takes the wheel and the other bombs the enemy relentlessly. ";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
@@ -4855,12 +4872,12 @@ console.log("$stateParams.drinkCity", $stateParams.drinkCity);
         if ($stateParams.drinkCity === "Gurgaon - Cyber Hub") {
             TemplateService.title = "Fuel up With Scrumptious Food & Drinks in Gurgaon ";
             TemplateService.description = "Serving Greek Greens, Thai Speciality, Italian Classics and Mexican Bites, the Unforked restaurant at Smaaash is one of the best places to eat in Gurgaon.  ";
-            TemplateService.keywords = "food and beverages	";
+            TemplateService.keywords = "food and beverages, food , drinks, food & drinks , things to do in Gurgaon	";
         }
         if ($stateParams.drinkCity === "Ludhiana") {
             TemplateService.title = "Sports Bar and a Perky Café to Hang Out at | SMAAASH Ludhiana	";
             TemplateService.description = "Themed after the country’s favourite sport, cricket, Cricket Café & Brewpub are a must experience, after Mighty Small Café, the perfect chill place to eat 	";
-            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, games zones";
+            TemplateService.keywords = "food and beverages";
         }
         if ($stateParams.drinkCity === "Hyderabad") {
             TemplateService.title = "Eat. Drink. Play. Repeat. At SMAAASH Hyderabad";
