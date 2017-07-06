@@ -98,7 +98,22 @@ button.close.clse_design {
     padding: 5px 4px;
 }
 button.close.clse_design:hover {opacity: 1;}
-
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="date"] {
+    -moz-appearance: textfield;
+}
 
 
 @media (max-width: 767px) {
