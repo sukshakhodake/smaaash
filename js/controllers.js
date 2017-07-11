@@ -5579,7 +5579,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'tax': '' // Tax.
         });
         ga('ecommerce:send');
-        fbq('track', 'Purchase');
+        // fbq('track', 'Purchase');
 
         // $scope.constraints = {};
         // $scope.constraints.orderid = $stateParams.orderNo;
