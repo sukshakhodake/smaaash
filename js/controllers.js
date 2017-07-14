@@ -2148,10 +2148,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
 
-        if ($stateParams.gamesCity === "Gurgaon - Sector 29") {
-            TemplateService.title = "Go Karting Paradise Topped With Great Food";
-            TemplateService.description = "Enjoy Sky Karting in our seriously fast karts, race your opponents, let them smell the rubber from your tires later cool off with some sumptuous food and drinks";
-            TemplateService.keywords = "go kart gurgaon,go kart racing,gokarting,kidskart ,  sky karting";
+        // if ($stateParams.gamesCity === "Gurgaon - Sector 29") {
+        //     TemplateService.title = "Go Karting Paradise Topped With Great Food";
+        //     TemplateService.description = "Enjoy Sky Karting in our seriously fast karts, race your opponents, let them smell the rubber from your tires later cool off with some sumptuous food and drinks";
+        //     TemplateService.keywords = "go kart gurgaon,go kart racing,gokarting,kidskart ,  sky karting";
+        // } 
+       //snehal changes
+           console.log("$stateParams.gamesCity",$stateParams.gamesCity);
+          if ($stateParams.gamesCity === "Gurgaon - Sector 29") {
+            TemplateService.title = "Go Karting Paradise and Pool Topped with Great Food";
+            TemplateService.description = "Enjoy Sky Karting, race your opponents, let them smell the rubber from your tires, play pool and later cool off with some sumptuous food and drinks.";
+            TemplateService.keywords = "go kart racing, gokarting";
         }
 
         //seo
@@ -3573,6 +3580,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         //finger-coaster//
+        //
 
         //super-keeper//
         if ($stateParams.snowrushCity === "Mumbai" && $stateParams.id === "super-keeper") {
@@ -3806,6 +3814,105 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         //war-on-wheels//
 
+        //snehal
+        //trampoline-park
+          if ($stateParams.snowrushCity === "Mumbai" && $stateParams.id === "trampoline-park") {
+            TemplateService.title = "Jump, Rise, Somersault  at the Smaaash Trampoline Park";
+            TemplateService.description = "The ultimate kids’ party venue awaits you at Smaaash. The trampoline park is a fun place to unwind after all that homework. Adults can have a gala time too. ";
+            TemplateService.keywords = "Kids’ party venue, games zone in Mumbai, kids play area";
+        }
+           if ($stateParams.snowrushCity === "Hyderabad" && $stateParams.id === "trampoline-park") {
+            TemplateService.title = "Defy gravity, Rise in the Air at the Smaaash Trampoline Park";
+            TemplateService.description = "Smaaash is the ultimate kids’ party venue as it has a trampoline park along with other exciting VR games and simulated sports. Somersault to happiness. ";
+            TemplateService.keywords = "Kids’ party venue, VR games ,  games zone in hyderabad";
+        }
+         //trampoline-park
+         //vulcan-force
+          if ($stateParams.snowrushCity === "Gurgaon  Cyber Hub" && $stateParams.id === "vulcan-force") {
+            TemplateService.title = "Vulcan force is a fighter pilot VR Game at Smaaash";
+            TemplateService.description = "Virtual reality gaming taken to another level, this ride is for hardcore fighter pilots who shoot down enemy aircraft using Oculus gear. ";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality ,virtual reality gaming";
+        }
+          if ($stateParams.snowrushCity === "Hyderabad" && $stateParams.id === "vulcan-force") {
+            TemplateService.title = "Vulcan force is an engaging VR game at Smaaash";
+            TemplateService.description = "Vulcan Force is an aerial battle that puts you in a fighter helicopter cockpit and tests your skills in bringing down the enemy aircraft. It’s a great VR game.";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+        //vulcan-force
+        //air-rider-2
+          if ($stateParams.snowrushCity === "Gurgaon  Cyber Hub" && $stateParams.id === "air-rider-2") {
+            TemplateService.title = "Air Rider 2 is a fantastic Bumper Car Game at Smaaash";
+            TemplateService.description = "Air rider is a fast and furious bumper car ride that gives you goose bumps as you enjoy crashing into each other and have loads of fun. ";
+            TemplateService.keywords = "games zone in gurgaon , arcade game";
+        }
+          //air-rider-2
+       //hot-shot-2
+    //    console.log("$stateParams.snowrushCity ",$stateParams.snowrushCity );
+      if ($stateParams.snowrushCity === "Gurgaon  Cyber Hub" && $stateParams.id === "hot-shot-2") {
+            TemplateService.title = "Hot Shot 2 is a fiery shooting game at Smaaash";
+            TemplateService.description = "Hot Shot 2 is a shooting game that has surreal scenarios and graphics giving you that adrenaline rush. Test your shooting skills in this awesome game.";
+            TemplateService.keywords = "games zone in  gurgaon, arcade game";
+        }
+          //hot-shot-2
+  //jurassic-escape-2
+    if ($stateParams.snowrushCity === "Gurgaon  Cyber Hub" && $stateParams.id === "jurassic-escape-2") {
+            TemplateService.title = "Jurassic Park is immersive VR game at Smaaash";
+            TemplateService.description = "Jurassic Escape will give you the jitters as you don your Oculus gear and revisit the long lost world of Dinosaurs, in this virtual reality game. ";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+  //jurassic-escape-2
+  //smart-arcade
+    if ($stateParams.snowrushCity === "Hyderabad" && $stateParams.id === "smart-arcade") {
+            TemplateService.title = "Arcade games That will Have you Gripped at Smaaash";
+            TemplateService.description = "Engage in futuristic arcade games, designed to keep you hooked and old classics that’ll give you a taste of nostalgia at Smaaash, Hyderabad. ";
+            TemplateService.keywords = "arcade games, games zone in hyderabad,";
+        }
+  //smart-arcade
+  //magic-carpet
+    if ($stateParams.snowrushCity === "Bengaluru" && $stateParams.id === "magic-carpet") {
+            TemplateService.title = "Magic Carpet is A VR game That Makes You Hover at Smaaash";
+            TemplateService.description = "Magic Carpet is a virtual reality game that makes you levitate and take to the skies, over scenic expanses giving you the ultimate thrill.";
+            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+        }
+  //magic-carpet
+  //art-of-attack
+    if ($stateParams.snowrushCity === "Bengaluru" && $stateParams.id === "art-of-attack") {
+            TemplateService.title = "Art of Attack is A VR Game Where you Choose your Weapon ";
+            TemplateService.description = "A virtual reality game that allows you to choose your weapon, to destroy the enemy in style. Don your Oculus gear and bring them all down.";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+        if ($stateParams.snowrushCity === "Ludhiana" && $stateParams.id === "art-of-attack") {
+            TemplateService.title = "A VR Game at Smaaash Where you Choose your Weapon  ";
+            TemplateService.description = "Don your Oculus gear, opt for the deadliest weapons and begin the damage. This virtual reality game is made for fighters who never say die.";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+  //art-of-attack
+//war-on-wheels
+    if ($stateParams.snowrushCity === "Bengaluru" && $stateParams.id === "war-on-wheels") {
+            TemplateService.title = "War on Wheels is A Virtual Reality that rocks at Smaaash";
+            TemplateService.description = "Engage in a war with zombies, one of you will drive the tank while the other will blast enemies. A VR game perfected for team hunting.";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+//war-on-wheels
+//x-2-motor-racing-simulator
+  if ($stateParams.snowrushCity === "Noida" && $stateParams.id === "x-2-motor-racing-simulator") {
+            TemplateService.title = "X2 Racing Simulator is a Crazy Car Racing Game at Smaaash";
+            TemplateService.description = "X2 Motor Racing is an extreme car racing game that tests your racetrack maneuvering skills. Come for a racing showdown, that’s crafted for the best.";
+            TemplateService.keywords = " games zone in noida, arcade games";
+        }
+          if ($stateParams.snowrushCity === "Ludhiana" && $stateParams.id === "x-2-motor-racing-simulator") {
+            TemplateService.title = "A Car Racing Game that’ll Test Your Mettle";
+            TemplateService.description = "Get into the cockpit of this racing car and blast off. This car racing game gives you a fast lifelike driving experience topped with loads of zippy thrills.";
+            TemplateService.keywords = " games zone in ludhiana, arcade games";
+        }
+//x-2-motor-racing-simulator
+//walk-the-plank
+  if ($stateParams.snowrushCity === "Ludhiana" && $stateParams.id === "walk-the-plank") {
+            TemplateService.title = "Walk the Plank is an Adrenaline Pumping VR Game ";
+            TemplateService.description = "If you’re scared of heights, this virtual reality game is going to give you scarier thrills. Dangling between two skyscrapers, you need to complete a challenge.";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+//walk-the-plank
     })
     .controller('ConfirmCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file

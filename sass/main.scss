@@ -71,7 +71,12 @@ body {
 .bluey {
     color: $brand-bluey;
 }
-
+.whitey{
+    color:white;
+    &:hover,&:active,&:focus{
+        color:white;
+    }
+}
 .brand-purple {
     background-color: $brand-purple;
 }
