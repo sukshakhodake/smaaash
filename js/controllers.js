@@ -1173,11 +1173,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         console.log("$stateParams.eventcity", $stateParams.eventcity);
 
-        if ($stateParams.eventcity === "Mumbai") {
-            TemplateService.title = "Hot Events Coming up at Smaaash Mumbai";
-            TemplateService.description = "Keep tab of upcoming events that could spark excitement in your routine lives. From events for students, kids and adults, we have a lot coming your way.";
-            TemplateService.keywords = "events,upcoming events,events at smaaash";
-        }
         if ($stateParams.eventcity === "Gurgaon - Cyber Hub") {
             TemplateService.title = "Most Enthralling Events and Challenges Near You";
             TemplateService.description = "Usurp prizes by giving your best at exciting events and challenges at Smaaash. There’s a volcano of activity, bursting out at this happening destination.  ";
@@ -1204,7 +1199,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Enjoy the most happening go karting events in Gurgaon and the most exciting bands in Gurgaon at Smaaash Sky Karting and Pitstop Brewpub respectively.";
             TemplateService.keywords = " smaaash events , events at smaaash";
         }
-
+//snehal
+   if ($stateParams.eventcity === "Mumbai") {
+            TemplateService.title = "Hot Events Coming up at Smaaash Mumbai";
+            TemplateService.description = "Keep tab of upcoming events that could spark excitement in your routine lives. From events for students, kids and adults, we have a lot coming your way.";
+            TemplateService.keywords = "events, upcoming events , events at smaaash";
+        }
+          if ($stateParams.eventcity === "Noida") {
+            TemplateService.title = "Hair Raising Events Coming up For You at Smaaash";
+            TemplateService.description = "Keep track of the mesmerizing events coming up at Smaaash, to enthrall you. You could win exciting prizes and revel in the entertainment.";
+            TemplateService.keywords = "smaaash events , events at smaaash";
+        }
 
         $scope.isInWishlist = function (id) {
             var indexF = _.findIndex($scope.userwishlist, function (key) {
@@ -1608,7 +1613,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Enjoy enticing deals on go karting and food at Smaaash Sky Karting and the adjoining Pitstop Brewpub restaurant.";
             TemplateService.keywords = "go kart gurgaon, go kart racing, gokarting";
         }
-
+       if ($stateParams.dealspcity === "Noida") {
+            TemplateService.title = "Lap up, Enticing Offers on Food and Games at Smaaash";
+            TemplateService.description = "With mouthwatering offers on food and drinks, teamed up with smashing offers on virtual reality and other games, we  offer you the best you could crave for. ";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality,virtual reality gaming";
+        }
 
 
 
@@ -1907,7 +1916,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "View all the action at Smaaash Sky Karting and Pitstop Brewpub, checkout which stars have visited and a lot more.";
             TemplateService.keywords = "go kart gurgaon, go kart racing, gokarting, things to do in Gurgaon";
         }
-
+   if ($stateParams.city === "Noida") {
+            TemplateService.title = "What’s Hot at Smaaash Noida";
+            TemplateService.description = "Check out what’s happening, the superstars who have visited Smaaash, Noida; pictures of the iconic virtual reality games, simulated sport etc. ";
+            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
         //seo
 
 
@@ -2147,18 +2160,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Come prepared with oodles of energy, because at Smaaash Bengaluru you need to unleash the gaming beast in you to play virtual reality games and simulated sport.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
-
-        // if ($stateParams.gamesCity === "Gurgaon - Sector 29") {
-        //     TemplateService.title = "Go Karting Paradise Topped With Great Food";
-        //     TemplateService.description = "Enjoy Sky Karting in our seriously fast karts, race your opponents, let them smell the rubber from your tires later cool off with some sumptuous food and drinks";
-        //     TemplateService.keywords = "go kart gurgaon,go kart racing,gokarting,kidskart ,  sky karting";
-        // } 
        //snehal changes
-           console.log("$stateParams.gamesCity",$stateParams.gamesCity);
+        //    console.log("$stateParams.gamesCity",$stateParams.gamesCity);
           if ($stateParams.gamesCity === "Gurgaon - Sector 29") {
             TemplateService.title = "Go Karting Paradise and Pool Topped with Great Food";
             TemplateService.description = "Enjoy Sky Karting, race your opponents, let them smell the rubber from your tires, play pool and later cool off with some sumptuous food and drinks.";
             TemplateService.keywords = "go kart racing, gokarting";
+        }
+      if ($stateParams.gamesCity === "Noida") {
+            TemplateService.title = "Next-generation VR games, Get Your Act, On at Smaaash";
+            TemplateService.description = "Go berserk on some awesome futuristic virtual reality games along with intensive cricket simulators, bowling in Noida and much more. ";
+            TemplateService.keywords = "VR games, Virtual reality games, Cricket Simulators , Bowling in Noida	";
         }
 
         //seo
@@ -2871,7 +2883,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //pre-wedding-party
 
-        console.log("$stateParams.partyCity", $stateParams.partyCity);
+        // console.log("$stateParams.partyCity", $stateParams.partyCity);
 
 
         if ($stateParams.partyCity === "Hyderabad" && $stateParams.id === "pre-wedding-party") {
@@ -2880,7 +2892,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "pre wedding party, prewedding party , prewedding parties";
         }
 
-
+      if ($stateParams.partyCity === "Bengaluru" && $stateParams.id === "pre-wedding-parties") {
+            TemplateService.title = "Pre-Wedding Parties Get Naughty at Smaaash ";
+            TemplateService.description = "Enjoy your last days of freedom with crazy excitement. Play VR games, simulated sport and treat your friends and families to sumptuous delicacies and drinks.";
+            TemplateService.keywords = "Pre-wedding parties, VR games , pre wedding party, prewedding party";
+        }
+         if ($stateParams.partyCity === "Noida" && $stateParams.id === "pre-wedding-party") {
+            TemplateService.title = " Pre-wedding Parties, Where the Excitement Never Stops";
+            TemplateService.description = "Your pre-wedding party should boast of great memories which you can hold for lifetime. At Smaaash you get exactly that, great VR games, sports, food and drinks.";
+            TemplateService.keywords = "Pre-wedding parties,  pre-wedding party";
+        }
+           if ($stateParams.partyCity === "Ludhiana" && $stateParams.id === "pre-wedding-party") {
+            TemplateService.title = "Cut Loose at Your Pre-Wedding Party at Smaaash";
+            TemplateService.description = "VR games like Finger Coaster, simulated sport like cricket will keep your pre-wedding party, action packed. There’s sumptuous food and drinks to top it off. ";
+            TemplateService.keywords = "Pre-wedding party,  VR games, pre-wedding party";
+        }
+           if ($stateParams.partyCity === "Mumbai" && $stateParams.id === "pre-wedding-party") {
+            TemplateService.title = "Host the Most Happening Pre-Wedding Parties at Smaaash";
+            TemplateService.description = "Enjoy your last days of freedom with some verve and excitement. Pool in with friends play games, eat, drink and make your pre-wedding party a hit. ";
+            TemplateService.keywords = "pre wedding party, prewedding party , prewedding parties";
+        }
+          if ($stateParams.partyCity === "Gurgaon - Cyber Hub" && $stateParams.id === "pre-wedding-party") {
+            TemplateService.title = "Host Sinful Pre-Wedding Parties at Smaaash, Gurgaon";
+            TemplateService.description = "Bring in your friends for one of the most memorable times of your life. Host your pre-wedding party with awesome games, food and drinks. ";
+            TemplateService.keywords = "pre wedding party, prewedding parties";
+        }
         //pre-wedding-party
 
 
@@ -2901,7 +2937,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //kitty-parties
 
-        console.log("$stateParams.partyCity", $stateParams.partyCity);
+        // console.log("$stateParams.partyCity", $stateParams.partyCity);
 
 
         if ($stateParams.partyCity === "Hyderabad" && $stateParams.id === "kitty-parties") {
@@ -2909,12 +2945,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Who said women only gossip at kitty parties? Whoever did has certainly not seen a real one. Right back at them, at SMAAASH Hyderabad ladies special";
             TemplateService.keywords = "kitty party, kitty parties, kitty party venues in hyderabad	";
         }
-
+         //snehal
+        if ($stateParams.partyCity === "Mumbai" && $stateParams.id === "kitty-parties") {
+            TemplateService.title = "Kitty Parties are Now Exciting at Smaaash";
+            TemplateService.description = "Gals, host your kitty parties with a twist at Smaaash. Play virtual reality games, simulated sport and then chill and gossip over food and drinks.";
+            TemplateService.keywords = "Kitty parties, virtual reality games , kitty party";
+        }
+            if ($stateParams.partyCity === "Noida" && $stateParams.id === "kitty-parties") {
+            TemplateService.title = "Kitty Parties Rock at Smaaash, Noida  ";
+            TemplateService.description = " Your girl gang will be the talk of town when you host your kitty parties in unconventional style at Smaaash with VR games, sports, great food and ambience. ";
+            TemplateService.keywords = "Kitty parties, kitty parties,  VR games";
+        }
+        //  console.log("$stateParams.partyCity", $stateParams.partyCity);
+       if ($stateParams.partyCity === "Ludhiana" && $stateParams.id === "kitty-parties") {
+            TemplateService.title = "All Gals Jovial Kitty Parties at Smaaash, Ludhiana";
+            TemplateService.description = "Gals put your party hats on and come down to Smaaash for some awesome kitty party fun. You could always gossip over sumptuous food and drinks to chill.";
+            TemplateService.keywords = "kitty parties,  kitty party";
+        }
+          if ($stateParams.partyCity === "Gurgaon - Cyber Hub" && $stateParams.id === "kitty-party") {
+            TemplateService.title = "Kitty Parties Just Got Exhilarating at Smaaash";
+            TemplateService.description = "Gossip you can, over sumptuous food and drinks, but to make your kitty party even more interesting we have wonderful VR games and other action.";
+            TemplateService.keywords = "Kitty parties, kitty party, VR games";
+        }
+          if ($stateParams.partyCity === "Bengaluru" && $stateParams.id === "kitty-party") {
+            TemplateService.title = "Kitty Parties with an Exciting Twist at Smaaash";
+            TemplateService.description = "Come with your girl gang and bring the place down with your kitty party. Gossip, play VR games, eat, drink and make it a memorable one.";
+            TemplateService.keywords = "Kitty party, VR games, kitty parties";
+        }
         //kitty-parties
 
         //team-building-events
 
-        console.log("$stateParams.partyCity", $stateParams.partyCity);
+        // console.log("$stateParams.partyCity", $stateParams.partyCity);
 
 
         if ($stateParams.partyCity === "Hyderabad" && $stateParams.id === "team-building-events") {
@@ -2922,7 +2984,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Bonding with colleagues over fun activities, delicious food and beverages, in a zestful ambience. One for all, only at SMAAASH	";
             TemplateService.keywords = "team outing places, team outing hyderabad, team building activities, company offsite	";
         }
-
+         if ($stateParams.partyCity === "Mumbai" && $stateParams.id === "team-building-events") {
+            TemplateService.title = "Host Team Building Events with Zest at Smaaash";
+            TemplateService.description = "Team building events are hosted with great VR games, food and drinks at Smaaash. You could tabulate scores and make winners emerge.";
+            TemplateService.keywords = "team outing places ,team building activities , team building activities in mumbai";
+        }
+    if ($stateParams.partyCity === "Gurgaon - Cyber Hub" && $stateParams.id === "team-building-events") {
+            TemplateService.title = "Host Team Building Events with Verve at Smaaash";
+            TemplateService.description = "Team building events get the edge at Smaaash, as you can engage your team in awesome competitive games and party with great food and drinks.";
+            TemplateService.keywords = "Team building events , Team building events in gurgaon";
+        }
+    if ($stateParams.partyCity === "Bengaluru" && $stateParams.id === "team-building-events") {
+            TemplateService.title = "Host Team Building Events with Competitive Spirit at Smaaash";
+            TemplateService.description = "Exciting VR games, simulated sport, great food and drinks will make your team building event a success, as you keep tab of scores and party with team spirit.";
+            TemplateService.keywords = "team building events,  VR games,  team building event";
+        }
+          if ($stateParams.partyCity === "Noida" && $stateParams.id === "team-building-events") {
+            TemplateService.title = " Exciting Team Building Events for Your Office at Smaaash";
+            TemplateService.description = "With a host of exciting VR games, simulated sport, great food and drinks, you have a lot to choose from, to make your team building event a memorable one. ";
+            TemplateService.keywords = "team building events, VR games, team building event";
+        }
+         if ($stateParams.partyCity === "Ludhiana" && $stateParams.id === "team-building-events") {
+            TemplateService.title = "Team Building Events are a Cut Above the Rest at Smaaash";
+            TemplateService.description = "Host team building events that give you goose bumps as you enjoy the spirit of winning, with great VR games, simulated sport, food and drinks.  ";
+            TemplateService.keywords = "Team building events,   team building in ludhiana";
+        }
         //team-building-events
 
         //seo
@@ -3580,8 +3666,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         //finger-coaster//
-        //
-
         //super-keeper//
         if ($stateParams.snowrushCity === "Mumbai" && $stateParams.id === "super-keeper") {
             TemplateService.title = "Indoor Football that Gives You an Adrenaline rush ";
@@ -3658,8 +3742,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Do the burn out, let your wheels spin, enjoy this car racing game that’ll have the wind blowing through your face as you race.";
             TemplateService.keywords = "arcade games, arcade games in Bengaluru , games zone in Bengaluru,  game zone in Bengaluru";
         }
-
-
         //x-2-motor-racing-simulator
         //smart-arcade
 
@@ -3688,8 +3770,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Engage in the future of gaming with some hi tech arcade games and conventional classics, that’ll make your day.";
             TemplateService.keywords = "arcade games, arcade games in Bengaluru , games zone in Bengaluru,  game zone in Bengaluru";
         }
-
-
         //smart-arcade
         //cockpit-360//
 
@@ -3698,7 +3778,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Take the pilot’s seat, get into the dogfight, bring down enemies from the sky like a pro fighter pilot. This virtual reality game imparts 360 degree movements. ";
             TemplateService.keywords = " virtual reality game , game zone in Mumbai ,game zones in Mumbai";
         }
-
         //cockpit-360//
 
         //sky-karting//
@@ -3743,8 +3822,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Who said trampolines are only for kids? Come visit SMAAASH, trampolines for adults in Hyderabad will spring some childhood memories for you	";
             TemplateService.keywords = "Indoor trampoline park, game zone, kids play area, game zone in Hyderabad, children play area	";
         }
-
-
         //trampoline-park//
         //dodge-ball//
         if ($stateParams.snowrushCity === "Mumbai" && $stateParams.id === "dodge-ball") {
@@ -3763,8 +3840,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Time to partner up with your reflexes. Can you outdo the multiple ball-firing machines at the indoor dodge ball zone?";
             TemplateService.keywords = "indoor dodge ball game in Hyderabad, indoor dodge ball game, dodge ball game, game zone in hyderabad, indoor dodge ball";
         }
-
-
         //dodge-ball//
 
         //fly-max//
@@ -3779,9 +3854,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
         if ($stateParams.snowrushCity === "Hyderabad" && $stateParams.id === "fly-max") {
-            TemplateService.title = "   Glide in Virtual Reality at SMAAASH Hyderabad";
-            TemplateService.description = "Fly Max at SMAAASH will bring virtual reality to your imagination of being able to fly like a bird	";
+            TemplateService.title = "Glide in Virtual Reality at SMAAASH Hyderabad";
+            TemplateService.description = "Fly Max at SMAAASH will bring virtual reality to your imagination of being able to fly like a bird";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, virtual reality games in Hyderabad";
+        }
+  if ($stateParams.snowrushCity === "Mumbai" && $stateParams.id === "fly-max") {
+            TemplateService.title = "Flymax is A Hang Glider Simulator VR game at Smaaash";
+            TemplateService.description = "Flymax is an adrenaline pumping virtual reality game that lets you take to the skies with excitement. Beautiful scenic expanses below, will enchant you.";
+            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
 
 
@@ -3837,6 +3917,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.title = "Vulcan force is an engaging VR game at Smaaash";
             TemplateService.description = "Vulcan Force is an aerial battle that puts you in a fighter helicopter cockpit and tests your skills in bringing down the enemy aircraft. It’s a great VR game.";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+           if ($stateParams.snowrushCity === "Gurgaon - Cyber Hub" && $stateParams.id === "vulcan-force") {
+           TemplateService.title = "Vulcan Force is a Thrilling VR Game at Smaaash ";
+            TemplateService.description = "Vulcan Force is a virtual reality game that allows you to shoot 3000 bullets per minute and bring down enemy aircraft in killer style.";
+            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
         }
         //vulcan-force
         //air-rider-2
@@ -3913,6 +3998,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
         }
 //walk-the-plank
+//pool-jack
+console.log("$stateParams.snowrushCity ",$stateParams.snowrushCity );
+if ($stateParams.snowrushCity === "Gurgaon  Sector 29" && $stateParams.id === "pool-jack") {
+            TemplateService.title = "A Game of Pool Always Adds to the Party Verve at Smaaash";
+            TemplateService.description = "Enjoy a great game of pool with your friends, as you cool off from the Sky Karting frenzy and enjoy great food and drinks by the side.";
+            TemplateService.keywords = "games zone , game zones in gurgaon";
+        }
+//pool-jack
+
+//9-d-xtreme-interactive-theatre
+if ($stateParams.snowrushCity === "Mumbai" && $stateParams.id === "9-d-xtreme-interactive-theatre") {
+            TemplateService.title = "9D Extreme Theatre an VR Game at Smaaash";
+            TemplateService.description = "3D theatre was exciting enough; now give way to 9D theatre an exciting dive into VR game entertainment that’ll make you live the movie.";
+            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+        }
+//9-d-xtreme-interactive-theatre
     })
     .controller('ConfirmCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -4238,29 +4339,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("$stateParams.hostCity", $stateParams.hostCity);
 
         if ($stateParams.hostCity === "Mumbai") {
-            TemplateService.title = "Host Corporate Parties, Birthday Parties In Mumbai And More";
+            TemplateService.title = "Host Corporate Parties, Birthday Parties in Mumbai and More ";
             TemplateService.description = "Scouring Mumbai for the best party places? End your search by hosting vibrant  Corporate events, Birthday parties, Social events and more at Smaaash.";
-            TemplateService.keywords = "birthday parties in Mumbai , party places , Corporate events , Birthday parties, corporate parties";
+            TemplateService.keywords = "birthday parties in Mumbai , party places , Corporate events";
         }
         if ($stateParams.hostCity === "Gurgaon - Cyber Hub") {
-            TemplateService.title = "Smaaash, one of the Most Electrifying Party Places";
+            TemplateService.title = "Smaaash, One of the Most Electrifying Party Places";
             TemplateService.description = "Corporate events, team building activities, pre wedding parties, kitty parties, you name it, we’ll host your bash at Smaaash with fervor and zest.";
-            TemplateService.keywords = "Party places,Corporate events, Team  building activities, Pre wedding activities, Kitty parties";
+            TemplateService.keywords = "Party places, Corporate events,  Team  building activities,  Pre wedding activities, Kitty parties";
         }
         if ($stateParams.hostCity === "Ludhiana") {
-            TemplateService.title = "Looking for Party Places? Don’t. SMAAASH is the party place";
-            TemplateService.description = "All in one place to host a range of parties from team building activities to kitty parties, that too with offers on special occasions and customization possible	";
-            TemplateService.keywords = "party places, team outing places, team building activities , kitty parties";
+            TemplateService.title = "Looking for Party Places? Don’t. Smaaash is THE Party Place";
+            TemplateService.description = "All in one place to host a range of parties from team building activities to kitty parties, that too with offers on special occasions and customization possible";
+            TemplateService.keywords = "party places,  team building activities, kitty parties";
         }
         if ($stateParams.hostCity === "Hyderabad") {
-            TemplateService.title = "SMAAASH | All New Party Hosting Venue in Hyderabad ";
-            TemplateService.description = "Show them all how real parties are done at one of the best party places in Hyderabad with SMAAASH	";
-            TemplateService.keywords = "party hosting venue in Hyderabad,party hosting venue,best party places in Hyderabad ,party places,party places in hyderabad	";
+            TemplateService.title = "All New Party Hosting Venue in Hyderabad | Smaaash";
+            TemplateService.description = "Show them all how real parties are done at one of the best party places in Hyderabad with SMAAASH";
+            TemplateService.keywords = "party hosting venue in Hyderabad, party places in Hyderabad";
         }
         if ($stateParams.hostCity === "Bengaluru") {
             TemplateService.title = "Excitement Pours in at the Best Party Place in Bengaluru ";
-            TemplateService.description = "Get enveloped in a party atmosphere that beats the rest, hands down. VR games, simulated sport, great food and drinks will make your bash a memorable one.  ";
-            TemplateService.keywords = "party place in Bengaluru,  VR games , birthday parties in bengaluru,birthday party in bengaluru,Birthday parties venues,Birthday parties venue,venues for birthday parties ,venues for birthday party";
+            TemplateService.description = "Get enveloped in a party atmosphere that beats the rest, hands down. VR games, simulated sport, great food and drinks will make your bash a memorable one.   ";
+            TemplateService.keywords = "party place in Bengaluru,  party places";
         }
 
         if ($stateParams.hostCity === "Gurgaon - Sector 29") {
@@ -4268,7 +4369,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Be it a corporate party, birthday party or kitty party, do it in speedy style at Smaaash Sky Karting and Pitstop Brewpub.";
             TemplateService.keywords = "party place in Gurgaon ,corporate party, birthday party,  kitty party";
         }
-
+          if ($stateParams.hostCity === "Noida") {
+            TemplateService.title = "Throw a Bash, at One of the Sizzling Party Places, Smaaash";
+            TemplateService.description = "Corporate parties, pre wedding parties, kitty parties, birthday parties and a lot more; bashes at Smaaash are high energy, vibrant detours from the usual boring parties.";
+            TemplateService.keywords = "party places, Corporate parties, pre wedding parties ,kitty parties, birthday parties";
+        }
     })
 
     .controller('RechargeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $window) {
@@ -4982,12 +5087,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "food and beverages, food , drinks, food & drinks , things to do in Gurgaon	";
         }
         if ($stateParams.drinkCity === "Ludhiana") {
-            TemplateService.title = "Sports Bar and a Perky Café to Hang Out at | SMAAASH Ludhiana	";
-            TemplateService.description = "Themed after the country’s favourite sport, cricket, Cricket Café & Brewpub are a must experience, after Mighty Small Café, the perfect chill place to eat 	";
+            TemplateService.title = "Sports Bar and a Perky Café to Hang Out at | Smaaash  Ludhiana";
+            TemplateService.description = "Themed after the country’s favourite sport, cricket, Cricket Café & Brewpub are a must experience, after Mighty Small Café, the perfect chill place to eat";
             TemplateService.keywords = "food and beverages";
         }
         if ($stateParams.drinkCity === "Hyderabad") {
-            TemplateService.title = "Eat. Drink. Play. Repeat. At SMAAASH Hyderabad";
+            TemplateService.title = "Eat. Drink. Play. Repeat. At Smaaash Hyderabad";
             TemplateService.description = "Not just your regular entertainment arena, but also an all time favourite, fun place to eat and drink in Hyderabad";
             TemplateService.keywords = "fun place to eat and drink in Hyderabad, fun place, fun place to eat and drink";
         }
@@ -5003,7 +5108,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "Food and beverages";
         }
 
-
+        if ($stateParams.drinkCity === "Noida") {
+            TemplateService.title = "The Best Place to Party With Scrumptious Food And Beverages";
+            TemplateService.description = "Drool over awesome food and gorge on delicacies from the Mighty small restaurant as you go out to party at one of the most happening places in Noida.";
+            TemplateService.keywords = "Food And Beverages ";
+        }
         //seo
 
         $scope.moreDesc = {};
@@ -5608,11 +5717,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         if ($stateParams.eventsInnercity === "Ludhiana" && $stateParams.id === "kings-xi-punjab") {
-            TemplateService.title = "Cheer your favourite T20 team at live match screening	";
-            TemplateService.description = "What is better than watching live match screening at a sports pub with tasty food spirited beverages? ";
-            TemplateService.keywords = "smaaash events, events at smaaash	";
+            TemplateService.title = "Cheer your favourite T20 team at live match screening";
+            TemplateService.description = "What is better than watching live match screening at a sports pub with tasty food spirited beverages?";
+            TemplateService.keywords = "smaaash events, events at smaaash";
         }
-
 
     })
 
