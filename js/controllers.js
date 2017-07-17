@@ -2902,14 +2902,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "Pre-wedding parties, VR games , pre wedding party, prewedding party";
         }
          if ($stateParams.partyCity === "Noida" && $stateParams.id === "pre-wedding-party") {
-            TemplateService.title = " Pre-wedding Parties, Where the Excitement Never Stops";
+            TemplateService.title = " The Excitement Never Stops at Smaaash Pre-Wedding Parties";
             TemplateService.description = "Your pre-wedding party should boast of great memories which you can hold for lifetime. At Smaaash you get exactly that, great VR games, sports, food and drinks.";
             TemplateService.keywords = "Pre-wedding parties,  pre-wedding party";
         }
            if ($stateParams.partyCity === "Ludhiana" && $stateParams.id === "pre-wedding-party") {
             TemplateService.title = "Cut Loose at Your Pre-Wedding Party at Smaaash";
             TemplateService.description = "VR games like Finger Coaster, simulated sport like cricket will keep your pre-wedding party, action packed. There’s sumptuous food and drinks to top it off. ";
-            TemplateService.keywords = "Pre-wedding party,  VR games, pre-wedding party";
+            TemplateService.keywords = "Pre-wedding parties,  pre-wedding party,  VR games";
         }
            if ($stateParams.partyCity === "Mumbai" && $stateParams.id === "pre-wedding-party") {
             TemplateService.title = "Host the Most Happening Pre-Wedding Parties at Smaaash";
