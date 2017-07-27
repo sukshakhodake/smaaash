@@ -200,9 +200,8 @@
             </a>
                 <div class="city-types">
                     <ul class="list">
-                        <li ng-repeat="city in getHomeCity">
-
-                            <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
+                        <li ng-repeat="city in getHomeCity1">
+                            <a ng-click="getCityName(city)"><img ng-src="{{city.image}}" class="img-responsive" alt=""></a>
                         </li>
                         <li>
                             <a href="https://smaaashusa.com/" target="_blank">
@@ -371,9 +370,9 @@
                </a>
                     <div class="city-types">
                         <ul class="list">
-                            <li ng-repeat="city in getHomeCity">
+                            <li ng-repeat="city in getHomeCity1">
 
-                                <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
+                                <a ng-click="getCityName(city)"><img ng-src="{{city.image}}" class="img-responsive" alt=""></a>
                             </li>
                             <li>
                                 <a href="https://smaaashusa.com/" target="_blank">
