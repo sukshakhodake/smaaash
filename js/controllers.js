@@ -6110,8 +6110,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkoutAmount = $stateParams.PayAmount;
         $scope.orderNum = $stateParams.orderNo;
 
-        $scope.imgSrc = "https://affiliates.adsplay.in/trackingcode_sale_new.php?pgmid=62250&sale={" + $stateParams.PayAmount + "}&orderId={" +
-            $stateParams.orderNo + "}";
+        $scope.imgSrc = "https://affiliates.adsplay.in/trackingcode_sale_new.php?pgmid=62250&sale=" + $stateParams.PayAmount + "&orderId=" +
+            $stateParams.orderNo;
 
 
         ga('require', 'ecommerce');
