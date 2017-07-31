@@ -5762,7 +5762,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //seo
         if ($stateParams.dealsinnercity === "Ludhiana" && $stateParams.id === "student-offer") {
-            TemplateService.title = "Student Offers for Food, Drinks and Virtual Reality Gaming	";
+            TemplateService.title = "Students, Enjoy All Games and Free Movie Tickets at Smaaash.";
             TemplateService.description = "All that students dream about- inexpensive food, drinks, games made possible at SMAAASH with the special student offer, helping you save your pocket money";
             TemplateService.keywords = "virtual reality gaming, game, gaming zone, gaming zones, games zones";
         }
@@ -5772,6 +5772,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Arcade gaming starting as low as Rs. 299. No need to worry about blowing off money at a game zone in Ludhiana	";
             TemplateService.keywords = "game zone in Ludhiana , gaming zone, gaming zones, games zones	";
         }
+        if ($stateParams.dealsinnercity === "Mumbai" && $stateParams.id === "student-offer-2") {
+            TemplateService.title = "Students, Grab All Games and Latest Free Movie Tickets";
+            // TemplateService.description = "Arcade gaming starting as low as Rs. 299. No need to worry about blowing off money at a game zone in Ludhiana	";
+            // TemplateService.keywords = "game zone in Ludhiana , gaming zone, gaming zones, games zones	";
+        }
+
+        if ($stateParams.dealsinnercity === "Gurgaon - Cyber Hub" && $stateParams.id === "student-offer") {
+            TemplateService.title = "All Games and Free Movie Tickets for Students at Smaaash";
+        }
+        if ($stateParams.dealsinnercity === "Hyderabad" && $stateParams.id === "student-offer-3") {
+            TemplateService.title = "Smaaash Gives Students All Games and Free Movie Tickets";
+        }
+        if ($stateParams.dealsinnercity === "Bengaluru" && $stateParams.id === "super-student-offer") {
+            TemplateService.title = "Smaaash Student Surprise, All Games and Free Movie Tickets";
+        }
+        if ($stateParams.dealsinnercity === "Noida" && $stateParams.id === "student-special") {
+            TemplateService.title = "Students Enjoy All Games and Free Movie Tickets At Smaaash";
+        }
+
+        if ($stateParams.dealsinnercity === "Gurgaon - Sector 29" && $stateParams.id === "student-special-offer-2") {
+            TemplateService.title = "Students, Enjoy Smaaash Sky Karting at Rs. 350";
+        }
+
+
+
     })
 
     .controller('EventInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope, $state) {
