@@ -46,37 +46,40 @@
 
 
 <div class="enquiry-form brand-purple">
-   <div>
-      <h2 class="uppercase title brand-white">enquiry</h2>
-      <a href="" class="close text-uppercase mobile-close" ng-click="$dismiss();"><i class="fa fa-times" aria-hidden="true"></i>
+  <div>
+    <h2 class="uppercase title brand-white">enquiry</h2>
+    <a href="" class="close text-uppercase mobile-close" ng-click="$dismiss();"><i class="fa fa-times" aria-hidden="true"></i>
 </a>
-      <form class=" form enquires" name="enquiryForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-         <input type=hidden name="oid" value="00D6F000000Dr5h">
-         <input type="hidden" name="retURL" id="retURL" value="http://smaaash.in/#thanks">
-         <input id="00N6F00000GxzFA" maxlength="20" name="00N6F00000GxzFA" size="20" type="hidden" class="leadid" />
-         <div class="form-group">
-            <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <select class="citydropdown form-control bottom_border" id="city" name="city" required>
+    <form class=" form enquires" name="enquiryForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+      method="POST">
+      <input type=hidden name="oid" value="00D6F000000Dr5h">
+      <input type="hidden" name="retURL" id="retURL" value="http://smaaash.in/#thanks">
+      <input id="00N6F00000GxzFA" maxlength="20" name="00N6F00000GxzFA" size="20" type="hidden" class="leadid" />
+      <div class="form-group">
+        <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+        <select class="citydropdown form-control bottom_border" id="city" name="city" required>
                       <option class="color_change" value="{{citySpecific}}">{{citySpecific}}</option>
 
             </select>
-         </div>
+      </div>
 
-         <div class="form-group">
-            <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <select id='00N6F00000Enqi8' name='00N6F00000Enqi8' style='display:none' title='Type of Event'>
+      <div class="form-group">
+        <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+        <select id='00N6F00000Enqi8' name='00N6F00000Enqi8' style='display:none' title='Type of Event'>
                 <option selected='selected' value='{{partyName}}'>{{partyName}}</option>
               </select>
 
-         </div>
-         <div class="form-group">
-      <select id="lead_source" name="lead_source" style="display:none">
+      </div>
+      <div class="form-group">
+        <select id="lead_source" name="lead_source" style="display:none">
 <option value="Web 2 Lead"  selected="selected">Web 2 Lead</option>
 <option value="Google">Google</option>
 </select>
 
-                <select id='00N6F00000FbWPi' name='00N6F00000FbWPi'  style='display:none' title='Sales Team Assigned'>
-                <option selected='selected' value="{{citySpecific}}">{{citySpecific}}</option>
+        <select id='00N6F00000FbWPi' name='00N6F00000FbWPi' style='display:none' title='Sales Team Assigned'>
+                <option selected='selected' value="{{citySpecific}}" ng-if="citySpecific!=='Gurgaon - Sector 29' && citySpecific!=='Gurgaon - Cyber Hub' ">{{citySpecific}}</option>
+                <option selected='selected' value="Gurgaon 1" ng-if="citySpecific ==='Gurgaon - Sector 29'">Gurgaon 1</option>
+                <option selected='selected' value="Gurgaon 2" ng-if="citySpecific ==='Gurgaon - Cyber Hub'">Gurgaon 2</option>
 
                 <!-- <option value='Gurgaon 2'>Gurgaon 2</option>
                 <option value='Noida'>Noida</option>
@@ -84,22 +87,25 @@
                 <option value='Bangalore'>Bangalore</option>
                 <option value='Hyderabad'>Hyderabad</option> -->
                 </select>
-         </div>
-         <div class="form-group">
-            <input  id="first_name" maxlength="40" name="first_name" placeholder="Name" data-rule-required="true" class="form-control bottom_border" size="20" type="text" required />
+      </div>
+      <div class="form-group">
+        <input id="first_name" maxlength="40" name="first_name" placeholder="Name" data-rule-required="true" class="form-control bottom_border"
+          size="20" type="text" required />
 
-         </div>
-         <div class="form-group">
-           <input  id="email" maxlength="80" name="email" class="form-control bottom_border" placeholder="Email"  data-rule-required="true" placeholder="" size="20" type="email" required/>
+      </div>
+      <div class="form-group">
+        <input id="email" maxlength="80" name="email" class="form-control bottom_border" placeholder="Email" data-rule-required="true"
+          placeholder="" size="20" type="email" required/>
 
-         </div>
-         <div class="form-group">
-            <input  id="mobile" maxlength="40" name="mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true" placeholder="" size="20" type="tel" required/>
+      </div>
+      <div class="form-group">
+        <input id="mobile" maxlength="40" name="mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true"
+          placeholder="" size="20" type="tel" required/>
 
-         </div>
-         <div class="form-group">
-            <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <select id="00N6F00000EnggI"  name="00N6F00000EnggI" class="form-control last_border">
+      </div>
+      <div class="form-group">
+        <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+        <select id="00N6F00000EnggI" name="00N6F00000EnggI" class="form-control last_border">
                    <option class="color_change" value="" selected='selected'>Party For</option>
                    <option class="color_change" value="15-50">15 to 50</option>
                    <option class="color_change" value="50-100">50 to 100</option>
@@ -107,16 +113,16 @@
                    <option class="color_change" value="300-500">300 to 500</option>
                    <option class="color_change" value="500-700">500 to 700</option></select>
 
-         </div>
+      </div>
 
-  <button  type="submit" name="button"><img src="img/new/go.png" alt=""></button>
+      <button type="submit" name="button"><img src="img/new/go.png" alt=""></button>
 
 
-      </form>
-   </div>
+    </form>
+  </div>
 
 </div>
- <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
+<!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 
 <script>
   // $( document ).ready(function() {
@@ -125,11 +131,12 @@
   //function leadId(m){
   // Generate Lead Id
   var d = new Date();
-  var n = Math.floor(Math.random() * 90 + 10)+d.valueOf() ;
-  document.getElementById("retURL").value=document.getElementById("retURL").value+"?lead_id="+n;
-  $(".leadid").val(n) ;
+  var n = Math.floor(Math.random() * 90 + 10) + d.valueOf();
+  document.getElementById("retURL").value = document.getElementById("retURL").value + "?lead_id=" + n;
+  $(".leadid").val(n);
   //}
 
 
   // });
-  </script>
+
+</script>
