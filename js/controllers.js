@@ -6192,6 +6192,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.amount = $stateParams.amount;
         $scope.cnrNo = $stateParams.cnrno;
         $scope.paymentFor = $stateParams.paymentfor;
+        if ($stateParams.orderno && $stateParams.amount) {
+            $scope.iframeSrc = "https://couponraja.go2cloud.org/aff_l?offer_id=1442&adv_sub=" + $stateParams.orderno + "&amount=" + $stateParams.amount;
+        }
 
     })
 

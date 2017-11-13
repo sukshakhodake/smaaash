@@ -1,19 +1,19 @@
-<div class="reset-passwords enquiry-forms" >
-      <div class="container">
-<h2 class="title center brand-white">Congratulations</h2>
-      <p class="text-center brand-white">Your CNR No : {{cnrNo}}</p>
-      <h3 class="title center brand-white">Your Payment for Order No.  {{orderNo}} of Rs. {{amount}} has been Successfull.</h3>
+<div class="reset-passwords enquiry-forms">
+  <div class="container">
+    <h2 class="title center brand-white">Congratulations</h2>
+    <p class="text-center brand-white">Your CNR No : {{cnrNo}}</p>
+    <h3 class="title center brand-white">Your Payment for Order No. {{orderNo}} of Rs. {{amount}} has been Successfull.</h3>
     <p id="test" style="display:none;"> {{amount}}</p>
-      <p id="ordernum" style="display:none;"> {{orderNo}}</p>
-    </div>
+    <p id="ordernum" style="display:none;"> {{orderNo}}</p>
+  </div>
 </div>
 
-
+<iframe src="{{iframeSrc|trusted}}" scrolling="no" frameborder="0" width="1" height="1"></iframe>
 
 
 <script type="text/javascript">
-/* <![CDATA[ */
-window.addEventListener("load", function(){
+  /* <![CDATA[ */
+  window.addEventListener("load", function () {
     // alert("hii");
     var google_conversion_id = 862220214;
     var google_conversion_language = "en";
@@ -27,30 +27,33 @@ window.addEventListener("load", function(){
     var google_remarketing_only = false;
 
 
-        ga('ecommerce:addTransaction', {
-            'id': y,                     // Transaction ID. Required.
-          'affiliation': 'Smaaash India',   // Affiliation or store name.
-          'revenue': x,               // Grand Total.
-          'shipping': '0',                  // Shipping.
-          'tax': '0'                     // Tax.
-        });
-        console.log("Grand Total", x);
-          console.log("Transaction ID", y);
-          console.log(x+".00");
-          fbq('track', 'Purchase',{value: "1.00", currency: 'EUR'});
+    ga('ecommerce:addTransaction', {
+      'id': y,                     // Transaction ID. Required.
+      'affiliation': 'Smaaash India',   // Affiliation or store name.
+      'revenue': x,               // Grand Total.
+      'shipping': '0',                  // Shipping.
+      'tax': '0'                     // Tax.
+    });
+    console.log("Grand Total", x);
+    console.log("Transaction ID", y);
+    console.log(x + ".00");
+    fbq('track', 'Purchase', { value: "1.00", currency: 'EUR' });
 
-});
+  });
 
 /* ]]> */
+
 </script>
 
 
 
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+
 </script>
 
 <noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/862220214/?value={{amount}}&amp;currency_code=INR&amp;label=PHUnCL7mo3AQtt-RmwM&amp;guid=ON&amp;script=0"/>
-</div>
+  <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/862220214/?value={{amount}}&amp;currency_code=INR&amp;label=PHUnCL7mo3AQtt-RmwM&amp;guid=ON&amp;script=0"
+    />
+  </div>
 </noscript>
