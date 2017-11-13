@@ -53,131 +53,131 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         })
         $scope.getCities1 = [{
-                "_id": "577f4d106b78e0bc03724800",
-                "__v": 0,
-                "myslug": "mumbai",
-                "weekend": "Fri-Sun   11am - 1 am",
-                "weekdays": "Mon-Thurs   12:30pm - 1am",
-                "pdf": "",
-                "logo": "590da160f7a66a33414b4567.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
-                "BranchName": "Smaaash Mumbai",
-                "BranchID": "12",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/mumbai.png",
-                "order": "7",
-                "name": "Mumbai"
-            },
-            {
-                "_id": "577f4d246b78e0bc03724802",
-                "__v": 0,
-                "myslug": "gurgaon-cyber-hub",
-                "weekend": "Fri-Sun   11am - 12am",
-                "weekdays": "Mon-Thurs   11am - 12am",
-                "pdf": "",
-                "logo": "590da46bf7a66a33414b4eb9.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
-                "BranchName": "Smaaash Gurgaon Cyber Hub",
-                "BranchID": "14",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/gurgoan-cyber.png",
-                "order": "6",
-                "name": "Gurgaon - Cyber Hub"
-            },
-            {
-                "_id": "579b0d74fa72c24405ee0818",
-                "__v": 0,
-                "myslug": "hyderabad",
-                "weekend": "Fri-Sun   11am - 12am",
-                "weekdays": "Mon-Thurs   12pm - 12am",
-                "pdf": "",
-                "logo": "590da4aef7a66a33414b4f69.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
-                "BranchName": "Smaaash Hyderabad",
-                "BranchID": "13",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/hyderabad.png",
-                "order": "5",
-                "name": "Hyderabad"
-            },
-            {
-                "_id": "577f4d1c6b78e0bc03724801",
-                "__v": 0,
-                "myslug": "bengaluru",
-                "weekend": "Fri-Sat   11am - 1am",
-                "weekdays": "Sun-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da18ef7a66a33414b45f6.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
-                "BranchName": "Smaaash Bengaluru",
-                "BranchID": "15",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/bengaluru.png",
-                "order": "4",
-                "name": "Bengaluru"
-            },
-            {
-                "_id": "57808c9032b1d30b046dd48c",
-                "__v": 0,
-                "myslug": "noida",
-                "weekend": "Fri-Sun   11am - 11pm",
-                "weekdays": "Mon-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da47df7a66a33414b4efb.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
-                "BranchName": "Smaaash Noida",
-                "BranchID": "17",
-                "twitter": "twi shimla",
-                "facebook": "fb shimla",
-                "instagram": "insta shimla",
-                "image": "img/nav/noida.png",
-                "order": "3",
-                "name": "Noida"
-            },
-            {
-                "_id": "58808e0e94082f1ed90f06a0",
-                "__v": 0,
-                "myslug": "ludhiana",
-                "weekend": "Fri-Sun   11am - 11pm",
-                "weekdays": "Mon-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da4c2f7a66a33414b4fb7.png",
-                "Photo": "",
-                "BranchName": "",
-                "BranchID": "",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/ludhiana.png",
-                "order": "2",
-                "name": "Ludhiana"
-            },
-            {
-                "_id": "587366fa7309110c7de34906",
-                "__v": 0,
-                "myslug": "gurgaon-sector-29",
-                "weekend": "Fri-Sun   12pm - 11.30pm",
-                "weekdays": "Mon-Thurs   12pm - 11.30pm",
-                "pdf": "",
-                "logo": "59106cb9d86cf206d96dde0a.png",
-                "Photo": "",
-                "BranchName": "Smaaash Gurgaon - Sector 29",
-                "BranchID": "",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/gurgaon-sector.png",
-                "order": "1",
-                "name": "Gurgaon - Sector 29"
-            }
+            "_id": "577f4d106b78e0bc03724800",
+            "__v": 0,
+            "myslug": "mumbai",
+            "weekend": "Fri-Sun   11am - 1 am",
+            "weekdays": "Mon-Thurs   12:30pm - 1am",
+            "pdf": "",
+            "logo": "590da160f7a66a33414b4567.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
+            "BranchName": "Smaaash Mumbai",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/mumbai.png",
+            "order": "7",
+            "name": "Mumbai"
+        },
+        {
+            "_id": "577f4d246b78e0bc03724802",
+            "__v": 0,
+            "myslug": "gurgaon-cyber-hub",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   11am - 12am",
+            "pdf": "",
+            "logo": "590da46bf7a66a33414b4eb9.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
+            "BranchName": "Smaaash Gurgaon Cyber Hub",
+            "BranchID": "14",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgoan-cyber.png",
+            "order": "6",
+            "name": "Gurgaon - Cyber Hub"
+        },
+        {
+            "_id": "579b0d74fa72c24405ee0818",
+            "__v": 0,
+            "myslug": "hyderabad",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   12pm - 12am",
+            "pdf": "",
+            "logo": "590da4aef7a66a33414b4f69.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
+            "BranchName": "Smaaash Hyderabad",
+            "BranchID": "13",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/hyderabad.png",
+            "order": "5",
+            "name": "Hyderabad"
+        },
+        {
+            "_id": "577f4d1c6b78e0bc03724801",
+            "__v": 0,
+            "myslug": "bengaluru",
+            "weekend": "Fri-Sat   11am - 1am",
+            "weekdays": "Sun-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da18ef7a66a33414b45f6.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
+            "BranchName": "Smaaash Bengaluru",
+            "BranchID": "15",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/bengaluru.png",
+            "order": "4",
+            "name": "Bengaluru"
+        },
+        {
+            "_id": "57808c9032b1d30b046dd48c",
+            "__v": 0,
+            "myslug": "noida",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da47df7a66a33414b4efb.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
+            "BranchName": "Smaaash Noida",
+            "BranchID": "17",
+            "twitter": "twi shimla",
+            "facebook": "fb shimla",
+            "instagram": "insta shimla",
+            "image": "img/nav/noida.png",
+            "order": "3",
+            "name": "Noida"
+        },
+        {
+            "_id": "58808e0e94082f1ed90f06a0",
+            "__v": 0,
+            "myslug": "ludhiana",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da4c2f7a66a33414b4fb7.png",
+            "Photo": "",
+            "BranchName": "",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/ludhiana.png",
+            "order": "2",
+            "name": "Ludhiana"
+        },
+        {
+            "_id": "587366fa7309110c7de34906",
+            "__v": 0,
+            "myslug": "gurgaon-sector-29",
+            "weekend": "Fri-Sun   12pm - 11.30pm",
+            "weekdays": "Mon-Thurs   12pm - 11.30pm",
+            "pdf": "",
+            "logo": "59106cb9d86cf206d96dde0a.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon - Sector 29",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/gurgaon-sector.png",
+            "order": "1",
+            "name": "Gurgaon - Sector 29"
+        }
         ];
         $scope.openpops = function () {
             openL = ngDialog.open({
@@ -347,7 +347,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.buyOnline = $scope.content["Buy Online"];
                 $scope.promotion = $scope.content["Promotions"];
                 TemplateService.removeLoader();
-            } else {}
+            } else { }
 
         });
 
@@ -841,36 +841,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // Select all range inputs, watch for change
         $("input[type='range']").change(function () {
 
-                // Cache this for efficiency
-                el = $(this);
+            // Cache this for efficiency
+            el = $(this);
 
-                // Measure width of range input
-                width = el.width();
+            // Measure width of range input
+            width = el.width();
 
-                // Figure out placement percentage between left and right of input
-                newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
+            // Figure out placement percentage between left and right of input
+            newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
 
-                offset = -1;
+            offset = -1;
 
-                // Prevent bubble from going beyond left or right (unsupported browsers)
-                if (newPoint < 0) {
-                    newPlace = 0;
-                } else if (newPoint > 1) {
-                    newPlace = width;
-                } else {
-                    newPlace = width * newPoint + offset;
-                    offset -= newPoint;
-                }
+            // Prevent bubble from going beyond left or right (unsupported browsers)
+            if (newPoint < 0) {
+                newPlace = 0;
+            } else if (newPoint > 1) {
+                newPlace = width;
+            } else {
+                newPlace = width * newPoint + offset;
+                offset -= newPoint;
+            }
 
-                // Move bubble
-                el
-                    .next("output")
-                    .css({
-                        left: newPlace,
-                        marginLeft: offset + "%"
-                    })
-                    .text(el.val());
-            })
+            // Move bubble
+            el
+                .next("output")
+                .css({
+                    left: newPlace,
+                    marginLeft: offset + "%"
+                })
+                .text(el.val());
+        })
             // Fake a change to position bubble at page load
             .trigger('change');
     })
@@ -2401,9 +2401,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                         data.gameforarray.push('Adult')
                                         // data.gameforarray.push('Male')
                                         break;
-                                        // case '2':
-                                        //     data.gameforarray.push('Female')
-                                        //     break;
+                                    // case '2':
+                                    //     data.gameforarray.push('Female')
+                                    //     break;
                                     case '3':
                                         data.gameforarray.push('Kids')
                                         // data.gameforarray.push('Children')
@@ -3364,7 +3364,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //         } else if (data.value === false) {}
                 //     });
                 // }
-            } else {}
+            } else { }
 
         }
         // NavigationService.getCity(function(data) {
@@ -3421,9 +3421,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     data.gameforarray.push('Adult')
                                     // data.gameforarray.push('Male')
                                     break;
-                                    // case '2':
-                                    //     data.gameforarray.push('Female')
-                                    //     break;
+                                // case '2':
+                                //     data.gameforarray.push('Female')
+                                //     break;
                                 case '3':
                                     data.gameforarray.push('Kids')
                                     // data.gameforarray.push('Children')
@@ -3460,9 +3460,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 data.gameforarray.push('Adult')
                                 // data.gameforarray.push('Male')
                                 break;
-                                // case '2':
-                                //     data.gameforarray.push('Female')
-                                //     break;
+                            // case '2':
+                            //     data.gameforarray.push('Female')
+                            //     break;
                             case '3':
                                 data.gameforarray.push('Kids')
                                 // data.gameforarray.push('Children')
@@ -4502,131 +4502,131 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.getCities1 = [{
-                "_id": "577f4d106b78e0bc03724800",
-                "__v": 0,
-                "myslug": "mumbai",
-                "weekend": "Fri-Sun   11am - 1 am",
-                "weekdays": "Mon-Thurs   12:30pm - 1am",
-                "pdf": "",
-                "logo": "590da160f7a66a33414b4567.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
-                "BranchName": "Smaaash Mumbai",
-                "BranchID": "12",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/mumbai.png",
-                "order": "7",
-                "name": "Mumbai"
-            },
-            {
-                "_id": "577f4d246b78e0bc03724802",
-                "__v": 0,
-                "myslug": "gurgaon-cyber-hub",
-                "weekend": "Fri-Sun   11am - 12am",
-                "weekdays": "Mon-Thurs   11am - 12am",
-                "pdf": "",
-                "logo": "590da46bf7a66a33414b4eb9.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
-                "BranchName": "Smaaash Gurgaon Cyber Hub",
-                "BranchID": "14",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/gurgoan-cyber.png",
-                "order": "6",
-                "name": "Gurgaon - Cyber Hub"
-            },
-            {
-                "_id": "579b0d74fa72c24405ee0818",
-                "__v": 0,
-                "myslug": "hyderabad",
-                "weekend": "Fri-Sun   11am - 12am",
-                "weekdays": "Mon-Thurs   12pm - 12am",
-                "pdf": "",
-                "logo": "590da4aef7a66a33414b4f69.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
-                "BranchName": "Smaaash Hyderabad",
-                "BranchID": "13",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/hyderabad.png",
-                "order": "5",
-                "name": "Hyderabad"
-            },
-            {
-                "_id": "577f4d1c6b78e0bc03724801",
-                "__v": 0,
-                "myslug": "bengaluru",
-                "weekend": "Fri-Sat   11am - 1am",
-                "weekdays": "Sun-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da18ef7a66a33414b45f6.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
-                "BranchName": "Smaaash Bengaluru",
-                "BranchID": "15",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/bengaluru.png",
-                "order": "4",
-                "name": "Bengaluru"
-            },
-            {
-                "_id": "57808c9032b1d30b046dd48c",
-                "__v": 0,
-                "myslug": "noida",
-                "weekend": "Fri-Sun   11am - 11pm",
-                "weekdays": "Mon-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da47df7a66a33414b4efb.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
-                "BranchName": "Smaaash Noida",
-                "BranchID": "17",
-                "twitter": "twi shimla",
-                "facebook": "fb shimla",
-                "instagram": "insta shimla",
-                "image": "img/nav/noida.png",
-                "order": "3",
-                "name": "Noida"
-            },
-            {
-                "_id": "58808e0e94082f1ed90f06a0",
-                "__v": 0,
-                "myslug": "ludhiana",
-                "weekend": "Fri-Sun   11am - 11pm",
-                "weekdays": "Mon-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da4c2f7a66a33414b4fb7.png",
-                "Photo": "",
-                "BranchName": "",
-                "BranchID": "",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/ludhiana.png",
-                "order": "2",
-                "name": "Ludhiana"
-            },
-            {
-                "_id": "587366fa7309110c7de34906",
-                "__v": 0,
-                "myslug": "gurgaon-sector-29",
-                "weekend": "Fri-Sun   12pm - 11.30pm",
-                "weekdays": "Mon-Thurs   12pm - 11.30pm",
-                "pdf": "",
-                "logo": "59106cb9d86cf206d96dde0a.png",
-                "Photo": "",
-                "BranchName": "Smaaash Gurgaon - Sector 29",
-                "BranchID": "",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/gurgaon-sector.png",
-                "order": "1",
-                "name": "Gurgaon - Sector 29"
-            }
+            "_id": "577f4d106b78e0bc03724800",
+            "__v": 0,
+            "myslug": "mumbai",
+            "weekend": "Fri-Sun   11am - 1 am",
+            "weekdays": "Mon-Thurs   12:30pm - 1am",
+            "pdf": "",
+            "logo": "590da160f7a66a33414b4567.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
+            "BranchName": "Smaaash Mumbai",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/mumbai.png",
+            "order": "7",
+            "name": "Mumbai"
+        },
+        {
+            "_id": "577f4d246b78e0bc03724802",
+            "__v": 0,
+            "myslug": "gurgaon-cyber-hub",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   11am - 12am",
+            "pdf": "",
+            "logo": "590da46bf7a66a33414b4eb9.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
+            "BranchName": "Smaaash Gurgaon Cyber Hub",
+            "BranchID": "14",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgoan-cyber.png",
+            "order": "6",
+            "name": "Gurgaon - Cyber Hub"
+        },
+        {
+            "_id": "579b0d74fa72c24405ee0818",
+            "__v": 0,
+            "myslug": "hyderabad",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   12pm - 12am",
+            "pdf": "",
+            "logo": "590da4aef7a66a33414b4f69.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
+            "BranchName": "Smaaash Hyderabad",
+            "BranchID": "13",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/hyderabad.png",
+            "order": "5",
+            "name": "Hyderabad"
+        },
+        {
+            "_id": "577f4d1c6b78e0bc03724801",
+            "__v": 0,
+            "myslug": "bengaluru",
+            "weekend": "Fri-Sat   11am - 1am",
+            "weekdays": "Sun-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da18ef7a66a33414b45f6.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
+            "BranchName": "Smaaash Bengaluru",
+            "BranchID": "15",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/bengaluru.png",
+            "order": "4",
+            "name": "Bengaluru"
+        },
+        {
+            "_id": "57808c9032b1d30b046dd48c",
+            "__v": 0,
+            "myslug": "noida",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da47df7a66a33414b4efb.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
+            "BranchName": "Smaaash Noida",
+            "BranchID": "17",
+            "twitter": "twi shimla",
+            "facebook": "fb shimla",
+            "instagram": "insta shimla",
+            "image": "img/nav/noida.png",
+            "order": "3",
+            "name": "Noida"
+        },
+        {
+            "_id": "58808e0e94082f1ed90f06a0",
+            "__v": 0,
+            "myslug": "ludhiana",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da4c2f7a66a33414b4fb7.png",
+            "Photo": "",
+            "BranchName": "",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/ludhiana.png",
+            "order": "2",
+            "name": "Ludhiana"
+        },
+        {
+            "_id": "587366fa7309110c7de34906",
+            "__v": 0,
+            "myslug": "gurgaon-sector-29",
+            "weekend": "Fri-Sun   12pm - 11.30pm",
+            "weekdays": "Mon-Thurs   12pm - 11.30pm",
+            "pdf": "",
+            "logo": "59106cb9d86cf206d96dde0a.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon - Sector 29",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/gurgaon-sector.png",
+            "order": "1",
+            "name": "Gurgaon - Sector 29"
+        }
         ];
         $scope.formDatapopup = {};
         $scope.submitHostPopup = function (formDatapop) {
@@ -4860,7 +4860,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
                 $scope.cardBalance = data.data.CustomerBalance[0].CardBalance;
                 console.log("redemablePoints", $scope.redemablePoints);
-            } else {}
+            } else { }
         })
 
 
@@ -6136,6 +6136,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.imgSrc = "https://affiliates.adsplay.in/trackingcode_sale_new.php?pgmid=62250&sale=" + $stateParams.PayAmount + "&orderId=" +
             $stateParams.orderNo;
 
+        $scope.iframeSrc = "https://couponraja.go2cloud.org/aff_l?offer_id=1442&adv_sub=" + $stateParams.orderNo + "&amount=" + $stateParams.PayAmount;
+
 
         ga('require', 'ecommerce');
         ga('ecommerce:addTransaction', {
@@ -6915,131 +6917,131 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.getHomeCity1 = [{
-                "_id": "577f4d106b78e0bc03724800",
-                "__v": 0,
-                "myslug": "mumbai",
-                "weekend": "Fri-Sun   11am - 1 am",
-                "weekdays": "Mon-Thurs   12:30pm - 1am",
-                "pdf": "",
-                "logo": "590da160f7a66a33414b4567.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
-                "BranchName": "Smaaash Mumbai",
-                "BranchID": "12",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/mumbai.png",
-                "order": "7",
-                "name": "Mumbai"
-            },
-            {
-                "_id": "577f4d246b78e0bc03724802",
-                "__v": 0,
-                "myslug": "gurgaon-cyber-hub",
-                "weekend": "Fri-Sun   11am - 12am",
-                "weekdays": "Mon-Thurs   11am - 12am",
-                "pdf": "",
-                "logo": "590da46bf7a66a33414b4eb9.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
-                "BranchName": "Smaaash Gurgaon Cyber Hub",
-                "BranchID": "14",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/gurgoan-cyber.png",
-                "order": "6",
-                "name": "Gurgaon - Cyber Hub"
-            },
-            {
-                "_id": "579b0d74fa72c24405ee0818",
-                "__v": 0,
-                "myslug": "hyderabad",
-                "weekend": "Fri-Sun   11am - 12am",
-                "weekdays": "Mon-Thurs   12pm - 12am",
-                "pdf": "",
-                "logo": "590da4aef7a66a33414b4f69.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
-                "BranchName": "Smaaash Hyderabad",
-                "BranchID": "13",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/hyderabad.png",
-                "order": "5",
-                "name": "Hyderabad"
-            },
-            {
-                "_id": "577f4d1c6b78e0bc03724801",
-                "__v": 0,
-                "myslug": "bengaluru",
-                "weekend": "Fri-Sat   11am - 1am",
-                "weekdays": "Sun-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da18ef7a66a33414b45f6.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
-                "BranchName": "Smaaash Bengaluru",
-                "BranchID": "15",
-                "twitter": "twi hashtag",
-                "facebook": "fb hashtag",
-                "instagram": "insta hashtag",
-                "image": "img/nav/bengaluru.png",
-                "order": "4",
-                "name": "Bengaluru"
-            },
-            {
-                "_id": "57808c9032b1d30b046dd48c",
-                "__v": 0,
-                "myslug": "noida",
-                "weekend": "Fri-Sun   11am - 11pm",
-                "weekdays": "Mon-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da47df7a66a33414b4efb.png",
-                "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
-                "BranchName": "Smaaash Noida",
-                "BranchID": "17",
-                "twitter": "twi shimla",
-                "facebook": "fb shimla",
-                "instagram": "insta shimla",
-                "image": "img/nav/noida.png",
-                "order": "3",
-                "name": "Noida"
-            },
-            {
-                "_id": "58808e0e94082f1ed90f06a0",
-                "__v": 0,
-                "myslug": "ludhiana",
-                "weekend": "Fri-Sun   11am - 11pm",
-                "weekdays": "Mon-Thurs   11am - 11pm",
-                "pdf": "",
-                "logo": "590da4c2f7a66a33414b4fb7.png",
-                "Photo": "",
-                "BranchName": "",
-                "BranchID": "",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/ludhiana.png",
-                "order": "2",
-                "name": "Ludhiana"
-            },
-            {
-                "_id": "587366fa7309110c7de34906",
-                "__v": 0,
-                "myslug": "gurgaon-sector-29",
-                "weekend": "Fri-Sun   12pm - 11.30pm",
-                "weekdays": "Mon-Thurs   12pm - 11.30pm",
-                "pdf": "",
-                "logo": "59106cb9d86cf206d96dde0a.png",
-                "Photo": "",
-                "BranchName": "Smaaash Gurgaon - Sector 29",
-                "BranchID": "",
-                "twitter": "",
-                "facebook": "",
-                "instagram": "",
-                "image": "img/nav/gurgaon-sector.png",
-                "order": "1",
-                "name": "Gurgaon - Sector 29"
-            }
+            "_id": "577f4d106b78e0bc03724800",
+            "__v": 0,
+            "myslug": "mumbai",
+            "weekend": "Fri-Sun   11am - 1 am",
+            "weekdays": "Mon-Thurs   12:30pm - 1am",
+            "pdf": "",
+            "logo": "590da160f7a66a33414b4567.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
+            "BranchName": "Smaaash Mumbai",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/mumbai.png",
+            "order": "7",
+            "name": "Mumbai"
+        },
+        {
+            "_id": "577f4d246b78e0bc03724802",
+            "__v": 0,
+            "myslug": "gurgaon-cyber-hub",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   11am - 12am",
+            "pdf": "",
+            "logo": "590da46bf7a66a33414b4eb9.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
+            "BranchName": "Smaaash Gurgaon Cyber Hub",
+            "BranchID": "14",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgoan-cyber.png",
+            "order": "6",
+            "name": "Gurgaon - Cyber Hub"
+        },
+        {
+            "_id": "579b0d74fa72c24405ee0818",
+            "__v": 0,
+            "myslug": "hyderabad",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   12pm - 12am",
+            "pdf": "",
+            "logo": "590da4aef7a66a33414b4f69.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
+            "BranchName": "Smaaash Hyderabad",
+            "BranchID": "13",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/hyderabad.png",
+            "order": "5",
+            "name": "Hyderabad"
+        },
+        {
+            "_id": "577f4d1c6b78e0bc03724801",
+            "__v": 0,
+            "myslug": "bengaluru",
+            "weekend": "Fri-Sat   11am - 1am",
+            "weekdays": "Sun-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da18ef7a66a33414b45f6.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
+            "BranchName": "Smaaash Bengaluru",
+            "BranchID": "15",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/bengaluru.png",
+            "order": "4",
+            "name": "Bengaluru"
+        },
+        {
+            "_id": "57808c9032b1d30b046dd48c",
+            "__v": 0,
+            "myslug": "noida",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da47df7a66a33414b4efb.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
+            "BranchName": "Smaaash Noida",
+            "BranchID": "17",
+            "twitter": "twi shimla",
+            "facebook": "fb shimla",
+            "instagram": "insta shimla",
+            "image": "img/nav/noida.png",
+            "order": "3",
+            "name": "Noida"
+        },
+        {
+            "_id": "58808e0e94082f1ed90f06a0",
+            "__v": 0,
+            "myslug": "ludhiana",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "590da4c2f7a66a33414b4fb7.png",
+            "Photo": "",
+            "BranchName": "",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/ludhiana.png",
+            "order": "2",
+            "name": "Ludhiana"
+        },
+        {
+            "_id": "587366fa7309110c7de34906",
+            "__v": 0,
+            "myslug": "gurgaon-sector-29",
+            "weekend": "Fri-Sun   12pm - 11.30pm",
+            "weekdays": "Mon-Thurs   12pm - 11.30pm",
+            "pdf": "",
+            "logo": "59106cb9d86cf206d96dde0a.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon - Sector 29",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "img/nav/gurgaon-sector.png",
+            "order": "1",
+            "name": "Gurgaon - Sector 29"
+        }
         ];
 
         NavigationService.getCity(function (data) {
