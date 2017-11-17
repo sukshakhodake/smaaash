@@ -52,6 +52,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 x++;
             }
         })
+        
         $scope.getCities1 = [{
             "_id": "577f4d106b78e0bc03724800",
             "__v": 0,
@@ -177,6 +178,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/gurgaon-sector.png",
             "order": "1",
             "name": "Gurgaon - Sector 29"
+        },
+        {
+            "_id": "5a0ab43bb7e6ab63e3ae6cfa",
+            "__v": 0,
+            "myslug": "delhi",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a0ab405b7e6ab63e3ae6c53.png",
+            "Photo": "",
+            "BranchName": "Smaaash Delhi",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/delhi.png",
+            "order": "8",
+            "name": "Delhi"
         }
         ];
         $scope.openpops = function () {
@@ -4626,6 +4645,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/gurgaon-sector.png",
             "order": "1",
             "name": "Gurgaon - Sector 29"
+        },
+        {
+            "_id": "5a0ab43bb7e6ab63e3ae6cfa",
+            "__v": 0,
+            "myslug": "delhi",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a0ab405b7e6ab63e3ae6c53.png",
+            "Photo": "",
+            "BranchName": "Smaaash Delhi",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/delhi.png",
+            "order": "8",
+            "name": "Delhi"
         }
         ];
         $scope.formDatapopup = {};
@@ -7044,6 +7081,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/gurgaon-sector.png",
             "order": "1",
             "name": "Gurgaon - Sector 29"
+        },
+        {
+            "_id": "5a0ab43bb7e6ab63e3ae6cfa",
+            "__v": 0,
+            "myslug": "delhi",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a0ab405b7e6ab63e3ae6c53.png",
+            "Photo": "",
+            "BranchName": "Smaaash Delhi",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "img/nav/delhi.png",
+            "order": "8",
+            "name": "Delhi"
         }
         ];
 
