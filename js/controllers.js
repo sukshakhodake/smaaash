@@ -297,7 +297,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.template.reFetchCity();
             if ($state.current.name == 'home') {
                 $state.go('home', {
-                    homepageCity: cityname.name
+                    homepageCity: _.capitalize(cityname.name)
                 })
             }
         }
@@ -305,7 +305,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.nameOfCity = $.jStorage.get("city");
         if ($state.current.name == 'home') {
             $state.go('home', {
-                homepageCity: $scope.nameOfCity
+                homepageCity: _.capitalize($scope.nameOfCity)
             })
         }
 
@@ -7103,6 +7103,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         NavigationService.getCity(function (data) {
+            console.log("**********-",data,"-*********");   
             if (data.value) {
                 $scope.getHomeCity = _.cloneDeep(data.data);
                 if ($state.current.name) {
