@@ -27,6 +27,7 @@ $brand-greenblu: #01a69a !default;
 $brand-purply: #662d91 !default;
 $brand-bluey: #293685!default;
 $brand-orangy: #fc5626 !default;
+$brand-darkpink:#e63345 !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @font-face {
     font-family: "American Purpose";
@@ -277,11 +278,13 @@ $menu-height: 80px !default;
 .dropdowns {
     height: $menu-height;
     position: relative;
-    background-image: url("../img/home/menu-bg.png");
-    background-size: 100% 100%;
+    // background-image: url("../img/home/menu-bg.png");
+    box-shadow: 0px 0px 50px rgba(128, 128, 128, 0.65);
+    background-color: #fff;
+    // background-size: 100% 100%;
     z-index: 92;
-    background-position: left;
-    background-repeat: no-repeat;
+    // background-position: left;
+    // background-repeat: no-repeat;
     &.affix {
         position: fixed;
         top: 0;
@@ -1011,9 +1014,10 @@ $menu-height: 80px !default;
             display: none;
         }
         .flex-next {
-            display: block;
-            height: 50px;
-            width: 50px;
+            // display: block;
+            // height: 50px;
+            // width: 50px;
+            display: none;
         }
         .flex-direction-nav a.flex-next:before {
             content: "";
@@ -1519,9 +1523,10 @@ img.fancybox-image {
 }
 
 .mover .flexslider .flex-direction-nav .flex-prev {
-    display: block;
-    height: 50px;
-    width: 50px;
+    // display: block;
+    // height: 50px;
+    // width: 50px;
+    display: none;
 }
 
 .flex-direction-nav a.flex-prev:before {

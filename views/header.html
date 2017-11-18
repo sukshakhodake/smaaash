@@ -1,13 +1,10 @@
 <div ng-controller="headerctrl">
     <nav class="nav-menu sticky-butn hidden-xs" ng-class="{'menu-opened': menu == true}">
         <div class="smaash-menu">
-
             <div class="row ">
-                <div class="rows mobile-inlineblock  ">
-
-
-                    <div class="col-flexing mobile-50  ">
-                        <div class="exploring bg-prop ">
+                <div class="rows mobile-inlineblock">
+                    <div class="col-flexing mobile-50">
+                        <div class="exploring bg-prop">
                             <a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})" class="text-center">
                                 <h3 class="nav-name">games</h3>
                             </a>
@@ -20,17 +17,13 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
-
                         <div class="log bg-prop">
                             <a class="text-center">
                                 <h3 class="nav-name"><span class="block">Hi<br/><p  ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
                             </a>
                         </div>
                     </div>
-
-
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                         <div class="account bg-prop">
                             <a class="text-center">
@@ -45,12 +38,9 @@
                             </a>
                         </div>
                     </div>
-
-
                     <div class="col-flexing mobiles-50 marginmobile0" ng-show="userLoginDetails === null">
                         <div class="log bg-prop">
                             <a class="text-center">
-
                                 <h3 class="nav-name"><span class="block">Login</span></h3>
                             </a>
                         </div>
@@ -63,10 +53,7 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="rows mobile-inlineblock top mgtop">
-
-
                     <div class="col-flexing mobile-50">
                         <div class="host bg-prop" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
                             <a class="text-center">
@@ -95,11 +82,8 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
             <!--<div class="header-mobile visible-xs hidden-md hidden-sm">
 
             <ul>
@@ -170,17 +154,15 @@
             </ul>
          </div>-->
         </div>
-
     </nav>
     <nav class="menu-mobile header-mobile visible-xs" ng-class="{'ac': toggleMenu == true}">
         <div class="logo">
             <a class="logo-smaash" ui-sref="home">
-            <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
+                <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
                 && showlogo || !cityData.smaaashLogo ">
-            <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
-         </a>
+                <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
+            </a>
         </div>
-
         <div class="sides" ng-if="openMenu">
             <div class="" id="axe">
                 <!--<div class="orange-rays"></div>-->
@@ -189,15 +171,14 @@
                    <i class="fa fa-chevron-down"></i>
                </span>
                 </div>
-
             </div>
         </div>
         <div class="backdroped" ng-if="city" ng-click="toggleCity()">
             <div class="smaaash-cities">
                 <h2 class="title center brand-white"><span class="smash-logoc"><img src="img/changes/logo.png" alt="logo"></span>select your city</h2>
                 <a class="cross" href="">
-               <i class="fa fa-2x fa-times" aria-hidden="true"></i>
-            </a>
+                    <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+                </a>
                 <div class="city-types">
                     <ul class="list">
                         <li ng-repeat="city in getHomeCity1">
@@ -205,26 +186,21 @@
                         </li>
                         <li>
                             <a href="https://smaaashusa.com/" target="_blank">
-                                    <img src="img/nav/US-inverse.png" alt="">
-                                </a>
+                                <img src="img/nav/US-inverse.png" alt="">
+                            </a>
                         </li>
                     </ul>
                     <p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT CITY
                         IS {{cityData.name}}</p>
-
                 </div>
-
             </div>
         </div>
-
         <uib-accordion close-others="oneAtATime">
             <div uib-accordion-group class="panel-default" is-open="status[n.name]" ng-click="opens();">
                 <uib-accordion-heading>
                     <a class="menu-nav-mobile"></a>
-
                     <div class="menu" ng-class="{'ac': toggleMenu == true}"><img src="img/changes/menu.png" alt="Menu" no-drag></div>
                     <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
-
                 </uib-accordion-heading>
                 <ul class="list-unstyled">
                     <!--<h3 class=" text-center nav-names names">menu</h3>-->
@@ -243,7 +219,6 @@
                             <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
                         </a>
                     </li>
-
                     <li>
                         <a class="text-center" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
                             <h3 class="nav-names">host a party</h3>
@@ -294,7 +269,6 @@
                      <h3 class="nav-names" ng-click="logout();">Log out</h3>
                   </a>
                </li> -->
-
                     <li>
                         <a class="text-center" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
                             <h3 class="nav-names">deals &amp; packages</h3>
@@ -311,7 +285,6 @@
                             <h3 class="nav-names ">gallery</h3>
                         </a>
                     </li>
-
                     <li ng-hide="userLoginDetails == null">
                         <a class="text-center">
                             <h3 class="nav-names" ng-click="logout();">Log out</h3>
@@ -327,30 +300,39 @@
                    <h3 class="nav-names" ng-click="loginModal();">Login</h3>
                 </a>
              </li> -->
-
-
                 </ul>
             </div>
         </uib-accordion>
     </nav>
-
-    <div class="dropdowns">
-
+    <div class="dropdowns new-dropdown">
         <div class="container relative">
             <a class="logo-smaash" ui-sref="home">
-            <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
+                <img src="img/home/logo.png" alt="Smaaash" ng-if="cityData.smaaashLogo === ''
                 && showlogo || !cityData.smaaashLogo ">
-            <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
-         </a>
-
-
-
+                <img ng-src="{{cityData.smaaashLogo | uploadpath}}" alt="Smaaash">
+            </a>
             <!--<div class="women-menu" ng-click="toggleMenu()" ng-class="{'overlay':menu==true}">
             <div class="menu"><img src="img/home/menu.png" alt="Menu" no-drag></div>
             <figure class="woman-menu">
                <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
             </figure>
          </div>-->
+            <div class="">
+                <div class=" text-center">
+                    <ul class="menu-list">
+                        <li><a><span><img src="img/home/eat.png" class="w35" >EAT</span></a></li>
+                        <li>
+                            <a><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
+                        </li>
+                        <li>
+                            <a><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
+                        </li>
+                        <li><a><span>BUY</span></a></li>
+                        <!--<li><a><span>MORE</span></a></li>
+          -->
+                    </ul>
+                </div>
+            </div>
             <div class="sides">
                 <div class="" id="axe">
                     <!--<div class="orange-rays"></div>-->
@@ -359,17 +341,16 @@
                    <i class="fa fa-chevron-down"></i>
                </span>
                     </div>
-
                 </div>
             </div>
             <div class="backdroped" ng-if="city" ng-click="toggleCity()">
                 <div class="smaaash-cities">
-                    <h2 class="title center brand-white"><span class="smash-logoc"><img src="img/changes/logo.png" alt="logo"></span>select your city</h2>
+                    <!--<h2 class="title center brand-white"><span class="smash-logoc"><img src="img/changes/logo.png" alt="logo"></span>select your city</h2>-->
                     <a class="cross" href="">
-                  <i class="fa fa-2x fa-times" aria-hidden="true"></i>
-               </a>
+                        <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+                    </a>
                     <div class="city-types">
-                        <ul class="list">
+                        <!--<ul class="list">
                             <li ng-repeat="city in getHomeCity1">
 
                                 <a ng-click="getCityName(city)"><img ng-src="{{city.image}}" class="img-responsive" alt=""></a>
@@ -379,25 +360,45 @@
                                     <img src="img/nav/US-inverse.png" alt="">
                                 </a>
                             </li>
-                        </ul>
-                        <p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT
-                            CITY IS {{cityData.name}}</p>
-
+                        </ul>-->
+                        <div class="smash-city">
+                            <div class="text-overflow">
+                                <ul class="list  uppercase">
+                                    <li><span>Mumbai</span>
+                                    </li>
+                                    <li><span>gurgaon</span><span class="cyber-hub">cyber hub</span>
+                                    </li>
+                                    <li>hyderabad
+                                    </li>
+                                    <li>bengaluru
+                                    </li>
+                                    <li>noida
+                                    </li>
+                                    <li>ludhiana
+                                    </li>
+                                    <li><span>gurgaon</span><span class="cyber-hub">sec-29</span>
+                                    </li>
+                                    <li>delhi
+                                    </li>
+                                    </li>
+                                    <li>usa
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT
+                            CITY IS {{cityData.name}}</p>-->
                     </div>
-
                 </div>
             </div>
-
         </div>
         <div class="{{getslide}} menuSide" ng-click="status.open = !status.open ; closeSidemenu();"></div>
         <uib-accordion close-others="oneAtATime">
             <div uib-accordion-group class="panel-default" is-open="status.open">
                 <uib-accordion-heading>
                     <a class="menu-nav-mobile"></a>
-
                     <div class="menu" ng-click="closeSidemenu();opens()"><img src="img/changes/menu.png" alt="Menu" no-drag></div>
                     <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
-
                 </uib-accordion-heading>
                 <ul class="list-unstyled">
                     <!--<h3 class=" text-center nav-names names">menu</h3>-->
@@ -416,7 +417,6 @@
                             <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
                         </a>
                     </li>
-
                     <li>
                         <a class="text-center" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
                             <h3 class="nav-names">host a party</h3>
@@ -462,7 +462,6 @@
                      <h3 class="nav-names" ng-click="logout();">Log out</h3>
                   </a>
                </li> -->
-
                     <li>
                         <a class="text-center" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
                             <h3 class="nav-names">deals &amp; packages</h3>
@@ -478,7 +477,6 @@
                             <h3 class="nav-names ">gallery</h3>
                         </a>
                     </li>
-
                     <!-- <li>
                    <a class="text-center" ng-show="userLoginDetails === null">
                       <h3 class="nav-names" ng-click="getMenus();">Login &#8739 Sign Up</h3>
@@ -489,27 +487,27 @@
                             <h3 class="nav-names" ng-click="logout();">Log out</h3>
                         </a>
                     </li>
-
-
-
                 </ul>
             </div>
         </uib-accordion>
     </div>
-
     <!-- =============signup and login============ -->
-
     <div class="side-buttons" ng-class="{'slide-down': menu == true}" ng-hide="showConnect">
         <div class="connect-button" id="axis" ng-click="getMenus();">
-
             <div class="orange-rays"></div>
             <!--<img src="img/changes/login.png" class="img-responsive rotate360cw" alt="">-->
             <p class="uppercase text-center title brand-white">signup<span class="title-text">&#47;</span> login</p>
         </div>
-
         <div class="side-menu {{menus}}">
-            <div class="close-it">
+            <!--<div class="close-it">
                 <a href="" class="text-uppercase" ng-click="getMenus();"><img src="img/menu.png" class="img-responsive" alt=""></a>
+                <div class="connect-button" id="axis">
+                </div>
+            </div>-->
+            <div class="close-it">
+                <div class="connect-button btn-close" ng-click="getMenus();">
+                    <p class="uppercase text-center title brand-white">close</p>
+                </div>
             </div>
             <div class="login-signup relative">
                 <div class="row">
@@ -520,7 +518,6 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Mobile number" minlength="10" maxlength="10" name="email" ng-model="userData.UserName"
                                         required only-Digits>
-
                                     <div class="error-msg" ng-show="login.email.$error.required && login.email.$touched">Please Enter Your User Id</div>
                                 </div>
                                 <div class="form-group">
@@ -529,24 +526,20 @@
                                 </div>
                                 <div class="error text-center" ng-if="valid">Something went wrong or incorrect details</div>
                                 <div class="text-center " ng-if="isUserLoggedIn">Please Wait..</div>
-                                <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default brand-yellow"><span class="uppercase">login</span></button>
-
-
+                                <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default no-border brand-darkpink brand-white"><span class="uppercase">login</span></button>
                             </form>
                             <div ng-if="formComplete">
                                 <h3 class="text-center">We are redirecting...</h3>
                             </div>
                             <!-- <button type="button" class="butn relative"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>login with facebook</button>
                             <button type="button" class="buton relative "><span><i class="fa fa-google-plus" aria-hidden="true"></i></span>login with Google</button> -->
-
                             <a ng-if="!isUserLoggedIn" class="forgot" ng-click="resets();getMenus();">Forgot password?</a>
-
-
                         </div>
                     </div>
                     <div class="divider"></div>
                     <div class="or">
-                        <span><img src="img/or.png" class="img-responsive" alt=""></span>
+                        <!--<span><img src="img/or.png" class="img-responsive" alt=""></span>-->
+                        <span>OR</span>
                     </div>
                     <div class="col-md-6">
                         <div class="signup">
@@ -554,18 +547,13 @@
                             <form class="form" name="signUp" ng-if="!formCompleteSignup" ng-submit="signupGenerateOtp(signupData);">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Your Complete Name" name="name" required ng-model="signupData.CustomerName">
-
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Email ID" name="email" required ng-model="signupData.CustomerEmail">
-
-
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Mobile No." name="mobile" ng-model="signupData.CustomerMobile" required
                                         only-digits maxlength="10" minlength="10">
-
-
                                 </div>
                                 <div class="form-group">
                                     <span class="cityselect" ng-show="!signupData.CustomerAddress">Please select city</span>
@@ -580,41 +568,30 @@
                                 <div class="form-group signup-width">
                                     <input type="password" no-Paste class="form-control" placeholder="Password" name="password" required ng-model="signupData.CustomerPassword"
                                         minlength="8" maxlength="14">
-
-
                                 </div>
-
                                 <div class="form-group signup-width">
                                     <input type="password" no-Paste class="form-control" placeholder="Re-Enter Password" name="confirmPassword" required ng-model="signupData.confirmPassword">
                                     <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
                                 </div>
                                 <p class="error" ng-show="signUp.password.$invalid  && (signUp.password.$dirty || signUp.password.$touched)">Please enter Minimum 8 Characters & Maximum 14 Characters.</p>
                                 <div class="error" ng-if="!pass">password doesn't match or It should be Minimum 8 Characters & Maximum 14 Characters.</div>
-
                                 <div class="error" ng-if="customerEXist">Customer already exist or incorrect details.</div>
-
-
-
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Enter Your Card.No / Optional" name="card" ng-model="signupData.CardNo">
                                 </div>
                                 <h3 ng-if="isDisabled">Please Wait...</h3>
-                                <button type="submit" class="btn4  btn-default brand-blue" ng-if="!isDisabled"><span class="uppercase brand-white">sign up</span></button>
+                                <button type="submit" class="btn4  btn-default no-border brand-darkpink brand-white" ng-if="!isDisabled"><span class="uppercase ">sign up</span></button>
                             </form>
                             <div class="submit-thank" ng-if="formCompleteSignup">
                                 <h3 class="text-center">Thank You</h3>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- =============signup and login end============ -->
-
     <!-- <div class="side" ng-class="{'slides-down': menu == true}" ng-hide="showAunty">
         <div class="live-chat" id="axe">
             <div class="orange-rays"></div>
@@ -626,9 +603,6 @@
 
         </div>
     </div> -->
-
-
-
 </div>
 <div ng-show="template.isLoader" style="text-align:center" ; class="loaderHeader">
     <img src="img/MOA.gif" alt="" / style="margin:0 auto;">

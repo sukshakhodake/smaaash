@@ -472,7 +472,8 @@ $brand-white:#fff !default;
 .smaaash-cities {
   width: 65%;
   height: auto;
-  background-image: url(../img/nav/bgblue.jpg);
+  // height: 505px;
+  background-image: url(../img/nav/select-city.jpg);
   background-size: cover;
   position: absolute;
   left: 50%;
@@ -683,7 +684,8 @@ $brand-white:#fff !default;
 
 .snow-bg {
   position: relative;
-  background-image: url("../img/new/ban.png");
+  // background-image: url("../img/new/ban.png");
+  background-color: $brand-darkpink;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-top: 0px;
@@ -1836,7 +1838,7 @@ $brand-white:#fff !default;
 .host-pop {
   padding: 10px 20px;
   background-color: #ebebeb;
-  background-image: url("../img/lay.png");
+  // background-image: url("../img/lay.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left center;
@@ -1849,23 +1851,25 @@ $brand-white:#fff !default;
   h3 {
     text-align: center;
     font-family: $body-font;
-    color: $brand-green;
+    // color: $brand-green;
+    color: $brand-darkpink;
   }
   .btn,
   .btn4 {
     display: block;
     margin: 0 auto;
-    border-radius: 6px;
+    // border-radius: 6px;
     border: 2px solid;
     &.m-button {
       display: inline-block;
     }
     &:hover {
-      background-color: $brand-yellow;
+      background-color: $brand-darkpink;
+      color:#fff;
     }
     &:focus {
       outline: 0;
-      background-color: $brand-yellow;
+      background-color: $brand-darkpink;
     }
     span {
       font-family: $body-font;
@@ -1874,11 +1878,12 @@ $brand-white:#fff !default;
   .btn4 {
     padding: 6px 12px;
     &:hover {
-      background-color: $brand-blue;
+      background-color: $brand-darkpink;
+      color:#fff;
     }
     &:focus {
       outline: 0;
-      background-color: $brand-blue;
+      background-color: $brand-darkpink;
     }
   }
   .form-control {
@@ -1946,8 +1951,15 @@ $brand-white:#fff !default;
     color: #fff;
     transform: translate(-50%, -50%);
     span {
-      height: 50px;
-      width: 50px;
+      // height: 50px;
+      // width: 50px;
+      padding: 10px;
+      border-radius: 50%;
+      // color: #000;
+      letter-spacing: 0.5px;
+      font-size: 20px;
+      font-family: "American Purpose";
+      background-color: $brand-darkpink;
       display: inline-block;
     }
   }
@@ -1964,8 +1976,9 @@ $brand-white:#fff !default;
 
 .close-it {
   position: absolute;
-  left: -50px;
-  top: 0;
+    left: -78px;
+    top: 40px;
+  
   z-index: 3;
   a {
     height: 50px;
@@ -3593,3 +3606,82 @@ select:focus .cityselect {
 //   text-align: left;
 //   vertical-align: middle;
 // }
+//css given by kishori
+.w35 {
+  width: 30px;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.menu-list {
+  li {
+    display: inline-block;
+    font-family: "American Purpose";
+    color: #000;
+    letter-spacing: 1px;
+    padding: 22px 10px;
+  }
+  a {
+    color: #000 !important;
+  }
+}
+
+.smash-city {
+  width: 50%;
+  margin: 21% 0% 16% 38%;
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 13px 7px;
+    font-size: 12px;
+    position: relative;
+    padding: 5px 1px;
+    width: 110px;
+    vertical-align: middle;
+    border: 1px solid #080808 !important;
+    &:hover {
+      color: red;
+    }
+    &:active {
+      color: red;
+    }
+    &:focus {
+      color: red;
+    }
+  }
+}
+
+.cyber-hub {
+  font-size: 7px;
+  text-align: right;
+  width: 26px;
+  float: right;
+  margin-right: 7px;
+}
+
+.text-overflow {
+  height: 170px;
+  overflow-y: scroll;
+}
+
+.no-border {
+  border: none!important;
+}
+
+.brand-darkpink {
+  background-color: $brand-darkpink;
+}
+.btn-close{
+      letter-spacing: 1px;
+    font-size: 20px;
+    padding: 5px 34px;
+    border: none;
+    background-color: $brand-darkpink !important;
+}
+.new-dropdown{
+  .panel-group {
+        margin-top: -30px;
+  }
+}
