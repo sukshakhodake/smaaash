@@ -1,91 +1,73 @@
 <div class="profile events1">
-   <div class="backg-eve">
-      <div class="container">
-         <h2 class="nav-name center ">my profile</h2>
-      </div>
-   </div>
-   <div class="profile-point">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-6">
-               <div class="row">
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                     <div class="profile-details">
-                        <img ng-src="{{userprofile.profilePic | uploadprofilepicture}}" alt="">
-                     </div>
-                  </div>
-                  <!-- <div>
+  <div class="backg-eve">
+    <div class="container">
+      <h2 class="nav-name center ">my profile</h2>
+    </div>
+  </div>
+  <div class="profile-point">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="profile-details">
+                <img ng-src="{{userprofile.profilePic | uploadprofilepicture}}" alt="">
+              </div>
+            </div>
+            <!-- <div>
                     {{profilePIc}}
                   </div> -->
-                  <!-- <webcam on-stream="onStreang-click="makeSnapshot()"(stream)"
+            <!-- <webcam on-stream="onStreang-click="makeSnapshot()"(stream)"
      on-access-denied="onError(err)"
      on-streaming="onSuccess()" ng-if="click">
 </webcam> -->
-
-
-
-                  <div class="col-md-8 col-sm-8 col-xs-12">
-                     <div class="profile-detail text-center relative">
-                        <div class="badge">
-                           <img src="img/profile/silver.png" class="img-responsive" alt="">
-                        </div>
-                        <p>{{userprofile.CustomerName}}</p>
-                          <p class="inline-block" ng-if="redemablePoints"> points :</p>
-                        <p class="inline-block">{{redemablePoints}}</p></br>
-
-                        <p class="inline-block" ng-if="cardBalance"> Card Balance :</p>
-
-                        <p class="inline-block" > {{cardBalance}}</p>
-
-                     </div>
-                  </div>
-               </div>
-
-               <div class="row">
-                  <div class="point-image">
-                     <img src="img/profile/info-account.jpg" class="img-responsive" alt="">
-
-                  </div>
-
-
-               </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <div class="profile-detail text-center relative">
+                <div class="badge">
+                  <img src="img/profile/silver.png" class="img-responsive" alt="">
+                </div>
+                <p>{{userprofile.CustomerName}}</p>
+                <p class="inline-block" ng-if="redemablePoints"> points :</p>
+                <p class="inline-block">{{redemablePoints}}</p>
+                </br>
+                <p class="inline-block" ng-if="cardBalance"> Card Balance :</p>
+                <p class="inline-block"> {{cardBalance}}</p>
+              </div>
             </div>
-            <div class="col-md-6">
-               <div class="tab">
-                  <ul class="list-inline row-flex">
-                     <!-- <li class="tab-item  relative col-flex {{classa}}" ng-click="tabchange('design',1)">
+          </div>
+          <div class="row">
+            <div class="point-image">
+              <img src="img/profile/info-account.jpg" class="img-responsive" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tab">
+            <ul class="list-inline row-flex">
+              <!-- <li class="tab-item  relative col-flex {{classa}}" ng-click="tabchange('design',1)">
                         <p class="text-uppercase">reward points</p>
                      </li> -->
-                     <li class="tab-item  relative  col-flex {{classb}}" ng-click="tabchange('design',1)">
-                        <!-- <li class="tab-item  relative  col-flex {{classb}}" ng-click="tabchange('trim',2)"> -->
-
-                        <p class="text-uppercase">order </p>
-
-                     </li>
-                     <li class="tab-item   relative  col-flex {{classc}}" ng-click="tabchange('team',3)">
-
-                        <p class="text-uppercase">edit profile</p>
-
-                     </li>
-                     <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('reacharge',4)">
-
-                        <p class="text-uppercase">recharge</p>
-
-                     </li>
-                     <li class="tab-item   relative  col-flex {{classe}}" ng-click="tabchange('logout',5)">
-
-                        <p class="text-uppercase">log out</p>
-
-                     </li>
-
-                     <!-- <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
+              <li class="tab-item  relative  col-flex {{classb}}" ng-click="tabchange('design',1)">
+                <!-- <li class="tab-item  relative  col-flex {{classb}}" ng-click="tabchange('trim',2)"> -->
+                <p class="text-uppercase">order </p>
+              </li>
+              <li class="tab-item   relative  col-flex {{classc}}" ng-click="tabchange('team',3)">
+                <p class="text-uppercase">edit profile</p>
+              </li>
+              <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('reacharge',4)">
+                <p class="text-uppercase">recharge</p>
+              </li>
+              <li class="tab-item   relative  col-flex {{classe}}" ng-click="tabchange('logout',5)">
+                <p class="text-uppercase">log out</p>
+              </li>
+              <!-- <li class="tab-item   relative  col-flex {{classd}}" ng-click="tabchange('wishlist',4)">
 
                         <p class="text-uppercase">wishlist</p>
 
                      </li> -->
-                  </ul>
-               </div>
-               <!-- <div class="reward-table carts" ng-show="tab=='design'">
+            </ul>
+          </div>
+          <!-- <div class="reward-table carts" ng-show="tab=='design'">
                   <div class="table-responsive">
                      <table class="table">
                         <thead>
@@ -184,38 +166,33 @@
                      </table>
                   </div>
                </div> -->
-
-
-               <div class="reward-table carts" ng-show="tab=='design'">
-                  <!-- <div class="reward-table carts" ng-show="tab=='trim'"> -->
-                  <!-- <div class="table-responsive"> -->
-                  <h3 ng-if="!isBooking" class="text-center">Loading...</h3>
-
-                  <div class="table-responsive" ng-if="isBooking && !msg">
-                     <table class="table">
-                        <thead>
-                           <tr>
-                              <th class="text-center uppercase border-left">id</th>
-                              <!-- <th class="text-center uppercase border-left">transcation id</th> -->
-                              <th class="text-center  uppercase ">type</th>
-                              <!-- <th class="text-center uppercase ">points earned</th> -->
-                              <th class="text-center uppercase ">date</th>
-                              <th class="text-center uppercase border-right">value in rs</th>
-                           </tr>
-                        </thead>
-                        <tr ng-repeat="data in bookingDetails" ng-if="bookingDetails">
-                           <td class="text-center border-left" ng-if="data.objtype === 'Booking' ">{{data.CNRNo}}</td>
-                           <td class="text-center border-left" ng-if="data.objtype === 'Recharge' ">{{data.RechargeID}}</td>
-                           <td class="text-center" ng-if="data.objtype === 'Booking' ">{{data.objtype}}</td>
-                           <td class="text-center" ng-if="data.objtype === 'Recharge' ">{{data.objtype}}</td>
-                           <!-- <td class="text-center"> -</td> -->
-                           <td class="text-center">{{data.BookingDate}}</td>
-                           <td class="text-center border-right" ng-if="data.objtype === 'Recharge' ">{{data.RechargeAmt}}</td>
-                           <td class="text-center border-right" ng-if="data.objtype === 'Booking' ">{{data.PayableAmount}}</td>
-
-                        </tr>
-
-                        <!-- <tr>
+          <div class="reward-table carts" ng-show="tab=='design'">
+            <!-- <div class="reward-table carts" ng-show="tab=='trim'"> -->
+            <!-- <div class="table-responsive"> -->
+            <h3 ng-if="!isBooking" class="text-center">Loading...</h3>
+            <div class="table-responsive" ng-if="isBooking && !msg">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="text-center uppercase border-left">id</th>
+                    <!-- <th class="text-center uppercase border-left">transcation id</th> -->
+                    <th class="text-center  uppercase ">type</th>
+                    <!-- <th class="text-center uppercase ">points earned</th> -->
+                    <th class="text-center uppercase ">date</th>
+                    <th class="text-center uppercase border-right">value in rs</th>
+                  </tr>
+                </thead>
+                <tr ng-repeat="data in bookingDetails" ng-if="bookingDetails">
+                  <td class="text-center border-left" ng-if="data.objtype === 'Booking' ">{{data.CNRNo}}</td>
+                  <td class="text-center border-left" ng-if="data.objtype === 'Recharge' ">{{data.RechargeID}}</td>
+                  <td class="text-center" ng-if="data.objtype === 'Booking' ">{{data.objtype}}</td>
+                  <td class="text-center" ng-if="data.objtype === 'Recharge' ">{{data.objtype}}</td>
+                  <!-- <td class="text-center"> -</td> -->
+                  <td class="text-center">{{data.BookingDate}}</td>
+                  <td class="text-center border-right" ng-if="data.objtype === 'Recharge' ">{{data.RechargeAmt}}</td>
+                  <td class="text-center border-right" ng-if="data.objtype === 'Booking' ">{{data.PayableAmount}}</td>
+                </tr>
+                <!-- <tr>
                            <td class="text-center border-left">1080000900</td>
                            <td class="text-center">social share</td>
                            <td class="text-center">70</td>
@@ -292,32 +269,25 @@
                            <td class="text-center border-right">+35</td>
 
                         </tr> -->
-
-                     </table>
-                  </div>
-                  <h3 class="text-center" ng-if="msg">No orders found.</h3>
-
-
-               </div>
-               <div class="points" ng-show="tab=='team'">
-                  <div class="row">
-                     <div class="col-md-3 col-sm-3  hidden-xs">
-
-                     </div>
-
-                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a href="">
-                        </a>
-                        <upload-image ng-model="userprofile.profilePic" no-view>
-                           + </upload-image>
-                     </div>
-
-                     <!-- <webcam channel="channel" on-streaming="onSuccess()" on-error="onError(err)" on-stream="onStream(stream)"></webcam>
+              </table>
+            </div>
+            <h3 class="text-center" ng-if="msg">No orders found.</h3>
+          </div>
+          <div class="points" ng-show="tab=='team'">
+            <div class="row">
+              <div class="col-md-3 col-sm-3  hidden-xs">
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6">
+                <a href="">
+                </a>
+                <upload-image ng-model="userprofile.profilePic" no-view>
+                  + </upload-image>
+              </div>
+              <!-- <webcam channel="channel" on-streaming="onSuccess()" on-error="onError(err)" on-stream="onStream(stream)"></webcam>
 
                      <button ng-click="makeSnapshot()">take picture</button>
    <canvas id="snapshot" width="300" height="300"></canvas> -->
-
-                     <!-- <div class="col-md-3 col-sm-3 col-xs-6">
+              <!-- <div class="col-md-3 col-sm-3 col-xs-6">
                         <a href="">
                            <div class="photos" ng-click="takePic()">
                               <div class="photo-image text-center">
@@ -331,105 +301,96 @@
                         </a>
 
                      </div> -->
-
-
-
-                     <!-- <div class="col-md-3 col-sm-3 col-xs-6">
+              <!-- <div class="col-md-3 col-sm-3 col-xs-6">
             {{userData.name}}
           <pre>adasd  <img ng-src="{{userData.name}}"/></pre>
              </div> -->
-
-
-
-                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a ng-click="avatar();">
-                           <div class="photos">
-                              <div class="photo-image text-center">
-
-                                 <p class="uppercase brand-white">select your avatar</p>
-                              </div>
-
-                           </div>
-                        </a>
-                     </div>
-
+              <div class="col-md-3 col-sm-3 col-xs-6">
+                <a ng-click="avatar();">
+                  <div class="photos">
+                    <div class="photo-image text-center">
+                      <p class="uppercase brand-white">select your avatar</p>
+                    </div>
                   </div>
-                  <div class="reseting">
-                     <p class="uppercase text-center mt10 pointer" ui-sref="reset">do you want to reset your password?</p>
-                  </div>
-                  <div class="custom">
-                     <div class="forms">
-                        <form class="point-form" ng-if="!formComplete">
-                           <label class="item w92">
+                </a>
+              </div>
+            </div>
+            <div class="reseting">
+              <p class="uppercase text-center mt10 pointer" ui-sref="reset">do you want to reset your password?</p>
+            </div>
+            <div class="custom">
+              <div class="forms">
+                <form class="point-form" ng-if="!formComplete">
+                  <label class="item w92">
                               <input type="text" readonly  class=" form-control text-center" ng-model="userprofile.CustomerName">
                            </label>
-                           <label class="item w92">
+                  <label class="item w92">
                               <input type="text" placeholder="Card Number/Optional" class=" form-control text-center" ng-model="userprofile.CardNo">
                            </label>
-                           <div class="game-type form-group inline-block w30">
-
-                              <input type="text" placeholder="D.O.B" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="userprofile.dob"
-                              />
-                              <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
-                           </div>
-                           <!--<label class="item w30">
+                  <div class="game-type form-group inline-block w30">
+                    <input type="text" placeholder="D.O.B" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions"
+                      ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-model="userprofile.dob"
+                    />
+                    <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                  </div>
+                  <!--<label class="item w30">
                         <input type="text" placeholder="1-01-94" class=" editing form-control" ng-model="userprofile.dob">
                      </label>-->
-                           <div class="form-group w30 inline-block ">
-                              <select class="form-control editing arrows-down" ng-model="userprofile.gender">
+                  <div class="form-group w30 inline-block ">
+                    <select class="form-control editing arrows-down" ng-model="userprofile.gender">
                                  <option ng-selected="true" value="" ng-if="!userprofile.gender">Gender</option>
                                  <option value="Male">Male</option>
                                  <option value="Female">Female</option>
                                  <option value="Other">Other</option>
                               </select>
-
-                           </div>
-                           <!--<label class="item w30">
+                  </div>
+                  <!--<label class="item w30">
                         <input type="text" placeholder="Female" class="arrows-down editing form-control" ng-model="userprofile.gender">
                      </label>-->
-                           <div class="form-group inline-block w90">
-                              <label class="item w92">
+                  <div class="form-group inline-block w90">
+                    <label class="item w92">
                                  <input type="tel" readonly placeholder="+91 98200 98200" class="form-control" readonly ng-model="userprofile.CustomerMobile">
                               </label>
-                           </div>
-
-                           <label class="item w46">
+                  </div>
+                  <label class="item w46">
                               <input type="email" readonly placeholder="amrit_bhamrah@gmail.com" class=" form-control" ng-model="userprofile.CustomerEmail">
                            </label>
-                           <label class="item w46">
+                  <label class="item w46">
                               <input type="text" placeholder="400009" class="editing form-control" ng-model="userprofile.pincode" Only-Digits>
                            </label>
-                           <button type="button" class="butts" name="button" ng-click="submitUserProfile(userprofile)" ng-if="!isUpdate">
-                              <a href="" name="button" class="go full-width">
+                  <button type="button" class="butts brand-darkpink update-btn" name="button" ng-click="submitUserProfile(userprofile)" ng-if="!isUpdate">
+                              <!--<a href="" name="button" class="go full-width">
                                  <img src="img/profile/update.png" alt="" class="img-responsive">
-                              </a>
+                              </a>-->
+                   <span class="title brand-white ng-binding">update
+                 
+               </span>
                            </button>
-                           <h3 ng-if="isUpdate" class="text-center">Updating..</h3>
-
-                      </form>
-                        <h3 ng-if="formComplete" class="text-center">Profile Updated Successfully</h3>
-                     </div>
-                  </div>
-
-               </div>
-               <div class="reward-table carts" ng-show="tab=='reacharge'">
-                 <!--<h2>recharge online</h2>-->
-                  <div class="heads">
-          <h3 class="text-center text-uppercase text-in-shadow font-america mb5 "> let us know your details</h3>
-          <!--<p class=" text-center color-white font-galano">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-            <form  class="form" ng-submit="submitRecharge(rechargeOnline)">
-      <div class="form-group">
-         <input type="text" class="form-control" placeholder="Name on card" ng-model="rechargeOnline.CustomerName" required>
-      </div>
-      <div class="form-group">
-         <input type="text" class="form-control" placeholder="Card Number" allow-pattern="(\d|[a-z])" ng-model="rechargeOnline.CustomerCardNo"  required>
-         <div style="color:red;" class="text-center">{{invalidCardNO}}</div>
-      </div>
-       <div class="form-group ruppee relative">
-           <i class="fa fa-inr" aria-hidden="true"></i>
-           <div></div>
-           <span class="rechargeSpan" ng-if="!rechargeOnline.RechargeAmount">Recharge amount</span>
-            <select class="form-control"  ng-model="rechargeOnline.RechargeAmount" >
+                  <h3 ng-if="isUpdate" class="text-center">Updating..</h3>
+                </form>
+                <h3 ng-if="formComplete" class="text-center">Profile Updated Successfully</h3>
+              </div>
+            </div>
+          </div>
+          <div class="reward-table carts" ng-show="tab=='reacharge'">
+            <!--<h2>recharge online</h2>-->
+            <div class="heads">
+              <h3 class="text-center text-uppercase text-in-shadow font-america mb5 "> let us know your details</h3>
+              <!--<p class=" text-center color-white font-galano">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+              <form class="form" ng-submit="submitRecharge(rechargeOnline)">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Name on card" ng-model="rechargeOnline.CustomerName" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Card Number" allow-pattern="(\d|[a-z])" ng-model="rechargeOnline.CustomerCardNo"
+                    required>
+                  <div style="color:red;" class="text-center">{{invalidCardNO}}</div>
+                </div>
+                <div class="form-group ruppee relative">
+                  <i class="fa fa-inr" aria-hidden="true"></i>
+                  <div></div>
+                  <span class="rechargeSpan" ng-if="!rechargeOnline.RechargeAmount">Recharge amount</span>
+                  <select class="form-control" ng-model="rechargeOnline.RechargeAmount">
               <option value="500">500</option>
                <option value="1000">1000</option>
                <option value="1500">1500</option>
@@ -441,27 +402,27 @@
                <option value="4500">4500</option>
                <option value="5000">5000</option>
               </select>
-         <!--<input type="text" class="form-control" ng-model="rechargeOnline.RechargeAmount" placeholder="Amount" only-Digits required>-->
-      </div>
-        <div  class="text-center" ng-if="incorrect">Something went wrong.</div>
-        <h3 class="text-center" ng-if="isRecharge">Wait...</h3>
-        <div class="onbutton text-center">
- <button  type="submit" ng-if="!isRecharge" name="button"><img src="img/new/go.png" alt=""></button>
-        </div>
-
-   </form>
-        </div>
-               </div>
-                      <div class="reward-table carts" ng-show="tab=='logout'">
-                        <div class="text-center pointer">
-  <p class="pointer" ng-click="logout();"> Log Out </p>
-                  <p> Thank you for your participation </p>
-
-                  </div>
-
-               </div>
-
-               <!-- <div class="wishlist" ng-show="tab=='wishlist'">
+                  <!--<input type="text" class="form-control" ng-model="rechargeOnline.RechargeAmount" placeholder="Amount" only-Digits required>-->
+                </div>
+                <div class="text-center" ng-if="incorrect">Something went wrong.</div>
+                <h3 class="text-center" ng-if="isRecharge">Wait...</h3>
+                <div class="onbutton text-center">
+                  <button type="submit" ng-if="!isRecharge" name="button">
+                    <!--<img src="img/new/go.png" alt="">-->
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                   <span class="title brand-white ng-binding">Go</span>
+                    </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="reward-table carts" ng-show="tab=='logout'">
+            <div class="text-center pointer">
+              <p class="pointer" ng-click="logout();"> Log Out </p>
+              <p> Thank you for your participation </p>
+            </div>
+          </div>
+          <!-- <div class="wishlist" ng-show="tab=='wishlist'">
                   <div class="carts" ng-if="showWishList.wishList.length >0">
 
                      <div class="table-responsive">
@@ -494,8 +455,7 @@
                   </div>
                   <h3 class="text-center" ng-if="showWishList.wishList.length === 0">Your wishlist is empty.</h3>
                </div> -->
-
-            </div>
-         </div>
+        </div>
       </div>
-   </div>
+    </div>
+  </div>

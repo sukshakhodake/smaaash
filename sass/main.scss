@@ -342,28 +342,29 @@ $menu-height: 80px !default;
         li:nth-last-child(1) {
             .nav-names {
                 border-bottom: none;
+                color: #000;
             }
         }
-        li:nth-of-type(4n+1) {
-            .nav-names {
-                color: $brand-red;
-            }
-        }
-        li:nth-of-type(4n+2) {
-            .nav-names {
-                color: $brand-blue;
-            }
-        }
-        li:nth-of-type(4n+3) {
-            .nav-names {
-                color: $brand-green;
-            }
-        }
-        li:nth-of-type(4n+4) {
-            .nav-names {
-                color: $brand-pink;
-            }
-        }
+        // li:nth-of-type(4n+1) {
+        //     .nav-names {
+        //         color: $brand-red;
+        //     }
+        // }
+        // li:nth-of-type(4n+2) {
+        //     .nav-names {
+        //         color: $brand-blue;
+        //     }
+        // }
+        // li:nth-of-type(4n+3) {
+        //     .nav-names {
+        //         color: $brand-green;
+        //     }
+        // }
+        // li:nth-of-type(4n+4) {
+        //     .nav-names {
+        //         color: $brand-pink;
+        //     }
+        // }
         a {
             display: block;
         }
@@ -1443,10 +1444,11 @@ img.fancybox-image {
 //SagarM CSS HERe
 .events1 {
     .backg-eve {
-        background-image: url("../img/event/bg-hdr-event.png");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        margin-top: -8px; // height: 70px;
+        background-color: $brand-darkpink;
+        // background-image: url("../img/event/bg-hdr-event.png");
+        // background-repeat: no-repeat;
+        // background-size: 100% 100%;
+        margin-top: 10px; // height: 70px;
     }
     .nav-name {
         padding: 35px 0 0;
@@ -1456,7 +1458,8 @@ img.fancybox-image {
 }
 
 .backg-deal {
-    background-image: url("../img/deals/bg-hdr-deal.png");
+    // background-image: url("../img/deals/bg-hdr-deal.png");
+    background-color: $brand-darkpink;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-top: -8px;
@@ -1991,9 +1994,10 @@ img.fancybox-image {
     height: 90px;
     width: 125px;
     padding-top: 25px;
-    background-color: $brand-purple;
-    box-shadow: 4px 3px #000;
-    border-radius: 5px;
+    // background-color: $brand-purple;
+    background-color:$brand-darkpink; 
+    // box-shadow: 4px 3px #000;
+    // border-radius: 5px;
     i {
         color: rgba(0, 0, 0, 0.64);
         font-size: 2em;
@@ -2338,9 +2342,9 @@ img.fancybox-image {
 .btn-checkout {
     padding-bottom: 20px;
     .butn_check {
-        background-color: #32b544;
+        background-color: $brand-darkpink;
         width: 20%;
-        border-radius: 5px;
+        // border-radius: 5px;
         border: none;
         color: #fff;
         padding: 10px;
@@ -2351,8 +2355,10 @@ img.fancybox-image {
 
 .onbutton {
     button {
-        background-color: transparent;
+        background-color: $brand-darkpink;
         border: none;
+        color: white;
+        padding: 5px 18px;
     }
 }
 
@@ -2412,7 +2418,7 @@ img.fancybox-image {
     }
     .remodel {
         button {
-            background-color: #32b544;
+            background-color: $brand-darkpink;
             margin: 0 6px !important;
         }
     }
@@ -2427,12 +2433,10 @@ img.fancybox-image {
         margin: 10px 20px;
     }
     .subscribe {
-        border-radius: 20px;
+        // border-radius: 20px;
         width: 270px;
     }
-    .btn {
-        border-radius: 10px;
-    }
+   
 }
 
 .event-ptr {
@@ -2477,7 +2481,8 @@ img.fancybox-image {
 }
 
 .gap-issue {
-    margin: -26px 0 0 !important;
+    // margin: -26px 0 0 !important;
+     margin: 10px 0 0 !important;
 }
 
 @import "ruchira";

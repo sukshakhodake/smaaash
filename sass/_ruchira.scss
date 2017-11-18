@@ -329,7 +329,7 @@ $brand-white:#fff !default;
 .form {
   margin-bottom: 40px;
   .form-control {
-    border-radius: 15px;
+    // border-radius: 15px;
     border: 2px solid #000;
     height: 40px;
   }
@@ -645,10 +645,11 @@ $brand-white:#fff !default;
 //*explore ends*//
 //* *//
 .bg {
-  background-image: url("../img/karting/kartingbg.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  margin-top: -8px;
+  // background-image: url("../img/karting/kartingbg.png");
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  margin-top: 10px;
+  background-color: $brand-darkpink;
   .nav-name {
     padding: 35px 0 0;
     font-size: 30px;
@@ -1254,12 +1255,13 @@ $brand-white:#fff !default;
     background-color: $brand-orange;
   }
   .blue {
-    background-color: $brand-blue !important;
+    background-color: #000 !important;
     padding: 10px 90px !important;
     color: #fff;
   }
   .bluey {
-    color: $brand-blue;
+    // color: $brand-blue;
+    color:$brand-darkpink;
   }
   .greeny {
     color: $brand-green;
@@ -1309,7 +1311,7 @@ $brand-white:#fff !default;
 }
 
 .new-details {
-  border: 1px solid $brand-blue;
+  // border: 1px solid $brand-blue;
   border-top: none;
   padding: 20px;
 }
@@ -1413,7 +1415,7 @@ $brand-white:#fff !default;
   button {
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+   
     margin-left: 25px;
     color: #fff;
     .fa {
@@ -1431,7 +1433,7 @@ $brand-white:#fff !default;
     border: none;
     width: 100%;
     padding: 10px 0;
-    border-radius: 5px;
+
     font-weight: 700;
     .fa {
       margin: 0 5px;
@@ -1499,7 +1501,7 @@ $brand-white:#fff !default;
     margin: 20px 0;
   }
   .new-detail {
-    border: 1px solid #29a8df;
+    // border: 1px solid #29a8df;
     border-top: none;
     padding: 20px;
     p {
@@ -1865,7 +1867,7 @@ $brand-white:#fff !default;
     }
     &:hover {
       background-color: $brand-darkpink;
-      color:#fff;
+      color: #fff;
     }
     &:focus {
       outline: 0;
@@ -1879,7 +1881,7 @@ $brand-white:#fff !default;
     padding: 6px 12px;
     &:hover {
       background-color: $brand-darkpink;
-      color:#fff;
+      color: #fff;
     }
     &:focus {
       outline: 0;
@@ -1976,9 +1978,8 @@ $brand-white:#fff !default;
 
 .close-it {
   position: absolute;
-    left: -78px;
-    top: 40px;
-  
+  left: -78px;
+  top: 40px;
   z-index: 3;
   a {
     height: 50px;
@@ -2383,6 +2384,7 @@ button {
 
 .karting-championship {
   margin-bottom: 20px !important;
+  border: 1px solid rgba(130, 130, 130, 0.45);
 }
 
 .slide-down {
@@ -2516,9 +2518,9 @@ button {
     }
     .form-control {
       height: 40px;
-      border-radius: 10px;
+      // border-radius: 10px;
       background-color: #ebebeb;
-      box-shadow: 0px 3px 1px #ccc inset;
+      // box-shadow: 0px 3px 1px #ccc inset;
       border: none;
     }
     .required {
@@ -2794,7 +2796,8 @@ button {
           }
         }
         .bluey {
-          color: $brand-darkblue;
+          // color: $brand-darkblue;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -2811,7 +2814,7 @@ button {
         background-color: $brand-orangy;
       }
       .new-detail {
-        border-color: $brand-orangy;
+        // border-color: $brand-orangy;
         .views {
           button {
             border-color: $brand-orangy;
@@ -2821,7 +2824,8 @@ button {
           }
         }
         .bluey {
-          color: $brand-orangy;
+          // color: $brand-orangy;
+          color: $brand-pink;
         }
         .button-set {
           button {
@@ -2841,7 +2845,7 @@ button {
         background-color: $brand-pink;
       }
       .new-detail {
-        border-color: $brand-pink;
+        // border-color: $brand-pink;
         .views {
           button {
             border-color: $brand-pink;
@@ -2868,7 +2872,7 @@ button {
         background-color: $brand-green;
       }
       .new-detail {
-        border-color: $brand-green;
+        // border-color: $brand-green;
         .views {
           button {
             border-color: $brand-green;
@@ -2895,7 +2899,7 @@ button {
         background-color: $brand-blue;
       }
       .new-detail {
-        border-color: $brand-blue;
+        // border-color: $brand-blue;
         .views {
           button {
             border-color: $brand-blue;
@@ -2955,14 +2959,15 @@ button {
         background-color: $brand-darkblue;
       }
       .new-detail {
-        border-color: $brand-darkblue;
+        // border-color: $brand-darkblue;
         .views {
           button {
             border-color: $brand-darkblue;
           }
         }
         .bluey {
-          color: $brand-darkblue;
+          // color: $brand-darkblue;
+          color: $brand-darkpink
         }
         .button-set {
           button {
@@ -2976,14 +2981,15 @@ button {
         background-color: $brand-orangy;
       }
       .new-detail {
-        border-color: $brand-orangy;
+        // border-color: $brand-orangy;
         .views {
           button {
             border-color: $brand-orangy;
           }
         }
         .bluey {
-          color: $brand-orangy;
+          // color: $brand-orangy;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -2997,14 +3003,15 @@ button {
         background-color: $brand-pink;
       }
       .new-detail {
-        border-color: $brand-pink;
+        // border-color: $brand-pink;
         .views {
           button {
             border-color: $brand-pink;
           }
         }
         .bluey {
-          color: $brand-pink;
+          // color: $brand-pink;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -3021,7 +3028,7 @@ button {
         background-color: $brand-green;
       }
       .new-detail {
-        border-color: $brand-green;
+        // border-color: $brand-green;
         .views {
           button {
             border-color: $brand-green;
@@ -3031,7 +3038,8 @@ button {
           }
         }
         .bluey {
-          color: $brand-green;
+          // color: $brand-green;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -3048,7 +3056,7 @@ button {
         background-color: $brand-blue;
       }
       .new-detail {
-        border-color: $brand-blue;
+        // border-color: $brand-blue;
         .views {
           button {
             border-color: $brand-blue;
@@ -3058,7 +3066,8 @@ button {
           }
         }
         .bluey {
-          color: $brand-blue;
+          // color: $brand-blue;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -3072,7 +3081,7 @@ button {
         background-color: $brand-purple;
       }
       .new-detail {
-        border-color: $brand-purple;
+        // border-color: $brand-purple;
         .views {
           button {
             border-color: $brand-purple;
@@ -3082,7 +3091,8 @@ button {
           }
         }
         .bluey {
-          color: $brand-purple;
+          // color: $brand-purple;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -3097,9 +3107,10 @@ button {
 .blog {
   .col-md-6:nth-child(2) {
     .new-detail {
-      border-color: $brand-green;
+      // border-color: $brand-green;
       .bluey {
-        color: $brand-green;
+        // color: $brand-green;
+        color: $brand-pink;
       }
       .button-set {
         button {
@@ -3110,9 +3121,10 @@ button {
   }
   .col-md-6:nth-child(3) {
     .new-detail {
-      border-color: $brand-purple;
+      // border-color: $brand-purple;
       .bluey {
-        color: $brand-purple;
+        // color: $brand-purple;
+        color: $brand-pink;
       }
       .button-set {
         button {
@@ -3123,9 +3135,10 @@ button {
   }
   .col-md-6:nth-child(4) {
     .new-detail {
-      border-color: $brand-orange;
+      // border-color: $brand-orange;
       .bluey {
-        color: $brand-orange;
+        // color: $brand-orange;
+        color: $brand-pink;
       }
       .button-set {
         button {
@@ -3230,7 +3243,7 @@ button {
       -webkit-appearance: none;
     }
     .form-control {
-      border-radius: 5px;
+      // border-radius: 5px;
     }
     .down {
       position: absolute;
@@ -3238,7 +3251,7 @@ button {
       right: 5px;
     }
     .editing {
-      border-radius: 5px;
+      // border-radius: 5px;
       background: rgba(204, 204, 204, 0.31) url("../img/profile/pen.png") no-repeat 95% 50%;
     }
     .arrows-down {
@@ -3673,15 +3686,41 @@ select:focus .cityselect {
 .brand-darkpink {
   background-color: $brand-darkpink;
 }
-.btn-close{
-      letter-spacing: 1px;
-    font-size: 20px;
-    padding: 5px 34px;
-    border: none;
-    background-color: $brand-darkpink !important;
+
+.btn-close {
+  letter-spacing: 1px;
+  font-size: 20px;
+  padding: 5px 34px;
+  border: none;
+  background-color: $brand-darkpink !important;
 }
-.new-dropdown{
+
+.new-dropdown {
   .panel-group {
-        margin-top: -30px;
+    margin-top: -30px;
   }
+}
+
+.btn-search {
+  background-color: $brand-darkpink;
+  color: #fff;
+  padding: 4px 10px;
+  border:none;
+  i {
+    font-size: 20px;
+    &:hover{
+       color:#fff;
+    }
+  }
+  &:hover{
+    color:#fff !important;
+  }
+ 
+
+}
+.update-btn{
+      font-size: 17px;
+    padding: 5px 19px;
+    margin-top: 10px;
+
 }
