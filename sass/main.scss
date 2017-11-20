@@ -35,7 +35,7 @@ $brand-darkpink:#e63345 !default;
 }
 
 button.selected {
-    background: $brand-bluey !important;
+    background: $brand-darkpink !important;
     color: white !important;
 }
 
@@ -1427,7 +1427,7 @@ img.fancybox-image {
         }
         .more {
             button {
-                background-color: $brand-green;
+                background-color: $brand-darkpink;
                 border: none;
                 padding: 10px 20px;
                 border-radius: 5px;

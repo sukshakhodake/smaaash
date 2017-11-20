@@ -191,7 +191,7 @@ $brand-white:#fff !default;
         }
       }
       .btn2 {
-        box-shadow: -3px 3px #000, -3px 0px #000;
+        // box-shadow: -3px 3px #000, -3px 0px #000;
         @include transform(skew(10deg));
         border: 1px solid transparent!important;
         span {
@@ -658,9 +658,10 @@ $brand-white:#fff !default;
 }
 
 .backg {
-  background-image: url("../img/event/bg-hdr-event.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  // background-image: url("../img/event/bg-hdr-event.png");
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  background-color: $brand-darkpink;
   margin-top: -8px;
   .nav-name {
     padding: 35px 0 0;
@@ -719,9 +720,9 @@ $brand-white:#fff !default;
     }
   }
   .backg {
-    background-image: url("../img/food/eatdrink.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    // background-image: url("../img/food/eatdrink.png");
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
     margin-top: -8px;
     .nav-name {
       padding: 35px 0 0;
@@ -730,7 +731,7 @@ $brand-white:#fff !default;
     }
   }
   .new-detail {
-    border: 1px solid #000;
+    // border: 1px solid #000;
     border-top: none;
     padding: 20px;
     p {
@@ -738,7 +739,7 @@ $brand-white:#fff !default;
     }
   }
   button {
-    border-radius: 10px;
+    // border-radius: 10px;
     border: none;
     padding: 10px 40px;
     color: #fff;
@@ -1249,13 +1250,19 @@ $brand-white:#fff !default;
     background-color: $brand-orange;
   }
   .green {
-    background-color: $brand-green;
+    background-color: $brand-darkpink;
   }
   .orange {
     background-color: $brand-orange;
   }
+  .black{
+    background-color: rgba(0, 0, 0, 0.8)
+  }
+  .pinkdark{
+    color:$brand-darkpink !important;
+  }
   .blue {
-    background-color: #000 !important;
+    background-color: rgba(0, 0, 0, 0.8)!important;
     padding: 10px 90px !important;
     color: #fff;
   }
@@ -1277,7 +1284,7 @@ $brand-white:#fff !default;
     cursor: pointer;
   }
   .new-detail {
-    border: 1px solid #000;
+    // border: 1px solid #000;
     border-top: none;
     padding: 20px;
     margin: 0;
@@ -2115,7 +2122,7 @@ $brand-white:#fff !default;
       margin: 0 10px;
       .form-control {
         height: 40px;
-        border-radius: 10px;
+        // border-radius: 10px;
         box-shadow: 0px 3px 1px #ccc inset;
       }
       select {
@@ -2421,10 +2428,13 @@ button {
 .entry-form2,
 .entry-form3 {
   .btn6 {
-    height: auto;
-    width: 120px;
-    background-color: transparent !important;
+    // height: auto;
+    // width: 120px;
+    background-color: $brand-darkpink !important;
+    color:#fff;
+    font-family: "American Purpose";
     border: transparent;
+    padding: 6px 20px;
     margin: 0 auto;
     vertical-align: middle;
     &:active {
@@ -2643,9 +2653,9 @@ button {
 
 .help-form {
   .btn6 {
-    height: auto;
-    width: 120px;
-    background-color: transparent !important;
+    // height: auto;
+    // width: 120px;
+    background-color: $brand-darkpink !important;
     border: transparent;
     margin: 0 auto;
     vertical-align: middle;
@@ -2682,7 +2692,7 @@ button {
   .form-control {
     display: inline-block;
     -webkit-appearance: none;
-    border-radius: 10px;
+ 
     background-color: #ebebeb;
     box-shadow: 0px 3px 1px #ccc inset;
     border: none;
@@ -2783,13 +2793,13 @@ button {
   .col-md-4:nth-child(6n+1) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-darkblue;
+        background-color: $brand-darkpink;
       }
       .new-detail {
-        border-color: $brand-darkblue;
+        border-color: $brand-darkpink;
         .views {
           button {
-            border-color: $brand-darkblue;
+            border-color: $brand-darkpink;
             a {
               color: $brand-darkblue;
             }
@@ -2811,13 +2821,13 @@ button {
   .col-md-4:nth-child(6n+2) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-orangy;
+        background-color: $brand-darkpink;
       }
       .new-detail {
         // border-color: $brand-orangy;
         .views {
           button {
-            border-color: $brand-orangy;
+            border-color: $brand-darkpink;
             a {
               color: $brand-orangy;
             }
@@ -2825,13 +2835,13 @@ button {
         }
         .bluey {
           // color: $brand-orangy;
-          color: $brand-pink;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
             background-color: $brand-orangy;
             a {
-              background-color: $brand-orangy;
+              background-color: $brand-darkpink;
             }
           }
         }
@@ -2842,20 +2852,20 @@ button {
   .col-md-4:nth-child(6n+3) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-pink;
+        background-color: $brand-darkpink;
       }
       .new-detail {
         // border-color: $brand-pink;
         .views {
           button {
-            border-color: $brand-pink;
+            border-color: $brand-darkpink;
             a {
               color: $brand-pink;
             }
           }
         }
         .bluey {
-          color: $brand-pink;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -2869,20 +2879,20 @@ button {
   .col-md-4:nth-child(6n+4) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-green;
+        background-color: $brand-darkpink;
       }
       .new-detail {
         // border-color: $brand-green;
         .views {
           button {
-            border-color: $brand-green;
+            border-color: $brand-darkpink;
             a {
               color: $brand-green;
             }
           }
         }
         .bluey {
-          color: $brand-green;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -2896,20 +2906,20 @@ button {
   .col-md-4:nth-child(6n+5) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-blue;
+        background-color: $brand-darkpink;
       }
       .new-detail {
         // border-color: $brand-blue;
         .views {
           button {
-            border-color: $brand-blue;
+            border-color: $brand-darkpink;
             a {
               color: $brand-blue;
             }
           }
         }
         .bluey {
-          color: $brand-blue;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -2923,20 +2933,20 @@ button {
   .col-md-4:nth-child(6n+6) {
     .karting-championship {
       .brand-blue {
-        background-color: $brand-purple;
+        background-color: $brand-darkpink;
       }
       .new-detail {
         border-color: $brand-purple;
         .views {
           button {
-            border-color: $brand-purple;
+            border-color: $brand-darkpink;
             a {
               color: $brand-purple;
             }
           }
         }
         .bluey {
-          color: $brand-purple;
+          color: $brand-darkpink;
         }
         .button-set {
           button {
@@ -2962,7 +2972,7 @@ button {
         // border-color: $brand-darkblue;
         .views {
           button {
-            border-color: $brand-darkblue;
+            border-color: $brand-darkpink;
           }
         }
         .bluey {
@@ -2971,7 +2981,7 @@ button {
         }
         .button-set {
           button {
-            background-color: $brand-darkblue;
+            background-color: $brand-darkpink;
           }
         }
       }
@@ -2984,7 +2994,7 @@ button {
         // border-color: $brand-orangy;
         .views {
           button {
-            border-color: $brand-orangy;
+            border-color: $brand-darkpink;
           }
         }
         .bluey {
@@ -2993,7 +3003,7 @@ button {
         }
         .button-set {
           button {
-            background-color: $brand-orangy;
+            background-color: $brand-darkpink;
           }
         }
       }
@@ -3015,7 +3025,7 @@ button {
         }
         .button-set {
           button {
-            background-color: $brand-pink;
+            background-color: $brand-darkpink;
           }
         }
       }
@@ -3684,7 +3694,7 @@ select:focus .cityselect {
 }
 
 .brand-darkpink {
-  background-color: $brand-darkpink;
+  background-color: $brand-darkpink !important;
 }
 
 .btn-close {

@@ -4,8 +4,6 @@
                   <h2 class="nav-name center">Customize Your Package</h2>
             </div>
       </div>
-
-
       <form class="help-form " ng-submit="submitCustomizeForm(customizeformData)" name="customizeform">
             <div class="forms">
                   <div class="container">
@@ -53,13 +51,10 @@
                         </div>
                   </div>
             </div>
-
-
-
             <div class="help-section">
                   <div class="container">
                         <div class="new">
-                                <h3>step 2:</h3>
+                              <h3>step 2:</h3>
                               <h3 class="text-center">GAMES</h3>
                               <div class="row">
                                     <div class="col-md-3 col-sm-3" ng-repeat="data in customizepackage">
@@ -94,7 +89,7 @@
                   </div>
                   <div class="helping">
                         <div class="container">
-                                <h3>step 3:</h3>
+                              <h3>step 3:</h3>
                               <h3 class="text-center brand-white">help us help you</h3>
                               <div class="form-group ">
                                     <div class="radio text-center">
@@ -146,16 +141,16 @@
                                           <div class="starter">
                                                 <div class="form-group">
                                                       <label for="main-course">main course</label>
-                                                      <div class="solution">
-                                                            <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                                            <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                                                      </div>
+                                                           <div class="solution">
+                                                               <a href=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                                               <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                                            </div>
                                                       <select class="form-control" id="main-course" ng-model="customizeformData.mainCourse" name="mainCourse" required>
-                           <option ng-selected="true" value="">00</option>
-                           <option value="01">01</option>
-                           <option value="02">02</option>
-                           <option value="03">03</option>
-                        </select>
+                                                                    <option ng-selected="true" value="">00</option>
+                                                                    <option value="01">01</option>
+                                                                    <option value="02">02</option>
+                                                                    <option value="03">03</option>
+                                                      </select>
                                                       <div ng-show="customizeform.mainCourse.$error.required"></div>
                                                       <div class="error" ng-if="selectmainCourse">Please select the Main Course.</div>
                                                 </div>
@@ -176,7 +171,6 @@
                                     </div>
                               </div>
                         </div>
-
                   </div>
                   <div class="container">
                         <div class="entry-form1 text-center" ng-if="showForm">
@@ -188,7 +182,6 @@
                                     <div class="form-group inline-block  relative">
                                           <input type="text" class=" form-control" placeholder="Name" name="name" ng-model="customizeformData.name" required>
                                           <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-
                                     </div>
                                     <div class="form-group inline-block relative">
                                           <input type="tel" class=" form-control" placeholder="Mobile no." ng-model="customizeformData.mobile" name="mobile" required
@@ -200,9 +193,10 @@
                                                 required>
                                           <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
                                           <div class="error" ng-if="emailExist">Email Already Exist</div>
-
                                     </div>
-                                    <button type="submit" class=" btn6 btn-default block mt10 "><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+                                    <button type="submit" class=" btn6 btn-default block mt10 ">SUBMIT
+                                          <!--<img src="img/new/submit.png" class="img-responsive" alt="">-->
+                                          </button>
                                     <!-- <button type="submit" class=" btn6 btn-default block mt10 " ng-click="openShowDiv()"><img src="img/new/submit.png" class="img-responsive" alt=""></button> -->
                               </div>
                         </div>
@@ -223,13 +217,12 @@
                                           <span class="required needed" ng-click="goToEdit()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                           <p>Want to change your Email ID ?</p>
                                     </div>
-                                    <button type="submit" class=" btn6 btn-default block"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
+                                    <button type="submit" class=" btn6 btn-default block">SUBMIT</button>
                               </div>
                         </div>
                   </div>
-
             </div>
-</div>
+       </div>
 </form>
 <div class="entry-form3" ng-if="showThank">
       <div class="get-call">

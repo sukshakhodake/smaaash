@@ -10,10 +10,8 @@
       <ul class="custom-pagination list-inline">
         <li ng-repeat="s in hostPartySlider track by $index">{{s.order}}</li>
       </ul>
-
     </div>
   </div>
-
   <!--<div class="smaash-drops hidden-lg hidden-md hidden-sm">
     <div class="slidings">
       <flex-slider class="carousel" flex-slide="s in hostPartySlider track by $index" manual-controls=".custom-pagination li" animation="slide"
@@ -42,12 +40,7 @@
         <li>2</li>
       </ul>
     </div>
-
   </div>
-
-
-
-
   <div class="container relative">
     <div class="form-content">
       <div class="row">
@@ -59,48 +52,34 @@
               <input type=hidden name="oid" value="00D6F000000Dr5h">
               <input type="hidden" name="retURL" id="retURL" value="http://smaaash.in/#thanks">
               <input id="00N6F00000GxzFA" maxlength="20" name="00N6F00000GxzFA" size="20" type="hidden" class="leadid" />
-
               <div class="form-group">
                 <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                 <select id='00N6F00000Enqi8' name='00N6F00000Enqi8' style='display:none' title='Type of Event'>
                             <option selected='selected' value='{{partyName}}'>{{partyName}}</option>
                           </select>
-
               </div>
-
-
               <select id="lead_source" name="lead_source" style="display:none">
                      <option value="Web 2 Lead"  selected="selected">Web 2 Lead</option>
                      <option value="Google">Google</option>
                      </select>
-
-
-
               <select id='00N6F00000FbWPi' name='00N6F00000FbWPi' style='display:none' title='Sales Team Assigned'>
                         <option selected='selected' value="{{citySpecific}}">{{citySpecific}}</option>
                      </select>
-
-
               <h3 class="text-center">Need assistance?</h3>
-
               <div class="form-group relative">
                 <input id="first_name" maxlength="40" name="first_name" placeholder="Name" data-rule-required="true" class="form-control bottom_border"
                   size="20" type="text" required />
-
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-
               </div>
               <div class="form-group relative">
                 <input id="email" maxlength="80" name="email" class="form-control bottom_border" placeholder="Email" data-rule-required="true"
                   placeholder="" size="20" type="email" required/>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-
               </div>
               <div class="form-group relative ">
                 <input id="mobile" maxlength="10" minlength="8" name="mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true"
                   placeholder="" size="20" type="tel" ng-model="Mobile" Only-Digits required/>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-
               </div>
               <div class="form-group relative">
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
@@ -115,9 +94,7 @@
                            <option value="Corporate">Team Building Events</option>
 
                         </select>
-
               </div>
-
               <div class="form-group">
                 <select id="00N6F00000EnggI" name="00N6F00000EnggI" class="form-control last_border">
                            <option class="color_change" value="" selected='selected'>Party For</option>
@@ -127,38 +104,29 @@
                            <option class="color_change" value="300-500">300 to 500</option>
                            <option class="color_change" value="500-700">500 to 700</option>
                         </select>
-
               </div>
               <div class="form-group">
-
                 <!-- <input id="00N6F00000EnggN" name="00N6F00000EnggN" class="form-control" size="12"  type="date" /> -->
-
-
-
                 <input type="text" required="" id="00N6F00000EnggN" name="00N6F00000EnggN" placeholder="Date of event" onfocus="(this.type='date')"
                   onblur="if(this.value==''){this.type='text'}" class="form-control" placeholder="Date of event">
-
                 <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions"
                    close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" /> -->
                 <!-- <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a> -->
               </div>
-              <button type="submit" name="button" class="btn6 btn-default block"><img src="img/new/submit.png" class="img-responsive" alt=""></button>
-
+              <button type="submit" name="button" class="btn6 btn-default block">
+                <!--<img src="img/new/submit.png" class="img-responsive" alt="">-->
+             Submit 
+                </button>
               <!--<button type="button"  class=" btn6 btn-default block" ng-disabled="user.$invalid" ng-click="assistanceLogin(formData);">
                 <img src="img/new/submit.png" class="img-responsive" alt="">
               </button> -->
+
               <!-- <input type="submit" name="button"><img src="img/new/submit.png" class="img-responsive" alt=""> -->
-
             </form>
-
           </div>
         </div>
       </div>
     </div>
-
-
-
-
     <!-- <div class="form-content">
       <div class="row">
         <div class="col-md-4 col-sm-4 hidden-xs"></div>
@@ -235,9 +203,6 @@
         </div>
       </div>
     </div> -->
-
-
-
     <div class="packagings ">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -245,7 +210,6 @@
             <div class="slant-box full-height">
               <div class="special pointer" ui-sref="dealsp({id:deals[0].type.myslug,dealspcity:citySpecific})">
                 <img src="img/food/hostparty.png" class="img-responsive" alt="special">
-
               </div>
             </div>
           </div>
@@ -264,13 +228,11 @@
             <div class="slant-box full-height">
               <div class="special pointer">
                 <img src="img/food/hostparty.png" class="img-responsive" alt="special">
-
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
     <div class="new">
       <div class="row" ng-repeat="datas in SingleHostParty">
@@ -284,16 +246,12 @@
                 <h3 class="margin0 bluey " ng-bind-html="data.hometext | shorten :25"></h3>
               </div>
               <div class="min-h">
-
                 <p ng-bind-html="data.description | htmlDecode | shorten:200"></p>
                 <!-- <p ng-show="moreDesc[data._id]" ng-bind-html="myDesc | htmlDecode"></p> -->
                 <p ng-if="!data.description"> No data found</p>
                 <!-- <span class="capitalize bluey" ng-if="data.description.length > 130 && !moreDesc[data._id]" ng-click="readMore(data._id)">read more</span>
                 <span class="capitalize bluey" ng-if="data.description.length > 130 && moreDesc[data._id]" ng-click="readMore(data._id,$index)">read less</span> -->
               </div>
-
-
-
               <div class="button-set text-center remodelled">
                 <!-- <ul class="social-icons list-inline inline-block">
                   <p class="inline-block">Share</p>
@@ -306,19 +264,16 @@
                 </div>
                 <div class="love inline-block">
                   <a ui-sref="parties({id:data.myslug,partyCity:citySpecific})">
-                              <button class="uppercase blue">Get Started</button>
-                              <!-- <button class="uppercase blue">Know More</button> -->
-                           </a>
+                    <button class="uppercase blue">Get Started</button>
+                    <!-- <button class="uppercase blue">Know More</button> -->
+                  </a>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <!--<div class="packages">
          <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -333,11 +288,8 @@
             </div>
          </div>
       </div>-->
-
   </div>
 </div>
-
-
 <!-- ******************* -->
 <script>
   var d = new Date();
