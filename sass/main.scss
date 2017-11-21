@@ -276,7 +276,8 @@ a {
 //*slider starts *//
 $menu-height: 80px !default;
 .dropdowns {
-    height: $menu-height;
+    // height: $menu-height;
+    height: 60px;
     position: relative;
     // background-image: url("../img/home/menu-bg.png");
     box-shadow: 0px 0px 50px rgba(128, 128, 128, 0.65);
@@ -379,23 +380,33 @@ $menu-height: 80px !default;
         }
     }
     .cities {
-        padding: 10px 20px;
-        background-color: $brand-red; // transform: skew(-15deg);
+        padding: 9px 20px;
+        // background-color: $brand-red;
+         // transform: skew(-15deg);
         // box-shadow: -3px 3px #000, 1px 0 #000;
         cursor: pointer;
     }
     .sides {
         position: absolute;
-        top: 68px;
-        right: 67px;
+        // top: 68px;
+        // right: 67px;
+        top:15px;
+        left: 160px;
+    font-size: 12px;
+        letter-spacing: 1px;
         cursor: pointer;
         span {
             //   text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
+      color:black
+        }
+        i{
+               font-size: 16px;
+    padding: 0px 10px; 
         }
     }
     .menu {
         @include position(absolute,
-        30px 135px null null);
+        24px 135px null null);
         cursor: pointer;
         img {
             height: 18px;
@@ -613,9 +624,10 @@ $menu-height: 80px !default;
 
 .logo-smaash {
     @include position( absolute,
-    10px null null 20px);
+    -37px null null 20px);
     z-index: 999;
-    height: $menu-height - 10px;
+    // height: $menu-height - 10px;
+    height: 150px;
     img {
         width: auto;
         height: 100%;
@@ -1501,6 +1513,7 @@ img.fancybox-image {
 .attractions {
     h3 {
         font-size: 28px !important;
+       color: $brand-darkpink;
     }
     .new-detail {
         min-height: 200px;

@@ -1,7 +1,7 @@
 //*corporate starts*//
 $brand-white:#fff !default;
 .brand-white {
-  color: $brand-white;
+  color: $brand-white !important;
 }
 
 .center {
@@ -477,7 +477,7 @@ $brand-white:#fff !default;
   background-size: cover;
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 48%;
   @include transform(translate(-50%, -50%));
   h2 {
     text-shadow: 1px 1px black, -1px 0px black, 0px -1px black, -1px -1px black, 0px 1px black, 1px 0px black, -1px 1px black, 1px -1px black;
@@ -1255,11 +1255,11 @@ $brand-white:#fff !default;
   .orange {
     background-color: $brand-orange;
   }
-  .black{
+  .black {
     background-color: rgba(0, 0, 0, 0.8)
   }
-  .pinkdark{
-    color:$brand-darkpink !important;
+  .pinkdark {
+    color: $brand-darkpink !important;
   }
   .blue {
     background-color: rgba(0, 0, 0, 0.8)!important;
@@ -1268,7 +1268,7 @@ $brand-white:#fff !default;
   }
   .bluey {
     // color: $brand-blue;
-    color:$brand-darkpink;
+    color: $brand-darkpink;
   }
   .greeny {
     color: $brand-green;
@@ -1422,7 +1422,6 @@ $brand-white:#fff !default;
   button {
     border: none;
     padding: 10px 20px;
-   
     margin-left: 25px;
     color: #fff;
     .fa {
@@ -1440,7 +1439,6 @@ $brand-white:#fff !default;
     border: none;
     width: 100%;
     padding: 10px 0;
-
     font-weight: 700;
     .fa {
       margin: 0 5px;
@@ -1557,7 +1555,7 @@ $brand-white:#fff !default;
       background-color: #29a8df;
       padding: 10px 9px;
       border: none;
-      border-radius: 6px;
+      // border-radius: 6px;
       text-transform: capitalize;
     }
     button+button {
@@ -2294,7 +2292,10 @@ $brand-white:#fff !default;
     border: 2px solid #000;
     padding: 10px 20px;
     h3 {
-      color: $brand-blue;
+      color: $brand-darkpink;
+    }
+    i{
+       color: $brand-darkpink;
     }
     .form-control {
       background-color: #ccc;
@@ -2431,7 +2432,7 @@ button {
     // height: auto;
     // width: 120px;
     background-color: $brand-darkpink !important;
-    color:#fff;
+    color: #fff;
     font-family: "American Purpose";
     border: transparent;
     padding: 6px 20px;
@@ -2692,7 +2693,6 @@ button {
   .form-control {
     display: inline-block;
     -webkit-appearance: none;
- 
     background-color: #ebebeb;
     box-shadow: 0px 3px 1px #ccc inset;
     border: none;
@@ -3053,7 +3053,7 @@ button {
         }
         .button-set {
           button {
-            background-color: $brand-green;
+            background-color: $brand-darkpink;
             a {
               background-color: $brand-green;
             }
@@ -3069,7 +3069,7 @@ button {
         // border-color: $brand-blue;
         .views {
           button {
-            border-color: $brand-blue;
+            border-color: $brand-darkpink;
             a {
               color: $brand-blue;
             }
@@ -3081,7 +3081,7 @@ button {
         }
         .button-set {
           button {
-            background-color: $brand-blue;
+            background-color: $brand-darkpink;
           }
         }
       }
@@ -3106,7 +3106,7 @@ button {
         }
         .button-set {
           button {
-            background-color: $brand-purple;
+            background-color: $brand-darkpink;
           }
         }
       }
@@ -3124,7 +3124,7 @@ button {
       }
       .button-set {
         button {
-          background-color: $brand-green;
+          background-color: $brand-darkpink;
         }
       }
     }
@@ -3161,7 +3161,8 @@ button {
 
 .drink {
   .new-detail {
-    min-height: 320px;
+    // min-height: 320px;
+     min-height: 345px;
   }
 }
 
@@ -3521,22 +3522,26 @@ select:focus .cityselect {
   }
   li:nth-of-type(4n+1) {
     .nav-names {
-      color: $brand-red;
+      // color: $brand-red;
+      color:#000;
     }
   }
   li:nth-of-type(4n+2) {
     .nav-names {
-      color: $brand-blue;
+      // color: $brand-blue;
+      color:#000;
     }
   }
   li:nth-of-type(4n+3) {
     .nav-names {
-      color: $brand-green;
+      // color: $brand-green;
+      color:#000;
     }
   }
   li:nth-of-type(4n+4) {
     .nav-names {
-      color: $brand-pink;
+      // color: $brand-darkpink;
+      color:#000;
     }
   }
   a {
@@ -3630,10 +3635,15 @@ select:focus .cityselect {
 //   vertical-align: middle;
 // }
 //css given by kishori
+.mar-t{
+  margin-top: -5px;
+}
 .w35 {
   width: 30px;
 }
-
+.w23{
+  width: 23px;
+}
 .w100 {
   width: 100%;
 }
@@ -3680,7 +3690,6 @@ select:focus .cityselect {
   font-size: 7px;
   text-align: right;
   width: 26px;
-  float: right;
   margin-right: 7px;
 }
 
@@ -3715,22 +3724,53 @@ select:focus .cityselect {
   background-color: $brand-darkpink;
   color: #fff;
   padding: 4px 10px;
-  border:none;
+  border: none;
   i {
     font-size: 20px;
-    &:hover{
-       color:#fff;
+    &:hover {
+      color: #fff;
     }
   }
-  &:hover{
-    color:#fff !important;
+  &:hover {
+    color: #fff !important;
   }
- 
-
 }
-.update-btn{
-      font-size: 17px;
-    padding: 5px 19px;
-    margin-top: 10px;
 
+.update-btn {
+  font-size: 17px;
+  padding: 5px 19px;
+  margin-top: 10px;
+}
+
+.dis-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  span {
+    flex: 1;
+    padding-left: 3px;
+  }
+}
+.color-red{
+  color:#ff0000!important;
+
+ }
+.color-black{
+  color:#000;
+  &:hover{
+     color:#ff0000;
+  }
+}
+.mar-r{
+  margin-right: 4px;
+}
+.bor-bott{
+  border-bottom: 1px solid rgba(198,198,198,0.45) !important;
+}
+.heightt{
+  height: 158px;
+}
+.mar-bott{
+  margin-bottom: 50px;
 }

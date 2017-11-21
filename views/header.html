@@ -167,7 +167,7 @@
             <div class="" id="axe">
                 <!--<div class="orange-rays"></div>-->
                 <div class="cities" ng-click="toggleCity()">
-                    <span class="title brand-white">{{cityData.name || 'Choose City'}}
+                    <span class="title ">{{cityData.name || 'Choose City'}}
                    <i class="fa fa-chevron-down"></i>
                </span>
                 </div>
@@ -175,12 +175,12 @@
         </div>
         <div class="backdroped" ng-if="city" ng-click="toggleCity()">
             <div class="smaaash-cities">
-                <h2 class="title center brand-white"><span class="smash-logoc"><img src="img/changes/logo.png" alt="logo"></span>select your city</h2>
+                <!--<h2 class="title center brand-white"><span class="smash-logoc"><img src="img/changes/logo.png" alt="logo"></span>select your city</h2>-->
                 <a class="cross" href="">
                     <i class="fa fa-2x fa-times" aria-hidden="true"></i>
                 </a>
                 <div class="city-types">
-                    <ul class="list">
+                    <!--<ul class="list">
                         <li ng-repeat="city in getHomeCity1">
                             <a ng-click="getCityName(city)"><img ng-src="{{city.image}}" class="img-responsive" alt=""></a>
                         </li>
@@ -189,9 +189,16 @@
                                 <img src="img/nav/US-inverse.png" alt="">
                             </a>
                         </li>
-                    </ul>
-                    <p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT CITY
-                        IS {{cityData.name}}</p>
+                    </ul>-->
+                    <!--<p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT CITY
+                        IS {{cityData.name}}</p>-->
+                        <div class="text-overflow">
+                          <ul class="list  uppercase">
+                                <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)" ng-class=""><a class="color-black"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
+                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'"><span>Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
+                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'"><span>Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
+                                </ul>
+                        </div>
                 </div>
             </div>
         </div>
@@ -317,32 +324,41 @@
                <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
             </figure>
          </div>-->
-            <div class="">
-                <div class=" text-center">
+           <div class="sides">
+                <div class="" id="axe">
+              
+                    <div class="cities" ng-click="toggleCity()">
+                        <span class="title ">{{cityData.name || 'Choose City'}}
+                   <i class="fa fa-angle-down" aria-hidden="true"></i>
+               </span>
+                    </div>
+                </div>
+            </div>
+                <div class=" text-center mar-t">
                     <ul class="menu-list">
-                        <li><a ui-sref="drink-party"><span><img src="img/home/eat.png" class="w35" >EAT</span></a></li>
+                        <li><a ui-sref="drink-party"><span><img src="img/home/eat.png" class="w35"></span><span>EAT</span></a></li>
                         <li>
                             <a ui-sref="attractions"><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
                         </li>
                         <li>
                             <a ui-sref="parties"><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
                         </li>
-                        <li><a ui-sref="dealsp"><span>BUY</span></a></li>
+                        <li><a ui-sref="dealsp"><span class="mar-r"><img src="img/home/buy.png" class="w23"></span><span>BUY</span></a></li>
                         <!--<li><a><span>MORE</span></a></li>
           -->
                     </ul>
                 </div>
-            </div>
-            <div class="sides">
+           
+            <!--<div class="sides">
                 <div class="" id="axe">
-                    <!--<div class="orange-rays"></div>-->
+   
                     <div class="cities" ng-click="toggleCity()">
                         <span class="title brand-white">{{cityData.name || 'Choose City'}}
                    <i class="fa fa-chevron-down"></i>
                </span>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="backdroped" ng-if="city" ng-click="toggleCity()">
                 <div class="smaaash-cities">
                     <!--<h2 class="title center brand-white"><span class="smash-logoc"><img src="img/changes/logo.png" alt="logo"></span>select your city</h2>-->
@@ -364,26 +380,10 @@
                         <div class="smash-city">
                             <div class="text-overflow">
                                 <ul class="list  uppercase">
-                                    <li><span>Mumbai</span>
-                                    </li>
-                                    <li><span>gurgaon</span><span class="cyber-hub">cyber hub</span>
-                                    </li>
-                                    <li>hyderabad
-                                    </li>
-                                    <li>bengaluru
-                                    </li>
-                                    <li>noida
-                                    </li>
-                                    <li>ludhiana
-                                    </li>
-                                    <li><span>gurgaon</span><span class="cyber-hub">sec-29</span>
-                                    </li>
-                                    <li>delhi
-                                    </li>
-                                    </li>
-                                    <li>usa
-                                    </li>
-                                </ul>
+                                    <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
+                                    <div class="dis-flex"  ng-if="city.name === 'Gurgaon - Cyber Hub'"> <span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
+                                    <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon - Sector 29'"><span>Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
+                                 </ul>
                             </div>
                         </div>
                         <!--<p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT

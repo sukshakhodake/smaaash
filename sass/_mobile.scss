@@ -688,6 +688,7 @@ width: 100px;
   ul{
     padding: 0;
     height: auto;
+ 
   }
   li{
     list-style-type: none;
@@ -1204,6 +1205,7 @@ margin: 0;
   .smaaash-cities {
     width: 260px;
     height: 500px;
+    background-image: url(../img/nav/city.jpg);
     margin-top: 40px;
     overflow-x: scroll;
     h2 {
@@ -1223,9 +1225,13 @@ margin: 0;
     }
     .list {
       li {
-           margin: 5px;
+          margin: 8px 4px;
     display: inline-block;
-    width: 40%;
+    width: 37%;
+    border: 1px solid #000;
+    font-size: 11px;
+    padding: 6px 3px;
+
         a {
           img {
             width: 75%;
@@ -1233,6 +1239,14 @@ margin: 0;
         }
       }
     }
+  }
+  .text-overflow{
+       margin-top: 56%;
+        height: 222px;
+    overflow-y: scroll;
+  }
+  .cyber-hub {
+    font-size: 6px;
   }
   .no-flex {
     display: block;

@@ -10,10 +10,12 @@
         <div class="col-md-4 col-sm-4" ng-repeat="data in datas">
 
           <div class="karting-championship">
-            <div class="brand-blue relative  pointer">
+            <div class="bor-bott">
+            <div class="brand-blue relative  pointer ">
               <img ng-src="{{data.image|uploadpath}}" class="img-responsive" alt="" ui-sref="event-inner({id:data.myslug,eventsInnercity:citySpecific})">
               <a ng-if="d.video" fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{d.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                 class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="d.video"></a>
+            </div>
             </div>
             <div class="new-detail">
               <!-- <div class="views inline-block">
