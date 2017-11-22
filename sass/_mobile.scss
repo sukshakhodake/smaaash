@@ -7,7 +7,20 @@
     max-width: 1366px;
   }
 }
-
+@media (max-width: $screen-sm-max) {
+  .smaaash-cities {
+    width: 90%;
+        top: 34%;
+  }
+  .smash-city {
+    width: 50%;
+    margin: 21% 0% 16% 43%;
+}
+.smash-city li {
+  font-size: 13px;
+      width: 116px;
+}
+}
 @media (max-width: $screen-xs-max) {
 
 
@@ -931,8 +944,10 @@ margin: 0;
     }
 
     .sides {
-   top: 55px !important;
-    right: -10px;
+  //  top: 55px !important;
+  //   right: -10px;
+  top:19px !important;
+  left:103px;
     }
     .logo-smaash {
       display: inline-block;
