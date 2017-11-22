@@ -597,7 +597,7 @@ $menu-height: 80px !default;
         background-color: transparent;
         margin: 0 auto;
         display: block;
-        border-radius: 5px;
+        // border-radius: 5px;
         border: none;
         padding: 10px 20px;
         color: #fff;
@@ -1315,7 +1315,7 @@ img.fancybox-image {
             background-color: $brand-green;
             border: none;
             padding: 10px 20px;
-            border-radius: 5px;
+   
             margin-left: 25px;
             color: #fff;
             .fa {
@@ -1407,10 +1407,10 @@ img.fancybox-image {
     }
     .button-sets {
         button {
-            background-color: #32b544;
+            background-color: $brand-darkpink !important;
             border: none;
             padding: 10px 20px;
-            border-radius: 5px;
+         
             color: #fff;
         }
         button+button {
@@ -1442,7 +1442,7 @@ img.fancybox-image {
                 background-color: $brand-darkpink;
                 border: none;
                 padding: 10px 20px;
-                border-radius: 5px;
+             
                 margin-left: 25px;
                 color: #fff;
                 .fa {
