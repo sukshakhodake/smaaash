@@ -52,7 +52,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 x++;
             }
         })
-        
+
         $scope.getCities1 = [{
             "_id": "577f4d106b78e0bc03724800",
             "__v": 0,
@@ -7102,307 +7102,455 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         ];
 
-        NavigationService.getCity(function (data) {
-            console.log("**********-",data,"-*********");   
-            if (data.value) {
-                $scope.getHomeCity = _.cloneDeep(data.data);
-                if ($state.current.name) {
-
-                    if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
-                        var mumbai = _.find($scope.getHomeCity, function (key) {
-                            if (key.name.toLowerCase() == "mumbai") {
-                                return key;
-                            }
-                        });
-
-                        $scope.getCityName(mumbai);
-
-                    }
-                    switch ($state.current.name) {
-                        case 'home':
-                            if ($stateParams.homepageCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.homepageCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('home', {
-                                    homepageCity: $scope.changeCityParams.name
-
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'attractions':
-                            if ($stateParams.gamesCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.gamesCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('attractions', {
-                                    gamesCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'dealsp':
-                            if ($stateParams.dealspcity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.dealspcity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('dealsp', {
-                                    dealspcity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'event':
-                            if ($stateParams.eventcity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.eventcity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('event', {
-                                    eventcity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'hostparty':
-                            if ($stateParams.hostCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.hostCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('hostparty', {
-                                    hostCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'drink-party':
-                            if ($stateParams.drinkCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.drinkCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('drink-party', {
-                                    drinkCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'snow-rush':
-                            if ($stateParams.snowrushCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.snowrushCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('snow-rush', {
-                                    snowrushCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'event-inner':
-                            if ($stateParams.eventsInnercity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.eventsInnercity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('event-inner', {
-                                    eventsInnercity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'deals-inner':
-                            if ($stateParams.dealsinnercity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.dealsinnercity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('deals-inner', {
-                                    dealsinnercity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'stars':
-                            if ($stateParams.city) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.city) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('stars', {
-                                    city: $scope.changeCityParams.name
-
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'media':
-                            if ($stateParams.mediasCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.mediasCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('media', {
-                                    mediasCity: $scope.changeCityParams.name,
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'parties':
-                            if ($stateParams.partyCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.partyCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('parties', {
-                                    partyCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'about':
-                            if ($stateParams.aboutCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.aboutCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('about', {
-                                    aboutCity: $scope.changeCityParams.name
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
-                        case 'leader':
-                            if ($stateParams.leaderCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.leaderCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                console.log("$scope.changeCityParams.name", $scope.changeCityParams.name);
-                                $state.go('leader', {
-                                    leaderCity: $scope.changeCityParams.name,
-                                });
-                                console.log("after stateParams");
-                                $scope.template.reFetchCity();
+        $scope.getHomeCity1 = [{
+            "_id": "5a0ab43bb7e6ab63e3ae6cfa",
+            "__v": 0,
+            "myslug": "delhi",
+            "weekend": "11 am to 12 pm",
+            "weekdays": "11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a151f6f5ee64a0e902c541a.png",
+            "Photo": "",
+            "BranchName": "Smaaash Delhi",
+            "BranchID": "15",
+            "twitter": "",
+            "facebook": "www.facebook.com/SmaaashDelhi",
+            "instagram": "",
+            "image": "5a0ab40fb7e6ab63e3ae6c5e.png",
+            "order": "8",
+            "name": "Delhi"
+        }, {
+            "_id": "577f4d106b78e0bc03724800",
+            "__v": 0,
+            "myslug": "mumbai",
+            "weekend": "Fri-Sun   11am - 1 am",
+            "weekdays": "Mon-Thurs   12:30pm - 1am",
+            "pdf": "",
+            "logo": "5a0e7f929ec1b33af3c3e89d.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/521641720_Mumbai.jpg",
+            "BranchName": "Smaaash Mumbai",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "57975ca8db98c8fd0fde31e2.png",
+            "order": "7",
+            "name": "Mumbai"
+        }, {
+            "_id": "577f4d246b78e0bc03724802",
+            "__v": 0,
+            "myslug": "gurgaon-cyber-hub",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   11am - 12am",
+            "pdf": "",
+            "logo": "5a1525de5ee64a0e902c5adb.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
+            "BranchName": "Smaaash Gurgaon Cyber Hub",
+            "BranchID": "14",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "58e4cd446cab23481268bcff.png",
+            "order": "6",
+            "name": "Gurgaon - Cyber Hub"
+        }, {
+            "_id": "579b0d74fa72c24405ee0818",
+            "__v": 0,
+            "myslug": "hyderabad",
+            "weekend": "Fri-Sun   11am - 12am",
+            "weekdays": "Mon-Thurs   12pm - 12am",
+            "pdf": "",
+            "logo": "5a151fb35ee64a0e902c5472.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1982363119_Hyderabad.jpg",
+            "BranchName": "Smaaash Hyderabad",
+            "BranchID": "13",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "579b0d73fa72c24405ee0810.png",
+            "order": "5",
+            "name": "Hyderabad"
+        }, {
+            "_id": "577f4d1c6b78e0bc03724801",
+            "__v": 0,
+            "myslug": "bengaluru",
+            "weekend": "Fri-Sat   11am - 1am",
+            "weekdays": "Sun-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "5a151fee5ee64a0e902c54ac.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/143438502_Bengaluru.jpg",
+            "BranchName": "Smaaash Bengaluru",
+            "BranchID": "15",
+            "twitter": "twi hashtag",
+            "facebook": "fb hashtag",
+            "instagram": "insta hashtag",
+            "image": "57975cb3db98c8fd0fde31eb.png",
+            "order": "4",
+            "name": "Bengaluru"
+        }, {
+            "_id": "57808c9032b1d30b046dd48c",
+            "__v": 0,
+            "myslug": "noida",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "5a1520325ee64a0e902c54d8.png",
+            "Photo": "http://ent.itspl.net/Upload/Branch/1131451159_Noida.jpg",
+            "BranchName": "Smaaash Noida",
+            "BranchID": "17",
+            "twitter": "twi shimla",
+            "facebook": "fb shimla",
+            "instagram": "insta shimla",
+            "image": "57975ccadb98c8fd0fde31fd.png",
+            "order": "3",
+            "name": "Noida"
+        }, {
+            "_id": "58808e0e94082f1ed90f06a0",
+            "__v": 0,
+            "myslug": "ludhiana",
+            "weekend": "Fri-Sun   11am - 11pm",
+            "weekdays": "Mon-Thurs   11am - 11pm",
+            "pdf": "",
+            "logo": "5a151f8c5ee64a0e902c5449.png",
+            "Photo": "",
+            "BranchName": "",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "order": "2",
+            "name": "Ludhiana"
+        }, {
+            "_id": "587366fa7309110c7de34906",
+            "__v": 0,
+            "myslug": "gurgaon-sector-29",
+            "weekend": "Fri-Sun   12pm - 11.30pm",
+            "weekdays": "Mon-Thurs   12pm - 11.30pm",
+            "pdf": "",
+            "logo": "5a151fa15ee64a0e902c545a.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon - Sector 29",
+            "BranchID": "",
+            "twitter": "",
+            "facebook": "",
+            "instagram": "",
+            "image": "58e4cd7f6cab23481268bd0e.png",
+            "order": "1",
+            "name": "Gurgaon - Sector 29"
+        }],
 
 
-                            }
+            NavigationService.getCity(function (data) {
+                console.log("**********-", data, "-*********");
+                if (data.value) {
+                    $scope.getHomeCity = _.cloneDeep(data.data);
+                    _.each($scope.getHomeCity, function (val) {
+                        if (val) {
+                            val.cityName = val.name.toLowerCase();
+                        }
+                    })
+                    if ($state.current.name) {
 
-                            break;
-                        case 'benefit':
-                            if ($stateParams.benefitCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.benefitCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('benefit', {
-                                    benefitCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
+                        if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
+                            var mumbai = _.find($scope.getHomeCity, function (key) {
+                                if (key.name.toLowerCase() == "mumbai") {
+                                    return key;
+                                }
+                            });
 
-                                });
-                                $scope.template.reFetchCity();
-                            }
+                            $scope.getCityName(mumbai);
 
-                            break;
-                        case 'sponsor':
-                            if ($stateParams.sponsorCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.sponsorCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('sponsor', {
-                                    sponsorCity: $scope.changeCityParams.name
+                        }
+                        switch ($state.current.name) {
+                            case 'home':
+                                if ($stateParams.homepageCity) {
+                                    $stateParams.homepageCity = $stateParams.homepageCity.toLowerCase();
+                                    console.log("$stateParams.homepageCity", $stateParams.homepageCity);
+                                    console.log("$scope.getHomeCity", $scope.getHomeCity);
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.cityName == $stateParams.homepageCity) {
+                                            return key;
+                                        }
+                                    });
+                                    console.log("$scope.changeCityParams", $scope.changeCityParams);
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    // $state.go('home', {
+                                    //     homepageCity: $scope.changeCityParams.name
 
-                                });
-                                $scope.template.reFetchCity();
-                            }
+                                    // });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'attractions':
+                                if ($stateParams.gamesCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.gamesCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('attractions', {
+                                        gamesCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'dealsp':
+                                if ($stateParams.dealspcity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.dealspcity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('dealsp', {
+                                        dealspcity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'event':
+                                if ($stateParams.eventcity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.eventcity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('event', {
+                                        eventcity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'hostparty':
+                                if ($stateParams.hostCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.hostCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('hostparty', {
+                                        hostCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'drink-party':
+                                if ($stateParams.drinkCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.drinkCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('drink-party', {
+                                        drinkCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'snow-rush':
+                                if ($stateParams.snowrushCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.snowrushCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('snow-rush', {
+                                        snowrushCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'event-inner':
+                                if ($stateParams.eventsInnercity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.eventsInnercity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('event-inner', {
+                                        eventsInnercity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'deals-inner':
+                                if ($stateParams.dealsinnercity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.dealsinnercity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('deals-inner', {
+                                        dealsinnercity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'stars':
+                                if ($stateParams.city) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.city) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('stars', {
+                                        city: $scope.changeCityParams.name
 
-                            break;
-                        case 'career':
-                            if ($stateParams.careerCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.careerCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('career', {
-                                    careerCity: $scope.changeCityParams.name,
-                                    id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'media':
+                                if ($stateParams.mediasCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.mediasCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('media', {
+                                        mediasCity: $scope.changeCityParams.name,
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'parties':
+                                if ($stateParams.partyCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.partyCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('parties', {
+                                        partyCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'about':
+                                if ($stateParams.aboutCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.aboutCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('about', {
+                                        aboutCity: $scope.changeCityParams.name
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
+                            case 'leader':
+                                if ($stateParams.leaderCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.leaderCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    console.log("$scope.changeCityParams.name", $scope.changeCityParams.name);
+                                    $state.go('leader', {
+                                        leaderCity: $scope.changeCityParams.name,
+                                    });
+                                    console.log("after stateParams");
+                                    $scope.template.reFetchCity();
 
-                                });
-                                $scope.template.reFetchCity();
-                            }
 
-                            break;
-                        case 'customizepackage':
-                            if ($stateParams.customizeCity) {
-                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                    if (key.name == $stateParams.customizeCity) {
-                                        return key;
-                                    }
-                                });
-                                NavigationService.setCity($scope.changeCityParams);
-                                $state.go('customizepackage', {
-                                    customizeCity: $scope.changeCityParams.name
-                                });
-                                $scope.template.reFetchCity();
-                            }
-                            break;
+                                }
+
+                                break;
+                            case 'benefit':
+                                if ($stateParams.benefitCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.benefitCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('benefit', {
+                                        benefitCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+
+                                break;
+                            case 'sponsor':
+                                if ($stateParams.sponsorCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.sponsorCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('sponsor', {
+                                        sponsorCity: $scope.changeCityParams.name
+
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+
+                                break;
+                            case 'career':
+                                if ($stateParams.careerCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.careerCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('career', {
+                                        careerCity: $scope.changeCityParams.name,
+                                        id: $stateParams.id
+
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+
+                                break;
+                            case 'customizepackage':
+                                if ($stateParams.customizeCity) {
+                                    $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                        if (key.name == $stateParams.customizeCity) {
+                                            return key;
+                                        }
+                                    });
+                                    NavigationService.setCity($scope.changeCityParams);
+                                    $state.go('customizepackage', {
+                                        customizeCity: $scope.changeCityParams.name
+                                    });
+                                    $scope.template.reFetchCity();
+                                }
+                                break;
 
 
+                        }
                     }
                 }
-            }
 
 
-        })
+            })
         //                       default:
         //                           console.log("im in default");
         //                           console.log("$scope.getHomeCity",$scope.getHomeCity);

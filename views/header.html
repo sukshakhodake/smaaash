@@ -192,13 +192,14 @@
                     </ul>-->
                     <!--<p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT CITY
                         IS {{cityData.name}}</p>-->
-                        <div class="text-overflow">
-                          <ul class="list  uppercase">
-                                <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
-                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
-                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
-                                </ul>
-                        </div>
+                    <div class="text-overflow">
+                        <ul class="list  uppercase">
+                            <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
+                                <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub">cyber hub</span>                                    </div>
+                                <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub">sec-29 </span></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,9 +325,9 @@
                <img src="img/home/woman.png" class="img-responsive" alt="woman-menu">
             </figure>
          </div>-->
-           <div class="sides">
+            <div class="sides">
                 <div class="" id="axe">
-              
+
                     <div class="cities" ng-click="toggleCity()">
                         <span class="title ">{{cityData.name || 'Choose City'}}
                    <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -334,21 +335,21 @@
                     </div>
                 </div>
             </div>
-                <div class=" text-center mar-t">
-                    <ul class="menu-list">
-                        <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})"><span><img src="img/home/eat.png" class="w35"></span><span>EAT</span></a></li>
-                        <li>
-                            <a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})"><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
-                        </li>
-                        <li>
-                            <a ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})"><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
-                        </li>
-                        <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})"><span class="mar-r"><img src="img/home/buy.png" class="w23"></span><span>BUY</span></a></li>
-                        <!--<li><a><span>MORE</span></a></li>
+            <div class=" text-center mar-t">
+                <ul class="menu-list">
+                    <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})"><span><img src="img/home/eat.png" class="w35"></span><span>EAT</span></a></li>
+                    <li>
+                        <a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})"><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
+                    </li>
+                    <li>
+                        <a ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})"><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
+                    </li>
+                    <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})"><span class="mar-r"><img src="img/home/buy.png" class="w23"></span><span>BUY</span></a></li>
+                    <!--<li><a><span>MORE</span></a></li>
           -->
-                    </ul>
-                </div>
-           
+                </ul>
+            </div>
+
             <!--<div class="sides">
                 <div class="" id="axe">
    
@@ -381,9 +382,16 @@
                             <div class="text-overflow">
                                 <ul class="list  uppercase">
                                     <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
-                                    <div class="dis-flex"  ng-if="city.name === 'Gurgaon - Cyber Hub'"> <span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
-                                    <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon - Sector 29'"><span>Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
-                                 </ul>
+                                        <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'">
+                                            <span><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a></span>
+                                            <span class="cyber-hub"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Cyber hub</a></span>
+                                        </div>
+                                        <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon - Sector 29'"><span><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a></span>
+                                            <span
+                                                class="cyber-hub"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">sec-29</a>                                                </span>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <!--<p class="text-center">{{currentdate|englishNumeralTime}} &#8739 {{currentdate| englishNumeralDate}} &#8739 YOUR CURRENT
