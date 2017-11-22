@@ -194,9 +194,9 @@
                         IS {{cityData.name}}</p>-->
                         <div class="text-overflow">
                           <ul class="list  uppercase">
-                                <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)" ng-class=""><a class="color-black"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
-                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'"><span>Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
-                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'"><span>Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
+                                <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
+                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
+                                    <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
                                 </ul>
                         </div>
                 </div>
@@ -336,14 +336,14 @@
             </div>
                 <div class=" text-center mar-t">
                     <ul class="menu-list">
-                        <li><a ui-sref="drink-party"><span><img src="img/home/eat.png" class="w35"></span><span>EAT</span></a></li>
+                        <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})"><span><img src="img/home/eat.png" class="w35"></span><span>EAT</span></a></li>
                         <li>
-                            <a ui-sref="attractions"><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
+                            <a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})"><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
                         </li>
                         <li>
-                            <a ui-sref="parties"><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
+                            <a ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})"><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
                         </li>
-                        <li><a ui-sref="dealsp"><span class="mar-r"><img src="img/home/buy.png" class="w23"></span><span>BUY</span></a></li>
+                        <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})"><span class="mar-r"><img src="img/home/buy.png" class="w23"></span><span>BUY</span></a></li>
                         <!--<li><a><span>MORE</span></a></li>
           -->
                     </ul>

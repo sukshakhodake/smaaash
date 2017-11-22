@@ -1,24 +1,34 @@
 <div class="backdroped dialog-contents">
     <div class="smaaash-cities">
-        <h2 class="title center brand-white">select your city</h2>
+        <!--<h2 class="title center brand-white">select your city</h2>-->
         <a class="cross">
             <i class="fa fa-2x fa-times" aria-hidden="true"></i>
         </a>
         <div class="city-types">
-            <ul class="list">
+ 
                 <!-- <li ng-repeat="city in getCities">
                     <a ng-click="getCityName(city)"><img ng-src="{{city.image|uploadpath}}" class="img-responsive" alt=""></a>
                 </li> -->
-                <li ng-repeat="city in getCities1">
+                <!--<li ng-repeat="city in getCities1">
                     <a ng-click="getCityName(city)"><img ng-src="{{city.image}}" class="img-responsive" alt=""></a>
                 </li>
                 <li>
                     <a href="https://smaaashusa.com/" target="_blank">
                         <img src="img/nav/US-inverse.png" alt="">
                     </a>
-                </li>
-            </ul>
-            <p class="text-center">{{currentdate|date:'h:mm a'}} &#8739 {{currentdate|englishNumeralDate}} &#8739 YOUR CURRENT CITY IS {{nameOfCity}}</p>
+                </li>-->
+
+         
+               <div class="smash-city">
+                            <div class="text-overflow">
+                                <ul class="list  uppercase">
+                                    <li ng-repeat="city in getCities1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':nameOfCity == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' ">{{city.name}}</span></a>
+                                    <div class="dis-flex"  ng-if="city.name === 'Gurgaon - Cyber Hub'"> <span ng-class="{'color-red':nameOfCity == city.name}">Gurgaon</span><span class="cyber-hub" >cyber hub</span> </div>
+                                    <div class="dis-flex" ng-class="{'color-red':nameOfCity == city.name}" ng-if="city.name === 'Gurgaon - Sector 29'"><span>Gurgaon</span><span class="cyber-hub" >sec-29 </span></div></li>
+                                 </ul>
+                            </div>
+                        </div>
+            <!--<p class="text-center">{{currentdate|date:'h:mm a'}} &#8739 {{currentdate|englishNumeralDate}} &#8739 YOUR CURRENT CITY IS {{nameOfCity}}</p>-->
         </div>
     </div>
 </div>
