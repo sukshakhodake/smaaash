@@ -7,6 +7,7 @@
     max-width: 1366px;
   }
 }
+
 // @media (max-width: $screen-sm-max) {
 //   .smaaash-cities {
 //     width: 90%;
@@ -20,149 +21,148 @@
 //   font-size: 13px;
 //       width: 116px;
 // }
-
 // }
 @media (max-width: $screen-xs-max) {
-.heightt {
+  .heightt {
     height: 208px;
-}
-
-  .form-content .practice{
+  }
+  .smash-city {
+    width: 80%;
+    margin: 60% 0% 16% 11%;
+  }
+  .smaaash-cities .list li {
+    width: 90px;
+  }
+  .form-content .practice {
     display: none;
   }
   .app-modal-window .modal-dialog {
-  width: 350px;
-}
-  .dropdowns{
+    width: 350px;
+  }
+  .dropdowns {
     display: none;
   }
-  .panel-heading{
+  .panel-heading {
     // background-image: url("../img/home/menu-bg.png");
     position: relative;
-        background-color: white !important;
+    background-color: white !important;
     box-shadow: 0px 0px 13px 9px rgba(128, 128, 128, 0.4);
     min-height: 50px;
   }
-  .panel-group .panel{
-    border-radius:0;
+  .panel-group .panel {
+    border-radius: 0;
   }
-  .logo{
+  .logo {
     position: absolute;
     z-index: 99;
     left: 15px;
     top: 0;
   }
-  .panel-open{
-     .sides{
-   display: none;
-     }
+  .panel-open {
+    .sides {
+      display: none;
+    }
   }
-  .updated .slant-box h2, .updates .slant-box h2{
-    left:10px!important;
+  .updated .slant-box h2,
+  .updates .slant-box h2 {
+    left: 10px!important;
   }
-
-  .menu-mobile{
+  .menu-mobile {
     position: relative;
-    .menu{
-width: 100px;
-    height: 100px;
-    position: absolute;
-    right: 0;
-    top:0;
-    z-index: 99999;
-    img{
-      width: 100%;
-    }
-    }
-     .cities {
-    padding: 10px 20px;
-    background-color: $brand-red;
-    transform: skew(-15deg);
-    // box-shadow: -3px 3px #000, 1px 0 #000;
-    cursor: pointer;
-    }
-    .sides{
-    position: absolute;
-    top: 52px;
-    right: 10px;
-    cursor: pointer;
-  //   span{
-  // text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
-  //   }
-    }
-  }
-
-  .fixed-height li a {
-  height: auto;
-  img{
-     height: auto;
-  }
-}
-
-  .loyalty-points{
-   .more{
-      width: 100%;
-      button{
-         width: 100%;
-         margin-top: 10px;
+    .menu {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 99999;
+      img {
+        width: 100%;
       }
-   }
-
-   .points{
-     .brand-white{
-       text-align: center;
-     }
-   }
+    }
+    .cities {
+      padding: 10px 20px;
+      background-color: $brand-red;
+      transform: skew(-15deg);
+      // box-shadow: -3px 3px #000, 1px 0 #000;
+      cursor: pointer;
+    }
+    .sides {
+      position: absolute;
+      top: 52px;
+      right: 10px;
+      cursor: pointer;
+      //   span{
+      // text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
+      //   }
+    }
   }
-  .updates{
+  .fixed-height li a {
+    height: auto;
+    img {
+      height: auto;
+    }
+  }
+  .loyalty-points {
+    .more {
+      width: 100%;
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+    .points {
+      .brand-white {
+        text-align: center;
+      }
+    }
+  }
+  .updates {
     margin-top: 15px;
   }
-  .blog{
-  p,span{
-    font-size: 12px;
-  }
-  .new-detail {
-    height: 300px !important;
-}
-.city-share{
-  margin-top: 5px;
-.fa{
-  font-size: 14px;
-}
-}
-.symbols{
-  .fa-2x{
-     font-size: 1em;
-  }
-}
-.symbols,.social-icons{
-  float: none !important;
-    display: block;
-    text-align: center;
-
-}
-
-
-}
-
-.blog{
-  .button-set{
-    .social-icons{
-      display: block;
-    text-align: center;
+  .blog {
+    p,
+    span {
+      font-size: 12px;
     }
-    .more{
+    .new-detail {
+      height: 300px !important;
+    }
+    .city-share {
+      margin-top: 5px;
+      .fa {
+        font-size: 14px;
+      }
+    }
+    .symbols {
+      .fa-2x {
+        font-size: 1em;
+      }
+    }
+    .symbols,
+    .social-icons {
+      float: none !important;
       display: block;
-    margin-top: 20px;
-    text-align: center;
+      text-align: center;
     }
   }
-}
-
-.symbols span {
+  .blog {
+    .button-set {
+      .social-icons {
+        display: block;
+        text-align: center;
+      }
+      .more {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+  .symbols span {
     margin: 0 5px;
     font-size: 12px;
-}
+  }
   .image-chefing {
     margin-top: 0px;
   }
@@ -210,16 +210,15 @@ width: 100px;
     }
   }
   //new profile
-.profile .tab-item p{
-  font-size: 14px;
-}
-
+  .profile .tab-item p {
+    font-size: 14px;
+  }
   .profile-point {
     .profile-details,
     .profile-detail {
       margin-bottom: 15px;
-    min-height: 200px;
-    overflow: hidden;
+      min-height: 200px;
+      overflow: hidden;
     }
   }
   .tab li.active-tab:after {
@@ -233,7 +232,8 @@ width: 100px;
   }
   .w30,
   .w46,
-  .w92,.w90 {
+  .w92,
+  .w90 {
     width: 100% !important;
   }
   //
@@ -508,11 +508,11 @@ width: 100px;
       height: 35px;
     }
     .login-mobile {
-    margin: 40px 0;
+      margin: 40px 0;
     }
     .cityselect {
-    top: 8px;
-}
+      top: 8px;
+    }
   }
   .slant-col {
     @include transform(skew(0deg));
@@ -639,7 +639,7 @@ width: 100px;
   .menu-opened .smaash-menu {
     height: 400px;
     overflow-y: scroll;
-   padding: 0 20px 0 0;
+    padding: 0 20px 0 0;
   }
   .cut {
     float: right;
@@ -695,70 +695,105 @@ width: 100px;
   .pad0 {
     padding: 0 !important;
   }
-//mobile header new
-.play-button{
+  //mobile header new
+  .play-button {
     height: 20px;
     width: 20px;
-}
-
-.header-mobile{
-
-  ul{
-    padding: 0;
-    height: auto;
- 
   }
-  li{
-     list-style-type: none;
-  }
-
-  .logo-smaash{
-    // position: static;
-    display: block;
-    text-align: center;
-    height: auto !important;
-    width: 100px !important;
-    left: -2px;
-    margin: 0 auto;
-    padding-top: 0px !important;
-    img{
-      width: 100%;
+  .header-mobile {
+    ul {
+      padding: 0;
+      height: auto;
+    }
+    li {
+      list-style-type: none;
+    }
+    .logo-smaash {
+      // position: static;
+      display: block;
+      text-align: center;
+      height: auto !important;
+      width: 100px !important;
+      left: -2px;
+      margin: 0 auto;
+      padding-top: 0px !important;
+      img {
+        width: 100%;
+      }
     }
   }
-}
-.landing-kartbanner{
-  margin-top: 0;
-min-height: 225px;
-background-size: contain !important;
-}
-
-.dropdowns .menu img{
-  height: 65px;
+  .landing-kartbanner {
+    margin-top: 0;
+    min-height: 225px;
+    background-size: contain !important;
+  }
+  .dropdowns .menu img {
+    height: 65px;
     width: auto;
-}
-
-
-
-
+  }
 }
 
 @media (max-width: $screen-sm-max) {
-  .footing h4{
+  .form-content .practice {
+    background-color: #fff;
+    margin-top: 199px;
+    margin-right: 45px;
+  }
+  .practice {
+    .form-control {
+      height: 23px;
+      font-size: 10px;
+    }
+    .form {
+      i {
+        font-size: 7px;
+      }
+    }
+  }
+  .practice .btn6 {
+    font-size: 12px;
+    padding: 4px 15px;
+  }
+  .connect-button{
+    padding: 5px;
+    font-size: 10px;
+  }
+  .side-buttons{
+        top: 10%;
+        right:0px;
+  }
+  .close-it {
+   
+    left: -31px;
+    top: 7px;
+  }
+  .side-menu {
+        top: 7%;
+    right: -425px;
+  }
+  .smaaash-cities {
+    width: 95%;
+    top: 50%;
+  }
+  .smash-city {
+    width: 61%;
+    margin: 21% 0% 16% 36%;
+  }
+  .footing h4 {
     text-align: center !important;
   }
-.row-timing-sec .row{
-margin: 0;
-}
-.facebook {
+  .row-timing-sec .row {
+    margin: 0;
+  }
+  .facebook {
     height: 250px;
-    .wdget{
+    .wdget {
       height: auto;
     }
-}
-
+  }
   .dropdowns {
     height: 60px;
-    }
+  }
   .divider,
   .or {
     display: none;
@@ -856,7 +891,7 @@ margin: 0;
   }
   .host-party {
     h3 {
-      font-size: 20px;
+      font-size: 16px;
     }
     .special,
     .packagings {
@@ -873,8 +908,8 @@ margin: 0;
     }
     .love {
       button {
-    width: 100%;
-    margin-top: 20px;
+        width: 100%;
+        margin-top: 20px;
       }
     }
     .blue-package {
@@ -948,12 +983,11 @@ margin: 0;
       right: 20px;
       z-index: 99;
     }
-
     .sides {
-  //  top: 55px !important;
-  //   right: -10px;
-  top:19px !important;
-  left:103px;
+      //  top: 55px !important;
+      //   right: -10px;
+      top: 19px !important;
+      left: 103px;
     }
     .logo-smaash {
       display: inline-block;
@@ -1091,44 +1125,40 @@ margin: 0;
       }
     }
   }
-
   //home
-  .fixed-height li a{
+  .fixed-height li a {
     height: auto !important;
   }
-  .marg-top15{
+  .marg-top15 {
     margin-top: 15px;
   }
   .logo-smaash {
- 
-    margin-top: 24px !important ;
+    margin-top: 24px !important;
     height: 108px !important;
     width: 35% !important;
-    left:10px !important;
-}
+    left: 10px !important;
+  }
 }
 
 @media (max-width:480px) {
-  .row-timing-sec .row{
+  .row-timing-sec .row {
     margin: 0;
   }
-  .marginmobile0{
+  .marginmobile0 {
     margin: 0;
   }
-  .texting{
+  .texting {
     width: 250px;
   }
-
-.host-pop{
-  width: auto!important;
-}
-// .race{
-//   margin: 0px;
-// }
-.fbeve{
-  height: 100% !important;
-}
-
+  .host-pop {
+    width: auto!important;
+  }
+  // .race{
+  //   margin: 0px;
+  // }
+  .fbeve {
+    height: 100% !important;
+  }
   .chef-img {
     height: 150px;
     img {
@@ -1146,7 +1176,7 @@ margin: 0;
     text-align: center;
     height: 130px;
     margin-bottom: 15px;
-    .wdget{
+    .wdget {
       height: auto;
     }
   }
@@ -1193,22 +1223,23 @@ margin: 0;
       }
     }
   }
-
-  .prewedding .banner-info, .birthday .banner-info, .kitty .banner-info { width: 40%; }
-
-.kitty{
-  .figure{
-    min-height: 65vh;
+  .prewedding .banner-info,
+  .birthday .banner-info,
+  .kitty .banner-info {
+    width: 40%;
   }
-}
-.tabs-about li a {
-    font-size: 11px;
-}
-
-.btn-checkout .butn_check,.careers .button-sets button {
-    width: 50%;
+  .kitty {
+    .figure {
+      min-height: 65vh;
     }
-
+  }
+  .tabs-about li a {
+    font-size: 11px;
+  }
+  .btn-checkout .butn_check,
+  .careers .button-sets button {
+    width: 50%;
+  }
   .dropdowns {
     .woman-menu {
       display: none;
@@ -1216,9 +1247,9 @@ margin: 0;
     .menu {
       right: 0;
     }
-     .sides {
-     top: 68px;
-    right: 45px;
+    .sides {
+      top: 68px;
+      right: 45px;
     }
     .logo-smaash {
       display: inline-block;
@@ -1253,13 +1284,12 @@ margin: 0;
     }
     .list {
       li {
-          margin: 8px 4px;
-    display: inline-block;
-    width: 37%;
-    border: 1px solid #000;
-    font-size: 11px;
-    padding: 6px 3px;
-
+        margin: 8px 4px;
+        display: inline-block;
+        width: 44%;
+        border: 1px solid #000;
+        font-size: 11px;
+        padding: 6px 3px;
         a {
           img {
             width: 75%;
@@ -1268,9 +1298,9 @@ margin: 0;
       }
     }
   }
-  .text-overflow{
-       margin-top: 56%;
-        height: 222px;
+  .text-overflow {
+    margin-top: 56%;
+    height: 222px;
     overflow-y: scroll;
   }
   .cyber-hub {
@@ -1414,38 +1444,38 @@ margin: 0;
       font-size: 25px;
     }
   }
-  .land-forms{
-  .videos{
-    iframe{
-       height: 100vh;
+  .land-forms {
+    .videos {
+      iframe {
+        height: 100vh;
+      }
+    }
+    .practice {
+      width: 90%;
     }
   }
-  .practice{
-    width: 90%;
+  .landing-forms {
+    height: 210vh;
+    margin-top: -5px;
   }
-}
-
-.landing-forms{
-  height: 210vh;
-  margin-top: -5px;
-}
-.landing-form{
-  height: 40vh;
-}
-.menu-mobile {
-.menu{
-    @include size(60px,auto);
-    @include position(absolute,20px 20px null null);
-    z-index: 99;
-}
-}
-.smash-logoc{
-  width: 80px;
-}
-.first-know .subform {
+  .landing-form {
+    height: 40vh;
+  }
+  .menu-mobile {
+    .menu {
+      @include size(60px,
+      auto);
+      @include position(absolute,
+      20px 20px null null);
+      z-index: 99;
+    }
+  }
+  .smash-logoc {
+    width: 80px;
+  }
+  .first-know .subform {
     margin: 10px 0px;
-}
-
+  }
 }
 
 @media only screen and (min-device-width: 462px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1483,8 +1513,6 @@ margin: 0;
   }
 }
 
-
-
 @media only screen and (min-device-width: 320px) and (max-device-width: 460px) and (-webkit-min-device-pixel-ratio: 2) {
   .corporate,
   .birthday,
@@ -1504,7 +1532,6 @@ margin: 0;
           letter-spacing: normal;
         }
       }
-
       .banner-buttons {
         .btn1 {
           margin: 0 4px;
@@ -1520,7 +1547,6 @@ margin: 0;
             padding: 3px 6px;
             font-size: 7px;
           }
-
         }
       }
     }
@@ -1537,22 +1563,21 @@ margin: 0;
       padding: 2px 12px;
       border-color: transparent;
     }
-    .btn2{
-                &:active{
+    .btn2 {
+      &:active {
         background-color: $brand-purple;
       }
-               &:active{
-                 &:focus{
-background-color: $brand-purple;
- outline: 0;
-                 }
-
+      &:active {
+        &:focus {
+          background-color: $brand-purple;
+          outline: 0;
+        }
       }
-        &:focus{
+      &:focus {
         background-color: $brand-purple;
         outline: 0;
       }
-        &:hover{
+      &:hover {
         background-color: $brand-purple;
       }
     }
@@ -1566,9 +1591,9 @@ background-color: $brand-purple;
     margin: 0;
   }
   .dropdowns {
-     .sides {
-     top: 68px;
-    right: 45px;
+    .sides {
+      top: 68px;
+      right: 45px;
     }
   }
   .smaash-menu .nav-name {
@@ -1588,7 +1613,6 @@ background-color: $brand-purple;
   .full-height {
     height: 300px;
   }
-
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1653,21 +1677,21 @@ background-color: $brand-purple;
     }
   }
   .landing-kartbanner {
-   min-height: 225px;
+    min-height: 225px;
     background-size: contain !important;
   }
-
   //avatar
-.avatar{
-  .avatars,.avatarss,.avatars1,.avatarss1,.avatars2,.avatarss2{
-    height: 100px;
-
-  }
-}
-
-     .widths{
-      width: 87%;
+  .avatar {
+    .avatars,
+    .avatarss,
+    .avatars1,
+    .avatarss1,
+    .avatars2,
+    .avatarss2 {
+      height: 100px;
     }
-
-
+  }
+  .widths {
+    width: 87%;
+  }
 }
