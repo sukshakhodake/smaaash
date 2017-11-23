@@ -196,6 +196,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/delhi.png",
             "order": "8",
             "name": "Delhi"
+        },
+        {
+            "_id": "5a16b85263ed4158867bb141",
+            "__v": 0,
+            "myslug": "gurgaon-ambience-mall",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a16b84863ed4158867bb126.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon Ambience Mall",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "https://www.facebook.com/SmaaashAmbienceMallGurgaon/",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgaonAmbianceMall.png",
+            "order": "9",
+            "name": "Gurgaon Ambience Mall"
         }
         ];
         $scope.openpops = function () {
@@ -4663,6 +4681,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/delhi.png",
             "order": "8",
             "name": "Delhi"
+        },
+        {
+            "_id": "5a16b85263ed4158867bb141",
+            "__v": 0,
+            "myslug": "gurgaon-ambience-mall",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a16b84863ed4158867bb126.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon Ambience Mall",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "https://www.facebook.com/SmaaashAmbienceMallGurgaon/",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgaonAmbianceMall.png",
+            "order": "9",
+            "name": "Gurgaon Ambience Mall"
         }
         ];
         $scope.formDatapopup = {};
@@ -7099,6 +7135,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/delhi.png",
             "order": "8",
             "name": "Delhi"
+        },
+        {
+            "_id": "5a16b85263ed4158867bb141",
+            "__v": 0,
+            "myslug": "gurgaon-ambience-mall",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a16b84863ed4158867bb126.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon Ambience Mall",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "https://www.facebook.com/SmaaashAmbienceMallGurgaon/",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgaonAmbianceMall.png",
+            "order": "9",
+            "name": "Gurgaon Ambience Mall"
         }
         ];
 
@@ -7238,6 +7292,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "58e4cd7f6cab23481268bd0e.png",
             "order": "1",
             "name": "Gurgaon - Sector 29"
+        },
+        {
+            "_id": "5a16b85263ed4158867bb141",
+            "__v": 0,
+            "myslug": "gurgaon-ambience-mall",
+            "weekend": "Fri-Sun   11 am to 12 pm",
+            "weekdays": "Mon-Thurs   11 am to 12 pm",
+            "pdf": "",
+            "logo": "5a16b84863ed4158867bb126.png",
+            "Photo": "",
+            "BranchName": "Smaaash Gurgaon Ambience Mall",
+            "BranchID": "12",
+            "twitter": "twi hashtag",
+            "facebook": "https://www.facebook.com/SmaaashAmbienceMallGurgaon/",
+            "instagram": "insta hashtag",
+            "image": "img/nav/gurgaonAmbianceMall.png",
+            "order": "9",
+            "name": "Gurgaon Ambience Mall"
         }],
 
 
