@@ -1582,7 +1582,7 @@ $brand-white:#fff !default;
 
 .leadership {
   .new-detail {
-    border: 1px solid #000;
+    // border: 1px solid #000;
     border-top: none;
     p {
       color: #000;
@@ -3674,6 +3674,7 @@ select:focus .cityselect {
     width: 110px;
     vertical-align: middle;
     border: 1px solid #080808 !important;
+    cursor: pointer;
     &:hover {
       color: red;
     }
