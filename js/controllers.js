@@ -7794,6 +7794,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
 
                     break;
+                case 'contact':
+                    $state.go('contact', {
+                        contactCity: cityname.name
+
+                    })
+
+                    break;
 
                 default:
 
