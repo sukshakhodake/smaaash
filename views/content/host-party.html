@@ -48,42 +48,51 @@
         <div class="col-md-4  col-sm-3  hidden-xs"></div>
         <div class="col-md-4  col-sm-5 col-xs-12">
           <div class="practice">
-            <form class="form" name="user" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-              <input type=hidden name="oid" value="00D6F000000Dr5h">
-              <input type="hidden" name="retURL" id="retURL" value="http://smaaash.in/#thanks">
-              <input id="00N6F00000GxzFA" maxlength="20" name="00N6F00000GxzFA" size="20" type="hidden" class="leadid" />
+            <form class="form" name="WebToLeads2924822000000146013" action="https://crm.zoho.com/crm/WebToLeadForm" method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory()'
+              accept-charset='UTF-8'>
+              <!-- Do not remove this code. -->
+              <input type='text' style='display:none;' name='xnQsjsdp' value='b5c41eca6212277da0c42d63de8b032b17dda6164a184653ea8f2923743bbff5'
+              />
+              <input type='hidden' name='zc_gad' id='zc_gad' value='' />
+              <input type='text' style='display:none;' name='xmIwtLD' value='2ebd540b525c91e7a3c44ae5071724137493dfdaf1400e7279ee184725531d0a'
+              />
+              <input type='text' style='display:none;' name='actionType' value='TGVhZHM=' />
+
+
+              <input type="hidden" name="returnURL" id="returnURL" value="http://smaaash.in/#thanks">
+              <input id="LEADCF17" maxlength="20" name="LEADCF17" size="20" type="hidden" class="leadid" />
               <div class="form-group">
                 <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-                <select id='00N6F00000Enqi8' name='00N6F00000Enqi8' style='display:none' title='Type of Event'>
+                <select id='LEADCF2' name='LEADCF2' style='display:none' title='Type of Event'>
                             <option selected='selected' value='{{partyName}}'>{{partyName}}</option>
                           </select>
               </div>
-              <select id="lead_source" name="lead_source" style="display:none">
+              <select id="Lead Source" name="Lead Source" style="display:none">
                      <option value="Web 2 Lead"  selected="selected">Web 2 Lead</option>
                      <option value="Google">Google</option>
                      </select>
-              <select id='00N6F00000FbWPi' name='00N6F00000FbWPi' style='display:none' title='Sales Team Assigned'>
+              <select id='LEADCF1' name='LEADCF1' style='display:none' title='Sales Team Assigned'>
                         <option selected='selected' value="{{citySpecific}}">{{citySpecific}}</option>
                      </select>
               <h3 class="text-center">Need assistance?</h3>
               <div class="form-group relative">
-                <input id="first_name" maxlength="40" name="first_name" placeholder="Name" data-rule-required="true" class="form-control bottom_border"
+                <input id="Last Name" maxlength="40" name="Last Name" placeholder="Name" data-rule-required="true" class="form-control bottom_border"
                   size="20" type="text" required />
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
               </div>
               <div class="form-group relative">
-                <input id="email" maxlength="80" name="email" class="form-control bottom_border" placeholder="Email" data-rule-required="true"
+                <input id="Email" maxlength="80" name="Email" class="form-control bottom_border" placeholder="Email" data-rule-required="true"
                   placeholder="" size="20" type="email" required/>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
               </div>
               <div class="form-group relative ">
-                <input id="mobile" maxlength="10" minlength="8" name="mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true"
+                <input id="Mobile" maxlength="10" minlength="8" name="Mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true"
                   placeholder="" size="20" type="tel" ng-model="Mobile" Only-Digits required/>
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
               </div>
               <div class="form-group relative">
                 <span class="required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
-                <select name="categorydata" class="form-control" ng-model="formData.occasion" ng-change="goTOPartyFor(formData.occasion)"
+                <select name="LEADCF2" id="LEADCF2" class="form-control" ng-model="formData.occasion" ng-change="goTOPartyFor(formData.occasion)"
                   required>
                            <option ng-selected="true" value="">Please select occasion</option>
                            <option value="Birthday or Anniversary">Birthday Party</option>
@@ -96,7 +105,7 @@
                         </select>
               </div>
               <div class="form-group">
-                <select id="00N6F00000EnggI" name="00N6F00000EnggI" class="form-control last_border">
+                <select id="LEADCF3" name="LEADCF3" class="form-control last_border">
                            <option class="color_change" value="" selected='selected'>Party For</option>
                            <option class="color_change" value="15-50">15 to 50</option>
                            <option class="color_change" value="50-100">50 to 100</option>
@@ -107,8 +116,8 @@
               </div>
               <div class="form-group">
                 <!-- <input id="00N6F00000EnggN" name="00N6F00000EnggN" class="form-control" size="12"  type="date" /> -->
-                <input type="text" required="" id="00N6F00000EnggN" name="00N6F00000EnggN" placeholder="Date of event" onfocus="(this.type='date')"
-                  onblur="if(this.value==''){this.type='text'}" class="form-control" placeholder="Date of event">
+                <input type="text" required="" id="LEADCF91" name="LEADCF91" placeholder="Date of event" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"
+                  class="form-control" placeholder="Date of event">
                 <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions"
                    close-text="Close" alt-input-formats="altInputFormats" ng-model="formData.date" /> -->
                 <!-- <a href="" class="down" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></a> -->
@@ -294,7 +303,8 @@
 <script>
   var d = new Date();
   var n = Math.floor(Math.random() * 90 + 10) + d.valueOf();
-  document.getElementById("retURL").value = document.getElementById("retURL").value + "?lead_id=" + n;
+  document.getElementById("returnURL").value = document.getElementById("returnURL").value + "?lead_id=" + n;
   $(".leadid").val(n);
+
 </script>
 <!-- ******************* -->

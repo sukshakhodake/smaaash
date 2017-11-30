@@ -50,22 +50,14 @@
     <h2 class="uppercase title brand-white">enquiry</h2>
     <a href="" class="close text-uppercase mobile-close" ng-click="$dismiss();"><i class="fa fa-times" aria-hidden="true"></i>
 </a>
-    <form class=" form enquires" name="WebToLeads2924822000000146013" action="https://crm.zoho.com/crm/WebToLeadForm" method="POST"
-      onSubmit='javascript:document.charset="UTF-8"; return checkMandatory()' accept-charset='UTF-8'>
-      <!-- Do not remove this code. -->
-      <input type='text' style='display:none;' name='xnQsjsdp' value='b5c41eca6212277da0c42d63de8b032b17dda6164a184653ea8f2923743bbff5'
-      />
-      <input type='hidden' name='zc_gad' id='zc_gad' value='' />
-      <input type='text' style='display:none;' name='xmIwtLD' value='2ebd540b525c91e7a3c44ae5071724137493dfdaf1400e7279ee184725531d0a'
-      />
-      <input type='text' style='display:none;' name='actionType' value='TGVhZHM=' />
-
-
-      <input type="hidden" name="returnURL" id="returnURL" value="http://smaaash.in/#thanks">
-      <input id="LEADCF17" maxlength="20" name="LEADCF17" size="20" type="hidden" class="leadid" />
+    <form class=" form enquires" name="enquiryForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+      method="POST">
+      <input type=hidden name="oid" value="00D6F000000Dr5h">
+      <input type="hidden" name="retURL" id="retURL" value="http://smaaash.in/#thanks">
+      <input id="00N6F00000GxzFA" maxlength="20" name="00N6F00000GxzFA" size="20" type="hidden" class="leadid" />
       <div class="form-group">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select class="citydropdown form-control bottom_border" id="LEADCF8" name="LEADCF8" required>
+        <select class="citydropdown form-control bottom_border" id="city" name="city" required>
                       <option class="color_change" value="{{citySpecific}}">{{citySpecific}}</option>
 
             </select>
@@ -73,18 +65,18 @@
 
       <div class="form-group">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select id='LEADCF2' name='LEADCF2' style='display:none' title='Type of Event'>
+        <select id='00N6F00000Enqi8' name='00N6F00000Enqi8' style='display:none' title='Type of Event'>
                 <option selected='selected' value='{{partyName}}'>{{partyName}}</option>
               </select>
 
       </div>
       <div class="form-group">
-        <select id="Lead Source" name="Lead Source" style="display:none">
+        <select id="lead_source" name="lead_source" style="display:none">
 <option value="Web 2 Lead"  selected="selected">Web 2 Lead</option>
 <option value="Google">Google</option>
 </select>
 
-        <select id='LEADCF1' name='LEADCF1' style='display:none' title='Sales Team Assigned'>
+        <select id='00N6F00000FbWPi' name='00N6F00000FbWPi' style='display:none' title='Sales Team Assigned'>
                 <option selected='selected' value="{{citySpecific}}" ng-if="citySpecific!=='Gurgaon - Sector 29' && citySpecific!=='Gurgaon - Cyber Hub' ">{{citySpecific}}</option>
                 <option selected='selected' value="Gurgaon 1" ng-if="citySpecific ==='Gurgaon - Sector 29'">Gurgaon 1</option>
                 <option selected='selected' value="Gurgaon 2" ng-if="citySpecific ==='Gurgaon - Cyber Hub'">Gurgaon 2</option>
@@ -97,23 +89,23 @@
                 </select>
       </div>
       <div class="form-group">
-        <input id="Last Name" maxlength="40" name="Last Name" placeholder="Name" data-rule-required="true" class="form-control bottom_border"
+        <input id="first_name" maxlength="40" name="first_name" placeholder="Name" data-rule-required="true" class="form-control bottom_border"
           size="20" type="text" required />
 
       </div>
       <div class="form-group">
-        <input id="Email" maxlength="80" name="Email" class="form-control bottom_border" placeholder="Email" data-rule-required="true"
+        <input id="email" maxlength="80" name="email" class="form-control bottom_border" placeholder="Email" data-rule-required="true"
           placeholder="" size="20" type="email" required/>
 
       </div>
       <div class="form-group">
-        <input id="Mobile" maxlength="40" name="Mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true"
+        <input id="mobile" maxlength="40" name="mobile" placeholder="Mobile" class="form-control bottom_border" data-rule-required="true"
           placeholder="" size="20" type="tel" required/>
 
       </div>
       <div class="form-group">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-        <select id="LEADCF3" name="LEADCF3" class="form-control last_border">
+        <select id="00N6F00000EnggI" name="00N6F00000EnggI" class="form-control last_border">
                    <option class="color_change" value="" selected='selected'>Party For</option>
                    <option class="color_change" value="15-50">15 to 50</option>
                    <option class="color_change" value="50-100">50 to 100</option>
@@ -137,7 +129,7 @@
   // Generate Lead Id
   var d = new Date();
   var n = Math.floor(Math.random() * 90 + 10) + d.valueOf();
-  document.getElementById("returnURL").value = document.getElementById("returnURL").value + "?lead_id=" + n;
+  document.getElementById("retURL").value = document.getElementById("retURL").value + "?lead_id=" + n;
   $(".leadid").val(n);
   //}
 
