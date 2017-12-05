@@ -5855,7 +5855,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('EventInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope, $state) {
+    .controller('EventInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope, $sce, $state) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("event-inner");
         $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
@@ -6020,18 +6020,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             })
         }
-
         $scope.pdfmodal = function (pdf) {
             console.log("im in");
             $scope.pdfdata = pdf;
+            $scope.pdfURL = $filter('uploadpath')($scope.pdfdata);
+            $scope.finalURL = 'https://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
+            $scope.trustedURL = $sce.trustAsResourceUrl($scope.finalURL);
+            console.log("  $scope.finalURL", $scope.finalURL);
+
             if ($scope.pdfdata) {
                 $uibModal.open({
                     animation: true,
                     templateUrl: "views/modal/menu.html",
                     scope: $scope,
+                    //  windowClass: "modal-lg"
                 })
             }
         };
+
         $scope.eventInnerCartParams = {};
         $scope.eventInnerCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
         $scope.eventInnerCartParams.NoOfAdults = '1';
@@ -6423,7 +6429,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('PromotionInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $uibModal, $location, $rootScope) {
+    .controller('PromotionInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $sce, $uibModal, $location, $rootScope) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("promotion");
         $scope.menutitle = $stateParams.id.charAt(0).toUpperCase() + $stateParams.id.substring(1);
@@ -6479,12 +6485,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.dt = new Date(year, month, day);
         };
         $scope.pdfmodal = function (pdf) {
+            console.log("im in");
             $scope.pdfdata = pdf;
+            $scope.pdfURL = $filter('uploadpath')($scope.pdfdata);
+            $scope.finalURL = 'https://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
+            $scope.trustedURL = $sce.trustAsResourceUrl($scope.finalURL);
+            console.log("  $scope.finalURL", $scope.finalURL);
+
             if ($scope.pdfdata) {
                 $uibModal.open({
                     animation: true,
                     templateUrl: "views/modal/menu.html",
                     scope: $scope,
+                    //  windowClass: "modal-lg"
                 })
             }
         };
