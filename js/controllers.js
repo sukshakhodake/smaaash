@@ -3666,7 +3666,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCities = _.cloneDeep(data.data);
                 console.log("$scope.getCities ", $scope.getCities);
                 $scope.tempCity = _.find($scope.getCities, function (obj) {
-                    return obj.name == $stateParams.snowrushCity;
+                    return obj.myslug == $stateParams.snowrushCity;
                 });
 
                 NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function (data) {
@@ -7516,6 +7516,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 }
                                 break;
                             case 'hostparty':
+                            console.log("$stateParams.hostCity",$stateParams.hostCity)
+                            console.log("$scope.getHomeCity",$scope.getHomeCity)
                                 if ($stateParams.hostCity) {
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.hostCity) {
