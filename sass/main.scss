@@ -2497,7 +2497,12 @@ img.fancybox-image {
     // margin: -26px 0 0 !important;
      margin: 10px 0 0 !important;
 }
-
+.positioning-div{
+    display: flex;
+    figure{
+        height: 188px;
+    }
+}
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

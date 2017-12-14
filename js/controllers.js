@@ -206,6 +206,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/gurgaonAmbianceMall.png",
             "order": "9",
             "name": "Gurgaon Ambience Mall"
+        }, {
+            "BranchID": "17",
+            "BranchName": "Smaaash Pune",
+            "Photo": "",
+            "facebook": "https://www.facebook.com/SmaaashPune/",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "instagram": "",
+            "logo": "5a311c5b443b8113be3d33a4.png",
+            "myslug": "pune",
+            "name": "Pune",
+            "order": "10",
+            "pdf": "",
+            "twitter": "",
+            "weekdays": "11 am to 12 am",
+            "weekend": "11 am to 12 am",
+            "__v": 0,
+            "_id": "5a2f81f1a41b1d20ca8c58d7",
+        }, {
+            "BranchID": "18",
+            "BranchName": "Smaaash Chandigarh",
+            "Photo": "",
+            "facebook": "https://www.facebook.com/SmaaashChandigarh/",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "instagram": "",
+            "logo": "5a3125a3740f9b151eb9781b.png",
+            "myslug": "chandigarh",
+            "name": "Chandigarh",
+            "order": "11",
+            "pdf": "",
+            "twitter": "",
+            "weekdays": "11 am to 12 am",
+            "weekend": "11 am to 12 am",
+            "__v": 0,
+            "_id": "5a3123e1ee2ab36f8785c797",
         }];
         $scope.openpops = function () {
             openL = ngDialog.open({
@@ -4683,6 +4717,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/gurgaonAmbianceMall.png",
             "order": "9",
             "name": "Gurgaon Ambience Mall"
+        }, {
+            "BranchID": "17",
+            "BranchName": "Smaaash Pune",
+            "Photo": "",
+            "facebook": "https://www.facebook.com/SmaaashPune/",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "instagram": "",
+            "logo": "5a311c5b443b8113be3d33a4.png",
+            "myslug": "pune",
+            "name": "Pune",
+            "order": "10",
+            "pdf": "",
+            "twitter": "",
+            "weekdays": "11 am to 12 am",
+            "weekend": "11 am to 12 am",
+            "__v": 0,
+            "_id": "5a2f81f1a41b1d20ca8c58d7",
+        }, {
+            "BranchID": "18",
+            "BranchName": "Smaaash Chandigarh",
+            "Photo": "",
+            "facebook": "https://www.facebook.com/SmaaashChandigarh/",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "instagram": "",
+            "logo": "5a3125a3740f9b151eb9781b.png",
+            "myslug": "chandigarh",
+            "name": "Chandigarh",
+            "order": "11",
+            "pdf": "",
+            "twitter": "",
+            "weekdays": "11 am to 12 am",
+            "weekend": "11 am to 12 am",
+            "__v": 0,
+            "_id": "5a3123e1ee2ab36f8785c797",
         }];
         $scope.formDatapopup = {};
         $scope.submitHostPopup = function (formDatapop) {
@@ -7090,7 +7158,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/ludhiana.png",
             "order": "2",
             "name": "Ludhiana"
-        }, {
+        },{
             "_id": "587366fa7309110c7de34906",
             "__v": 0,
             "myslug": "gurgaon-sector-29",
@@ -7141,6 +7209,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "image": "img/nav/gurgaonAmbianceMall.png",
             "order": "9",
             "name": "Gurgaon Ambience Mall"
+        }, {
+            "BranchID": "17",
+            "BranchName": "Smaaash Pune",
+            "Photo": "",
+            "facebook": "https://www.facebook.com/SmaaashPune/",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "instagram": "",
+            "logo": "5a311c5b443b8113be3d33a4.png",
+            "myslug": "pune",
+            "name": "Pune",
+            "order": "10",
+            "pdf": "",
+            "twitter": "",
+            "weekdays": "11 am to 12 am",
+            "weekend": "11 am to 12 am",
+            "__v": 0,
+            "_id": "5a2f81f1a41b1d20ca8c58d7",
+        }, {
+            "BranchID": "18",
+            "BranchName": "Smaaash Chandigarh",
+            "Photo": "",
+            "facebook": "https://www.facebook.com/SmaaashChandigarh/",
+            "image": "5885c903d0e83a29f610e94a.png",
+            "instagram": "",
+            "logo": "5a3125a3740f9b151eb9781b.png",
+            "myslug": "chandigarh",
+            "name": "Chandigarh",
+            "order": "11",
+            "pdf": "",
+            "twitter": "",
+            "weekdays": "11 am to 12 am",
+            "weekend": "11 am to 12 am",
+            "__v": 0,
+            "_id": "5a3123e1ee2ab36f8785c797",
         }];
 
         $scope.getHomeCity1 = [{
@@ -7296,11 +7398,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "image": "img/nav/gurgaonAmbianceMall.png",
                 "order": "9",
                 "name": "Gurgaon Ambience Mall"
+            }, {
+                "BranchID": "17",
+                "BranchName": "Smaaash Pune",
+                "Photo": "",
+                "facebook": "https://www.facebook.com/SmaaashPune/",
+                "image": "5885c903d0e83a29f610e94a.png",
+                "instagram": "",
+                "logo": "5a311c5b443b8113be3d33a4.png",
+                "myslug": "pune",
+                "name": "Pune",
+                "order": "10",
+                "pdf": "",
+                "twitter": "",
+                "weekdays": "11 am to 12 am",
+                "weekend": "11 am to 12 am",
+                "__v": 0,
+                "_id": "5a2f81f1a41b1d20ca8c58d7",
+            }, {
+                "BranchID": "18",
+                "BranchName": "Smaaash Chandigarh",
+                "Photo": "",
+                "facebook": "https://www.facebook.com/SmaaashChandigarh/",
+                "image": "5885c903d0e83a29f610e94a.png",
+                "instagram": "",
+                "logo": "5a3125a3740f9b151eb9781b.png",
+                "myslug": "chandigarh",
+                "name": "Chandigarh",
+                "order": "11",
+                "pdf": "",
+                "twitter": "",
+                "weekdays": "11 am to 12 am",
+                "weekend": "11 am to 12 am",
+                "__v": 0,
+                "_id": "5a3123e1ee2ab36f8785c797",
             }],
 
 
             NavigationService.getCity(function (data) {
-            if (data.value) {
+                if (data.value) {
                     $scope.getHomeCity = _.cloneDeep(data.data);
                     if ($state.current.name) {
                         if ($.jStorage.get("city") === null || $.jStorage.get('city') === '') {
@@ -7317,11 +7453,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             case 'home':
                                 if ($stateParams.homepageCity) {
                                     console.log("$stateParams.homepageCity", $stateParams.homepageCity);
-                                  
+
                                     console.log("$stateParams.homepageCity", $stateParams.homepageCity);
                                     console.log("$scope.getHomeCity", $scope.getHomeCity);
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
-                                       if (key.myslug == $stateParams.homepageCity) {
+                                        if (key.myslug == $stateParams.homepageCity) {
                                             return key;
                                         }
                                     });
@@ -7643,7 +7779,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.getCityName = function (cityname) {
-           
+
             NavigationService.setCity(cityname);
             switch ($state.current.name) {
                 case 'home':
