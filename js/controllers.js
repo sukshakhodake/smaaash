@@ -5784,7 +5784,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCities = _.cloneDeep(data.data);
                 console.log("$scope.getCities ", $scope.getCities);
                 $scope.tempCity = _.find($scope.getCities, function (obj) {
-                    return obj.name == $stateParams.dealsinnercity;
+                    return obj.myslug == $stateParams.dealsinnercity;
                 });
                 NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function (data) {
                     $scope.detailDealsInner = data.data;
