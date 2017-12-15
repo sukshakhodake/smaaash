@@ -83,56 +83,43 @@
                            <figure>
                               <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="">
                            </figure>
-
                         </a>
                      </div>
                      <div class="race-text " ui-sref="whats-new({id:s.type._id})">
-
                         <div class="min-hiss">
                            <h3 class="margin0 brand-white pointer" ng-bind-html="s.hometext | shorten :30"></h3>
                            <div ng-if="!s.hometext">No title.</div>
                         </div>
                      </div>
                   </div>
-
                </li>
             </flex-slider> -->
-        <div class="row">
-          <div class="col-md-9">
-            <!-- <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="300" animation="slide" animationLoop="true"
-                    prev-text="" next-text="">
-                    <li> -->
-            <div class="positioning-div">
-              <div ng-repeat="s in whatsnew track by $index" class="race relative margno">
-                <div class="img-bg">
-                  <a>
-                    <figure>
-                      <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Games'" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
-                      <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Sky Karting'" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
-                      <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Parties'" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
-                      <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Food & Beverages'" ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">
-                      <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Deals & Packages'" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
-                    </figure>
-                  </a>
-                </div>
-                <div class="race-text">
-                  <a href="{{s.sublink}}" target="_blank">
-                    <div class="min-hiss">
-                      <h3 class="margin0  pointer" ng-bind-html="s.hometext | shorten :30"></h3>
-                      <div ng-if="!s.hometext">No title.</div>
-                    </div>
-                  </a>
-                </div>
+        <flex-slider class="carousel" flex-slide="s in whatsnew track by $index" item-width="300" animation="slide" animationLoop="true"
+          prev-text="" next-text="">
+          <li>
+            <div class="race relative margno">
+              <div class="img-bg">
+                <a>
+                  <figure>
+                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Games'" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
+                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext=='Sky Karting'" ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
+                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Parties'" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
+                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Food & Beverages'" ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">
+                    <img ng-src="{{s.image|uploadpath}}" class="img-responsive" alt="" ng-if="s.hometext == 'Deals & Packages'" ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})">
+                  </figure>
+                </a>
+              </div>
+              <div class="race-text">
+                <a href="{{s.sublink}}" target="_blank">
+                  <div class="min-hiss">
+                    <h3 class="margin0  pointer" ng-bind-html="s.hometext | shorten :30"></h3>
+                    <div ng-if="!s.hometext">No title.</div>
+                  </div>
+                </a>
               </div>
             </div>
-            <!-- </li>
-                  </flex-slider> -->
-          </div>
-          <div class="col-md-3">
-            <iframe id='a1a0565b' name='a1a0565b' src='http://35.197.142.164/adserver/www/delivery/afr.php?zoneid=4&amp;cb=INSERT_RANDOM_NUMBER_HERE'
-              frameborder='0' scrolling='no' width='300' height='250'><a href='http://35.197.142.164/adserver/www/delivery/ck.php?n=a71da801&amp;cb=INSERT_RANDOM_NUMBER_HERE'><img src='http://35.197.142.164/adserver/www/delivery/avw.php?zoneid=4&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a71da801' border='0' alt='' /></a></iframe>
-          </div>
-        </div>
+          </li>
+        </flex-slider>
       </div>
     </div>
   </div>
@@ -171,12 +158,12 @@
   </div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <div class="text-center" style="margin-bottom:10px;">
     <iframe id='adeeebb8' name='adeeebb8' src='http://35.197.142.164/adserver/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE'
       frameborder='0' scrolling='no' width='728' height='90'><a href='http://35.197.142.164/adserver/www/delivery/ck.php?n=a648dd8f&amp;cb=INSERT_RANDOM_NUMBER_HERE'><img src='http://35.197.142.164/adserver/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a648dd8f' border='0' alt='' /></a></iframe>
   </div>
-</div>
+</div> -->
 
 <div class="container">
   <div class="row">
