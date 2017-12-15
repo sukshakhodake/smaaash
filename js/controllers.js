@@ -7015,36 +7015,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
         TemplateService.removeLoaderOn(1);
         $scope.getHomeCity = [];
-        // if ($.jStorage.get("city") == null || $.jStorage.get('city') == '') {
-        //   $state.go('home',{
-        //         homepageCity:'mumbai',
-        //       });
-        //       var mumbai = _.find($scope.getHomeCity, function(key) {
-        //                 if (key.name.toLowerCase() == "mumbai") {
-        //                     return key;
-        //                   }
-        //                 });
-        //
-        //             $scope.getCityName(mumbai);
-        //
-        //         }
-
-        // case 'home':
-        // if ($stateParams.homepageCity) {
-        //       $scope.changeCityParams =_.find($scope.getHomeCity, function(key) {
-        //                      if (key.name == $stateParams.homepageCity) {
-        //                          return key;
-        //                        }
-        //                      });
-        //   NavigationService.setCity($scope.changeCityParams);
-        //           $state.go('home',{
-        //                 homepageCity:$scope.changeCityParams.name
-        //
-        //               });
-        //           $scope.template.reFetchCity();
-        //         }
-        //
-        //     break;
         if ($state.current.name == "terms") {
             $state.go('terms');
         }
@@ -7459,6 +7429,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.homepageCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     console.log("$scope.changeCityParams", $scope.changeCityParams);
@@ -7475,6 +7447,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.gamesCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7490,6 +7464,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.dealspcity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7505,6 +7481,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.eventcity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7522,6 +7500,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.hostCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7537,6 +7517,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.drinkCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7552,6 +7534,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.snowrushCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7567,6 +7551,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.eventsInnercity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7582,6 +7568,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.dealsinnercity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7597,6 +7585,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.city) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7611,6 +7601,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.mediasCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7625,6 +7617,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.partyCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7640,6 +7634,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.aboutCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7654,6 +7650,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.leaderCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7673,6 +7671,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.benefitCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7690,6 +7690,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.sponsorCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7706,6 +7708,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.careerCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7725,6 +7729,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.contactCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
@@ -7742,6 +7748,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                         if (key.myslug == $stateParams.customizeCity) {
                                             return key;
+                                        }else{
+                                            $state.go('home');
                                         }
                                     });
                                     NavigationService.setCity($scope.changeCityParams);
