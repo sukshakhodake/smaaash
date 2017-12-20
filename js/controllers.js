@@ -219,8 +219,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "order": "10",
             "pdf": "",
             "twitter": "",
-            "weekdays": "11 am to 12 am",
-            "weekend": "11 am to 12 am",
+            "weekdays": "11 am to 11 pm",
+            "weekend": "11 am to 11 pm",
             "__v": 0,
             "_id": "5a2f81f1a41b1d20ca8c58d7",
         }, {
@@ -4730,8 +4730,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "order": "10",
             "pdf": "",
             "twitter": "",
-            "weekdays": "11 am to 12 am",
-            "weekend": "11 am to 12 am",
+            "weekdays": "11 am to 11 pm",
+            "weekend": "11 am to 11 pm",
             "__v": 0,
             "_id": "5a2f81f1a41b1d20ca8c58d7",
         }, {
@@ -7192,8 +7192,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "order": "10",
             "pdf": "",
             "twitter": "",
-            "weekdays": "11 am to 12 am",
-            "weekend": "11 am to 12 am",
+            "weekdays": "11 am to 11 pm",
+            "weekend": "11 am to 11 pm",
             "__v": 0,
             "_id": "5a2f81f1a41b1d20ca8c58d7",
         }, {
@@ -7381,8 +7381,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "order": "10",
                 "pdf": "",
                 "twitter": "",
-                "weekdays": "11 am to 12 am",
-                "weekend": "11 am to 12 am",
+                "weekdays": "11 am to 11 pm",
+                "weekend": "11 am to 11 pm",
                 "__v": 0,
                 "_id": "5a2f81f1a41b1d20ca8c58d7",
             }, {
