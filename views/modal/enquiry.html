@@ -66,7 +66,7 @@
       <div class="form-group">
         <a href=""><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
         <select class="citydropdown form-control bottom_border" id="LEADCF8" name="LEADCF8" required>
-                      <option class="color_change" value="{{citySpecific}}">{{citySpecific}}</option>
+                      <option class="color_change" value="{{citySpecificName}}">{{citySpecificName}}</option>
 
             </select>
       </div>
@@ -85,9 +85,9 @@
 </select>
 
         <select id='LEADCF1' name='LEADCF1' style='display:none' title='Sales Team Assigned'>
-                <option selected='selected' value="{{citySpecific}}" ng-if="citySpecific!=='Gurgaon - Sector 29' && citySpecific!=='Gurgaon - Cyber Hub' ">{{citySpecific}}</option>
-                <option selected='selected' value="Gurgaon 1" ng-if="citySpecific ==='Gurgaon - Sector 29'">Gurgaon 1</option>
-                <option selected='selected' value="Gurgaon 2" ng-if="citySpecific ==='Gurgaon - Cyber Hub'">Gurgaon 2</option>
+                <option selected='selected' value="{{citySpecificName}}" ng-if="citySpecificName!='Gurgaon - Sector 29' && citySpecificName!='Gurgaon - Cyber Hub' ">{{citySpecificName}}</option>
+                <option selected='selected' value="Gurgaon 1" ng-if="citySpecificName == 'Gurgaon - Sector 29'">Gurgaon 1</option>
+                <option selected='selected' value="Gurgaon 2" ng-if="citySpecificName == 'Gurgaon - Cyber Hub'">Gurgaon 2</option>
 
                 <!-- <option value='Gurgaon 2'>Gurgaon 2</option>
                 <option value='Noida'>Noida</option>
