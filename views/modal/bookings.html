@@ -3,13 +3,16 @@
   <a href="" class="close text-uppercase brand-white" ng-click="$dismiss();"><img src="img/new/close-popup.png" class="img-responsive" alt=""></a>
 <div class="get-call">
   <h3 class="text-center">please call on <br>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Bengaluru'">91 080-25066900</a>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Mumbai'">91 22 49 143 143</a>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Gurgaon - Cyber Hub'">0124-39 40 1888 &frasl; 0124-4240616</a>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Hyderabad'">91 40 44739999 </a>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Noida'">91 120 2595111  &frasl; 91 9999311141</a>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Ludhiana'">0161-49-33-600 &frasl; 7837-438-909</a>
-  <a href="tel:+91 22 49 143 143" ng-if="bookingCity == 'Gurgaon - Sector 29'">0124-3350777 &frasl; 0124-6540199</a>
+  <span  ng-if="bookingCity == 'delhi'"><a href="tel:8800558477">880 055 8477</a></span> 
+  <span  ng-if="bookingCity == 'bengaluru'"><a href="tel:08025066900">080 2506 6900</a></span>
+  <span ng-if="bookingCity == 'mumbai'"><a href="tel:02249143143">022 4914 3143</a></span>
+  <span ng-if="bookingCity == 'gurgaon-cyber-hub'"><a href="tel:08588883165">085888 83165</a></span>
+  <span ng-if="bookingCity == 'hyderabad'"><a href="tel:04044739999">040 4473 9999</a></span>
+  <span ng-if="bookingCity == 'noida'"><a href="tel:01202595111">0120 259 5111</a></span>
+  <span ng-if="bookingCity == 'ludhiana'"><a href="tel:01614933600">0161 49 33 600</a><a href="tel:7837438909"> &frasl; 7837-438-909</a></span>
+  <span ng-if="bookingCity == 'gurgaon-sector-29'"><a href="tel:01243350777">0124-3350777</a><a href="tel:01246540199"> &frasl; 0124-6540199</a></span>
+  <span  ng-if="bookingCity == 'gurgaon-ambience-mall'"><a href="tel:9990800600">99 90 800 600</a></span> 
+  <span  ng-if="bookingCity == 'chandigarh'"><a href="tel:9988882618">99 88 882 618</a></span> 
   <br>
   number for bookings</h3>
 </div>
