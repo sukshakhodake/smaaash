@@ -2503,6 +2503,12 @@ img.fancybox-image {
         height: 188px;
     }
 }
+.selectchange{
+    position: relative;
+    background: transparent;
+    z-index: 2;
+    cursor: pointer;
+}
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
