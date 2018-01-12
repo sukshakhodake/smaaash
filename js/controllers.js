@@ -2329,14 +2329,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("$stateParams.gamesCity", $stateParams.gamesCity);
 
         if ($stateParams.gamesCity === "mumbai") {
-            TemplateService.title = "Virtual Reality Games to Simulated Sport – Game on Mumbai";
-            TemplateService.description = "Smaaash Mumbai boasts of a host of cutting edge games for kids and adults alike. Virtual reality, go karting,  bowling in Mumbai you name it we have it.";
-            TemplateService.keywords = "Virtual reality,  go karting,  bowling in Mumbai , cricket simulator games";
+            TemplateService.title = "Awesome Games and Attractions Grip You at Smaaash";
+            TemplateService.description = "Experience out of the box entertainment with dreamlike virtual reality attractions, engaging simulative sports and other games, only at Smaaash, Mumbai.";
+            TemplateService.keywords = "go karting,  bowling in Mumbai , cricket simulator games";
         }
         if ($stateParams.gamesCity === "gurgaon-cyber-hub") {
-            TemplateService.title = "Unwind With an Exciting Host of VR Games & Indoor Sports";
-            TemplateService.description = "Play cricket with swag, strike them all at Bowling Gurgaon, dangle between skyscrapers, create your own roller coaster, take on futuristic gaming with gusto.";
-            TemplateService.keywords = "Play cricket , Bowling Gurgaon ,VR games, bowling in  Gurgaon";
+            TemplateService.title = "Awesome Games and Attractions Grip You at Smaaash";
+            TemplateService.description = "Experience out of the box entertainment with dreamlike virtual reality attractions, engaging simulative sports and other games, at Smaaash, Cyberhub, Gurgaon.";
+            TemplateService.keywords = "VR game, virtual reality, Play cricket , Bowling Gurgaon ,VR games, bowling in  Gurgaon";
         }
         if ($stateParams.gamesCity === "ludhiana") {
             TemplateService.title = "Engage in Virtual Reality Gaming and More| SMAAASH Ludhiana";
@@ -2349,9 +2349,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "top Hyderabad gaming zones, Hyderabad gaming zones, gaming zones,game zone";
         }
         if ($stateParams.gamesCity === "bengaluru") {
-            TemplateService.title = "VR Games, Simulated Sport and a Lot More to Spoil You";
-            TemplateService.description = "Come prepared with oodles of energy, because at Smaaash Bengaluru you need to unleash the gaming beast in you to play virtual reality games and simulated sport.";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+            TemplateService.title = "Awesome Games and Attractions Grip You at Smaaash";
+            TemplateService.description = "Experience out of the box entertainment with dreamlike virtual reality attractions, engaging simulative sports and other games, only at Smaaash, Bengaluru.";
+            TemplateService.keywords = "virtual reality games,virtual reality gaming";
         }
         //snehal changes
         //    console.log("$stateParams.gamesCity",$stateParams.gamesCity);
@@ -2360,10 +2360,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Enjoy Sky Karting, race your opponents, let them smell the rubber from your tires, play pool and later cool off with some sumptuous food and drinks.";
             TemplateService.keywords = "go kart racing, gokarting";
         }
+        if ($stateParams.gamesCity === "gurgaon-ambience-mall") {
+            TemplateService.title = "Awesome Games and Attractions Grip You at Smaaash";
+            TemplateService.description = "Experience out of the box entertainment with dreamlike virtual reality attractions, engaging simulative sports and games, at Smaaash, Ambience Mall,Gurgaon.";
+            TemplateService.keywords = "VR game, virtual reality";
+        }
         if ($stateParams.gamesCity === "noida") {
             TemplateService.title = "Next-generation VR games, Get Your Act, On at Smaaash";
             TemplateService.description = "Go berserk on some awesome futuristic virtual reality games along with intensive cricket simulators, bowling in Noida and much more. ";
             TemplateService.keywords = "VR games, Virtual reality games, Cricket Simulators , Bowling in Noida	";
+        }
+        if ($stateParams.gamesCity === "delhi") {
+            TemplateService.title = "Awesome Games and Attractions Grip You at Smaaash";
+            TemplateService.description = "Experience out of the box entertainment with dreamlike virtual reality attractions, engaging simulative sports and other games, only at Smaaash, Delhi.";
+            TemplateService.keywords = "Cricket Simulators , Bowling in Noida	";
         }
 
         //seo
@@ -3787,14 +3797,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //seo
         //cricket started//
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "cricket") {
-            TemplateService.title = "Play Cricket Against the Legends at Mumbai";
-            TemplateService.description = "Net cricket in malls is passé, the brand new cricket simulator from Smaaash is in vogue wherein you face real bowling actions of all time legends.";
-            TemplateService.keywords = "play cricket , net cricket in malls , cricket simulator , play cricket";
+            TemplateService.title = "Play Cricket with the Legends at Smaaash Cricket";
+            TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a lifelike, stadium like ambience at Smaaash, Mumbai is definitely out of the ordinary.";
+            TemplateService.keywords = "cricket simulator";
         }
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "cricket") {
-            TemplateService.title = "Cricket Simulator Where Legends Uproot Stumps";
-            TemplateService.description = "Experience deja vu as legends bowl at you deliveries, they once fired at batting legends on world class playgrounds. Play cricket against the best.";
+            TemplateService.title = "Play cricket With the Legends at Smaaash Cricket";
+            TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a stadium like ambience at Smaaash, Cyberhub, Gurgaon, is definitely out of the ordinary.";
             TemplateService.keywords = "cricket bowling games , cricket simulator games, play cricket, net cricket in malls ,cricket simulator";
+        }
+        if ($stateParams.snowrushCity === "gurgaon-ambience-mall" && $stateParams.id === "cricket") {
+            TemplateService.title = "Play cricket With the Legends at Smaaash Cricket";
+            TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a stadium like ambience at Smaaash, Ambience Mall, Gurgaon is definitely out of the ordinary.";
+            TemplateService.keywords = "";
         }
         if ($stateParams.snowrushCity === "ludhiana" && $stateParams.id === "cricket") {
             TemplateService.title = "Inspired by Captain Cool? Play cricket Indoors at SMAAASH ";
@@ -3807,14 +3822,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "play cricket indoors, indoors cricket bowling games , cricket bowling games, cricket simulator games, play cricket,net cricket in malls , cricket simulator, game zone in hyderabad, game zone ";
         }
         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket") {
-            TemplateService.title = "The Most Astonishing Cricket Simulator ";
-            TemplateService.description = "Net cricket in malls gets exciting as legends bowl deliveries, they had dealt to legendary batsmen in real matches this time to you.";
-            TemplateService.keywords = "cricket bowling games ,cricket simulator games, play cricket, net cricket in malls , cricket simulator";
+            TemplateService.title = "Play cricket with the Legends at Smaaash Cricket";
+            TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a lifelike, stadium like ambience at Smaaash, Bengaluru is definitely out of the ordinary.";
+            TemplateService.keywords = "cricket bowling games ,cricket simulator games,cricket simulator";
         }
         if ($stateParams.snowrushCity === "noida" && $stateParams.id === "cricket") {
             TemplateService.title = "Cricket Simulator that’ll Give You Goose Bumps at Smaaash";
             TemplateService.description = "Net cricket in malls just got the edge at Smaaash. Now, play cricket with gusto; facing mapped deliveries of real legends.";
             TemplateService.keywords = "Cricket simulator, Net cricket in malls, play cricket";
+        }
+        if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "cricket") {
+            TemplateService.title = "Play Cricket with the Legends at Smaaash Cricket";
+            TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a lifelike, stadium like ambience at Smaaash, Delhi is definitely out of the ordinary.";
+            TemplateService.keywords = "";
         }
 
         //cricket ended//
@@ -3849,14 +3869,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //twilight-bowling//
         //finger-coaster//
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "finger-coaster") {
-            TemplateService.title = "A Roller Coaster Combined with Virtual Reality";
-            TemplateService.description = "Creating your own roller coaster would be your dream, which comes true through our cutting-edge VR game. Make your own roller coaster and ride in it.";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming , game zone in mumbai";
+            TemplateService.title = "Finger Coaster, Design Your Wildest Ride at Smaaash";
+            TemplateService.description = "Design your own roller coaster ride and let the simulator give you the jitters. This roller coaster virtual reality attraction in Smaaash, Mumbai is special.";
+            TemplateService.keywords = "Finger coaster, virtual reality";
         }
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "finger-coaster") {
-            TemplateService.title = "Roller Coaster Levitation Through Virtual Reality Gaming ";
-            TemplateService.description = "This virtual reality game delivers an onslaught of excitement. The Oculus gear imparts an illusion of motion as you design your roller coaster and ride in it. ";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+            TemplateService.title = "Finger Coaster, Design Your Wildest Ride at Smaaash";
+            TemplateService.description = "Design your own roller coaster ride and let the simulator give you the jitters. This virtual reality attraction in Smaaash, Cyberhub, Gurgaon, is special.";
+            TemplateService.keywords = "virtual reality, Finger coaster";
+        }
+        if ($stateParams.snowrushCity === "gurgaon-ambience-mall" && $stateParams.id === "finger-coaster") {
+            TemplateService.title = "Finger Coaster, Design Your Wildest Ride at Smaaash";
+            TemplateService.description = "Design your own roller coaster ride and let the simulator give you the jitters. This virtual reality attraction in Smaaash, Ambience Mall, Gurgaon, is special.";
+            TemplateService.keywords = "virtual reality, Finger coaster";
         }
         if ($stateParams.snowrushCity === "ludhiana" && $stateParams.id === "finger-coaster") {
             TemplateService.title = "Finger Coaster - Virtual Reality Coaster Designed by You";
@@ -3869,14 +3894,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "roller coaster ride, VR games, virtual reality games, virtual reality, virtual reality gaming";
         }
         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "finger-coaster") {
-            TemplateService.title = "The Ultimate Virtual Reality Roller Coaster Game";
-            TemplateService.description = "Imagine, what it would be like to design your own roller coaster and ride in it too. Yes, at Smaaash we give you exactly that. Come, try our spellbinding VR game";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+            TemplateService.title = "Finger Coaster, Design Your Wildest Ride at Smaaash";
+            TemplateService.description = "Design your own roller coaster ride and let the simulator give you the jitters. This roller coaster virtual reality attraction in Smaaash, Bengaluru is special.";
+            TemplateService.keywords = "virtual reality, Finger coaster";
         }
         if ($stateParams.snowrushCity === "noida" && $stateParams.id === "finger-coaster") {
             TemplateService.title = "A Roller Coaster VR Game that Comes Alive on Sketching it";
             TemplateService.description = "A virtual reality game where the moment of epiphany is when the roller coaster you draw, comes alive in the form of an actual real life simulator ride.";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+        }
+        if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "finger-coaster") {
+            TemplateService.title = "Finger Coaster, Design Your Wildest Ride at Smaaash";
+            TemplateService.description = "Design your own roller coaster ride and let the simulator give you the jitters. This roller coaster virtual reality attraction in Smaaash, Delhi is special.";
+            TemplateService.keywords = "";
         }
 
         //finger-coaster//
@@ -4046,6 +4076,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "Indoor trampoline park, game zone, kids play area, game zone in Hyderabad, children play area	";
         }
         //trampoline-park//
+
+//climbamax
+if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "climbamax") {
+    TemplateService.title = "Breath-Taking Rock Climbing at the Climbamax Game in Smaaash";
+    TemplateService.description = "Let the climber in you rise such that you reach the peak. This little mountain is the ultimate challenge at the game zone in Mumbai.";
+    TemplateService.keywords = "game zone in Mumbai , Climbamax game";
+}
+//climbamax
+
+//bowlin-2
+if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "bowling-2") {
+    TemplateService.title = "Twilight Bowling, Fall in Love at Smaaash";
+    TemplateService.description = "Single, dating, never mind, the perfect ambience for you to knock off the pins and stress, alike, awaits you at bowling Bengaluru at Smaaash.";
+    TemplateService.keywords = "bowling Bengaluru , bowling in bengaluru";
+}
+//bowling-2
+
         //dodge-ball//
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "dodge-ball") {
             TemplateService.title = "Test Your Reflexes – Dodge Ball";
@@ -4067,14 +4114,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //fly-max//
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "fly-max") {
-            TemplateService.title = "Flymax is a Thrilling Hang Glider VR game at Smaaash";
-            TemplateService.description = "This hang glider simulator virtual reality game gives the skies new meaning, that of exhilaration, excitement and tranquility as you hover with Oculus gear on.";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+            TemplateService.title = "Flymax, Hover Over Heaven at Smaaash";
+            TemplateService.description = "Take the aerial route to bliss in this hang glider simulated virtual reality game, as you watch sceneries glide beneath you at Smaaash, Cyberhub, Gurgaon.";
+            TemplateService.keywords = "virtual reality game , Flymax";
         }
         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "fly-max") {
-            TemplateService.title = " This VR Game Makes You Fly High in the Sky";
-            TemplateService.description = "Don your Oculus gear, take to the skies, as this hang glider simulator virtual reality game makes your hair stand on end with excitement.";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+            TemplateService.title = "Flymax, Hover Over Heaven at Smaaash";
+            TemplateService.description = "Take the aerial route to bliss in this hang glider simulated virtual reality game, as you watch sceneries glide beneath you at Smaaash, Bengaluru.";
+            TemplateService.keywords = "virtual reality game , Flymax";
         }
         if ($stateParams.snowrushCity === "hyderabad" && $stateParams.id === "fly-max") {
             TemplateService.title = "Glide in Virtual Reality at Smaaash Hyderabad	";
@@ -4082,9 +4129,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming, virtual reality games in Hyderabad";
         }
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "fly-max") {
-            TemplateService.title = "Flymax is A Hang Glider Simulator VR game at Smaaash";
-            TemplateService.description = "Flymax is an adrenaline pumping virtual reality game that lets you take to the skies with excitement. Beautiful scenic expanses below, will enchant you.";
-            TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+            TemplateService.title = "Flymax, Hover Over Heaven at Smaaash";
+            TemplateService.description = "Take the aerial route to bliss in this hang glider simulated virtual reality game, as you watch sceneries glide beneath you at Smaaash, Mumbai.";
+            TemplateService.keywords = "virtual reality game , Flymax";
         }
         if ($stateParams.snowrushCity === "noida" && $stateParams.id === "fly-max") {
             TemplateService.title = "Flymax is A VR Game that Makes you Soar at Smaaash";
@@ -4163,9 +4210,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //vulcan-force
         //air-rider-2
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "air-rider-2") {
-            TemplateService.title = "Air Rider 2 is a fantastic Bumper Car Game at Smaaash";
-            TemplateService.description = "Air rider is a fast and furious bumper car ride that gives you goose bumps as you enjoy crashing into each other and have loads of fun. ";
-            TemplateService.keywords = "games zone in gurgaon , arcade game";
+            TemplateService.title = "Bump Into the Friends, Drive Rashly at Smaaash";
+            TemplateService.description = "Bumper cars were never this exciting as one drives like crazy and jolts the others for some literally bumper to bumper fun.";
+            TemplateService.keywords = "";
         }
         //air-rider-2
         //hot-shot-2
@@ -4204,9 +4251,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //magic-carpet
         //art-of-attack
         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "art-of-attack") {
-            TemplateService.title = "Art of Attack is A VR Game Where you Choose your Weapon ";
-            TemplateService.description = "A virtual reality game that allows you to choose your weapon, to destroy the enemy in style. Don your Oculus gear and bring them all down.";
-            TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
+            TemplateService.title = "Choose Your Weapon, Blow the Enemy into Pieces at Smaaash";
+            TemplateService.description = "This virtual reality game will test your tact, aiming skills, vigilance and speed as you wield a weapon of your choice and turn the enemy into dust.";
+            TemplateService.keywords = "";
         }
         if ($stateParams.snowrushCity === "ludhiana" && $stateParams.id === "art-of-attack") {
             TemplateService.title = "A VR Game at Smaaash Where you Choose your Weapon  ";
@@ -4276,9 +4323,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //9-d-xtreme-interactive-theatre
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "9-d-xtreme-interactive-theatre") {
-            TemplateService.title = "9D Extreme Theatre an VR Game at Smaaash";
-            TemplateService.description = "3D theatre was exciting enough; now give way to 9D theatre an exciting dive into VR game entertainment that’ll make you live the movie.";
+            TemplateService.title = "Lifelike 9D Extreme Interactive Theatre at Smaaash";
+            TemplateService.description = "Goosebumps guaranteed; this virtual reality attraction transforms illusion into a lifelike experience as you scream in your roller coaster, at Smaaash, Mumbai.";
             TemplateService.keywords = "vr games,virtual reality games,virtual reality,virtual reality gaming";
+        }
+        if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "9-d-xtreme-interactive-theatre") {
+            TemplateService.title = "Lifelike 9D Extreme Interactive Theatre at Smaaash";
+            TemplateService.description = "Goosebumps guaranteed; this virtual reality attraction transforms illusion into a lifelike experience as you scream in your roller coaster, at Smaaash, Delhi.";
+            TemplateService.keywords = "";
+        }
+        if ($stateParams.snowrushCity === "gurgaon-ambience-mall" && $stateParams.id === "9-d-xtreme-interactive-theatre") {
+            TemplateService.title = "Lifelike 9D Extreme Interactive Theatre at Smaaash";
+            TemplateService.description = "Goosebumps guaranteed; this VR game transforms illusion into a lifelike experience as you scream in your roller coaster, at Smaaash, Ambience Mall, Gurgaon.";
+            TemplateService.keywords = "VR game, virtual reality";
         }
         //9-d-xtreme-interactive-theatre
     })
@@ -6310,6 +6367,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     'price': '11.99', // Unit price.
         //     'quantity': '1' // Quantity.
         // });
+
+        
 
 
     })
