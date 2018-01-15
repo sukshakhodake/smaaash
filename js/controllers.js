@@ -8,7 +8,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.menutitle = NavigationService.makeactive("Smaaash – Look no More For The Perfect Entertainment Arena");
         $scope.menutitle = NavigationService.makeactive("Smaaash");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Smaaash in Mumbai, Hyderabad, Noida, Gurgaon, Ludhiana and Bengaluru is the perfect place for the entire family.With tons of gaming options, multinational cuisines and after dinner party spaces, Smaaash is the daily destination for you."
+        TemplateService.description = "We're glad to tell you that Smaaash is safe and all our structures conform to approvals and plans sanctioned by the MCGM. So visit us soon and take advantage of our daily offers!"
         TemplateService.keywords = "Birthday Parties, Corporate Parties, Game Zones, Kitty Parties, Play Area for Kids, Virtual Reality Games, Go Karting, Pre - wedding Party, Team Building Events";
         $scope.navigation = NavigationService.getnav();
         var openL = {};
