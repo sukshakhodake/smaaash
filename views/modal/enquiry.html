@@ -43,7 +43,7 @@
                 <option selected='selected' value="Gurgaon 2" ng-if="citySpecificName == 'Gurgaon - Cyber Hub'">Gurgaon 2</option>
 </select>
         <select class="citydropdown form-control bottom_border" id="city" name="City" required style="display:none;">
-  <option class="color_change" value="{{citySpecificName}}" selected="selected" ng-if="citySpecificName!='Gurgaon - Sector 29' || citySpecificName!='Gurgaon - Cyber Hub' || citySpecificName!='Gurgaon Ambience Mall' || citySpecificName!='Bengaluru' || citySpecificName!='Bengaluru - Phoenix Marketcity'">{{citySpecificName}}</option>
+  <option class="color_change" value="{{citySpecificName}}" selected="selected" ng-if="citySpecificName!='Gurgaon - Sector 29' && citySpecificName!='Gurgaon - Cyber Hub' && citySpecificName!='Gurgaon Ambience Mall' && citySpecificName!='Bengaluru' && citySpecificName!='Bengaluru - Phoenix Marketcity'">{{citySpecificName}}</option>
   <option selected='selected' value="Gurgaon" ng-if="citySpecificName == 'Gurgaon - Sector 29' || citySpecificName == 'Gurgaon - Cyber Hub' || citySpecificName == 'Gurgaon Ambience Mall'">Gurgaon</option>
   <option selected='selected' value="Bengaluru" ng-if="citySpecificName == 'Bengaluru' || citySpecificName == 'Bengaluru - Phoenix Marketcity'">Bengaluru</option>
 </select>
