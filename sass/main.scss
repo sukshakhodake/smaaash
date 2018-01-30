@@ -6,7 +6,6 @@
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
 @import "../bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs";
-
 /* Bootstrap Variables Goes Here */
 
 $brand-primary: #0d9dff !default;
@@ -15,17 +14,17 @@ $brand-warning: #ffec39 !default;
 $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
 $brand-purple: #9c1d62 !default;
-$brand-blue: #29a8df!default;
-$brand-green: #32b544!default;
-$brand-pink: #ea2b7c!default;
-$brand-red: #ea1c22!default;
-$brand-darkblue: #2a3890!default;
-$brand-yellow: #FFEF01!default;
-$brand-orange: #fc5626!default;
-$brand-purblu: #642c91!default;
+$brand-blue: #29a8df !default;
+$brand-green: #32b544 !default;
+$brand-pink: #ea2b7c !default;
+$brand-red: #ea1c22 !default;
+$brand-darkblue: #2a3890 !default;
+$brand-yellow: #FFEF01 !default;
+$brand-orange: #fc5626 !default;
+$brand-purblu: #642c91 !default;
 $brand-greenblu: #01a69a !default;
 $brand-purply: #662d91 !default;
-$brand-bluey: #293685!default;
+$brand-bluey: #293685 !default;
 $brand-orangy: #fc5626 !default;
 $brand-darkpink:#e63345 !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -55,8 +54,8 @@ $color) {
     text-shadow: $negwidth+px $negwidth+px 0 $color, $width+px $negwidth+px 0 $color, $negwidth+px $width+px 0 $color, $width+px $width+px 0 $color;
 }
 
-$body-font: "American Purpose"!default;
-$head-font: "Galano Grotesque"!default;
+$body-font: "American Purpose" !default;
+$head-font: "Galano Grotesque" !default;
 body {
     font-family: $head-font;
 }
@@ -72,12 +71,16 @@ body {
 .bluey {
     color: $brand-bluey;
 }
-.whitey{
-    color:white;
-    &:hover,&:active,&:focus{
-        color:white;
+
+.whitey {
+    color: white;
+    &:hover,
+    &:active,
+    &:focus {
+        color: white;
     }
 }
+
 .brand-purple {
     background-color: $brand-purple;
 }
@@ -155,8 +158,8 @@ body {
     margin-top: 15px;
 }
 
-.mt30{
-     margin-top: 30px;
+.mt30 {
+    margin-top: 30px;
 }
 
 .height80 {
@@ -190,7 +193,7 @@ body {
 .min-hi {
     min-height: 30px;
     h3 {
-        margin: 0!important;
+        margin: 0 !important;
     }
 }
 
@@ -249,7 +252,6 @@ a {
 }
 
 //bootstrap forms
-
 /* Start writing sass here */
 
 //*main banner starts*//
@@ -278,13 +280,10 @@ $menu-height: 80px !default;
 .dropdowns {
     // height: $menu-height;
     height: 60px;
-    position: relative;
-    // background-image: url("../img/home/menu-bg.png");
+    position: relative; // background-image: url("../img/home/menu-bg.png");
     box-shadow: 0px 0px 50px rgba(128, 128, 128, 0.65);
-    background-color: #fff;
-    // background-size: 100% 100%;
-    z-index: 92;
-    // background-position: left;
+    background-color: #fff; // background-size: 100% 100%;
+    z-index: 92; // background-position: left;
     // background-repeat: no-repeat;
     &.affix {
         position: fixed;
@@ -345,8 +344,7 @@ $menu-height: 80px !default;
                 border-bottom: none;
                 color: #000;
             }
-        }
-        // li:nth-of-type(4n+1) {
+        } // li:nth-of-type(4n+1) {
         //     .nav-names {
         //         color: $brand-red;
         //     }
@@ -380,28 +378,26 @@ $menu-height: 80px !default;
         }
     }
     .cities {
-        padding: 9px 20px;
-        // background-color: $brand-red;
-         // transform: skew(-15deg);
+        padding: 9px 20px; // background-color: $brand-red;
+        // transform: skew(-15deg);
         // box-shadow: -3px 3px #000, 1px 0 #000;
         cursor: pointer;
     }
     .sides {
-        position: absolute;
-        // top: 68px;
+        position: absolute; // top: 68px;
         // right: 67px;
-        top:15px;
+        top: 15px;
         left: 160px;
-    font-size: 12px;
+        font-size: 12px;
         letter-spacing: 1px;
         cursor: pointer;
         span {
             //   text-shadow: 1px 1px #000,-1px 0 #000,0 -1px #000,-1px -1px #000,0 1px #000,1px 0 #000,-1px 1px #000,1px -1px #000;
-      color:black
+            color: black
         }
-        i{
-               font-size: 16px;
-    padding: 0px 10px; 
+        i {
+            font-size: 16px;
+            padding: 0px 10px;
         }
     }
     .menu {
@@ -536,7 +532,7 @@ $menu-height: 80px !default;
 }
 
 .forgots {
-    background-image: url("../img/new/bggreen.png")!important;
+    background-image: url("../img/new/bggreen.png") !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -596,8 +592,7 @@ $menu-height: 80px !default;
     button {
         background-color: transparent;
         margin: 0 auto;
-        display: block;
-        // border-radius: 5px;
+        display: block; // border-radius: 5px;
         border: none;
         padding: 10px 20px;
         color: #fff;
@@ -625,8 +620,7 @@ $menu-height: 80px !default;
 .logo-smaash {
     @include position( absolute,
     -37px null null 20px);
-    z-index: 999;
-    // height: $menu-height - 10px;
+    z-index: 999; // height: $menu-height - 10px;
     height: 150px;
     img {
         width: auto;
@@ -646,7 +640,7 @@ $menu-height: 80px !default;
 }
 
 .butns {
-    border: transparent!important;
+    border: transparent !important;
     color: #fff;
     background-color: transparent;
     background-image: url("../img/home/menus.png");
@@ -1126,7 +1120,7 @@ $menu-height: 80px !default;
     background-position: center;
     margin-top: -38px;
     min-height: 650px;
-    background-size: cover!important;
+    background-size: cover !important;
     .karting-banner {
         max-width: 1170px;
         @include position(absolute,
@@ -1315,7 +1309,6 @@ img.fancybox-image {
             background-color: $brand-green;
             border: none;
             padding: 10px 20px;
-   
             margin-left: 25px;
             color: #fff;
             .fa {
@@ -1325,7 +1318,7 @@ img.fancybox-image {
     }
     .brand-orangy {
         background-color: $brand-orangy !important;
-        margin-left: 0!important;
+        margin-left: 0 !important;
     }
     .karting1 {
         .uib-datepicker-popup.dropdown-menu {
@@ -1410,7 +1403,6 @@ img.fancybox-image {
             background-color: $brand-darkpink !important;
             border: none;
             padding: 10px 20px;
-         
             color: #fff;
         }
         button+button {
@@ -1442,7 +1434,6 @@ img.fancybox-image {
                 background-color: $brand-darkpink;
                 border: none;
                 padding: 10px 20px;
-             
                 margin-left: 25px;
                 color: #fff;
                 .fa {
@@ -1456,8 +1447,7 @@ img.fancybox-image {
 //SagarM CSS HERe
 .events1 {
     .backg-eve {
-        background-color: $brand-darkpink;
-        // background-image: url("../img/event/bg-hdr-event.png");
+        background-color: $brand-darkpink; // background-image: url("../img/event/bg-hdr-event.png");
         // background-repeat: no-repeat;
         // background-size: 100% 100%;
         margin-top: 10px; // height: 70px;
@@ -1513,7 +1503,7 @@ img.fancybox-image {
 .attractions {
     h3 {
         font-size: 28px !important;
-       color: $brand-darkpink;
+        color: $brand-darkpink;
     }
     .new-detail {
         min-height: 200px;
@@ -1783,7 +1773,7 @@ img.fancybox-image {
         color: #000 !important;
     }
     .profile-detail p {
-        color: #fff!important;
+        color: #fff !important;
         font-size: 30px;
     }
     .profile-detail p:last-child {
@@ -1878,7 +1868,7 @@ img.fancybox-image {
         background-color: rgba(0, 0, 0, 0.56);
         padding: 10px;
         h3 {
-            font-size: 20px!important;
+            font-size: 20px !important;
         }
     }
     .new-detail {
@@ -2006,10 +1996,8 @@ img.fancybox-image {
 .btn-upload {
     height: 90px;
     width: 125px;
-    padding-top: 25px;
-    // background-color: $brand-purple;
-    background-color:$brand-darkpink; 
-    // box-shadow: 4px 3px #000;
+    padding-top: 25px; // background-color: $brand-purple;
+    background-color: $brand-darkpink; // box-shadow: 4px 3px #000;
     // border-radius: 5px;
     i {
         color: rgba(0, 0, 0, 0.64);
@@ -2356,8 +2344,7 @@ img.fancybox-image {
     padding-bottom: 20px;
     .butn_check {
         background-color: $brand-darkpink;
-        width: 20%;
-        // border-radius: 5px;
+        width: 20%; // border-radius: 5px;
         border: none;
         color: #fff;
         padding: 10px;
@@ -2449,7 +2436,6 @@ img.fancybox-image {
         // border-radius: 20px;
         width: 270px;
     }
-   
 }
 
 .event-ptr {
@@ -2495,20 +2481,29 @@ img.fancybox-image {
 
 .gap-issue {
     // margin: -26px 0 0 !important;
-     margin: 10px 0 0 !important;
+    margin: 10px 0 0 !important;
 }
-.positioning-div{
+
+.positioning-div {
     display: flex;
-    figure{
+    figure {
         height: 188px;
     }
 }
-.selectchange{
+
+.selectchange {
     position: relative;
     background: transparent;
     z-index: 2;
     cursor: pointer;
 }
+
+.tag-style {
+    font-family: Galano Grotesque;
+    text-decoration: none !important;
+    font-weight: bold
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
