@@ -252,6 +252,7 @@ a {
 }
 
 //bootstrap forms
+
 /* Start writing sass here */
 
 //*main banner starts*//
@@ -2504,6 +2505,45 @@ img.fancybox-image {
     font-weight: bold
 }
 
+//scss for times prime offers
+.times-prime {
+    background-image: url("../img/times.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    h2{
+        color:#dc3b4b;
+            margin-top: 50px;
+    }p{
+        color:black;
+    }
+}
+
+.times-form {
+    margin: 0 100px 40px 100px;
+    position: relative;
+}
+
+.times-go {
+    button {
+        background-color: #e63345;
+        border: none;
+        padding: 10px 20px;
+        margin-left: 25px;
+        color: #fff;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 6px;
+    right: 11px;
+    cursor: pointer;
+    .fa {
+        font-size: 20px;
+        color: black;
+    }
+}
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
