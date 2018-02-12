@@ -3987,7 +3987,7 @@ if ($stateParams.contactCity === "bengaluru") {
 console.log("snow mumbail",$stateParams.snowrushCity,$stateParams.id );
         //seo
         //quick jump
-   if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quikjump") {
+   if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quickjump") {
             TemplateService.title = "Get Airborne, Dive From 45 Ft. At Quickjump, At Smaaash";
             TemplateService.description = "Get evil, push your friends from the third floor and give them the scare of their lives at the game zone in Mumbai. Don’t worry, we’ll keep them safe.";
             TemplateService.keywords = "game zone in Mumbai ";
