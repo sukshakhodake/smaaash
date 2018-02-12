@@ -3246,11 +3246,7 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "VR games like Finger Coaster, simulated sport like cricket will keep your pre-wedding party, action packed. There’s sumptuous food and drinks to top it off. ";
             TemplateService.keywords = "Pre-wedding parties,  pre-wedding party,  VR games";
         }
-        if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-party") {
-            TemplateService.title = "Host the Most Happening Pre-Wedding Parties at Smaaash";
-            TemplateService.description = "Enjoy your last days of freedom with some verve and excitement. Pool in with friends play games, eat, drink and make your pre-wedding party a hit. ";
-            TemplateService.keywords = "pre wedding party, prewedding party , prewedding parties";
-        }
+     
         if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "pre-wedding-party") {
             TemplateService.title = "Host Sinful Pre-Wedding Parties at Smaaash, Gurgaon";
             TemplateService.description = "Bring in your friends for one of the most memorable times of your life. Host your pre-wedding party with awesome games, food and drinks. ";
@@ -3319,12 +3315,12 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.keywords = "kitty party, kitty parties in Delhi";
         }
         //pre-wedding-parties
-           if ($stateParams.partyCity === "bengaluru" && $stateParams.id === "pre-wedding-parties") {
+           if ($stateParams.partyCity === "bengaluru" && $stateParams.id === "pre-wedding-parties-") {
             TemplateService.title = "Pre-Wedding Parties- Have A Cool Pre-Wedding Party & Have A Smaaashing Night! ";
             TemplateService.description = "  Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
         }  
-          if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-Party") {
+          if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-party") {
             TemplateService.title = "Have A Cool Pre-Wedding Party & Have A Smaaashing Night!";
             TemplateService.description = "Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party in Mumbai!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
@@ -3988,7 +3984,7 @@ if ($stateParams.contactCity === "bengaluru") {
                 })
             }
         }
-
+console.log("snow mumbail",$stateParams.snowrushCity,$stateParams.id );
         //seo
         //quick jump
    if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quikjump") {
