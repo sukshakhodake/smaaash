@@ -2,7 +2,7 @@ var globalfunction = {};
 globalfunction.index;
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'imageupload', 'infinite-scroll', 'rzModule'])
 
-    .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http, $rootScope,$stateParams) {
+    .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $filter, ngDialog, $http, $rootScope, $stateParams) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("home");
         // $scope.menutitle = NavigationService.makeactive("Smaaash – Look no More For The Perfect Entertainment Arena");
@@ -415,7 +415,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.buyOnline = $scope.content["Buy Online"];
                 $scope.promotion = $scope.content["Promotions"];
                 TemplateService.removeLoader();
-            } else { }
+            } else {}
 
         });
 
@@ -625,22 +625,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, 100);
         });
         //seo
-         if ($stateParams.homepageCity === "bengaluru") {
+        if ($stateParams.homepageCity === "bengaluru") {
             TemplateService.title = "Everything You Will Love To Do All Under One Roof At Smaaash!";
             TemplateService.description = "From virtual reality games, bowling to hosting extravagant parties. Smaaash is just the place for you. Unleash the gamer within, Bengaluru!";
             TemplateService.keywords = "virtual reality games";
         }
-           if ($stateParams.homepageCity === "delhi") {
+        if ($stateParams.homepageCity === "delhi") {
             TemplateService.title = " Everything You Will Love To Do All Under One Roof At Smaaash!";
             TemplateService.description = " From virtual reality games, bowling to hosting extravagant parties. Smaaash is just the place for you. Unleash the gamer within, Delhi!";
             TemplateService.keywords = "virtual reality games, bowling";
         }
-          if ($stateParams.homepageCity === "gurgaon-ambience-mall") {
+        if ($stateParams.homepageCity === "gurgaon-ambience-mall") {
             TemplateService.title = "Everything You Will Love To Do All Under One Roof At Smaaash!";
             TemplateService.description = "From virtual reality games, bowling to hosting extravagant parties. Smaaash is just the place for you. Unleash the gamer within, Gurgaon!";
             TemplateService.keywords = "virtual reality games, bowling";
         }
-           if ($stateParams.homepageCity === "mumbai") {
+        if ($stateParams.homepageCity === "mumbai") {
             TemplateService.title = "Smaaash Mumbai - Thrilling, Chilling and Killing it!";
             TemplateService.description = "An entertainment park with virtual reality, bowling, go karting and other games to enjoy; you can host social events or corporate parties in smashing style here ";
             TemplateService.keywords = "virtual reality , gaming bowling  go karting, corporate party, corporate parties,  party places prewedding parties";
@@ -930,36 +930,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // Select all range inputs, watch for change
         $("input[type='range']").change(function () {
 
-            // Cache this for efficiency
-            el = $(this);
+                // Cache this for efficiency
+                el = $(this);
 
-            // Measure width of range input
-            width = el.width();
+                // Measure width of range input
+                width = el.width();
 
-            // Figure out placement percentage between left and right of input
-            newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
+                // Figure out placement percentage between left and right of input
+                newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
 
-            offset = -1;
+                offset = -1;
 
-            // Prevent bubble from going beyond left or right (unsupported browsers)
-            if (newPoint < 0) {
-                newPlace = 0;
-            } else if (newPoint > 1) {
-                newPlace = width;
-            } else {
-                newPlace = width * newPoint + offset;
-                offset -= newPoint;
-            }
+                // Prevent bubble from going beyond left or right (unsupported browsers)
+                if (newPoint < 0) {
+                    newPlace = 0;
+                } else if (newPoint > 1) {
+                    newPlace = width;
+                } else {
+                    newPlace = width * newPoint + offset;
+                    offset -= newPoint;
+                }
 
-            // Move bubble
-            el
-                .next("output")
-                .css({
-                    left: newPlace,
-                    marginLeft: offset + "%"
-                })
-                .text(el.val());
-        })
+                // Move bubble
+                el
+                    .next("output")
+                    .css({
+                        left: newPlace,
+                        marginLeft: offset + "%"
+                    })
+                    .text(el.val());
+            })
             // Fake a change to position bubble at page load
             .trigger('change');
     })
@@ -1009,33 +1009,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     $scope.Mum =true;
         //   }
         // }
-//seo
-if ($stateParams.contactCity === "bengaluru") {
+        //seo
+        if ($stateParams.contactCity === "bengaluru") {
             TemplateService.title = "Get In Touch With Us To Know More";
             TemplateService.description = "We are here to clear all your doubts regarding packages at Smaaash Bengaluru. Contact us directly on our number and we would be happy to help.";
             TemplateService.keywords = "";
         }
- if ($stateParams.contactCity === "gurgaon-ambience-mall") {
+        if ($stateParams.contactCity === "gurgaon-ambience-mall") {
             TemplateService.title = "Get In Touch With Us To Know More";
             TemplateService.description = " We are here to clear all your doubts regarding packages at Smaaash Gurgaon. Contact us directly on our number and we would be happy to help.";
             TemplateService.keywords = "";
         }
- if ($stateParams.contactCity === "mumbai") {
+        if ($stateParams.contactCity === "mumbai") {
             TemplateService.title = "Get In Touch With Us To Know More";
             TemplateService.description = "We are here to clear all your doubts regarding packages at Smaaash Mumbai. Contact us directly on our number and we would be happy to help.";
             TemplateService.keywords = "";
         }
-         if ($stateParams.contactCity === "gurgaon-cyber-hub") {
+        if ($stateParams.contactCity === "gurgaon-cyber-hub") {
             TemplateService.title = "Get In Touch With Us To Know More";
             TemplateService.description = "We are here to clear all your doubts regarding packages at Smaaash Gurgaon Cyberhub. Contact us directly on our number and we would be happy to help.";
             TemplateService.keywords = "";
         }
-             if ($stateParams.contactCity === "delhi") {
+        if ($stateParams.contactCity === "delhi") {
             TemplateService.title = "Get In Touch With Us To Know More";
             TemplateService.description = "We are here to clear all your doubts regarding packages at Smaaash Delhi. Contact us directly on our number and we would be happy to help.";
             TemplateService.keywords = "";
         }
- 
+
     })
 
     .controller('termsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
@@ -1357,23 +1357,23 @@ if ($stateParams.contactCity === "bengaluru") {
         //     console.log("$scope.mediagallery", $scope.mediagallery);
         //     TemplateService.removeLoader();
         // });
-//seo
-    if ($stateParams.mediasCity === "gurgaon-ambience-mall") {
+        //seo
+        if ($stateParams.mediasCity === "gurgaon-ambience-mall") {
             TemplateService.title = " Smaaash As The Talk Of The Town!";
             TemplateService.description = " When it comes to Smaaash, media coverage is always there. With a lot of fun things to do in its kitty, Smaaash Gurgaon never fails to amaze.";
             TemplateService.keywords = "";
         }
-            if ($stateParams.mediasCity === "bengaluru") {
+        if ($stateParams.mediasCity === "bengaluru") {
             TemplateService.title = "Smaaash As The Talk Of The Town! ";
             TemplateService.description = "When it comes to Smaaash, media coverage is always there. With a lot of fun things to do in its kitty, Smaaash Bengaluru never fails to amaze.";
             TemplateService.keywords = "";
         }
-            if ($stateParams.mediasCity === "mumbai") {
+        if ($stateParams.mediasCity === "mumbai") {
             TemplateService.title = "Smaaash As The Talk Of The Town!";
             TemplateService.description = "When it comes to Smaaash, media coverage is always there. With a lot of fun things to do in its kitty, Smaaash Mumbai never fails to amaze.";
             TemplateService.keywords = "";
         }
-            if ($stateParams.mediasCity === "delhi") {
+        if ($stateParams.mediasCity === "delhi") {
             TemplateService.title = "Smaaash As The Talk Of The Town !";
             TemplateService.description = "When it comes to Smaaash, media coverage is always there. With a lot of fun things to do in its kitty, Smaaash Delhi never fails to amaze.";
             TemplateService.keywords = "";
@@ -1430,7 +1430,7 @@ if ($stateParams.contactCity === "bengaluru") {
 
 
         console.log("$stateParams.eventcity", $stateParams.eventcity);
- if ($stateParams.eventcity === "gurgaon-ambience-mall") {
+        if ($stateParams.eventcity === "gurgaon-ambience-mall") {
             TemplateService.title = "Rocking events at Smaaash ";
             TemplateService.description = "Check out what’s brewing at Smaaash; the most thrilling place to chill out and win mammoth prizes at Ambience Mall, Gurgaon.";
             TemplateService.keywords = "event at smaaash";
@@ -1472,7 +1472,7 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "Keep track of the mesmerizing events coming up at Smaaash, to enthrall you. You could win exciting prizes and revel in the entertainment.";
             TemplateService.keywords = "smaaash events , events at smaaash";
         }
- if ($stateParams.eventcity === "delhi") {
+        if ($stateParams.eventcity === "delhi") {
             TemplateService.title = "Rocking Events at Smaaash ";
             TemplateService.description = "Check out what’s brewing at Smaaash; the most thrilling place to chill out and win mammoth prizes at Delhi.";
             TemplateService.keywords = "event at smaaash";
@@ -1847,7 +1847,7 @@ if ($stateParams.contactCity === "bengaluru") {
         }
         //seo
         console.log("$stateParams.dealspcity", $stateParams.dealspcity);
-      if ($stateParams.dealspcity === "gurgaon-ambience-mall") {
+        if ($stateParams.dealspcity === "gurgaon-ambience-mall") {
             TemplateService.title = "Awesome Deals And Packages at Smaaash";
             TemplateService.description = " Great gaming and food deals clubbed at discounted prices. Have a whale of a time at Smaaash, Ambience Mall, Gurgaon.";
             TemplateService.keywords = "gaming and food deals";
@@ -1888,7 +1888,7 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "With mouthwatering offers on food and drinks, teamed up with smashing offers on virtual reality and other games, we  offer you the best you could crave for. ";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality,virtual reality gaming";
         }
-  if ($stateParams.dealspcity === "delhi") {
+        if ($stateParams.dealspcity === "delhi") {
             TemplateService.title = "Awesome Deals And Packages at Smaaash";
             TemplateService.description = "gaming and food deals clubbed at discounted prices. Have a whale of a time at Smaaash, Delhi.";
             TemplateService.keywords = "gaming and food deals";
@@ -2158,7 +2158,7 @@ if ($stateParams.contactCity === "bengaluru") {
         //seo
 
         console.log("$stateParams.city", $stateParams.city);
-       if ($stateParams.city === "delhi") {
+        if ($stateParams.city === "delhi") {
             TemplateService.title = "Find Out What’s Brewing At Smaaash On Our Gallery";
             TemplateService.description = "See what’s hot at Smaaash, all the celebrity visits and events at Smaaash, Delhi.";
             TemplateService.keywords = "";
@@ -2570,9 +2570,9 @@ if ($stateParams.contactCity === "bengaluru") {
                                         data.gameforarray.push('Adult')
                                         // data.gameforarray.push('Male')
                                         break;
-                                    // case '2':
-                                    //     data.gameforarray.push('Female')
-                                    //     break;
+                                        // case '2':
+                                        //     data.gameforarray.push('Female')
+                                        //     break;
                                     case '3':
                                         data.gameforarray.push('Kids')
                                         // data.gameforarray.push('Children')
@@ -3099,26 +3099,26 @@ if ($stateParams.contactCity === "bengaluru") {
 
 
         //seo
-            //corporate-2
-              if ($stateParams.partyCity === "mumbai" && $stateParams.id === "corporate-party-2") {
+        //corporate-2
+        if ($stateParams.partyCity === "mumbai" && $stateParams.id === "corporate-party-2") {
             TemplateService.title = "Get Out Of Cubicle & Let Loose With Smaaash ";
             TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate parties with Smaaash & have a fun beating your boss, at the game.";
             TemplateService.keywords = "corporate events, corporate parties";
         }
-             //corporate-3
-              if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "corporate-party-3") {
+        //corporate-3
+        if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "corporate-party-3") {
             TemplateService.title = " Get Out Of Cubicle & Let Loose With Smaaash";
             TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate parties in Gurgaon with Smaaash & enjoy beating your boss, at the game.";
             TemplateService.keywords = "corporate parties in Gurgaon, corporate parties";
-        }   
-         //corporate-4
-              if ($stateParams.partyCity === "delhi" && $stateParams.id === "corporate-party-4") {
+        }
+        //corporate-4
+        if ($stateParams.partyCity === "delhi" && $stateParams.id === "corporate-party-4") {
             TemplateService.title = "Get Out Of Cubicle & Let Loose With Smaaash ";
             TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate parties in Delhi with Smaaash & have fun beating your boss, at the game.";
             TemplateService.keywords = "corporate parties in Delhi, corporate parties";
         }
         //corporate
-           if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "corporate-party") {
+        if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "corporate-party") {
             TemplateService.title = " Get Out Of Cubicle & Let Loose With Smaaash";
             TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate events & parties with Smaaash & have fun beating your boss, at the game. ";
             TemplateService.keywords = "corporate events, corporate parties";
@@ -3139,7 +3139,7 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.keywords = "corporate party,corporate parties,corporate event venues,corporate events,venue for corporate events";
         }
         if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "corporate-parties") {
-            TemplateService.title =  "Get Out Of Cubicle & Let Loose With Smaaash";
+            TemplateService.title = "Get Out Of Cubicle & Let Loose With Smaaash";
             TemplateService.description = "aBreak the monotony and get ready to have a blast with your work buddies. Host corporate events & parties with Smaaash & have fun beating your boss, at the game. ";
             TemplateService.keywords = "corporate events, corporate parties";
         }
@@ -3164,11 +3164,11 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "Company offsite, corporate event or team building activities and a lot more could be hosted at Smaaash Sky Karting and Pitstop Brewpub.";
             TemplateService.keywords = "Corporate parties, company offsite, corporate events, team building activities";
         }
- 
-        //corporate
-         //birthday-2
 
- if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "birthday-party-2") {
+        //corporate
+        //birthday-2
+
+        if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "birthday-party-2") {
             TemplateService.title = "Make Your Special Day Even More Special";
             TemplateService.description = "With Smaaash you get to host some of the best birthday parties in Gurgaon. So put on your party caps and gear up to have a grand birthday party, Gurgaon!";
             TemplateService.keywords = "birthday parties in Gurgaon, birthday party";
@@ -3176,7 +3176,7 @@ if ($stateParams.contactCity === "bengaluru") {
         //birthday
 
         console.log("$stateParams.partyCity", $stateParams.partyCity);
-      
+
         if ($stateParams.partyCity === "mumbai" && $stateParams.id === "birthday-party") {
             TemplateService.title = "Make Your Special Day Even More Special";
             TemplateService.description = "With Smaaash you get to host some of the best birthday parties in Mumbai. So put on your party caps and gear up to have a grand birthday party, Mumbai!";
@@ -3213,7 +3213,7 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "Birthday parties, Noida get a whacky makeover at Smaaash, with all the exciting virtual reality games, simulated sport, food and drinks to enjoy.";
             TemplateService.keywords = "Birthday parties Noida, Birthday parties Noida, virtual reality games";
         }
-         if ($stateParams.partyCity === "delhi" && $stateParams.id === "birthday-parties") {
+        if ($stateParams.partyCity === "delhi" && $stateParams.id === "birthday-parties") {
             TemplateService.title = "Host A Party Like Never Before";
             TemplateService.description = "Make your special day even more special- With Smaaash you get to host some of the best birthday parties in Delhi. So put on your party caps and gear up to have a grand birthday party, Delhi!";
             TemplateService.keywords = "birthday parties in Delhi , birthday parties ";
@@ -3256,7 +3256,7 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "Bring in your friends for one of the most memorable times of your life. Host your pre-wedding party with awesome games, food and drinks. ";
             TemplateService.keywords = "pre wedding party, prewedding parties";
         }
-        
+
         //pre-wedding-party
 
 
@@ -3265,7 +3265,7 @@ if ($stateParams.contactCity === "bengaluru") {
         // console.log("$stateParams.partyCity", $stateParams.partyCity);
 
 
-     
+
 
 
         //kitty-parties
@@ -3306,56 +3306,56 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.keywords = "kitty party";
         }
         //kitty-parties
-     //kitty-parties-2
-       if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "kitty-party-2") {
+        //kitty-parties-2
+        if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "kitty-party-2") {
             TemplateService.title = "Get Your Girl Gang And Set The Mood For A Kitty Party Night!";
             TemplateService.description = "Unlimited gossip while you sip on your favourite drinks with your favourite ladies.  Host kitty parties with Smaaash and have a splendid night!";
             TemplateService.keywords = "kitty parties, kitty party";
         }
-          //kitty-parties-3
-       if ($stateParams.partyCity === "delhi" && $stateParams.id === "kitty-party-3") {
+        //kitty-parties-3
+        if ($stateParams.partyCity === "delhi" && $stateParams.id === "kitty-party-3") {
             TemplateService.title = "Get Your Girl Gang And Set The Mood For A Kitty Party Night!";
             TemplateService.description = "Unlimited gossip while you sip on your favourite drinks with your favourite ladies.  Host kitty parties in Delhi with Smaaash and have a splendid night!";
             TemplateService.keywords = "kitty party, kitty parties in Delhi";
         }
         //pre-wedding-parties
-           if ($stateParams.partyCity === "bengaluru" && $stateParams.id === "pre-wedding-parties") {
+        if ($stateParams.partyCity === "bengaluru" && $stateParams.id === "pre-wedding-parties") {
             TemplateService.title = "Pre-Wedding Parties- Have A Cool Pre-Wedding Party & Have A Smaaashing Night! ";
             TemplateService.description = "  Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
-        }  
-          if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-Party") {
+        }
+        if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-Party") {
             TemplateService.title = "Have A Cool Pre-Wedding Party & Have A Smaaashing Night!";
             TemplateService.description = "Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party in Mumbai!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
         }
-         if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "pre-wedding-party") {
+        if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "pre-wedding-party") {
             TemplateService.title = "Have A Cool Pre-Wedding Party & Have A Smaaashing Night!";
             TemplateService.description = "Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
         }
         //pre-wedding-parties-2
-           if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "pre-wedding-parties-2") {
+        if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "pre-wedding-parties-2") {
             TemplateService.title = "Have A Cool Pre-Wedding Party & Have A Smaaashing Night! ";
             TemplateService.description = "Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party in Gurgaon!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
         }
-           if ($stateParams.partyCity === "delhi" && $stateParams.id === "pre-wedding-party-2") {
+        if ($stateParams.partyCity === "delhi" && $stateParams.id === "pre-wedding-party-2") {
             TemplateService.title = "Have A Cool Pre-Wedding Party & Have A Smaaashing Night!";
             TemplateService.description = "Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party, Delhi!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
         }
         //team-building-events-2
-          if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "team-building-event-2") {
+        if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "team-building-event-2") {
             TemplateService.title = "Strengthen Bond As You Build Team Spirit With Smaaash!";
-            TemplateService.description ="A team that works together succeeds together. Play competitive games, gulp drinks & relish delicacies with your comrades in a team outing event at Smaaash.";
+            TemplateService.description = "A team that works together succeeds together. Play competitive games, gulp drinks & relish delicacies with your comrades in a team outing event at Smaaash.";
             TemplateService.keywords = "a team outing event";
         }
-      
-          //team-building-events-3
-          if ($stateParams.partyCity === "delhi" && $stateParams.id === "team-building-event-3") {
+
+        //team-building-events-3
+        if ($stateParams.partyCity === "delhi" && $stateParams.id === "team-building-event-3") {
             TemplateService.title = "Strengthen Bond As You Build Team Spirit With Smaaash!";
-            TemplateService.description ="A team that works together succeeds together. Play competitive games, gulp drinks & relish delicacies with your comrades at one of the best team outing places.";
+            TemplateService.description = "A team that works together succeeds together. Play competitive games, gulp drinks & relish delicacies with your comrades at one of the best team outing places.";
             TemplateService.keywords = "team outing places";
         }
         //team-building-events
@@ -3615,7 +3615,7 @@ if ($stateParams.contactCity === "bengaluru") {
                 //         } else if (data.value === false) {}
                 //     });
                 // }
-            } else { }
+            } else {}
 
         }
         // NavigationService.getCity(function(data) {
@@ -3672,9 +3672,9 @@ if ($stateParams.contactCity === "bengaluru") {
                                     data.gameforarray.push('Adult')
                                     // data.gameforarray.push('Male')
                                     break;
-                                // case '2':
-                                //     data.gameforarray.push('Female')
-                                //     break;
+                                    // case '2':
+                                    //     data.gameforarray.push('Female')
+                                    //     break;
                                 case '3':
                                     data.gameforarray.push('Kids')
                                     // data.gameforarray.push('Children')
@@ -3711,9 +3711,9 @@ if ($stateParams.contactCity === "bengaluru") {
                                 data.gameforarray.push('Adult')
                                 // data.gameforarray.push('Male')
                                 break;
-                            // case '2':
-                            //     data.gameforarray.push('Female')
-                            //     break;
+                                // case '2':
+                                //     data.gameforarray.push('Female')
+                                //     break;
                             case '3':
                                 data.gameforarray.push('Kids')
                                 // data.gameforarray.push('Children')
@@ -3725,11 +3725,11 @@ if ($stateParams.contactCity === "bengaluru") {
                 TemplateService.removeLoader();
             });
         }
-         
+
 
         //seo
         //customizepackage
-       if ($stateParams.customizeCity === "bengaluru") {
+        if ($stateParams.customizeCity === "bengaluru") {
             TemplateService.title = "Customize Your Experience At Smaaash";
             TemplateService.description = " Customize your package according to the number of people, games you’d love to play and food, only at the game zone at Smaaash, Bengaluru. ";
             TemplateService.keywords = "game zone, game zone in bengaluru";
@@ -3739,12 +3739,12 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "Customize your package according to the number of people, games you’d love to play and food, only at the game zone at Smaaash, Mumbai. ";
             TemplateService.keywords = "game zone , game zone in mumbai";
         }
-         if ($stateParams.customizeCity === "delhi") {
+        if ($stateParams.customizeCity === "delhi") {
             TemplateService.title = "Customize Your Experience At Smaaash";
             TemplateService.description = " Customize your package according to the number of people, games you’d love to play and food, only at the game zone at Smaaash, Delhi. ";
             TemplateService.keywords = "game zone, game zone in Delhi";
         }
-          if ($stateParams.customizeCity === "gurgaon-ambience-mall") {
+        if ($stateParams.customizeCity === "gurgaon-ambience-mall") {
             TemplateService.title = " Customize Your Experience At Smaaash";
             TemplateService.description = "  Customize your package according to the number of people, games you’d love to play and food, only at the game zone at Smaaash, Ambience Mall, Gurgaon. ";
             TemplateService.keywords = "game zone, game zone in gurgaon";
@@ -3991,52 +3991,52 @@ if ($stateParams.contactCity === "bengaluru") {
 
         //seo
         //quick jump
-   if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quikjump") {
+        if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quikjump") {
             TemplateService.title = "Get Airborne, Dive From 45 Ft. At Quickjump, At Smaaash";
             TemplateService.description = "Get evil, push your friends from the third floor and give them the scare of their lives at the game zone in Mumbai. Don’t worry, we’ll keep them safe.";
             TemplateService.keywords = "game zone in Mumbai ";
         }
- //smart-arcade-2
-  if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "smart-arcade-2") {
+        //smart-arcade-2
+        if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "smart-arcade-2") {
             TemplateService.title = "Arcade Games That’ll Freeze Time At Smaaash, Delhi";
             TemplateService.description = "Arcade games in Delhi never got this nostalgic, with classics like Pacman to woo you; we also have modern games that’ll get you hooked. ";
             TemplateService.keywords = "Arcade games,  Arcade games in delhi ";
         }
-          if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "smart-arcade-2") {
+        if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "smart-arcade-2") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
             TemplateService.description = " The mind and the foot need to marry to create footballing magic in this penalty shoot guarded by our robotic keeper, at the football simulator in Bengaluru.";
             TemplateService.keywords = "football simulator in Bengaluru game zone in bengaluru";
         }
-         //smart-arcade-3
-  if ($stateParams.snowrushCity === "gurgaon-ambience-mall" && $stateParams.id === "smart-arcade-3") {
+        //smart-arcade-3
+        if ($stateParams.snowrushCity === "gurgaon-ambience-mall" && $stateParams.id === "smart-arcade-3") {
             TemplateService.title = "Arcade Games That’ll Freeze Time At Smaaash, Ambience Mall";
             TemplateService.description = "Arcade games in Ambience Mall, Gurgaon, never got this nostalgic, with classics like Pacman to woo you; we also have modern games that’ll get you hooked. . ";
             TemplateService.keywords = "Arcade Games , Arcade games in Gurgaon";
-        } 
+        }
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "smart-arcade-3") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
             TemplateService.description = "The mind and the foot need to marry to create footballing magic in this penalty shoot guarded by our robotic keeper, at Cyberhub, Gurgaon. ";
             TemplateService.keywords = "game zone in gurgaon";
         }
-         //smart-arcade-7
-  if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "smart-arcade-7") {
+        //smart-arcade-7
+        if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "smart-arcade-7") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
             TemplateService.description = "The mind and the foot need to marry to create footballing magic in this penalty shoot guarded by our robotic keeper, at the game zone in Delhi.";
             TemplateService.keywords = "game zone in Delhi";
         }
-           //twilight-bowling-2//
+        //twilight-bowling-2//
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "twilight-bowling-2") {
             TemplateService.title = "Twilight Bowling, Fall In Love At Smaaash";
             TemplateService.description = "Single, dating, never mind, the perfect ambience for you to knock off the pins and stress, alike, awaits you at bowling Gurgaon at Smaaash.";
             TemplateService.keywords = "bowling Gurgaon, bowling in  Gurgaon";
         }
-              //twilight-bowling-5//
+        //twilight-bowling-5//
         if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "twilight-bowling-5") {
             TemplateService.title = "Twilight Bowling, Fall In Love At Smaaash";
             TemplateService.description = "Single, dating, never mind, the perfect ambience for you to knock off the pins and stress, alike, awaits you at bowling Delhi at Smaaash.";
             TemplateService.keywords = "bowling Delhi, bowling in Delhi";
         }
-               //twilight-bowling-6//
+        //twilight-bowling-6//
         if ($stateParams.snowrushCity === "gurgaon-ambience-mall" && $stateParams.id === "twilight-bowling-6") {
             TemplateService.title = "Twilight Bowling, Fall In Love At Smaaash";
             TemplateService.description = " Single, dating, never mind, the perfect ambience for you to knock off the pins and stress, alike, awaits you at bowling Gurgaon at Smaaash.";
@@ -4162,20 +4162,20 @@ if ($stateParams.contactCity === "bengaluru") {
         }
 
         //finger-coaster//
-             //super-keeper-7//
-           if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "super-keeper-7") {
+        //super-keeper-7//
+        if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "super-keeper-7") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
             TemplateService.description = "The mind and the foot need to marry to create footballing magic in this penalty shoot guarded by our robotic keeper, at the game zone in Delhi.";
             TemplateService.keywords = "game zone in Delhi";
         }
-           //super-keeper-3//
-           if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "super-keeper-3") {
+        //super-keeper-3//
+        if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "super-keeper-3") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
             TemplateService.description = "The mind and the foot need to marry to create footballing magic in this penalty shoot guarded by our robotic keeper, at Cyberhub, Gurgaon.";
             TemplateService.keywords = "game zone in gurgaon";
         }
-          //super-keeper-2//
-           if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "super-keeper-2") {
+        //super-keeper-2//
+        if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "super-keeper-2") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
             TemplateService.description = "The mind and the foot need to marry to create footballing magic in this penalty shoot guarded by our robotic keeper, at the football simulator in Bengaluru.";
             TemplateService.keywords = "football simulator in Bengaluru game zone in bengaluru";
@@ -4219,13 +4219,13 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.description = "This virtual reality game will give you the chills as you walk on a thin strip of wood, balancing between two tall sky scrapers at Smaaash, Cyberhub, Gurgaon.";
             TemplateService.keywords = "virtual reality, virtual reality games";
         }
-           //walk-the-plank-3//
+        //walk-the-plank-3//
         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "walk-the-plank-3") {
             TemplateService.title = "Walk The Plank At Smaaash; Walk Between Sky Scrapers";
             TemplateService.description = "This virtual reality game will give you the chills as you walk on a thin strip of wood, balancing between two tall sky scrapers at Smaaash, Bengaluru.";
             TemplateService.keywords = "virtual reality, virtual reality games";
         }
-             //walk-the-plank-7//
+        //walk-the-plank-7//
         if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "walk-the-plank-7") {
             TemplateService.title = "Walk The Plank At Smaaash; Walk Between Sky Scrapers";
             TemplateService.description = "This virtual reality game will give you the chills as you walk on a thin strip of wood, balancing between two tall sky scrapers at Smaaash, Delhi.";
@@ -4346,29 +4346,29 @@ if ($stateParams.contactCity === "bengaluru") {
             TemplateService.keywords = "sky karting , go kart gurgaon, go kart racing, gokarting";
         }
         //sky-karting//
- 
 
-//climbamax
-if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "climbamax") {
-    TemplateService.title = "Breath-Taking Rock Climbing at the Climbamax Game in Smaaash";
-    TemplateService.description = "Let the climber in you rise such that you reach the peak. This little mountain is the ultimate challenge at the game zone in Mumbai.";
-    TemplateService.keywords = "game zone in Mumbai , Climbamax game";
-}
-//climbamax
 
-//bowlin-2
-if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "bowling-2") {
-    TemplateService.title = "Twilight Bowling, Fall in Love at Smaaash";
-    TemplateService.description = "Single, dating, never mind, the perfect ambience for you to knock off the pins and stress, alike, awaits you at bowling Bengaluru at Smaaash.";
-    TemplateService.keywords = "game zone in Mumbai , Climbamax game";
-}
-//bowling-3
+        //climbamax
+        if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "climbamax") {
+            TemplateService.title = "Breath-Taking Rock Climbing at the Climbamax Game in Smaaash";
+            TemplateService.description = "Let the climber in you rise such that you reach the peak. This little mountain is the ultimate challenge at the game zone in Mumbai.";
+            TemplateService.keywords = "game zone in Mumbai , Climbamax game";
+        }
+        //climbamax
 
-if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3") {
-    TemplateService.title = "Play cricket with the Legends at Smaaash Cricket";
-    TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a lifelike, stadium like ambience at Smaaash, Bengaluru is definitely out of the ordinary.";
-    TemplateService.keywords = "Net cricket, Play cricket";
-}
+        //bowlin-2
+        if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "bowling-2") {
+            TemplateService.title = "Twilight Bowling, Fall in Love at Smaaash";
+            TemplateService.description = "Single, dating, never mind, the perfect ambience for you to knock off the pins and stress, alike, awaits you at bowling Bengaluru at Smaaash.";
+            TemplateService.keywords = "game zone in Mumbai , Climbamax game";
+        }
+        //bowling-3
+
+        if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3") {
+            TemplateService.title = "Play cricket with the Legends at Smaaash Cricket";
+            TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a lifelike, stadium like ambience at Smaaash, Bengaluru is definitely out of the ordinary.";
+            TemplateService.keywords = "Net cricket, Play cricket";
+        }
 
         //dodge-ball//
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "dodge-ball") {
@@ -4443,7 +4443,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
 
         //nitro-wheelie//
         //nitro-wheelie-2//
-            if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "nitro-wheelie-2") {
+        if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "nitro-wheelie-2") {
             TemplateService.title = "Dexterous Dirt Biking On Nitro Wheelie At Smaaash";
             TemplateService.description = " Get down and dirty on the racetrack with this arcade game that’ll test the biker-mettle in you at Smaaash, Cyberhub, Gurgaon. ";
             TemplateService.keywords = "arcade game, arcade game in gurgoan";
@@ -4459,7 +4459,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "This virtual reality game tops the charts in entertainment value. One of you got to destroy enemies as the other drives. ";
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
         }
-         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "war-on-wheels") {
+        if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "war-on-wheels") {
             TemplateService.title = "War On Wheels, The Ultimate Team Game In A Tank At Smaaash";
             TemplateService.description = "This arcade game takes virtual reality to another level, wherein you and your partner team up to gun down zombies while driving, at Smaaash Bengaluru.";
             TemplateService.keywords = "arcade game, arcade game in bengaluru";
@@ -4471,7 +4471,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
         // }
         //war-on-wheels
         //war-on-wheels-2//
-  if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "war-on-wheels-2") {
+        if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "war-on-wheels-2") {
             TemplateService.title = "War On Wheels, The Ultimate Team Game In A Tank At Smaaash";
             TemplateService.description = "This arcade game takes virtual reality to another level, wherein you and your partner team up to gun down zombies while driving, at Smaaash, Cyberhub, Gurgaon.";
             TemplateService.keywords = "arcade game, arcade game in gurgaon";
@@ -4479,7 +4479,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
         //war-on-wheels/
         //snehal
         //trampoline-park
-         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "trampoline-park") {
+        if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "trampoline-park") {
             TemplateService.title = "Get Wings At The Trampoline Park At Smaaash";
             TemplateService.description = "Bounce with every ounce of strength. The trampoline park at in Mumbai is an aerial fiesta where you just keep having fun. ";
             TemplateService.keywords = "game zone in mumbai";
@@ -4489,7 +4489,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "Who said trampolines are only for kids? Come visit SMAAASH, trampolines for adults in Hyderabad will spring some childhood memories for you";
             TemplateService.keywords = "Indoor trampoline park, game zone, kids play area, game zone in Hyderabad, children play area";
         }
-              
+
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "trampoline-park") {
             TemplateService.title = "Unwind With an Exciting Host of VR Games & Indoor Sports";
             TemplateService.description = "Play cricket with swag, strike them all at Bowling Gurgaon, dangle between skyscrapers, create your own roller coaster, take on futuristic gaming with gusto.";
@@ -4566,7 +4566,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.keywords = "vr games, virtual reality games, virtual reality, virtual reality gaming";
         }
         //art-of-attack
-     
+
         //x-2-motor-racing-simulator
         if ($stateParams.snowrushCity === "noida" && $stateParams.id === "x-2-motor-racing-simulator") {
             TemplateService.title = "X2 Racing Simulator is a Crazy Car Racing Game at Smaaash";
@@ -4588,9 +4588,9 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "The arcade game that gives you a dose of insane speed. Take the wheel in this racer’s delight at Smaaash, Bengaluru.";
             TemplateService.keywords = "arcade game, arcade game in bengaluru";
         }
-   
-           //x-2-motor-racing-simulator-2
-             if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "x-2-motor-racing-simulator-2") {
+
+        //x-2-motor-racing-simulator-2
+        if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "x-2-motor-racing-simulator-2") {
             TemplateService.title = "X2 Motor Racing Simulator At Smaaash, Fast And Furious";
             TemplateService.description = "The arcade game that gives you a dose of insane speed. Take the wheel in this racer’s delight at Smaaash, Cyberhub, Gurgaon.";
             TemplateService.keywords = " arcade game, arcade game in gurgaon";
@@ -5192,12 +5192,12 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "Corporate parties, pre wedding parties, kitty parties, birthday parties and a lot more; bashes at Smaaash are high energy, vibrant detours from the usual boring parties.";
             TemplateService.keywords = "party places, Corporate parties, pre wedding parties ,kitty parties, birthday parties";
         }
-         if ($stateParams.hostCity === "delhi") {
+        if ($stateParams.hostCity === "delhi") {
             TemplateService.title = "Host A Party With Extravagance At Smaaash";
             TemplateService.description = "Host a sports themed party wherein you can eat, drink, play games, sport and a lot more at Smaaash, the party place in Delhi.";
             TemplateService.keywords = "party place in Delhi";
         }
-           if ($stateParams.hostCity === "gurgaon-ambience-mall") {
+        if ($stateParams.hostCity === "gurgaon-ambience-mall") {
             TemplateService.title = "Host A Party With Extravagance At Smaaash";
             TemplateService.description = "Host a sports themed party wherein you can eat, drink, play games, sport and a lot more at Smaaash, the party place in Gurgaon.";
             TemplateService.keywords = "party place in Gurgaon";
@@ -5365,7 +5365,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
                 $scope.redemablePoints = data.data.CustomerBalance[0].RedemablePoints;
                 $scope.cardBalance = data.data.CustomerBalance[0].CardBalance;
                 console.log("redemablePoints", $scope.redemablePoints);
-            } else { }
+            } else {}
         })
 
 
@@ -5941,12 +5941,12 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "Drool over awesome food and gorge on delicacies from the Mighty small restaurant as you go out to party at one of the most happening places in Noida.";
             TemplateService.keywords = "Food And Beverages ";
         }
-          if ($stateParams.drinkCity === "delhi") {
+        if ($stateParams.drinkCity === "delhi") {
             TemplateService.title = "Food And Beverages At Smaaash, Eat Some, Play Some";
             TemplateService.description = "Mouth-watering restaurants lace the Smaaash playground so that you nourish yourself with delicious cuisine, as you play at Smaaash, Delhi.";
             TemplateService.keywords = "event at smaaash";
         }
-          if ($stateParams.drinkCity === "gurgaon-ambience-mall") {
+        if ($stateParams.drinkCity === "gurgaon-ambience-mall") {
             TemplateService.title = "Food And Beverages At Smaaash, Eat Some, Play Some";
             TemplateService.description = "Mouth-watering restaurants lace the Smaaash playground so that you nourish yourself with delicious cuisine, as you play at Smaaash, Ambience Mall, Gurgaon.";
             TemplateService.keywords = "";
@@ -6276,99 +6276,99 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
 
 
         //seo
-      
-               if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "2-x-tuesdays") {
+
+        if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "2-x-tuesdays") {
             TemplateService.title = "2X Fun Tuesdays, get BOGO offer on all games at Smaaash";
             TemplateService.description = "Great deals and packages. Tuesdays are freebie days, have double the fun with one game free on purchase of the other only at Smaaash, Bengaluru.";
             TemplateService.keywords = "deals and packages";
         }
-                    if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "baller-bowler-deal-2") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "baller-bowler-deal-2") {
             TemplateService.title = "Baller Bowler Deal Only at Smaaash";
             TemplateService.description = "Twilight bowling with free shoe rentals and Pepsi, what else do you need to knock off stress and some pins at Ambience Mall, Gurgaon? Super deals and packages!";
             TemplateService.keywords = "Twilight bowling, bowling gurgaon";
         }
-                     if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "beer-at-49") {
+        if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "beer-at-49") {
             TemplateService.title = "Cheers To Cheap Beers at Smaaash";
             TemplateService.description = "Beer at Rs. 49 on weekdays is a steal deal, tipsy is old-school, drunk is the new high at Smaaash Bengaluru. Find more great deals and packages.";
             TemplateService.keywords = "deals and packages";
         }
-                        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "bowling-mashup") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "bowling-mashup") {
             TemplateService.title = "Bowling Mashup The Ultimate Deal at Smaaash!";
             TemplateService.description = "Karting, bowling, arcade and redemption games what a concoction of fun. Find more exciting deals and packages at Smaaash, Mumbai.";
             TemplateService.keywords = "deals and packages";
         }
-                     if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "cheap-thrill-weekdays") {
+        if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "cheap-thrill-weekdays") {
             TemplateService.title = "Cheap Thrill Weekdays Only at Smaaash";
             TemplateService.description = "Get all games at Rs. 499 on weekdays until you huff and puff after playing. Find more great deals and packages at Smaaash, Bengaluru.";
             TemplateService.keywords = "deals and packages";
         }
-                 
-         if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "crazy-twosday") {
+
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "crazy-twosday") {
             TemplateService.title = "Crazy Twosdays Offer at Smaaash";
             TemplateService.description = "Buy one game and get the other free, on all games on Tuesdays. Find more crazy deals and packages at Smaaash Mumbai.";
             TemplateService.keywords = "deals and packages";
-        }        
-           if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "game-nights-999") {
+        }
+        if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "game-nights-999") {
             TemplateService.title = "Exciting Game Nights at Smaaash ";
             TemplateService.description = "Now watch live match screenings and get to play all Smaaash games at Rs. 999 on Saturdays at Bengaluru. Look for more deals and packages.";
             TemplateService.keywords = "deals and packages";
         }
-          if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "game-on-mondays") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "game-on-mondays") {
             TemplateService.title = "It’s Game On Mondays at Smaaash";
             TemplateService.description = "Get all games for just Rs. 1200 on Mondays at Smaaash, Mumbai. More exciting deals and packages await you at Smaaash. ";
             TemplateService.keywords = "deals and packages";
         }
-         if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "game-on-mondays-2") {
+        if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "game-on-mondays-2") {
             TemplateService.title = "It’s Game On Mondays at Smaaash";
             TemplateService.description = "Get all games for just Rs. 1200 on Mondays at Smaaash, Bengaluru. More exciting deals and packages await you at Smaaash. ";
             TemplateService.keywords = "deals and packages";
         }
-          if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "gaming-delight") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "gaming-delight") {
             TemplateService.title = "Gaming Delight Only at Smaaash";
             TemplateService.description = " Get a VR game, a game of bowling, 5 arcade games  and a soft beverage at Rs. 499. More exciting deals and packages at Smaaash, Ambience Mall, Gurgaon.";
             TemplateService.keywords = "deals and packages";
         }
-         if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "girl-power-wednesday") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "girl-power-wednesday") {
             TemplateService.title = "Girl Power Wednesday at Smaaash";
             TemplateService.description = "Buy one drink and get two free, also, savour on unlimited Sangria. Girls, find more exciting deals and packages at Smaaash, Mumbai.";
             TemplateService.keywords = "deals and packages";
         }
-           if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "gotta-golf") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "gotta-golf") {
             TemplateService.title = "Gotta Golf package at Smaaash";
             TemplateService.description = "Putt like a golfing star in Jungle Mini Golf, get one arcade game and a glass of Pepsi at Rs. 275. Great deals and packages only at Smaaash, Gurgaon.";
             TemplateService.keywords = "deals and packages";
         }
-           if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "maximum-smaaash") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "maximum-smaaash") {
             TemplateService.title = "Maximum Smaaash, a great deal to explore";
             TemplateService.description = "Bowling, Cricket, Sky Karting and one virtual reality game, all for Rs. 999. More exciting deals and packages only at Smaaash, Mumbai.";
             TemplateService.keywords = "deals and packages";
         }
-           if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "monday-buffet") {
+        if ($stateParams.dealsinnercity === "bengaluru" && $stateParams.id === "monday-buffet") {
             TemplateService.title = "Mega Monday Motivation only at Smaaash";
             TemplateService.description = "Get all games and a china box meal only for just Rs. 1500. Great Monday deals and packages at Smaaash, Bengaluru.";
             TemplateService.keywords = "deals and packages";
         }
-           if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "rollin-weekends-2") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "rollin-weekends-2") {
             TemplateService.title = "Rolling Weekends only at Smaaash";
             TemplateService.description = "Enjoy a weekend twilight date with a game of bowling, shoe rental and a glass of Pepsi at Rs. 349 only. More deals and packages at Ambience Mall, Gurgaon.";
             TemplateService.keywords = "deals and packages";
         }
-          if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "sky-karting-offer") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "sky-karting-offer") {
             TemplateService.title = "Sky Karting offer only at Smaaash";
             TemplateService.description = "Sizzling prizes await you every month at the scorching Sky Karting track. Find more deals and packages at Smaaash, Mumbai.";
             TemplateService.keywords = "Sky Karting, Sky Karting in mumbai";
         }
-          if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "smaaash-junior-kids-play-area-90") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "smaaash-junior-kids-play-area-90") {
             TemplateService.title = "Smaaash Junior Kids Play Area 90; exciting deal.";
             TemplateService.description = " Children turn topsy-turvy with excitement, because you get 90 minutes of Smaaash Junior only at Rs. 499 on weekdays. Great deals and packages at Smaaash, Mumbai.";
             TemplateService.keywords = "kids play area";
         }
-         if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "smaaash-junior-kids-play-area-day-pass") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "smaaash-junior-kids-play-area-day-pass") {
             TemplateService.title = "Smaaash Junior kids play area day pass ";
             TemplateService.description = "Children, let out all your pent up energy because access to Smaaash Junior, Trampoline Park and all arcade games for just Rs. 800 on weekdays at Smaaash, Mumbai";
             TemplateService.keywords = "kids play area";
         }
-           if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "smaaash-junior-kids-play-arena-90") {
+        if ($stateParams.dealsinnercity === "mumbai" && $stateParams.id === "smaaash-junior-kids-play-arena-90") {
             TemplateService.title = "Smaaash Junior Kids Play Area 90, weekends";
             TemplateService.description = "Children roar in excitement as you get 90 minutes of Smaaash Junior in weekends for Rs. 599. Great deals and packages at Smaaash, Mumbai.";
             TemplateService.keywords = "deals and packages";
@@ -6378,22 +6378,22 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "Karting, Cricket, Arcade and Redemption games all at Rs. 1599 on weekends that too. Find nice deals and packages at Smaaash, Mumbai.";
             TemplateService.keywords = "deals and packages";
         }
-           if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "swinger-s-dream-2") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "swinger-s-dream-2") {
             TemplateService.title = "Swinger’s Dream package at Smaaash";
             TemplateService.description = "Jungle Mini Golf, any 5 arcade games and a mug of draught beer just for Rs. 475. Putt like a pro; find more awesome deals and packages at Smaaash, Gurgaon.";
             TemplateService.keywords = "deals and packages";
         }
-         if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "the-funtastic-feast") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "the-funtastic-feast") {
             TemplateService.title = "The Funtastic Feast at Smaaash";
             TemplateService.description = " Gorge on 1 veg or non-veg pizza or biryani and burn those calories with 2 arcade and 2 VR games. Find great deals and packages at Smaaash, Gurgaon.";
             TemplateService.keywords = "deals and packages";
         }
-          if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "weekend-game-on") {
+        if ($stateParams.dealsinnercity === "gurgaon-ambience-mall" && $stateParams.id === "weekend-game-on") {
             TemplateService.title = "Weekend Game On at Smaaash";
             TemplateService.description = " Get 1 VR game, 1 game of bowling, 5 arcade games and 1 soft beverage on weekends for Rs. 599. Great deals and packages at Smaaash, Ambience Mall, Gurgaon. ";
             TemplateService.keywords = "deals and packages";
         }
-  if ($stateParams.dealsinnercity === "ludhiana" && $stateParams.id === "student-offer") {
+        if ($stateParams.dealsinnercity === "ludhiana" && $stateParams.id === "student-offer") {
             TemplateService.title = "Students, Enjoy All Games and Free Movie Tickets at Smaaash.";
             TemplateService.description = "All that students dream about- inexpensive food, drinks, games made possible at SMAAASH with the special student offer, helping you save your pocket money";
             TemplateService.keywords = "virtual reality gaming, game, gaming zone, gaming zones, games zones";
@@ -6710,37 +6710,37 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
             TemplateService.description = "What is better than watching live match screening at a sports pub with tasty food spirited beverages?";
             TemplateService.keywords = "smaaash events, events at smaaash";
         }
-           if ($stateParams.eventsInnercity === "bengaluru" && $stateParams.id === "-1005") {
+        if ($stateParams.eventsInnercity === "bengaluru" && $stateParams.id === "-1005") {
             TemplateService.title = "Rocking Events at Smaaash ";
             TemplateService.description = "Check out what’s brewing at Smaaash; the most thrilling place to chill out and win mammoth prizes at Bengaluru.";
             TemplateService.keywords = "event at smaaash";
         }
-           if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "bowl-for-bevarage") {
+        if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "bowl-for-bevarage") {
             TemplateService.title = "Bowl For Beverage Event at Smaaash";
             TemplateService.description = "Score 160 or more in Twilight Bowling Mumbai and win a free beverage to relish.";
             TemplateService.keywords = "Bowling Mumbai, Bowling in  Mumbai ";
-        } 
-           if ($stateParams.eventsInnercity === "bengaluru" && $stateParams.id === "friday-karaoke-nights") {
+        }
+        if ($stateParams.eventsInnercity === "bengaluru" && $stateParams.id === "friday-karaoke-nights") {
             TemplateService.title = "Friday Karaoke Night Event at Smaaash";
             TemplateService.description = "Get a free VR game on performing a song and enjoy beer at Rs. 49 on Fridays at Smaaash, Bengaluru.";
             TemplateService.keywords = "event at smaaash ";
         }
-     if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "missed-call-harley-davidson") {
+        if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "missed-call-harley-davidson") {
             TemplateService.title = "Win A Harley Event at Smaaash";
             TemplateService.description = "Give a missed call and one lucky person gets to win a Harley Davidson at Smaaash Mumbai.";
             TemplateService.keywords = "event at smaaash ";
         }
-          if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "sixes-contest") {
+        if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "sixes-contest") {
             TemplateService.title = "Sixes Contest at Smaaash";
             TemplateService.description = "Net cricket in malls was never this exciting. Win a beverage if you have it in you, to hit a six at Smaaash, Mumbai. ";
             TemplateService.keywords = "Net cricket in malls,";
         }
-            if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "smaaash-junior-2") {
+        if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "smaaash-junior-2") {
             TemplateService.title = "Smaaash Junior; Where Children Have A Smashing Time";
             TemplateService.description = "This play area for kids is a crazy haven wherein kids can enjoy a plethora of games and lose track of time.";
             TemplateService.keywords = " play area for kids,";
         }
-            if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "strike-to-win") {
+        if ($stateParams.eventsInnercity === "mumbai" && $stateParams.id === "strike-to-win") {
             TemplateService.title = "Strike To Win Event at Smaaash";
             TemplateService.description = " Super Keeper game at Smaaash, Mumbai lures you to score a goal for a beverage and score three consecutive goals for Messi shoes.";
             TemplateService.keywords = " event at smaaash";
@@ -6845,7 +6845,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
         //     'quantity': '1' // Quantity.
         // });
 
-        
+
 
 
     })
@@ -8049,7 +8049,7 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
                             }
 
                             break;
-                             case 'times-prime-offers':
+                        case 'times-prime-offers':
                             if ($stateParams.timescity) {
                                 $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                     if (key.myslug == $stateParams.timescity) {
@@ -8875,25 +8875,45 @@ if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3"
 
 
     })
-   .controller('TimesPrimeOffersCtrl', function ($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+    .controller('TimesPrimeOffersCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("times-prime-offers");
         $scope.menutitle = NavigationService.makeactive("times-prime-offers");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.mobileValidationModal = function () {
+            $uibModal.open({
+                animation: true,
+                backdrop: 'static',
+                templateUrl: "views/modal/times-prime.html",
+                scope: $scope,
+                windowClass: 'app-modal-window'
+            });
+        };
+        $scope.mobileValidationModal();
+        $scope.validateMobile = function (credentialstoReset) {
+            console.log("###########################33", credentialstoReset);
+
+        }
+        var formData = {};
+        formData.city = $.jStorage.get("cityid");
+        NavigationService.getTimesPrimeDeal(formData, function (data) {
+            $scope.SingleDealsPackages = _.chunk(data.data, 3);
+        });
+
     })
-   .controller('TimesInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+    .controller('TimesInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("times-inner");
         $scope.menutitle = NavigationService.makeactive("Times-Inner");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-               $scope.loyalty = function () {
+        $scope.loyalty = function () {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/times-prime.html",
                 scope: $scope,
-                 size: 'md',
+                size: 'md',
                 windowClass: ''
             });
         };
