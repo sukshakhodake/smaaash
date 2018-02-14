@@ -1,4 +1,4 @@
- <!-- <iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!showthumbimage" src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
+<!-- <iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!showthumbimage" src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
      frameborder="0" allowfullscreen="" style="
     position: absolute;
     left: 0;
@@ -27,14 +27,13 @@
    <img ng-src="{{banner[0].thumbnail|uploadpath}}" class="img-responsive margin-auto width100" ng-if="showthumbimage && (banner[0].thumbnail || banner[0].thumbnail != '' )&&banner[0].videourl" ng-click="showVid()">
    <img ng-src="{{banner[0].videourl|youtubethumb}}"  class="img-responsive width100" ng-if="!showthumbimage">
 </div>-->
-
 <div class="deals-packages" scrolldown>
     <div class="landing-kartbanner hidden-xs" ng-style="{'background':'url('+detailDealsInner.banner+')no-repeat'}">
         <div class="pink-butn" ng-click="scrollDown();">
             <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
         </div>
     </div>
-     <div class="landing-kartbanner hidden-md hidden-sm visible-xs" ng-style="{'background':'url('+detailDealsInner.image+')no-repeat'}">
+    <div class="landing-kartbanner hidden-md hidden-sm visible-xs" ng-style="{'background':'url('+detailDealsInner.image+')no-repeat'}">
         <div class="pink-butn" ng-click="scrollDown();">
             <span>scroll<i class="fa fa-chevron-down" aria-hidden="true"></i></span>
         </div>
@@ -50,8 +49,8 @@
             <br>
 
             <div ng-if="showTermsCondition">
-              <h4 class="terms-bold">Terms & Conditions</h4>
-<div ng-bind-html="detailDealsInner.termsAndCondition"></div>
+                <h4 class="terms-bold">Terms & Conditions</h4>
+                <div ng-bind-html="detailDealsInner.termsAndCondition"></div>
 
             </div>
 
@@ -63,10 +62,19 @@
                     <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul> -->
                 <div class="more inline-block hidden-xs">
-                    <button class="uppercase green"  ng-click="loyalty()">Add to cart</button>
+                    <!--<button class="uppercase green" ng-click="loyalty()">Add to cart</button>-->
+                    <button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price)">Buy Now</button>
                 </div>
                 <div class="more inline-block visible-xs" ng-if="detailDealsInner.showBuyNow">
-                    <button class="uppercase green"  ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Add to cart</button>
+                    <!--<button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Add to cart</button>-->
+                    <button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Buy Now</button>
+                </div>
+                <div class="more inline-block visible-xs mt10" ng-if="detailDealsInner.termsAndCondition" ng-click="showTermsConditionfun();">
+                    <button class="uppercase green">Terms & Conditions</button>
+                </div>
+
+                <div class="more inline-block hidden-xs" ng-if="detailDealsInner.termsAndCondition" ng-click="showTermsConditionfun();">
+                    <button class="uppercase green">Terms & Conditions</button>
                 </div>
             </div>
         </div>

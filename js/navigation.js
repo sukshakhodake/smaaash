@@ -1,5 +1,6 @@
 var adminurl = "https://test.smaaash.in/";
 var adminurl2 = "http://localhost:1337/";
+// var adminurl1 = "http://localhost:1337/";
 
 
 var imgurl = adminurl + "upload/";
@@ -50,7 +51,7 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
 
-            
+
             getSlider: function (callback) {
                 var data = {
                     city: $.jStorage.get("cityid")
@@ -732,6 +733,14 @@ var navigationservice = angular.module('navigationservice', [])
                     data: id
                 }).success(callback);
             },
+            getTimesPrimeDeal: function (data, callback) {
+                $http({
+                    url: adminurl + 'exploresmash/getTimesPrimeDeal',
+                    method: 'POST',
+                    withCredentials: true,
+                    data: data
+                }).success(callback);
+            }
 
         };
     });

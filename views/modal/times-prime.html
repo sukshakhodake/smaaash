@@ -1,5 +1,5 @@
 <div class="times-prime">
-      <div class="close-modal" ng-click="$dismiss()">
+    <div class="close-modal" ng-click="$dismiss()">
         <i class=" fa fa-times-circle " aria-hidden="true "></i>
     </div>
     <div class="container-fluid">
@@ -10,7 +10,7 @@
                 <input type="text" class="form-control" placeholder="* Mobile Number" ng-model="credentialstoReset.CustomerMobileNo" required>
             </div>
             <div class="text-center times-go">
-            <button class="uppercase white">Go</button>
+                <button class="uppercase white" ng-click="validateMobile(credentialstoReset)">Go</button>
             </div>
         </form>
     </div>

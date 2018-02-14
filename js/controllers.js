@@ -3319,12 +3319,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "kitty party, kitty parties in Delhi";
         }
         //pre-wedding-parties
-        if ($stateParams.partyCity === "bengaluru" && $stateParams.id === "pre-wedding-parties") {
+
+        if ($stateParams.partyCity === "bengaluru" && $stateParams.id === "pre-wedding-parties-") {
             TemplateService.title = "Pre-Wedding Parties- Have A Cool Pre-Wedding Party & Have A Smaaashing Night! ";
             TemplateService.description = "  Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
         }
-        if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-Party") {
+        if ($stateParams.partyCity === "mumbai" && $stateParams.id === "pre-wedding-party") {
             TemplateService.title = "Have A Cool Pre-Wedding Party & Have A Smaaashing Night!";
             TemplateService.description = "Celebrate your last night as a bachelor with your buddies and make the most of it. Smaaash helps you host an extravagant pre-wedding party in Mumbai!";
             TemplateService.keywords = "pre-wedding party, pre-wedding parties";
@@ -3991,7 +3992,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //seo
         //quick jump
-        if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quikjump") {
+        if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quickjump") {
             TemplateService.title = "Get Airborne, Dive From 45 Ft. At Quickjump, At Smaaash";
             TemplateService.description = "Get evil, push your friends from the third floor and give them the scare of their lives at the game zone in Mumbai. Don’t worry, we’ll keep them safe.";
             TemplateService.keywords = "game zone in Mumbai ";
@@ -8875,7 +8876,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('TimesPrimeOffersCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+    .controller('TimesPrimeOffersCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $rootScope) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("times-prime-offers");
         $scope.menutitle = NavigationService.makeactive("times-prime-offers");
@@ -8890,7 +8891,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: 'app-modal-window'
             });
         };
-        $scope.mobileValidationModal();
+        // $scope.mobileValidationModal();
         $scope.validateMobile = function (credentialstoReset) {
             console.log("###########################33", credentialstoReset);
 
@@ -8900,9 +8901,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getTimesPrimeDeal(formData, function (data) {
             $scope.SingleDealsPackages = _.chunk(data.data, 3);
         });
+        $scope.goTo = function (id) {
+            console.log("im in");
+            if (id) {
+                console.log("im in");
+                // $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
+                $state.go('times-inner', {
+                    id: id,
+                    timesinnercity: $rootScope.citySpecific
+                });
+            }
+
+        }
 
     })
-    .controller('TimesInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+    .controller('TimesInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams, $rootScope, $filter, $state) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("times-inner");
         $scope.menutitle = NavigationService.makeactive("Times-Inner");
@@ -8917,6 +8930,116 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: ''
             });
         };
+
+        NavigationService.getCity(function (data) {
+            $rootScope.smaaashCities = data.data;
+        });
+        if ($stateParams.image) {
+            $scope.homeimage = $filter('uploadpath')($stateParams.image);
+
+        }
+        if ($stateParams.timesinnercity) {
+            NavigationService.getCity(function (data) {
+                $scope.getCities = _.cloneDeep(data.data);
+                console.log("$scope.getCities ", $scope.getCities);
+                $scope.tempCity = _.find($scope.getCities, function (obj) {
+                    return obj.myslug == $stateParams.timesinnercity;
+                });
+                NavigationService.getDetailExploreSmaaashByUrl($stateParams.id, $scope.tempCity._id, function (data) {
+                    $scope.detailDealsInner = data.data;
+                    console.log("$scope.detailDealsInner", $scope.detailDealsInner);
+                    if (_.isEmpty($scope.detailDealsInner) || Object.keys($scope.detailDealsInner).length == 0) {
+                        console.log("im true");
+                        $state.go('home');
+                    }
+                    $scope.detailDealsInner.banner = $filter('uploadpath')($scope.detailDealsInner.banner);
+                    $scope.detailDealsInner.homeimage = $filter('uploadpath')($scope.detailDealsInner.homeimage);
+                    $scope.detailDealsInner.image = $filter('uploadpath')($scope.detailDealsInner.image);
+                    $scope.detailDealsInner.mobileBanner = $filter('uploadpath')($scope.detailDealsInner.mobileBanner);
+
+                    TemplateService.removeLoader();
+                });
+
+            })
+        }
+
+
+        $scope.addToCartParams = {};
+        $scope.addToCartParams.VisitDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+        $scope.addToCartParams.NoOfAdults = '1';
+        // $scope.addToCartParams.NoOfAdults = '';
+        if ($.jStorage.get("loginDetail") != null) {
+            $scope.addToCartParams.CustomerMobileNo = $.jStorage.get("loginDetail").CustomerMobile;
+            $scope.addToCartParams.CustomerID = $.jStorage.get("loginDetail").CustomerID;
+        }
+
+        // $scope.addToCartParams.NoOfChild = '0';
+        // $scope.addToCartParams.NoOfSenior = '0';
+        // $scope.addToCartParams.AddonIDs = " ";
+        // $scope.addToCartParams.AddonQuantities = "";
+        $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
+
+
+        $scope.buyNow = function (BranchPackageID, price, mobile) {
+
+            $scope.addToCartParams.BranchPackageID = BranchPackageID;
+            // $scope.addToCartParams.BranchPackageID = "41";
+            // $scope.addToCartParams.TotalAmount = "222";
+            $scope.addToCartParams.TotalAmount = price;
+
+
+            console.log("$scope.addToCartParams", $scope.addToCartParams);
+            if ($.jStorage.get("loginDetail") === null) {
+                $rootScope.getMenus();
+                if (mobile == 'mobile') {
+                    $rootScope.signinModal();
+                }
+            } else {
+                NavigationService.addToCart($scope.addToCartParams, function (data) {
+                    console.log("$scope.addToCartParams", $scope.addToCartParams);
+                    if (data.value) {
+
+                        if (data.data.AddToCart[0].Status === 1) {
+                            console.log("inif", data);
+                            $scope.successCartModal = $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/addtocart.html',
+                                scope: $scope
+                            });
+                            $timeout(function () {
+                                $scope.successCartModal.close();
+                                $state.go('cart', {
+                                    cartCity: $rootScope.citySpecific
+                                });
+                            }, 1000);
+
+
+                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
+                            console.log("in else", data);
+                            $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/alreadyCart.html',
+                                scope: $scope
+                            });
+
+                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                            $uibModal.open({
+                                animation: true,
+                                templateUrl: 'views/modal/cartFail.html',
+                                scope: $scope
+                            });
+
+                        }
+                    } else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/addtocartfail.html',
+                            scope: $scope
+                        });
+                    }
+                })
+            }
+        }
     })
     .controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
 
