@@ -61,21 +61,21 @@
                     <li><a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                     <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul> -->
-                <div class="more inline-block hidden-xs">
-                    <!--<button class="uppercase green" ng-click="loyalty()">Add to cart</button>-->
-                    <button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price)">Buy Now</button>
+                <div class="more inline-block hidden-xs" ng-if="detailDealsInner.showBuyNow">
+                    <!--<button class="uppercase green" ng-click="loyalty(detailDealsInner.BranchPackageID,detailDealsInner.price)">Add to Cart</button>-->
+                    <button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price)">Add to Cart <i class="fa fa-shopping-cart "></i></button>
                 </div>
                 <div class="more inline-block visible-xs" ng-if="detailDealsInner.showBuyNow">
-                    <!--<button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Add to cart</button>-->
-                    <button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Buy Now</button>
+                    <!--<button class="uppercase green" ng-click="loyalty(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Add to cart</button>-->
+                    <button class="uppercase green" ng-click="buyNow(detailDealsInner.BranchPackageID,detailDealsInner.price,'mobile')">Add to Cart <i class="fa fa-shopping-cart "></i></button>
                 </div>
-                <div class="more inline-block visible-xs mt10" ng-if="detailDealsInner.termsAndCondition" ng-click="showTermsConditionfun();">
+                <!--<div class="more inline-block visible-xs mt10" ng-if="detailDealsInner.termsAndCondition" ng-click="showTermsConditionfun();">
                     <button class="uppercase green">Terms & Conditions</button>
                 </div>
 
                 <div class="more inline-block hidden-xs" ng-if="detailDealsInner.termsAndCondition" ng-click="showTermsConditionfun();">
                     <button class="uppercase green">Terms & Conditions</button>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

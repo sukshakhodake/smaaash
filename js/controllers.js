@@ -8882,19 +8882,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("times-prime-offers");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        $scope.mobileValidationModal = function () {
-            $uibModal.open({
+        $scope.mobileValidationModal = function (BranchPackageID, price, mobile) {
+            $scope.mobileValidateModal = $uibModal.open({
                 animation: true,
                 backdrop: 'static',
                 templateUrl: "views/modal/times-prime.html",
                 scope: $scope,
-                windowClass: 'app-modal-window'
+                size: 'md',
+                windowClass: ''
             });
         };
-        // $scope.mobileValidationModal();
+        if (!$.jStorage.get("mobileValid")) {
+            $scope.mobileValidationModal();
+        }
+        $scope.validMobile = true;
         $scope.validateMobile = function (credentialstoReset) {
-            console.log("###########################33", credentialstoReset);
-
+            NavigationService.checkValidMobile(credentialstoReset, function (data) {
+                $scope.validMobile = data.data.timesPrimeUser
+                if (data.data.timesPrimeUser) {
+                    $.jStorage.set("mobileValid", true);
+                    // $scope.buyNow($scope.BranchPackageID, $scope.price, $scope.mobile);
+                    $scope.mobileValidateModal.close();
+                    $state.reload();
+                }
+            })
         }
         var formData = {};
         formData.city = $.jStorage.get("cityid");
@@ -8902,7 +8913,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.SingleDealsPackages = _.chunk(data.data, 3);
         });
         $scope.goTo = function (id) {
-            console.log("im in");
+            console.log("im in", id);
             if (id) {
                 console.log("im in");
                 // $scope.name = name.replace(/(?!\w|\s)./g, '').replace(/\s/g, '').replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2').toLowerCase();
@@ -8921,13 +8932,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Times-Inner");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        $scope.loyalty = function () {
-            $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/times-prime.html",
-                scope: $scope,
-                size: 'md',
-                windowClass: ''
+        // $scope.loyalty = function (BranchPackageID, price, mobile) {
+        //     $scope.BranchPackageID = BranchPackageID;
+        //     $scope.price = price;
+        //     $scope.mobile = mobile;
+        //     $uibModal.open({
+        //         animation: true,
+        //         backdrop: 'static',
+        //         templateUrl: "views/modal/times-prime.html",
+        //         scope: $scope,
+        //         size: 'md',
+        //         windowClass: ''
+        //     });
+        // };
+
+        $scope.validateMobile = function (credentialstoReset) {
+            NavigationService.checkValidMobile(credentialstoReset, function (data) {
+                if (data.data.success) {
+                    $scope.buyNow($scope.BranchPackageID, $scope.price, $scope.mobile);
+                }
             });
         };
 
