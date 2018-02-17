@@ -8,8 +8,9 @@
         <form class="form times-form" name="times-form">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="* Mobile Number" ng-model="credentialstoReset.CustMobile" required>
-                <span ng-if="!validMobile">Your not Times Prime User</span>
+                <span ng-if="!validMobile">You are not Times Prime User</span>
             </div>
+            <div><select class="form-control" ng-model="credentialstoReset.smaaashCity" ng-options="city.name for city in smaaashCities"></select></div>
             <div class="text-center times-go">
                 <button class="uppercase white" ng-click="validateMobile(credentialstoReset)">Go</button>
             </div>
