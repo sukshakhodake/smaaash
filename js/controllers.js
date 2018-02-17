@@ -5583,7 +5583,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.logout(function (data) {
                     console.log("im in nav logout");
                     console.log("data", data);
-
+                    $.jStorage.deleteKey("mobileValid");
                     $state.go("home");
                     if (data.value === true) {
                         $scope.hidelogout = true;
