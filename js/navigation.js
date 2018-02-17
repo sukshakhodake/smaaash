@@ -1,6 +1,6 @@
 var adminurl = "https://test.smaaash.in/";
 var adminurl2 = "http://localhost:1337/";
-// var adminurl1 = "http://localhost:1337/";
+// var adminurl = "http://localhost:1337/";
 
 
 var imgurl = adminurl + "upload/";
@@ -740,7 +740,14 @@ var navigationservice = angular.module('navigationservice', [])
                     withCredentials: true,
                     data: data
                 }).success(callback);
+            },
+            checkValidMobile: function (data, callback) {
+                $http({
+                    url: adminurl + 'exploresmash/checkValidMobile',
+                    method: 'POST',
+                    withCredentials: true,
+                    data: data
+                }).success(callback);
             }
-
         };
     });
