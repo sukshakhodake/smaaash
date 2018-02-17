@@ -34,6 +34,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'Thank2Ctrl'
         })
+                .state('times-prime-offers', {
+            url: "/times-prime-offers",
+            templateUrl: "views/template.html",
+            controller: 'TimesPrimeOffersCtrl',
+
+        })
         // Thank u for for enquiry
         .state('home', {
             url: "/:homepageCity",
@@ -318,12 +324,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'CustomizePackageCtrl'
         })
-        .state('times-prime-offers', {
-            url: "/:timescity/times-prime-offers",
-            templateUrl: "views/template.html",
-            controller: 'TimesPrimeOffersCtrl',
+        // .state('times-prime-offers', {
+        //     url: "/times-prime-offers",
+        //     templateUrl: "views/template.html",
+        //     controller: 'TimesPrimeOffersCtrl',
 
-        })
+        // })
 
     .state('times-inner', {
         // url: "/:id",
