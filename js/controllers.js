@@ -8302,6 +8302,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
 
                     break;
+                case 'times-prime-offers':
+                    $state.reload();
+                    break;
 
                 default:
 
@@ -8892,26 +8895,61 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: ''
             });
         };
+        NavigationService.getCity(function (data) {
+            $rootScope.smaaashCities = data.data;
+        });
+
         if (!$.jStorage.get("mobileValid")) {
             $scope.mobileValidationModal();
         }
         $scope.validMobile = true;
         $scope.validateMobile = function (credentialstoReset) {
-            NavigationService.checkValidMobile(credentialstoReset, function (data) {
-                $scope.validMobile = data.data.timesPrimeUser
-                if (data.data.timesPrimeUser) {
-                    $.jStorage.set("mobileValid", true);
-                    // $scope.buyNow($scope.BranchPackageID, $scope.price, $scope.mobile);
-                    $scope.mobileValidateModal.close();
-                    $state.reload();
+            if (credentialstoReset.smaaashCity) {
+                $.jStorage.set("cityid", credentialstoReset.smaaashCity._id)
+                NavigationService.checkValidMobile(credentialstoReset, function (data) {
+                    $scope.validMobile = data.data.timesPrimeUser
+                    if (data.data.timesPrimeUser) {
+                        $.jStorage.set("mobileValid", true);
+                        // $scope.buyNow($scope.BranchPackageID, $scope.price, $scope.mobile);
+                        $.jStorage.set("cityid", credentialstoReset.smaaashCity._id);
+                        $.jStorage.set("city", credentialstoReset.smaaashCity.name);
+                        $.jStorage.set("logos", credentialstoReset.smaaashCity.logo);
+                        $.jStorage.set("branchId", credentialstoReset.smaaashCity.BranchID);
+                        $.jStorage.set("citySlug", credentialstoReset.smaaashCity.myslug);
+                        $.jStorage.set("weekdays", credentialstoReset.smaaashCity.weekdays);
+                        $.jStorage.set("weekend", credentialstoReset.smaaashCity.weekend);
+                        $scope.mobileValidateModal.close();
+                        $state.reload();
+                    }
+                })
+            }
+
+        };
+        if ($.jStorage.get("mobileValid")) {
+            var formData = {};
+            if ($.jStorage.get("cityid")) {
+                formData.city = $.jStorage.get("cityid");
+                NavigationService.getTimesPrimeDeal(formData, function (data) {
+                    $scope.SingleDealsPackages = _.chunk(data.data, 3);
+                });
+            }
+
+            $scope.getCityName = function (cityname) {
+                console.log("im click");
+                NavigationService.setCity(cityname);
+                $.jStorage.set("popupShow", true);
+                console.log(openL);
+                ngDialog.closeAll("Change");
+                $(".ngdialog").remove();
+                $scope.template.reFetchCity();
+                if ($state.current.name == 'home') {
+                    $state.go('home', {
+                        homepageCity: cityname.myslug
+                    })
                 }
-            })
+            }
         }
-        var formData = {};
-        formData.city = $.jStorage.get("cityid");
-        NavigationService.getTimesPrimeDeal(formData, function (data) {
-            $scope.SingleDealsPackages = _.chunk(data.data, 3);
-        });
+
         $scope.goTo = function (id) {
             console.log("im in", id);
             if (id) {
