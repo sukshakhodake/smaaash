@@ -2552,7 +2552,7 @@ img.fancybox-image {
     position: relative;
     .form-control[readonly] {
         background: white !important;
-            cursor: pointer;
+        cursor: pointer;
     }
     .caret {
         position: absolute;
@@ -2561,9 +2561,11 @@ img.fancybox-image {
         transform: translate(-50%, -50%);
     }
 }
-.city-pointer{
- cursor: pointer;
+
+.city-pointer {
+    cursor: pointer;
 }
+
 .city-select {
     height: 150px;
     overflow-y: scroll;
@@ -2572,8 +2574,10 @@ img.fancybox-image {
     position: absolute;
     width: 100%;
     background: white;
-    padding: 0 20px;
     cursor: pointer;
+    li {
+        padding: 5px 20px;
+    }
 }
 
 @import "ruchira";

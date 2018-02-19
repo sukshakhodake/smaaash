@@ -26,8 +26,8 @@
                 <div class="city-pointer" ng-if="showList == true">
                     <ul class="list-unstyled city-select">
 
-                        <li class="search-item" ng-repeat="city in smaaashCities">
-                            <p class="text-wrapper city-pointer" ng-click="test2(city)">{{city.name}}</p>
+                        <li class="search-item city-pointer" ng-repeat="city in smaaashCities" ng-click="test2(city)">
+                           {{city.name}}
                         </li>
 
                     </ul>
