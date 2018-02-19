@@ -8906,7 +8906,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.showList = false;
         $scope.test = function () {
+            if($scope.showList == false){
             $scope.showList = true;
+            }else if( $scope.showList == true){
+                $scope.showList = false;
+            }
         };
         $scope.credentialstoReset = {};
         $scope.test2 = function (val) {
