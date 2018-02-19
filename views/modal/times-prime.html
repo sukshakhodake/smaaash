@@ -19,13 +19,15 @@
                     </ui-select-choices>
                 </ui-select>-->
                 <div class="city-dropdown" ng-click="test()">
-                    <input type="text" class="form-control" ng-model="credentialstoReset.smaaashCity" name="keyword" placeholder="Select your city" required readonly> <span class="caret"></span>
+                    <input type="text" class="form-control" ng-model="credentialstoReset.smaaashCity" name="keyword" placeholder="Select your city"  readonly required> <span class="caret"></span>
+                   
                 </div>
+                 <span ng-if="!credentialstoReset.smaaashCity&&cityRequired" >City Required</span>
                 <div class="" ng-if="showList == true">
                     <ul class="list-unstyled city-select">
 
                         <li class="search-item" ng-repeat="city in smaaashCities">
-                            <p class="text-wrapper" ng-click="test2(city.name)">{{city.name}}</p>
+                            <p class="text-wrapper" ng-click="test2(city)">{{city.name}}</p>
                         </li>
 
                     </ul>

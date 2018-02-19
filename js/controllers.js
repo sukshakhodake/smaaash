@@ -8915,7 +8915,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.credentialstoReset = {};
         $scope.test2 = function (val) {
             console.log("hii", val)
-            $scope.credentialstoReset.smaaashCity = val;
+            $scope.credentialstoReset.smaaashCity = val.name;
             $scope.showList = false;
         };
 
@@ -8923,6 +8923,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.validMobile = true;
         $scope.validateMobile = function (credentialstoReset) {
+             $scope.getCities = _.cloneDeep($rootScope.smaaashCities);
+                $scope.tempCity = _.find($scope.getCities, function (obj) {
+                    return obj.name == credentialstoReset.smaaashCity;
+                });
             if (credentialstoReset.smaaashCity) {
                 $.jStorage.set("cityid", credentialstoReset.smaaashCity._id)
                 NavigationService.checkValidMobile(credentialstoReset, function (data) {
@@ -8930,17 +8934,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (data.data.timesPrimeUser) {
                         $.jStorage.set("mobileValid", true);
                         // $scope.buyNow($scope.BranchPackageID, $scope.price, $scope.mobile);
-                        $.jStorage.set("cityid", credentialstoReset.smaaashCity._id);
-                        $.jStorage.set("city", credentialstoReset.smaaashCity.name);
-                        $.jStorage.set("logos", credentialstoReset.smaaashCity.logo);
-                        $.jStorage.set("branchId", credentialstoReset.smaaashCity.BranchID);
-                        $.jStorage.set("citySlug", credentialstoReset.smaaashCity.myslug);
-                        $.jStorage.set("weekdays", credentialstoReset.smaaashCity.weekdays);
-                        $.jStorage.set("weekend", credentialstoReset.smaaashCity.weekend);
+                        $.jStorage.set("cityid",  $scope.tempCity._id);
+                        $.jStorage.set("city",  $scope.tempCity.name);
+                        $.jStorage.set("logos",  $scope.tempCity.logo);
+                        $.jStorage.set("branchId",  $scope.tempCity.BranchID);
+                        $.jStorage.set("citySlug",  $scope.tempCity.myslug);
+                        $.jStorage.set("weekdays",  $scope.tempCity.weekdays);
+                        $.jStorage.set("weekend",  $scope.tempCity.weekend);
                         $scope.mobileValidateModal.close();
                         $state.reload();
                     }
                 })
+            }else{
+                $scope.cityRequired=true;
             }
 
         };
