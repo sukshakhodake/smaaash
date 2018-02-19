@@ -2552,6 +2552,7 @@ img.fancybox-image {
     position: relative;
     .form-control[readonly] {
         background: white !important;
+            cursor: pointer;
     }
     .caret {
         position: absolute;
@@ -2560,7 +2561,9 @@ img.fancybox-image {
         transform: translate(-50%, -50%);
     }
 }
-
+.city-dropdown-name{
+ cursor: pointer;
+}
 .city-select {
     height: 150px;
     overflow-y: scroll;
