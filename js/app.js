@@ -6,9 +6,7 @@ var firstapp = angular.module('firstapp', [
     'pascalprecht.translate',
     'angulartics',
     'angulartics.google.analytics',
-    'imageupload',
-    'ui.select'
-
+    'imageupload'
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
