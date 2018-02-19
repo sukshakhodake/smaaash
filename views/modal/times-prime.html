@@ -23,11 +23,11 @@
                    
                 </div>
                  <span ng-if="!credentialstoReset.smaaashCity&&cityRequired" >City Required</span>
-                <div class="city-dropdown-name" ng-if="showList == true">
+                <div class="city-pointer" ng-if="showList == true">
                     <ul class="list-unstyled city-select">
 
                         <li class="search-item" ng-repeat="city in smaaashCities">
-                            <p class="text-wrapper" ng-click="test2(city)">{{city.name}}</p>
+                            <p class="text-wrapper city-pointer" ng-click="test2(city)">{{city.name}}</p>
                         </li>
 
                     </ul>
