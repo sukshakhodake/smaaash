@@ -8902,6 +8902,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (!$.jStorage.get("mobileValid")) {
             $scope.mobileValidationModal();
         }
+
+
+        $scope.showList = false;
+        $scope.test = function () {
+            $scope.showList = true;
+        };
+        $scope.credentialstoReset = {};
+        $scope.test2 = function (val) {
+            console.log("hii", val)
+            $scope.credentialstoReset.smaaashCity = val;
+            $scope.showList = false;
+        };
+
+
+
         $scope.validMobile = true;
         $scope.validateMobile = function (credentialstoReset) {
             if (credentialstoReset.smaaashCity) {

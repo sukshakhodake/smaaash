@@ -6,6 +6,7 @@
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
 @import "../bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs";
+
 /* Bootstrap Variables Goes Here */
 
 $brand-primary: #0d9dff !default;
@@ -2511,11 +2512,12 @@ img.fancybox-image {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    h2{
-        color:#dc3b4b;
-            margin-top: 50px;
-    }p{
-        color:black;
+    h2 {
+        color: #dc3b4b;
+        margin-top: 50px;
+    }
+    p {
+        color: black;
     }
 }
 
@@ -2545,6 +2547,14 @@ img.fancybox-image {
         color: black;
     }
 }
+
+.city-select select {
+    height: 149px;
+    overflow-y: scroll;
+    border-top: none;
+    border: 2px solid black;
+}
+
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";

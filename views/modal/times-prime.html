@@ -10,12 +10,32 @@
                 <input type="text" class="form-control" placeholder="* Mobile Number" ng-model="credentialstoReset.CustMobile" required>
                 <span ng-if="!validMobile">You are not Times Prime User</span>
             </div>
-            <div><select class="form-control" ng-model="credentialstoReset.smaaashCity" ng-options="city.name for city in smaaashCities"
-                    required> <option value="" disabled selected>Select your city</option></select></div>
+            <div>
+                <!--<ui-select ng-model="credentialstoReset.smaaashCity" theme="selectize" ng-disabled="ctrl.disabled" title="Choose a country">
+                    <ui-select-match placeholder="Select your city">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="city in smaaashCities">
+                        <span ng-bind-html="city.name"></span>
+                        <small ng-bind-html="city.code"></small>
+                    </ui-select-choices>
+                </ui-select>-->
+                <div class="city-dropdown" ng-click="test()">
+                    <input type="text" class="form-control" ng-model="credentialstoReset.smaaashCity" name="keyword" placeholder="Select your city">
+                </div>
+                <div class="city-selct" ng-if="showList == true">
+                    <ul class="list-unstyled">
 
-            <div class="text-center times-go">
-                <button class="uppercase white" ng-click="validateMobile(credentialstoReset)">Go</button>
-            </div>
+                        <li class="search-item" ng-repeat="city in smaaashCities">
+                            <p class="text-wrapper" ng-click="test2(city.name)">{{city.name}}</p>
+                        </li>
+
+                    </ul>
+
+                    <!--<select class="form-control" ng-model="credentialstoReset.smaaashCity" ng-options="city.name for city in smaaashCities" required> <option value="" disabled selected>Select your city</option></select>-->
+                </div>
+
+                <div class="text-center times-go">
+                    <button class="uppercase white" ng-click="validateMobile(credentialstoReset)">Go</button>
+                </div>
         </form>
+        </div>
     </div>
-</div>
