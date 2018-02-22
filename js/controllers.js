@@ -8906,9 +8906,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.showList = false;
         $scope.test = function () {
-            if($scope.showList == false){
-            $scope.showList = true;
-            }else if( $scope.showList == true){
+            if ($scope.showList == false) {
+                $scope.showList = true;
+            } else if ($scope.showList == true) {
                 $scope.showList = false;
             }
         };
@@ -8923,10 +8923,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.validMobile = true;
         $scope.validateMobile = function (credentialstoReset) {
-             $scope.getCities = _.cloneDeep($rootScope.smaaashCities);
-                $scope.tempCity = _.find($scope.getCities, function (obj) {
-                    return obj.name == credentialstoReset.smaaashCity;
-                });
+            $scope.getCities = _.cloneDeep($rootScope.smaaashCities);
+            $scope.tempCity = _.find($scope.getCities, function (obj) {
+                return obj.name == credentialstoReset.smaaashCity;
+            });
             if (credentialstoReset.smaaashCity) {
                 $.jStorage.set("cityid", credentialstoReset.smaaashCity._id)
                 NavigationService.checkValidMobile(credentialstoReset, function (data) {
@@ -8934,19 +8934,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (data.data.timesPrimeUser) {
                         $.jStorage.set("mobileValid", true);
                         // $scope.buyNow($scope.BranchPackageID, $scope.price, $scope.mobile);
-                        $.jStorage.set("cityid",  $scope.tempCity._id);
-                        $.jStorage.set("city",  $scope.tempCity.name);
-                        $.jStorage.set("logos",  $scope.tempCity.logo);
-                        $.jStorage.set("branchId",  $scope.tempCity.BranchID);
-                        $.jStorage.set("citySlug",  $scope.tempCity.myslug);
-                        $.jStorage.set("weekdays",  $scope.tempCity.weekdays);
-                        $.jStorage.set("weekend",  $scope.tempCity.weekend);
+                        $.jStorage.set("cityid", $scope.tempCity._id);
+                        $.jStorage.set("city", $scope.tempCity.name);
+                        $.jStorage.set("logos", $scope.tempCity.logo);
+                        $.jStorage.set("branchId", $scope.tempCity.BranchID);
+                        $.jStorage.set("citySlug", $scope.tempCity.myslug);
+                        $.jStorage.set("weekdays", $scope.tempCity.weekdays);
+                        $.jStorage.set("weekend", $scope.tempCity.weekend);
                         $scope.mobileValidateModal.close();
                         $state.reload();
                     }
                 })
-            }else{
-                $scope.cityRequired=true;
+            } else {
+                $scope.cityRequired = true;
             }
 
         };
@@ -9065,66 +9065,77 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.addToCartParams.AddonQuantities = "";
         $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
-
         $scope.buyNow = function (BranchPackageID, price, mobile) {
+            var credentialstoReset = {};
+            credentialstoReset.CustMobile = $.jStorage.get("loginDetail").CustomerMobile;
+            NavigationService.checkValidMobile(credentialstoReset, function (data) {
+                if (data.data.timesPrimeUser) {
+                    $scope.addToCartParams.BranchPackageID = BranchPackageID;
+                    // $scope.addToCartParams.BranchPackageID = "41";
+                    // $scope.addToCartParams.TotalAmount = "222";
+                    $scope.addToCartParams.TotalAmount = price;
 
-            $scope.addToCartParams.BranchPackageID = BranchPackageID;
-            // $scope.addToCartParams.BranchPackageID = "41";
-            // $scope.addToCartParams.TotalAmount = "222";
-            $scope.addToCartParams.TotalAmount = price;
 
-
-            console.log("$scope.addToCartParams", $scope.addToCartParams);
-            if ($.jStorage.get("loginDetail") === null) {
-                $rootScope.getMenus();
-                if (mobile == 'mobile') {
-                    $rootScope.signinModal();
-                }
-            } else {
-                NavigationService.addToCart($scope.addToCartParams, function (data) {
                     console.log("$scope.addToCartParams", $scope.addToCartParams);
-                    if (data.value) {
-
-                        if (data.data.AddToCart[0].Status === 1) {
-                            console.log("inif", data);
-                            $scope.successCartModal = $uibModal.open({
-                                animation: true,
-                                templateUrl: 'views/modal/addtocart.html',
-                                scope: $scope
-                            });
-                            $timeout(function () {
-                                $scope.successCartModal.close();
-                                $state.go('cart', {
-                                    cartCity: $rootScope.citySpecific
-                                });
-                            }, 1000);
-
-
-                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
-                            console.log("in else", data);
-                            $uibModal.open({
-                                animation: true,
-                                templateUrl: 'views/modal/alreadyCart.html',
-                                scope: $scope
-                            });
-
-                        } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
-                            $uibModal.open({
-                                animation: true,
-                                templateUrl: 'views/modal/cartFail.html',
-                                scope: $scope
-                            });
-
+                    if ($.jStorage.get("loginDetail") === null) {
+                        $rootScope.getMenus();
+                        if (mobile == 'mobile') {
+                            $rootScope.signinModal();
                         }
                     } else {
-                        $uibModal.open({
-                            animation: true,
-                            templateUrl: 'views/modal/addtocartfail.html',
-                            scope: $scope
-                        });
+                        NavigationService.addToCart($scope.addToCartParams, function (data) {
+                            console.log("$scope.addToCartParams", $scope.addToCartParams);
+                            if (data.value) {
+
+                                if (data.data.AddToCart[0].Status === 1) {
+                                    console.log("inif", data);
+                                    $scope.successCartModal = $uibModal.open({
+                                        animation: true,
+                                        templateUrl: 'views/modal/addtocart.html',
+                                        scope: $scope
+                                    });
+                                    $timeout(function () {
+                                        $scope.successCartModal.close();
+                                        $state.go('cart', {
+                                            cartCity: $rootScope.citySpecific
+                                        });
+                                    }, 1000);
+
+
+                                } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "This Package Is Allready In Cart") {
+                                    console.log("in else", data);
+                                    $uibModal.open({
+                                        animation: true,
+                                        templateUrl: 'views/modal/alreadyCart.html',
+                                        scope: $scope
+                                    });
+
+                                } else if (data.data.AddToCart[0].Status === 0 && data.data.AddToCart[0].Message == "Invalid Package") {
+                                    $uibModal.open({
+                                        animation: true,
+                                        templateUrl: 'views/modal/cartFail.html',
+                                        scope: $scope
+                                    });
+
+                                }
+                            } else {
+                                $uibModal.open({
+                                    animation: true,
+                                    templateUrl: 'views/modal/addtocartfail.html',
+                                    scope: $scope
+                                });
+                            }
+                        })
                     }
-                })
-            }
+                } else {
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/mobileValidationFail.html',
+                        scope: $scope
+                    });
+                }
+            });
+
         }
     })
     .controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
