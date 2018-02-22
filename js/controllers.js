@@ -9066,23 +9066,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addToCartParams.BranchID = $.jStorage.get("branchId");
 
         $scope.buyNow = function (BranchPackageID, price, mobile) {
-            var credentialstoReset = {};
-            credentialstoReset.CustMobile = $.jStorage.get("loginDetail").CustomerMobile;
-            NavigationService.checkValidMobile(credentialstoReset, function (data) {
-                if (data.data.timesPrimeUser) {
-                    $scope.addToCartParams.BranchPackageID = BranchPackageID;
-                    // $scope.addToCartParams.BranchPackageID = "41";
-                    // $scope.addToCartParams.TotalAmount = "222";
-                    $scope.addToCartParams.TotalAmount = price;
+
+            $scope.addToCartParams.BranchPackageID = BranchPackageID;
+            // $scope.addToCartParams.BranchPackageID = "41";
+            // $scope.addToCartParams.TotalAmount = "222";
+            $scope.addToCartParams.TotalAmount = price;
 
 
-                    console.log("$scope.addToCartParams", $scope.addToCartParams);
-                    if ($.jStorage.get("loginDetail") === null) {
-                        $rootScope.getMenus();
-                        if (mobile == 'mobile') {
-                            $rootScope.signinModal();
-                        }
-                    } else {
+            console.log("$scope.addToCartParams", $scope.addToCartParams);
+            if ($.jStorage.get("loginDetail") === null) {
+                $rootScope.getMenus();
+                if (mobile == 'mobile') {
+                    $rootScope.signinModal();
+                }
+            } else {
+                var credentialstoReset = {};
+                credentialstoReset.CustMobile = $.jStorage.get("loginDetail").CustomerMobile;
+                NavigationService.checkValidMobile(credentialstoReset, function (data) {
+                    if (data.data.timesPrimeUser) {
                         NavigationService.addToCart($scope.addToCartParams, function (data) {
                             console.log("$scope.addToCartParams", $scope.addToCartParams);
                             if (data.value) {
@@ -9125,17 +9126,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     scope: $scope
                                 });
                             }
-                        })
+                        });
+                    } else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/mobileValidationFail.html',
+                            scope: $scope
+                        });
                     }
-                } else {
-                    $uibModal.open({
-                        animation: true,
-                        templateUrl: 'views/modal/mobileValidationFail.html',
-                        scope: $scope
-                    });
-                }
-            });
 
+                });
+            }
         }
     })
     .controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
