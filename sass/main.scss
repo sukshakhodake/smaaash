@@ -219,7 +219,9 @@ img.doneLoading {
     opacity: 1;
     margin: 0 auto;
 }
-
+.slides > li img{
+    opacity: 1;
+}
 nav li:hover .dropdown-menu {
     display: block;
 }
