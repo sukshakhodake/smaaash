@@ -313,7 +313,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     //         templateUrl: "views/template.html",
     //         controller: 'KittyCtrl'
     //     })
-        .state('cart', {
+    .state('cart', {
             url: "/:cartCity/cart",
             templateUrl: "views/template.html",
             controller: 'CartsCtrl'
@@ -348,6 +348,52 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/:thankCity/host-a-party/birthday-party-2/birthday-party-2-thank-you",
             templateUrl: "views/template.html",
             controller: 'Birthdayparty2thankyouCtrl',
+
+        })
+        .state('corporate-parties2', {
+            url: "/:partyCity/host-a-party/corporate-parties",
+            templateUrl: "views/template.html",
+            controller: 'CorporatepartyCtrl',
+        })
+        .state('corporate-parties-thank-you', {
+            url: "/:thankCity/host-a-party/corporate-parties/corporate-parties-thank-you",
+            templateUrl: "views/template.html",
+            controller: 'CorporatepartythankyouCtrl',
+
+        })
+        .state('kitty-parties-2', {
+            url: "/:partyCity/host-a-party/kitty-parties-2",
+            templateUrl: "views/template.html",
+            controller: 'KittypartiesCtrl',
+        })
+        .state('kitty-parties-2-thank-you', {
+            url: "/:thankCity/host-a-party/kitty-parties-2/kitty-parties-2-thank-you",
+            templateUrl: "views/template.html",
+            controller: 'KittypartiesthankyouCtrl',
+
+        })
+         .state('pre-wedding-party', {
+            url: "/:thankCity/host-a-party/pre-wedding-party",
+            templateUrl: "views/template.html",
+            controller: 'PreweddingpartyCtrl',
+
+        })
+        .state('pre-wedding-party-thank-you', {
+            url: "/:thankCity/host-a-party/pre-wedding-party/pre-wedding-party-thank-you",
+            templateUrl: "views/template.html",
+            controller: 'PreweddingpartythankyouCtrl',
+
+        })
+        .state('team-building-events', {
+            url: "/:thankCity/host-a-party/team-building-events",
+            templateUrl: "views/template.html",
+            controller: 'TeambuildingeventsCtrl',
+
+        })
+        .state('team-building-events-thank-you', {
+            url: "/:thankCity/host-a-party/team-building-events/team-building-events-thank-you",
+            templateUrl: "views/template.html",
+            controller: 'TeambuildingeventsthankyouCtrl',
 
         })
 

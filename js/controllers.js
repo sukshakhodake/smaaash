@@ -5155,6 +5155,18 @@ console.log("hostpage",$stateParams);
           if(data=="birthday-party-2"){
               $state.go('birthday-party-2', {partyCity: $stateParams.hostCity});
           }
+           if(data=="corporate-party-3"){
+              $state.go('corporate-parties2', {partyCity: $stateParams.hostCity});
+          }
+             if(data=="kitty-party-2"){
+              $state.go('kitty-parties-2', {partyCity: $stateParams.hostCity});
+          }
+               if(data=="team-building-event-2"){
+              $state.go('team-building-events', {partyCity: $stateParams.hostCity});
+          }
+               if(data=="pre-wedding-parties-2"){
+              $state.go('pre-wedding-party', {partyCity: $stateParams.hostCity});
+          }
         }
         //seo
 
