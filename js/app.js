@@ -33,7 +33,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'Thank2Ctrl'
         })
-                .state('times-prime-offers', {
+        .state('times-prime-offers', {
             url: "/times-prime-offers",
             templateUrl: "views/template.html",
             controller: 'TimesPrimeOffersCtrl',
@@ -308,11 +308,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             // }
         })
 
-    .state('parties', {
-            url: "/:partyCity/host-a-party/:id",
-            templateUrl: "views/template.html",
-            controller: 'KittyCtrl'
-        })
+    // .state('parties', {
+    //         url: "/:partyCity/host-a-party/:id",
+    //         templateUrl: "views/template.html",
+    //         controller: 'KittyCtrl'
+    //     })
         .state('cart', {
             url: "/:cartCity/cart",
             templateUrl: "views/template.html",
@@ -328,16 +328,28 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         //     templateUrl: "views/template.html",
         //     controller: 'TimesPrimeOffersCtrl',
 
-        // })
+    // })
 
     .state('times-inner', {
         // url: "/:id",
-         url: "/:timesinnercity/times-prime-offers/:id",
+        url: "/:timesinnercity/times-prime-offers/:id",
         templateUrl: "views/template.html",
         controller: 'TimesInnerCtrl'
 
     })
 
+    //state for new pages 
+    .state('birthday-party-2', {
+            url: "/:partyCity/host-a-party/birthday-party-2",
+            templateUrl: "views/template.html",
+            controller: 'Birthdayparty2Ctrl',
+        })
+        .state('birthday-party-2-thank-you', {
+            url: "/:thankCity/host-a-party/birthday-party-2/birthday-party-2-thank-you",
+            templateUrl: "views/template.html",
+            controller: 'Birthdayparty2thankyouCtrl',
+
+        })
 
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

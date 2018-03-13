@@ -57,8 +57,6 @@
               <input type='text' style='display:none;' name='xmIwtLD' value='2ebd540b525c91e7a3c44ae5071724137493dfdaf1400e7279ee184725531d0a'
               />
               <input type='text' style='display:none;' name='actionType' value='TGVhZHM=' />
-
-
               <input type="hidden" name="returnURL" id="returnURL" value="http://smaaash.in/#thanks">
               <input id="LEADCF17" maxlength="20" name="LEADCF17" size="20" type="hidden" class="leadid" />
               <div class="form-group">
@@ -129,7 +127,6 @@
               <!--<button type="button"  class=" btn6 btn-default block" ng-disabled="user.$invalid" ng-click="assistanceLogin(formData);">
                 <img src="img/new/submit.png" class="img-responsive" alt="">
               </button> -->
-
               <!-- <input type="submit" name="button"><img src="img/new/submit.png" class="img-responsive" alt=""> -->
             </form>
           </div>
@@ -212,8 +209,11 @@
         </div>
       </div>
     </div> -->
-    <div class="packagings ">
-      <div class="row">
+    <div class="packagings">
+      <div class="host-party-bg">
+        <img src="img/WebPage_Banner.png" class="img-responsive">
+      </div>
+      <!--<div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="slant-col relative ">
             <div class="slant-box full-height">
@@ -241,7 +241,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
     <div class="new">
       <div class="row" ng-repeat="datas in SingleHostParty">
@@ -272,7 +272,9 @@
                   <button class="uppercase " ng-click="direct();"><i class="fa fa-phone" aria-hidden="true"></i>connect</button>
                 </div>
                 <div class="love inline-block">
-                  <a ui-sref="parties({id:data.myslug,partyCity:citySpecific})">
+                  <!--<a ui-sref="parties({id:data.myslug,partyCity:citySpecific})">-->
+                  <a ng-click="goToParty(data.myslug);">
+
                     <button class="uppercase blue">Get Started</button>
                     <!-- <button class="uppercase blue">Know More</button> -->
                   </a>

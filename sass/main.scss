@@ -29,11 +29,11 @@ $brand-bluey: #293685 !default;
 $brand-orangy: #fc5626 !default;
 $brand-darkpink:#e63345 !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 @font-face {
     font-family: "American Purpose";
     src: url("../fonts/AmericanPurpose.ttf");
 }
-
 button.selected {
     background: $brand-darkpink !important;
     color: white !important;
@@ -57,6 +57,8 @@ $color) {
 
 $body-font: "American Purpose" !default;
 $head-font: "Galano Grotesque" !default;
+@import "slick.css";
+@import "slick-theme.css";
 body {
     font-family: $head-font;
 }
@@ -2581,7 +2583,9 @@ img.fancybox-image {
         padding: 5px 20px;
     }
 }
-
+@import "slick";
+@import "slick-theme";
+@import "style";
 @import "ruchira";
 @import "mobile";
 @import "fancybox-override";
