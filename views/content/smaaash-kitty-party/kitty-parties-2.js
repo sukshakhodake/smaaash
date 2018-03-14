@@ -45,7 +45,7 @@
         }, 500);
 
             $scope.goToThanks = function (data) {
-              $state.go('kitty-parties-2-thank-you', {thankCity: $stateParams.partyCity});
+              $state.go('kitty-parties-2-thank-you', {thankCity: $stateParams.hostCity});
         }
         
     })

@@ -373,7 +373,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
         })
          .state('pre-wedding-party', {
-            url: "/:thankCity/host-a-party/pre-wedding-party",
+            url: "/:partyCity/host-a-party/pre-wedding-party",
             templateUrl: "views/template.html",
             controller: 'PreweddingpartyCtrl',
 
@@ -385,7 +385,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
         })
         .state('team-building-events', {
-            url: "/:thankCity/host-a-party/team-building-events",
+            url: "/:partyCity/host-a-party/team-building-events",
             templateUrl: "views/template.html",
             controller: 'TeambuildingeventsCtrl',
 

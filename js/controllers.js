@@ -4719,7 +4719,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     }
-console.log("hostpage",$stateParams);
+    console.log("hostpage", $stateParams);
 
     $scope.mySlides10 = [
         'img/Top-banner.jpg',
@@ -5150,23 +5150,33 @@ console.log("hostpage",$stateParams);
             }
         }
         //code for gotoparty
-       $scope.goToParty = function (data) {
-          console.log("data.myslugdata.myslugdata.myslug",data);
-          if(data=="birthday-party-2"){
-              $state.go('birthday-party-2', {partyCity: $stateParams.hostCity});
-          }
-           if(data=="corporate-party-3"){
-              $state.go('corporate-parties2', {partyCity: $stateParams.hostCity});
-          }
-             if(data=="kitty-party-2"){
-              $state.go('kitty-parties-2', {partyCity: $stateParams.hostCity});
-          }
-               if(data=="team-building-event-2"){
-              $state.go('team-building-events', {partyCity: $stateParams.hostCity});
-          }
-               if(data=="pre-wedding-parties-2"){
-              $state.go('pre-wedding-party', {partyCity: $stateParams.hostCity});
-          }
+    $scope.goToParty = function (hometext, slug) {
+            console.log("data.myslugdata.myslugdata.myslug", hometext);
+            if (hometext == "Birthday Party") {
+                $state.go('birthday-party-2', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
+            if (hometext == "Corporate Parties" || hometext == "Corporate Party") {
+                $state.go('corporate-parties2', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
+            if (hometext == "Kitty Party") {
+                $state.go('kitty-parties-2', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
+            if (hometext == "Team Building Events") {
+                $state.go('team-building-events', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
+            if (hometext == "Pre Wedding Party" || hometext == "Pre - wedding  Party") {
+                $state.go('pre-wedding-party', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
         }
         //seo
 
@@ -7560,7 +7570,7 @@ console.log("hostpage",$stateParams);
         $("#target").val($("#target option:first").val());
         $scope.city = true;
 
-
+        console.log("$state", $state);
 
         $rootScope.openSignupModal = function () {
             console.log("im in");
@@ -7801,6 +7811,7 @@ console.log("hostpage",$stateParams);
                         $scope.getCityName(mumbai);
 
                     }
+                    console.log("*******************************************8",$stateParams);
                     switch ($state.current.name) {
                         case 'home':
                             if ($stateParams.homepageCity) {
@@ -7994,7 +8005,24 @@ console.log("hostpage",$stateParams);
                                 $scope.template.reFetchCity();
                             }
                             break;
-                        case 'parties':
+                            // case 'parties':
+                            //     if ($stateParams.partyCity) {
+                            //         $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                            //             if (key.myslug == $stateParams.partyCity) {
+                            //                 return key;
+                            //             } else {
+                            //                 $state.go('home');
+                            //             }
+                            //         });
+                            //         NavigationService.setCity($scope.changeCityParams);
+                            //         $state.go('parties', {
+                            //             partyCity: $scope.changeCityParams.myslug,
+                            //             id: $stateParams.id
+                            //         });
+                            //         $scope.template.reFetchCity();
+                            //     }
+                            //     break;
+                        case 'birthday-party-2':
                             if ($stateParams.partyCity) {
                                 $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
                                     if (key.myslug == $stateParams.partyCity) {
@@ -8004,10 +8032,87 @@ console.log("hostpage",$stateParams);
                                     }
                                 });
                                 NavigationService.setCity($scope.changeCityParams);
-                                $state.go('parties', {
-                                    partyCity: $scope.changeCityParams.myslug,
-                                    id: $stateParams.id
+                                $state.go('birthday-party-2', {
+                                    partyCity: $scope.changeCityParams.myslug
+
                                 });
+                                console.log("im in bday party");
+                                $scope.template.reFetchCity();
+                            }
+                            break;
+                        case 'corporate-parties2':
+
+                            if ($stateParams.partyCity) {
+                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                    if (key.myslug == $stateParams.partyCity) {
+                                        return key;
+                                    } else {
+                                        $state.go('home');
+                                    }
+                                });
+                                NavigationService.setCity($scope.changeCityParams);
+                                $state.go('corporate-parties2', {
+                                    partyCity: $scope.changeCityParams.myslug
+
+                                });
+                                console.log("im in corporate party");
+                                $scope.template.reFetchCity();
+                            }
+                            break;
+                        case 'kitty-parties-2':
+
+                            if ($stateParams.partyCity) {
+                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                    if (key.myslug == $stateParams.partyCity) {
+                                        return key;
+                                    } else {
+                                        $state.go('home');
+                                    }
+                                });
+                                NavigationService.setCity($scope.changeCityParams);
+                                $state.go('kitty-parties-2', {
+                                    partyCity: $scope.changeCityParams.myslug
+
+                                });
+                                console.log("im in corporate party");
+                                $scope.template.reFetchCity();
+                            }
+                            break;
+                        case 'pre-wedding-party':
+
+                            if ($stateParams.partyCity) {
+                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                    if (key.myslug == $stateParams.partyCity) {
+                                        return key;
+                                    } else {
+                                        $state.go('home');
+                                    }
+                                });
+                                NavigationService.setCity($scope.changeCityParams);
+                                $state.go('pre-wedding-party', {
+                                    partyCity: $scope.changeCityParams.myslug
+
+                                });
+                                console.log("im in corporate party");
+                                $scope.template.reFetchCity();
+                            }
+                            break;
+                        case 'team-building-events':
+
+                            if ($stateParams.partyCity) {
+                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                    if (key.myslug == $stateParams.partyCity) {
+                                        return key;
+                                    } else {
+                                        $state.go('home');
+                                    }
+                                });
+                                NavigationService.setCity($scope.changeCityParams);
+                                $state.go('team-building-events', {
+                                    partyCity: $scope.changeCityParams.myslug
+
+                                });
+                                console.log("im in corporate party");
                                 $scope.template.reFetchCity();
                             }
                             break;
@@ -8262,6 +8367,37 @@ console.log("hostpage",$stateParams);
                         partyCity: cityname.myslug,
                         id: $stateParams.id
                     })
+                    break;
+                case 'birthday-party-2':
+                    $state.go('birthday-party-2', {
+                        partyCity: cityname.myslug
+                            // id: $stateParams.id
+                    })
+                    break;
+                case 'corporate-parties2':
+                    $state.go('corporate-parties2', {
+                        partyCity: cityname.myslug
+                            // id: $stateParams.id
+                    })
+                    break;
+                case 'kitty-parties-2':
+                    $state.go('kitty-parties-2', {
+                        partyCity: cityname.myslug
+                            // id: $stateParams.id
+                    })
+                    break;
+                case 'pre-wedding-party':
+                    $state.go('pre-wedding-party', {
+                        partyCity: cityname.myslug
+                            // id: $stateParams.id
+                    })
+                    break;
+                case 'team-building-events':
+                    $state.go('team-building-events', {
+                        partyCity: cityname.myslug
+                            // id: $stateParams.id
+                    })
+
                     break;
                 case 'about':
                     $state.go('about', {
@@ -8887,13 +9023,52 @@ console.log("hostpage",$stateParams);
 
         NavigationService.getSingleExploreSmaaashByUrl('host-a-party', $scope.cityID, function (data) {
             $scope.SingleHostParty1 = data.data;
+            console.log("SingleHostParty1", $scope.SingleHostParty1);
         });
         if ($.jStorage.get("weekdays") != null) {
             $scope.weekdays = $.jStorage.get("weekdays");
             $scope.weekend = $.jStorage.get("weekend");
         }
 
+        //code for footer hostCity Link
 
+        $scope.goToParty = function (hometext, slug) {
+
+            console.log("##########################################################################################", $stateParams);
+            if ($stateParams.homepageCity) {
+                var city = $stateParams.homepageCity;
+            } else if ($stateParams.hostCity) {
+                var city = $stateParams.hostCity;
+            } else if($stateParams.partyCity){
+                var city = $stateParams.partyCity;
+            }
+            console.log("footer hometexthometexthometext",hometext);
+            if (hometext == "Birthday Party") {
+                $state.go('birthday-party-2', {
+                    partyCity: city
+                });
+            }
+            if (hometext == "Corporate Parties" || hometext == "Corporate Party") {
+                $state.go('corporate-parties2', {
+                    partyCity: city
+                });
+            }
+            if (hometext == "Kitty Party" || hometext == "Kitty Parties") {
+                $state.go('kitty-parties-2', {
+                    partyCity: city
+                });
+            }
+            if (hometext == "Team Building Events" || hometext == "Team Building Event") {
+                $state.go('team-building-events', {
+                    partyCity: city
+                });
+            }
+            if (hometext == "Pre Wedding Party" || hometext == "Pre - wedding  Party") {
+                $state.go('pre-wedding-party', {
+                    partyCity: city
+                });
+            }
+        }
 
     })
     .controller('TimesPrimeOffersCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $rootScope) {

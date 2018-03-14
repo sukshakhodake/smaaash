@@ -54,8 +54,9 @@
               <h4 class="bold title pointer" ng-click="footer(2)" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">HOST A PARTY</h4>
             </div>
             <ul class="foot-list foot-data" ng-show="showFooter == 2">
-              <li ng-repeat="data in SingleHostParty1"><a ui-sref="parties({id:data.myslug,partyCity:citySpecific})" >{{data.hometext}}</a></li>
-
+              <!--<li ng-repeat="data in SingleHostParty1"><a ui-sref="parties({id:data.myslug,partyCity:citySpecific})" >{{data.hometext}}</a></li>-->
+                <li ng-repeat="data in SingleHostParty1"><a ng-click="goToParty(data.hometext ,data.myslug);" >{{data.hometext}}</a></li>
+            
               <!-- <li><a ui-sref="hostparty({id:'57bc4b10eb9c91f1025a3b54'})">Birthday Parties</a></li>
               <li><a ui-sref="hostparty({id:'57bc4b10eb9c91f1025a3b54'})">Corporate Parties</a></li>
               <li><a ui-sref="hostparty({id:'57bc4b10eb9c91f1025a3b54'})">Kitty Parties</a></li>

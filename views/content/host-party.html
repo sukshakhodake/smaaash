@@ -268,16 +268,18 @@
                   <li><a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                   <li><a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                 </ul> -->
-                <div class="more inline-block remodel">
+                <!--<div class="more inline-block remodel">
                   <button class="uppercase " ng-click="direct();"><i class="fa fa-phone" aria-hidden="true"></i>connect</button>
                 </div>
-                <div class="love inline-block">
+                <div class="love inline-block">-->
                   <!--<a ui-sref="parties({id:data.myslug,partyCity:citySpecific})">-->
-                  <a ng-click="goToParty(data.myslug);">
-
-                    <button class="uppercase blue">Get Started</button>
+                  <!--<a ng-click="goToParty(data.myslug);">
+                    <button class="uppercase blue">Get Started</button>-->
                     <!-- <button class="uppercase blue">Know More</button> -->
-                  </a>
+                  <!--</a>
+                </div>-->
+                <div class="more text-center remodel">
+                  <button class="uppercase" ng-click="goToParty(data.hometext ,data.myslug);">Enquiry</button>
                 </div>
               </div>
             </div>
