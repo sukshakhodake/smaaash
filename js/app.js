@@ -6,9 +6,14 @@ var firstapp = angular.module('firstapp', [
     'pascalprecht.translate',
     'angulartics',
     'angulartics.google.analytics',
-    'imageupload'
+    'imageupload',
+    'slickCarousel'
 ]);
 
+ firstapp.config(['slickCarouselConfig', function (slickCarouselConfig) {
+      slickCarouselConfig.dots = true;
+      slickCarouselConfig.autoplay = false;
+  }])
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;

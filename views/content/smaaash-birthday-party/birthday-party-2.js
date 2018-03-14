@@ -1,4 +1,4 @@
-    firstapp.controller('Birthdayparty2Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $state,$stateParams) {
+    firstapp.controller('Birthdayparty2Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("smaaash-birthday-party/birthday-party-2");
         $scope.menutitle = NavigationService.makeactive("Birthday-party-2");
@@ -7,7 +7,7 @@
         TemplateService.removeLoaderOn(1);
         $timeout(function () {
             $('#mform').validate();
-
+            
             var d = new Date();
             var n = Math.floor(Math.random() * 90 + 10) + d.valueOf();
             document.getElementById("returnURL").value = document.getElementById("returnURL").value + "?lead_id=" + n;
@@ -43,11 +43,12 @@
                 ]
             });
         }, 500);
-
-            $scope.goToThanks = function (data) {
-              $state.go('birthday-party-2-thank-you', {thankCity: $stateParams.hostCity});
+        $scope.goToThanks = function (data) {
+            $state.go('birthday-party-2-thank-you', {
+                thankCity: $stateParams.hostCity
+            });
         }
-        $scope.city=$stateParams.hostCity;
-        console.log("citycity",$scope.city);
-        
+        $scope.city = $stateParams.hostCity;
+        console.log("citycity", $scope.city);
+
     })
