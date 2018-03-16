@@ -5162,7 +5162,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     partyCity: $stateParams.hostCity
                 });
             }
-            if (hometext == "Kitty Party") {
+            if (hometext == "Kitty Party" || hometext == "Kitty Parties") {
                 $state.go('kitty-parties-2', {
                     partyCity: $stateParams.hostCity
                 });
