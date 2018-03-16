@@ -350,7 +350,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'Birthdayparty2Ctrl',
         })
         .state('birthday-party-2-thank-you', {
-            url: "/:thankCity/host-a-party/birthday-party-2/birthday-party-2-thank-you",
+            url: "/:thankCity/host-a-party/birthday-party-2/thank-you",
             templateUrl: "views/template.html",
             controller: 'Birthdayparty2thankyouCtrl',
 
@@ -361,7 +361,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'CorporatepartyCtrl',
         })
         .state('corporate-parties-thank-you', {
-            url: "/:thankCity/host-a-party/corporate-parties/corporate-parties-thank-you",
+            url: "/:thankCity/host-a-party/corporate-parties/thank-you",
             templateUrl: "views/template.html",
             controller: 'CorporatepartythankyouCtrl',
 
@@ -372,7 +372,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'KittypartiesCtrl',
         })
         .state('kitty-parties-2-thank-you', {
-            url: "/:thankCity/host-a-party/kitty-parties-2/kitty-parties-2-thank-you",
+            url: "/:thankCity/host-a-party/kitty-parties-2/thank-you",
             templateUrl: "views/template.html",
             controller: 'KittypartiesthankyouCtrl',
 
@@ -384,7 +384,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
         })
         .state('pre-wedding-party-thank-you', {
-            url: "/:thankCity/host-a-party/pre-wedding-party/pre-wedding-party-thank-you",
+            url: "/:thankCity/host-a-party/pre-wedding-party/thank-you",
             templateUrl: "views/template.html",
             controller: 'PreweddingpartythankyouCtrl',
 
@@ -396,7 +396,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
         })
         .state('team-building-events-thank-you', {
-            url: "/:thankCity/host-a-party/team-building-events/team-building-events-thank-you",
+            url: "/:thankCity/host-a-party/team-building-events/thank-you",
             templateUrl: "views/template.html",
             controller: 'TeambuildingeventsthankyouCtrl',
 
