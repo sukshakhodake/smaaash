@@ -3,12 +3,18 @@
   src:url("../fonts/LemonMilkbold.ttf");
 } 
 
+@font-face{
+  font-family:"FuturaBT-Book"; 
+  src:url("../fonts/FuturaBT-Book.ttf");
+} 
 
 @font-face{
   font-family:"Lemon/Milk light";
   src:url("../fonts/LemonMilklight.ttf");
  
 }
+
+
 @font-face {
   font-family: 'Lemon/Milk';
   src: url("../fonts/LemonMilk.ttf");
@@ -17,10 +23,7 @@
   font-family: 'Futura';
   src: url("../fonts/Futura-Thin.ttf");
 }
-@font-face {
-  font-family: 'Oswald', sans-serif;
-  src: url("../fonts/Oswald-Regular.ttf");
-}
+
 .smaash-emailer-content h1 {
     font-family: 'Lemon/Milk';
     font-weight: bold;
@@ -137,7 +140,6 @@ section#smaaash-footer {
     border-bottom: 1px solid;
     border-radius: 0px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-
     box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
@@ -236,7 +238,7 @@ section#corporate-clients {
                     font-size: 28px;
 					color:#fff;
 }
-.content{ text-align:right;
+.content-party{ text-align:right;
           padding-top:15px;
 }
 .newsletter{ text-align:left;
@@ -260,7 +262,6 @@ section#corporate-clients {
                  font-family: 'Futura';
                  text-align:center;
 				 padding-top:80px;			 
-
 }
 .footer-bottom p{ color:#e93244;
                   font-size:24px;
@@ -286,8 +287,457 @@ section#corporate-clients {
 .footer-right{ text-align:right; 
                text-decoration:none;
 }
+.corporate-party img {
+    width: 100%;
+    border-right: 1px solid;
+}
+
+.section {
+    background-color: #e93244;
+    color: #fff;
+    font-family: 'Futura';
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    /* font-weight: bolder; */
+    font-size: 30px;
+    font-family: 'Lemon/Milk';
+}
+.top-games-attraction {
+    margin-left: 10%;
+}
+.section ul li {
+    padding-bottom: 5px;
+    font-size: 15px;
+    margin-left: 90px;
+}
+
+.col-md-3.smaaash-content-1 {
+    padding: 0;
+}
+.smaaash-content h2 {
+    font-family: 'Lemon/Milk';
+    padding-top: 15px;
+    margin-left: 18px;
+    font-size: 28px;
+    color: #000;
+}
+.smaaash-content p {
+    font-family: 'Futura';
+    font-size: 22px;
+    padding-top: 15px;
+    margin-left: 18px;
+    font-weight: bold;
+}
+.no-pad-junior {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+section#mid-section-one-junior {
+    background-image: url(../img/bg1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}
+.mid-section-one-text p {
+    font-family: 'Futura';
+    font-size: 18px;
+    margin-top: 20px;
+}
+.mid-section-one-text {
+    margin-top: 6% !important;
+    margin-bottom: 8%;
+    text-align: center;
+    color: #ffffff;
+    width: 74%;
+    margin: auto;
+}
+.smaash-emailer-form-junior {
+    margin-top: 20%;
+}
+.mid-section-one-text-birthday-party h1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    font-size: 40px;
+}
+
+.mid-section-one-text-birthday-party {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.mid-section-one-text-birthday-party p {
+    font-family: 'Futura';
+    font-size: 19px;
+}
+
+
+.mid-section-one-text-corporate {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.mid-section-one-text-corporate h1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    font-size: 40px;
+}
+.mid-section-one-text-corporate p {
+    font-family: 'Futura';
+    font-size: 19px;
+}
+section#smaaash-emailer-kitty-party {
+    background: #000;
+}
+.kitty-party p {
+    font-family: 'Lemon/Milk';
+    /* text-align: center; */
+    font-size: 27px;
+    color: #e71f30;
+    font-weight: bold;
+}
+.smaash-emailer-form {
+    margin-top: 30%;
+    margin-left: 1%;
+}
+.kitty-party h3 {
+    font-family: 'Futura';
+    color: #fff;
+    margin-top: 0px;
+    font-size: 22px;
+}
+
+.form_heading_kittyparty {
+    color: #fff;
+    font-family: 'Futura';
+    font-size: 15px;
+    padding-top: 19px;
+    font-weight: 500;
+    font-weight: 400;
+}
+
+
+.form-control-kittyparty
+{
+	    display: block;
+    width: 96%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: transparent;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-bottom: 1px solid #b3b3b3;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+section#mid-section-one-kitty {
+    background: #ffffff;
+    color: #000;
+    font-family: 'Futura';
+    font-weight: bold;
+    padding: 4% 0% 4% 0%;
+}
+.mid-section-one-text-kitty p {
+    font-family: "FuturaBT-Book";
+    font-size: 16px;
+    margin-bottom: 0px;
+	color: #000;
+}
+
+.mid-section-one-text-kitty {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 75%;
+    margin: auto;
+    text-align: justify;
+}
+.verbana img {
+    width: 100%;
+}
+section#kitty-party-verbana {
+    background: #e93244;
+}
+
+.container-fluid.for-new-container {
+    padding: 0;
+    overflow: hidden;
+}
+.verbana h1 {
+    color: #fff;
+    font-family: "Lemon/Milk light";
+    margin-top: 15%;
+}
+.verbana p {
+    font-family: 'Futura';
+    color: #fff;
+    font-weight: bold;
+}
+.col-md-4.smaaash-content {
+    padding: 0;
+}
+section#mid-section-four-kitty {
+    background: #ffffff;
+    color: #000;
+    padding: 2% 0% 2% 0%;
+    font-weight: bold;
+}
+.smaash-emailer-form-thank-you {
+    margin-top: 49%;
+}
+.birthday-parties1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    width: 71%;
+    font-size: 17px;
+    margin: auto;
+    margin-top: 3%;
+    color: #fff;
+}
+.wedding-parties1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    width: 71%;
+    font-size: 17px;
+    margin: auto;
+    margin-top: 3%;
+    color: #000;
+}
+section#mid-section-one-wedding {
+    background: #000000;
+    color: #fff;
+}
+
+.mid-section-one-text-wedding {
+    margin-top: 4% !important;
+    margin-bottom: 4%;
+  
+}
+
+.mid-section-one-text-wedding h1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    font-size: 40px;
+}
+.mid-section-one-text-wedding p {
+    font-family: 'Futura';
+    font-size: 19px;
+}
+.birthday-parties-prewedding {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    width: 71%;
+    font-size: 17px;
+    margin: auto;
+    margin-top: 3%;
+    color: #000;
+}
+
+section#smaaash-emailer-team {
+    background: #000;
+}
+
+section#target-fun {
+    background-color: #e93244;
+    color: #fff;
+    font-family: 'Futura';
+    font-weight: bold;
+    padding: 2% 0% 3% 0%;
+}
+.target-fun h2
+{
+	text-align: center;
+    margin-bottom: 20px;
+    /* font-weight: bolder; */
+    font-size: 30px;
+    font-family: 'Lemon/Milk';
+}
+.target-fun-1 p {
+    font-family: 'Futura';
+    width: 87%;
+    font-size: 20px;
+    margin: auto;
+    text-align: justify;
+}
+.panel-group {
+    margin-bottom: 20px;
+    margin-top: 2%;
+}
+i.glyphicon.glyphicon-plus{
+	    margin-right: 2%;
+    border-radius: 55%;
+    border: 1px solid;
+    padding: 6px;
+	}
+i.glyphicon.glyphicon-minus {
+	    margin-right: 2%;
+    border-radius: 55%;
+    border: 1px solid;
+    padding: 6px;
+	}
+
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #e93244;
+    border-color: #ddd;
+    font-family: 'Lemon/Milk';
+}
+.panel-default {
+    border-color: #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.target-fun-6
+{ width:50%;
+margin:auto;}
+.target-fun-6 {
+    width: 88%;
+    margin: auto;
+}
+.panel-body {
+background: #e93244;
+    font-size: 23px;
+    font-family: 'Futura';
+	    padding: 15px 0px 15px 0px;
+}
+.panel-heading {
+    padding: 15px 5px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.col-lg-7.col-md-6.col-xs-12.no-padd-junior{ padding:0;}
+.birthday-parties1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    width: 71%;
+    font-size: 17px;
+    margin: auto;
+    margin-top: 3%;
+    color: #000;
+}
+.btn_design_kitty {
+        border-radius: 0;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    text-transform: uppercase;
+    color: #000000;
+}
+.birthday-parties-kitty
+{
+	font-family: 'Lemon/Milk';
+    text-align: center;
+    width: 71%;
+    font-size: 17px;
+    margin: auto;
+    margin-top: 3%;
+    color: #fff;}
+	
+.btn_design_team
+{
+	    border-radius: 0;
+    background-color: #e93244;
+    border: 1px solid #000000;
+    text-transform: uppercase;
+    color: #000000;
+}	
+
+.smaash-emailer-form-team{
+	    margin-left: 10%;
+    margin-top: 1%;
+	
+	}
+	
 @media only screen and (max-width : 767px) 
 {
+.target-fun h2 { font-size: 21px;}	
+.target-fun-6 {width: 100%;margin: auto;}	
+.target-fun-1 p { width: 100%;}
+.smaash-emailer-form-team {
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.mid-section-one-text-corporate h1 {font-size: 21px;}
+.section ul li {padding-bottom: 5px;font-size: 15px;margin-left: -51px;}
+.section h2 {font-size: 23px;}
+.smaaash-content h2 { font-size: 23px;}
+.smaash-emailer-form.corporate-form{ margin:4% 0% 4% 0%;}
+	.mid-section-one-text-wedding h1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    font-size: 25px;
+}
+	.smaash-emailer-form-1 {
+    margin-top: 7%;
+}
+	.smaash-emailer-form-thank-you {
+    margin-top: 8%;
+}
+	.kitty-party h3 {
+
+    font-size: 18px;
+}
+	.kitty-party p {
+  
+    font-size: 22px;
+  
+}
+	.verbana h1 {
+    color: #fff;
+    font-family: "Lemon/Milk light";
+    margin-top: 4%;
+}
+	.smaash-emailer-form.responsive-kitty
+	{
+		    margin-top: 5%;
+    margin-bottom: 5%;
+	}
+	.mid-section-one-text-kitty {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 100%;
+    margin: auto;
+    text-align: justify;
+}
+	section#mid-section-one-junior {
+    background-image: url(../img/bg1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
+	#corporate-section-1 img {
+    width: 100%;
+}
+.corporate-party img {
+    width: 100%;
+    border-right: 0px solid;
+}
+	.corporate-clients h1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    font-size: 25px;
+    color: #000000;
+    margin-bottom: 4%;
+}
+	.mid-section-one-text-birthday-party h1 {
+    font-family: 'Lemon/Milk';
+    text-align: center;
+    font-size: 19px;
+}
 	.footer-content h4 {
     font-family: 'Lemon/Milk';
     font-size: 24px;
@@ -330,10 +780,61 @@ section#smaaash-emailer {background-image: url(../img/banner.jpg); background-re
 }
 @media only screen and (max-width: 736px) and (min-width: 480px)
 {
+	
 .smaash-emailer-form { margin-top: 0%;}
 }
 @media only screen and (max-width: 991px) and (min-width: 768px)
 {
+	.section ul li {
+    padding-bottom: 5px;
+    font-size: 15px;
+    margin-left: -30px;
+}
+	#corporate-section-1 img {
+    width: 100%;
+}
+	.birthday-parties-prewedding {
+   
+    font-size: 16px;
+
+}
+	.smaash-emailer-form-1 {
+    margin-top: 2%;
+}
+	.mid-section-one-text-wedding h1 {
+ 
+    font-size: 24px;
+}
+	.mid-section-one-text-wedding h1 {
+   
+    font-size: 28px;
+}
+	.smaash-emailer-form-wedding{ margin-bottom:3%; margin-top:3%;}
+	.birthday-parties-kitty {
+ 
+    font-size: 15px;
+
+}
+	#smaaash-footer-iamges img{ width:100%;}
+	.smaash-emailer-form-thank-you {
+    margin-top: 0%;
+}
+	.verbana h1 {
+    color: #fff;
+    font-family: "Lemon/Milk light";
+    margin-top: 1%;
+}
+	.mid-section-one-text-kitty {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 100%;
+    margin: auto;
+    text-align: justify;
+}
+	.smaash-emailer-form-junior {
+    margin-top: 5%;
+	    margin-bottom: 5%;
+}
 	.footer-content h4 {
     font-family: 'Lemon/Milk';
     font-size: 28px;
@@ -356,40 +857,16 @@ section#smaaash-emailer {background-image: url(../img/banner.jpg); background-re
 }
 @media only screen and (max-width: 1200px) and (min-width: 992px)
 {
+	.mid-section-one-text-kitty {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 100%;
+    margin: auto;
+    text-align: justify;
+}
 .smaash-emailer-form {
     margin-top: 11%;
     margin-left: 16%;
 }	
 
 }
-.smaash-emailer-form {
-    margin-top: 3%;
-}
-.form-control:focus {
-    border-color: #000000;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102,175,233,.6);
-}
-.mid-section-one-text p {font-family: 'Futura';font-size: 19px;}
-.mid-section-one-text {margin-top: 4%;margin-bottom: 4%;}
-.feature {padding: 0; border-right: 1px solid;}
-section#mid-section-three {background: #000000; padding-bottom: 5%;}
-.mid-section-three-text h1 {font-family: 'Lemon/Milk';color: #e93244;text-align: center;margin-top: 4%;margin-bottom: 7%;}
-.top-games li {list-style: none;font-size: 20px;color: #fff;font-family: 'Futura';font-weight: bold;}
-section#mid-section-four {background: #e93244; color: #fff;     padding: 2% 0% 2% 0%;}
-.mid-section-four-text h1 { /* font-family: "LemonMilk"; */ font-family: 'Lemon/Milk';text-align: center;}
-.mid-section-four-text p {font-size: 19px;font-family: 'Futura';width: 54%;margin: auto;font-weight: bold;}
-section#mid-section-five { background: #000;}
-.mid-section-five-text {text-align: center;  margin: 4% 0% 5% 0%;}
-.mid-section-five-text1 h1 {font-family: 'Lemon/Milk';text-align: center; color: #e93244;font-size: 46px; letter-spacing: 2px;}
-.mid-section-five-text2 p {font-family: 'Futura'; color: #fff; font-size: 20px; text-align: center;}
-.mid-section-five-text3 P {color: #e93244;font-size: 19px;text-align: center;}
-.mid-section-five-text1 { margin: 5% 0% 5% 0%;}
-.mid-section-five-text2 { margin: 5% 0% 5% 0%;}
-.mid-section-five-text3 { margin: 5% 0% 5% 0%;}
-.birthday-parties {text-align: center;}
-.birthday-parties1 {font-family: 'Lemon/Milk';text-align: center;width: 71%;font-size: 17px;margin: auto;margin-top: 3%;    color: #000;}
-.btn {padding: 10px 21px;}
-.col-lg-4.col-md-4.col-sm-4.feature.feature-three { border-right: 0px;}
-.mid-section-five-text2 span {color: #e93244;}
