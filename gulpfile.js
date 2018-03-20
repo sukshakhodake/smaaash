@@ -6,7 +6,9 @@ var jsArray = [
     './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/fancyBox/source/jquery.fancybox.js',
     './bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs.js',
-    './js/slick.min.js',
+    './bower_components/slick-carousel/slick/slick.js',
+    './bower_components/slick-carousel/slick/slick.min.js',
+    './bower_components/angular-slick-carousel/dist/angular-slick.min.js',
     './bower_components/angular/angular.min.js',
     './bower_components/angular-animate/angular-animate.min.js',
     './bower_components/angular-flexslider/angular-flexslider.js',
@@ -154,7 +156,7 @@ gulp.task('minify:css', function () {
     var concat = require('gulp-concat');
     return gulp.src('./w/main.css')
 
-        .pipe(minifyCss({
+    .pipe(minifyCss({
             keepSpecialComments: 0,
             rebase: false
         }))
