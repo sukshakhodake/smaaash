@@ -9097,6 +9097,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     partyCity: city
                 });
             }
+                if (hometext == "KIDS BIRTHDAY PARTIES") {
+                $state.go('kids-parties', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
+            
         }
 
     })
