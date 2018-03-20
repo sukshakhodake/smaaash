@@ -86,8 +86,17 @@
 
             <div class="form-group no_mar">
               <label class="col-sm-2 col-md-3 col-xs-4 form_heading">Event Date</label>
-              <div class="col-sm-8 col-xs-6 no_padding">
-              <input id="event_date" maxlength="40" name="LEADCF91" type="text" class="form-control bottom_border" placeholder="mm/dd/yyyy" size="20" required>
+              <div class="col-sm-8 col-xs-6 no_padding party-calender">
+              <!--<input id="event_date" maxlength="40" name="LEADCF91" type="text" class="form-control bottom_border" placeholder="mm/dd/yyyy" size="20" required>-->
+                 <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" id="event_date" class="form-control bottom_border" placeholder="yyyy-mm-dd" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions"
+                                            ng-required="true" close-text="Close" />
+                                        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+          </span>
+                                    </div>
+                                </div>
               </div>
               <div style="display: none;">
                 <select name='LEADCF91hour'>

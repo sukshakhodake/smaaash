@@ -5167,7 +5167,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     partyCity: $stateParams.hostCity
                 });
             }
-            if (hometext == "Team Building Events") {
+            if (hometext == "Team Building Events" || hometext == "Team Building Event") {
                 $state.go('team-building-events', {
                     partyCity: $stateParams.hostCity
                 });

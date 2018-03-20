@@ -49,4 +49,14 @@
         }
          $scope.city=$stateParams.partyCity;
         console.log("citycity",$scope.city);
+        
+  // ***FOR DATEPICKER****
+        $scope.popup2 = {
+            opened: false
+        };
+       $scope.open2 = function() {
+    $scope.popup2.opened = true;
+  };
+
+        // ***FOR DATEPICKER****        
     })
