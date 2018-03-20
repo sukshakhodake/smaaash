@@ -401,6 +401,18 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'TeambuildingeventsthankyouCtrl',
 
         })
+        .state('kids-parties', {
+            url: "/:partyCity/host-a-party/kids-parties",
+            templateUrl: "views/template.html",
+            controller: 'KidspartiesCtrl',
+
+        })
+        .state('kids-parties-thank-you', {
+            url: "/:thankCity/host-a-party/kids-parties/thank-you",
+            templateUrl: "views/template.html",
+            controller: 'KidspartiesthankyouCtrl',
+
+        })
 
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

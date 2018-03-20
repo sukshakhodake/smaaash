@@ -5177,6 +5177,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     partyCity: $stateParams.hostCity
                 });
             }
+            if (hometext == "KIDS BIRTHDAY PARTIES") {
+                $state.go('kids-parties', {
+                    partyCity: $stateParams.hostCity
+                });
+            }
         }
         //seo
 
@@ -7811,7 +7816,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.getCityName(mumbai);
 
                     }
-                    console.log("*******************************************8",$stateParams);
+                    console.log("*******************************************8", $stateParams);
                     switch ($state.current.name) {
                         case 'home':
                             if ($stateParams.homepageCity) {
@@ -8116,6 +8121,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 $scope.template.reFetchCity();
                             }
                             break;
+                        case 'kids-parties':
+
+                            if ($stateParams.partyCity) {
+                                $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
+                                    if (key.myslug == $stateParams.partyCity) {
+                                        return key;
+                                    } else {
+                                        $state.go('home');
+                                    }
+                                });
+                                NavigationService.setCity($scope.changeCityParams);
+                                $state.go('kids-parties', {
+                                    partyCity: $scope.changeCityParams.myslug
+
+                                });
+                                console.log("im in kids-parties party");
+                                $scope.template.reFetchCity();
+                            }
+                            break;
                         case 'about':
                             if ($stateParams.aboutCity) {
                                 $scope.changeCityParams = _.find($scope.getHomeCity, function (key) {
@@ -8397,7 +8421,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         partyCity: cityname.myslug
                             // id: $stateParams.id
                     })
-
+                    break;
+                case 'kids-parties':
+                    $state.go('kids-parties', {
+                        partyCity: cityname.myslug
+                            // id: $stateParams.id
+                    })
                     break;
                 case 'about':
                     $state.go('about', {
@@ -9039,10 +9068,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 var city = $stateParams.homepageCity;
             } else if ($stateParams.hostCity) {
                 var city = $stateParams.hostCity;
-            } else if($stateParams.partyCity){
+            } else if ($stateParams.partyCity) {
                 var city = $stateParams.partyCity;
             }
-            console.log("footer hometexthometexthometext",hometext);
+            console.log("footer hometexthometexthometext", hometext);
             if (hometext == "Birthday Party") {
                 $state.go('birthday-party-2', {
                     partyCity: city

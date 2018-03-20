@@ -39,6 +39,8 @@ var jsArray = [
     './views/content/smaaash-team-management/team-building-events-thank-you.js',
     './views/content/smaaash-pre-wedding/pre-wedding-party.js',
     './views/content/smaaash-pre-wedding/pre-wedding-party-thank-you.js',
+    './views/content/smaaash-kids-party/kids-parties.js',
+    './views/content/smaaash-kids-party/kids-parties-thank-you.js',
     './js/templateservice.js',
     './js/navigation.js',
 
