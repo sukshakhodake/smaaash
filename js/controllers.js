@@ -625,6 +625,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, 100);
     });
     //seo
+    if ($stateParams.homepageCity === "indore") {
+        TemplateService.title = "Game Zone And Birthday Parties At Smaaash!";
+        TemplateService.description = "Venues offering game zones and host the best birthday parties in Indore by Smaaash, Indore";
+        TemplateService.keywords = "Smaaash Indore, game zones, birthday party";
+    }
     if ($stateParams.homepageCity === "bengaluru") {
         TemplateService.title = "Everything You Will Love To Do All Under One Roof At Smaaash!";
         TemplateService.description = "From virtual reality games, bowling to hosting extravagant parties. Smaaash is just the place for you. Unleash the gamer within, Bengaluru!";
@@ -1477,6 +1482,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.description = "Check out what’s brewing at Smaaash; the most thrilling place to chill out and win mammoth prizes at Delhi.";
         TemplateService.keywords = "event at smaaash";
     }
+        if ($stateParams.eventcity === "pune") {
+        TemplateService.title = "Venues For Different Events In Pune";
+        TemplateService.description = "Smaaash is the best venue to celebrate any occasion or host an event. The best place to come with your people.";
+        TemplateService.keywords = "events in Pune";
+    }
+      if ($stateParams.eventcity === "indore") {
+        TemplateService.title = "Events In Indore Done Right";
+        TemplateService.description = "Many offers and deals coming up with events in Indore that will be celebrated at Smaaash";
+        TemplateService.keywords = "events in Indore";
+    }
     $scope.isInWishlist = function (id) {
         var indexF = _.findIndex($scope.userwishlist, function (key) {
             return key.exploresmash._id == id;
@@ -1847,6 +1862,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         //seo
     console.log("$stateParams.dealspcity", $stateParams.dealspcity);
+      if ($stateParams.dealspcity === "indore") {
+        TemplateService.title = "Deals And Packages In Indore That Have The Best Offers";
+        TemplateService.description = "Smaaash Indore has the best deals and packages where you get the best experience of your life with VR games and go karting";
+        TemplateService.keywords = "deals and packages in Indore, deals and packages";
+    }
+     if ($stateParams.dealspcity === "pune") {
+        TemplateService.title = "Deal And Packages That Keep You Happy";
+        TemplateService.description = "Best deals and packages for parties and occasions offered by Smaaash. A place that keeps your pockets happy";
+        TemplateService.keywords = "deals and packages";
+    }
     if ($stateParams.dealspcity === "gurgaon-ambience-mall") {
         TemplateService.title = "Awesome Deals And Packages at Smaaash";
         TemplateService.description = " Great gaming and food deals clubbed at discounted prices. Have a whale of a time at Smaaash, Ambience Mall, Gurgaon.";
@@ -2417,7 +2442,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //seo
 
     console.log("$stateParams.gamesCity", $stateParams.gamesCity);
-
+     if ($stateParams.gamesCity === "indore") {
+        TemplateService.title = "Venues In Indore Having The Best Virtual Reality Gaming";
+        TemplateService.description = "Smaaash offers the best experience when it comes to virtual reality gaming.";
+        TemplateService.keywords = "virtual reality gaming, virtual reality";
+    }
+   if ($stateParams.gamesCity === "pune") {
+        TemplateService.title = "Virtual Reality Games That You Love";
+        TemplateService.description = "Smaaash offers the best experience at virtual reality gaming with good food and freshly brewed beer. Smaaash has it all.";
+        TemplateService.keywords = "virtual reality games, virtual reality gaming";
+    }
     if ($stateParams.gamesCity === "mumbai") {
         TemplateService.title = "Awesome Games and Attractions Grip You at Smaaash";
         TemplateService.description = "Experience out of the box entertainment with dreamlike virtual reality attractions, engaging simulative sports and other games, only at Smaaash, Mumbai.";
@@ -3991,6 +4025,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         //seo
+        // dance-off
+            if ($stateParams.snowrushCity === "pune" && $stateParams.id === "dance-off") {
+            TemplateService.title = "Smaaash In Pune Has The Best VR Games";
+            TemplateService.description = "Compete with your friends and dance off on the beats at Smaaash, Pune; along with VR games and food that satisfies your stomach.";
+            TemplateService.keywords = "VR games, vr games, vr games in pune";
+        }
         //quick jump
         if ($stateParams.snowrushCity === "mumbai" && $stateParams.id === "quickjump") {
             TemplateService.title = "Get Airborne, Dive From 45 Ft. At Quickjump, At Smaaash";
@@ -4163,6 +4203,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         //finger-coaster//
+        //super-keeper-9//
+          if ($stateParams.snowrushCity === "pune" && $stateParams.id === "super-keeper-9") {
+            TemplateService.title = "Places Offering Soccer In Pune";
+            TemplateService.description = "Smaaash offers places for soccer as well as virtual reality games with food, drinks, excitement and happy faces.";
+            TemplateService.keywords = "soccer, virtual reality";
+        }
+        //super-keeper-9//
         //super-keeper-7//
         if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "super-keeper-7") {
             TemplateService.title = "The Ball Kissing The Net, Sweet; Super Keeper At Smaaash";
@@ -4212,7 +4259,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "Crack a goal or two at indoor football Noida. We challenge you to beat our automated goalkeeper who is equipped with nippy reflexes.";
             TemplateService.keywords = "indoor football Noida, game zones in Noida";
         }
-
+  if ($stateParams.snowrushCity === "indore" && $stateParams.id === "superkeeper") {
+            TemplateService.title = "Virtual Reality And Soccer In One Place";
+            TemplateService.description = "Get the best of both worlds with Smaaash where you have soccer and virtual reality games with food, drinks and the aura that you'd love";
+            TemplateService.keywords = "soccer, virtual reality";
+        }
         //super-keeper//
         //walk-the-plank-2//
         if ($stateParams.snowrushCity === "gurgaon-cyber-hub" && $stateParams.id === "walk-the-plank-2") {
@@ -4226,6 +4277,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "This virtual reality game will give you the chills as you walk on a thin strip of wood, balancing between two tall sky scrapers at Smaaash, Bengaluru.";
             TemplateService.keywords = "virtual reality, virtual reality games";
         }
+          //walk-the-plank-9//
+           if ($stateParams.snowrushCity === "pune" && $stateParams.id === "walk-the-plank-9") {
+            TemplateService.title = "Virtual Reality Gaming At Smaaash";
+            TemplateService.description = "VR games that trick your mind and give you the experience of a lifetime at Smaaash. Best VR gaming place in Pune.";
+            TemplateService.keywords = "virtual reality, VR gaming";
+        }
+            //walk-the-plank-9//
         //walk-the-plank-7//
         if ($stateParams.snowrushCity === "delhi" && $stateParams.id === "walk-the-plank-7") {
             TemplateService.title = "Walk The Plank At Smaaash; Walk Between Sky Scrapers";
@@ -4364,7 +4422,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "game zone in Mumbai , Climbamax game";
         }
         //bowling-3
-
+        if ($stateParams.snowrushCity === "pune" && $stateParams.id === "bowling-3") {
+            TemplateService.title = "Venues For Bowling In Pune";
+            TemplateService.description = "Smaaash offers the place where you can party, play, eat and drink; altogether. ";
+            TemplateService.keywords = "bowling in Pune, bowling pune";
+        }
+        // bowling-3
         if ($stateParams.snowrushCity === "bengaluru" && $stateParams.id === "cricket-3") {
             TemplateService.title = "Play cricket with the Legends at Smaaash Cricket";
             TemplateService.description = "Net cricket that raises your hair on end. Playing with legends, in a lifelike, stadium like ambience at Smaaash, Bengaluru is definitely out of the ordinary.";
@@ -4535,6 +4598,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "You’ll feel like an ant when mammoth size dinosaurs at hand’s reach intimidate you, in this virtual reality attraction coupled with simulative movements.";
             TemplateService.keywords = "virtual reality, virtual reality games";
         }
+        if ($stateParams.snowrushCity === "indore" && $stateParams.id === "jurassic-escape-4") {
+            TemplateService.title = "Jurassic Park Finger Roaster At Smaaash";
+            TemplateService.description = "The best experience of VR gaming can be found nowhere other than Smaaash where you get Jurassic park finger roasters and can ride the ones you design as well.";
+            TemplateService.keywords = "finger coaster, VR gaming";
+        }
         //jurassic-escape-2
         //smart-arcade
         if ($stateParams.snowrushCity === "hyderabad" && $stateParams.id === "smart-arcade") {
@@ -4644,6 +4712,73 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.keywords = "VR game, virtual reality";
         }
         //9-d-xtreme-interactive-theatre
+        // laser-blast
+         if ($stateParams.snowrushCity === "pune" && $stateParams.id === "laser-blast") {
+            TemplateService.title = "Gaming In Virtual Reality At Smaaash";
+            TemplateService.description = "VR games that you love are available at Smaaash, Pune. A place that you'd love visiting again and again.";
+            TemplateService.keywords = "virtual reality, VR games";
+        }
+            if ($stateParams.snowrushCity === "indore" && $stateParams.id === "laser-blast-3") {
+            TemplateService.title = "Virtual Reality Gaming Done Right";
+            TemplateService.description = "The true futuristic VR gaming offered only at Smaaash, Indore.";
+            TemplateService.keywords = " virtual reality, VR gaming";
+        }
+        // laser-blast
+
+        //cricket-11
+            if ($stateParams.snowrushCity === "pune" && $stateParams.id === "cricket-11") {
+            TemplateService.title = "Cricket Simulator Games In Pune";
+            TemplateService.description = "The best place in Pune to play cricket is Smaaash. The place that offers the best experience and keeps your pocket happy";
+            TemplateService.keywords = "cricket simulator games";
+        }
+                if ($stateParams.snowrushCity === "indore" && $stateParams.id === "cricket-13") {
+            TemplateService.title = "Cricket Bowling Games In Indore";
+            TemplateService.description = "The venue that gives you cricket simulator games and lets you play net cricket in malls is offered only by Smaaash, Indore";
+            TemplateService.keywords = "cricket bowling games, cricket simulator games, net cricket in malls";
+        }
+        //cricket-11
+
+        //finger-coaster-17
+    if ($stateParams.snowrushCity === "pune" && $stateParams.id === "finger-coaster-17") {
+            TemplateService.title = "Virtual Reality Finger Coasters At Smaaash";
+            TemplateService.description = "Design your own roller coasters and have the time of your life riding on the same with virtual reality glasses at Smaaash, Pune. The better you design it, the more you'll enjoy.";
+            TemplateService.keywords = " finger coaster, virtual reality";
+        }
+            if ($stateParams.snowrushCity === "indore" && $stateParams.id === "finger-coaster-11") {
+            TemplateService.title = " Finger Coaster Games In Indore";
+            TemplateService.description = " Have the time of your life with virtual reality roller coaster games that you have designed at Smaaash, Indore";
+            TemplateService.keywords = "finger coaster, virtual reality";
+        }
+        // finger-coaster-17
+        // vertigo
+           if ($stateParams.snowrushCity === "indore" && $stateParams.id === "vertigo") {
+            TemplateService.title = "Virtual Reality Gaming Venue In Indore";
+            TemplateService.description = "Trick your mind with VR games and experience the best you have ever with Smaaash, Indore";
+            TemplateService.keywords = "virtual reality gaming, VR games";
+        }
+        // vertigo
+//arcade-and-vending
+     if ($stateParams.snowrushCity === "indore" && $stateParams.id === "arcade-and-vending") {
+            TemplateService.title = "Arcade Games In Indore";
+            TemplateService.description = "Smaaash offers arcade games and the best game zones in Indore. This is a place that makes you happy inside out.";
+            TemplateService.keywords = "arcade games in Indore, arcade games, game zones";
+        }
+//arcade-and-vending
+        //twilight-bowling-9
+            if ($stateParams.snowrushCity === "indore" && $stateParams.id === "twilight-bowling-9") {
+            TemplateService.title = "Bowling In Indore Done Right";
+            TemplateService.description = "Bowling is fun when it is with Smaaash. Book your tables in advance to get discounts and deals accordingly.";
+            TemplateService.keywords = "bowling in Indore";
+        }
+        //twilight-bowling-9
+        //dance-off-4
+                if ($stateParams.snowrushCity === "indore" && $stateParams.id === "dance-off-4") {
+            TemplateService.title = "Gaming Paradise Of Indore";
+            TemplateService.description = "Virtual reality games that give you real goose bumps can be found only at Smaaash, Indore.";
+            TemplateService.keywords = "virtual reality";
+        }
+        //dance-off-4
+
     })
     .controller('ConfirmCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -5177,7 +5312,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     partyCity: $stateParams.hostCity
                 });
             }
-            if (hometext == "KIDS BIRTHDAY PARTIES") {
+            if (hometext == "Kids Birthday Party") {
                 $state.go('kids-parties', {
                     partyCity: $stateParams.hostCity
                 });
@@ -5188,7 +5323,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     console.log("$stateParams.hostCity", $stateParams.hostCity);
-
+      if ($stateParams.hostCity === "indore") {
+        TemplateService.title = "Birthday Parties In Indore Done Right";
+        TemplateService.description = "Host the best birthday parties for your loved ones at Smaaash in Indore and surprise them in a manner they would have never expected";
+        TemplateService.keywords = "birthday parties in Indore, birthday parties";
+    }
+  if ($stateParams.hostCity === "pune") {
+        TemplateService.title = "A Place For Birthday Party In Pune";
+        TemplateService.description = "The best venues for birthday parties in Pune offered by Smaaash";
+        TemplateService.keywords = " birthday party in Pune, birthday parties";
+    }
     if ($stateParams.hostCity === "mumbai") {
         TemplateService.title = "Host A Party With Extravagance At Smaaash";
         TemplateService.description = "Host a sports themed party wherein you can eat, drink, play games, sport and a lot more at Smaaash, the party place in Mumbai.";
@@ -5936,7 +6080,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //seo
 
     console.log("$stateParams.drinkCity", $stateParams.drinkCity);
-
+ if ($stateParams.drinkCity === "indore") {
+        TemplateService.title = "Indore Pub Exchange";
+        TemplateService.description = "Smaaash offers food and beverages that keep you happy and your pockets warm with offers and deals that you'd love and come back for";
+        TemplateService.keywords = " food and beverages";
+    }
     if ($stateParams.drinkCity === "mumbai") {
         TemplateService.title = "Food And Beverages At Smaaash, Eat Some, Play Some";
         TemplateService.description = "Mouth-watering restaurants lace the Smaaash playground so that you nourish yourself with delicious cuisine, as you play at Smaaash, Mumbai.";
@@ -6732,6 +6880,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     //seo
+       if ($stateParams.eventsInnercity === "pune" && $stateParams.id === "smaaash-festive-bonanza") {
+        TemplateService.title = "Festive Offers At Smaaash";
+        TemplateService.description = "Win exciting prices and reasonable discounts at Smaaash, Pune; with good food and freshly brewed beer.";
+        TemplateService.keywords = "";
+    }
     if ($stateParams.eventsInnercity === "ludhiana" && $stateParams.id === "the-harley-challenge") {
         TemplateService.title = "Hit it to win it. Play a Sports Challenge and win a Harley	";
         TemplateService.description = "Dreams could come true. You can now possess a Harley Davidson. All made possible by playing a cricket challenge to win it at SMAAASH";
@@ -9097,7 +9250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     partyCity: city
                 });
             }
-                if (hometext == "KIDS BIRTHDAY PARTIES") {
+                if (hometext == "Kids Birthday Party") {
                 $state.go('kids-parties', {
                   partyCity: city
                 });
