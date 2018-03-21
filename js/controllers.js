@@ -9099,7 +9099,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
                 if (hometext == "KIDS BIRTHDAY PARTIES") {
                 $state.go('kids-parties', {
-                    partyCity: $stateParams.hostCity
+                  partyCity: city
                 });
             }
             
