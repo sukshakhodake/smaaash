@@ -466,3 +466,21 @@
         </div>
     </div>
 </div>
+<!-- //TO GENERATE LEAD IS -->
+
+<script>
+    // $( document ).ready(function() {
+    //   $('#mform').validate();
+
+    //function leadId(m){
+    // Generate Lead Id
+    var d = new Date();
+    var n = Math.floor(Math.random() * 90 + 10) + d.valueOf();
+    document.getElementById("returnURL").value = document.getElementById("returnURL").value + "?lead_id=" + n;
+    $(".leadid").val(n);
+        //}
+
+
+        // });
+
+</script>
