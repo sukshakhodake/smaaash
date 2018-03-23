@@ -58,4 +58,16 @@
   };
 
         // ***FOR DATEPICKER**** 
+
+        // seo
+         if ($stateParams.partyCity === "pune") {
+        TemplateService.title = "Kids Birthday Parties At Smaaash";
+        TemplateService.description = "Gift your kids the perfect birthday filled with amazing games, delicious food and tons of fun at Smaaash Junior. Kids parties will never be the same again!";
+        TemplateService.keywords = "kids birthday party ,kids party";
+    }
+          if ($stateParams.partyCity === "indore") {
+        TemplateService.title = "Kids birthday parties at Smaaash";
+        TemplateService.description = "Gift your kids the perfect birthday filled with amazing games, delicious food and tons of fun at Smaaash Junior. Kids parties will never be the same again!";
+        TemplateService.keywords = "kids birthday party ,kids party";
+    }
     })

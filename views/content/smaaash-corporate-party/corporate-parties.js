@@ -52,25 +52,25 @@
 
           //seo
     //corporate-2
-    if ($stateParams.partyCity === "mumbai" && $stateParams.id === "corporate-party-2") {
+    if ($stateParams.partyCity === "mumbai") {
         TemplateService.title = "Get Out Of Cubicle & Let Loose With Smaaash ";
         TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate parties with Smaaash & have a fun beating your boss, at the game.";
         TemplateService.keywords = "corporate events, corporate parties";
     }
     //corporate-3
-    if ($stateParams.partyCity === "gurgaon-ambience-mall" && $stateParams.id === "corporate-party-3") {
+    if ($stateParams.partyCity === "gurgaon-ambience-mall") {
         TemplateService.title = " Get Out Of Cubicle & Let Loose With Smaaash";
         TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate parties in Gurgaon with Smaaash & enjoy beating your boss, at the game.";
         TemplateService.keywords = "corporate parties in Gurgaon, corporate parties";
     }
     //corporate-4
-    if ($stateParams.partyCity === "delhi" && $stateParams.id === "corporate-party-4") {
+    if ($stateParams.partyCity === "delhi") {
         TemplateService.title = "Get Out Of Cubicle & Let Loose With Smaaash ";
         TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate parties in Delhi with Smaaash & have fun beating your boss, at the game.";
         TemplateService.keywords = "corporate parties in Delhi, corporate parties";
     }
     //corporate
-    if ($stateParams.partyCity === "gurgaon-cyber-hub" && $stateParams.id === "corporate-party") {
+    if ($stateParams.partyCity === "gurgaon-cyber-hub") {
         TemplateService.title = " Get Out Of Cubicle & Let Loose With Smaaash";
         TemplateService.description = "Break the monotony and get ready to have a blast with your work buddies. Host corporate events & parties with Smaaash & have fun beating your boss, at the game. ";
         TemplateService.keywords = "corporate events, corporate parties";

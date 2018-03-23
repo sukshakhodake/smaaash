@@ -4205,7 +4205,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //finger-coaster//
         //super-keeper-9//
           if ($stateParams.snowrushCity === "pune" && $stateParams.id === "super-keeper-9") {
-            TemplateService.title = "Places Offering Soccer In Pune";
+            TemplateService.title = "Smaaash:  Places Offering Soccer In Pune";
             TemplateService.description = "Smaaash offers places for soccer as well as virtual reality games with food, drinks, excitement and happy faces.";
             TemplateService.keywords = "soccer, virtual reality";
         }
@@ -4423,7 +4423,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         //bowling-3
         if ($stateParams.snowrushCity === "pune" && $stateParams.id === "bowling-3") {
-            TemplateService.title = "Venues For Bowling In Pune";
+            TemplateService.title = "Smaaash: Venues For Bowling In Pune";
             TemplateService.description = "Smaaash offers the place where you can party, play, eat and drink; altogether. ";
             TemplateService.keywords = "bowling in Pune, bowling pune";
         }
@@ -4727,7 +4727,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //cricket-11
             if ($stateParams.snowrushCity === "pune" && $stateParams.id === "cricket-11") {
-            TemplateService.title = "Cricket Simulator Games In Pune";
+            TemplateService.title = "Smaaash:  Cricket Simulator Games In Pune";
             TemplateService.description = "The best place in Pune to play cricket is Smaaash. The place that offers the best experience and keeps your pocket happy";
             TemplateService.keywords = "cricket simulator games";
         }
