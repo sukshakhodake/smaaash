@@ -5329,7 +5329,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.keywords = "birthday parties in Indore, birthday parties";
     }
   if ($stateParams.hostCity === "pune") {
-        TemplateService.title = "A Place For Birthday Party In Pune";
+        TemplateService.title = "Smaaash: A Place For Birthday Party In Pune";
         TemplateService.description = "The best venues for birthday parties in Pune offered by Smaaash";
         TemplateService.keywords = " birthday party in Pune, birthday parties";
     }
