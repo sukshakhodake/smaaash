@@ -10,10 +10,10 @@ var firstapp = angular.module('firstapp', [
     'slickCarousel'
 ]);
 
- firstapp.config(['slickCarouselConfig', function (slickCarouselConfig) {
-      slickCarouselConfig.dots = true;
-      slickCarouselConfig.autoplay = false;
-  }])
+firstapp.config(['slickCarouselConfig', function (slickCarouselConfig) {
+    slickCarouselConfig.dots = true;
+    slickCarouselConfig.autoplay = false;
+}])
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
@@ -24,16 +24,16 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'ResetCtrl'
         })
 
-    // Thank u for for Check Out success
-    .state('thank', {
+        // Thank u for for Check Out success
+        .state('thank', {
             url: "/thankyou/:orderNo/:CNR_No/:PayAmount/:PaymentFor",
             templateUrl: "views/template.html",
             controller: 'ThankCtrl'
         })
         // End of Thank u for Check Out success
 
-    // Thank u for for enquiry
-    .state('thank2', {
+        // Thank u for for enquiry
+        .state('thank2', {
             url: "/thanks",
             templateUrl: "views/template.html",
             controller: 'Thank2Ctrl'
@@ -45,6 +45,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
         })
         // Thank u for for enquiry
+        .state('city', {
+            url: "/",
+            templateUrl: "views/template.html",
+            controller: 'CityCtrl'
+        })
         .state('home', {
             url: "/:homepageCity",
             templateUrl: "views/template-home.html",
@@ -57,7 +62,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         })
         // for recharge
 
-    .state('thankss', {
+        .state('thankss', {
             // url: "/thankyou",
             url: "/paymentsuccess/:orderno/:cnrno/:amount/:paymenfor",
             templateUrl: "views/template.html",
@@ -87,7 +92,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         })
 
 
-    .state('blog', {
+        .state('blog', {
             url: "/blog",
             templateUrl: "views/template.html",
             controller: 'BlogCtrl'
@@ -98,7 +103,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'BlogCtrl'
         })
 
-    .state('blog-inside', {
+        .state('blog-inside', {
             url: "/blog-inside/:id",
             templateUrl: "views/template.html",
             controller: 'BlogInsideCtrl'
@@ -109,7 +114,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'NewCtrl'
         })
 
-    .state('account', {
+        .state('account', {
             url: "/account",
             templateUrl: "views/template.html",
             controller: 'AccountCtrl'
@@ -130,7 +135,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'ExploreCtrl'
         })
 
-    .state('buy', {
+        .state('buy', {
             url: "/buy",
             templateUrl: "views/template.html",
             controller: 'BuyCtrl'
@@ -153,15 +158,15 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         })
 
 
-    .state('deals-inner', {
-        // url: "/:id",
-        url: "/:dealsinnercity/deals-and-packages/:id",
-        templateUrl: "views/template.html",
-        controller: 'DealsInnerCtrl'
+        .state('deals-inner', {
+            // url: "/:id",
+            url: "/:dealsinnercity/deals-and-packages/:id",
+            templateUrl: "views/template.html",
+            controller: 'DealsInnerCtrl'
 
-    })
+        })
 
-    .state('promotion-inner', {
+        .state('promotion-inner', {
             url: "/promotion-inner/:id",
             templateUrl: "views/template.html",
             controller: 'PromotionInnerCtrl'
@@ -175,22 +180,22 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             }
         })
 
-    .state('career', {
-        url: "/:careerCity/career",
-        templateUrl: "views/template.html",
-        controller: 'CareerCtrl'
-    })
+        .state('career', {
+            url: "/:careerCity/career",
+            templateUrl: "views/template.html",
+            controller: 'CareerCtrl'
+        })
 
-    .state('dealsp', {
-        url: "/:dealspcity/deals-and-packages",
-        templateUrl: "views/template.html",
-        controller: 'DealspCtrl',
-        params: {
-            id: 'deals-and-packages'
-        }
-    })
+        .state('dealsp', {
+            url: "/:dealspcity/deals-and-packages",
+            templateUrl: "views/template.html",
+            controller: 'DealspCtrl',
+            params: {
+                id: 'deals-and-packages'
+            }
+        })
 
-    .state('drink-party', {
+        .state('drink-party', {
             url: "/:drinkCity/food-and-beverages",
             templateUrl: "views/template.html",
             controller: 'DrinkCtrl',
@@ -229,7 +234,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             }
         })
 
-    .state('media', {
+        .state('media', {
             url: "/:mediasCity/media",
             templateUrl: "views/template.html",
             controller: 'MediaCtrl'
@@ -240,13 +245,13 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'ProfileCtrl'
         })
 
-    .state('sponsor', {
-        url: "/:sponsorCity/sponsor",
-        templateUrl: "views/template.html",
-        controller: 'SponsorCtrl'
-    })
+        .state('sponsor', {
+            url: "/:sponsorCity/sponsor",
+            templateUrl: "views/template.html",
+            controller: 'SponsorCtrl'
+        })
 
-    .state('contact', {
+        .state('contact', {
             url: "/:contactCity/contact",
             templateUrl: "views/template.html",
             controller: 'ContactCtrl',
@@ -275,15 +280,15 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
         })
 
-    .state('benefit', {
-        url: "/:benefitCity/benefit",
-        templateUrl: "views/template.html",
-        controller: 'BenefitCtrl'
-    })
+        .state('benefit', {
+            url: "/:benefitCity/benefit",
+            templateUrl: "views/template.html",
+            controller: 'BenefitCtrl'
+        })
 
 
 
-    .state('about', {
+        .state('about', {
             url: "/:aboutCity/about",
             templateUrl: "views/template.html",
             controller: 'AboutCtrl'
@@ -313,12 +318,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             // }
         })
 
-    // .state('parties', {
-    //         url: "/:partyCity/host-a-party/:id",
-    //         templateUrl: "views/template.html",
-    //         controller: 'KittyCtrl'
-    //     })
-    .state('cart', {
+        // .state('parties', {
+        //         url: "/:partyCity/host-a-party/:id",
+        //         templateUrl: "views/template.html",
+        //         controller: 'KittyCtrl'
+        //     })
+        .state('cart', {
             url: "/:cartCity/cart",
             templateUrl: "views/template.html",
             controller: 'CartsCtrl'
@@ -333,18 +338,18 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         //     templateUrl: "views/template.html",
         //     controller: 'TimesPrimeOffersCtrl',
 
-    // })
+        // })
 
-    .state('times-inner', {
-        // url: "/:id",
-        url: "/:timesinnercity/times-prime-offers/:id",
-        templateUrl: "views/template.html",
-        controller: 'TimesInnerCtrl'
+        .state('times-inner', {
+            // url: "/:id",
+            url: "/:timesinnercity/times-prime-offers/:id",
+            templateUrl: "views/template.html",
+            controller: 'TimesInnerCtrl'
 
-    })
+        })
 
-    //state for new pages 
-    .state('birthday-party-2', {
+        //state for new pages 
+        .state('birthday-party-2', {
             url: "/:partyCity/host-a-party/birthday-party-2",
             templateUrl: "views/template.html",
             controller: 'Birthdayparty2Ctrl',
@@ -377,7 +382,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'KittypartiesthankyouCtrl',
 
         })
-         .state('pre-wedding-party', {
+        .state('pre-wedding-party', {
             url: "/:partyCity/host-a-party/pre-wedding-party",
             templateUrl: "views/template.html",
             controller: 'PreweddingpartyCtrl',
@@ -469,49 +474,49 @@ firstapp.directive('fancyboxBox', function ($document) {
 
 firstapp.directive('fancyboxThumb', function ($document) {
 
-        return {
-            restrict: 'EA',
-            replace: false,
-            link: function (scope, element, attr) {
-                var $element = $(element);
-                var target;
-                if (attr.rel) {
-                    target = $("[rel='" + attr.rel + "']");
-                } else {
-                    target = element;
-                }
-
-                target.fancybox({
-                    nextEffect: 'none',
-                    prevEffect: 'none',
-                    padding: 0,
-                    helpers: {
-                        title: {
-                            type: 'over'
-                        },
-                        thumbs: {
-                            width: 50,
-                            height: 50
-                        }
-                    }
-                });
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function (scope, element, attr) {
+            var $element = $(element);
+            var target;
+            if (attr.rel) {
+                target = $("[rel='" + attr.rel + "']");
+            } else {
+                target = element;
             }
-        };
-    })
-    // firstapp.directive('fancyboxThumb', function ($document) {
-    //     $(".fancybox-thumb").fancybox({
-    //         prevEffect: 'none',
-    //         nextEffect: 'none',
-    //         helpers: {
-    //             title: {
-    //                 type: 'outside'
-    //             },
-    //             thumbs: {
-    //                 width: 50,
-    //                 height: 50
-    //             }
-    //         }
-    //     });
+
+            target.fancybox({
+                nextEffect: 'none',
+                prevEffect: 'none',
+                padding: 0,
+                helpers: {
+                    title: {
+                        type: 'over'
+                    },
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+            });
+        }
+    };
+})
+// firstapp.directive('fancyboxThumb', function ($document) {
+//     $(".fancybox-thumb").fancybox({
+//         prevEffect: 'none',
+//         nextEffect: 'none',
+//         helpers: {
+//             title: {
+//                 type: 'outside'
+//             },
+//             thumbs: {
+//                 width: 50,
+//                 height: 50
+//             }
+//         }
+//     });
 
 
 

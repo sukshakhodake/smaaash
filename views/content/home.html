@@ -170,20 +170,23 @@
     <div class="col-md-6">
       <div class="updated marg-top15">
         <div class="slant-box pad0 relative">
-          <p class=" capitalize brand-white border-bot text-shadow" ui-sref="dealsp({id:deals[0].type.myslug,dealspcity:citySpecific})">view all</p>
+          <!-- <p class=" capitalize brand-white border-bot text-shadow" ui-sref="dealsp({id:deals[0].type.myslug,dealspcity:citySpecific})">view all</p> -->
           <h2 class="brand-white text-shadow">Deals and Packages</h2>
           <div class="mover extra">
-            <flex-slider class="carousel relative" item-margin="0" flex-slide="s in deals track by $index" slideshow="false" animationLoop="true"
+
+            <a href="{{homeDealUrl}}" target="blank">
+              <img src="img/new/13.png" class="img-responsive">
+            </a>
+            <!-- <flex-slider class="carousel relative" item-margin="0" flex-slide="s in deals track by $index" slideshow="false" animationLoop="true"
               prev-text="" next-text="">
               <li>
                 <a ui-sref="dealsp({id:deals[0].type.myslug, dealspcity:citySpecific})">
-                  <!--ui-sref="parties({id:s._id})"-->
                   <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="dealsp({id:deals[0].type.myslug})">
                 </a>
                 <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                   class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
               </li>
-            </flex-slider>
+            </flex-slider> -->
             <!--
                     ng-click="goTo(s.hometext,s._id,'deals-inner')"
                     <div ng-if="!hostParty">No Data Found</div> -->
@@ -205,7 +208,9 @@
                   <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                 </a>
                 <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                  class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                  class="pink-button">
+                  <img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video">
+                </a>
               </li>
               <li ng-if="s.hostAPartyType ==='57d6a027bd5eb9846074b418'">
                 <a ui-sref="hostparty({id:hostParty[0].type.myslug,hostCity:citySpecific})">
@@ -217,7 +222,9 @@
                   <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                 </a>
                 <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                  class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                  class="pink-button">
+                  <img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video">
+                </a>
               </li>
               <li ng-if="s.hostAPartyType ==='57e1429c3da62fae1dfc560c'">
                 <a ui-sref="hostparty({id:hostParty[0].type.myslug,hostCity:citySpecific})">
@@ -313,7 +320,9 @@
                   <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}">
                 </a>
                 <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                  class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                  class="pink-button">
+                  <img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video">
+                </a>
               </li>
             </flex-slider>
             <!--ng-click="goTo(s.hometext,s._id,'event-inner')"-->
@@ -334,7 +343,9 @@
                   <img ng-if="s.image" noloading="true" ng-src="{{s.image|uploadpath}}" ui-sref="attractions({id:attraction[0].type.myslug,gamesCity:citySpecific})">
                 </a>
                 <a fancybox-box data-fancybox-type="iframe" href="https://www.youtube.com/embed/{{s.video |youtubethumb:true}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
-                  class="pink-button"><img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video"></a>
+                  class="pink-button">
+                  <img src="img/home/button.png" class="img-responsive" alt="" ng-if="s.video">
+                </a>
               </li>
               <!--ng-click="goTo(s.hometext,s._id,'snow-rush')"-->
             </flex-slider>
