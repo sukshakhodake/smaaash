@@ -9119,8 +9119,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
 
+        //redicreting to delas and package page 
+        switch ($stateParams.homepageCity) {
+            case 'mumbai':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/mumbai-1";
+                break;
+            case 'delhi':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/delhi";
+                break;
+                //gurgaon
+            case 'gurgaon-ambience-mall':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/gurgaon-ambience-mall-Offers";
+                break;
+            case 'gurgaon-cyber-hub':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/gurgaon-cyberhub-Offers";
+                break;
+            case 'gurgaon-sector-29':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/sec29-gurgaon-Offers";
+                break;
+                //gurgaon
+            case 'chandigarh':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/chandigarh";
+                break;
+            case 'ludhiana':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/ludhiana-offers";
+                break;
+            case 'noida':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/noida-1";
+                break;
+            case 'pune':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/pune";
+                break;
+                //hyderabad
+            case 'hyderabad-forum-mall':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-sujana-mall-offers";
+                break;
+            case 'hyderabad':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-inorbit-mall-offers";
+                break;
+            case 'hyderabad-city-center':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-city-center ";
+                break;
+            case 'hyderabad-6-mall':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-6-mall ";
+                break;
+            case 'hyderabad-36-jubilee-hills':
+                $scope.homeDealUrl = "  https://smaaashdeals.com/collections/hyderabad-36-jubilee-hills ";
+                break;
+                //hyderabad
+                //bengaluru
+            case 'bengaluru':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/bangalore-1mg-mall-offers";
+                break;
+            case 'bengaluru-3':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/bangalore-mcb-offers";
+                break;
+                //bengaluru
+            case 'indore':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/indore";
+                break;
+            case 'vijayawada':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/vijayawada";
+                break;
+            case 'mysore':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/mysore";
+                break;
+            case 'navi-mumbai':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/navi-mumbai ";
+                break;
+            case 'madurai':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/madurai ";
+                break;
+            case 'bhopal':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/bhopal ";
+                break;
+            case 'mangalore':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/mangalore ";
+                break;
 
 
+            default:
+        }
     })
     .controller('footerctrl', function ($scope, TemplateService, NavigationService, $uibModal, $rootScope, $stateParams, $state) {
         $scope.template = TemplateService;
@@ -9472,6 +9551,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
             $scope.template.reFetchCity();
         }
+        //meta tags
+
+        TemplateService.title = "Smaaash – Look no More For The Perfect Entertainment Arena";
+        TemplateService.description = "Smaaash gets you hooked to the best in futuristic indoor entertainment, right from virtual reality gaming, bowling,go karting, simulated sport to dining.";
+        TemplateService.keywords = "virtual reality , gaming bowling  go karting, corporate party, corporate parties,  party places prewedding parties";
+
 
     })
     .controller('TimesInnerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams, $rootScope, $filter, $state) {

@@ -13,42 +13,55 @@
                     <div class="col-flexing mobile-50 ">
                         <div class="registration bg-prop">
                             <a class="text-center" ui-sref="media({mediasCity:citySpecific})">
-                                <h3 class="nav-name"><span class="block">media</span></h3>
+                                <h3 class="nav-name">
+                                    <span class="block">media</span>
+                                </h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                         <div class="log bg-prop">
                             <a class="text-center">
-                                <h3 class="nav-name"><span class="block">Hi<br/><p  ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                                <h3 class="nav-name">
+                                    <span class="block">Hi
+                                        <br/>
+                                        <p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p>
+                                    </span>
+                                </h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                         <div class="account bg-prop">
                             <a class="text-center">
-                                <h3 class=" nav-name nav-naming" ng-click="myAccount();"><span class="block">my</span> account</h3>
+                                <h3 class=" nav-name nav-naming" ng-click="myAccount();">
+                                    <span class="block">my</span> account</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50 ">
                         <div class="host bg-prop">
                             <a class="text-center">
-                                <h3 class="nav-name" ng-click="myCart();"><span class="block">my cart</span></h3>
+                                <h3 class="nav-name" ng-click="myCart();">
+                                    <span class="block">my cart</span>
+                                </h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobiles-50 marginmobile0" ng-show="userLoginDetails === null">
                         <div class="log bg-prop">
                             <a class="text-center">
-                                <h3 class="nav-name"><span class="block">Login</span></h3>
+                                <h3 class="nav-name">
+                                    <span class="block">Login</span>
+                                </h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50" ng-hide="userLoginDetails === null">
                         <div class="log bg-prop">
                             <a class="text-center">
-                                <h3 class="nav-name" ng-click="logout();"><span class="block">Log</span>out</h3>
+                                <h3 class="nav-name" ng-click="logout();">
+                                    <span class="block">Log</span>out</h3>
                             </a>
                         </div>
                     </div>
@@ -57,21 +70,25 @@
                     <div class="col-flexing mobile-50">
                         <div class="host bg-prop" ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
                             <a class="text-center">
-                                <h3 class="nav-name"><span class="block">host a </span>party</h3>
+                                <h3 class="nav-name">
+                                    <span class="block">host a </span>party</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50 ">
                         <div class="deals bg-prop">
                             <a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})" class="text-center">
-                                <h3 class="nav-name"><span class="block">deals &amp; </span> packages</h3>
+                                <h3 class="nav-name">
+                                    <span class="block">deals &amp; </span> packages</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-flexing mobile-50 ">
                         <div class="events bg-prop">
                             <a ui-sref="event({id:'events',eventcity:citySpecific})" class="text-center">
-                                <h3 class="nav-name "><span class="block">upcoming events </span> </h3>
+                                <h3 class="nav-name ">
+                                    <span class="block">upcoming events </span>
+                                </h3>
                             </a>
                         </div>
                     </div>
@@ -168,8 +185,8 @@
                 <!--<div class="orange-rays"></div>-->
                 <div class="cities" ng-click="toggleCity()">
                     <span class="title ">{{cityData.name || 'Choose City'}}
-                   <i class="fa fa-chevron-down"></i>
-               </span>
+                        <i class="fa fa-chevron-down"></i>
+                    </span>
                 </div>
             </div>
         </div>
@@ -194,11 +211,26 @@
                         IS {{cityData.name}}</p>-->
                     <div class="text-overflow">
                         <ul class="list  uppercase">
-                            <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' && city.name!='Gurgaon Ambience Mall' ">{{city.name}}</span></a>
-                                <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub">cyber hub</span>                                    </div>
-                                <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'"><span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span><span class="cyber-hub">sec-29 </span></div>
-                                 <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon Ambience Mall'"><span><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a></span>
-                                     <span class="cyber-hub"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">ambience mall</a></span> </div>
+                            <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)">
+                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">
+                                    <span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' && city.name!='Gurgaon Ambience Mall' ">{{city.name}}</span>
+                                </a>
+                                <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'">
+                                    <span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span>
+                                    <span class="cyber-hub">cyber hub</span>
+                                </div>
+                                <div class="dis-flex" ng-if="city.name === 'Gurgaon - Sector 29'">
+                                    <span ng-class="{'color-red':cityData.name == city.name}">Gurgaon</span>
+                                    <span class="cyber-hub">sec-29 </span>
+                                </div>
+                                <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon Ambience Mall'">
+                                    <span>
+                                        <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a>
+                                    </span>
+                                    <span class="cyber-hub">
+                                        <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">ambience mall</a>
+                                    </span>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -209,14 +241,21 @@
             <div uib-accordion-group class="panel-default" is-open="status[n.name]" ng-click="opens();">
                 <uib-accordion-heading>
                     <a class="menu-nav-mobile"></a>
-                    <div class="menu" ng-class="{'ac': toggleMenu == true}"><img src="img/changes/menu.png" alt="Menu" no-drag></div>
+                    <div class="menu" ng-class="{'ac': toggleMenu == true}">
+                        <img src="img/changes/menu.png" alt="Menu" no-drag>
+                    </div>
                     <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
                 </uib-accordion-heading>
                 <ul class="list-unstyled">
                     <!--<h3 class=" text-center nav-names names">menu</h3>-->
                     <li ng-hide="userLoginDetails == null">
                         <a class="text-center">
-                            <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                            <h3 class="nav-names">
+                                <span class="display-block">Hi
+                                    <br/>
+                                    <p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p>
+                                </span>
+                            </h3>
                         </a>
                     </li>
                     <li ng-hide="userLoginDetails == null">
@@ -226,7 +265,9 @@
                     </li>
                     <li ng-hide="userLoginDetails == null">
                         <a class="text-center">
-                            <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                            <h3 class="nav-names" ng-click="myCart();">
+                                <span class="display-block">my cart</span>
+                            </h3>
                         </a>
                     </li>
                     <li>
@@ -302,7 +343,10 @@
                     </li>
                     <li ng-show="userLoginDetails == null">
                         <a class="text-center">
-                            <h3 class="nav-names"><span ng-click="signinModal();">Sign Up </span> &#8739 <span ng-click="loginModal();">Login </span></h3>
+                            <h3 class="nav-names">
+                                <span ng-click="signinModal();">Sign Up </span> &#8739
+                                <span ng-click="loginModal();">Login </span>
+                            </h3>
                         </a>
                     </li>
                     <!-- <li>
@@ -332,23 +376,43 @@
 
                     <div class="cities" ng-click="toggleCity()">
                         <span class="title ">{{cityData.name || 'Choose City'}}
-                   <i class="fa fa-angle-down" aria-hidden="true"></i>
-               </span>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
                     </div>
                 </div>
             </div>
             <div class=" text-center mar-t mar-l200">
                 <ul class="menu-list">
-                    <li><a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})"><span><img src="img/home/eat.png" class="w35"></span><span>EAT</span></a></li>
                     <li>
-                        <a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})"><img src="img/home/play.png" class="w35"><span>PLAY</span></a>
+                        <a ui-sref="drink-party({id:'food-and-beverages',drinkCity:citySpecific})">
+                            <span>
+                                <img src="img/home/eat.png" class="w35">
+                            </span>
+                            <span>EAT</span>
+                        </a>
                     </li>
                     <li>
-                        <a ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})"><img src="img/home/party.png" class="w35"><span>PARTY</span></a>
+                        <a ui-sref="attractions({id:'attraction',gamesCity:citySpecific})">
+                            <img src="img/home/play.png" class="w35">
+                            <span>PLAY</span>
+                        </a>
                     </li>
-                    <li><a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})"><span class="mar-r"><img src="img/home/buy.png" class="w23"></span><span>BUY</span></a></li>
-                    <!--<li><a><span>MORE</span></a></li>
-          -->
+                    <li>
+                        <a ui-sref="hostparty({id:'host-a-party',hostCity:citySpecific})">
+                            <img src="img/home/party.png" class="w35">
+                            <span>PARTY</span>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- <a ui-sref="dealsp({id:'deals-and-packages',dealspcity:citySpecific})"> -->
+                        <a href="{{homeDealUrl}}" target="blank">
+                            <span class="mar-r">
+                                <img src="img/home/buy.png" class="w23">
+                            </span>
+                            <span>BUY</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
 
@@ -383,17 +447,33 @@
                         <div class="smash-city">
                             <div class="text-overflow">
                                 <ul class="list  uppercase">
-                                    <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}"><span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' && city.name!='Gurgaon Ambience Mall'">{{city.name}}</span></a>
+                                    <li ng-repeat="city in getHomeCity1" ng-click="getCityName(city)">
+                                        <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">
+                                            <span ng-if="city.name!='Gurgaon - Cyber Hub' && city.name!='Gurgaon - Sector 29' && city.name!='Gurgaon Ambience Mall'">{{city.name}}</span>
+                                        </a>
                                         <div class="dis-flex" ng-if="city.name === 'Gurgaon - Cyber Hub'">
-                                            <span><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a></span>
-                                            <span class="cyber-hub"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Cyber hub</a></span>
+                                            <span>
+                                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a>
+                                            </span>
+                                            <span class="cyber-hub">
+                                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Cyber hub</a>
+                                            </span>
                                         </div>
-                                        <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon - Sector 29'"><span><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a></span>
-                                            <span
-                                                class="cyber-hub"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">sec-29</a>                                                </span>
+                                        <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon - Sector 29'">
+                                            <span>
+                                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a>
+                                            </span>
+                                            <span class="cyber-hub">
+                                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">sec-29</a>
+                                            </span>
                                         </div>
-                                          <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon Ambience Mall'"><span><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a></span>
-                                            <span class="cyber-hub"><a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Ambience mall</a>                                                </span>
+                                        <div class="dis-flex" ng-class="{'color-red':cityData.name == city.name}" ng-if="city.name === 'Gurgaon Ambience Mall'">
+                                            <span>
+                                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Gurgaon</a>
+                                            </span>
+                                            <span class="cyber-hub">
+                                                <a class="color-black" ng-class="{'color-red':cityData.name == city.name}">Ambience mall</a>
+                                            </span>
                                         </div>
                                     </li>
                                 </ul>
@@ -410,14 +490,21 @@
             <div uib-accordion-group class="panel-default" is-open="status.open">
                 <uib-accordion-heading>
                     <a class="menu-nav-mobile"></a>
-                    <div class="menu" ng-click="closeSidemenu();opens()"><img src="img/changes/menu.png" alt="Menu" no-drag></div>
+                    <div class="menu" ng-click="closeSidemenu();opens()">
+                        <img src="img/changes/menu.png" alt="Menu" no-drag>
+                    </div>
                     <!--<i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':(status[n.name]), 'fa-caret-down': (!status[n.name])}"></i>-->
                 </uib-accordion-heading>
                 <ul class="list-unstyled">
                     <!--<h3 class=" text-center nav-names names">menu</h3>-->
                     <li ng-hide="userLoginDetails == null">
                         <a class="text-center">
-                            <h3 class="nav-names"><span class="display-block">Hi<br/><p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p> </span></h3>
+                            <h3 class="nav-names">
+                                <span class="display-block">Hi
+                                    <br/>
+                                    <p ng-bind-html="userLoginDetails.CustomerName |htmlToPlaintext"> </p>
+                                </span>
+                            </h3>
                         </a>
                     </li>
                     <li ng-hide="userLoginDetails == null">
@@ -427,7 +514,9 @@
                     </li>
                     <li ng-hide="userLoginDetails == null">
                         <a class="text-center">
-                            <h3 class="nav-names" ng-click="myCart();"><span class="display-block">my cart</span></h3>
+                            <h3 class="nav-names" ng-click="myCart();">
+                                <span class="display-block">my cart</span>
+                            </h3>
                         </a>
                     </li>
                     <li>
@@ -509,7 +598,8 @@
         <div class="connect-button" id="axis" ng-click="getMenus();">
             <div class="orange-rays"></div>
             <!--<img src="img/changes/login.png" class="img-responsive rotate360cw" alt="">-->
-            <p class="uppercase text-center title brand-white">signup<span class="title-text">&#47;</span> login</p>
+            <p class="uppercase text-center title brand-white">signup
+                <span class="title-text">&#47;</span> login</p>
         </div>
         <div class="side-menu {{menus}}">
             <!--<div class="close-it">
@@ -539,7 +629,9 @@
                                 </div>
                                 <div class="error text-center" ng-if="valid">Something went wrong or incorrect details</div>
                                 <div class="text-center " ng-if="isUserLoggedIn">Please Wait..</div>
-                                <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default no-border brand-darkpink brand-white"><span class="uppercase">login</span></button>
+                                <button type="submit" ng-if="!isUserLoggedIn" class="btn btn-default no-border brand-darkpink brand-white">
+                                    <span class="uppercase">login</span>
+                                </button>
                             </form>
                             <div ng-if="formComplete">
                                 <h3 class="text-center">We are redirecting...</h3>
@@ -573,9 +665,9 @@
                                     <select name="categorydata" id="target" class="form-control" ng-model="signupData.CustomerAddress" ng-change="selectCityFun(signupData.CustomerAddress)"
                                         required>
 
-                              <option value="{{d.name}}" ng-repeat="d in getHomeCity" >{{d.name}}</option>
+                                        <option value="{{d.name}}" ng-repeat="d in getHomeCity">{{d.name}}</option>
 
-                           </select>
+                                    </select>
                                     <div class="error" ng-if="validCity">Please select city.</div>
                                 </div>
                                 <div class="form-group signup-width">
@@ -593,7 +685,9 @@
                                     <input type="text" class="form-control" placeholder="Enter Your Card.No / Optional" name="card" ng-model="signupData.CardNo">
                                 </div>
                                 <h3 ng-if="isDisabled">Please Wait...</h3>
-                                <button type="submit" class="btn4  btn-default no-border brand-darkpink brand-white" ng-if="!isDisabled"><span class="uppercase ">sign up</span></button>
+                                <button type="submit" class="btn4  btn-default no-border brand-darkpink brand-white" ng-if="!isDisabled">
+                                    <span class="uppercase ">sign up</span>
+                                </button>
                             </form>
                             <div class="submit-thank" ng-if="formCompleteSignup">
                                 <h3 class="text-center">Thank You</h3>
