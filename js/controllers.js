@@ -9533,7 +9533,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     })
-    .controller('CityCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams, $rootScope, $filter, $state) {
+    .controller('CityCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams, $rootScope, $filter, $state, ngDialog) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("city");
         $scope.menutitle = NavigationService.makeactive("city");
@@ -9543,13 +9543,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.getCities1 = data.data;
             console.log("$scope.getCities1", $scope.getCities1);
         });
+        // $scope.getCityName = function (cityname) {
+        //     console.log("cityname cityname", cityname);
+        //     NavigationService.setCity(cityname);
+        //     $state.go('home', {
+        //         homepageCity: cityname.myslug
+        //     });
+        //     $scope.template.reFetchCity();
+        // }
         $scope.getCityName = function (cityname) {
-            console.log("cityname cityname", cityname);
             NavigationService.setCity(cityname);
+            $.jStorage.set("popupShow", true);
+            ngDialog.closeAll("Change");
+            $(".ngdialog").remove();
+            $scope.template.reFetchCity();
             $state.go('home', {
                 homepageCity: cityname.myslug
-            });
-            $scope.template.reFetchCity();
+            })
         }
         //meta tags
 
