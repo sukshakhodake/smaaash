@@ -503,6 +503,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
+
         $scope.viewMore = function () {
             $uibModal.open({
                 animation: true,
@@ -1946,7 +1947,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         //seo
-        console.log("$stateParams.dealspcity", $stateParams.dealspcity);
+        console.log("$stateParams.dealspcitydealspcitydealspcity", $stateParams.dealspcity);
         if ($stateParams.dealspcity === "indore") {
             TemplateService.title = "Deals And Packages In Indore That Have The Best Offers";
             TemplateService.description = "Smaaash Indore has the best deals and packages where you get the best experience of your life with VR games and go karting";
@@ -2003,8 +2004,91 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.description = "gaming and food deals clubbed at discounted prices. Have a whale of a time at Smaaash, Delhi.";
             TemplateService.keywords = "gaming and food deals";
         }
+        //redicreting to delas and package page 
+
+        switch ($stateParams.dealspcity) {
+            case 'mumbai':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/mumbai-1";
+                break;
+            case 'delhi':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/delhi";
+                break;
+                //gurgaon
+            case 'gurgaon-ambience-mall':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/gurgaon-ambience-mall-Offers";
+                break;
+            case 'gurgaon-cyber-hub':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/gurgaon-cyberhub-Offers";
+                break;
+            case 'gurgaon-sector-29':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/sec29-gurgaon-Offers";
+                break;
+                //gurgaon
+            case 'chandigarh':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/chandigarh";
+                break;
+            case 'ludhiana':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/ludhiana-offers";
+                break;
+            case 'noida':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/noida-1";
+                break;
+            case 'pune':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/pune";
+                break;
+                //hyderabad
+            case 'hyderabad-forum-mall':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-sujana-mall-offers";
+                break;
+            case 'hyderabad':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-inorbit-mall-offers";
+                break;
+            case 'hyderabad-city-center':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-city-center ";
+                break;
+            case 'hyderabad-6-mall':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/hyderabad-6-mall ";
+                break;
+            case 'hyderabad-36-jubilee-hills':
+                $scope.homeDealUrl = "  https://smaaashdeals.com/collections/hyderabad-36-jubilee-hills ";
+                break;
+                //hyderabad
+                //bengaluru
+            case 'bengaluru':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/bangalore-1mg-mall-offers";
+                break;
+            case 'bengaluru-3':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/bangalore-mcb-offers";
+                break;
+                //bengaluru
+            case 'indore':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/indore";
+                break;
+            case 'vijayawada':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/vijayawada";
+                break;
+            case 'mysore':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/mysore";
+                break;
+            case 'navi-mumbai':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/navi-mumbai ";
+                break;
+            case 'madurai':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/madurai ";
+                break;
+            case 'bhopal':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/bhopal ";
+                break;
+            case 'mangalore':
+                $scope.homeDealUrl = "https://smaaashdeals.com/collections/mangalore ";
+                break;
 
 
+            default:
+        }
+        $scope.gotodelasp = function () {
+            window.location = $scope.homeDealUrl
+        }
     })
 
     .controller('StarsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, $uibModal) {
@@ -7871,7 +7955,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     "weekdays": "Mon-Thurs   11am - 12am",
         //     "pdf": "",
         //     "logo": "590da46bf7a66a33414b4eb9.png",
-        //     "Photo": "http://ent.itspl.net/Upload/Branch/678165973_Gurgaon.jpg",
+        //     "Photo": "http://ent.itsheadercpl.net/Upload/Branch/678165973_Gurgaon.jpg",
         //     "BranchName": "Smaaash Gurgaon Cyber Hub",
         //     "BranchID": "14",
         //     "twitter": "twi hashtag",
@@ -9030,7 +9114,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
 
-        $scope.closing = function () {
+        $scope.closing = function headerc() {
             console.log('inside closing')
             setTimeout(function () {
                 $scope.menu = false;
